@@ -1,0 +1,126 @@
+country_decisions = {
+
+	form_kingdom_of_meridoslavia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_meridioslavia_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { has_reform = celestial_empire } 
+			tag = CRO
+			OR = {
+				NOT = { exists = A63 }
+				ai = no
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 131
+				AND = {
+					province_id = 4239	# Danzig
+					ROOT = { NOT = { owns_core_province = 4239 } }
+				}
+				AND = {
+					province_id = 141
+					ROOT = { NOT = { owns_core_province = 141 } }
+				}
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			NOT = { exists = A63 }
+			adm_tech = 8
+			OR = {
+				religion = protestant
+				religion = reformed
+				religion = hussite
+				religion = anglican
+				mil_tech = 15	
+			}
+			owns_core_province = 131			# Königsberg
+			OR = {
+				owns_core_province = 4239		# Danzig
+				owns_core_province = 141	# Stolp
+			}
+			is_at_war = no
+		}
+		effect = {
+			change_tag = A63
+			restore_country_name_effect = yes
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			set_government_rank = 2
+			country_event = { id = ideagroups.1 } #Swap Ideas
+			add_prestige = 25
+			change_primary_culture = meridioslavian
+			random_owned_province = {
+				limit = {
+					OR = {
+						culture = croazian
+						culture = dalmatian
+						culture = bosnian
+					}
+				}
+				add_base_tax = 1
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 3650
+			}
+				change_government_to_monarchy = yes
+				add_government_reform = meridioslavian_monarchy
+			if = {
+				limit = {
+					has_reform = states_general_reform
+				}
+				remove_government_reform = states_general_reform
+			}
+
+			ROOT = {
+				random_owned_province = {
+					limit = { 
+						is_capital = no 
+						OR = {
+							culture = bosnian
+							culture = serbian
+						}
+					} 
+					change_culture = meridioslavian
+				}
+			}
+			serbia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			rascia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			capital_scope = {
+				change_culture = meridioslavian
+			}
+			set_country_flag = formed_meridioslavia_flag
+			}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { num_of_cities = 10 }
+				NOT = { owns_core_province = 4239 }
+			}
+		}
+
+		ai_importance = 1000
+	}
+}

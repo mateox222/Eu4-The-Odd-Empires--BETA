@@ -1,0 +1,58 @@
+country_decisions = {
+	legioincidentdecision = {
+	major = yes
+		potential = { 
+			tag = A38
+			NOT = { has_country_flag = legio_incident }
+			has_global_flag = LEGIOWANTTOCONQUESTHRE
+		}
+		allow = {
+		stability = 3
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 184
+		total_development = 1000
+		army_size = 150
+		army_strength = {
+		who = emperor	
+		value = 1.5
+			}
+		
+
+}
+		effect = {
+		country_event = { 
+		id = incident_legio.1
+}
+}}
+	legioinwarcidentdecision = {
+	major = yes
+		potential = { 
+		tag = A38		
+		has_global_flag = legioreichwarmarchonrome
+		}
+		allow = {
+		stability = 3
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 184
+		total_development = 1000
+		army_size = 150
+		army_strength = {
+		who = emperor	
+		value = 0.5
+			}
+		
+
+}
+		effect = {
+		country_event = { 
+		id = legionhispanian_events.38
+}
+}}
+
+
+
+
+}
+		

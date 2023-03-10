@@ -1,0 +1,643 @@
+#MadeByKennedia
+A3C_ideas = {
+    start = {
+        enemy_core_creation = 0.2
+        culture_conversion_cost = -0.15
+    }
+    
+    bonus = {
+        treasure_fleet_income = 0.25
+    }
+    
+    trigger = {
+        tag = A3C
+
+    }
+    free = yes
+    A3C_legend = {
+        global_unrest = -2
+    }
+    A3C_army = {
+        movement_speed = 0.1
+        spy_offence = 0.25
+    }
+    A3C_dev = {
+        development_cost = -0.15
+        local_prosperity_growth = 0.05
+    }
+    A3C_ships = {
+        light_ship_power = 0.1
+        heavy_ship_power = 0.1
+    }
+    A3C_navy = {
+        naval_morale = 0.2
+    }
+    A3C_range = {
+        range = 0.5
+    }
+    A3C_defend = {
+        fort_maintenance_modifier = -0.1
+        land_morale = 0.15
+    }
+}
+A49_ideas = {
+    start = {
+        prestige = 0.5
+        no_stability_loss_on_monarch_death = yes
+    }
+    
+    bonus = {
+        monarch_diplomatic_power = 1
+    }
+    
+    trigger = {
+        tag = A49
+
+    }
+    free = yes
+    A49_imperial_army = {
+        global_regiment_cost = 0.2
+        yearly_corruption = 0.05
+        discipline = 0.05
+        drill_gain_modifier = 0.10
+    }
+    A49_colony = {
+        global_colonial_growth = 10
+        native_assimilation = 0.25
+    }
+    A49_anti_corruption = {
+        yearly_corruption = -0.15
+        global_regiment_cost = -0.2
+    }
+    A49_imperial_navy = {
+        naval_forcelimit_modifier = 0.20
+        global_ship_cost = -0.1
+    }
+    A49_imperial_marines = {
+        allowed_marine_fraction = 0.25
+    }
+    A49_stability = {
+        inflation_reduction = 0.1
+    }
+    A49_defend = {
+        global_garrison_growth = 0.15
+        garrison_size = 0.15
+    }
+}
+
+A2C_ideas = {
+    start = {
+        prestige = 0.5
+        unjustified_demands = -0.2
+    }
+    
+    bonus = {
+        diplomatic_reputation = 1
+    }
+    
+    trigger = {
+        tag = A2C
+
+    }
+    free = yes
+    A2C_reformed_army = {
+        discipline = 0.025
+        drill_gain_modifier = 0.05
+    }
+    A2C_expand = {
+        ae_impact = -0.2
+    }
+    A2C_anti_corruption = {
+        yearly_corruption = -0.1
+    }
+    A2C_inbaziontzia = {
+        transport_power = 0.25
+        transport_cost = -0.1
+    }
+    A2C_imperial_marines = {
+        allowed_marine_fraction = 0.25
+    }
+    A2C_stability = {
+        core_creation = -0.15
+    }
+    A2C_siegeworks = {
+        siege_blockade_progress = 1
+    }
+}
+A5C_ideas = {
+    start = {
+        privateer_efficiency = 0.15
+        navy_tradition = 1
+    }
+    
+    bonus = {
+        range = 0.25
+    }
+    
+    trigger = {
+        tag = A5C
+
+    }
+    free = yes
+    A5C_great_heathen_army = {
+        land_forcelimit_modifier = 0.25
+        drill_gain_modifier = -0.1
+    }
+    A5C_knarrs = {
+        light_ship_power = 0.15
+    }
+    A5C_colony_range = {
+        range = 0.25
+        cb_on_overseas = yes
+    }
+    A5C_vikings = {
+        monarch_military_power = 1
+    }
+    A5C_colony = {
+        global_colonial_growth = 20
+    }
+    A5C_shipslayers = {
+        privateer_efficiency = 0.15
+    }
+    A5C_great_holy_wars = {
+        extra_manpower_at_religious_war = yes
+        warscore_cost_vs_other_religion = -0.10
+        relation_with_heathens = -25
+        relation_with_same_religion = 25
+    }
+}
+thulean_ideas = {
+    start = {
+        enemy_core_creation = 0.2
+        hostile_attrition  = 1
+        may_recruit_female_generals = yes
+    }
+    
+    bonus = {
+        war_exhaustion = -0.05
+    }
+    
+    trigger = {
+        OR = {
+            tag = A31
+            tag = A33
+        }
+
+    }
+    free = yes
+    thulean_defenders = {
+        morale_damage_received = -0.15
+    }
+    thulean_reclamation = {
+        culture_conversion_cost = -0.2
+    }
+    thulean_tradition = {
+        army_tradition_decay = -0.01
+    }
+    thulean_walls = {
+        defensiveness = 0.10
+    }
+    thulean_mercs = {
+        mercenary_discipline = 0.05
+    }
+    thulean_right_to_rule = {
+        global_unrest = -2
+    }
+    thulean_outriders = {
+        cavalry_flanking = 0.2
+    }
+}
+A41_ideas = {
+    start = {
+        enemy_core_creation = 0.2
+        hostile_attrition  = 1
+        may_recruit_female_generals = yes
+    }
+    
+    bonus = {
+        war_exhaustion = -0.05
+    }
+    
+    trigger = {
+        tag = A41
+
+    }
+    free = yes
+    thulean_defenders = {
+        morale_damage_received = -0.15
+    }
+    thulean_reclamation = {
+        culture_conversion_cost = -0.2
+    }
+    thulean_tradition = {
+        army_tradition_decay = -0.01
+    }
+    thulean_walls = {
+        defensiveness = 0.10
+    }
+    A41_frischland = {
+        global_colonial_growth = 20
+    }
+    thulean_right_to_rule = {
+        global_unrest = -2
+    }
+    A41_isolation = {
+        envoy_travel_time = -0.2
+        global_spy_defence = 0.25
+    }
+}
+X16_ideas = {
+    start = {
+        development_cost = -0.15
+        production_efficiency  = 0.20
+        may_recruit_female_generals = yes
+    }
+    
+    bonus = {
+        war_exhaustion = -0.05
+    }
+    
+    trigger = {
+        tag = X16
+
+    }
+    free = yes
+    thulean_defenders = {
+        morale_damage_received = -0.15
+    }
+    thulean_reclamation = {
+        culture_conversion_cost = -0.2
+    }
+    thulean_tradition = {
+        army_tradition_decay = -0.01
+    }
+    thulean_unification = {
+        stability_cost_modifier = -0.25
+    }
+    thulean_clansmen = {
+        discipline = 0.05
+    }
+    thulean_great_right_to_rule = {
+        global_unrest = -2
+        all_power_cost = -0.05
+    }
+    thulean_outriders = {
+        cavalry_flanking = 0.2
+    }
+}
+tailteanhain_ideas = {
+	start = {
+		reinforce_speed = 0.15
+		manpower_recovery_speed  = 0.15
+	}
+	
+	bonus = {
+		shock_damage = 0.15
+	}
+	
+	trigger = {
+		OR = {
+			tag = A26
+			tag = A25
+		}
+
+	}
+	free = yes
+	tailteanhain_navy = {
+		navy_tradition = 1
+	}
+	thulecelt_live_off_land = {
+		land_attrition = -0.2
+	}
+	tailteanhain_coastal = {
+		own_coast_naval_combat_bonus = 1
+	}
+	tailteanhain_diplomacy = {
+		free_dip_policy = 1
+	}
+	thulecelt_anti_corrupt = {
+		yearly_corruption = -0.05
+	}
+	tailteanhain_people = {
+		global_unrest = -2
+	}
+	tailteanhain_longramha = {
+		galley_power = 0.10
+		galley_cost = -0.10
+	}
+}
+
+sleibhtean_ideas = {
+	start = {
+		reinforce_speed = 0.15
+		manpower_recovery_speed  = 0.15
+	}
+	
+	bonus = {
+		fire_damage = 0.15
+	}
+	
+	trigger = {
+		tag = A29
+
+	}
+	free = yes
+	sleibhtean_learn_from_sendgard = {
+		defensiveness = 0.125
+	}
+	thulecelt_live_off_land = {
+		land_attrition = -0.2
+	}
+	sleibhtean_architects = {
+		build_cost = -0.2
+	}
+	sleibhtean_administration = {
+		free_adm_policy = 1
+	}
+	thulecelt_anti_corrupt = {
+		yearly_corruption = -0.05
+	}
+	sleibhtean_produce = {
+		production_efficiency = 0.10
+	}
+	sleibhtean_admin_power = {
+		monarch_admin_power = 1
+	}
+}
+
+framondish_ideas = {
+	start = {
+		reinforce_speed = 0.15
+		manpower_recovery_speed  = 0.15
+	}
+	
+	bonus = {
+		morale_damage = 0.15
+	}
+	
+	trigger = {
+		tag = A35
+
+	}
+	free = yes
+	framondish_infantry = {
+		infantry_power = 0.1
+	}
+	thulecelt_live_off_land = {
+		land_attrition = -0.2
+	}
+	framondish_regiments = {
+		drill_gain_modifier = 0.20
+	}
+	framondish_military = {
+		free_mil_policy = 1
+	}
+	thulecelt_anti_corrupt = {
+		yearly_corruption = -0.05
+	}
+	framondish_discipline = {
+		discipline = 0.033
+	}
+	framondish_warrior_kings = {
+		monarch_military_power = 1
+	}
+}
+
+hybrasil_ideas = {
+	start = {
+		reinforce_speed = 0.15
+		manpower_recovery_speed  = 0.15
+	}
+	
+	bonus = {
+		discipline = 0.05
+	}
+	
+	trigger = {
+		tag = X08
+
+	}
+	free = yes
+	sleibhtean_produce = {
+		production_efficiency = 0.10
+	}
+	thulecelt_live_off_land = {
+		land_attrition = -0.2
+	}
+	tailteanhain_longramha = {
+		galley_power = 0.10
+		galley_cost = -0.10
+	}
+	thulecelt_wise_council = {
+		free_policy = 1
+	}
+	thulecelt_anti_corrupt = {
+		yearly_corruption = -0.05
+	}
+	thulecelt_framondish_warriors = {
+		drill_gain_modifier = 0.25
+	}
+	thulecelt_great_rulers = {
+		national_focus_years = -5
+		all_power_cost = -0.05
+	}
+}
+A43_ideas = {
+    start = {
+        privateer_efficiency = 0.15
+        navy_tradition = 1
+    }
+    
+    bonus = {
+        war_exhaustion = -0.05
+    }
+    
+    trigger = {
+        tag = A43
+
+    }
+    free = yes
+    A43_viking_roots = {
+        shock_damage = 0.10
+        land_morale = 0.10
+    }
+    A5C_knarrs = {
+        light_ship_power = 0.15
+    }
+    A43_no_cowards = {
+        siege_ability = 0.15
+    }
+    A43_sturdy_hulls = {
+        ship_durability = 0.10
+    }
+    A43_adventurers = {
+        range = 0.25
+    }
+    A5C_shipslayers = {
+        privateer_efficiency = 0.15
+    }
+    A43_no_care_for_religion = {
+        tolerance_heretic = 1
+        tolerance_heathen = 3
+        relation_with_heathens = 10
+        relation_with_heretics = 10
+    }
+}
+
+X17_ideas = {
+    start = {
+        privateer_efficiency = 0.15
+        navy_tradition = 1
+    }
+    
+    bonus = {
+        discipline = 0.05
+    }
+    
+    trigger = {
+        tag = X17
+
+    }
+    free = yes
+    X17_great_warriors     = {
+        leader_naval_manuever = 1
+        leader_land_shock = 1
+    }
+    A5C_knarrs = {
+        light_ship_power = 0.15
+    }
+    X17_northmen_pioneers = {
+        global_colonial_growth = 25
+    }
+    X17_boarding_parties = {
+        capture_ship_chance = 0.10
+        shock_damage = 0.10
+    }
+    X17_explorers = {
+        range = 0.50
+    }
+    A5C_shipslayers = {
+        privateer_efficiency = 0.15
+    }
+    X17_repair_at_sea = {
+        sea_repair = yes
+    }
+}
+AT7_ideas = {
+    start = {
+        missionaries = 1
+        manpower_in_true_faith_provinces = 0.20
+    }
+    
+    bonus = {
+        cavalry_shock = 1
+    }
+    
+    trigger = {
+        tag = AT7
+
+    }
+    free = yes
+    AT7_templar_order = {
+        discipline = 0.05
+    }
+    AT7_templar_knights = {
+        cavalry_power = 0.25
+    }
+    AT7_integrate_thulean_outriders = {
+        cavalry_flanking = 0.15
+    }
+    AT7_ally_with_other_orders = {
+        global_heathen_missionary_strength = 0.03
+    }
+    AT7_righteous_order = {
+        relation_with_same_religion = 25
+    }
+    AT7_holy_wars = {
+        warscore_cost_vs_other_religion = -0.20
+    }
+    AT7_subordinate_churches = {
+        church_loyalty_modifier  = 0.15
+    }
+}
+western_finnic_ideas = {
+    start = {
+        defensiveness = 0.15
+        land_attrition = -0.10
+    }
+    
+    bonus = {
+        max_hostile_attrition = 1
+    }
+    
+    trigger = {
+        OR = {
+            tag = SB9
+            tag = SB8
+            tag = SB7
+            tag = X00
+        }
+    }
+    free = yes
+    western_finnic_white_death = {
+        hostile_attrition  = 1
+    }
+    western_finnic_white_riders = {
+        cavalry_power = 0.15
+    }
+    western_finnic_harsh_lands = {
+        attack_bonus_in_capital_terrain = yes
+    }
+    western_finnic_centralize = {
+        global_autonomy = -0.05
+    }
+    western_finnic_dreams_of_hyper_suomi = {
+        manpower_in_culture_group_provinces = 0.15
+        relation_with_same_religion = 25
+    }
+    western_finnic_settle_the_north = {
+        development_cost = -0.10
+        build_cost = -0.10
+    }
+    western_finnic_quick_sieges = {
+        siege_ability  = 0.10
+    }
+}
+A13_ideas = {
+    start = {
+        production_efficiency = 0.15
+        development_cost = -0.15
+    }
+    
+    bonus = {
+        discipline = 0.025
+    }
+    
+    trigger = {
+        tag = A13
+
+    }
+    free = yes
+    A13_naerhav_beer = {
+        prestige = 0.50
+    }
+    A13_expand_ostendorf = {
+        defensiveness = 0.15
+    }
+    A13_unify_fisk_and_fjord = {
+        culture_conversion_cost = -0.10
+    }
+    A13_early_adopters = {
+        missionaries = 1
+    }
+    A13_suited_for_colonization = {
+        range = 0.33
+        may_explore = yes
+    }
+    A13_new_adventurers = {
+        colonists = 1
+    }
+    A13_young_man_go_west = {
+        global_colonial_growth = 25
+    }
+}

@@ -1,0 +1,54 @@
+namespace = crusademecca
+country_event = {
+	id = crusademecca.1
+	title = crusademecca.1.t
+	desc = crusademecca.1.d
+	picture = crusade_for_mecca_eventPicture
+	major = yes
+	fire_only_once = yes
+	trigger = {
+	religion_group = christian
+	owns = 385
+}
+	option = {
+	name = crusademecca.1a 
+	add_reform_desire = -0.5
+	add_prestige = 50	
+	add_papal_influence = 100
+	add_church_power = 100
+	add_patriarch_authority = 1
+	385 = {
+	change_religion = ROOT
+	add_devastation = 100
+	set_base_tax = 1
+	set_base_production = 1	
+    set_base_manpower = 1		
+	}
+}
+}
+
+
+	country_event = { #Baltic Gold & the Gates of Kings 
+	id = crusademecca.3
+	title = crusademecca.3.t 
+	desc = crusademecca.3.d 
+	picture = seljukjerusalem_eventPicture
+	major = yes
+		trigger = {
+		tag = TUR		
+		owns = 379
+	
+	}
+	fire_only_once = yes
+	option = {
+	name = crusademecca.3.a
+	add_prestige = 25
+	379 = {
+	change_religion = ROOT
+	add_devastation = 100
+	set_base_tax = 3
+	set_base_production = 3	
+    set_base_manpower = 3	
+		}
+	}
+	}

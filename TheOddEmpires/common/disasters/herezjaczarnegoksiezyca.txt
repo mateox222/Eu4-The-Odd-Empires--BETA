@@ -1,0 +1,80 @@
+BLACK_MOON_HERESY = {
+potential = {
+			has_reform = raumaria_theocracy
+		has_country_flag = herezjaczarnegoksiezyca
+		NOT = { has_country_flag = koniecherezji }
+        }
+
+can_start = {
+hidden_trigger = {
+has_country_flag = herezjaczarnegoksiezyca
+}
+		
+}
+	can_stop = { 
+	has_global_flag = herezjarozmowypokojowe4
+	}
+
+	progress = {
+
+			modifier = {
+			factor = 5
+			always = yes
+	}
+	modifier = {
+		factor = 5
+		NOT = { stability = 3 } 
+	}
+	modifier = {
+		factor = 5
+		NOT = { stability = 1 } 
+	}
+	
+	modifier = {
+		factor = 5
+		NOT = { stability = -1 } 
+	}
+	}
+
+can_end = {
+hidden_trigger = {
+	has_country_flag = herezjarozmowypokojowe4
+		}
+}
+modifier = {
+        global_unrest = 2
+		land_morale = -0.10
+		naval_morale = -0.10	
+		manpower_recovery_speed = -0.1
+		production_efficiency = -0.10
+		garrison_growth = -0.1
+		max_absolutism = -10	
+        stability_cost_modifier = 0.2
+		monarch_admin_power = -1	
+		monarch_diplomatic_power = -1
+		monarch_military_power = -1
+		all_power_cost = 0.1	
+		devotion = -2
+		
+}
+on_start = aryan_empire.200
+on_end = aryan_empire.210
+on_monthly = {
+        events = {
+        }
+        random_events = { 
+			750 = 0
+			2000 = aryan_empire.202
+			2000 = aryan_empire.201
+			500 = aryan_empire.203
+			250 = civil_war.6
+			250 = civil_war.8
+			250 = civil_war.9
+			100 = atlantropa_judgement_event.7
+			250 = aryan_empire.204
+			250 = atlantropa_judgement_event.9
+			
+        }
+}
+}
+

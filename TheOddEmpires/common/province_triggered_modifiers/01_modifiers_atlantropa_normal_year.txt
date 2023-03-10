@@ -1,0 +1,23 @@
+on_january_first = {
+
+    potential = {
+        has_global_flag = niecrashujmizjebanagro
+    }
+
+    trigger = {
+        is_month = 1
+    }
+
+    on_activation = {}
+
+    on_deactivation = {
+        random_country = {
+		    limit = { 
+		    	ai = no 
+		    }
+		    country_event = {
+		    	id = calc_year.1
+		    }
+	    }
+	}
+}

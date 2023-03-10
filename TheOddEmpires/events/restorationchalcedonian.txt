@@ -1,0 +1,209 @@
+namespace = restorationkosciol_events
+country_event = {
+	id = restorationkosciol_events.1
+	title = "restorationkosciol_events.1.t"
+	desc = "restorationkosciol_events.1.d"
+	picture = atlantiswar_eventPicture
+	trigger = {
+	tag = PAP
+	151 = { owner = { religion = catholic }}
+	295 = { owner = { religion = catholic }}
+	272 = { owner = { religion = catholic }}	
+	272 = { owner = { religion = catholic }}		
+	2961 = { owner = { religion = catholic }}	
+	BYZ = { exists = no }
+	A52 = { exists = no }		
+	RUS = { exists = no }	
+	NOT = { has_global_flag = orthodox_has_gone }
+	}
+	option = {
+		name = "restorationkosciol_events.1.a"
+		set_global_flag = orthodox_has_gone
+		add_prestige = 50
+		every_province = {
+    limit = {
+        religion = orthodox
+    }
+	change_religion = catholic
+		}	
+		every_country = {
+    limit = {
+        religion = orthodox
+    }
+	change_religion = catholic
+}
+		
+	}
+}
+
+	country_event = {
+	id = restorationkosciol_events.2
+	title = restorationkosciol_events.2.t
+	desc = restorationkosciol_events.2.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	is_triggered_only = yes
+		option = {
+	name = "restorationkosciol_events.2.a" 
+	set_ruler_flag = koronowanykrol
+	set_ruler_flag = koronowanykrolbiednie
+	add_treasury = -25	
+	add_legitimacy = 5
+}
+		option = {
+						trigger = {
+			NOT = {	has_country_modifier = sprzedane_insygnia }
+		}
+	name = "restorationkosciol_events.2.b" 
+	set_ruler_flag = koronowanykrol
+	set_ruler_flag = koronowanykrolsrednio
+	add_years_of_income = -0.5
+	add_legitimacy = 10	
+}
+		option = {
+	name = "restorationkosciol_events.2.c" 
+	set_ruler_flag = koronowanykrol
+	set_ruler_flag = koronowanykrolnabogato
+				trigger = {
+			religion = catholic
+			NOT = {	has_country_modifier = sprzedane_insygnia }
+		}
+	add_years_of_income = -2	
+	add_legitimacy = 15
+	add_prestige = 5
+	add_papal_influence = 10
+}
+		option = {
+	name = "restorationkosciol_events.2.e" 
+	set_ruler_flag = koronowanykrol
+	set_ruler_flag = koronowanykrolnabogato
+				trigger = {
+			religion = catholic
+			NOT = {	has_country_modifier = sprzedane_insygnia }
+		}
+	add_years_of_income = -2	
+	add_legitimacy = 15
+	add_prestige = 5
+	add_papal_influence = 10
+}
+		option = {
+	name = "restorationkosciol_events.2.e" 
+	set_ruler_flag = koronowanykrol
+	set_ruler_flag = koronowanykrolnabogato
+				trigger = {
+			religion = orthodox
+			NOT = {	has_country_modifier = sprzedane_insygnia }
+		}
+	add_years_of_income = -2	
+	add_legitimacy = 15
+	add_prestige = 5
+	add_patriarch_authority = 0.05
+}
+		option = {
+	name = "restorationkosciol_events.2.f" 
+	set_ruler_flag = koronowanykrol
+	set_ruler_flag = koronowanykrolnabogato
+				trigger = {
+			religion = reformednahuatl
+			NOT = {	has_country_modifier = sprzedane_insygnia }
+		}
+	add_yearly_manpower = -1
+	add_legitimacy = 15
+	add_prestige = 5
+	add_church_power = 25
+}
+
+
+}
+	country_event = {
+	id = restorationkosciol_events.3
+	title = restorationkosciol_events.3.t
+	desc = restorationkosciol_events.3.d
+	picture = POPE_PREACHING_eventPicture
+	is_triggered_only = yes
+		option = {
+	name = "restorationkosciol_events.3.a" 
+	set_heir_flag = ochrzczony
+	add_heir_claim = -5
+}
+		option = {
+	name = "restorationkosciol_events.3.b" 
+	set_heir_flag = ochrzczony
+	add_years_of_income = -0.5
+	add_legitimacy = 5	
+	add_heir_claim = 5
+}
+		option = {
+	name = "restorationkosciol_events.3.c" 
+			trigger = {
+			religion = catholic
+		}
+	set_heir_flag	= ochrzczony
+	add_years_of_income = -1.5
+    add_curia_treasury = 100
+	add_legitimacy = 10
+	add_papal_influence = 10
+	add_heir_claim = 10	
+}
+
+
+}
+
+
+	country_event = {
+	id = restorationkosciol_events.4
+	title = restorationkosciol_events.4.t
+	desc = restorationkosciol_events.4.d
+	picture = Sacrificepagan_eventPicture
+	is_triggered_only = yes
+		option = {
+	name = "restorationkosciol_events.4.a" 
+	set_ruler_flag = zpoganizowany
+					add_ruler_modifier = {
+				name = "atlantropapagan1"
+				duration = -1
+			}
+	add_years_of_income = -0.25	
+
+}
+		option = {
+	name = "restorationkosciol_events.4.b" 
+	set_ruler_flag = zpoganizowany
+		add_ruler_modifier = {
+				name = "atlantropapagan2"
+				duration = -1
+			}
+	add_legitimacy = 25	
+    add_horde_unity = 25		
+}
+		option = {
+	name = "restorationkosciol_events.4.c" 
+			trigger = {
+			has_heir = yes
+		}
+				add_ruler_modifier = {
+				name = "atlantropapagan3"
+				duration = -1
+			}
+	set_ruler_flag = zpoganizowany
+	add_legitimacy = 30
+	kill_heir = { allow_new_heir = no }	
+}
+		option = {
+	name = "restorationkosciol_events.4.e" 
+			trigger = {
+			has_countrY_modifier = humansacrifices }
+
+		
+	set_ruler_flag	= zpoganizowany
+	add_legitimacy = -10
+					add_ruler_modifier = {
+				name = "atlantropapagan4"
+				duration = -1
+			}
+	random_owned_province = {
+    add_base_tax = -1	
+	add_devastation = 10	
+}
+}
+	}
+

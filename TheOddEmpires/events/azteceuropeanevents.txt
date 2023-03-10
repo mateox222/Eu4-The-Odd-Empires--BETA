@@ -1,0 +1,31 @@
+namespace = azteceuropa
+
+
+	country_event = {
+	id = azteceuropa.1
+	title = azteceuropa.1.t
+	desc = azteceuropa.1.d
+	picture = aztecritaul_eventPicture
+	trigger = {
+OR = {
+      owns_core_province = 229
+      owns_core_province = 4561
+      owns_core_province = 5296
+      owns_core_province = 852
+
+}
+    is_month = 7
+NOT = {  is_month = 8 }    
+
+    religion = reformednahuatl
+	}
+	mean_time_to_happen = {
+	months = 2
+}
+	option = {
+	name = "azteceuropa.1.a" 
+			add_church_power = 10
+			add_yearly_manpower = -0.1	
+			}
+
+	}

@@ -1,0 +1,46 @@
+namespace = bactriaevent
+country_event = { #Polish-Hungarian Ties 
+	id = bactriaevent.1
+	title = bactriaevent.1.t 
+	desc = bactriaevent.1.d 
+	picture = rzejpobielkapolska_eventPicture
+	is_triggered_only = yes 
+	
+	major = yes 
+	major_trigger = { 
+		capital_scope = { continent = europe } 
+	}
+	option = { 
+		name = bactriaevent.1.a
+		
+		ai_chance = { factor = 2 } 
+					add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = SRH
+				}
+				SRH = { 					add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = ROOT
+				} }
+				add_historical_rival = SRH
+				SRH = { add_historical_rival = ROOT }
+		
+	}
+	
+	option = {
+		name = bactriaevent.1.b
+		add_trust = {
+    who = SRH
+    value = 75
+    mutual = yes
+}
+create_alliance = SRH
+		add_historical_friend = SRH
+		SRH = { add_historical_friend = ROOT	}
+	}
+}
+
+
+

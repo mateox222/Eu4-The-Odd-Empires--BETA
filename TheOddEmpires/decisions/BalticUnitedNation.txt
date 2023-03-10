@@ -1,0 +1,62 @@
+country_decisions = {
+	Unite_Balticaatlantis = {
+	major = yes
+	potential = {
+			was_never_end_game_tag_trigger = yes
+			capital_scope = {
+				region = baltic_region
+			}
+		NOT = { exists = X05 }
+		}
+		provinces_to_highlight = { 
+					OR = {
+	province_id = 38
+	province_id = 4524
+	province_id = 2958
+	province_id = 271
+	province_id = 270
+	province_id = 4241
+	province_id = 36
+	province_id = 273
+	
+	
+		} }
+			allow = {
+				NOT = { exists = X05 }
+		stability = 1
+			is_nomad = no
+			is_at_war = no
+			owns_core_province = 38
+			owns_core_province = 4524
+			owns_core_province = 2958
+			owns_core_province = 271
+			owns_core_province = 270
+			owns_core_province = 4241
+			owns_core_province = 36
+			owns_core_province = 273
+			
+						num_of_owned_provinces_with = {
+					value = 20
+						region = baltic_region
+						is_core = root
+				}
+				}
+	
+			effect = {
+				change_tag = X05
+				add_prestige = 100
+				set_government_rank = 3
+				country_event = { id = ideagroups.1 }
+				38 = {
+					move_capital_effect = yes
+					change_culture = ROOT
+					change_religion = ROOT
+				}
+				swap_non_generic_missions = yes
+	
+	}
+			ai_will_do = {
+				factor = 1
+	}
+	}
+	}

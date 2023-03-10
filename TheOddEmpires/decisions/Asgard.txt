@@ -1,0 +1,51 @@
+country_decisions = {
+Empire_of_Asgard = {
+major = yes
+potential = {
+		was_never_end_game_tag_trigger = yes
+			primary_culture = tramhian
+	NOT = { exists = A18 }
+	}
+	provinces_to_highlight = { 
+				OR = {
+province_id = 151
+province_id = 4779 
+province_id = 149
+province_id = 1764
+province_id = 316
+province_id = 317
+province_id = 2296
+
+	} }
+		allow = {
+			NOT = { exists = A18 }
+	stability = 1
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 151
+		owns_core_province = 4779
+		owns_core_province = 149
+		owns_core_province = 1764
+		owns_core_province = 316
+		owns_core_province = 317
+		owns_core_province = 2296
+}
+		effect = {
+			change_tag = A18
+			add_prestige = 100
+			set_government_rank = 3
+			swap_non_generic_missions = yes
+			country_event = { id = ideagroups.1 }
+			151 = {
+				move_capital_effect = yes
+				change_culture = tramhian 
+				change_religion = ROOT
+				rename_capital = Miklagarthur
+			}
+
+}
+		ai_will_do = {
+			factor = 1
+}
+}
+}

@@ -1,0 +1,114 @@
+namespace = aryan_empire
+
+country_event = {
+	id = aryan_empire.200
+	title = aryan_empire.200.t
+	desc = aryan_empire.200.d
+	picture = Cultist_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	name = "aryan_empire.200.a" 
+	set_country_flag = herezjaczarnegoksiezycatrwa
+	add_stability = -2
+}
+
+}
+
+
+country_event = {
+	id = aryan_empire.201
+	title = "aryan_empire.201.t"
+	desc = "aryan_empire.201.d"
+	picture = VILLAGE_BURNING_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = "aryan_empire.201.a"
+		random_owned_province = {
+
+				add_base_tax = -1	
+				add_base_production = -1	
+				add_devastation = 15
+				}
+
+				add_faction_influence = {
+					faction = raumaria_wiarawalczaca
+					influence = 5
+				
+				}
+
+
+	}
+	}
+	country_event = {
+		id = aryan_empire.202
+		title = "aryan_empire.202.t"
+		desc = "aryan_empire.202.d"
+		picture = VILLAGE_BURNING_eventPicture
+		is_triggered_only = yes
+	
+		option = {
+			name = "aryan_empire.202.a"
+			random_owned_province = {
+	
+					add_base_production = -1	
+					add_base_manpower = -1
+					add_devastation = 15
+					}
+					add_faction_influence = {
+						faction = raumaria_wiarapokojowa
+						influence = 5
+					
+					}
+	
+		}
+		}
+
+country_event = {
+	id = aryan_empire.203
+	title = "aryan_empire.203.t"
+	desc = "aryan_empire.203.d"
+	picture = BLACKSUN_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = atlantropa_judgement_event.3.a 
+		add_war_exhaustion = 1
+		add_devotion = -10
+}
+}
+
+
+
+
+country_event = {
+	id = aryan_empire.204
+	title = "atlantropa_judgement_event.8.t"
+	desc = "atlantropa_judgement_event.8.d"
+	picture = MONEYMONEYMONEY_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = atlantropa_judgement_event.8.a 
+		add_inflation = 2	
+		add_mercantilism = -5	
+		add_years_of_income = -1	
+		}	
+}
+
+
+
+country_event = {
+	id = aryan_empire.210
+	title = aryan_empire.210.t
+	desc = aryan_empire.210.d
+	picture = Cultist_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	name = "aryan_empire.210.a" 
+	set_country_flag = koniecherezji
+	add_stability = 2
+	add_devotion = 50
+}
+
+}

@@ -1,0 +1,38 @@
+country_decisions = {
+Greater_Serbia = {
+major = yes
+potential = {
+		was_never_end_game_tag_trigger = yes
+			primary_culture = saxon
+	NOT = { exists = A53 }
+	}
+	provinces_to_highlight = { 
+				OR = {
+province_id = 151
+
+	} }
+		allow = {
+			NOT = { exists = A53 }
+	stability = 1
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 151
+}
+		effect = {
+			change_tag = A53
+			add_prestige = 50
+			set_government_rank = 3
+			swap_non_generic_missions = yes
+			country_event = { id = ideagroups.1 }
+			151 = {
+				move_capital_effect = yes
+				rename_capital = Dorotheastadt
+				change_province_name = "Dorotheastadt"	
+			}
+
+}
+		ai_will_do = {
+			factor = 1
+}
+}
+}

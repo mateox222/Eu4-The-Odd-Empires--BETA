@@ -1,0 +1,49 @@
+country_decisions = {
+Conquer_Spain_nifl = {
+major = yes
+potential = {
+		was_never_end_game_tag_trigger = yes
+			tag = A27
+	NOT = { exists = T8U }
+	}
+	provinces_to_highlight = { 
+				OR = {
+province_id = 1749
+province_id = 4969
+province_id = 5464
+province_id = 4361
+province_id = 5461
+province_id = 1745
+
+
+	} }
+		allow = {
+			NOT = { exists = T8U }
+		stability = 1
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 1749
+		owns_core_province = 4969
+		owns_core_province = 5464
+		owns_core_province = 4361
+		owns_core_province = 5461
+		owns_core_province = 1745
+		
+					num_of_owned_provinces_with = {
+				value = 20
+					region = iberia_region
+				    is_core = root
+			}
+			}
+
+		effect = {
+					country_event = { 
+    id = uniteiberia_events.4
+}
+
+}
+		ai_will_do = {
+			factor = 1
+}
+}
+}

@@ -1,0 +1,78 @@
+government = monarchy
+add_government_reform = english_monarchy
+mercantilism = 25
+technology_group = western
+government_rank = 3
+primary_culture = cosmopolitan_french
+add_accepted_culture = normand
+add_accepted_culture = english 
+religion = catholic
+capital = 167
+national_focus = DIP
+
+change_estate_land_share = {
+	estate = estate_church
+	share = -10
+}
+change_estate_land_share = {
+	estate = estate_burghers
+	share = -10
+}
+
+#1322.8.31 = { #Succession
+
+change_estate_land_share = { #compensates for lack of nobles, distributes 20 between the remaining estates
+	estate = all
+	share = 20
+}
+
+
+6877.07.22 = { #Coronation
+	monarch = {
+		name = "Richard II "
+		dynasty = "Plantagenet"
+		
+		adm = 4
+		dip = 3
+		mil = 4
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = infertile_personality
+}
+6899.1.1 = {
+	set_estate_privilege = estate_nobles_french_strong_duchies
+}
+
+#1434.1.1 = { leader = {	name = "Richard Neville"	type = general	fire = 3	shock = 3	manuever = 3	siege = 0	 } }
+
+6879.1.1 = { leader = {	name = "John Talbot"	type = general	fire = 2	shock = 4	manuever = 3	siege = 0	 } }
+
+6945.4.23 = {
+	queen = {
+		country_of_origin = PRO
+		name = "Margaret"
+		dynasty = "d'Anjou"
+		
+		
+		female = yes
+		adm = 4
+		dip = 4
+		mil = 4
+	}
+}
+
+6950.1.1 = { leader = {	name = "John Mowbray"		type = general	fire = 2	shock = 3	manuever = 3	siege = 0	 } }
+
+6953.10.13 = { # Edward of Westminster
+	heir = {
+		name = "Edward"
+		monarch_name = "Edward IV"
+		dynasty = "Lancaster"
+		
+		
+		claim = 95
+		adm = 1
+		dip = 2
+		mil = 4
+	}
+}

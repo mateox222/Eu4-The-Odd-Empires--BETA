@@ -1,0 +1,149 @@
+# Order here is the priority for taking them, if trigger is true.
+
+CAS = {
+	NOT = { 
+		exists = SPA 
+		is_year = 7209
+	}
+}
+
+SPA = {
+	NOT = { 
+		exists = CAS
+		is_year = 7209
+	}
+}
+
+TUR = {
+	NOT = { 
+		is_year = 7209
+	}
+}
+
+RUS = {
+	always = yes
+}
+A34 = {
+	NOT = { 
+		exists = A37
+	}
+}
+A37 = {
+		NOT = { 
+		exists = A38
+	}
+}
+A38 = {
+	always = yes
+}
+AZT = {
+	always = yes
+}
+A44 = {
+	always = yes
+}
+MOS = {
+	NOT = { 
+		exists = RUS
+	}
+}
+
+GBR = {
+	always = yes
+}
+
+ENG = {
+	NOT = { 
+		exists = GBR
+	}
+}
+
+FRA = {
+	always = yes
+}
+
+HAB = {
+	always = yes
+}
+
+PRU = {
+	is_year = 7209
+}
+
+NED = {
+	always = yes
+}
+
+POR = {
+	NOT = { 
+		is_year = 7209
+	}
+}
+
+MJZ = {
+	NOT = {
+		exists = QNG
+	}
+	NOT = {
+		exists = MCH
+	}
+}
+
+MCH = {
+	NOT = {
+		exists = QNG
+	}
+}
+
+QNG = {
+	always = yes
+}
+
+BRA = {
+	always = yes
+}
+SWE = {
+	NOT = { 
+		is_year = 7209
+	}
+}
+
+POL = {
+	NOT = {
+		exists = PLC
+	}
+}
+
+
+
+PLC = {
+	NOT = { 
+		is_year = 7209
+	}
+}
+A5F = {
+	NOT = {
+		exists = BA1
+	}
+}
+
+
+
+BA1 = {
+		always = yes
+}
+
+DA1 = {
+	NOT = { 
+		exists = A74
+	}
+}
+A74 = {
+	always = yes
+}
+
+TU3  = {
+	NOT = { 
+		is_year = 7209
+	}
+}

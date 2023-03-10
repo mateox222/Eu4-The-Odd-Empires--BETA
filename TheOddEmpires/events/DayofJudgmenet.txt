@@ -1,0 +1,221 @@
+namespace = atlantropa_judgement_event
+
+country_event = {
+	id = atlantropa_judgement_event.1
+	title = "atlantropa_judgement_event.1.t"
+	desc = "atlantropa_judgement_event.1.d"
+	picture = ATLANTROPA_VOLCANO_BURNING_eventPicture
+	major = yes
+	trigger = {
+		has_discovered = 2513
+		is_year = 7200
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 360 }
+	immediate = {
+		set_global_flag = day_of_judgement
+		show_ambient_object = volcano_ash_emmiter
+}
+	option = {
+		name = atlantropa_judgement_event.1a 
+	yucatan_area = {
+				set_base_tax = 1	
+				set_base_production = 1	
+				set_base_manpower = 1	
+				add_devastation = 100	
+	}
+	east_yucatan_area = {
+				set_base_tax = 1	
+				set_base_production = 1	
+				set_base_manpower = 1
+				add_devastation = 100					
+	}
+	
+	2633 = {
+    decolonize = THIS
+}
+	846 = {
+    decolonize = THIS
+}
+	5353 = {
+    decolonize = THIS
+}
+	2651 = {
+    decolonize = THIS
+}
+	change_price = {
+    trade_goods = grain
+    key = grain_shortage
+    value = -3
+    duration = 3650
+}
+hidden_effect = { 	country_event = { 
+    id = atlantropa_judgement_event.25
+    days = 10
+}}
+}
+}
+
+
+country_event = {
+	id = atlantropa_judgement_event.2
+	title = "atlantropa_judgement_event.2.t"
+	desc = "atlantropa_judgement_event.2.d"
+	picture = VILLAGE_BURNING_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = "atlantropa_judgement_event.2.a"
+		random_owned_province = {
+			if = {
+				limit = {
+					NOT = {development = 25 }
+				}
+				add_base_tax = -1	
+				add_base_production = -1	
+				add_base_manpower = -1
+				add_devastation = 15
+				}
+				if = {
+					limit = {
+					development = 25
+					}
+					add_base_tax = -5	
+					add_base_production = -5	
+					add_base_manpower = -5
+					add_devastation = 85
+				}
+
+
+	}
+	}
+}
+
+country_event = {
+	id = atlantropa_judgement_event.3
+	title = "atlantropa_judgement_event.3.t"
+	desc = "atlantropa_judgement_event.3.d"
+	picture = BLACKSUN_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = atlantropa_judgement_event.3.a 
+		add_war_exhaustion = 1
+}
+}
+country_event = {
+	id = atlantropa_judgement_event.4
+	title = "atlantropa_judgement_event.4.t"
+	desc = "atlantropa_judgement_event.4.d"
+	picture = BAD_WITH_MONARCH_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = atlantropa_judgement_event.4.a 
+		add_legitimacy = -10
+		add_republican_tradition = -10
+		}	
+}
+
+country_event = {
+	id = atlantropa_judgement_event.5
+	title = "atlantropa_judgement_event.5.t"
+	desc = "atlantropa_judgement_event.5.d"
+	picture = sackniflport_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = atlantropa_judgement_event.5.a 
+		add_yearly_manpower = -1	
+		add_yearly_sailors = -1
+		}	
+}
+country_event = {
+	id = atlantropa_judgement_event.6
+	title = "atlantropa_judgement_event.6.t"
+	desc = "atlantropa_judgement_event.6.d"
+	picture = KING_ASSASSINATION_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = atlantropa_judgement_event.6.a 
+		kill_ruler = yes
+		remove_consort = yes
+		}	
+}
+country_event = {
+	id = atlantropa_judgement_event.7
+	title = "atlantropa_judgement_event.7.t"
+	desc = "atlantropa_judgement_event.7.d"
+	picture = scottishcastle_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = atlantropa_judgement_event.7.a 
+		add_stability = -1
+		}	
+}
+country_event = {
+	id = atlantropa_judgement_event.8
+	title = "atlantropa_judgement_event.8.t"
+	desc = "atlantropa_judgement_event.8.d"
+	picture = MONEYMONEYMONEY_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = atlantropa_judgement_event.8.a 
+		add_inflation = 5	
+		add_mercantilism = -5	
+		add_years_of_income = -2	
+		}	
+}
+country_event = {
+	id = atlantropa_judgement_event.9
+	title = "atlantropa_judgement_event.9.t"
+	desc = "atlantropa_judgement_event.9.d"
+	picture = ANGRY_MOB_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = atlantropa_judgement_event.9.a 
+				random_owned_province = {
+				spawn_rebels = {
+    type = noble_rebels
+    size = 2
+}				
+		}
+}
+}
+
+country_event = {
+	id = atlantropa_judgement_event.10
+	title = "atlantropa_judgement_event.10.t"
+	desc = "atlantropa_judgement_event.10.d"
+	picture = BLACKSUN_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = atlantropa_judgement_event.10.a 
+		add_stability = -2	
+		add_war_exhaustion = 5	
+}
+}
+country_event = {
+	id = atlantropa_judgement_event.20
+	title = "atlantropa_judgement_event.20.t"
+	desc = "atlantropa_judgement_event.20.d"
+	picture = sunshine_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = atlantropa_judgement_event.20.a 
+		add_stability = 2	
+		add_war_exhaustion = -5	
+		set_global_flag = end_of_horror
+		hide_ambient_object = volcano_ash_emmiter
+}
+}
+
+country_event  = {
+	id = atlantropa_judgement_event.25
+	title = "atlantropa_judgement_event.25.t"
+	desc = "atlantropa_judgement_event.25.d"
+	picture = BLACKSUN_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = atlantropa_judgement_event.25a 
+		add_stability = -1	
+		add_war_exhaustion = 1	
+}
+}

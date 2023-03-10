@@ -1,0 +1,131 @@
+country_decisions = {
+	jews_expell = {
+		potential = {
+		NOT = {  has_country_flag = jewsexpelled }
+        NOT = {   has_country_modifier = borrowmoneyfromjews }  
+           NOT = {   has_country_modifier = Jewsingovernment }  
+        any_owned_province = {
+	OR = {
+        has_province_modifier = atlantropa_jewish_community	
+        has_province_modifier = atlantropa_large_jewish_community
+    }
+}
+		}
+		allow = {
+		NOT = {  has_country_flag = jewsexpelled }
+        NOT = {   has_country_modifier = borrowmoneyfromjews }  
+        NOT = {   has_country_modifier = Jewsingovernment }  
+		}
+		effect = {
+    set_country_flag = jewsexpelled
+    add_stability = -1
+    add_yearly_manpower = -5
+    custom_tooltip = atlantisjewsexpelled
+}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}
+
+country_decisions = {
+	jews_borrow = {
+		potential = {
+                    any_owned_province = {
+	OR = {
+        has_province_modifier = atlantropa_jewish_community	
+        has_province_modifier = atlantropa_large_jewish_community
+    }
+}
+		NOT = {  has_country_flag = jewsexpelled }     
+          NOT = {   has_country_modifier = borrowmoneyfromjews }  
+		}
+		allow = {
+			NOT = {  has_country_flag = jewsexpelled }
+           NOT = {   has_country_modifier = borrowmoneyfromjews }
+		}
+		effect = {
+            add_country_modifier = { 
+    name = borrowmoneyfromjews
+    duration = 7250
+}
+    add_years_of_income = 2.5	
+}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}	
+
+country_decisions = {
+	deport_hungarians = {
+		potential = {
+            OR = {
+            tag = BYZ
+            tag = A52
+            tag = A50
+            }
+               any_owned_province = {
+	OR = {
+        culture = turkic
+        culture = second_turkish
+    }
+}
+		}
+		allow = {
+			dip_power = 100
+		}
+		effect = {
+           random_owned_province = {
+    limit = { 
+        culture = second_turkish
+
+     }
+   change_culture = anatolian
+   change_religion = ROOT
+   add_dip_power = -100	
+   add_base_tax = -1	
+   add_base_production = -1	
+   add_base_manpower = -1	
+   add_devastation = 10	
+}
+}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}	
+
+country_decisions = {
+	jews_invite = {
+		potential = {
+                    any_owned_province = {
+	OR = {
+        has_province_modifier = atlantropa_jewish_community	
+        has_province_modifier = atlantropa_large_jewish_community
+    }
+}
+		NOT = {  has_country_flag = jewsexpelled }     
+          NOT = {   has_country_modifier = Jewsingovernment }  
+		}
+		allow = {
+			NOT = {  has_country_flag = jewsexpelled }
+           NOT = {   has_country_modifier = Jewsingovernment }
+		}
+		effect = {
+            add_country_modifier = { 
+    name = Jewsingovernment
+    duration = 7250
+}
+    add_years_of_income = 0.5	
+}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}	
+

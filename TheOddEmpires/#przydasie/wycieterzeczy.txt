@@ -1,0 +1,22 @@
+	latinempire_aztek = {
+   icon = atlantropa_fallmexico
+      required_missions = { latinempire_carthago }
+
+	trigger = {
+owns_core_province = 5151
+		}
+		effect = {
+	add_adm_power = 150	
+	add_dip_power = 150	
+	add_mil_power = 150	
+	add_country_modifier = {
+					name = "atlantropa_army"
+				}
+							sahel_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+}}

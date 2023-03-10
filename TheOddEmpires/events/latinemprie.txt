@@ -1,0 +1,51 @@
+namespace = latin_empire
+country_event = {
+	id = latin_empire.1
+	title = latin_empire.1.t
+	desc = latin_empire.1.d
+	picture = ST_PETERS_CHURCH_eventPicture
+	major = yes
+	is_triggered_only = yes
+	option = {
+	name = "latin_empire.1a" 
+	every_owned_province = { 
+	limit = { owned_by = ROOT
+			 religion = orthodox} 
+		change_religion = ROOT
+	}	
+	add_papal_influence = 100
+	add_reform_desire = -1
+	}
+	}
+	country_event = {
+	id = latin_empire.2
+	title = latin_empire.2.t
+	desc = latin_empire.2.d
+	picture = ENLIGHTENMENT_eventPicture
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = "latin_empire.2a" 
+	change_primary_culture = greeklatin	
+	capital_scope = {
+	change_culture = ROOT
+	}
+				add_country_modifier = {
+					name = "atlantropa_greek_knowledge"
+					duration = -1
+				}
+	}
+	}
+		country_event = {
+	id = latin_empire.3
+	title = latin_empire.3.t
+	desc = latin_empire.3.d
+	picture = BYZ_BYZANTINE_EMPEROR_eventPicture
+	major = yes
+	is_triggered_only = yes
+	option = {
+	name = "latin_empire.3a" 
+	add_prestige = 10
+	add_stability = 2
+	}
+	}

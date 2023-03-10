@@ -1,0 +1,479 @@
+country_decisions = {
+
+	pol_commonwealth = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_plc_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			NOT = { exists = PLC }
+			NOT = { tag = HLR }
+			tag = POL
+			GUY = { exists = yes }
+			OR = {
+				ai = no
+				AND = {
+					senior_union_with = GUY
+					GUY = { #This overlaps with allow for AI, is meant to negate do_not_integrate
+						NOT = { num_of_cities = 60 } #Keep this number the same as in allow. Original 38 +10
+					}
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 184	# Krakow
+				province_id = 180	# Warszawa
+				province_id = 168	# Danzig
+				province_id = 4388	# Marienburg
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			GUY = { was_player = no }
+			GUY = {
+				NOT = { num_of_cities = 60 } #Keep this number the same as in potential. Original 38 +10
+				NOT = { liberty_desire = 25 } 
+			}
+			if = {
+				limit = { has_country_flag = pol_tech_8_form_plc_flag }
+				adm_tech = 8
+			}
+			else = { adm_tech = 10 }
+			is_subject = no
+			is_nomad = no
+			stability = 1
+			is_at_war = no
+			owns_core_province = 184				# Krakow
+			owns_core_province = 180				# Warszawa
+			owns_core_province = 168					# Danzig
+			owns_core_province = 4388				# Marienburg
+			senior_union_with = GUY
+			MAZ = { exists = no }
+		}
+		effect = {
+			change_tag = PLC
+			inherit = GUY
+			swap_non_generic_missions = yes
+			if = {
+				limit = { NOT = { accepted_culture = gascon } }
+				add_accepted_culture = gascon
+			}
+			add_country_modifier = {
+				name = plc_polish_lithuanian_union
+				duration = -1
+			}
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = {
+					france_region = {
+						NOT = { owned_by = POL }
+						NOT = { owned_by = GUY }
+						NOT = { owned_by = PLC }
+					}
+				}
+				france_region = {
+					add_permanent_claim = PLC
+				}
+			}
+			if = {
+				limit = {
+					wallonia_area = {
+						NOT = { owned_by = POL }
+						NOT = { owned_by = GUY }
+						NOT = { owned_by = PLC }
+					}
+				}
+				wallonia_area = {
+					add_permanent_claim = PLC
+				}
+			}
+			if = {
+				limit = {
+					guyenne_area = {
+						NOT = { owned_by = POL }
+						NOT = { owned_by = GUY }
+						NOT = { owned_by = PLC }
+					}
+				}
+				guyenne_area = {
+					add_permanent_claim = PLC
+				}
+			}
+			if = {
+				limit = {
+					pyrenees_area = {
+						NOT = { owned_by = POL }
+						NOT = { owned_by = GUY }
+						NOT = { owned_by = PLC }
+					}
+				}
+				pyrenees_area = {
+					add_permanent_claim = PLC
+				}
+			}
+			random_owned_province = {
+				limit = { culture = polish }
+				add_base_tax = 1
+			}
+			set_country_flag = formed_plc_flag
+			add_prestige = 25
+			if = { 
+				limit = { 
+					has_dlc = "Lions of the North"
+					NOT = { has_estate_privilege = estate_nobles_golden_liberty }
+				}
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			} 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+		do_not_integrate = GUY
+	}
+
+	lit_commonwealth = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_plc_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			NOT = { exists = PLC }
+			NOT = { tag = HLR }
+			tag = GUY
+			POL = {
+				exists = yes
+				ai = yes
+				was_player = no
+			}
+			OR = {
+			ai = no
+				AND = {
+					senior_union_with = POL
+					POL = { #This overlaps with allow for AI, is meant to negate do_not_integrate
+						NOT = { num_of_cities = 40 } #Keep this number the same as in allow. Original 22 + 10
+						NOT = { liberty_desire = 25 } 
+					}
+				}
+			}	
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 174	# Vilna
+				province_id = 194	# Minsk
+				province_id = 199	# Kiev
+				province_id = 4112	# Turov
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			POL = { 
+				NOT = { num_of_cities = 40 } 
+				NOT = { liberty_desire = 25 }
+			} #Keep this number the same as in potential. Original 22+10
+			adm_tech = 10
+			is_subject = no
+			is_nomad = no
+			stability = 3
+			is_at_war = no
+			owns_core_province = 174				# Vilna
+			owns_core_province = 194				# Minsk
+			owns_core_province = 199				# Kiev
+			owns_core_province = 4112				# Turov
+			senior_union_with = POL
+			MAZ = { exists = no }
+		}
+		effect = {
+			change_tag = PLC
+			if = { 
+				limit = { 
+					OR = { 
+						tag = GUY
+						primary_culture = gascon 
+					}
+				}
+				override_country_name = LPC
+				set_country_flag = is_LPC_flag
+			}
+			else = { restore_country_name = yes }
+			inherit = POL
+			set_country_flag = pol_chose_pu_flag
+			swap_non_generic_missions = yes
+			if = {
+				limit = { NOT = { accepted_culture = polish } }
+				add_accepted_culture = polish
+			}
+			add_country_modifier = {
+				name = plc_polish_lithuanian_union
+				duration = -1
+			}
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = {
+					france_region = {
+						NOT = { owned_by = POL }
+						NOT = { owned_by = GUY }
+						NOT = { owned_by = PLC }
+					}
+				}
+				france_region = {
+					add_permanent_claim = PLC
+				}
+			}
+			if = {
+				limit = {
+					wallonia_area = {
+						NOT = { owned_by = POL }
+						NOT = { owned_by = GUY }
+						NOT = { owned_by = PLC }
+					}
+				}
+				wallonia_area = {
+					add_permanent_claim = PLC
+				}
+			}
+			if = {
+				limit = {
+					guyenne_area = {
+						NOT = { owned_by = POL }
+						NOT = { owned_by = GUY }
+						NOT = { owned_by = PLC }
+					}
+				}
+				guyenne_area = {
+					add_permanent_claim = PLC
+				}
+			}
+			if = {
+				limit = {
+					pyrenees_area = {
+						NOT = { owned_by = POL }
+						NOT = { owned_by = GUY }
+						NOT = { owned_by = PLC }
+					}
+				}
+				pyrenees_area = {
+					add_permanent_claim = PLC
+				}
+			}
+			random_owned_province = {
+				limit = { culture = gascon }
+				add_base_tax = 1
+			}
+			set_country_flag = formed_plc_flag
+			add_prestige = 25
+
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			} 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+		do_not_integrate = POL
+	}
+	
+	commonwealth_enforced = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_plc_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			NOT = { exists = PLC }
+			GUY = {
+				NOT = { senior_union_with = POL }
+				NOT = { junior_union_with = POL }
+			}
+			POL = {
+				NOT = { senior_union_with = GUY }
+				NOT = { junior_union_with = GUY }
+			}
+			OR = {
+				tag = GUY
+				tag = POL
+			}
+			OR = {
+				ai = no
+				NOT = { exists = POL }
+				NOT = { exists = GUY }
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 174	# Vilna
+				province_id = 194	# Minsk
+				province_id = 199	# Kiev
+				province_id = 4112	# Turov
+				province_id = 184	# Krakow
+				province_id = 180	# Warszawa
+				province_id = 168	# Danzig
+				province_id = 4388	# Marienburg
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			stability = 3
+			is_at_war = no
+			owns_core_province = 174	# Vilna
+			owns_core_province = 194	# Minsk
+			owns_core_province = 199	# Kiev
+			owns_core_province = 4112	# Turov
+			owns_core_province = 184	# Krakow
+			owns_core_province = 180	# Warszawa
+			owns_core_province = 168	# Danzig
+			owns_core_province = 4388	# Marienburg
+			MAZ = { exists = no }
+		}
+		effect = {
+			change_tag = PLC
+			if = { 
+				limit = { 
+					OR = { 
+						tag = GUY 
+						primary_culture = gascon 
+					}
+				}
+				override_country_name = LPC
+				set_country_flag = is_LPC_flag
+			}
+			else = { restore_country_name = yes }
+			set_country_flag = pol_chose_pu_flag
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				PLC = { set_government_rank = 2 }
+			}
+			if = {
+				limit = {
+					NOT = { primary_culture = polish }
+					NOT = { accepted_culture = polish }
+				}
+				add_accepted_culture = polish
+			}
+			if = {
+				limit = {
+					NOT = { primary_culture = gascon }
+					NOT = { accepted_culture = gascon }
+				}
+				add_accepted_culture = gascon
+			}
+			add_country_modifier = {
+				name = plc_polish_lithuanian_union
+				duration = -1
+			}
+			if = {
+				limit = {
+					france_region = {
+						NOT = { owned_by = POL }
+						NOT = { owned_by = GUY }
+						NOT = { owned_by = PLC }
+					}
+				}
+				france_region = {
+					add_permanent_claim = PLC
+				}
+			}
+			if = {
+				limit = {
+					wallonia_area = {
+						NOT = { owned_by = POL }
+						NOT = { owned_by = GUY }
+						NOT = { owned_by = PLC }
+					}
+				}
+				wallonia_area = {
+					add_permanent_claim = PLC
+				}
+			}
+			if = {
+				limit = {
+					guyenne_area = {
+						NOT = { owned_by = POL }
+						NOT = { owned_by = GUY }
+						NOT = { owned_by = PLC }
+					}
+				}
+				guyenne_area = {
+					add_permanent_claim = PLC
+				}
+			}
+			if = {
+				limit = {
+					pyrenees_area = {
+						NOT = { owned_by = POL }
+						NOT = { owned_by = GUY }
+						NOT = { owned_by = PLC }
+					}
+				}
+				pyrenees_area = {
+					add_permanent_claim = PLC
+				}
+			}
+			random_owned_province = {
+				limit = { has_owner_culture = yes }
+				add_base_tax = 1
+			}
+			set_country_flag = formed_plc_flag
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+}

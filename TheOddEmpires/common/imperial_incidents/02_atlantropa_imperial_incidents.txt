@@ -1,0 +1,112 @@
+# default options are 0-based
+# In console, can use imperial_incident [key] to immediately begin an incident
+
+
+
+
+incident_king_in_prussia = {
+    event = king_in_prussia.2
+	default_option = 1
+	
+	can_stop = {
+		OR = {
+			NOT = {
+				exists = A63
+			}
+			A63 = {
+				is_subject = yes
+			}
+			A63 = {
+				NOT = { government = monarchy }
+			}
+		}
+	}
+	
+	0 = { # grant
+		factor = 1
+		modifier = {
+			factor = 100
+			OR = {
+				ai_attitude = {
+					who = A63
+					attitude = attitude_friendly
+				}
+				ai_attitude = {
+					who = A63
+					attitude = attitude_loyal
+				}
+				ai_attitude = {
+					who = A63
+					attitude = attitude_allied
+				}
+			}
+		}
+	}
+	
+	1 = { # compromise
+		factor = 1
+		modifier = {
+			factor = 100
+			ai_attitude = {
+				who = A63
+				attitude = attitude_neutral
+			}
+		}
+	}
+	
+	2 = { # deny
+		factor = 1
+		modifier = {
+			factor = 100
+			OR = {
+				ai_attitude = {
+					who = A63
+					attitude = attitude_rivalry
+				}
+				ai_attitude = {
+					who = A63
+					attitude = attitude_hostile
+				}
+				ai_attitude = {
+					who = A63
+					attitude = attitude_threatened
+				}
+				ai_attitude = {
+					who = A63
+					attitude = attitude_outraged
+				}
+				ai_attitude = {
+					who = A63
+					attitude = attitude_disloyal
+				}
+				ai_attitude = {
+					who = A63
+					attitude = attitude_rebellious
+				}
+			}
+		}
+	}
+}
+
+incident_shadow_kingdom = {
+	event = shadow_kingdom.2
+	default_option = 0
+	
+	can_stop = {
+		always = no
+	}
+	
+	0 = { # give up
+		factor = 2
+		modifier = {
+			factor = 5
+			capital_scope = {
+				region = south_german_region
+			}
+		}
+	}
+	
+	1 = { # rein in
+		factor = 1
+	}
+}

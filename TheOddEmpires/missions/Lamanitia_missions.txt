@@ -1,0 +1,1426 @@
+lamanitia_mission1 = {
+    slot = 3                    # Which column the missions will appear in. 1 to 5.
+    generic = no            # Whether missions within this series are considered generic.
+    ai = yes                  # Whether the AI will claim missions in this series.
+    has_country_shield = yes  # Whether to display the country shield on the icon.    
+    
+    # Determines when a series appears for a country. Country scope.
+    potential = {
+			  tag = A44
+    }
+    
+    # The name of the mission, used for localization
+    
+	lamanitia_war = {
+	icon = atlantropa_cumorahwar
+		provinces_to_highlight = {
+			OR = {
+				owned_by = IS1
+				province_id = 4594
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			OR = {
+				is_at_war = no
+			}
+		}
+				effect = {
+				add_mil_power = 150
+								add_country_modifier = {
+				name = "roma_albion"
+				duration = 1550
+			}		
+				
+							
+						
+}}	
+	
+	lamanitia_first_slot1 = {
+	   required_missions = { lamanitia_war }
+	icon = atlantropa_sendgard
+	provinces_to_highlight = {
+			OR = {
+				owned_by = IS1
+				province_id = 4594
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			owns_core_province = 4594		
+			
+			NOT = {
+exists = IS1
+}
+		}
+				effect = {
+    add_claim = 5115
+    add_claim = 4593
+	add_claim = 5117
+	add_prestige = 20
+			change_technology_group = high_american	
+				add_country_modifier = {
+				name = "atlantropa_ancient_konwledge"
+				duration = 36500
+			}
+	capital_scope = {
+	add_institution_embracement = {
+    which = feudalism
+    value = 100
+}}}}
+
+
+lamanitia_first_slot2 = {
+   required_missions = { lamanitia_first_slot1 }
+	icon = atlantropa_homeregion
+		trigger = {
+			army_size = 15
+		}
+				effect = {
+			add_country_modifier = {
+				name = "expansionist_country"
+				duration = 9125
+			}
+	central_america_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}}}
+lamanitia_first_slot3 = {
+   required_missions = { lamanitia_first_slot2  }
+	icon = atlantropa_gold
+		provinces_to_highlight = {
+			OR = { # all the provinces we should own to highlight
+				province_id = 5114
+			}
+			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_core_province = 5114
+		}
+				effect = {
+				add_mil_power = 30	
+							
+						
+}}
+
+lamanitia_first_slot4 = {
+   required_missions = { lamanitia_first_slot3 lamanitia_second_slot3 lamanitia_third_slot3 lamanitia_fourth_slot3 lamanitia_fifth_slot3 }
+	icon = atlantropa_israel
+		trigger = {
+			capital_scope = {
+				owned_by = ROOT
+				development = 22
+			}
+		}
+				effect = {
+				add_prestige = 30
+				set_government_rank = 2	
+				change_government_reform_progress = 100	
+				add_splendor = 100	
+							
+						
+}}
+lamanitia_west = {
+	position = 7
+	 required_missions = { lamanitia_first_slot4 }
+		icon = atlantropa_west
+			provinces_to_highlight = {
+		region = central_america_region
+		is_wasteland = no
+		is_colony = no
+		is_empty = no
+		OR = {
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
+		}
+	}
+		trigger = {
+		
+num_of_owned_provinces_with = {
+	value = 20
+	region = central_america_region
+	owned_by = ROOT
+}
+}
+		effect = {
+eastern_mexico_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+oaxaca_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+	mixteca_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}}}
+lamanitia_mexico = {
+   required_missions = { lamanitia_west }
+	icon = atlantropa_conquestnorth
+			provinces_to_highlight = {
+			OR = { # all the provinces we should own to highlight
+				area = 	mixteca_area
+				area =	eastern_mexico_area
+				area =	oaxaca_area 
+			}
+		}
+		trigger = {
+						mixteca_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+						eastern_mexico_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+						oaxaca_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+				effect = {
+
+			mexico_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT		}						
+						
+				add_country_modifier = {
+				name = "roadtenochtitlan"
+				duration = 3650
+			}
+				add_prestige = 10
+				
+				
+
+							
+						
+}}
+lamanitia_fallofmexico = {
+   required_missions = { lamanitia_mexico }
+	icon = atlantropa_technotilian
+		provinces_to_highlight = {
+			OR = { # all the provinces we should own to highlight
+				province_id = 852
+			}
+			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_core_province = 852
+		}
+				effect = {
+				add_mil_power = 200	
+				rio_grande_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				
+				add_permanent_claim = ROOT								
+						
+}
+mexico_region = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}		
+}
+							
+						
+}}
+lamanitia_conquest_mexicanregion = {
+   required_missions = { lamanitia_fallofmexico lamanitia_panama }
+	icon = atlantropa_fallmexico
+	provinces_to_highlight = {
+		region = mexico_region
+		is_wasteland = no
+		is_colony = no
+		is_empty = no
+		OR = {
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
+		}
+	}
+		trigger = {
+		central_america_region  = {
+			type = all
+			OR = {
+				is_wasteland = yes
+				is_colony = yes
+				is_empty = yes
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
+			}
+		}
+			}
+		effect = {
+				add_prestige = 25
+				add_mil_power = 150
+				create_conquistador = { tradition = 75 }	
+				set_government_rank = 3	
+				change_government_reform_progress = 100	
+				add_splendor = 100	
+
+							
+						
+}}
+lamanitia_greekstates = {
+   required_missions = { lamanitia_conquest_mexicanregion }
+	icon = mission_hanseatic_city
+	position = 12
+					provinces_to_highlight = {
+			colonial_region = colonial_louisiana
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			has_discovered = ROOT
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 5
+				colonial_region = colonial_atlantis
+				is_city = yes
+			}
+		}
+				effect = {
+				add_mil_power = 50	
+				add_adm_power = 50	
+				add_dip_power = 50
+				add_country_modifier = {
+				name = "louisianateas"
+				duration = -1
+			}
+
+}}
+lamanitia_globalpower = {
+position = 14
+   required_missions = { lamanitia_greekstates lamanitia_fallofperu native_treasury}
+	icon = atlantropa_israel
+
+		trigger = {
+			is_great_power = yes
+		}
+				effect = {
+				add_mil_power = 50	
+				add_adm_power = 50	
+				add_dip_power = 50
+							
+						
+}}
+lamanitia_preparearmy = {
+   required_missions = { lamanitia_globalpower}
+	icon = mission_assemble_an_army
+	position = 15
+		trigger = {
+			army_size = 150
+		}
+				effect = {
+				add_mil_power = 50	
+							add_country_modifier = {
+				name = "atlantropa_army"
+				duration = -1
+			}
+				
+				
+											
+}}
+
+
+}
+
+lamanitia_mission2 = {
+    slot = 4                  # Which column the missions will appear in. 1 to 5.
+    generic = no            # Whether missions within this series are considered generic.
+    ai = yes                  # Whether the AI will claim missions in this series.
+    has_country_shield = yes  # Whether to display the country shield on the icon.    
+    
+    # Determines when a series appears for a country. Country scope.
+    potential = {
+			  tag = A44
+    }
+
+	lamanitia_bulding = {
+	icon = atlantropa_pope
+		trigger = {
+			temple = 5
+		}
+		effect = {
+	add_years_of_income = 3	
+	add_legitimacy = 10
+
+}}
+	lamanitia_cumorah = {
+position = 2
+   required_missions = { lamanitia_war lamanitia_bulding }
+	icon = atlantropa_cumorah
+		provinces_to_highlight = {
+			OR = { # all the provinces we should own to highlight
+				province_id = 2631
+			}
+			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_core_province = 2631
+			treasury = 1000
+		}
+				effect = {
+				add_treasury = -1000	
+				add_prestige = 10	
+				2631 = {change_culture = ROOT change_religion = ROOT
+			add_great_project_tier = {
+    type = atlantropa_kumorah
+    tier = 1
+}}}}				
+
+
+    
+    # The name of the mission, used for localization
+lamanitia_second_slot3 = {
+position = 4
+   required_missions = { lamanitia_first_slot2 }
+	icon = atlantropa_devlegio
+		provinces_to_highlight = {
+			OR = { # all the provinces we should own to highlight
+				province_id = 4585
+			}
+			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_core_province = 4585
+		}
+				effect = {
+				add_mil_power = 30	
+				
+							
+						
+}}
+lamanitia_tower = {
+   required_missions = { lamanitia_fifth_slot3 }
+	icon = atlantropa_melektower
+		provinces_to_highlight = {
+			OR = { # all the provinces we should own to highlight
+				province_id = 2638
+			}
+		}
+		trigger = {
+			owns_core_province = 2638
+			treasury = 1000
+			
+		}
+				effect = {
+				add_treasury = -1000
+							2638 = {
+			add_great_project_tier = {
+    type = atlantropa_melek
+    tier = 1}}
+				
+				
+							
+						
+}}
+
+
+
+lamanitia_conquest_region = {
+position = 6
+   required_missions = { lamanitia_first_slot4 }
+	icon = atlantropa_aztecarmy
+	provinces_to_highlight = {
+		region = central_america_region
+		is_wasteland = no
+		is_colony = no
+		is_empty = no
+		OR = {
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
+		}
+	}
+		trigger = {
+		central_america_region  = {
+			type = all
+			OR = {
+				is_wasteland = yes
+				is_colony = yes
+				is_empty = yes
+				AND = {
+					owned_by = ROOT
+					is_core = ROOT
+				}
+			}
+		}
+			}
+		effect = {
+				add_prestige = 15
+				add_mil_power = 150
+				create_conquistador = { tradition = 75 }	
+			add_country_modifier = {
+				name = "atlantropa_army"
+				duration = 36500
+			}
+			
+
+							
+						
+}}
+lamanitia_towardsouth = {
+   required_missions = { lamanitia_conquest_region }
+	icon = atlantropa_arthuriancolonist
+	provinces_to_highlight = {
+		region = central_america_region
+		owned_by = ROOT
+		}
+		trigger = {
+num_of_owned_provinces_with = {
+	value = 35
+	owned_by = ROOT
+}
+			}
+		effect = {
+	add_adm_power = 100
+	create_conquistador = { tradition = 75 }	
+									add_country_modifier = {
+				name = "arhuria_canada_colonies_mod"
+				duration = 36500
+			}		
+			
+
+							
+						
+}}
+lamanitia_samaritania = {
+   required_missions = { lamanitia_towardsouth }
+	icon = atlantropa_magaranja
+	provinces_to_highlight = {
+		area = nicaragua_area
+		area = honduras_area
+		area = costa_rica_area
+		NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+						nicaragua_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+						honduras_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+						costa_rica_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+			
+		effect = {
+	add_dip_power = 200
+	create_conquistador = { tradition = 100 }	
+		
+			
+
+							
+						
+}}
+lamanitia_panama = {
+   required_missions = { lamanitia_samaritania }
+	icon = atlantropa_nativethule
+	provinces_to_highlight = {
+		province_id = 835
+		NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			owns_core_province = 835
+
+		}
+			
+		effect = {
+	add_dip_power = 50
+	create_explorer = { tradition = 75 }
+				add_country_modifier = {
+				name = "atlantropa_colony"
+				duration = 3650
+			}			
+		
+			
+
+							
+						
+}}
+
+
+
+lamanitia_southinca = {
+	icon = atlantropa_preparenavy
+   required_missions = { lamanitia_panama }
+		trigger = {
+peru_region  = { has_discovered = ROOT } }
+	effect = {
+	add_prestige = 25
+	add_adm_power = 50
+	create_explorer = { tradition = 75 }
+				
+							
+						
+}}
+lamanitia_southinca_conquest = {
+	icon = atlantropa_conquestnorth
+   required_missions = { lamanitia_southinca }
+		provinces_to_highlight = {
+			OR = {
+				area = popayan_area
+				area = cordillera_occidental_area		
+				area = colombian_amazonas_area
+				area = iquitos_area
+				area = ucayali_area
+				area = nehuenken_area
+				area = moxos_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 20 # how many provinces should be owned in the areas below
+				OR = {
+				area = popayan_area
+				area = cordillera_occidental_area		
+				area = colombian_amazonas_area
+				area = iquitos_area
+				area = ucayali_area
+				area = nehuenken_area
+				area = moxos_area
+
+				}
+			}
+		}
+	effect = {
+	add_prestige = 15
+	add_adm_power = 150
+	create_conquistador = { tradition = 75 }
+		peru_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT			
+	
+				
+							
+						
+}}}
+lamanitia_machupichu = {
+	icon = atlantropa_machupichu
+   required_missions = { lamanitia_southinca_conquest }
+		trigger = {
+			owns_core_province = 807 }
+	effect = {
+	add_prestige = 25
+	add_adm_power = 25
+				
+										
+}}
+lamanitia_fallofperu = {
+	icon = atlantropa_fallparis
+	 required_missions = { lamanitia_machupichu }
+		icon = atlantropa_west
+			provinces_to_highlight = {
+		region = peru_region
+		is_wasteland = no
+		is_colony = no
+		is_empty = no
+		OR = {
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
+		}
+	}
+	trigger = {
+				peru_region = { type = all	country_or_non_sovereign_subject_holds = ROOT } }
+	effect = {
+	add_prestige = 25
+	add_adm_power = 150
+	add_mil_power = 150	
+	add_dip_power = 150					
+										
+}}
+lamanitia_preparenavy = {
+   required_missions = { lamanitia_globalpower}
+	icon = atlantropa_navalpower
+	position = 15
+		trigger = {
+			navy_size = 100
+			num_of_ports = 40
+		}
+				effect = {
+				add_dip_power = 50	
+							add_country_modifier = {
+				name = "atlantropa_naval_invasion"
+				duration = -1
+			}
+				
+				
+											
+}}
+lamanitia_europe = {
+   required_missions = { lamanitia_africa lamanitia_preparenavy lamanitia_preparearmy}
+	icon = atlantropa_sunsetinvasion
+	position = 11
+
+		trigger = {
+num_of_owned_provinces_with = {
+	value = 1
+	superregion = europe_superregion
+	owned_by = ROOT
+}}
+				effect = {
+								mashriq_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT		
+}
+								egypt_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT		
+}
+								italy_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT		
+}
+		add_country_modifier = {
+				name = "sunset_invasion"
+				duration = -1
+			}	
+	
+}}
+lamanitia_holy_city = {
+   required_missions = { lamanitia_europe}
+	icon = atlantropa_judaism
+				provinces_to_highlight = {
+	province_id =  379
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			owns_core_province = 379
+}
+				effect = {
+	add_adm_power = 150
+	add_mil_power = 150	
+	add_dip_power = 150		
+			}	
+	
+}}
+
+lamanitia_mission3 = {
+    slot = 2                  # Which column the missions will appear in. 1 to 5.
+    generic = no            # Whether missions within this series are considered generic.
+    ai = yes                  # Whether the AI will claim missions in this series.
+    has_country_shield = yes  # Whether to display the country shield on the icon.    
+    
+    # Determines when a series appears for a country. Country scope.
+    potential = {
+			  tag = A44
+    }
+    lamanitia_buildupeconomy = {
+	position = 2
+   required_missions = { lamanitia_war }
+	icon = atlantropa_sackcity
+		trigger = {
+			monthly_income = 6
+
+		}
+				effect = {
+				add_adm_power = 100
+				add_treasury = 250
+				
+							
+						
+}}
+    lamanitia_goldmine = {
+   required_missions = { lamanitia_buildupeconomy }
+	icon = atlantropa_goldmine
+		trigger = {
+			gold = 10
+		}
+		
+				effect = {
+				add_adm_power = 50
+				add_inflation = -5
+																add_country_modifier = {
+				name = "gold_potentant"
+				duration = -1
+			}
+				
+				
+							
+						
+}}
+    # The name of the mission, used for localization
+lamanitia_third_slot3 = {
+position = 4
+   required_missions = { lamanitia_first_slot2 }
+	icon = atlantropa_vinterkeep
+		provinces_to_highlight = {
+			OR = { # all the provinces we should own to highlight
+				province_id = 5115
+			}
+			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_core_province = 5115
+		}
+				effect = {
+				add_mil_power = 30	
+				
+							
+						
+}}
+lamanitia_temple_progress = {
+   required_missions = { lamanitia_fourth_slot3 }
+	icon = atlantropa_temple
+		provinces_to_highlight = {
+			OR = { # all the provinces we should own to highlight
+				province_id = 5117
+			}
+			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_core_province = 5117
+			treasury = 500
+		}
+		effect = {
+			5117 = {
+			add_great_project_tier = {
+    type = atlantis_bountifultemple
+    tier = 1}}
+	add_treasury = -500
+							
+						
+}}
+
+lamanitia_third_slot4 = {
+position = 6
+   required_missions = { lamanitia_first_slot4 }
+	icon = atlantropa_mayatemple
+		provinces_to_highlight = {
+			OR = { # all the provinces we should own to highlight
+				area = 	yucatan_area
+				area =	east_yucatan_area
+				area =	campeche_area
+			}
+		}
+		trigger = {
+						yucatan_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+						east_yucatan_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+						campeche_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+				effect = {
+				add_mil_power = 200
+				
+				
+				
+							
+						
+}}
+lamanitia_towardnorth = {
+   required_missions = { lamanitia_third_slot4 }
+	icon = atlantropa_arthurianfleet
+
+							trigger = {
+			navy_size = 35 	
+		}
+				effect = {
+				add_dip_power = 100
+				create_explorer = { tradition = 75 }	
+				
+				
+				
+							
+						
+}
+}
+lamanitia_phoenica = {
+   required_missions = { lamanitia_towardnorth }
+	icon = atlantropa_vikingdeal
+
+			provinces_to_highlight = {
+			colonial_region = colonial_southeastern_america
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			has_discovered = ROOT
+		}
+		
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 1
+				colonial_region = colonial_southeastern_america
+				is_city = yes
+			}
+		}
+				effect = {
+				add_dip_power = 50
+				create_explorer = { tradition = 25 }	
+					
+}
+}
+lamanitia_carribeans = {
+   required_missions = { lamanitia_phoenica }
+	icon = atlantropa_focusgreek
+			provinces_to_highlight = {
+			colonial_region = colonial_atlantis
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			has_discovered = ROOT
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 15
+				colonial_region = colonial_atlantis
+				is_city = yes
+			}
+		}
+				effect = {
+				atlantis_region   = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT		
+}
+}}
+lamanitia_taiwan = {
+   required_missions = { lamanitia_towardchinaexplore }
+	icon = atlantropa_carthago
+
+			trigger = {
+		taiwan_area   = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+				effect = {
+												add_country_modifier = {
+				name = "chinese_trade"
+				duration = 10000
+			}
+}
+}
+lamanitia_china = {
+   required_missions = { lamanitia_taiwan }
+	icon = atlantropa_gold
+
+				trigger = {
+			668 = { is_strongest_trade_power = ROOT } 
+		}
+				effect = {
+						south_china_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT			
+	
+				
+							
+						
+}
+}
+}
+
+}
+
+lamanitia_mission4 = {
+    slot = 1                  # Which column the missions will appear in. 1 to 5.
+    generic = no            # Whether missions within this series are considered generic.
+    ai = yes                  # Whether the AI will claim missions in this series.
+    has_country_shield = yes  # Whether to display the country shield on the icon.    
+    
+    # Determines when a series appears for a country. Country scope.
+    potential = {
+			  tag = A44
+    }
+	
+	lamanitia_blacksun = {
+			position = 2
+		icon = atlantropa_blacksun
+		trigger = {	
+				has_disaster = black_sun
+				}
+effect = {
+			add_splendor = 50
+
+
+add_estate_loyalty_modifier = {
+    estate = estate_nobles
+    desc = Fear
+    loyalty = 15
+    duration = 3600
+}
+add_estate_loyalty_modifier = {
+    estate = estate_burghers
+    desc = Fear
+    loyalty = 15
+    duration = 3600
+}
+add_estate_loyalty_modifier = {
+    estate = estate_church
+    desc = Fear
+    loyalty = 15
+    duration = 3600
+}
+
+
+}}
+	lamanitia_dawn = {
+		icon = atlantropa_dawn
+		required_missions = { lamanitia_blacksun }
+		trigger = {	
+				has_country_flag = had_black_sun
+				}
+effect = {
+			add_splendor = 500
+			add_stability = 2
+			add_prestige = 25
+											add_country_modifier = {
+				name = "dawn"
+				duration = 1550
+			}	
+			
+			
+
+
+}}
+    
+    # The name of the mission, used for localization
+lamanitia_fourth_slot3 = {
+position = 4
+   required_missions = { lamanitia_first_slot2 }
+	icon = atlantropa_temple
+		provinces_to_highlight = {
+			OR = { # all the provinces we should own to highlight
+				province_id = 5117
+			}
+			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_core_province = 5117
+		}
+				effect = {
+				add_mil_power = 30	
+				
+							
+						
+}}
+lamanitia_enforce = {
+	position = 5
+	 required_missions = { lamanitia_first_slot4 lamanitia_fourth_slot3}
+		icon = atlantropa_judaism
+		trigger = {
+		
+num_of_owned_provinces_with = {
+	value = 20
+	religion = ROOT
+	region = central_america_region
+}
+}
+		effect = {
+		chiapas_area = {
+			change_culture = ROOT
+			}
+			capital_scope = {
+			add_building = temple	}
+			5114 = {
+			add_building = temple	}
+
+			
+}
+}
+
+lamanitia_culture = {
+	 required_missions = { lamanitia_enforce}
+		icon = atlantropa_britanisation
+		trigger = {	
+num_of_owned_provinces_with = {
+	value = 20
+	culture = ROOT
+	region = central_america_region
+}
+}
+		effect = {
+						add_dip_power = 250	
+						add_mil_power = 250	
+						add_adm_power = 250	
+						add_stability = 3	
+						capital_scope = {
+						add_building = university }
+			
+}
+}
+lamanitia_towardchina = {
+	 required_missions = { lamanitia_third_slot4}
+		icon = atlantropa_canadahiber
+		trigger = {	
+	1240 = { has_discovered = ROOT } 
+}
+		effect = {
+						add_dip_power = 50	
+						create_explorer = { tradition = 50 }
+			
+}
+}
+lamanitia_towardchinaexplore = {
+		position = 9
+	 required_missions = { lamanitia_towardchina }
+		icon = atlantropa_china
+		trigger = {	
+	owns_core_province = 1240
+	1371 = { has_discovered = ROOT } 
+	1372 = { has_discovered = ROOT } 
+	667 = { has_discovered = ROOT } 
+	668 = { has_discovered = ROOT }
+	738 = { has_discovered = ROOT } 	
+}
+		effect = {
+		add_dip_power = 50	
+		create_explorer = { tradition = 50 }
+		738 = {add_colonysize = 950}
+			
+			
+
+}
+}
+lamanitia_australia = {
+	 required_missions = { lamanitia_towardchinaexplore }
+		icon = atlantropa_australia
+		trigger = {	
+	australia_region = { has_discovered = ROOT } 
+	
+}
+		effect = {
+		add_dip_power = 150	
+		create_explorer = { tradition = 50 }
+		4584 = {add_colonysize = 950
+		change_province_name = "Sheol"
+		rename_capital = "Sheol"			}
+			
+			
+			
+			
+}
+}
+}
+	
+
+
+
+
+
+lamanitia_mission5 = {
+    slot = 5                  # Which column the missions will appear in. 1 to 5.
+    generic = no            # Whether missions within this series are considered generic.
+    ai = yes                  # Whether the AI will claim missions in this series.
+    has_country_shield = yes  # Whether to display the country shield on the icon.    
+    
+    # Determines when a series appears for a country. Country scope.
+    potential = {
+			  tag = A44
+    }
+    
+    # The name of the mission, used for localization
+	
+lamanitia_oldworld = {
+	position = 2
+	icon = atlantropa_catholfocus
+
+		trigger = {
+europe_superregion = { has_discovered = ROOT } }
+	
+	effect = {
+	ROOT = {
+	add_prestige = 10}
+	
+				
+							
+						
+}}	
+lamanitia_westernization = {
+	icon = atlantropa_roma
+   required_missions = { lamanitia_oldworld }
+		trigger = {
+		any_neighbor_country = {
+	technology_group = western
+}
+total_development = 500
+has_institution = new_world_i
+}
+ 	effect = {
+	add_prestige = 10
+	change_technology_group = western	
+	add_adm_tech = 1	
+	add_dip_tech = 1	
+	add_mil_tech = 1	
+				
+							
+						
+}}	
+
+lamanitia_fifth_slot3 = {
+position = 4
+   required_missions = { lamanitia_first_slot2 }
+	icon = atlantropa_meropisfall
+		provinces_to_highlight = {
+			OR = { # all the provinces we should own to highlight
+				province_id = 4593
+			}
+			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_core_province = 4593
+		}
+				effect = {
+				add_mil_power = 30	
+				
+							
+						
+}}	
+	lamanitia_badmonument = {
+position = 6
+   required_missions = { lamanitia_first_slot4 lamanitia_fifth_slot3}
+	icon = atlantropa_cumorah
+		provinces_to_highlight = {
+			OR = { # all the provinces we should own to highlight
+				province_id = 4593
+			}
+		}
+		trigger = {
+			owns_core_province = 4593
+		}
+				effect = {
+				add_treasury = 1000	
+				add_prestige = 5	
+				4593 = {
+	destroy_great_project = {
+    type = atlantropa_badmonument
+}}
+}
+}
+	lamanitia_renesaince = {
+   required_missions = { lamanitia_badmonument}
+	icon = atlantropa_urbsconditia
+
+		trigger = {
+			is_year = 6974
+			total_development = 250
+
+		}
+				effect = {
+			capital_scope = {
+	add_institution_embracement = {
+    which = renaissance
+    value = 100
+}}}}
+	lamanitia_colonies = {
+   required_missions = { lamanitia_towardsouth lamanitia_renesaince}
+	icon = atlantropa_celtdeal
+
+		trigger = {
+			is_year = 7014
+			total_development = 300
+			central_america_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+				effect = {
+			capital_scope = {
+	add_institution_embracement = {
+    which = new_world_i
+    value = 100
+	
+}}}}
+	lamanitia_printingpress = {
+   required_missions = { lamanitia_colonies}
+	icon = atlantropa_paper
+
+		trigger = {
+			is_year = 7064
+			total_development = 500
+			mexico_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			treasury = 2500
+
+
+		}
+				effect = {
+				add_treasury = -2500	
+			capital_scope = {
+	change_trade_goods = paper
+	add_institution_embracement = {
+    which = printing_press
+    value = 100
+}}}}
+lamanitia_panamacanal = {
+   required_missions = { lamanitia_panama}
+	icon = atlantropa_panamacanal
+
+		trigger = {
+835 = {
+owned_by = ROOT
+has_construction = canal
+}}
+				effect = {
+			835 = {
+add_construction_progress = 0.40	
+}
+add_prestige = 25				
+}}
+
+lamanitia_panamadominate = {
+   required_missions = { lamanitia_panamacanal}
+	icon = mission_galleys_in_port
+	position = 13
+
+		trigger = {
+835 = {
+is_strongest_trade_power = ROOT
+}
+
+}
+				effect = {
+		add_years_of_income = 5	
+				add_country_modifier = {
+				name = "atlantropa_northway"
+				duration = -1
+			}	
+		
+			}	
+	
+}
+
+
+
+lamanitia_africa = {
+   required_missions = { lamanitia_globalpower lamanitia_panamadominate}
+	icon = atlantropa_brafil
+	position = 15
+				provinces_to_highlight = {
+	superregion = africa_superregion
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+num_of_owned_provinces_with = {
+	value = 1
+	superregion = africa_superregion
+	owned_by = ROOT
+}}
+				effect = {
+		add_country_modifier = {
+				name = "african_port"
+				duration = -1
+			}	
+	
+}}
+lamanitia_africa_conquest = {
+   required_missions = { lamanitia_africa}
+	icon = mission_african_soldier
+				provinces_to_highlight = {
+	superregion = africa_superregion
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+num_of_owned_provinces_with = {
+	value = 30
+	superregion = africa_superregion
+	owned_by = ROOT
+}}
+				effect = {
+		add_country_modifier = {
+				name = "atlantropa_african_charter"
+				duration = -1
+			}	
+	
+}}
+lamanitia_rome = {
+   required_missions = { lamanitia_europe}
+	icon = atlantropa_greatpower
+				provinces_to_highlight = {
+				province_id = 118
+
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+	owns_core_province = 118
+}
+				effect = {
+	add_adm_power = 150
+	add_mil_power = 150	
+	add_dip_power = 150		
+			}	
+	
+}}
+
+lamanitia_mission6 = {
+    slot = 3                  # Which column the missions will appear in. 1 to 5.
+    generic = no            # Whether missions within this series are considered generic.
+    ai = yes                  # Whether the AI will claim missions in this series.
+    has_country_shield = yes  # Whether to display the country shield on the icon.    
+    
+    # Determines when a series appears for a country. Country scope.
+    potential = {
+			  tag = A44
+    }
+    lamanitia_europeancolonies = {
+	position = 16
+   required_missions = { lamanitia_preparearmy }
+	icon = mission_sw_against_the_desert
+				provinces_to_highlight = {
+			OR = {
+				superregion  = south_america_superregion
+				superregion  = central_america_superregion
+				superregion = andes_superregion
+				superregion  = north_america_superregion
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+						south_america_superregion = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+						central_america_superregion = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+						andes_superregion = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+						north_america_superregion = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+				effect = {
+				add_adm_power = 500
+				add_mil_power = 500
+				add_dip_power = 500
+				add_prestige = 100
+				add_splendor = 1000
+				
+							
+						
+}}
+lamanitia_egypt = {
+   required_missions = { lamanitia_europe}
+	icon = atlantropa_egypt
+				provinces_to_highlight = {
+				region  = egypt_region
+
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			owns_core_province = 361
+}
+				effect = {
+	add_adm_power = 150
+	add_mil_power = 150	
+	add_dip_power = 150		
+			}	
+	
+}}
+
+
+
+
+
+
+

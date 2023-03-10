@@ -1,0 +1,290 @@
+namespace = incident_legio
+
+### PU Subject joins HRE ###
+
+country_event = {
+	id = incident_legio.1
+	title = incident_legio.1.t
+	major = yes
+	desc = incident_legio.1.d
+	picture = hellenistic_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = incident_legio.1.a
+		ai_chance = {
+		factor = 10
+		}
+		set_country_flag = legio_incident
+					emperor = {
+		set_imperial_incident = incident_legio_demands_empire }
+	}
+	
+	option = {
+		name = incident_legio.1.b
+		ai_chance = {
+			factor = 0.5 }
+		add_prestige = -5
+			}
+		}
+
+country_event = {
+	id = incident_legio.2
+	title = incident_legio.2.t
+	desc = incident_legio.2.d
+	picture = KNIGHTS_eventPicture
+	is_triggered_only = yes
+	major = yes
+	
+	option = {	# Accept the order as part of the HRE
+		name = incident_legio.2.a
+		hidden_effect = {
+			A38 = {
+				country_event = {
+					id = incident_legio.3
+				}
+				every_neighbor_country = {
+					limit = {
+						is_part_of_hre = yes
+					}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 2
+				has_opinion = {
+					who = A38
+					value = 100
+				}
+			}
+			modifier = {
+				factor = 0
+				emperor = { is_rival = A38 }
+			}
+			modifier = {
+				factor = 0
+				A38 = { is_rival = emperor }
+			}
+			modifier = {
+				factor = 2
+				NOT = { emperor = { is_rival = A38 } }
+			}
+			modifier = {
+				factor = 2
+				NOT = { A38 = { is_rival = emperor } }
+			}
+			modifier = {
+				factor = 3
+				A38 = { diplomatic_reputation = 1 }
+			}
+			modifier = {
+				factor = 3
+				A38 = { diplomatic_reputation = 2 }
+			}
+			modifier = {
+				factor = 3
+				A38 = { diplomatic_reputation = 3 }
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					is_enemy = A38
+					is_rival = A38
+				}
+			}
+			modifier = {
+				factor = 0.1
+				is_neighbor_of = A38
+			}
+		}
+	}
+	
+	option = {	# Accept the order, but they need to become a proper nation within the HRE
+		name = incident_legio.2.b
+		hidden_effect = {
+			A38 = {
+				country_event = {
+					id = incident_legio.4
+				}
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0.5
+				emperor = { is_rival = A38 }
+			}
+			modifier = {
+				factor = 0.5
+				A38 = { is_rival = emperor }
+			}
+			modifier = {
+				factor = 2
+				NOT = { emperor = { is_rival = A38 } }
+			}
+			modifier = {
+				factor = 2
+				NOT = { A38 = { is_rival = emperor } }
+			}
+			modifier = {
+				factor = 10
+				is_neighbor_of = A38
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					is_enemy = A38
+					is_rival = A38
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					ai_attitude = { who = A38 attitude = attitude_hostile }
+					ai_attitude = { who = A38 attitude = attitude_domineering }
+					ai_attitude = { who = A38 attitude = attitude_outraged }
+					ai_attitude = { who = A38 attitude = attitude_rivalry }
+				}
+			}
+		}
+	}
+	
+	option = {	# The Teutonic Order has no business in the HRE.
+		name = incident_legio.2c
+		hidden_effect = {
+			A38 = {
+				country_event = {
+					id = incident_legio.5
+				}
+			}
+		}
+		emperor = {
+			reverse_add_opinion = {
+				who = A38
+				modifier = teu_rejected_us_from_joining
+			}
+			add_opinion = {
+				who = A38
+				modifier = teu_does_not_want_the_order_in_the_hre
+			}
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1.5
+				NOT = {
+					has_opinion = {
+						who = emperor
+						value = 0
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				is_rival = A38
+			}
+			modifier = {
+				factor = 2
+				A38 = { is_rival = emperor }
+			}
+			modifier = {
+				factor = 0
+				alliance_with = A38
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					ai_attitude = { who = A38 attitude = attitude_allied }
+					ai_attitude = { who = A38 attitude = attitude_defensive }
+					ai_attitude = { who = A38 attitude = attitude_friendly }
+					ai_attitude = { who = A38 attitude = attitude_neutral }
+					ai_attitude = { who = A38 attitude = attitude_protective }
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = incident_legio.3
+	title = incident_legio.3.t
+	major = yes
+	desc = incident_legio.3.desc
+	picture = DIPLOMACY_SIGNING_eventPicture
+	is_triggered_only = yes
+	
+	option = {	# Nice
+		name = incident_legio.3a
+		set_in_empire = yes
+		set_emperor = yes	
+		hre_inheritable = yes	
+		set_country_flag = teu_is_allowed_to_stay_in_the_hre 
+		set_global_flag = romanieniemaszerujenarzym 	
+		118 = {
+		 add_core = ROOT
+		 cede_province = ROOT
+		 }
+
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+country_event = {
+	id = incident_legio.4
+	title = incident_legio.4.t
+	major = yes
+	desc = incident_legio.4.desc
+	picture = DIPLOMAT_INTERROGATION_eventPicture
+	is_triggered_only = yes
+	option = {	# This is outrageous! This is unfair!
+		name = incident_legio.4.a
+		if = {
+			limit = { is_part_of_hre = no }
+			set_in_empire = yes
+		}
+		country_event = { 
+    id = incident_legio.5
+    days = 1
+}
+		add_opinion = {
+			who = FROM
+			modifier = teu_unfair_conditions
+		}
+		ai_chance = {
+			factor = 2
+		}
+	}
+}
+
+country_event = {
+	id = incident_legio.5
+	title = incident_legio.5.t
+	major = yes
+	desc = incident_legio.5.desc
+	picture = romanarmytest_eventPicture
+	is_triggered_only = yes
+	
+	option = {	# Okay.
+		name = incident_legio.5.a
+		if = {
+			limit = { is_part_of_hre = yes }
+			set_in_empire = no
+		}
+		118 = { add_core = ROOT }
+		every_province = {
+		    limit = {
+        is_part_of_hre = yes
+    }
+	add_permanent_claim = ROOT
+	set_global_flag = legioreichwarmarchonrome
+	}
+	set_country_flag = byzantinehredispute_flag
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+

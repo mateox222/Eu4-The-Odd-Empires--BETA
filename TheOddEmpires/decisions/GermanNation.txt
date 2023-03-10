@@ -1,0 +1,124 @@
+country_decisions = {
+
+	german_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_germany_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			NOT = { exists = GER }
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 10
+					adm_tech = 10
+				}
+			}
+			culture_group = germanic
+			NOT = { primary_culture = dutch }
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+			OR = {
+				has_country_flag = teu_can_form_germany
+				NOT = { has_mission = teu_pru_an_empire_of_blood_and_iron }	#Mission already makes you to Germany
+			}
+		}
+		provinces_to_highlight = {
+						region = south_german_region
+		}
+		allow = {
+			adm_tech = 20
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			owns_core_province = 1770	# Brunswick
+			owns_core_province = 134	# M�nchen
+			OR = {
+				owns_core_province = 4759 # Augsburg
+				owns_core_province = 4713 # Wurttemberg
+			}
+			OR = {
+				owns_core_province = 72 # Frankfurt
+			}
+			OR = {
+				owns_core_province = 71 # Niederhessen
+				owns_core_province = 1757	# K�ln
+			}
+			OR = {
+				owns_core_province = 265	# Hamburg
+				owns_core_province = 110	# Lubeck
+			}
+			OR = {
+				owns_core_province = 152	# Dresden
+				owns_core_province = 75	# Th�ringen
+			}
+			num_of_owned_provinces_with = {
+				is_core = ROOT
+				OR = {
+					region = north_german_region
+					region = south_german_region
+				}
+				value = 30
+			}
+		}
+		effect = {
+			change_tag = GER
+			restore_country_name_effect = yes
+			GER = { set_government_rank = 3 }
+			north_german_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = GER
+			}
+			south_german_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = GER
+			}			
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			set_country_flag = formed_germany_flag
+			if = {
+				limit = {
+					has_custom_ideas = no
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			swap_non_generic_missions = yes
+		}
+		ai_will_do = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { adm_tech = 18 }
+			}
+			modifier = {
+				factor = 0
+				NOT = { num_of_owned_provinces_with = { OR = { region = north_german_region region = south_german_region } value = 25 } }
+			}
+		}
+	}
+}

@@ -1,0 +1,104 @@
+egyptian_control = {
+potential = {
+        NOT = {
+                has_country_flag = egyptian_controlend
+        }
+			tag = BYZ
+		}
+can_start = {
+hidden_trigger = {
+num_of_owned_provinces_with = {
+	value = 108
+	owned_by = ROOT
+	region = egypt_region
+}
+}
+		
+}
+	can_stop = { 
+		has_any_disaster = yes
+	}
+
+	progress = {
+
+				modifier = {
+			factor = 5
+			NOT = { stability = 3 }
+		}
+				modifier = {
+			factor = 5
+			num_of_owned_provinces_with = {
+	value = 10
+	owned_by = ROOT
+	region = egypt_region
+}
+		}
+						modifier = {
+			factor = 5
+			num_of_owned_provinces_with = {
+	value = 15
+	owned_by = ROOT
+	region = egypt_region
+}
+		}
+								modifier = {
+			factor = 5
+			num_of_owned_provinces_with = {
+	value = 20
+	owned_by = ROOT
+	region = egypt_region
+}
+		}
+								modifier = {
+			factor = 5
+			num_of_owned_provinces_with = {
+	value = 25
+	owned_by = ROOT
+	region = egypt_region
+}
+		}
+	}
+	
+
+	
+	
+
+
+can_end = {
+hidden_trigger = {
+        had_country_flag = { flag = egyptian_control days = 3600 }
+		}
+}
+modifier = {
+        global_unrest = 5
+		land_morale = -0.1
+		naval_morale = -0.1
+		manpower_recovery_speed = -0.15
+		global_tax_modifier = -0.1
+        stability_cost_modifier = 1
+		monarch_admin_power = -1	
+		monarch_diplomatic_power = -1	
+		monarch_military_power = -2
+		all_power_cost = 0.1	
+}
+on_start = egyptian_control.10
+on_end = egyptian_control.20
+on_monthly = {
+        events = {
+        }
+        random_events = { 
+			1000 = 0
+			100 = civil_war.2
+			100 = civil_war.3
+			100 = civil_war.5
+			100 = civil_war.6
+			100 = civil_war.7
+			100 = civil_war.8
+			100 = civil_war.9
+			100 = civil_war.10
+			100 = civil_war.11
+			100 = civil_war.12
+			100 = civil_war.13
+        }
+}
+}

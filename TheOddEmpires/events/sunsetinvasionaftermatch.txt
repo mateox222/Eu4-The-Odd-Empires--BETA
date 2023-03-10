@@ -1,0 +1,26 @@
+namespace = atl_sunsetinvasion
+country_event = {
+	id = atl_sunsetinvasion.1
+	title = "atl_sunsetinvasion.1.t"
+	desc = "atl_sunsetinvasion.1.d"
+	picture = obsidiannephite_eventPicture
+	major = yes
+	
+	trigger = {
+		OR = {
+		culture = lamanites
+		culture = nephites 
+		tag = AZT
+		 }
+		has_game_started = yes
+		NOT = { has_country_flag = A44_storyofempires }
+	}
+
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "atl_sunsetinvasion.1a" 
+		add_prestige = 5
+		set_country_flag = A44_storyofempires
+	}
+}

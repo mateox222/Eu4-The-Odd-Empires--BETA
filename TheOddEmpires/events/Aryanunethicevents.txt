@@ -1,0 +1,141 @@
+namespace = aryan_culture_event
+
+province_event = {
+	id = aryan_culture_event.1
+	title = "aryan_culture_event.1.t"
+	desc = "aryan_culture_event.1.d"
+	picture = RIOTING_workers_eventPicture
+	
+		trigger = {
+				owner = {  has_reform = raumaria_theocracy }
+				has_owner_religion = no
+				NOT = { has_province_flag = aryanslaves }
+ 
+		}
+		
+			
+	
+	mean_time_to_happen = {
+		months = 12
+		
+		modifier = {
+		factor = 0.8
+		 development = 20
+	}		
+	}
+	option = {
+		name = "aryan_culture_event.1.a"
+		ai_chance = { factor = 60 }
+		set_province_flag = aryanslaves
+		change_trade_goods = slaves_raumaria
+		owner = {
+			add_faction_influence = {
+				faction = raumaria_wiarawalczaca
+				influence = 5
+			}
+		}
+	}
+}
+
+province_event = {
+	id = aryan_culture_event.2
+	title = "aryan_culture_event.2.t"
+	desc = "aryan_culture_event.2.d"
+	picture = RIOTING_workers_eventPicture
+	
+		trigger = {
+			trade_goods = slaves_raumaria
+			owner = {  has_reform = raumaria_theocracy }		
+			has_owner_religion = yes
+ 
+		}
+		
+			
+	
+	mean_time_to_happen = {
+		months = 1
+		
+		modifier = {
+		factor = 0.8
+		 development = 20
+	}		
+	}
+	option = {
+		name = "aryan_culture_event.2.a"
+		ai_chance = { factor = 60 }
+		clr_province_flag = aryanslaves
+		change_trade_goods = unknown
+	}
+}
+
+province_event = {
+	id = aryan_culture_event.3
+	title = "aryan_culture_event.3.t"
+	desc = "aryan_culture_event.3.d"
+	picture = scottishcastle_eventPicture
+	
+		trigger = {
+			owner = {  has_reform = raumaria_theocracy }		
+			has_owner_religion = no
+			has_province_flag = aryanslaves 
+		NOT = {	has_province_modifier = lunarinquistitionpresnece }
+
+		}
+		
+			
+	
+	mean_time_to_happen = {
+		months = 120
+		
+		modifier = {
+		factor = 0.8
+		 development = 20
+	}		
+	}
+	option = {
+		name = "aryan_culture_event.3.a"
+		ai_chance = { factor = 60 }
+		add_base_manpower = -1	
+		add_base_production = -1	
+		add_base_tax = -1	
+		add_province_modifier = { 
+			name = lunarinquistitionpresnece
+			duration = 3600 
+		}
+		owner = {
+			add_faction_influence = {
+				faction = raumaria_wiarapokojowa
+				influence = 5
+			}
+		}
+	}
+}
+
+province_event = {
+	id = aryan_culture_event.4
+	title = "aryan_culture_event.2.t"
+	desc = "aryan_culture_event.2.d"
+	picture = RIOTING_workers_eventPicture
+	hidden = yes
+	
+		trigger = {
+			trade_goods = slaves_raumaria
+			owner = {  NOT = { has_reform = raumaria_theocracy }	}	
+		}
+		
+	
+	mean_time_to_happen = {
+		months = 1
+		
+		modifier = {
+		factor = 0.8
+		 development = 20
+	}		
+	}
+	option = {
+		name = "aryan_culture_event.2.a"
+		ai_chance = { factor = 60 }
+		clr_province_flag = aryanslaves
+		change_trade_goods = unknown
+	}
+}

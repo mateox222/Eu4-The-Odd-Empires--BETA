@@ -1,0 +1,35 @@
+########################################
+# Major Flavor Events for Vinland      #
+########################################
+
+namespace = vinlandia_atlantropa
+
+# Isolation
+country_event = {
+	id = vinlandia_atlantropa.1
+	title = "vinlandia_atlantropa.EVTNAME1"
+	desc = "vinlandia_atlantropa.EVTDESC1"
+	picture = COLONIZATION_eventPicture
+	
+	trigger ={
+		NOT = { has_country_flag = A48_had_event_1 }
+		has_game_started = no
+		tag = A48
+    }
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	
+	immediate = {
+		set_country_flag = A48_had_event_1
+	}
+	
+		option = {		# So be it
+		name = "vinlandia_atlantropa.EVTOPTA1"
+				add_country_modifier = {
+				name = "vinlandic_population"
+				duration = 27375
+		}
+	}
+}

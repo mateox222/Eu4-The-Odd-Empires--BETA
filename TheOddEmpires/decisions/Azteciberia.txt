@@ -1,0 +1,143 @@
+country_decisions = {
+
+	azteciberia_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_iberia_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				is_free_or_tributary_trigger = yes
+				ai = no
+			}
+			NOT = { tag = SPA }
+			NOT = { tag = A71 }
+			OR = {
+				NOT = { exists = ZT1 }
+				ai = no
+			}
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			OR = {
+				primary_culture = aztek
+				primary_culture = andalupac
+				primary_culture = kauayotl
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 207			# Moskva
+				province_id = 227			# Novgorod
+				AND = {
+					province_id = 4556
+					ROOT = { NOT = { owns_core_province = 4788 } }
+				}
+				AND = {
+					province_id = 4788
+					ROOT = { NOT = { owns_core_province = 4556 } }
+				}
+				AND = {
+					province_id = 220
+					ROOT = { NOT = { owns_core_province = 231 } }
+				}
+				AND = {
+					province_id = 231
+					ROOT = { NOT = { owns_core_province = 220 } }
+				}
+				AND = {
+					province_id = 217
+					ROOT = { NOT = { owns_core_province = 213 } }
+				}
+				AND = {
+					province_id = 213
+					ROOT = { NOT = { owns_core_province = 217 } }
+				}
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			NOT = { exists = RUS }
+			adm_tech = 5
+			NOT = { has_reform = states_general_reform }
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			owns_core_province = 207			# Moskva
+			owns_core_province = 227			# Novgorod
+			OR = {
+				owns_core_province = 4556		# Tver
+				owns_core_province = 4788		# Yaroslavl	
+			}
+			OR = {
+				owns_core_province = 220		# Ryazan
+				owns_core_province = 231		# Smolensk
+			}
+			OR = {
+				owns_core_province = 213		# Nijni-Novgorod
+				owns_core_province = 217		# Vladimir	
+			}			
+		}
+		effect = {
+			change_tag = ZT1
+			restore_country_name = yes
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { is_revolutionary = no }
+				else = {
+					if = {
+						limit = { NOT = { government = monarchy } }
+						change_government_to_monarchy = yes
+					}
+				}
+			}
+			ZT1 = { set_government_rank = 3 }
+			iberia_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = ZT1
+			}
+
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_iberia_flag
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	
+}

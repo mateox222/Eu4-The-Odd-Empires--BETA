@@ -1,0 +1,25 @@
+country_decisions = {
+	Buil_Avalonianarch = {
+	major = yes
+		potential = { 
+		OR = {
+		tag = A34
+		tag = A37		
+		tag = A38		
+		}
+		NOT = { has_global_flag	= triumfalnyavalonski }
+		}
+		allow = {
+		stability = 3
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 5061
+		total_development = 500
+		army_size = 100
+
+}
+		effect = {
+		country_event = { 
+		id = legionhispanian_events.47
+}
+}}}

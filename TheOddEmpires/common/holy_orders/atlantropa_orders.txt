@@ -1,0 +1,230 @@
+patrioci1_order = {
+    icon = GFX_holy_order_patrioci1_order
+    trigger = {
+        OR = {
+    tag = POL
+    tag = PLC 
+    }
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+    }
+    per_province_abandon_effect = {
+        add_base_tax = -1
+    }
+    modifier = {
+        pl_reformaci_influence = 0.05	
+         local_tax_modifier = 0.1	
+         local_governing_cost = -0.05	
+         local_manpower_modifier = -0.15	        
+        
+    }
+    ai_priority = {
+        factor = 2
+    }
+}
+ magnaci2_order = {
+    icon = GFX_holy_order_magnaci2_order
+    trigger = {
+        OR = {
+    tag = POL
+    tag = PLC 
+    }
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+    }
+    per_province_abandon_effect = {
+        add_base_tax = -1
+    }
+    modifier = {
+        pl_magnaci_influence = 0.05	
+        local_governing_cost = -0.05	
+        local_manpower_modifier = 0.15	
+           local_tax_modifier = -0.1	      
+    }
+    ai_priority = {
+        factor = 2
+    }
+}
+ legioarmy_order = {
+    icon = GFX_holy_order_legiocivica_order
+    trigger = {
+        has_reform = roman_legio_monarchy
+
+    }
+    cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1	
+    }
+    per_province_abandon_effect = {
+       add_base_manpower = -1	
+    }
+    modifier = {
+        a34_legionist_influence = 0.05	
+        local_manpower_modifier = 0.15	
+        local_production_efficiency = -0.1	    
+    }
+    ai_priority = {
+        factor = 2
+    }
+}
+
+ legiocivic_order = {
+    icon = GFX_holy_order_legiocivicablue_order
+    trigger = {
+        has_reform = roman_legio_monarchy
+
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+       add_base_production = 1	
+    }
+    per_province_abandon_effect = {
+       add_base_production = -1		
+    }
+    modifier = {
+        a34_civil_influence = 0.05	
+        local_manpower_modifier = -0.15	
+        local_production_efficiency = 0.1	
+    }
+    ai_priority = {
+        factor = 2
+    }
+}
+
+satrapia_order = {
+    icon = GFX_holy_order_qadiri
+    trigger = {
+        OR = {
+    tag = A5F
+    tag = BA1
+    }
+    }
+    cost = 50
+    cost_type = dip_power
+    per_province_effect = {
+        add_base_tax = 1
+    }
+    per_province_abandon_effect = {
+        add_base_tax = -1
+    }
+    modifier = {
+        local_governing_cost = -0.05	      
+    }
+    ai_priority = {
+        factor = 2
+    }
+}
+
+lunar_order = {
+    icon = GFX_holy_order_lunarorders
+    trigger = {
+    has_reform = raumaria_theocracy
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+    }
+    per_province_abandon_effect = {
+        add_base_tax = -1
+    }
+    modifier = {
+        local_governing_cost = 0.05
+        local_tax_modifier = 0.1	
+        local_unrest = 2		
+        local_missionary_strength = 0.02	
+        raumaria_wiarapokojowa_influence = 0.05		      
+    }
+    ai_priority = {
+        factor = 2
+    }
+}
+solar_order = {
+    icon = GFX_holy_order_solarorders
+    trigger = {
+    has_reform = raumaria_theocracy
+    }
+    cost = 50
+    cost_type = mil_power
+    per_province_effect = {
+        add_base_manpower = 1	
+    }
+    per_province_abandon_effect = {
+            add_base_manpower = -1	
+    }
+    modifier = {
+        local_governing_cost = 0.05
+        local_manpower_modifier = 0.1	
+        local_unrest = 2	
+        raumaria_wiarawalczaca_influence = 0.05		      
+    }
+    ai_priority = {
+        factor = 2
+    }
+}
+
+aztec_order = {
+    icon = GFX_holy_order_shadhili
+    trigger = {
+    religion = reformednahuatl
+    }
+    cost = 30
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_manpower = -1	
+    }
+    per_province_abandon_effect = {
+            add_base_manpower = -1	
+    }
+    modifier = {
+        local_governing_cost = 0.05
+        local_missionary_strength = 0.03
+        local_missionary_maintenance_cost = -0.25		
+        local_unrest = -1	
+        local_culture_conversion_cost = -0.25	   
+        local_development_cost = 0.1	
+    }
+    ai_priority = {
+       	modifier = {
+		factor = 2
+            continent = europe
+        }
+               	modifier = {
+		factor = 2
+            continent = africa
+        }
+        factor = 0
+    }
+}
+spartan_postcode = {
+    icon = GFX_holy_order_outpost
+    trigger = {
+      primary_culture = spartan
+    }
+    cost = 33
+    cost_type = mil_power
+    per_province_effect = {
+       add_base_manpower = 1	
+    }
+    per_province_abandon_effect = {
+       add_base_manpower = -1	
+    }
+    modifier = {
+        local_manpower_modifier = 0.10
+        supply_limit_modifier = 0.25	
+        local_garrison_size = 0.10	
+        local_friendly_movement_speed = 0.1	
+        local_unrest = -1	
+    }
+    ai_priority = {
+        factor = 2
+    }
+}

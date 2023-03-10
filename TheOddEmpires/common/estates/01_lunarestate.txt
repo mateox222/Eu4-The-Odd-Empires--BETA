@@ -1,0 +1,138 @@
+
+estate_lunar = {
+	icon = 6
+	color = { 124 143 255 }  # Sets the estate's color in the land share pie chart
+	
+	# If true, country will get estate
+	trigger = {
+    has_reform = raumaria_theocracy
+	NOT = {	 has_country_flag = DISABLEZAKONLUNARNY }
+	}
+
+	# These scale with loyalty & power
+	country_modifier_happy = {
+		global_missionary_strength = 0.01
+		global_tax_modifier = 0.21
+		devotion = 0.5
+		church_power_modifier = 0.1
+		stability_cost_modifier = -0.1
+
+	}
+	country_modifier_neutral = {
+		church_power_modifier = 0.1
+		stability_cost_modifier = -0.1
+
+	}	
+	country_modifier_angry = {
+				administrative_efficiency = -0.05	
+						devotion = -0.5
+		church_power_modifier = -0.25	
+		stability_cost_modifier = 0.1
+		global_unrest = 2
+	}
+
+	land_ownership_modifier = {
+		church_loyalty_modifier = 0.2
+	}
+
+	province_independence_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.1
+			NOT = { religion_group = owner }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { religion = owner }
+		}
+		modifier = {
+			factor = 0.67
+			NOT = { is_state_core = owner }
+		}
+		modifier = {
+			factor = 1.2
+			base_tax = 10
+		}
+	}
+
+	# Influence modifiers
+	base_influence = 10
+	influence_modifier = {
+		desc = Lunarinpower
+		trigger = {
+			faction_in_power = raumaria_wiarapokojowa
+		}	
+		influence = 20
+	}
+	# Loyalty modifiers
+	loyalty_modifier = {
+		desc = Lunarinpower
+		trigger = {
+			faction_in_power = raumaria_wiarapokojowa
+		}	
+		loyalty = 20
+	}
+	
+
+
+
+	privileges = {
+ estate_lunar_land_rights
+ estate_lunar_religious_state
+ estate_lunar_independent_inquisition
+ estate_lunar_clerical_oversight
+ estate_lunar_inwards_perfection 
+ estate_lunar_enforced_one_faith
+estate_church_new_world_mission
+		estate_church_clerical_ministers
+		estate_church_clerical_oversight
+		estate_church_inwards_perfection
+		estate_church_for_the_faith
+		estate_church_karma_temples
+		estate_church_influence_temples
+		estate_church_brahmins_at_court
+		estate_church_lao_animism
+		estate_church_monopoly_of_incense
+		estate_church_monopoly_of_wool
+		estate_church_monopoly_of_wine
+		estate_church_monopoly_of_slaves
+		estate_church_statutory_rights
+		estate_church_yakobs_churches
+		estate_church_one_faith_one_culture
+		estate_church_religious_diplomats
+		estate_church_heir_shrine
+		estate_church_embrace_singluar_cult
+		estate_church_flexible_cults
+		estate_church_scholar_connections
+		estate_church_integrated_school
+		estate_church_anti_heresy_act
+		estate_church_lands_of_riga
+		estate_church_bishopric_of_dorpat
+		estate_church_bishopric_of_osel_wiek
+		estate_church_bishopric_of_courland
+		estate_church_bishopric_of_reval
+	}
+
+	agendas = {
+    	estate_church_develop_x
+		estate_church_build_temple_in_y
+		estate_church_build_university_in_y
+		estate_church_build_manufactory_in_y
+		estate_church_convert_province_x
+		estate_church_reduce_war_exhaustion
+		estate_church_recover_stability
+		estate_church_increase_stability
+		estate_church_reduce_overextension
+		estate_church_restore_devotion
+		estate_church_root_out_heresy
+		estate_church_relations_with_pope
+		estate_church_restore_the_holy_see
+		estate_church_crush_religious_revolts
+		estate_church_protect_brethren
+		estate_church_propagate_religion
+		estate_church_relations_with_dotf
+		estate_church_hire_advisor
+		estate_church_fire_advisor
+	}
+	influence_from_dev_modifier = 1.0	#Determines percent influence from development
+}

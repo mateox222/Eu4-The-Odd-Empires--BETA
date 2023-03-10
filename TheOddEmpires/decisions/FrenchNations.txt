@@ -1,0 +1,57 @@
+country_decisions = {
+Unite_Francia = {
+major = yes
+potential = {
+			tag = FRA
+	NOT = { exists = A59 }
+	}
+	provinces_to_highlight = { 
+				OR = {
+province_id = 236
+province_id = 4372
+province_id = 4369
+province_id = 4375
+province_id = 217
+province_id = 220
+province_id = 213
+
+
+	} }
+		allow = {
+			NOT = { exists = A59 }
+	stability = 1
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 236
+		owns_core_province = 4372
+		owns_core_province = 4369
+		owns_core_province = 4375
+		owns_core_province = 217
+		owns_core_province = 220
+		owns_core_province = 213		
+		
+					num_of_owned_provinces_with = {
+				value = 20
+					region = british_isles_region
+				    is_core = root
+			}
+			}
+
+		effect = {
+			change_tag = A59
+			add_prestige = 100
+			set_government_rank = 3
+			country_event = { id = ideagroups.1 }
+			236 = {
+				move_capital_effect = yes
+				change_culture = ROOT
+				change_religion = ROOT
+			}
+			swap_non_generic_missions = yes
+
+}
+		ai_will_do = {
+			factor = 1
+}
+}
+}

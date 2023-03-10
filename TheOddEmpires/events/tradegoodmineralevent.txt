@@ -1,0 +1,299 @@
+namespace = atlantropaprices
+
+country_event = {
+	id = atlantropaprices.20
+	title = atlantropaprices.20.t
+	desc = atlantropaprices.20.d
+	picture = sapphire_eventPicture
+
+	fire_only_once = yes
+	
+	major = yes
+
+	trigger = {
+		adm_tech = 17
+		magicstone = 2
+		NOT = { has_global_flag = PATAGONIT_EVENT_happened }
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+		immediate = { 
+		hidden_effect = { set_global_flag = PATAGONIT_EVENT_happened }
+	}
+	
+	option = {
+		name = atlantropaprices.20.a
+		change_price = {
+			trade_goods = magicstone
+			key = PATAGONIT_EVENT
+			value = 0.5
+			duration = -1
+		}
+	}
+}
+country_event = {
+	id = atlantropaprices.21
+	title = atlantropaprices.21.t
+	desc = atlantropaprices.21.d
+	picture = vodka_eventPicture
+	fire_only_once = yes
+	
+	major = yes
+
+	trigger = {
+		adm_tech = 7
+		capital_scope = { superregion = eastern_europe_superregion }
+		NOT = { has_global_flag = VODKA_EVENT_happened }
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+		immediate = { 
+		hidden_effect = { set_global_flag = VODKA_EVENT_happened }
+	}
+	
+	option = {
+		name = atlantropaprices.20.a
+		change_price = {
+			trade_goods = vodka_drink
+			key = VODKA_EVENT
+			value = -0.5
+			duration = 7200
+		}
+		1752 = { change_trade_goods = vodka_drink }
+		4249 = { change_trade_goods = vodka_drink }
+		293 = { change_trade_goods = vodka_drink }
+		4115 = { change_trade_goods = vodka_drink }
+		2422 = { change_trade_goods = vodka_drink }
+		4265 = { change_trade_goods = vodka_drink }
+		1079 = { change_trade_goods = vodka_drink }
+		30 = { change_trade_goods = vodka_drink }
+		27 = { change_trade_goods = vodka_drink }
+		290 = { change_trade_goods = vodka_drink }
+		1964 = { change_trade_goods = vodka_drink }
+		470 = { change_trade_goods = vodka_drink }
+	
+		
+	}
+}
+province_event = {
+	id = atlantropaprices.151
+	title = "atlantropaprices.151.t"
+	desc = "atlantropaprices.151.d"
+	picture = none
+	hidden = yes
+	trigger = {
+				trade_goods = slaves
+				owner = { NOT = { religion = reformednahuatl } }
+				continent = europe
+		}
+	mean_time_to_happen = {
+		months = 1			
+	}
+	option = {
+		name = "atlantropaprices.151.a"
+		change_trade_goods = grain	
+	}
+}
+country_event = {
+	id = atlantropaprices.22
+	title = atlantropaprices.22.t
+	desc = atlantropaprices.22.d
+	picture = POTATOES_eventPicture
+	fire_only_once = yes
+	
+	major = yes
+
+	trigger = {
+		adm_tech = 16
+		capital_scope = { superregion = europe_superregion }
+		NOT = { has_global_flag = POTATO_EVENT_happened }
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+		immediate = { 
+		hidden_effect = { set_global_flag = POTATO_EVENT_happened }
+	}
+	
+	option = {
+		name = atlantropaprices.22.a
+		change_price = {
+			trade_goods = potato
+			key = POTATO_EVENT
+			value = 0.75
+			duration = 7200
+		}
+		376 = { change_trade_goods = potato }
+		4378 = { change_trade_goods = potato }
+		374 = { change_trade_goods = potato }
+		242 = { change_trade_goods = potato }
+		4788 = { change_trade_goods = potato }
+		208 = { change_trade_goods = potato }
+		4553 = { change_trade_goods = potato }
+		212 = { change_trade_goods = potato }
+		5026 = { change_trade_goods = potato }
+		206 = { change_trade_goods = potato }
+		227 = { change_trade_goods = potato }
+		4550 = { change_trade_goods = potato }
+		171 = { change_trade_goods = potato }
+		197 = { change_trade_goods = potato }
+		250 = { change_trade_goods = potato }
+		4549 = { change_trade_goods = potato }
+		5464 = { change_trade_goods = potato }
+		5463 = { change_trade_goods = potato }
+		204 = { change_trade_goods = potato }
+		227 = { change_trade_goods = potato }
+		179 = { change_trade_goods = potato }
+		4732 = { change_trade_goods = potato }
+
+	}
+}
+
+country_event = {
+	id = atlantropaprices.23
+	title = atlantropaprices.23.t
+	desc = atlantropaprices.23.d
+	picture = TOMATOES_eventPicture
+	fire_only_once = yes
+	
+	major = yes
+
+	trigger = {
+		adm_tech = 17
+		capital_scope = { superregion = europe_superregion }
+		NOT = { has_global_flag = TOMATO_EVENT_happened }
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+		immediate = { 
+		hidden_effect = { set_global_flag = TOMATO_EVENT_happened }
+	}
+	
+	option = {
+		name = atlantropaprices.23.a
+		change_price = {
+			trade_goods = tomatoes
+			key = TOMATO_EVENT
+			value = 0.75
+			duration = 7200
+		}
+		169 = { change_trade_goods = tomatoes }
+		2987 = { change_trade_goods = tomatoes }
+		123 = { change_trade_goods = tomatoes }
+		122 = { change_trade_goods = tomatoes }
+		2985 = { change_trade_goods = tomatoes }
+		1871 = { change_trade_goods = tomatoes }
+		1865 = { change_trade_goods = tomatoes }
+		4948 = { change_trade_goods = tomatoes }
+		4772 = { change_trade_goods = tomatoes }
+		4994 = { change_trade_goods = tomatoes }
+		4716 = { change_trade_goods = tomatoes }
+		4738 = { change_trade_goods = tomatoes }
+		4757 = { change_trade_goods = tomatoes }
+		3000 = { change_trade_goods = tomatoes }
+		4705 = { change_trade_goods = tomatoes }
+		4307 = { change_trade_goods = tomatoes }
+		362 = { change_trade_goods = tomatoes }
+		4967 = { change_trade_goods = tomatoes }
+		4555 = { change_trade_goods = tomatoes }
+		4556 = { change_trade_goods = tomatoes }
+		4563 = { change_trade_goods = tomatoes }
+
+	}
+}
+
+country_event = {
+	id = atlantropaprices.24
+	title = atlantropaprices.24.t
+	desc = atlantropaprices.24.d
+	picture = PIZZA_eventPicture
+	fire_only_once = yes
+	
+	major = yes
+
+	trigger = {
+		adm_tech = 20
+		capital_scope = { region = italy_region  }
+		NOT = { has_global_flag = PIZZA_EVENT_happened }
+		tomatoes = 1
+		cheese = 1
+		olives = 1
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+		immediate = { 
+		hidden_effect = { set_global_flag = PIZZA_EVENT_happened }
+	}
+	
+	option = {
+		name = atlantropaprices.24.a
+		change_price = {
+			trade_goods = tomatoes
+			key = TOMATOS_EVENT
+			value = 0.1
+			duration = -1
+		}
+		change_price = {
+			trade_goods = olives
+			key = OLIWKI_EVENT
+			value = 0.1
+			duration = -1
+		}
+		change_price = {
+			trade_goods = cheese
+			key = CHEESES_EVENT
+			value = 0.1
+			duration = -1
+		}
+		add_prestige = 5
+		add_stability = 1
+	}
+}
+country_event = {
+	id = atlantropaprices.25
+	title = atlantropaprices.25.t
+	desc = atlantropaprices.25.d
+	picture = PIEROGI_eventPicture
+	fire_only_once = yes
+	
+	major = yes
+
+	trigger = {
+		adm_tech = 18
+		culture_group = west_slavic
+		potato = 1
+		cheese = 1
+		NOT = { has_global_flag = PIEROGIES_EVENT_happened }
+		potato = 1
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+		immediate = { 
+		hidden_effect = { set_global_flag = PIEROGIES_EVENT_happened }
+	}
+	
+	option = {
+		name = atlantropaprices.25.a
+		change_price = {
+			trade_goods = potato
+			key = PIEROGI_EVENT
+			value = 0.1
+			duration = -1
+		}
+		change_price = {
+			trade_goods = cheese
+			key = PIEROGIS_EVENT
+			value = 0.1
+			duration = -1
+		}
+		add_prestige = 5
+		add_stability = 1
+
+	}
+}
+

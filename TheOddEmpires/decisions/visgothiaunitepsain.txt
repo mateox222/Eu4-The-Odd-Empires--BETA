@@ -1,0 +1,49 @@
+country_decisions = {
+Unite_Visigothia = {
+major = yes
+potential = {
+		was_never_end_game_tag_trigger = yes
+			tag = A71
+	NOT = { exists = T6U }
+	}
+	provinces_to_highlight = { 
+				OR = {
+province_id = 4549
+province_id = 4969
+province_id = 5464
+province_id = 4361
+province_id = 5461
+province_id = 1745
+
+
+	} }
+		allow = {
+			NOT = { exists = T6U }
+	stability = 1
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 4549
+		owns_core_province = 4969
+		owns_core_province = 5464
+		owns_core_province = 4361
+		owns_core_province = 5461
+		owns_core_province = 1745
+		
+					num_of_owned_provinces_with = {
+				value = 20
+					region = iberia_region
+				    is_core = root
+			}
+			}
+
+		effect = {
+					country_event = { 
+    id = uniteiberia_events.1
+}
+
+}
+		ai_will_do = {
+			factor = 1
+}
+}
+}

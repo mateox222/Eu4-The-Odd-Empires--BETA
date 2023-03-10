@@ -1,0 +1,430 @@
+namespace = atlantropa_legio_event
+
+province_event = {
+	id = atlantropa_legio_event.1
+	title = "atlantropa_legio_event.1.t"
+	desc = "atlantropa_legio_event.1.d"
+	picture = romanisation_eventPicture
+	
+	trigger = {
+				NOT = {	culture_group = roman_group }
+			region = thule_region 
+				NOT = { has_province_flag = romanisation }
+ 
+			owner = { culture_group = roman_group }
+		}
+		
+			
+	
+	mean_time_to_happen = {
+		months = 480	
+		
+		modifier = {
+		factor = 0.6
+		 development = 20
+	}		
+	}
+	option = {
+		name = "atlantropa_legio_event.1.a"
+		ai_chance = { factor = 60 }
+		set_province_flag = romanisation
+			change_culture = avalonian
+	}
+}
+
+province_event = {
+	id = atlantropa_legio_event.2
+	title = "atlantropa_legio_event.1.t"
+	desc = "atlantropa_legio_event.1.d"
+	picture = romanisation_eventPicture
+	
+	trigger = {
+			NOT = {	culture_group = roman_group }
+			NOT = { has_province_flag = romanisation }			
+			region = low_countries_region
+ 
+			owner = { culture_group = roman_group }
+		}
+		
+			
+	
+	mean_time_to_happen = {
+		months = 480	
+		
+		modifier = {
+		factor = 0.6
+		 development = 20
+	}		
+	}
+	option = {
+		name = "atlantropa_legio_event.1.a"
+		ai_chance = { factor = 60 }
+		set_province_flag = romanisation	
+			change_culture = batavian
+	}
+}
+province_event = {
+	id = atlantropa_legio_event.3
+	title = "atlantropa_legio_event.1.t"
+	desc = "atlantropa_legio_event.1.d"
+	picture = romanisation_eventPicture
+	
+	trigger = {
+				NOT = {	culture_group = roman_group }
+			NOT = { has_province_flag = romanisation }					
+		OR = {
+			area = munster_area   
+			area = connacht_area
+			area = leinster_area
+			area = ulster_area
+			}
+ 
+			owner = { culture_group = roman_group }
+		}
+		
+			
+	
+	mean_time_to_happen = {
+		months = 480	
+		
+		modifier = {
+		factor = 0.6
+		 development = 20
+	}		
+	}
+	option = {
+		name = "atlantropa_legio_event.1.a"
+		ai_chance = { factor = 60 }
+				set_province_flag = romanisation
+			change_culture = hibernian
+	}
+}
+province_event = {
+	id = atlantropa_legio_event.4
+	title = "atlantropa_legio_event.1.t"
+	desc = "atlantropa_legio_event.1.d"
+	picture = romanisation_eventPicture
+	
+	trigger = {
+				NOT = {	culture_group = roman_group }
+			NOT = { has_province_flag = romanisation }					
+		OR = {
+			area = east_midlands_area
+			area = west_midlands_area 
+			area = yorkshire_area 
+			area = scottish_marches_area 
+			area = wessex_area 
+			area = home_counties_area 
+			area = east_anglia_area 
+			area = wales_area 
+			area = lowlands_area 
+			area = highlands_area
+			area = kingdom_of_the_isles_area
+			}
+ 
+			owner = { culture_group = roman_group }
+		}
+		
+			
+	
+	mean_time_to_happen = {
+		months = 480	
+		
+		modifier = {
+		factor = 0.6
+		 development = 20
+	}		
+	}
+	option = {
+		name = "atlantropa_legio_event.1.a"
+		ai_chance = { factor = 60 }
+		set_province_flag = romanisation
+			change_culture = avalonian
+	}
+}
+
+province_event = {
+	id = atlantropa_legio_event.7
+	title = "atlantropa_legio_event.1.t"
+	desc = "atlantropa_legio_event.1.d"
+	picture = romanisation_eventPicture
+	
+	trigger = {
+				NOT = {	culture_group = roman_group }
+			NOT = { has_province_flag = romanisation }					
+			culture_group = west_slavic
+			owner = { culture_group = roman_group }
+		}
+		
+			
+	
+	mean_time_to_happen = {
+		months = 480	
+		
+		modifier = {
+		factor = 0.6
+		 development = 20
+	}		
+	}
+	option = {
+		name = "atlantropa_legio_event.1.a"
+		ai_chance = { factor = 60 }
+		set_province_flag = romanisation
+			change_culture = romanvenedic
+	}
+}
+province_event = {
+	id = atlantropa_legio_event.5
+	title = "atlantropa_legio_event.1.t"
+	desc = "atlantropa_legio_event.1.d"
+	picture = romanisation_eventPicture
+	
+	trigger = {
+			NOT = { has_province_flag = romanisation }		
+			NOT = {	culture_group = roman_group }
+			NOT = { culture_group = west_slavic }
+			region = france_region 
+			owner = { culture_group = roman_group }
+		}
+		
+			
+	
+	mean_time_to_happen = {
+		months = 480	
+		
+		modifier = {
+		factor = 0.6
+		 development = 20
+	}		
+	}
+	option = {
+		name = "atlantropa_legio_event.1.a"
+		ai_chance = { factor = 60 }
+		set_province_flag = romanisation
+			change_culture = romanogallic
+	}
+}
+province_event = {
+	id = atlantropa_legio_event.6
+	title = "atlantropa_legio_event.1.t"
+	desc = "atlantropa_legio_event.1.d"
+	picture = romanisation_eventPicture
+	
+	trigger = {
+				NOT = { has_province_flag = romanisation }		
+				NOT = {	culture_group = roman_group }
+			region = iberia_region 
+ 
+			owner = { culture_group = roman_group }
+		}
+		
+			
+	
+	mean_time_to_happen = {
+		months = 480	
+		
+		modifier = {
+		factor = 0.6
+		 development = 20
+	}		
+	}
+	option = {
+		name = "atlantropa_legio_event.1.a"
+		ai_chance = { factor = 60 }
+		set_province_flag = romanisation
+			change_culture = romanohispanic
+	}
+}
+province_event = {
+	id = atlantropa_legio_event.8
+	title = "atlantropa_legio_event.1.t"
+	desc = "atlantropa_legio_event.1.d"
+	picture = romanisation_eventPicture
+	
+	trigger = {
+				NOT = { has_province_flag = romanisation }	
+				NOT = {	culture_group = roman_group }
+			region = italy_region 
+ 
+			owner = { culture_group = roman_group }
+		}
+		
+			
+	
+	mean_time_to_happen = {
+		months = 480	
+		
+		modifier = {
+		factor = 0.6
+		 development = 20
+	}		
+	}
+	option = {
+		name = "atlantropa_legio_event.1.a"
+		ai_chance = { factor = 60 }
+		set_province_flag = romanisation
+			change_culture = roman
+	}
+}
+province_event = {
+	id = atlantropa_legio_event.9
+	title = "atlantropa_legio_event.1.t"
+	desc = "atlantropa_legio_event.1.d"
+	picture = romanisation_eventPicture
+	
+	trigger = {
+			region = maghreb_region
+			NOT = { has_province_flag = romanisation }			
+			NOT = { culture_group = south_germanic }
+ 
+		owner = { culture_group = roman_group }
+		}
+		
+			
+	
+	mean_time_to_happen = {
+		months = 480	
+		
+		modifier = {
+		factor = 0.6
+		 development = 20
+	}		
+	}
+	option = {
+		name = "atlantropa_legio_event.1.a"
+		ai_chance = { factor = 60 }
+		set_province_flag = romanisation
+			change_culture = punitian
+	}
+}
+province_event = {
+	id = atlantropa_legio_event.10
+	title = "atlantropa_legio_event.1.t"
+	desc = "atlantropa_legio_event.1.d"
+	picture = romanisation_eventPicture
+	
+	trigger = {
+				NOT = { has_province_flag = romanisation }	
+				NOT = {	culture_group = roman_group }
+			culture_group = byzantine
+ 
+		owner = { culture_group = roman_group }
+		}
+		
+			
+	
+	mean_time_to_happen = {
+		months = 480	
+		
+		modifier = {
+		factor = 0.6
+		 development = 20
+	}		
+	}
+	option = {
+		name = "atlantropa_legio_event.1.a"
+		ai_chance = { factor = 60 }
+		set_province_flag = romanisation
+			change_culture = grecoroman
+	}
+}
+province_event = {
+	id = atlantropa_legio_event.11
+	title = "atlantropa_legio_event.1.t"
+	desc = "atlantropa_legio_event.1.d"
+	picture = romanisation_eventPicture
+	
+	trigger = {
+				NOT = { has_province_flag = romanisation }	
+				NOT = {	culture_group = roman_group }
+			OR = {
+			culture_group = south_germanic 
+			culture_group = germanic
+			culture_group = kutchculturegroup
+			}
+ 
+		owner = { culture_group = roman_group }
+		}
+		
+			
+	
+	mean_time_to_happen = {
+		months = 480	
+		
+		modifier = {
+		factor = 0.6
+		 development = 20
+	}		
+	}
+	option = {
+		name = "atlantropa_legio_event.1.a"
+		ai_chance = { factor = 60 }
+		set_province_flag = romanisation
+			change_culture = romangermanic
+
+	}
+}
+
+province_event = {
+	id = atlantropa_legio_event.12
+	title = "atlantropa_legio_event.1.t"
+	desc = "atlantropa_legio_event.1.d"
+	picture = romanisation_eventPicture
+	
+	trigger = {
+				NOT = { has_province_flag = romanisation }	
+				NOT = {	culture_group = roman_group }
+		region = lyonesse_region
+ 
+		owner = { culture_group = roman_group }
+		}
+		
+			
+	
+	mean_time_to_happen = {
+		months = 480	
+		
+		modifier = {
+		factor = 0.6
+		 development = 20
+	}		
+	}
+	option = {
+		name = "atlantropa_legio_event.1.a"
+		ai_chance = { factor = 60 }
+		set_province_flag = romanisation
+			change_culture = romanlyonessean
+
+	}
+}
+province_event = {
+	id = atlantropa_legio_event.13
+	title = "atlantropa_legio_event.1.t"
+	desc = "atlantropa_legio_event.1.d"
+	picture = romanisation_eventPicture
+	
+	trigger = {
+				NOT = {	culture_group = roman_group }
+				culture_group = scandinavian
+				NOT = { has_province_flag = romanisation }
+ 
+			owner = { culture_group = roman_group}
+		}
+		
+			
+	
+	mean_time_to_happen = {
+		months = 480	
+		
+		modifier = {
+		factor = 0.6
+		 development = 20
+	}		
+	}
+	option = {
+		name = "atlantropa_legio_event.1.a"
+		ai_chance = { factor = 60 }
+		set_province_flag = romanisation	
+		change_culture = romangscandiv
+	}
+}

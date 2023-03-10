@@ -1,0 +1,202 @@
+namespace = atlantropa_jewish_event
+province_event = {
+	id = atlantropa_jewish_event.2
+	title = "atlantropa_basic_event.5.t"
+	desc = "atlantropa_basic_event.5.d"
+	picture = sackniflport_eventPicture
+	hidden = yes
+	trigger = {
+        
+		has_province_modifier = atlantropa_large_jewish_community 
+	OR = {
+	NOT = { owner = { religion_group = christian } }
+	NOT = {	development = 25 }
+            		owner = {	 has_country_flag = jewsexpelled } 
+	}
+}
+	option = {
+		remove_province_modifier = atlantropa_large_jewish_community
+}
+
+	}
+
+province_event = {
+	id = atlantropa_jewish_event.1
+	title = "atlantropa_basic_event.5.t"
+	desc = "atlantropa_basic_event.5.d"
+	picture = sackniflport_eventPicture
+	hidden = yes
+	trigger = {
+		has_province_modifier = atlantropa_jewish_community	
+		NOT = { has_province_modifier = atlantropa_large_jewish_community }		
+                		owner = {	NOT = {  has_country_flag = jewsexpelled } }
+
+	owner = { religion_group = christian }
+		development = 25
+	}
+
+	option = {
+		remove_province_modifier = atlantropa_jewish_community
+
+	add_province_modifier = { 
+    name = atlantropa_large_jewish_community
+    duration = -1
+}
+	}
+}		
+
+province_event = {
+	id = atlantropa_jewish_event.3
+	title = "atlantropa_basic_event.5.t"
+	desc = "atlantropa_basic_event.5.d"
+	picture = sackniflport_eventPicture
+	hidden = yes
+	trigger = {
+		NOT = { has_province_modifier = atlantropa_jewish_community }
+		NOT = { has_province_modifier = atlantropa_large_jewish_community }		
+                		owner = {	NOT = {  has_country_flag = jewsexpelled } }
+	owner = { religion_group = christian }
+	 	development = 15
+		NOT = { development = 25 }
+	}
+
+	option = {
+
+	add_province_modifier = { 
+    name = atlantropa_jewish_community
+    duration = -1
+}
+		remove_province_modifier  = atlantropa_large_jewish_community
+}
+	}
+
+province_event = {
+	id = atlantropa_jewish_event.4
+	title = "atlantropa_basic_event.5.t"
+	desc = "atlantropa_basic_event.5.d"
+	picture = sackniflport_eventPicture
+	hidden = yes
+	trigger = {
+		has_province_modifier = atlantropa_jewish_community
+	OR = {
+	NOT = { owner = { religion_group = christian } }
+	NOT = {	development = 15 }
+    owner = {	 has_country_flag = jewsexpelled } 
+	}
+}
+	option = {
+		remove_province_modifier = atlantropa_jewish_community
+}
+
+	}
+
+province_event = {
+	id = atlantropa_jewish_event.5
+	title = "atlantropa_jewish_event.5.t"
+	desc = "atlantropa_jewish_event.5.d"
+	picture = targevent_eventPicture
+		mean_time_to_happen = {
+	months = 160
+
+}
+	trigger = {
+		owner = {
+		NOT = { stability = 3 }
+		}
+		NOT = { has_province_modifier = borrowmoneyfromjewsturmoils }
+		OR = {
+		has_province_modifier = atlantropa_jewish_community
+		has_province_modifier = atlantropa_large_jewish_community
+}
+	}
+	option = {
+		name = "atlantropa_jewish_event.5.a" 
+		add_base_tax = -1	
+		add_devastation = 5	
+		    add_province_modifier = { 
+    name = borrowmoneyfromjewsturmoils
+    duration = 7250
+}
+}
+
+	}	
+
+province_event = {
+	id = atlantropa_jewish_event.6
+	title = "atlantropa_basic_event.5.t"
+	desc = "atlantropa_basic_event.5.d"
+	picture = sackniflport_eventPicture
+	hidden = yes
+	trigger = {
+		NOT = { has_province_modifier = atlantropa_CYGANIE_community }		
+
+	OR = {
+region = balkan_region
+region = carpathia_region
+region = anatolia_region
+region = poland_region
+region = persia_region
+	}
+	NOT = {	development = 20 }
+	}
+
+	option = {
+
+	add_province_modifier = { 
+    name = atlantropa_CYGANIE_community
+    duration = -1
+}
+	}
+}
+province_event = {
+	id = atlantropa_jewish_event.7
+	title = "atlantropa_basic_event.5.t"
+	desc = "atlantropa_basic_event.5.d"
+	picture = sackniflport_eventPicture
+	hidden = yes
+	trigger = {
+		has_province_modifier = atlantropa_CYGANIE_community
+	development = 20
+	}
+
+	option = {
+	remove_province_modifier = atlantropa_CYGANIE_community
+}
+	}
+
+province_event = {
+	id = atlantropa_jewish_event.8
+	title = "atlantropa_basic_event.5.t"
+	desc = "atlantropa_basic_event.5.d"
+	picture = sackniflport_eventPicture
+	hidden = yes
+	trigger = {
+		NOT = { has_province_modifier = atlantropa_nativeatlantis_community }		
+
+region = atlantis_region
+	NOT = {	development = 15 }
+	}
+
+	option = {
+
+	add_province_modifier = { 
+    name = atlantropa_nativeatlantis_community
+    duration = -1
+}
+	}
+}
+province_event = {
+	id = atlantropa_jewish_event.9
+	title = "atlantropa_basic_event.5.t"
+	desc = "atlantropa_basic_event.5.d"
+	picture = sackniflport_eventPicture
+	hidden = yes
+	trigger = {
+		has_province_modifier = atlantropa_nativeatlantis_community
+	development = 15
+	}
+
+	option = {
+	remove_province_modifier = atlantropa_nativeatlantis_community
+}
+	}

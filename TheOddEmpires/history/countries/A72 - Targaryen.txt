@@ -1,0 +1,34 @@
+government = monarchy
+mercantilism = 25
+technology_group = atlantistech
+primary_culture = dragonic
+religion = hellenic_pagan
+capital = 5279# London
+national_focus = DIP
+change_estate_land_share = {
+	estate = estate_church
+	share = -10
+}
+change_estate_land_share = {
+	estate = estate_burghers
+	share = -10
+}
+change_estate_land_share = { #compensates for lack of nobles, distributes 20 between the remaining estates
+
+	estate = all
+	share = 20
+}
+6859.11.6 = { #Coronation
+
+	monarch = {
+		name = "Aegon"
+		dynasty = "Targaryen"
+		
+		adm = 4
+		dip = 3
+		mil = 4
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = infertile_personality
+}
+government_rank = 1

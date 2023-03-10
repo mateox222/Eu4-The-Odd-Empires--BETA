@@ -1,0 +1,54 @@
+country_decisions = {
+	Unite_neustria = {
+	major = yes
+	potential = {
+			was_never_end_game_tag_trigger = yes
+			NOT = { culture = polish }
+		NOT = { exists = X10 }
+		NOT = { tag = X07 }	
+		NOT = { tag = POL }	
+		NOT = { tag = PLC }					
+		capital_scope = {
+			region = france_region
+		}	
+		}
+		provinces_to_highlight = { 
+					OR = {
+	province_id = 183
+	province_id = 4776
+	province_id = 168
+	province_id = 170
+	province_id = 89
+	province_id = 185
+	province_id = 191
+	
+	
+		} }
+			allow = {
+				NOT = { exists = X10 }
+		stability = 1
+			is_nomad = no
+			is_at_war = no
+			owns_core_province = 183
+			owns_core_province = 4776
+			owns_core_province = 168
+			owns_core_province = 170
+			owns_core_province = 89
+			owns_core_province = 185
+			owns_core_province = 191
+			
+				}
+	
+			effect = {
+				change_tag = X10
+				add_prestige = 100
+				set_government_rank = 3
+				country_event = { id = ideagroups.1 }
+				swap_non_generic_missions = yes
+	
+	}
+			ai_will_do = {
+				factor = 1
+	}
+	}
+	}

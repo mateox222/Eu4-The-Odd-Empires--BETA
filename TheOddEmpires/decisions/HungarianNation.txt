@@ -1,0 +1,51 @@
+country_decisions = {
+Empire_of_Hungary = {
+major = yes
+potential = {
+		was_never_end_game_tag_trigger = yes
+			OR = {
+			primary_culture = hungarian
+			primary_culture = szekelys
+			primary_culture = nyekian
+			}
+	NOT = { exists = HUN }
+	}
+provinces_to_highlight = { 
+				OR = {
+province_id = 280
+province_id = 4244
+province_id = 295
+province_id = 4252
+province_id = 2423
+province_id = 2406
+	} }
+		allow = {
+			NOT = { exists = HUN }
+	stability = 1
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 280
+		owns_core_province = 4244
+		owns_core_province = 295
+		owns_core_province = 4252
+		owns_core_province = 2423
+		owns_core_province = 2406
+}
+		effect = {
+			change_tag = HUN
+			add_prestige = 75
+			set_government_rank = 3
+			swap_non_generic_missions = yes
+			country_event = { id = ideagroups.1 }
+			280 = {
+				move_capital_effect = yes
+				change_culture = ROOT
+				change_religion = ROOT
+			}
+
+}
+		ai_will_do = {
+			factor = 1
+}
+}
+}

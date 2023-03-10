@@ -1,0 +1,53 @@
+country_decisions = {
+Islamic_Ruthenia = {
+major = yes
+potential = {
+		was_never_end_game_tag_trigger = yes
+			primary_culture = awkrainian
+	NOT = { exists = A20 }
+	}
+	provinces_to_highlight = { 
+				OR = {
+province_id = 280
+province_id = 293 
+province_id = 295
+province_id = 291
+
+	} }
+		allow = {
+			NOT = { exists = A20 }
+	stability = 1
+		religion_group = muslim
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 280
+		owns_core_province = 293
+		owns_core_province = 295
+		owns_core_province = 291
+			num_of_owned_provinces_with = {
+				value = 15
+				OR = {
+					region = ruthenia_region
+					region = russia_region 
+					}
+				    is_core = root
+			}
+}
+		effect = {
+			change_tag = A20
+			add_prestige = 100
+			set_government_rank = 3
+						280 = {
+				move_capital_effect = yes
+				change_culture = awkrainian
+				change_religion = ROOT
+				rename_capital = Kiif
+			}
+			swap_non_generic_missions = yes
+			country_event = { id = ideagroups.1 }
+			}
+		ai_will_do = {
+			factor = 1
+}
+}
+}

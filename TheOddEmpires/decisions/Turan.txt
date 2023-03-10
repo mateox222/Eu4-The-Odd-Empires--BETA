@@ -1,0 +1,48 @@
+country_decisions = {
+turan_nation = {
+major = yes
+potential = {
+				OR = {
+			primary_culture = turkish
+			primary_culture = nyekian
+			primary_culture = szekelys
+			}
+
+	NOT = { exists = T9U }
+	}
+	provinces_to_highlight = { 
+				OR = {
+province_id = 280
+province_id = 283
+province_id = 4543
+province_id = 4244
+province_id = 295
+province_id = 301
+
+
+	} }
+		allow = {
+			NOT = { exists = T9U }
+	stability = 1
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 280	
+		owns_core_province = 283
+		owns_core_province = 4543
+		owns_core_province = 4244
+		owns_core_province = 295
+		owns_core_province = 301
+}
+		effect = {
+			change_tag = T9U
+			add_prestige = 25
+			set_government_rank = 3
+			swap_non_generic_missions = yes
+			country_event = { id = ideagroups.1 }
+			}
+		ai_will_do = {
+			factor = 1
+}
+}
+}
+

@@ -1,0 +1,48 @@
+
+country_decisions = {
+new_zionist_empire = {
+major = yes
+potential = {
+			NOT = { has_country_flag = announce_new_zion }
+		OR = {
+tag = A44
+	} }
+	provinces_to_highlight = { 
+province_id = 2638
+province_id = 5114
+province_id = 5115
+province_id = 5116
+province_id = 5117
+province_id = 4594
+province_id = 4593
+province_id = 852
+province_id = 835
+province_id = 834
+	}
+		allow = {
+	stability = 3
+	prestige = 50
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 2638
+		owns_core_province = 5114
+		owns_core_province = 5115
+		owns_core_province = 5116
+		owns_core_province = 5117
+		owns_core_province = 4594
+		owns_core_province = 4593
+		owns_core_province = 852
+		owns_core_province = 835
+		owns_core_province = 834
+}
+		effect = {
+			override_country_name = "ZION"
+			add_prestige = 50	
+			set_country_flag = announce_new_zion
+
+}
+		ai_will_do = {
+			factor = 1
+}
+}
+}

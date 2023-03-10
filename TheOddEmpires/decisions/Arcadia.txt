@@ -1,0 +1,40 @@
+country_decisions = {
+Greater_Minoia = {
+major = yes
+potential = {
+		was_never_end_game_tag_trigger = yes
+		tag = AT5
+	NOT = { exists = A55 }
+	}
+	provinces_to_highlight = { 
+				OR = {
+province_id = 151
+
+	} }
+		allow = {
+			NOT = { exists = A55 }
+	stability = 1
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 151
+}
+		effect = {
+			change_tag = A55
+			add_prestige = 50
+			set_government_rank = 3
+			swap_non_generic_missions = yes
+			country_event = { id = ideagroups.1 }
+			151 = {
+				move_capital_effect = yes
+				change_culture = ROOT
+				change_religion = ROOT
+				rename_capital = Megalipoli
+				change_province_name = "Megálipóli"	
+			}
+
+}
+		ai_will_do = {
+			factor = 1
+}
+}
+}

@@ -1,0 +1,46 @@
+country_decisions = {
+kumarkadam_nation = {
+major = yes
+potential = {
+		was_never_end_game_tag_trigger = yes
+		capital_scope = { region = lemuria_region }
+	NOT = { exists = SB4 }
+	}
+	provinces_to_highlight = { 
+				OR = {
+province_id = 4417
+province_id = 4421
+province_id = 2034
+province_id = 1947
+province_id = 1949
+province_id = 4025
+province_id = 4029
+province_id = 2101
+	} 
+	}
+		allow = {
+			NOT = { exists = SB4 }
+	stability = 1
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 4417	
+		owns_core_province = 4421
+		owns_core_province = 2034
+		owns_core_province = 1947
+		owns_core_province = 1949
+		owns_core_province = 4025
+		owns_core_province = 4029
+		owns_core_province = 2101
+}
+		effect = {
+			change_tag = SB4
+			add_prestige = 25
+			set_government_rank = 3
+			swap_non_generic_missions = yes
+			country_event = { id = ideagroups.1 }
+			}
+		ai_will_do = {
+			factor = 1
+}
+}
+}

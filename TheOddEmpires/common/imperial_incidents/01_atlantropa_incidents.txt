@@ -1,0 +1,157 @@
+incident_byzantine_demands_empire = {
+    event = incident_byzantine.2
+	default_option = 2
+	can_stop = {
+		OR = {
+			NOT = {
+				exists = BYZ
+			}
+			BYZ = {
+				is_subject = yes
+			}
+		}
+	}
+	
+	0 = { # Allow them to get into the Empire without issue
+		factor = 1
+		modifier = {
+			factor = 2
+			has_opinion = {
+				who = BYZ
+				value = 100
+			}
+		}
+		modifier = {
+			factor = 0
+			emperor = { is_rival = BYZ }
+		}
+		modifier = {
+			factor = 0
+			BYZ = { is_rival = emperor }
+		}
+		modifier = {
+			factor = 2
+			NOT = { emperor = { is_rival = BYZ } }
+		}
+		modifier = {
+			factor = 2
+			NOT = { BYZ = { is_rival = emperor } }
+		}
+		modifier = {
+			factor = 3
+			BYZ = { diplomatic_reputation = 1 }
+		}
+		modifier = {
+			factor = 3
+			BYZ = { diplomatic_reputation = 2 }
+		} 
+		modifier = {
+			factor = 3
+			BYZ = { diplomatic_reputation = 3 }
+		}
+		modifier = {
+			factor = 3
+			NOT = { army_strength = {
+			who = BYZ
+			value = 0.5 }}}
+		modifier = {
+			factor = 0
+			OR = {
+				is_enemy = BYZ
+				is_rival = BYZ
+			}
+		}
+		modifier = {
+			factor = 2
+			is_neighbor_of = BYZ
+		}
+			modifier = {
+			factor = 2
+		ai_attitude = {
+		who = BYZ
+		attitude = attitude_threatened
+				}}
+	}
+	
+	1 = { # Allow them into the Empire under heavy restrictions
+		factor = 5
+		modifier = {
+			factor = 0.5
+			emperor = { is_rival = BYZ }
+		}
+		modifier = {
+			factor = 0.5
+			BYZ = { is_rival = emperor }
+		}
+		modifier = {
+			factor = 2
+			NOT = { emperor = { is_rival = BYZ } }
+		}
+		modifier = {
+			factor = 2
+			NOT = { BYZ = { is_rival = emperor } }
+		}
+		modifier = {
+			factor = 10
+			is_neighbor_of = BYZ
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				is_enemy = BYZ
+				is_rival = BYZ
+			}
+		}
+		modifier = {
+			factor = 0
+			OR = {
+				ai_attitude = { who = BYZ attitude = attitude_hostile }
+				ai_attitude = { who = BYZ attitude = attitude_domineering }
+				ai_attitude = { who = BYZ attitude = attitude_outraged }
+				ai_attitude = { who = BYZ attitude = attitude_rivalry }
+			}
+		}
+	}
+	
+	2 = { # Deny them completely
+		factor = 1
+		modifier = {
+			factor = 4
+			OR = {
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_rivalry
+				}
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_hostile
+				}
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_outraged
+				}
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_disloyal
+				}
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_rebellious
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			is_rival = BYZ
+		}
+		modifier = {
+			factor = 2
+			BYZ = { is_rival = emperor }
+		}
+		modifier = {
+			factor = 0
+			alliance_with = BYZ
+		}
+	}
+	}
+

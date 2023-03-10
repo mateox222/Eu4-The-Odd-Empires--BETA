@@ -1,0 +1,2419 @@
+namespace = mnsgoods
+
+country_event = {
+	id = mnsgoods.1
+	title = mnsgoods.1.t
+	desc = mnsgoods.1.d
+	picture = TRADEGOODS_eventPicture
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_global_flag = new_goods }
+		ai = no
+	}
+	
+	immediate = { hidden_effect = { set_global_flag = new_goods } }
+
+	option = {
+		name = mnsgoods.1.yes
+		hidden_effect = {
+		# Horses
+			224 = { change_trade_goods = horses }	#sevilla
+			1749 = { change_trade_goods = horses }	#cadix
+			4126 = { change_trade_goods = horses }	#kiskun
+			4307 = { change_trade_goods = horses }	#aksaray
+			3152 = { change_trade_goods = horses }	#szatmár
+			5167 = { change_trade_goods = horses }	#corum
+			5231 = { change_trade_goods = horses }	#al-ula
+			2065 = { change_trade_goods = horses }	#bhattiana
+			513 = { change_trade_goods = horses }	#jaisalmer
+			4200 = { change_trade_goods = horses }	#hulan
+			722 = { change_trade_goods = horses }	#jirem
+			4202 = { change_trade_goods = horses }	#taining
+			2116 = { change_trade_goods = horses }	#ih huree
+			4221 = { change_trade_goods = horses }	#dundgovi
+			721 = { change_trade_goods = horses }	#setsen
+			4223 = { change_trade_goods = horses }	#hetao
+			707 = { change_trade_goods = horses }	#yumen
+			438 = { change_trade_goods = horses }	#karakum
+			1970 = { change_trade_goods = horses }	#syghnak
+			2367 = { change_trade_goods = horses }	#lower yik
+			283 = { change_trade_goods = horses }	#zaporazhia
+			3243 = { change_trade_goods = horses }	#mykytyn rih
+			3302 = { change_trade_goods = horses }	#bakhmut
+			2416 = { change_trade_goods = horses }	#majar
+			3263 = { change_trade_goods = horses }	#beistho
+			3291 = { change_trade_goods = horses }	#oskol
+			282 = { change_trade_goods = horses }	#ochakiv
+			2407 = { change_trade_goods = horses }	#pereyaslav
+			303 = { change_trade_goods = horses }	#ukak
+		# Olives
+			1773 = { change_trade_goods = olives }	#ilida
+			147 = { change_trade_goods = olives }		#thessaly
+			3003 = { change_trade_goods = olives }	#negroponte
+			5131 = { change_trade_goods = olives }	#ayvalik
+			5134 = { change_trade_goods = olives }	#petronium
+			316 = { change_trade_goods = olives }		#kocaeli
+			5206 = { change_trade_goods = olives }	#kerasous
+			325 = { change_trade_goods = olives }		#kastamonu
+			2302 = { change_trade_goods = olives }	#gazipasa
+			378 = { change_trade_goods = olives }		#tripoli
+			5205 = { change_trade_goods = olives }	#beirut
+			356 = { change_trade_goods = olives }		#benghazi
+			145 = { change_trade_goods = olives }		#lakonia
+			163 = { change_trade_goods = olives }		#irakleio
+			3181 = { change_trade_goods = olives }	#valona
+			3182 = { change_trade_goods = olives }	#shkodra
+			5594 = { change_trade_goods = olives }	#brindisi
+			909 = { change_trade_goods = olives }		#monopoli
+			1933 = { change_trade_goods = olives }	#bari
+			2581 = { change_trade_goods = olives }	#catanzaro
+			5593 = { change_trade_goods = olives }	#marsala
+			2982 = { change_trade_goods = olives }	#syracuse
+			5317 = { change_trade_goods = olives }	#tabarka
+			353 = { change_trade_goods = olives }		#medinine
+			5311 = { change_trade_goods = olives }	#khoms
+			1247 = { change_trade_goods = olives }	#ajaccio
+			127 = { change_trade_goods = olives }		#gallura
+			3039 = { change_trade_goods = olives }	#capua
+			102 = { change_trade_goods = olives }		#nizza
+			200 = { change_trade_goods = olives }		#montpelier
+			221 = { change_trade_goods = olives }		#murcia
+			212 = { change_trade_goods = olives }		#girona
+			3085 = { change_trade_goods = olives }	#nimes
+			3094 = { change_trade_goods = olives }	#castellon
+			2751 = { change_trade_goods = olives }	#cuenca
+			3098 = { change_trade_goods = olives }	#huelva
+			229 = { change_trade_goods = olives }		#beja
+		# Beer
+			2964 = { change_trade_goods = beer }	#altmark
+			62 = { change_trade_goods = beer }		#leipzig
+			1763 = { change_trade_goods = beer }	#dolna luzyca
+			267 = { change_trade_goods = beer }	#pilsen
+			266 = { change_trade_goods = beer }	#prag
+			2968 = { change_trade_goods = beer }	#budweiß
+			265 = { change_trade_goods = beer }	#brno
+			133 = { change_trade_goods = beer }	#linz
+			65 = { change_trade_goods = beer }		#minga
+			2955 = { change_trade_goods = beer }	#ingolstod
+			3206 = { change_trade_goods = beer }	#heilbronn
+			135 = { change_trade_goods = beer }	#sopron
+			3060 = { change_trade_goods = beer }	#betuwe
+			3050 = { change_trade_goods = beer }	#stajerska
+			4239 = { change_trade_goods = beer }	#szerem
+			40 = { change_trade_goods = beer }		#memel
+			3293 = { change_trade_goods = beer }	#oberlettland
+			13 = { change_trade_goods = beer }		#schleswig
+			15 = { change_trade_goods = beer }		#vestkylland
+			4166 = { change_trade_goods = beer }	#kronoberg
+			27 = { change_trade_goods = beer }		#abo
+			2962 = { change_trade_goods = beer }	#rivne
+			3301 = { change_trade_goods = beer }	#dorogobuzh
+			4243 = { change_trade_goods = beer }	#toropets
+			2746 = { change_trade_goods = beer }	#vidin
+			155 = { change_trade_goods = beer }	#bekes
+			2972 = { change_trade_goods = beer }	#paderborn
+			3073 = { change_trade_goods = beer }	#everux
+			28 = { change_trade_goods = beer }		#uusimaa
+			3006 = { change_trade_goods = beer }	#ulaidh
+			4362 = { change_trade_goods = beer }	#dumfries
+			4364 = { change_trade_goods = beer }	#eileanan sear
+			253 = { change_trade_goods = beer }	#eileanan siar
+		# Paper
+			220 = { change_trade_goods = paper }		#valencia
+			1747 = { change_trade_goods = paper }	#cacares
+			180 = { change_trade_goods = paper }		#haut poitou
+			3088 = { change_trade_goods = paper }	#forez
+			5633 = { change_trade_goods = paper }	#fabriano
+			5130 = { change_trade_goods = paper }	#karasi
+			118 = { change_trade_goods = paper }		#roma
+			4142 = { change_trade_goods = paper }	#aarhus
+			37 = { change_trade_goods = paper }		#livland
+			208 = { change_trade_goods = paper }		#leon
+		# Cheese
+			99 = { change_trade_goods = cheese }			#veluwe
+			3063 = { change_trade_goods = cheese }	#overmaas
+			 3081= { change_trade_goods = cheese }	#agenais
+			175 = { change_trade_goods = cheese }		#armagnac
+			3087 = { change_trade_goods = cheese }	#aurillac
+			3109 = { change_trade_goods = cheese }	#la manche
+			3092 = { change_trade_goods = cheese }	#vesoul
+			3056 = { change_trade_goods = cheese }	#geneva
+			3055 = { change_trade_goods = cheese }	#basel
+			105 = { change_trade_goods = cheese }		#parma
+			106 = { change_trade_goods = cheese }		#modena
+			1873 = { change_trade_goods = cheese }	#rhaetia
+			3061 = { change_trade_goods = cheese }	#den bosch
+			92 = { change_trade_goods = cheese }			#brussel
+			2974 = { change_trade_goods = cheese }	#loon
+			3070 = { change_trade_goods = cheese }	#laon
+			88 = { change_trade_goods = cheese }			#artois
+			91 = { change_trade_goods = cheese }			#hainaut
+			2976 = { change_trade_goods = cheese }	#umbria
+			4998 = { change_trade_goods = cheese }	#pescara
+			129 = { change_trade_goods = cheese }		#kransjka
+			1872 = { change_trade_goods = cheese }	#ulm
+			3209 = { change_trade_goods = cheese }	#giessen
+			44 = { change_trade_goods = cheese }			#hamburg
+			54 = { change_trade_goods = cheese }			#stade
+			3058 = { change_trade_goods = cheese }	#drenthe
+			100 = { change_trade_goods = cheese }		#fryslan
+			59 = { change_trade_goods = cheese }			#wittenberg
+			216 = { change_trade_goods = cheese }		#salamanca
+			1748 = { change_trade_goods = cheese }	#jaen
+			4388 = { change_trade_goods = cheese }	#chartres
+			4384 = { change_trade_goods = cheese }	#rouen
+			170 = { change_trade_goods = cheese }		#leon brittany
+			4366 = { change_trade_goods = cheese }	#powys
+			4372 = { change_trade_goods = cheese }	#warwick
+			4368 = { change_trade_goods = cheese }	#durham
+			375 = { change_trade_goods = cheese }		#thomond
+			4121 = { change_trade_goods = cheese }	#aontroim
+			250 = { change_trade_goods = cheese }		#fiobha
+			3019 = { change_trade_goods = cheese }	#strathclyde
+		# Iron
+			3054 = { change_trade_goods = iron }
+			5314 = { change_trade_goods = iron }
+			352 = { change_trade_goods = iron }
+			2459 = { change_trade_goods = iron }
+			2462 = { change_trade_goods = iron }
+			5323 = { change_trade_goods = iron }
+			538 = { change_trade_goods = iron }
+			733 = { change_trade_goods = iron }
+			5383 = { change_trade_goods = iron }
+			5425 = { change_trade_goods = iron }
+			2145 = { change_trade_goods = iron }
+			2769 = { change_trade_goods = iron }
+			4337 = { change_trade_goods = iron }
+			5008 = { change_trade_goods = iron }
+			211 = { change_trade_goods = iron }
+			1843 = { change_trade_goods = iron }
+		# Copper
+			2745= { change_trade_goods = copper }
+			4311 = { change_trade_goods = copper }
+		# Timber - pretty much all Naval Supplies provs
+			3193 = { change_trade_goods = timber }	#tropolje
+			158 = { change_trade_goods = timber }	#maros
+			157 = { change_trade_goods = timber }	#bihar
+			1953 = { change_trade_goods = timber }	#sxabolcs
+			162 = { change_trade_goods = timber }	#zemplin
+			3146 = { change_trade_goods = timber }	#uzhorod
+			1952 = { change_trade_goods = timber }	#zakarpathia
+			3185 = { change_trade_goods = timber }	#rasina
+			5094 = { change_trade_goods = timber }	#malesia
+			143 = { change_trade_goods = timber }	#berat
+			3170 = { change_trade_goods = timber }	#saranta ekklisies
+			2296 = { change_trade_goods = timber }	#canakkale
+			5163 = { change_trade_goods = timber }	#usak
+			4312 = { change_trade_goods = timber }	#boli
+			328 = { change_trade_goods = timber }	#sinop
+			2300 = { change_trade_goods = timber }	#neokaisareoa
+			1846 = { change_trade_goods = timber }	#bayramli
+			3151 = { change_trade_goods = timber }	#zala
+			3068 = { change_trade_goods = timber }	#kernev
+			4119 = { change_trade_goods = timber }	#silgeach
+			376 = { change_trade_goods = timber }	#gaillimh
+			3211 = { change_trade_goods = timber }	#coburg
+			3208 = { change_trade_goods = timber }	#aschaffenburg
+			3218 = { change_trade_goods = timber }	#krajna
+			2958 = { change_trade_goods = timber }	#osterode
+			767 = { change_trade_goods = timber }	#
+			1938 = { change_trade_goods = timber }	#
+			3224 = { change_trade_goods = timber }	#
+			1935 = { change_trade_goods = timber }	#
+			3229 = { change_trade_goods = timber }	#
+			5642 = { change_trade_goods = timber }	#
+			1960 = { change_trade_goods = timber }	#
+			34 = { change_trade_goods = timber }	#
+			5646 = { change_trade_goods = timber }	#
+			5653 = { change_trade_goods = timber }	#
+			311 = { change_trade_goods = timber }	#
+			3271 = { change_trade_goods = timber }	#
+			5654 = { change_trade_goods = timber }	#
+			312 = { change_trade_goods = timber }	#
+			1958 = { change_trade_goods = timber }	#
+			4263 = { change_trade_goods = timber }	#
+			1083 = { change_trade_goods = timber }	#
+			3281 = { change_trade_goods = timber }	#
+			4123 = { change_trade_goods = timber }	#
+			29 = { change_trade_goods = timber }	#
+			22 = { change_trade_goods = timber }	#
+			3120 = { change_trade_goods = timber }	#
+			472 = { change_trade_goods = timber }	#
+			2353 = { change_trade_goods = timber }	#
+			2357 = { change_trade_goods = timber }	#
+			4431 = { change_trade_goods = timber }	#
+			1946 = { change_trade_goods = timber }	#
+			4412 = { change_trade_goods = timber }	#
+			2069 = { change_trade_goods = timber }	#
+			4485 = { change_trade_goods = timber }	#
+			2070 = { change_trade_goods = timber }	#
+			2097 = { change_trade_goods = timber }	#
+			4451 = { change_trade_goods = timber }	#
+			4471 = { change_trade_goods = timber }	#
+			2081 = { change_trade_goods = timber }	#
+			591 = { change_trade_goods = timber }	#
+			599 = { change_trade_goods = timber }	#
+			2372 = { change_trade_goods = timber }	#
+			2145 = { change_trade_goods = timber }	#
+			2744 = { change_trade_goods = timber }	#
+			4215 = { change_trade_goods = timber }	#
+			2105 = { change_trade_goods = timber }	#
+			731 = { change_trade_goods = timber }	#
+			2185 = { change_trade_goods = timber }	#
+			725 = { change_trade_goods = timber }	#
+			2106 = { change_trade_goods = timber }	#
+			2108 = { change_trade_goods = timber }	#
+			2742 = { change_trade_goods = timber }	#
+			4187 = { change_trade_goods = timber }	#
+			1819 = { change_trade_goods = timber }	#
+			5736 = { change_trade_goods = timber }	#
+			1830 = { change_trade_goods = timber }	#
+			5762 = { change_trade_goods = timber }	#
+			4191 = { change_trade_goods = timber }	#
+			5810 = { change_trade_goods = timber }	#
+			935 = { change_trade_goods = timber }	#
+			969 = { change_trade_goods = timber }	#
+			2571 = { change_trade_goods = timber }	#
+			2022 = { change_trade_goods = timber }	#
+			871 = { change_trade_goods = timber }	#
+			2637 = { change_trade_goods = timber }	#
+			3196 = { change_trade_goods = timber }	#
+			1826 = { change_trade_goods = timber }	#
+			1828 = { change_trade_goods = timber }	#
+			1831 = { change_trade_goods = timber }	#
+			2750 = { change_trade_goods = timber }	#
+			144 = { change_trade_goods = timber }	#
+			7044 = { change_trade_goods = timber }	#
+			2978 = { change_trade_goods = timber }	#
+			5090 = { change_trade_goods = timber }	#
+			228 = { change_trade_goods = timber }	#
+			4572 = { change_trade_goods = timber }	#
+			4588 = { change_trade_goods = timber }	#
+			4585 = { change_trade_goods = timber }	#
+			4586 = { change_trade_goods = timber }	#
+			814 = { change_trade_goods = timber }	#
+			2825 = { change_trade_goods = timber }	#
+			276 = { change_trade_goods = timber }	#
+		# Naval Supplies			
+			136 = { change_trade_goods = naval_supplies }	#
+			3192 = { change_trade_goods = naval_supplies }	#
+			1774 = { change_trade_goods = naval_supplies }	#
+			231 = { change_trade_goods = naval_supplies }	#
+			121 = { change_trade_goods = naval_supplies }	#
+		# Vanilla
+			2647 = { change_trade_goods = vanilla }
+			2641 = { change_trade_goods = vanilla }
+			4583 = { change_trade_goods = vanilla }
+			2631 = { change_trade_goods = vanilla }
+			2632 = { change_trade_goods = vanilla }
+			2628 = { change_trade_goods = vanilla }	#ngl just clicked random provs in mexico
+		# Cinnamon
+			4409 = { change_trade_goods = cinnamon }	#trincomale
+			4408 = { change_trade_goods = cinnamon }	#salavata
+			572 = { change_trade_goods = cinnamon }		#kotte
+			2099 = { change_trade_goods = cinnamon }	#kandy
+		# Cloves
+			650 = { change_trade_goods = cloves }	#tidore
+			649 = { change_trade_goods = cloves }	#ternate
+			648 = { change_trade_goods = cloves }	#halmahera
+			646 = { change_trade_goods = cloves }	#ambon
+			2717 = { change_trade_goods = cloves }	#sula
+			2696 = { change_trade_goods = cloves }	#yamdena
+		# Marble
+			117 = { change_trade_goods = marble }	#siena
+			146 = { change_trade_goods = marble }	#athens
+			2066 = { change_trade_goods = marble }	#naguar
+			1757 = { change_trade_goods = marble }	#oberpfalz
+			3042 = { change_trade_goods = marble }	#massa
+			2989 = { change_trade_goods = marble }	#rioja
+			3172 = { change_trade_goods = marble }	#serres
+			3 = { change_trade_goods = marble }		#kalmar
+			32 = { change_trade_goods = marble }		#korela
+			2133 = { change_trade_goods = marble }	#dege
+			693 = { change_trade_goods = marble }	#taiyuan
+			2112 = { change_trade_goods = marble }	#andong
+		# Tar
+			9 = { change_trade_goods = tar }		#haelsingland
+			27 = { change_trade_goods = tar }		#abo
+			3231 = { change_trade_goods = tar }	#dago
+			42 = { change_trade_goods = tar }		#ermland
+			3227 = { change_trade_goods = tar }	#pilten
+			39 = { change_trade_goods = tar }		#goldingen
+			2 = { change_trade_goods = tar }			#ostergotland
+			19 = { change_trade_goods = tar }		#osterbotten
+			5644 = { change_trade_goods = tar }	#yama
+			16 = { change_trade_goods = tar }		#bagahus
+			4163 = { change_trade_goods = tar }	#elfsborg
+			25 = { change_trade_goods = tar }		#gotland
+		# Alum
+			3173 = { change_trade_goods = alum }
+			124 = { change_trade_goods = alum }
+			5593 = { change_trade_goods = alum }
+			5618 = { change_trade_goods = alum }
+			339 = { change_trade_goods = alum }
+			164 = { change_trade_goods = alum }
+			358 = { change_trade_goods = alum }
+			2983 = { change_trade_goods = alum }
+			1233 = { change_trade_goods = alum }
+			4319 = { change_trade_goods = alum }
+			1234 = { change_trade_goods = alum }
+			390 = { change_trade_goods = alum }
+			2345 = { change_trade_goods = alum }
+			4284 = { change_trade_goods = alum }
+			3040 = { change_trade_goods = alum }
+			3048 = { change_trade_goods = alum }	#maybe remove, late 15th c
+			2284 = { change_trade_goods = alum }
+			2287 = { change_trade_goods = alum }
+			2277 = { change_trade_goods = alum }
+		# Steel
+			382 = { change_trade_goods = steel }	#damascus
+			533 = { change_trade_goods = steel }	#mysore
+			5404 = { change_trade_goods = steel }	#quzhou
+		# Opium
+			1848 = { change_trade_goods = opium }	#15 total
+			576 = { change_trade_goods = opium }
+			2225 = { change_trade_goods = opium }
+			424 = { change_trade_goods = opium }
+			423 = { change_trade_goods = opium }
+			427 = { change_trade_goods = opium }
+			4335 = { change_trade_goods = opium }
+			2213 = { change_trade_goods = opium }
+			448 = { change_trade_goods = opium }
+			578 = { change_trade_goods = opium }
+			1968 = { change_trade_goods = opium }
+			434 = { change_trade_goods = opium }
+			2217 = { change_trade_goods = opium }
+			4310 = { change_trade_goods = opium }
+			4461 = { change_trade_goods = opium }	
+		# Hemp - should start on map or no?
+			4385 = { change_trade_goods = timber }	#maunche
+		# Silver
+			73 = { change_trade_goods = silver }	#tirol
+			2967 = { change_trade_goods = silver }	#eger
+			4238 = { change_trade_goods = silver }	#lignica
+			795 = { change_trade_goods = silver }	#potosí
+			2941 = { change_trade_goods = silver }	#choquechaca
+			2946 = { change_trade_goods = silver }	#quillacas
+			804 = { change_trade_goods = silver }	#puno
+			852 = { change_trade_goods = silver }	#mexico
+			2626 = { change_trade_goods = silver }	#tullucan
+			4571 = { change_trade_goods = silver }	#tlacopan
+		# Pearls
+			395 = { change_trade_goods = pearls }
+			2333 = { change_trade_goods = pearls }
+			2999 = { change_trade_goods = pearls }
+			2100 = { change_trade_goods = pearls }
+			4407 = { change_trade_goods = pearls }
+			2101 = { change_trade_goods = pearls }
+			1248 = { change_trade_goods = pearls }
+			5579 = { change_trade_goods = pearls }
+			491 = { change_trade_goods = pearls }
+			669 = { change_trade_goods = pearls }
+			5360 = { change_trade_goods = pearls }
+			2156 = { change_trade_goods = pearls }
+			5414 = { change_trade_goods = pearls }
+			667 = { change_trade_goods = pearls }
+			2331 = { change_trade_goods = pearls }
+			5271 = { change_trade_goods = pearls }
+			2346 = { change_trade_goods = pearls }
+			3137 = { change_trade_goods = pearls }
+			252 = { change_trade_goods = pearls }
+			1242 = { change_trade_goods = pearls }
+			1987 = { change_trade_goods = pearls }
+		# Wool
+			2645 = { change_trade_goods = wool }
+			4570 = { change_trade_goods = wool }
+		#Iberia
+			223 = { change_trade_goods = silk } 
+			227 = { change_trade_goods = salt }
+			1851 = { change_trade_goods = fish }
+			230 = { change_trade_goods = sugar }
+		#Italy
+			123 = { change_trade_goods = silk } #Catanzaro
+			# 123 = { add_permanent_province_modifier = { name = vvv duration = -1 } }
+			2980 = { change_trade_goods = silk } #Lucca
+		}
+	}
+}
+
+
+province_event = {
+	id = mnsgoods.2
+	title = mnsgoods.2.t
+	desc = mnsgoods.2.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	hidden = yes
+	
+	option = {
+		name = mnsgoods.2.a
+		hidden_effect = { add_province_modifier = { name = "coal_adjacent" duration = -1 } }
+	}
+}
+
+province_event = {
+	id = mnsgoods.10
+	title = mnsgoods.10.t
+	desc = mnsgoods.10.d
+	picture = TRADEGOODS_eventPicture
+
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = developed_trade_good
+			remove_building = tradegoodsdevelopment
+
+			remove_province_modifier = stora_kopparberget_modifier
+			remove_province_modifier = granary_of_the_mediterranean
+			remove_province_modifier = ven_murano_glass_industry
+			remove_province_modifier = diamond_mines_of_golconda_modifier
+			remove_province_modifier = coffea_arabica_modifier
+			remove_province_modifier = skanemarket
+			remove_province_modifier = spice_islands_modifier
+			remove_province_modifier = comet_ore_modifier
+			remove_province_modifier = paradise_modifier
+			remove_province_modifier = cerro_rico_modifier
+			#remove_province_modifier = ned_house_of_elzevir # Gives other bonuses and is small enough that I let it stay
+			remove_province_modifier = bookmarket_of_x
+			remove_province_modifier = grand_bank_fisheries
+			remove_province_modifier = diamond_district
+			remove_province_modifier = jingdezhen_kilns
+			remove_province_modifier = perfume_capital
+			remove_province_modifier = hab_schwaz_mine
+			remove_province_modifier = silk_market
+			remove_province_modifier = vvv
+
+
+
+			owner = { every_owned_province = { remove_building = tradegoodsdevelopment } }
+			add_province_modifier = { name = "developinggoods" duration = -1 }
+		}
+	}
+
+	###############################################################################
+	
+	option = {
+		name = mnsgoods.10.nevermind
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	
+	# Ammunition
+	option = {
+		name = mnsgoods.10.ammunition.yes
+		highlight = yes
+		trigger = { ammunition_dev = yes }
+		province_event = { id = mnsgoods.140 }
+	}
+	option = {
+		name = mnsgoods.10.ammunition.no
+		trigger = { ammunition_dev = no }
+		custom_tooltip = ammunitionDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Armaments
+	option = {
+		name = mnsgoods.10.munitions.yes
+		highlight = yes
+		trigger = { munitions_dev = yes }
+		province_event = { id = mnsgoods.125 }
+	}
+	option = {
+		name = mnsgoods.10.munitions.no
+		trigger = { munitions_dev = no }
+		custom_tooltip = munitionsDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Beer
+	option = {
+		name = mnsgoods.10.beer.yes
+		highlight = yes
+		trigger = { beer_dev = yes }
+		province_event = { id = mnsgoods.110 }
+	}
+	option = {
+		name = mnsgoods.10.beer.no
+		trigger = { beer_dev = no }
+		custom_tooltip = beerDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# bombards
+	option = {
+		name = mnsgoods.10.bombards.yes
+		highlight = yes
+		trigger = { bombards_dev = yes }
+		province_event = { id = mnsgoods.140 }
+	}
+	option = {
+		name = mnsgoods.10.bombards.no
+		trigger = { bombards_dev = no }
+		custom_tooltip = bombardsDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Brass
+	option = {
+		name = mnsgoods.10.brass.yes
+		highlight = yes
+		trigger = { brass_dev = yes }
+		province_event = { id = mnsgoods.111 }
+	}
+	option = {
+		name = mnsgoods.10.brass.no
+		trigger = { brass_dev = no }
+		custom_tooltip = brassDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Bronze
+	option = {
+		name = mnsgoods.10.bronze.yes
+		highlight = yes
+		trigger = { bronze_dev = yes }
+		province_event = { id = mnsgoods.112 }
+	}
+	option = {
+		name = mnsgoods.10.bronze.no
+		trigger = { bronze_dev = no }
+		custom_tooltip = bronzeDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# carpets
+	option = {
+		name = mnsgoods.10.carpets.yes
+		highlight = yes
+		trigger = { carpets_dev = yes }
+		province_event = { id = mnsgoods.141 }
+	}
+	option = {
+		name = mnsgoods.10.carpets.no
+		trigger = { carpets_dev = no }
+		custom_tooltip = carpetsDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# cashmere
+	option = {
+		name = mnsgoods.10.cashmere.yes
+		highlight = yes
+		trigger = { cashmere_dev = yes }
+		province_event = { id = mnsgoods.142 }
+	}
+	option = {
+		name = mnsgoods.10.cashmere.no
+		trigger = { cashmere_dev = no }
+		custom_tooltip = cashmereDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Cheese
+	option = {
+		name = mnsgoods.10.cheese.yes
+		highlight = yes
+		trigger = { cheese_dev = yes }
+		province_event = { id = mnsgoods.113 }
+	}
+	option = {
+		name = mnsgoods.10.cheese.no
+		trigger = { cheese_dev = no }
+		custom_tooltip = cheeseDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# citrus
+	option = {
+		name = mnsgoods.10.citrus.yes
+		highlight = yes
+		trigger = { citrus_dev = yes }
+		province_event = { id = mnsgoods.143 }
+	}
+	option = {
+		name = mnsgoods.10.citrus.no
+		trigger = { citrus_dev = no }
+		custom_tooltip = citrusDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Cloth
+	option = {
+		name = mnsgoods.10.cloth.yes
+		highlight = yes
+		trigger = { cloth_dev = yes }
+		province_event = { id = mnsgoods.114 }
+	}
+	option = {
+		name = mnsgoods.10.cloth.no
+		trigger = { cloth_dev = no }
+		custom_tooltip = clothDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# fish
+	option = {
+		name = mnsgoods.10.fish.yes
+		highlight = yes
+		trigger = { fish_dev = yes }
+		province_event = { id = mnsgoods.144 }
+	}
+	option = {
+		name = mnsgoods.10.fish.no
+		trigger = { fish_dev = no }
+		custom_tooltip = fishDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Furniture
+	option = {
+		name = mnsgoods.10.furniture.yes
+		highlight = yes
+		trigger = { furniture_dev = yes }
+		province_event = { id = mnsgoods.115 }
+	}
+	option = {
+		name = mnsgoods.10.furniture.no
+		trigger = { furniture_dev = no }
+		custom_tooltip = furnitureDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Glass
+	option = {
+		name = mnsgoods.10.glass.yes
+		highlight = yes
+		trigger = { glass_dev = yes }
+		province_event = { id = mnsgoods.116 }
+	}
+	option = {
+		name = mnsgoods.10.glass.no
+		trigger = { glass_dev = no }
+		custom_tooltip = glassDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Grain
+	option = {
+		name = mnsgoods.10.grain.yes
+		highlight = yes
+		trigger = { grain_dev = yes }
+		province_event = { id = mnsgoods.117 }
+	}
+	option = {
+		name = mnsgoods.10.grain.no
+		trigger = { grain_dev = no }
+		custom_tooltip = grainDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Hemp
+	option = {
+		name = mnsgoods.10.hemp.yes
+		highlight = yes
+		trigger = { hemp_dev = yes }
+		province_event = { id = mnsgoods.118 }
+	}
+	option = {
+		name = mnsgoods.10.hemp.no
+		trigger = { hemp_dev = no }
+		custom_tooltip = hempDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Horses
+	option = {
+		name = mnsgoods.10.horses.yes
+		highlight = yes
+		trigger = { horses_dev = yes }
+		province_event = { id = mnsgoods.119 }
+	}
+	option = {
+		name = mnsgoods.10.horses.no
+		trigger = { horses_dev = no }
+		custom_tooltip = horsesDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# jewelry
+	option = {
+		name = mnsgoods.10.jewelry.yes
+		highlight = yes
+		trigger = { jewelry_dev = yes }
+		province_event = { id = mnsgoods.145 }
+	}
+	option = {
+		name = mnsgoods.10.jewelry.no
+		trigger = { jewelry_dev = no }
+		custom_tooltip = jewelryDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Leather
+	option = {
+		name = mnsgoods.10.leather.yes
+		highlight = yes
+		trigger = { leather_dev = yes }
+		province_event = { id = mnsgoods.120 }
+	}
+	option = {
+		name = mnsgoods.10.leather.no
+		trigger = { leather_dev = no }
+		custom_tooltip = leatherDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Linens
+	option = {
+		name = mnsgoods.10.linens.yes
+		highlight = yes
+		trigger = { linens_dev = yes }
+		province_event = { id = mnsgoods.121 }
+	}
+	option = {
+		name = mnsgoods.10.linens.no
+		trigger = { linens_dev = no }
+		custom_tooltip = linensDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Livestock
+	option = {
+		name = mnsgoods.10.livestock.yes
+		highlight = yes
+		trigger = { livestock_dev = yes }
+		province_event = { id = mnsgoods.122 }
+	}
+	option = {
+		name = mnsgoods.10.livestock.no
+		trigger = { livestock_dev = no }
+		custom_tooltip = livestockDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Metalworks
+	option = {
+		name = mnsgoods.10.metalworks.yes
+		highlight = yes
+		trigger = { metalworks_dev = yes }
+		province_event = { id = mnsgoods.123 }
+	}
+	option = {
+		name = mnsgoods.10.metalworks.no
+		trigger = { metalworks_dev = no }
+		custom_tooltip = metalworksDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Mirrors
+	option = {
+		name = mnsgoods.10.mirrors.yes
+		highlight = yes
+		trigger = { mirrors_dev = yes }
+		province_event = { id = mnsgoods.124 }
+	}
+	option = {
+		name = mnsgoods.10.mirrors.no
+		trigger = { mirrors_dev = no }
+		custom_tooltip = mirrorsDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Naval Supplies
+	option = {
+		name = mnsgoods.10.naval_supplies.yes
+		highlight = yes
+		trigger = { naval_supplies_dev = yes }
+		province_event = { id = mnsgoods.126 }
+	}
+	option = {
+		name = mnsgoods.10.naval_supplies.no
+		trigger = { naval_supplies_dev = no }
+		custom_tooltip = naval_suppliesDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# palm_oil
+	option = {
+		name = mnsgoods.10.palm_oil.yes
+		highlight = yes
+		trigger = { palm_oil_dev = yes }
+		province_event = { id = mnsgoods.146 }
+	}
+	option = {
+		name = mnsgoods.10.palm_oil.no
+		trigger = { palm_oil_dev = no }
+		custom_tooltip = palm_oilDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Paper
+	option = {
+		name = mnsgoods.10.paper.yes
+		highlight = yes
+		trigger = { paper_dev = yes }
+		province_event = { id = mnsgoods.127 }
+	}
+	option = {
+		name = mnsgoods.10.paper.no
+		trigger = { paper_dev = no }
+		custom_tooltip = paperDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# pewter
+	option = {
+		name = mnsgoods.10.pewter.yes
+		highlight = yes
+		trigger = { pewter_dev = yes }
+		province_event = { id = mnsgoods.147 }
+	}
+	option = {
+		name = mnsgoods.10.pewter.no
+		trigger = { pewter_dev = no }
+		custom_tooltip = pewterDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Potatoes
+	option = {
+		name = mnsgoods.10.potatoes.yes
+		highlight = yes
+		trigger = { potatoes_dev = yes }
+		province_event = { id = mnsgoods.128 }
+	}
+	option = {
+		name = mnsgoods.10.potatoes.no
+		trigger = { potatoes_dev = no }
+		custom_tooltip = potatoesDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Rum
+	option = {
+		name = mnsgoods.10.rum.yes
+		highlight = yes
+		trigger = { rum_dev = yes }
+		province_event = { id = mnsgoods.129 }
+	}
+	option = {
+		name = mnsgoods.10.rum.no
+		trigger = { rum_dev = no }
+		custom_tooltip = rumDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Salt
+	option = {
+		name = mnsgoods.10.salt.yes
+		highlight = yes
+		trigger = { salt_dev = yes }
+		province_event = { id = mnsgoods.130 }
+	}
+	option = {
+		name = mnsgoods.10.salt.no
+		trigger = { salt_dev = no }
+		custom_tooltip = saltDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Silk
+	option = {
+		name = mnsgoods.10.silk.yes
+		highlight = yes
+		trigger = { silk_dev = yes }
+		province_event = { id = mnsgoods.131 }
+	}
+	option = {
+		name = mnsgoods.10.silk.no
+		trigger = { silk_dev = no }
+		custom_tooltip = silkDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Steel
+	option = {
+		name = mnsgoods.10.steel.yes
+		highlight = yes
+		trigger = { steel_dev = yes }
+		province_event = { id = mnsgoods.132 }
+	}
+	option = {
+		name = mnsgoods.10.steel.no
+		trigger = { steel_dev = no }
+		custom_tooltip = steelDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Tar
+	option = {
+		name = mnsgoods.10.tar.yes
+		highlight = yes
+		trigger = { tar_dev = yes }
+		province_event = { id = mnsgoods.133 }
+	}
+	option = {
+		name = mnsgoods.10.tar.no
+		trigger = { tar_dev = no }
+		custom_tooltip = tarDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Timber
+	option = {
+		name = mnsgoods.10.timber.yes
+		highlight = yes
+		trigger = { timber_dev = yes }
+		province_event = { id = mnsgoods.134 }
+	}
+	option = {
+		name = mnsgoods.10.timber.no
+		trigger = { timber_dev = no }
+		custom_tooltip = timberDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Tropical Wood
+	option = {
+		name = mnsgoods.10.tropical_wood.yes
+		highlight = yes
+		trigger = { tropical_wood_dev = yes }
+		province_event = { id = mnsgoods.135 }
+	}
+	option = {
+		name = mnsgoods.10.tropical_wood.no
+		trigger = { tropical_wood_dev = no }
+		custom_tooltip = tropical_woodDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Uniforms
+	option = {
+		name = mnsgoods.10.uniforms.yes
+		highlight = yes
+		trigger = { uniforms_dev = yes }
+		province_event = { id = mnsgoods.136 }
+	}
+	option = {
+		name = mnsgoods.10.uniforms.no
+		trigger = { uniforms_dev = no }
+		custom_tooltip = uniformsDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# wax
+	option = {
+		name = mnsgoods.10.wax.yes
+		highlight = yes
+		trigger = { wax_dev = yes }
+		province_event = { id = mnsgoods.148 }
+	}
+	option = {
+		name = mnsgoods.10.wax.no
+		trigger = { wax_dev = no }
+		custom_tooltip = waxDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Wine
+	option = {
+		name = mnsgoods.10.wine.yes
+		highlight = yes
+		trigger = { wine_dev = yes }
+		province_event = { id = mnsgoods.137 }
+	}
+	option = {
+		name = mnsgoods.10.wine.no
+		trigger = { wine_dev = no }
+		custom_tooltip = wineDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+	
+	# Wool
+	option = {
+		name = mnsgoods.10.wool.yes
+		highlight = yes
+		trigger = { wool_dev = yes }
+		province_event = { id = mnsgoods.138 }
+	}
+	option = {
+		name = mnsgoods.10.wool.no
+		trigger = { wool_dev = no }
+		custom_tooltip = woolDESC
+		hidden_effect = { remove_province_modifier = "developinggoods" }
+	}
+}
+
+#################################
+#Long list of good-change related events#
+#################################
+# Beer
+province_event = {
+	id = mnsgoods.110
+	title = mnsgoods.100.t
+	desc = mnsgoods.110.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -50 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.210 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.210
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.210.a
+		change_trade_goods = beer
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# brass
+province_event = {
+	id = mnsgoods.111
+	title = mnsgoods.100.t
+	desc = mnsgoods.111.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -500 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.211 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.211
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.211.a
+		change_trade_goods = brass
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# bronze
+province_event = {
+	id = mnsgoods.112
+	title = mnsgoods.100.t
+	desc = mnsgoods.112.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -250 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.212 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.212
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.212.a
+		change_trade_goods = bronze
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# cheese
+province_event = {
+	id = mnsgoods.113
+	title = mnsgoods.100.t
+	desc = mnsgoods.113.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -50 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.213 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.213
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.213.a
+		change_trade_goods = cheese
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# cloth
+province_event = {
+	id = mnsgoods.114
+	title = mnsgoods.100.t
+	desc = mnsgoods.114.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -100 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.214 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.214
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.214.a
+		change_trade_goods = cloth
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# furniture
+province_event = {
+	id = mnsgoods.115
+	title = mnsgoods.100.t
+	desc = mnsgoods.115.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -250 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.215 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.215
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.215.a
+		change_trade_goods = furniture
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# glass
+province_event = {
+	id = mnsgoods.116
+	title = mnsgoods.100.t
+	desc = mnsgoods.116.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -150 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.216 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.216
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.216.a
+		change_trade_goods = glass
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# grain
+province_event = {
+	id = mnsgoods.117
+	title = mnsgoods.100.t
+	desc = mnsgoods.117.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -25 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.217 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.217
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.217.a
+		change_trade_goods = grain
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# hemp
+province_event = {
+	id = mnsgoods.118
+	title = mnsgoods.100.t
+	desc = mnsgoods.118.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -50 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.218 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.218
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.218.a
+		change_trade_goods = hemp
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# horses
+province_event = {
+	id = mnsgoods.119
+	title = mnsgoods.100.t
+	desc = mnsgoods.119.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -50 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.219 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.219
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.219.a
+		change_trade_goods = horses
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# leather
+province_event = {
+	id = mnsgoods.120
+	title = mnsgoods.100.t
+	desc = mnsgoods.120.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -150 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.220 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.220
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.220.a
+		change_trade_goods = leather
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# linens
+province_event = {
+	id = mnsgoods.121
+	title = mnsgoods.100.t
+	desc = mnsgoods.121.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -50 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.221 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.221
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.221.a
+		change_trade_goods = linens
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# livestock
+province_event = {
+	id = mnsgoods.122
+	title = mnsgoods.100.t
+	desc = mnsgoods.122.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -25 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.222 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.222
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.222.a
+		change_trade_goods = livestock
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# metalworks
+province_event = {
+	id = mnsgoods.123
+	title = mnsgoods.100.t
+	desc = mnsgoods.123.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -50 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.223 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.223
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.223.a
+		change_trade_goods = metalworks
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# mirrors
+province_event = {
+	id = mnsgoods.124
+	title = mnsgoods.100.t
+	desc = mnsgoods.124.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -500 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.224 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.224
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.224.a
+		change_trade_goods = mirrors
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# munitions
+province_event = {
+	id = mnsgoods.125
+	title = mnsgoods.100.t
+	desc = mnsgoods.125.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -500 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.225 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.225
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.225.a
+		change_trade_goods = munitions
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# naval_supplies
+province_event = {
+	id = mnsgoods.126
+	title = mnsgoods.100.t
+	desc = mnsgoods.126.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -50 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.226 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.226
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.226.a
+		change_trade_goods = naval_supplies
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# paper
+province_event = {
+	id = mnsgoods.127
+	title = mnsgoods.100.t
+	desc = mnsgoods.127.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -100 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.227 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.227
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.227.a
+		change_trade_goods = paper
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# potatoes
+province_event = {
+	id = mnsgoods.128
+	title = mnsgoods.100.t
+	desc = mnsgoods.128.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -50 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.228 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.228
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.228.a
+		change_trade_goods = potatoes
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# rum
+province_event = {
+	id = mnsgoods.129
+	title = mnsgoods.100.t
+	desc = mnsgoods.129.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -100 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.229 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.229
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.229.a
+		change_trade_goods = rum
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# salt
+province_event = {
+	id = mnsgoods.130
+	title = mnsgoods.100.t
+	desc = mnsgoods.130.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -50 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.230 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.230
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.230.a
+		change_trade_goods = salt
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# silk
+province_event = {
+	id = mnsgoods.131
+	title = mnsgoods.100.t
+	desc = mnsgoods.131.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -150 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.231 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.231
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.231.a
+		change_trade_goods = silk
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# steel
+province_event = {
+	id = mnsgoods.132
+	title = mnsgoods.100.t
+	desc = mnsgoods.132.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -250 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.232 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.232
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.232.a
+		change_trade_goods = steel
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# tar
+province_event = {
+	id = mnsgoods.133
+	title = mnsgoods.100.t
+	desc = mnsgoods.133.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -50 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.233 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.233
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.233.a
+		change_trade_goods = tar
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# timber
+province_event = {
+	id = mnsgoods.134
+	title = mnsgoods.100.t
+	desc = mnsgoods.134.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -25 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.234 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.234
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.234.a
+		change_trade_goods = timber
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# tropical_wood
+province_event = {
+	id = mnsgoods.135
+	title = mnsgoods.100.t
+	desc = mnsgoods.135.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -50 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.235 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.235
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.235.a
+		change_trade_goods = tropical_wood
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# uniforms
+province_event = {
+	id = mnsgoods.136
+	title = mnsgoods.100.t
+	desc = mnsgoods.136.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -500 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.236 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.236
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.236.a
+		change_trade_goods = uniforms
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# wine
+province_event = {
+	id = mnsgoods.137
+	title = mnsgoods.100.t
+	desc = mnsgoods.137.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -50 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.237 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.237
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.237.a
+		change_trade_goods = wine
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# wool
+province_event = {
+	id = mnsgoods.138
+	title = mnsgoods.100.t
+	desc = mnsgoods.138.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -25 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.238 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.238
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.238.a
+		change_trade_goods = wool
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# ammunition
+province_event = {
+	id = mnsgoods.139
+	title = mnsgoods.100.t
+	desc = mnsgoods.139.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -500 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.239 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.239
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.239.a
+		change_trade_goods = ammunition
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# bombards
+province_event = {
+	id = mnsgoods.140
+	title = mnsgoods.100.t
+	desc = mnsgoods.140.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -150 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.240 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.240
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.240.a
+		change_trade_goods = bombards
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# carpets
+province_event = {
+	id = mnsgoods.141
+	title = mnsgoods.100.t
+	desc = mnsgoods.141.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -150 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.241 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.241
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.241.a
+		change_trade_goods = carpets
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# cashmere
+province_event = {
+	id = mnsgoods.142
+	title = mnsgoods.100.t
+	desc = mnsgoods.142.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -50 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.242 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.242
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.242.a
+		change_trade_goods = cashmere
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# citrus
+province_event = {
+	id = mnsgoods.143
+	title = mnsgoods.100.t
+	desc = mnsgoods.143.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -100 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.243 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.243
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.243.a
+		change_trade_goods = citrus
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# fish
+province_event = {
+	id = mnsgoods.144
+	title = mnsgoods.100.t
+	desc = mnsgoods.144.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -25 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.244 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.244
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.244.a
+		change_trade_goods = fish
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# jewelry
+province_event = {
+	id = mnsgoods.145
+	title = mnsgoods.100.t
+	desc = mnsgoods.145.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -500 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.245 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.245
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.245.a
+		change_trade_goods = jewelry
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# palm_oil
+province_event = {
+	id = mnsgoods.146
+	title = mnsgoods.100.t
+	desc = mnsgoods.146.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -25 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.246 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.246
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.246.a
+		change_trade_goods = palm_oil
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# pewter
+province_event = {
+	id = mnsgoods.147
+	title = mnsgoods.100.t
+	desc = mnsgoods.147.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -500 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.247 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.247
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.247.a
+		change_trade_goods = pewter
+		remove_province_modifier = "developinggoods"
+	}
+}
+
+# wax
+province_event = {
+	id = mnsgoods.148
+	title = mnsgoods.100.t
+	desc = mnsgoods.148.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.100.back
+		province_event = { id = mnsgoods.10 }
+	}
+	option = {
+		name = mnsgoods.100.yes
+		# owner = { add_adm_power = -20 add_mil_power = -20 add_dip_power = -20 }
+		owner = {  add_treasury = -50 add_years_of_income = -0.5 }
+		province_event = { id = mnsgoods.248 days = 365 }
+	}
+}
+province_event = {
+	id = mnsgoods.248
+	title = mnsgoods.200.t
+	desc = mnsgoods.200.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = mnsgoods.248.a
+		change_trade_goods = wax
+		remove_province_modifier = "developinggoods"
+	}
+}
