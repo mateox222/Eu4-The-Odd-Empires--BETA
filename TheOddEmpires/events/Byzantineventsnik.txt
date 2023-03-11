@@ -2429,6 +2429,7 @@ add_country_modifier = {
 	trigger = {
 		    has_reform = roman_byzantine_monarchy
 	has_country_modifier = rrvenetaunpleased
+	NOT = { stability = 1}
 	}
 	mean_time_to_happen = {
 	months = 36
@@ -2459,6 +2460,7 @@ add_country_modifier = {
 		    has_reform = roman_byzantine_monarchy
 	has_country_modifier = rrvenetaleased
 	faction_in_power = rr_veneta	
+	NOT = { stability = 2 }
 	}
 	mean_time_to_happen = {
 	months = 96
@@ -2541,6 +2543,7 @@ add_country_modifier = {
 	trigger = {
 		    has_reform = roman_byzantine_monarchy
 	has_country_modifier = rrprasinapleased
+	NOT = { stability = 1}
 	}
 	mean_time_to_happen = {
 	months = 100
@@ -2571,6 +2574,7 @@ add_country_modifier = {
 		    has_reform = roman_byzantine_monarchy
 	has_country_modifier = rrprasinaunpleased
 	faction_in_power = rr_prasina
+	NOT = { stability = 1}
 	}
 	mean_time_to_happen = {
 	months = 96
@@ -2604,6 +2608,7 @@ add_country_modifier = {
 	NOT = { has_country_modifier = preatoriadevastating }
 	NOT = { has_country_modifier = preatoriansagaindevastating }	
 	faction_in_power = rr_praetorians
+	NOT = { stability = 2 }
 	}
 	mean_time_to_happen = {
 	months = 100
@@ -2665,6 +2670,7 @@ add_country_modifier = {
 	NOT = { has_country_modifier = preatoriansagaindevastating }
 	NOT = { has_country_modifier = preatoriadevastating }	
 	faction_in_power = rr_praetorians
+	NOT = { stability = 3 }
 	}
 	mean_time_to_happen = {
 	months = 90
@@ -2912,6 +2918,7 @@ set_ruler_flag = damnvenet
 	trigger = {
 		   tag = BYZ   
 	has_ruler_modifier = preatoriaguards
+	NOT = { stability = 3}
 		NOT = { has_ruler_flag = damnprasina }
 	}
 	mean_time_to_happen = {
@@ -2959,6 +2966,7 @@ set_ruler_flag = damnvenet
 	picture = ANGRY_MOB_eventPicture
 	trigger = {
 		    has_reform = roman_byzantine_monarchy
+			NOT = { stability = 2}
 	}
 mean_time_to_happen = {
 	months = 180
