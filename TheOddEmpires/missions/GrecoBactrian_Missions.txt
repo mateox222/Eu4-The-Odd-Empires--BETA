@@ -19,7 +19,7 @@ A5F_slot_1 = {
 		trigger = {
 			num_of_allies = 2 
 			army_size_percentage = 0.8 
-			SRH = { 
+			AFG = { 
 				OR = { 
 					war_with = ROOT 
 					is_rival = ROOT 
@@ -31,27 +31,32 @@ A5F_slot_1 = {
 						who = ROOT
 						modifier = scornfully_insulted
 					}
+				
+				
 					exists = no 
 				}
 			}
-			AFG = { 
+			SRH = { 
 				OR = { 
 					alliance_with = ROOT 
-					is_rival = ROOT 
+					NOT = { is_rival = ROOT }
+					NOT = {
 					has_opinion_modifier = {
 						who = ROOT
 						modifier = insulted
 					}
+				}
+				NOT = {
 					has_opinion_modifier = {
 						who = ROOT
 						modifier = scornfully_insulted
 					}
+				}
 					exists = no 
 				}
 			}
 		}
 		effect = {
-			tooltip = { 
 				add_favors = {
 					who = AFG
 					amount = -10 
@@ -62,7 +67,7 @@ A5F_slot_1 = {
 				}
 				SRH = { add_historical_friend = ROOT }
 				add_historical_friend = SRH
-			}
+			
 		}
 	}
 	
