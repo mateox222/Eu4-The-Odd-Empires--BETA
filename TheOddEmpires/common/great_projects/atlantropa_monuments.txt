@@ -3368,3 +3368,276 @@ atlantis_forgedziwny = {
 		}
 	}
 }
+atlantis_shangrigate = {
+    start = 5616
+	date = 6848.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 3
+	type = monument
+	build_trigger = {
+	always = no
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+
+		owner = { tag = X30 }
+	}
+
+	can_upgrade_trigger = {
+
+		owner = { tag = X30 }
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+			local_defensiveness = 0.1	
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 2000
+		}
+		province_modifiers = {
+			local_defensiveness = 0.8	
+			fort_level = 3	
+							
+		}
+		area_modifier = {
+			local_defensiveness = 0.1	
+			local_friendly_movement_speed = 0.1	
+			local_hostile_movement_speed = -0.8	
+			supply_limit = 3	
+			local_garrison_size = 0.50	
+			local_hostile_attrition = 5	
+			
+		}
+		country_modifiers = {
+			garrison_growth = 0.25	
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+			local_defensiveness = 0.9	
+			fort_level = 4	
+							
+		}
+		area_modifier = {
+			local_defensiveness = 0.2	
+			local_friendly_movement_speed = 0.2	
+			local_hostile_movement_speed = -0.9	
+			supply_limit = 3	
+			local_garrison_size = 0.50	
+			local_hostile_attrition = 7
+			
+		}
+		country_modifiers = {
+			garrison_growth = 0.25	
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+			local_defensiveness = 0.95	
+			fort_level = 5	
+							
+		}
+		area_modifier = {
+			local_defensiveness = 0.5	
+			local_friendly_movement_speed = 0.5
+			local_hostile_movement_speed = -0.95	
+			supply_limit = 5	
+			local_garrison_size = 0.75	
+			local_hostile_attrition = 10
+			
+		}
+		country_modifiers = {
+			garrison_growth = 0.25	
+		}
+		on_upgraded = {
+		}
+	}
+}
+atlantis_shangrila = {
+    start = 5617
+	date = 6848.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 1
+	type = monument
+	build_trigger = {
+	always = no
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+
+		owner = { tag = X30 }
+	}
+
+	can_upgrade_trigger = {
+
+		owner = { tag = X30 }
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 2000
+		}
+		province_modifiers = {
+			local_defensiveness = 0.1	
+			fort_level = 1	
+							
+		}
+		area_modifier = {
+			local_defensiveness = 0.1	
+			local_friendly_movement_speed = 0.1	
+			
+		}
+		country_modifiers = {
+			garrison_growth = 0.05	
+			legitimacy = 0.25	
+			advisor_cost = -0.25	
+			advisor_pool = 3
+			monarch_admin_power = 1	
+			monarch_diplomatic_power = 1	
+			monarch_military_power = 1		
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+			local_defensiveness = 0.1	
+			fort_level = 1	
+							
+		}
+		area_modifier = {
+			local_defensiveness = 0.1	
+			local_friendly_movement_speed = 0.1	
+			
+		}
+		country_modifiers = {
+			garrison_growth = 0.05	
+			legitimacy = 0.5	
+			advisor_cost = -0.5	
+			advisor_pool = 5
+			monarch_admin_power = 2
+			monarch_diplomatic_power = 2	
+			monarch_military_power = 2	
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+			local_defensiveness = 0.1	
+			fort_level = 1	
+							
+		}
+		area_modifier = {
+			local_defensiveness = 0.1	
+			local_friendly_movement_speed = 0.1	
+			
+		}
+		country_modifiers = {
+			garrison_growth = 0.05	
+			legitimacy = 1	
+			advisor_cost = -0.65
+			advisor_pool = 6
+			monarch_admin_power = 3
+			monarch_diplomatic_power = 3	
+			monarch_military_power = 3	
+		}
+		on_upgraded = {
+		}
+	}
+}
