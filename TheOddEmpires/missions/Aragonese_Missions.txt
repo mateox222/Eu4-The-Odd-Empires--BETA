@@ -79,6 +79,13 @@ gc_aragon_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
+						corsica_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	gc_ara_valencian_silk = {
@@ -194,6 +201,7 @@ gc_aragon_2 = {
 		provinces_to_highlight = {
 			OR = {
 				area = corsica_sardinia_area
+				area = corsica_area
 				area = liguria_area
 			}
 			NOT = {
@@ -207,6 +215,10 @@ gc_aragon_2 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 			corsica_sardinia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			corsica_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -507,6 +519,13 @@ gc_aragon_3 = {
 				}
 				add_permanent_claim = ROOT
 			}
+						atlantis_abruzzo = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 			118 = {
 				if = {
 					limit = {
@@ -522,7 +541,10 @@ gc_aragon_3 = {
 		required_missions = { gc_ara_venice }
 		
 		provinces_to_highlight = {
+		OR = {
 			region = italy_region
+			region = atlantis_sicily_region		
+			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -530,6 +552,10 @@ gc_aragon_3 = {
 		
 		trigger = {
 			italy_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+atlantis_sicily_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -649,7 +675,10 @@ gc_aragon_3 = {
 		required_missions = { gc_ara_navarra }
 		
 		provinces_to_highlight = {
+		OR = {
 			area = doggerland_area
+			area = westdoggerland_area
+	}				
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -778,6 +807,7 @@ gc_aragon_4 = {
 				area = calabria_area
 				area = apulia_area
 				area = naples_area
+				area = atlantis_napoli_area
 			}
 			NOT = {
 				owned_by = ROOT
@@ -793,6 +823,10 @@ gc_aragon_4 = {
 				owned_by = ROOT
 			}
 			naples_area = {
+				type = all
+				owned_by = ROOT
+			}
+			atlantis_napoli_area = {
 				type = all
 				owned_by = ROOT
 			}
@@ -871,6 +905,13 @@ gc_aragon_4 = {
 				}
 				add_permanent_claim = ROOT
 			}
+			atlantis_adriaticcoast = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	gc_ara_albania = {
@@ -879,6 +920,7 @@ gc_aragon_4 = {
 		
 		provinces_to_highlight = {
 			area = albania_area
+			area = atlantis_adriaticcoast
 			OR = {
 				NOT = { country_or_non_sovereign_subject_holds = ROOT }
 				NOT = {

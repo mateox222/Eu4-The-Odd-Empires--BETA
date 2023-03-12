@@ -144,7 +144,10 @@ french_missions_north = {
    icon = atlantropa_doggerland
       required_missions = {  emp_fra_annex_genoa }
 	  	provinces_to_highlight = {
+					OR = {
 			area = doggerland_area
+			area = westdoggerland_area
+	}
 		}
 			trigger = {
 			owns_core_province = 5020
@@ -165,6 +168,15 @@ french_missions_north = {
 			doggerland_area = { add_unrest = -5	}
 	
 			corsica_sardinia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT	
+				
+						
+}
+			corsica_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT	}
@@ -212,6 +224,10 @@ french_missions_north = {
 						type = all
 						country_or_non_sovereign_subject_holds = ROOT
 					}
+					atlantis_napoli_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}					
 					120 = {
 						country_or_non_sovereign_subject_holds = ROOT
 					}
@@ -869,6 +885,13 @@ emp_france_missions_2 = {
 					add_permanent_claim = ROOT
 				}
 				naples_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+						atlantis_napoli_area = {
 					limit = {
 						NOT = { is_core = ROOT }
 						NOT = { is_permanent_claim = ROOT }

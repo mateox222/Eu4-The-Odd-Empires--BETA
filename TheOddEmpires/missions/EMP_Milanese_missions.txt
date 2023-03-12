@@ -130,6 +130,7 @@ emp_mlo_conquest_branch = {
 						area = naples_area
 						area = apulia_area
 						area = calabria_area
+												area = atlantis_napoli_area
 					}
 					ROOT = {
 						NOT = {
@@ -139,6 +140,7 @@ emp_mlo_conquest_branch = {
 									area = naples_area
 									area = apulia_area
 									area = calabria_area
+						area = atlantis_napoli_area								
 								}
 							}
 						}
@@ -155,6 +157,7 @@ emp_mlo_conquest_branch = {
 					area = naples_area
 					area = apulia_area
 					area = calabria_area
+											area = atlantis_napoli_area
 				}
 			}
 			is_subject = no
@@ -180,6 +183,13 @@ emp_mlo_conquest_branch = {
 					NOT = { NAP = { is_subject_of = root } }
 				}
 				naples_area = {
+					limit = { owned_by = root }
+					add_province_modifier = {
+						name = mlo_unified_italy
+						duration = 7300
+					}
+				}
+					 atlantis_napoli_area = {
 					limit = { owned_by = root }
 					add_province_modifier = {
 						name = mlo_unified_italy
@@ -465,6 +475,13 @@ emp_mlo_venice_branch = {
 			}
 			else = {
 				naples_area = {
+					limit = {
+						NOT = { is_core = root }
+						NOT = { is_permanent_claim = root }
+					}
+					add_permanent_claim = root
+				}
+				atlantis_napoli_area  = {
 					limit = {
 						NOT = { is_core = root }
 						NOT = { is_permanent_claim = root }

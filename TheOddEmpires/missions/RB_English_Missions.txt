@@ -139,6 +139,7 @@ always = no
 		provinces_to_highlight = {
 			OR = {
 				area = corsica_sardinia_area
+				area = corsica_area				
 				province_id = 4559
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
@@ -149,6 +150,10 @@ always = no
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 			corsica_sardinia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+						corsica_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}

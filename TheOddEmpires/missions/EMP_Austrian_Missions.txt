@@ -1970,6 +1970,13 @@ emp_hab_more_italy_branch = {
 					}
 					add_permanent_claim = root
 				}
+				atlantis_napoli_area = {
+					limit = {
+						NOT = { is_core = root }
+						NOT = { is_permanent_claim = root }
+					}
+					add_permanent_claim = root
+				}
 				apulia_area = {
 					limit = {
 						NOT = { is_core = root }
@@ -2012,6 +2019,7 @@ emp_hab_more_italy_branch = {
 				AND = {
 					OR = {
 						area = naples_area
+						area = atlantis_napoli_area
 						area = apulia_area
 						area = calabria_area
 					}
@@ -2038,6 +2046,7 @@ emp_hab_more_italy_branch = {
 				OR = {
 					area = naples_area
 					area = apulia_area
+					area = atlantis_napoli_area
 					area = calabria_area
 				}
 			}
@@ -2048,6 +2057,13 @@ emp_hab_more_italy_branch = {
 				duration = 7300
 			}
 			italy_region = {
+				limit = {
+					NOT = { is_core = root }
+					NOT = { is_permanent_claim = root }
+				}
+				add_permanent_claim = root
+			}
+			atlantis_sicily_region  {
 				limit = {
 					NOT = { is_core = root }
 					NOT = { is_permanent_claim = root }

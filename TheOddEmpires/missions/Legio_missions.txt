@@ -559,13 +559,15 @@ arhurian_colonist_in_north_america = {
 	icon = atlantropa_italia
 		required_missions = { legio_roma albion_conquest_brittany}
 		provinces_to_highlight = {
-			OR = {
-				region = italy_region
-			}
+OR = {
+            region = italy_region
+            region = atlantis_sicily_region
+            }
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
 			italy_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			atlantis_sicily_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }			
 
 		}
 

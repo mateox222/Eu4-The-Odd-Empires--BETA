@@ -196,6 +196,13 @@ add_prestige = 10
 				}
 				add_permanent_claim = ROOT
 			}
+			atlantis_abruzzo = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 		ai_weight = {
 			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
@@ -212,6 +219,7 @@ add_prestige = 10
 				area = tuscany_area
 				area = emilia_romagna_area
 				area = central_italy_area
+				area = atlantis_abruzzo
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
@@ -225,6 +233,10 @@ add_prestige = 10
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 			central_italy_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			atlantis_abruzzo = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -442,10 +454,15 @@ latin_empire_pp_balkans_north_italy2 = {
 			OR = {
 				area = albania_area
 				area = macedonia_area
+			area = 	atlantis_adriaticcoast
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
+		atlantis_adriaticcoast = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 			albania_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
@@ -589,11 +606,16 @@ add_prestige = 15
 				area = apulia_area
 				area = calabria_area
 				area = naples_area
+				area = atlantis_napoli_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
 			naples_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			atlantis_napoli_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -626,7 +648,7 @@ add_prestige = 15
 				}
 				add_permanent_claim = ROOT
 			}
-			lazio_area = {
+			atlantis_roma = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -759,6 +781,13 @@ lamanitia_latinamission = {
 				}
 				add_permanent_claim = ROOT
 			}
+						corsica_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
 			baleares_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -808,6 +837,7 @@ lamanitia_latinamission = {
 		provinces_to_highlight = {
 			OR = {
 				area = corsica_sardinia_area
+					area = corsica_area			
 				province_id = 126
 				province_id = 333
 			}
@@ -815,6 +845,10 @@ lamanitia_latinamission = {
 		}
 		trigger = {
 			corsica_sardinia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+						corsica_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}

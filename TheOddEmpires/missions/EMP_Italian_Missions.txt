@@ -58,6 +58,7 @@ emp_ita_development_branch = {
 				area = western_sicily_area
 				area = calabria_area
 				area = apulia_area
+				area = atlantis_napoli_area
 			}
 			NOT = { development = 25 }
 		}
@@ -71,6 +72,7 @@ emp_ita_development_branch = {
 						area = western_sicily_area
 						area = calabria_area
 						area = apulia_area
+						area = atlantis_napoli_area
 					}
 					development = 25
 					value = 5
@@ -683,6 +685,13 @@ emp_ita_war_branch = {
 			}
 		}
 		effect = {		
+			atlantis_adriaticcoast = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 			albania_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -827,11 +836,18 @@ emp_ita_unification_branch = {
 		required_missions = {  }
 		
 		provinces_to_highlight = {
-			region = italy_region
+			OR = {
+            region = italy_region
+            region = atlantis_sicily_region
+            }
 			NOT = { owned_by = ROOT }
 		}
 		trigger = {
 			italy_region = {
+				type = all
+				owned_by = ROOT
+			}
+						atlantis_sicily_region = {
 				type = all
 				owned_by = ROOT
 			}
@@ -931,6 +947,7 @@ emp_ita_unification_branch = {
 		provinces_to_highlight = {
 			OR = {
 				area = albania_area
+				area = atlantis_adriaticcoast
 				area = northern_greece_area
 				province_id = 1853
 				province_id = 148
@@ -939,6 +956,10 @@ emp_ita_unification_branch = {
 		}
 		trigger = {
 			albania_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			atlantis_adriaticcoast = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}

@@ -127,8 +127,12 @@ emp_tusc_dip_and_war_2 = {
 			owner = {
 				is_subject = no
 				capital_scope = {
+				or = {
 					region = italy_region
+					region = atlantis_sicily_region 
+					}
 				}
+				
 				NOT = { tag = ROOT }
 			}
 		}
@@ -140,7 +144,10 @@ emp_tusc_dip_and_war_2 = {
 				calc_true_if = {
 					all_ally = {
 						capital_scope = {
+						or = {
 							region = italy_region
+							region = atlantis_sicily_region 	
+						}
 						}
 					}
 					amount = 2

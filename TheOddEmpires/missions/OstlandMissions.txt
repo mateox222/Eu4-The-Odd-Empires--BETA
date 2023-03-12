@@ -1702,7 +1702,10 @@ raumarian_missions_third = {
 		icon = atlantropa_meropisfall
 		required_missions = { aryan_mighty_constantinople aryan_religion_steel }
 		provinces_to_highlight = {
-			region = italy_region
+			OR = {
+            region = italy_region
+            region = atlantis_sicily_region
+            }
 
 				NOT = { country_or_non_sovereign_subject_holds = ROOT }
 				
@@ -1711,6 +1714,7 @@ raumarian_missions_third = {
 			num_of_provinces_owned_or_owned_by_subjects_with = {
 				value = 15
 				region = italy_region
+				region = atlantis_sicily_region				
 			}
 			
 		}			
@@ -1740,6 +1744,7 @@ raumarian_missions_third = {
 			num_of_provinces_owned_or_owned_by_subjects_with = {
 				value = 55
 				region = italy_region
+				region = atlantis_sicily_region
 			}
 		}			
 

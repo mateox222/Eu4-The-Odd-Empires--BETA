@@ -126,6 +126,13 @@ emp_sav_missions_conquest = {
 					}
 					add_permanent_claim = root
 				}
+								corsica_area = {
+					limit = {
+						NOT = { is_core = root }
+						NOT = { is_permanent_claim = root }
+					}
+					add_permanent_claim = root
+				}
 			}
 			else = {
 				every_province = {
@@ -160,13 +167,20 @@ emp_sav_missions_conquest = {
 		icon = unite_with_sardinia
 		required_missions = { emp_sav_conquer_genoa }
 		provinces_to_highlight = {
+		or = {
 			area = corsica_sardinia_area
+			area = corsica_area
+			}
 			NOT = { country_or_non_sovereign_subject_holds = root }
 			ROOT = {
 				NOT = {
 					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 						value = 3 #you can leave out Corsica
 						area = corsica_sardinia_area
+					}
+										num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						value = 3 #you can leave out Corsica
+						area = corsica_area
 					}
 				}
 			}
@@ -281,6 +295,13 @@ emp_sav_missions_conquest = {
 					}
 					add_permanent_claim = root
 				}
+				atlantis_napoli_area = {
+					limit = {
+						NOT = { is_core = root }
+						NOT = { is_permanent_claim = root }
+					}
+					add_permanent_claim = root
+				}
 				apulia_area = {
 					limit = {
 						NOT = { is_core = root }
@@ -314,6 +335,7 @@ emp_sav_missions_conquest = {
 				AND = {
 					OR = {
 						area = naples_area
+						area = atlantis_napoli_area
 						area = apulia_area
 						area = calabria_area
 					}
@@ -678,6 +700,13 @@ emp_sav_missions_conquest_west = {
 					}
 					add_permanent_claim = root
 				}
+				westdoggerland_area = {
+					limit = {
+						NOT = { is_core = root }
+						NOT = { is_permanent_claim = root }
+					}
+					add_permanent_claim = root
+				}
 		}
 	}
 	
@@ -685,13 +714,20 @@ emp_sav_missions_conquest_west = {
 		icon = atlantropa_doggerland
 		required_missions = { emp_sav_conquer_provence }
 		provinces_to_highlight = {
+		OR = {
 				area = doggerland_area
+				area =  westdoggerland_area
 			}
-	
+	}
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 4 #out of 16
+				value = 3 #out of 16
 					area = doggerland_area
+
+			}
+						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 3 #out of 16
+					area = westdoggerland_area
 
 			}
 		}

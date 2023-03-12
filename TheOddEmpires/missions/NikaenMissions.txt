@@ -183,11 +183,16 @@ latin_empire_western = {
 				area = rascia_area
 				area = serbia_area
 				area = bosnia_area
+				area = atlantis_adriaticcoast
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
 			rascia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			atlantis_adriaticcoast = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -251,6 +256,13 @@ latin_empire_western = {
 				add_permanent_claim = ROOT
 			}
 			naples_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			atlantis_napoli_area  {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -1134,6 +1146,7 @@ num_of_owned_provinces_with = {
 				area = apulia_area
 				area = calabria_area
 				area = naples_area
+				area = atlantis_napoli_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
@@ -1170,6 +1183,7 @@ num_of_owned_provinces_with = {
 				area = tuscany_area
 				area = emilia_romagna_area
 				area = central_italy_area
+				area = atlantis_abruzzo
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
@@ -1181,6 +1195,10 @@ num_of_owned_provinces_with = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 			emilia_romagna_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			atlantis_abruzzo = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -1958,11 +1976,18 @@ num_of_owned_provinces_with = {
 			recover_sicily
 		}
 		provinces_to_highlight = {
+		OR = {
 				area = corsica_sardinia_area
+				area = corsica_area				
+				}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
 			corsica_sardinia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+						corsica_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -1984,15 +2009,24 @@ num_of_owned_provinces_with = {
 			recover_lombardia
 		}
 		provinces_to_highlight = {
-				area = doggerland_area 
+						OR = {
+			area = doggerland_area
+			area = westdoggerland_area
+	}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
+		westdoggerland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		
 			doggerland_area  = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
+	
 		effect = {
 									country_event = { 
     id = nikean_empire.71

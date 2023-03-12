@@ -21,6 +21,7 @@ emp_pap_slot_1 = {
 			OR = {
 				area = central_italy_area
 				area = emilia_romagna_area
+				area = atlantis_abruzzo
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
@@ -33,6 +34,7 @@ emp_pap_slot_1 = {
 					OR = {
 						area = central_italy_area
 						area = emilia_romagna_area
+						area = atlantis_abruzzo
 					}
 				}
 			}
@@ -147,6 +149,13 @@ emp_pap_slot_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
+						corsica_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 			sicily_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -172,6 +181,7 @@ emp_pap_slot_1 = {
 		provinces_to_highlight = {
 			OR = {
 				area = corsica_sardinia_area
+				area = corsica_area
 				area = sicily_area
 				area = western_sicily_area
 			}
@@ -186,12 +196,20 @@ emp_pap_slot_1 = {
 				OR = {
 					area = corsica_sardinia_area
 					area = sicily_area
+					area = corsica_area
 					area = western_sicily_area
 				}
 			}
 		}
 		effect = {
 			naples_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			corsica_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -221,9 +239,13 @@ emp_pap_slot_1 = {
 		position = 5
 		
 		provinces_to_highlight = {
-			region = italy_region
+	OR = {
+            region = italy_region
+            region = atlantis_sicily_region
+            }
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
+		
 		
 		trigger = {
 			italy_region = {

@@ -57,8 +57,14 @@ emp_gen_missions_general = {
 					is_neighbor_of = ROOT
 					ROOT = { is_rival = prev }
 				}
+				OR = {
 				any_owned_province = {
 					region = italy_region
+				}
+								any_owned_province = {
+					region = atlantis_sicily_region 	
+				}
+				
 				}
 				army_size = root
 			}
@@ -75,6 +81,10 @@ emp_gen_missions_general = {
 							any_owned_province = {
 								region = italy_region
 							}
+					any_owned_province = {
+					region = atlantis_sicily_region 	
+				}
+							
 						}
 					}
 				}
@@ -391,6 +401,13 @@ emp_gen_missions_western_med = {
 				}
 				add_permanent_claim = ROOT
 			}
+			corsica_area  = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	
@@ -406,6 +423,10 @@ emp_gen_missions_western_med = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
+			corsica_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			} 
 		}
 		effect = {
 			1298 = {
@@ -451,6 +472,7 @@ emp_gen_missions_western_med = {
 			OR = {
 				AND = {
 					region = italy_region
+					region = atlantis_sicily_region 	
 					OR = {
 						country_or_non_sovereign_subject_holds = ARA
 						AND = {
