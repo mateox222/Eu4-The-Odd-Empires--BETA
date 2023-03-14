@@ -18,8 +18,7 @@ country_decisions = {
 			NOT = { tag = HLR }			
 			NOT = { exists = UKR }
 			OR = {
-				primary_culture = byelorussian
-				primary_culture = ruthenian
+				primary_culture = ukrainian
 			}
 			OR = {
 				ai = no
@@ -42,17 +41,17 @@ country_decisions = {
 				AND = {
 					ROOT = { DIP = 5 }
 					OR = {
-						province_id = 280		#Kiev -center
-					province_id = 283		#Zaporozhie -eastern/southern center of rebellions
+						province_id = 266		#Kiev -center
+					province_id = 2966		#Zaporozhie -eastern/southern center of rebellions
 					}
 				}
 				AND = {
 					ROOT = { NOT = { DIP = 5 } }
 					OR = {
-						province_id = 280		#Kiev -center
-						province_id = 283		#Zaporozhie -eastern/southern center of rebellions
-						province_id = 261		#Ruthenia/Lvov -western
-						province_id = 279		#Volhynia -western
+						province_id = 266		#Kiev -center
+						province_id = 2966	#Zaporozhie -eastern/southern center of rebellions
+						province_id = 4989	#Ruthenia/Lvov -western
+						province_id = 263		#Volhynia -western
 					}
 				}
 			}
@@ -70,19 +69,19 @@ country_decisions = {
 			OR = {
 				#owns everything
 				AND = {
-					owns_core_province = 261		#Ruthenia/Lvov -western
-					owns_core_province = 279		#Volhynia -western
-					owns_core_province = 283		#Zaporozhie -eastern/southern center of rebellions
-					owns_core_province = 280		#Kiev -center
-					280 = { 						#Kiev -center
+					owns_core_province = 266		#Ruthenia/Lvov -western
+					owns_core_province = 2966		#Volhynia -western
+					owns_core_province = 4989	#Zaporozhie -eastern/southern center of rebellions
+					owns_core_province = 263		#Kiev -center
+					266 = { 						#Kiev -center
 						is_state = yes
 					}
 				}
 				#or owns only core-core stuff but has god like ruler
 				AND = {				
-					owns_core_province = 283		#Zaporozhie -eastern/southern center of rebellions
-					owns_core_province = 280		#Kiev -center
-					280 = { 						#Kiev -center
+					owns_core_province = 266		#Zaporozhie -eastern/southern center of rebellions
+					owns_core_province = 2966		#Kiev -center
+					266 = { 						#Kiev -center
 						is_state = yes
 					}
 					dip = 5
@@ -90,17 +89,17 @@ country_decisions = {
 			}
 		}
 		effect = {
-			280 = {
+			266 = {
 				move_capital_effect = yes
 			}
-			ruthenia_region = {
+			poland_region = {
 				limit = {
 					NOT = { owned_by = ROOT }
 					NOT = { is_claim = ROOT }
 				}
 				add_permanent_claim = UKR
 			}
-			red_ruthenia_area = {
+			austria_proper_area = {
 				limit = {
 					NOT = { owned_by = ROOT }
 					NOT = { is_claim = ROOT }
