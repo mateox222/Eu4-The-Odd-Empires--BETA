@@ -3641,3 +3641,101 @@ atlantis_shangrila = {
 		}
 	}
 }
+
+atlantropa_zurawgdanski = {
+    start = 43
+	date = 6808.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 1
+	type = monument
+	build_trigger = {
+	always = no
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {	
+	}
+
+	can_upgrade_trigger = {
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+		local_ship_cost = -0.1	
+		local_ship_repair = 0.1
+		
+		}
+		country_modifiers = {
+		navy_tradition = 0.5	
+		naval_forcelimit_modifier = 0.05	
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+		local_ship_cost = -0.2	
+		local_ship_repair = 0.2
+		}
+		country_modifiers = {
+		navy_tradition = 0.08	
+		naval_forcelimit_modifier = 0.1	
+		heavy_ship_power = 0.05	
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+		local_ship_cost = -0.25	
+		local_ship_repair = 0.25
+}
+	}}
