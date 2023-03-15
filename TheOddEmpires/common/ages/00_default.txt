@@ -1031,8 +1031,8 @@ age_of_revolutions = {
 		ab_pru_military = {
 			allow = {
 				OR = {
-					tag = PRU
-					tag = GER
+					tag = CRO
+					tag = A63
 				}
 			}
 			modifier = {
@@ -1055,7 +1055,12 @@ age_of_revolutions = {
 		}
 		ab_russia_boost = {
 			allow = {
-				tag = RUS
+				OR = {
+				tag = X11
+				tag = UKR
+				
+
+				}
 			}
 			modifier = {
 				governing_capacity_modifier = 0.33
@@ -1070,8 +1075,8 @@ age_of_revolutions = {
 		ab_austria_rep = {
 			allow = {
 				OR = {
-					tag = HAB
-					tag = HLR
+					tag = BAV
+					tag = GER			
 				}
 			}
 			modifier = {
@@ -1081,5 +1086,203 @@ age_of_revolutions = {
 				factor = 100
 			}
 		}
+	}
+}
+age_of_industrialization = {
+	start = 7300
+	
+	can_start = {
+		is_institution_enabled = industrialization
+	}
+	
+	papacy = 2.0
+	absolutism = {
+		harsh_treatment = 1
+		stability = 1
+		decrease_autonomy_command = 1
+		strengthen_government = 2
+		
+		increase_autonomy_command = -2
+		debase_currency = -1
+		execute_rebel_acceptance_command = -10
+		seat_in_parliament = -3
+		war_exhaustion = -1
+	}
+	
+	
+	objectives = {
+		obj_indsutrial_parliament = {
+			university = 10
+		}
+		
+		obj_industrial_coal = {
+			num_of_owned_provinces_with = {
+	value = 5
+	coal = 5
+}
+		}
+		obj_industrial_empire = {
+		total_development = 1500
+		great_power_rank = 1
+		}
+
+		obj_industrial_disc_army = {
+			has_commanding_three_star = yes
+			army_size = 500
+		}
+		obj_cultures_accepted = {
+			num_accepted_cultures = 5
+		}
+		
+		obj_industrial_government = {
+			OR = {
+			absolutism = 90
+			has_parliament = yes
+			}
+			stability = 3
+		}
+	
+		obj_industrial_colonies = {
+			num_of_colonies = 5
+		}
+	}
+
+	abilities = {
+
+		colonial_empire_industrial = {
+			modifier = {
+				liberty_desire_from_subject_development = -0.5
+			}
+			ai_will_do = {
+				factor = 15
+				modifier = {
+					factor = 0
+					NOT = {
+						any_subject_country = {
+							liberty_desire = 30
+						}
+					}
+				}
+			}
+		}
+
+		industrial_modernwarfare = {
+			modifier = {
+				fire_damage = 0.15
+				land_attrition = -0.10		
+				artillery_cost = -0.35	
+				force_march_free = yes
+			}
+			ai_will_do = {
+				factor = 15
+			}
+		}
+		
+
+		
+
+		industrial_massproduction = {
+			modifier = {
+				production_efficiency = 0.10
+				global_trade_goods_size_modifier = 0.1		
+			}
+			ai_will_do = {
+				factor = 10
+			}
+		}
+		industrial_ship = {
+			modifier = {
+				ship_durability = 0.5	
+				naval_attrition = -0.5	
+				naval_morale = 0.1	
+				movement_speed_in_fleet_modifier = 1	
+			}
+		ai_will_do = {
+				factor = 10
+			}
+		}
+		
+		industrial_factory = {
+			modifier = {
+				development_cost = -0.25
+				build_time = -0.25	
+				great_project_upgrade_cost = -0.25		
+			}
+			ai_will_do = {
+				factor = 15
+			}
+		}
+		industrial_capitalism = {
+			modifier = {
+				global_prosperity_growth = 0.1	
+				merchants = 1	
+				inflation_reduction = 0.5
+			}
+			ai_will_do = {
+				factor = 15
+			}
+		}
+		industrial_train = {
+			modifier = {
+				movement_speed = 0.50	
+				land_morale = 0.10	
+			}
+			ai_will_do = {
+				factor = 100
+			}
+		}
+				industrial_imperialism = {
+					total_development = 1500
+			modifier = {
+				ignore_coring_distance = yes
+				province_warscore_cost = -0.2	
+				unjustified_demands = -0.2	
+			}
+			ai_will_do = {
+				factor = 10
+			}
+		}
+		Industrial_Italy = {
+			allow = {
+				OR = {
+					tag = ITA
+					tag = HLR	
+					tag = SPI						
+				}
+			}
+			modifier = {
+				administrative_efficiency = 0.05
+			}
+			ai_will_do = {
+				factor = 100
+			}
+		}
+		industrial_fleet = {
+			allow = {
+				num_of_ports = 50
+			}
+			modifier = {
+				naval_maintenance_modifier = -0.5
+			}
+			ai_will_do = {
+				factor = 100
+			}
+		}
+		industrial_byzantine_boost = {
+			allow = {
+				OR = {
+				tag = BYZ
+				tag = ROM
+				tag = A50			
+				}
+			}
+			modifier = {
+				governing_capacity_modifier = 0.33
+			}
+			ai_will_do = {
+				factor = 100
+			}
+		}
+
 	}
 }
