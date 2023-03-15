@@ -665,7 +665,11 @@ province_event = {
 		}
 		modifier = {
 			factor = 2
-			current_age = age_of_revolutions
+					
+				OR = {
+		current_age = age_of_revolutions
+		current_age = age_of_industrialization
+		}
 		}
 	}
 

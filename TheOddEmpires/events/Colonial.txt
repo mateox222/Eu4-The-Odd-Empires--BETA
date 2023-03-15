@@ -86,7 +86,11 @@ province_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+				
+				OR = {
 		current_age = age_of_revolutions
+		current_age = age_of_industrialization
+		}
 		is_overseas = yes
 		is_colony = no
 		religion_group = owner
@@ -139,7 +143,11 @@ province_event = {
 	is_triggered_only = yes
 
 	trigger = {
+				
+				OR = {
 		current_age = age_of_revolutions
+		current_age = age_of_industrialization
+		}
 		is_colony = no
 		is_overseas = yes
 		religion_group = christian
@@ -167,7 +175,11 @@ province_event = {
 	is_triggered_only = yes
 	
 	trigger = {
+				
+				OR = {
 		current_age = age_of_revolutions
+		current_age = age_of_industrialization
+		}
 		is_overseas = yes
 		is_colony = no
 		religion_group = owner
@@ -1189,6 +1201,11 @@ province_event = {
 			factor = 0.85
 			current_age = age_of_revolutions
 		}
+		modifier = {
+			factor = 0.85
+			current_age = age_of_industrialization
+		}
+				
 	}
 	
 	option = {

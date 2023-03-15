@@ -1230,7 +1230,11 @@ emp_france_missions_2 = {
 		}
 		position = 10
 		trigger = {
-			current_age = age_of_revolutions
+		
+							OR = {
+		current_age = age_of_revolutions
+		current_age = age_of_industrialization
+		}
 			india_superregion = {
 				type = all
 				OR = {
@@ -1766,6 +1770,7 @@ emp_france_missions_2 = {
 			OR = {
 				current_age = age_of_absolutism
 				current_age = age_of_revolutions
+				current_age = age_of_industrialization
 			}
 		}
 		effect = {
@@ -2333,6 +2338,7 @@ emp_france_missions_2 = {
 			OR = {
 				current_age = age_of_absolutism
 				current_age = age_of_revolutions
+				current_age = age_of_industrialization
 			}
 			monthly_adm = 10
 			NOT = {

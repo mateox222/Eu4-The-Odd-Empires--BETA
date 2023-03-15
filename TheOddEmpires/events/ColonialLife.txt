@@ -141,6 +141,7 @@ province_event = {
 			OR = {
 				current_age = age_of_absolutism
 				current_age = age_of_revolutions
+				current_age = age_of_industrialization
 			}
 			NOT = {
 				any_owned_province = {
@@ -158,7 +159,11 @@ province_event = {
 		months = 2000
 		modifier = {
 			factor = 0.9
-			current_age = age_of_revolutions
+							OR = {
+		current_age = age_of_revolutions
+		current_age = age_of_industrialization
+		}
+			
 		}
 	}
 
@@ -210,6 +215,7 @@ province_event = {
 			OR = {
 				current_age = age_of_absolutism
 				current_age = age_of_revolutions
+				current_age = age_of_industrialization
 			}
 			NOT = {
 				any_owned_province = {
@@ -279,6 +285,7 @@ province_event = {
 			OR = {
 				current_age = age_of_absolutism
 				current_age = age_of_revolutions
+				current_age = age_of_industrialization
 			}
 			NOT = {
 				any_owned_province = {
@@ -300,7 +307,10 @@ province_event = {
 		months = 2000
 		modifier = {
 			factor = 0.9
-			current_age = age_of_revolutions
+						OR = {
+		current_age = age_of_revolutions
+		current_age = age_of_industrialization
+		}
 		}
 	}
 

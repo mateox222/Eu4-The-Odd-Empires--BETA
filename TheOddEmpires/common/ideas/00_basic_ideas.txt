@@ -650,7 +650,11 @@ exploration_ideas = {
 		}
 		modifier = {
 			factor = 0
-			current_age = age_of_revolutions #too late
+					
+				OR = {
+		current_age = age_of_revolutions
+		current_age = age_of_industrialization
+		}
 		}
 		modifier = {
 			factor = 0

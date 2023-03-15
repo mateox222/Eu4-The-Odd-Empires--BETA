@@ -2998,7 +2998,11 @@ centralize_reform = {
 			}
 		}
 		if = {
-			limit = { current_age = age_of_revolutions }
+			limit = { 		
+				OR = {
+		current_age = age_of_revolutions
+		current_age = age_of_industrialization
+		} }
 			custom_trigger_tooltip = {
 				tooltip = less_than_50_provinces_on_same_continent
 				NOT = {
@@ -3048,7 +3052,11 @@ centralize_reform = {
 			}
 		}
 		if = {
-			limit = { current_age = age_of_revolutions }
+			limit = { 		
+				OR = {
+		current_age = age_of_revolutions
+		current_age = age_of_industrialization
+		} }
 			custom_trigger_tooltip = {
 				tooltip = less_than_50_provinces_on_same_continent
 				NOT = {
@@ -3106,7 +3114,11 @@ centralize_empire_reform = {
 			}
 		}
 		if = {
-			limit = { current_age = age_of_absolutism }
+			limit = { 		
+				OR = {
+		current_age = age_of_revolutions
+		current_age = age_of_industrialization
+		} }
 			custom_trigger_tooltip = {
 				tooltip = at_least_35_provinces_on_same_continent
 				num_of_owned_provinces_with = {
@@ -3116,7 +3128,11 @@ centralize_empire_reform = {
 			}
 		}
 		if = {
-			limit = { current_age = age_of_revolutions }
+			limit = { 		
+				OR = {
+		current_age = age_of_revolutions
+		current_age = age_of_industrialization
+		} }
 			custom_trigger_tooltip = {
 				tooltip = at_least_50_provinces_on_same_continent
 				num_of_owned_provinces_with = {
