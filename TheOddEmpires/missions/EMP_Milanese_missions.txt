@@ -9,7 +9,10 @@ emp_mlo_conquest_branch = {
 	}
 	potential = {
 		has_dlc = "Emperor"
-		tag = MLO
+		OR = {
+tag = MLO
+tag = X31
+}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -235,7 +238,10 @@ emp_mlo_venice_branch = {
 	}
 	potential = {
 		has_dlc = "Emperor"
-		tag = MLO
+		OR = {
+tag = MLO
+tag = X31
+}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -573,7 +579,10 @@ emp_mlo_security_branch = {
 	}
 	potential = {
 		has_dlc = "Emperor"
-		tag = MLO
+		OR = {
+tag = MLO
+tag = X31
+}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -842,7 +851,10 @@ emp_mlo_victorious_branch = {
 	}
 	potential = {
 		has_dlc = "Emperor"
-		tag = MLO
+		OR = {
+tag = MLO
+tag = X31
+}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -854,9 +866,13 @@ emp_mlo_victorious_branch = {
 		provinces_to_highlight = {
 			is_capital = yes
 			owner = {
-				NOT = { tag = MLO }
+				NOT = { OR = {
+tag = MLO
+tag = X31
+} }
 				OR = {
 					is_neighbor_of = MLO
+					is_neighbor_of = X31
 					capital_scope = {
 						OR = {
 							region = france_region
@@ -896,7 +912,10 @@ emp_mlo_victorious_branch = {
 							}
 						}
 						hidden_trigger = {
-							NOT = { tag = MLO }
+							NOT = { OR = {
+tag = MLO
+tag = X31
+} }
 						}
 						army_size = ROOT
 						NOT = {
@@ -930,7 +949,10 @@ emp_mlo_swiss_mercs_branch = {
 	}
 	potential = {
 		has_dlc = "Emperor"
-		tag = MLO
+		OR = {
+tag = MLO
+tag = X31
+}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -973,7 +995,10 @@ emp_mlo_security_branch_2 = {
 	}
 	potential = {
 		has_dlc = "Emperor"
-		tag = MLO
+		OR = {
+tag = MLO
+tag = X31
+}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -1208,7 +1233,10 @@ emp_mlo_economy_branch = {
 	}
 	potential = {
 		has_dlc = "Emperor"
-		tag = MLO
+		OR = {
+tag = MLO
+tag = X31
+}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -1357,7 +1385,10 @@ emp_mlo_papal_branch = {
 	}
 	potential = {
 		has_dlc = "Emperor"
-		tag = MLO
+		OR = {
+tag = MLO
+tag = X31
+}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
