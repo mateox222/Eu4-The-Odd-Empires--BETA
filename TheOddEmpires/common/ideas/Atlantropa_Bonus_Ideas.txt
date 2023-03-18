@@ -281,3 +281,129 @@ X18_ideas = {
 		manpower_in_culture_group_provinces = 0.2
 	}
 }
+## Sienna novae imperialis
+SNI_ideas = {
+    start = {
+        local_build_cost = -0.25
+        development_cost = -0.2
+    }
+    
+    bonus = {
+        mercenary_manpower = 1
+    }
+    
+    trigger = {
+        tag = X34
+
+    }
+    free = yes
+    SNI_foreign_legion = {
+        mercenary_discipline = 0.05
+    }
+    SNI_novae_colony = {
+        may_establish_frontier = yes
+		auto_explore_adjacent_to_colony = yes
+    }
+    SNI_native_mills = {
+        global_trade_goods_size_modifier = 0.05
+		production_efficiency = 0.1
+    }
+    SNI_leonard_the_great = {
+        reelection_cost = -0.25
+    }
+    SNI_spy_networks = {
+        spy_offence = 0.33
+        can_chain_claim = yes
+    }
+    SNI_peoples_land = {
+        global_unrest = -2
+    }
+    greater_siena_aggressive = {
+        fire_damage = 0.1
+		movement_speed = 0.1
+    }
+}
+
+greater_siena_ideas = {
+    start = {
+        local_build_cost = 0.25
+        merc_maintenance_modifier = -0.15
+    }
+    
+    bonus = {
+        mercenary_manpower = 0.50
+    }
+    
+    trigger = {
+        tag = X33
+
+    }
+    free = yes
+    greater_siena_condottieri_history = {
+        mercenary_discipline = 0.05
+    }
+    greater_siena_school_of_painting = {
+        prestige_decay = -0.02
+    }
+    greater_siena_tax_efficiency = {
+        global_tax_modifier = 0.15
+    }
+    greater_siena_leonard_the_great = {
+        monarch_military_power = 1
+    }
+    greater_siena_spy_networks = {
+        spy_offence = 0.33
+        can_chain_claim = yes
+    }
+    greater_siena_peoples_land = {
+        global_unrest = -2
+    }
+    greater_siena_aggressive = {
+        ae_impact = -0.2
+    }
+}
+X31_ideas = {
+	start = {
+		merc_maintenance_modifier = -0.25
+		mercenary_discipline = 0.5
+	}
+	
+	bonus = {
+		mercenary_manpower = 0.75
+	}
+	
+	trigger = {
+		tag = X31
+	}
+	free = yes		#will be added at load.
+	
+	X31_council_priori = {
+		burghers_loyalty_modifier = 0.1
+		nobles_loyalty_modifier = 0.1
+		reelection_cost = -0.5
+	}
+	X31_patriot = {
+		land_morale = 0.1
+		morale_damage = 0.1
+	}
+	X31_big_bank = {
+		inflation_reduction = 0.1
+		interest = -0.25
+	}
+	X31_perseverance = {
+		stability_cost_modifier = -0.2
+		global_unrest = -2
+	}
+	X31_export_artists = {
+		prestige_decay = -0.01
+		global_trade_goods_size_modifier = 0.05
+	}
+	X31_saints_of_siena = {
+		papal_influence = 1.5
+		diplomatic_reputation = 2
+	}
+	X31_best_republic = {
+		republican_tradition = 0.25
+		development_cost = -0.15
+	}
+}
