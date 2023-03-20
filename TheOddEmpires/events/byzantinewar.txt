@@ -8,19 +8,28 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = byzantine_war.1a 
-
+if = {
+	 limit = {
+		5150 = { owned_by = ROOT }
+	 }
 		5150 = {
 			spawn_rebels = {
 				type = pretender_rebels
 				size = 5
 			}
 	}
+}
+if = {
+	 limit = {
+		1765 = { owned_by = ROOT }
+	 }
 		1764 = {
 			spawn_rebels = {
 				type = pretender_rebels
 				size = 3
 			}
 	}
+}
 		kill_ruler = yes
 		define_ruler = {
 		name = "Eternal Regency"
@@ -35,17 +44,28 @@ country_event = {
 		add_adm_power = -50
 		add_legitimacy = -100
 		set_global_flag = war_of_emperors
+		set_country_flag = bramkarezerowadlalatin
 		add_war_exhaustion = 5	
 		create_march = A51
 		add_truce_with = TUR
 		add_truce_with = A52
 		add_truce_with = SER
+		if = {
+	 limit = {
+		3003 = { owned_by = ROOT }
+	 }
 		3003 = {
     cede_province = ATH
 }
+		}
+		if = {
+	 limit = {
+		146 = { owned_by = ROOT }
+	 }
 		146 = {
     cede_province = ATH
 }
+		}
 
 	}
 	}
@@ -85,11 +105,16 @@ change_estate_land_share = {
     share = -25
 }
 add_treasury = 350	
+if = {
+	 limit = {
+		5150 = { owned_by = ROOT }
+	 }
 5150 = {
 spawn_rebels = {
     type = noble_rebels
     size = 5
 }}
+}
 		add_corruption = -1	
 		add_mil_power = 50 
 		add_dip_power = 50 
@@ -157,15 +182,30 @@ country_event = {
 	
 	option = {
 	name = "byzantine_war.4a" 
+	if = {
+	 limit = {
+		1853 = { owned_by = ROOT }
+	 }
 1853 = {
     cede_province = EPI
 }
+	}
+	if = {
+	 limit = {
+		147 = { owned_by = ROOT }
+	 }
 147 = {
     cede_province = EPI
 }
+	}
+	if = {
+	 limit = {
+		4976 = { owned_by = ROOT }
+	 }
 4976 = {
     cede_province = EPI
 }
+	}
 	add_stability = 1
 	add_prestige = -10	
 	add_war_exhaustion = -5	
@@ -224,12 +264,16 @@ country_event = {
 	option = {
 	name = "byzantine_war.5b" 
 	set_global_flag = A50_anothercoup
+	if = {
+	 limit = {
+		149 = { owned_by = ROOT }
+	 }
 	149 = {
 	spawn_rebels = {
     type = pretender_rebels
     size = 4
     leader = rebel_preacher
-}}}}
+}}}}}
 
 country_event = {
 	id = byzantine_war.7
@@ -418,6 +462,8 @@ country_event = {
 	major = yes
 	mean_time_to_happen = { days = 80 }
 	trigger = {
+		OR = {
+			AND = {
 	NOT = { has_country_flag = latinfreedom }
 	NOT = { has_country_flag = latinfreedomking }	
 		num_of_rebel_armies = 0
@@ -426,7 +472,13 @@ country_event = {
 		has_global_flag = A52_serbianintervention
 		has_global_flag = war_of_emperors
 		is_at_war = no
-		
+		}
+		AND = {
+	num_of_rebel_armies = 0
+	tag = A50
+	is_at_war = no
+   had_country_flag = { flag = bramkarezerowadlalatindays days = 1800 }
+		}
 	}
 	fire_only_once = yes
 	mean_time_to_happen = { days = 10 }	
