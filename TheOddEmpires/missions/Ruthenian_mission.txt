@@ -360,7 +360,7 @@ UKR_russian_minors_2 = {
 		}
 	}
 
-    	tr_ruthenia = {
+    	ukr_ruthenia = {
 		icon = mission_rule_ruthenia
 		required_missions = { ukr_conquer_gdansk ukr_conquer_croazia UKR_dniepr }
 		position = 5
@@ -372,7 +372,7 @@ UKR_russian_minors_2 = {
 			add_dip_power = 100
 			add_mil_power = 100
             create_general = { tradition = 100 }	
-			ruthenia_region = {
+			poland_region = {
 				limit = {
 					owned_by = ROOT
 				}
@@ -549,4 +549,127 @@ ukr_russian_minors_3 = {
 	}
 	
 
+}
+
+tr_ruthenia_religious_missions = {
+	slot = 5
+	generic = yes
+	ai = yes
+
+	potential = {
+		OR = {
+
+		tag = KIE
+        tag = UKR
+		}
+
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	ruthenia_churches_mission = {
+		icon = mission_land_of_churches
+		position = 3
+		required_missions = {  }
+		provinces_to_highlight = {
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 15
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		effect = {
+			add_patriarch_authority = 0.1
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 10
+			}
+		}
+	}
+    	ruthenia_ser_reform_the_nomocanon = {
+		icon = atlantropa_pope 
+		required_missions = { ruthenia_churches_mission }
+		position = 1
+		
+		provinces_to_highlight = {
+		}
+		trigger = {
+			PAP = {
+			has_opinion = {
+	who = ROOT
+	value = 120
+}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "ser_caesaropapism"
+				duration = 7300
+			}
+		}
+	}
+	
+	ruthenia_ser_promote_the_patriarchate = {
+		icon = atlantropa_catholfocus
+		required_missions = { ruthenia_ser_reform_the_nomocanon }
+		position = 3
+		
+		provinces_to_highlight = {
+			ROOT = { NOT = { religion = orthodox } }
+			owner = { tag = ROOT }
+			NOT = { religion = ROOT }
+		}
+		trigger = {
+
+				religious_unity = 1
+			}
+		
+		effect = {
+			if = {
+				limit = {
+					has_estate = estate_church
+				}
+				add_estate_loyalty_modifier  = {
+					estate = estate_church
+					desc = SER_PATRIARCHATE_SUPPORTED_BY_STATE
+					loyalty = 10
+					duration = 7300
+				}
+			}
+			else = {
+				add_adm_power = 100
+			}
+		}
+	}
+	
+	ruthenia_ser_guardians_of_st_sava = {
+		icon = guardians_of_saint_sava
+		required_missions = { ruthenia_ser_promote_the_patriarchate }
+		position = 4
+		
+		trigger = {
+			is_defender_of_faith = yes
+		}
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						current_age = age_of_absolutism
+						current_age = age_of_revolutions
+						current_age = age_of_industrialization
+					}
+					NOT = { absolutism = 75 }
+					is_revolutionary = no
+				}
+				add_absolutism = 20
+			}
+			else = {
+				add_mil_power = 200
+			}
+		}
+	}
 }

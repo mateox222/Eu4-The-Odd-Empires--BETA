@@ -376,3 +376,67 @@ phoenice_merchants_reform = {
 	}
 	has_term_election = no
 }
+
+balatonianmonarchy = {
+    icon = "balatonia"
+	allow_normal_conversion = yes
+	lock_level_when_selected = yes
+	legacy_equivalent = feudal_monarchy
+	maintain_dynasty = yes
+	monarchy = yes	
+    potential = {
+		OR = {
+        tag = A17
+	      tag = A10
+		}
+    }
+    modifiers = {
+        max_absolutism = -15
+		state_maintenance_modifier = -0.25
+		governing_capacity_modifier = 0.15
+		tolerance_heretic = 2	
+		relation_with_same_religion = 25	
+		prestige = 0.25	
+		num_accepted_cultures = 3		
+    }
+		conditional = {
+		allow = { has_dlc = "Common Sense" }
+		has_parliament = yes
+	}
+		custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
+		factor = 100
+	}
+    
+}
+atlantropatsardom = {
+	icon = "carstwo"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+				tag = X11
+				tag = UKR
+		}
+	}
+	fixed_rank = 3
+	legacy_equivalent = tsardom_legacy
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+
+	modifiers = {
+		global_manpower_modifier = 0.20
+		yearly_absolutism = 0.5
+		global_autonomy = -0.05
+		governing_capacity = 350
+	}
+
+	conditional = {
+		allow = { has_dlc = "Third Rome" }
+		government_abilities = {
+			russian_mechanic
+		}
+		claim_states = yes
+	}
+}

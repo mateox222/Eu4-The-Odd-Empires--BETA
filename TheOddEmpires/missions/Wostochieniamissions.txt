@@ -44,6 +44,49 @@ tr_x11_religious_missions = {
 			}
 		}
 	}
+	    	x11_ser_reform_the_nomocanon = {
+		icon = reform_the_nomocanon
+		required_missions = { X11_churches_mission }
+		position = 1
+		
+		provinces_to_highlight = {
+		}
+		trigger = {
+			if = {
+				limit = { 
+					religion = orthodox 
+					has_dlc = "Third Rome"
+				}
+				custom_trigger_tooltip = {
+					tooltip = ser_has_any_icon
+					OR = {
+						current_icon = icon_michael
+						current_icon = icon_eleusa
+						current_icon = icon_pancreator
+						current_icon = icon_nicholas
+						current_icon = icon_climacus
+					}
+				}
+			}
+			else = {
+				calc_true_if = {
+					all_owned_province = {
+						OR = {
+							has_building = temple
+							has_building = cathedral
+						}
+					}
+					amount = 3
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "ser_caesaropapism"
+				duration = 7300
+			}
+		}
+	}
 }
 
 tr_x11_exclusive_church = {
@@ -62,7 +105,7 @@ tr_x11_exclusive_church = {
 	
 	x11_patriarchate_mission = {
 		icon = atlantropa_aryanarchitecturedev
-		required_missions = { X11_churches_mission }
+		required_missions = { x11_ser_reform_the_nomocanon }
 		position = 2
 		provinces_to_highlight = {
 			OR = {
@@ -243,7 +286,7 @@ tr_muscovy_conquest = {
 	}
     	x11_subjugate_kazan = {
 		icon = atlantropa_burningkazan
-		required_missions = { x11_conquer_steppes_x11_mission }
+		required_missions = { x11_conquer_steppes_russia_mission }
 		position = 2
 		completed_by =  7552.10.2
 		provinces_to_highlight = {
@@ -472,6 +515,20 @@ tr_x11_conquest_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
+			    silesia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			lusatia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 			neumark_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -630,7 +687,7 @@ tr_x11_conquest_1 = {
 			}
 		}
 		effect = {
-            add_government_reform = tsardom
+            add_government_reform = atlantropatsardom
             set_government_rank = 3
 			add_country_modifier = {
 				name = "russian_integration"
@@ -1104,7 +1161,116 @@ tr_x11_conquest_2 = {
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+		 russia_vodka_states_two = {
+		icon = atlantropa_vodka
+		
+		trigger = {
+		vodka_drink = 5
+		} 
+
+		
+		effect = {
+							add_country_modifier = {
+					name = "ruskavodka"
+					duration = -1
+				}
+		}
+		ai_weight = {
+			factor = 500
+		}
+	}
+
+
+	        	russia_POLSKA_states_two = {
+		icon = atlantropa_frenchspain
+		required_missions = { x11_invade_novgorod_mission }
+		position = 2
+		
+		provinces_to_highlight = {
+            OR = {
+			area = lusatia_area
+            area = silesia_area        
+            }
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		trigger = {
+			lusatia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+						silesia_area   = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		} 
+
+		
+		effect = {
+			add_prestige = 15
+	            moravia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+                bohemia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			erzgebirge_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 500
+		}
+	}
+    	russia_krakow_UKRAINA = {
+		icon = atlantropa_undeavenedia
+		required_missions = { russia_POLSKA_states_two  }
+		provinces_to_highlight = {
+            OR = {
+			area = erzgebirge_area 
+			area = bohemia_area
+			area = moravia_area          
+            }
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		trigger = {
+			moravia_area  = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+ 			bohemia_area  = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+ 			erzgebirge_area   = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}                      
+			is_subject = no
+		}
+		effect = {
+				add_country_modifier = {
+					name = "ruskaukraina"
+					duration = -1
+				}
+
+        }
+
+}
+
 	x11_conquer_finland = {
 		icon = atlantropa_aryanarchitecture
 		required_missions = { tr_consolidate_x11_mission }

@@ -228,3 +228,31 @@ spartan_postcode = {
         factor = 2
     }
 }
+
+autonomy_local_balaton = {
+    icon = GFX_holy_order_oblast
+    trigger = {
+   OR = {
+        tag = KIE
+        tag = UKR
+    }
+    }
+    cost = 50
+    cost_type = adm_power
+    per_province_effect = {
+        add_base_tax = 1
+    }
+    per_province_abandon_effect = {
+        add_base_tax = -1
+    }
+    modifier = {
+        local_governing_cost = -0.05
+        local_unrest = -2		
+        min_local_autonomy = 10	
+        local_tax_modifier = 0.1	
+        local_prosperity_growth = 0.1	      
+    }
+    ai_priority = {
+        factor = 2
+    }
+}
