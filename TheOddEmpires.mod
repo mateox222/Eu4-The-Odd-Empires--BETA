@@ -13,5 +13,5 @@ tags={
 }
 name="The Odd Empires"
 supported_version="1.34.5"
-path="C:/Users/matpo/Documents/GitHub/Eu4-The-Odd-Empires--BETA/TheOddEmpires"
+path="Documents/Paradox Interactive/Europa Universalis IV/mod/TheOddEmpires"
 remote_file_id="2935918398"
