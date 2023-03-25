@@ -398,6 +398,90 @@ country_event = {
 	}
 }
 
+
+
+country_event = {
+	id = plotstart_events.16
+	title = "plotstart_events.16.t"
+	desc = "plotstart_events.16.d"
+	picture = russianempire2_eventPicture
+	major = yes
+		 major_trigger = { 
+		capital_scope = { 
+			OR = {
+			region = poland_region
+            region = baltic_region
+			 }}}
+	trigger = {
+		tag = SL1
+		has_game_started = yes
+		NOT = { has_country_flag = iberiacumchinagerman_start}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "plotstart_events.16.a"
+		set_country_flag = iberiacumchinagerman_start
+		add_prestige = 5	
+	}
+}
+country_event = {
+	id = plotstart_events.17
+	title = "plotstart_events.17.t"
+	desc = "plotstart_events.17.d"
+	picture = pragaczeska_eventPicture
+	major = yes
+		 major_trigger = { 
+		capital_scope = { 
+			OR = {
+			region = poland_region
+            region = baltic_region
+			 }}}
+	trigger = {
+		tag = KIE
+		has_game_started = yes
+		NOT = { has_country_flag = iberiacumchinagerman_start}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "plotstart_events.17.a"
+		set_country_flag = iberiacumchinagerman_start
+		add_prestige = 5	
+	}
+}
+country_event = {
+	id = plotstart_events.18
+	title = "plotstart_events.18.t"
+	desc = "plotstart_events.18.d"
+	picture = budapeszt_eventPicture
+	major = yes
+		 major_trigger = { 
+		capital_scope = { 
+			OR = {
+			region = poland_region
+            region = baltic_region
+			 }}}
+	trigger = {
+		tag = A10
+		has_game_started = yes
+		NOT = { has_country_flag = iberiacumchinagerman_start}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "plotstart_events.18.a"
+		set_country_flag = iberiacumchinagerman_start
+		add_prestige = 5	
+	}
+}
+
+
+
+
 country_event = {
 	id = plotstart_events.69
 	title = "plotstart_events.69.t"
