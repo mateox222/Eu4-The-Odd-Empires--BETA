@@ -1712,8 +1712,10 @@ raumarian_missions_third = {
 		trigger = {
 			num_of_provinces_owned_or_owned_by_subjects_with = {
 				value = 15
-				region = italy_region
-				region = atlantis_sicily_region				
+		OR = {
+region = italy_region
+region = atlantis_sicily_region
+}		
 			}
 			
 		}			
@@ -1742,8 +1744,10 @@ raumarian_missions_third = {
 			owns_core_province = 118
 			num_of_provinces_owned_or_owned_by_subjects_with = {
 				value = 55
+				OR = {
 				region = italy_region
 				region = atlantis_sicily_region
+				}
 			}
 		}			
 
