@@ -12,5 +12,5 @@ tags={
 	"Loading Screen"
 }
 name="The Odd Empires"
-supported_version="1.34.5"
+supported_version="1.35.1"
 remote_file_id="2935918398"
