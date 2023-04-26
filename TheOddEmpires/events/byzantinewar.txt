@@ -77,7 +77,7 @@ country_event = {
 	picture = CHURCH_ESTATE_1_eventPicture
 	major = yes
 	trigger = {
-		tag = A50
+		tag = LAE
 		has_global_flag = war_of_emperors
 		
 	}
@@ -139,7 +139,7 @@ country_event = {
 	picture = HEIR_AND_FOREIGN_ADVISOR_eventPicture
 	major = yes
 	trigger = {
-		tag = A50
+		tag = LAE
 		has_country_flag = A50_coup
 		has_global_flag = war_of_emperors
 		151 = { sieged_by = REB}
@@ -172,7 +172,7 @@ country_event = {
 	picture = ANGRY_MOB_eventPicture
 	major = yes
 	trigger = {
-		tag = A50
+		tag = LAE
 		has_country_flag = A50_coup
 		has_global_flag = war_of_emperors
 		
@@ -237,7 +237,7 @@ country_event = {
 	picture = BATTLE_eventPicture
 	major = yes
 	trigger = {
-		tag = A50
+		tag = LAE
 		has_country_flag = A50_coup
 		has_global_flag = war_of_emperors
 		
@@ -291,14 +291,14 @@ country_event = {
 	mean_time_to_happen = { days = 60 }	
 	option = {
 	name = "byzantine_war.7a" 
-	A50 = {
+	LAE = {
 country_event = { 
     id = byzantine_war.8
     days = 3
 }}}
 	option = {
 	name = "byzantine_war.7b" 
-	A50 = {
+	LAE = {
 	add_prestige = -15
 	set_global_flag = A52_serbianintervention
 }}}
@@ -376,10 +376,10 @@ country_event = {
 	trigger = {
 		tag = SER
 		    NOT = { has_global_flag = constantinople_captured }
-						exists = A50
+						exists = LAE
 						OR = {
-			A50 = { NOT = { army_size = 5 } }
-			war_score_against = { who = A50 value = 75 }
+			LAE = { NOT = { army_size = 5 } }
+			war_score_against = { who = LAE value = 75 }
 						}
 			OR = {
 			151 = { controlled_by = ROOT }
@@ -400,7 +400,7 @@ country_event = {
 		set_global_flag = constantinople_captured
 	balkan_region  = {
 				limit = {
-					 owned_by = A50
+					 owned_by = LAE
 				}
     cede_province = ROOT
 	add_core = ROOT
@@ -408,7 +408,7 @@ country_event = {
 	inherit = A51	
 	anatolia_region  = {
 				limit = {
-					 owned_by = A50
+					 owned_by = LAE
 							}
     cede_province = A52
 	add_core = A52
@@ -425,7 +425,7 @@ country_event = {
 			controlled_by = REB
 			has_siege = no		
 		}
-		tag = A50
+		tag = LAE
 		has_global_flag = A52_intervention
 		has_global_flag = war_of_emperors
 		NOT = { has_country_flag = latinfreedom }
@@ -467,7 +467,7 @@ country_event = {
 	NOT = { has_country_flag = latinfreedom }
 	NOT = { has_country_flag = latinfreedomking }	
 		num_of_rebel_armies = 0
-		tag = A50
+		tag = LAE
 		has_global_flag = A52_intervention
 		has_global_flag = A52_serbianintervention
 		has_global_flag = war_of_emperors
@@ -475,7 +475,7 @@ country_event = {
 		}
 		AND = {
 	num_of_rebel_armies = 0
-	tag = A50
+	tag = LAE
 	is_at_war = no
    had_country_flag = { flag = bramkarezerowadlalatindays days = 1800 }
 		}
@@ -572,7 +572,7 @@ country_event = {
 	trigger = {
 		OR = {
 		tag = A52
-		tag = A50
+		tag = LAE
 		tag = SER
 		tag = EPI
 			}
@@ -607,7 +607,7 @@ country_event = {
 	picture = BATTLE_eventPicture
 	major = yes
 	trigger = {
-		tag = A50
+		tag = LAE
         had_country_flag = { flag = war_of_emperors days = 720 }
 		has_country_flag = A50_coup
 		has_regency = yes
