@@ -1,0 +1,98 @@
+nikaeanbyzantine_mechanic = {
+	alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 1
+	available = {
+	}
+	
+	powers = {
+		byz_dip_power = {
+			max = 150
+			monarch_power = DIP
+			base_monthly_growth = 0.25
+		}
+		byz_adm_power = {
+			max = 150
+			monarch_power = adm
+			base_monthly_growth = 0.25
+		}
+		byz_MIL_power = {
+			max = 150
+			monarch_power = mil
+			base_monthly_growth = 0.25
+		}
+	}
+	
+	interactions = {
+		BYZ_DIPLO_SUPPORT = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_byzantine_ability_2
+			cost_type = byz_dip_power
+			cost = 100
+			trigger = {
+
+			}
+			effect = {
+				change_government_reform_progress = 10
+				add_stability = 2	
+				add_faction_influence = {
+					faction = rr_veneta 
+					influence = 33
+				}
+				
+			}
+			cooldown_years = 10
+			ai_chance = {
+				factor = 10
+			}
+		}
+		
+		BYZ_TAXCLERGY = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_byzantine_ability_1
+			cost_type = byz_adm_power
+			cost = 100
+			trigger = {
+			}
+			effect = {
+				add_years_of_income = 2	
+				add_legitimacy = 10
+				add_faction_influence = {
+					faction = rr_prasina
+					influence = 33
+				}
+			}
+			cooldown_years = 10
+			ai_chance = {
+				factor = 10
+			}
+		}
+		
+		BYZ_MILITARY = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_byzantine_ability_3
+			cost_type = byz_MIL_power
+			cost = 100
+			trigger = {
+			}
+			effect = {
+				#custom_tooltip = RUSABIL_SUDEBNIK_EFFECT_TT
+				capital_scope = {
+					cavalry = ROOT
+					cavalry = ROOT
+					cavalry = ROOT
+					cavalry = ROOT
+					cavalry = ROOT
+				}
+				add_yearly_manpower = 1	
+				add_faction_influence = {
+					faction = rr_praetorians
+					influence = 33
+				}
+			}
+			cooldown_years = 10
+			ai_chance = {
+				factor = 10
+			}
+		}
+	}
+}
