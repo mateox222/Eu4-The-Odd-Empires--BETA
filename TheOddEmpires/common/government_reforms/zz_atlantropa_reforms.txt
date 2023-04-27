@@ -448,3 +448,34 @@ atlantropatsardom = {
 		claim_states = yes
 	}
 }
+
+polish_great_sejm = {
+	icon = "parliament_hall"
+	allow_normal_conversion = no
+	potential = {
+		have_had_reform = polish_great_sejm
+	}
+	lock_level_when_selected = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 25
+	nation_designer_trigger = {
+		has_dlc = "Lions of the North"
+	}
+	legacy_equivalent = feudal_monarchy
+	modifiers = {
+		nobles_influence_modifier = 0.05
+		max_absolutism = -20
+		global_unrest = -1 
+		reform_progress_growth = -0.2
+		
+	}
+
+	conditional = {
+		allow = { has_dlc = "Common Sense" }
+		has_parliament = yes
+	}
+			factions = {
+			pl_reformaci
+			pl_magnaci
+		}
+}
