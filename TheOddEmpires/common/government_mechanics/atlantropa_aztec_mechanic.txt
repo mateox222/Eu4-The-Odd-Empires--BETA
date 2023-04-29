@@ -1,0 +1,70 @@
+atlantropa_aztec_mechanic = {
+	alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 1
+	available = {
+	}
+	
+	powers = {
+		azt_adm_power = {
+			max = 100
+			monarch_power = adm
+			base_monthly_growth = 25
+		}
+	}
+	
+	interactions = {
+        Huitzilopochtli_aztec = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_AZTEC_ability_1
+			cost_type = azt_adm_power
+			cost = 30
+			trigger = {
+			}
+			effect = {
+                country_event = { 
+                    id = azteceuropa.2
+                }
+			}
+			cooldown_years = 10
+			ai_chance = {
+				factor = 10
+			}
+		}  
+        Tezcatlipoca_aztec = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_AZTEC_ability_2
+			cost_type = azt_adm_power
+			cost = 60
+			trigger = {
+			}
+			effect = {
+                country_event = { 
+                    id = azteceuropa.3
+                }
+			}
+			cooldown_years = 10
+			ai_chance = {
+				factor = 10
+			}
+		}
+
+		Tlaloc_aztec = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_AZTEC_ability_3
+			cost_type = azt_adm_power
+			cost = 90
+			trigger = {
+			}
+			effect = {
+                country_event = { 
+                    id = azteceuropa.4
+                }
+			}
+			cooldown_years = 10
+			ai_chance = {
+				factor = 10
+			}
+		}
+		
+	}
+}

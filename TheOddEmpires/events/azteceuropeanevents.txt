@@ -29,3 +29,75 @@ NOT = {  is_month = 8 }
 			}
 
 	}
+
+
+	country_event = {
+	id = azteceuropa.2
+	title = azteceuropa.2.t
+	desc = azteceuropa.2.d
+	picture = aztecritaul_eventPicture
+	is_triggered_only = yes
+	option = {
+	name = "azteceuropa.1.a" 
+			add_church_power = 10
+			add_adm_power = 50
+			add_mil_power = 50
+			add_dip_power = 50
+			add_yearly_manpower = -0.25	
+			random_owned_province = {
+				limit = { NOT = { religion = ROOT } }
+			add_base_tax = -1	
+			add_base_production = -1	
+			add_base_manpower = -1	
+			}
+			}
+
+	}
+	country_event = {
+		id = azteceuropa.3
+		title = azteceuropa.3.t
+		desc = azteceuropa.3.d
+		picture = aztecritaul_eventPicture
+		is_triggered_only = yes
+		option = {
+		name = "azteceuropa.1.a" 
+				add_church_power = 20
+				add_adm_power = 100
+				add_mil_power = 100
+				add_dip_power = 100
+				add_yearly_manpower = -0.5
+				random_owned_province = {
+					limit = { NOT = { religion = ROOT } }
+					change_religion = ROOT
+					add_base_tax = -2	
+					add_base_production = -2	
+					add_base_manpower = -2
+				}
+				}
+	
+		}
+
+		country_event = {
+			id = azteceuropa.4
+			title = azteceuropa.4.t
+			desc = azteceuropa.4.d
+			picture = aztecritaul_eventPicture
+			is_triggered_only = yes
+			option = {
+			name = "azteceuropa.1.a" 
+					add_church_power = 40
+					add_adm_power = 200
+					add_mil_power = 200
+					add_dip_power = 200
+					add_yearly_manpower = -2
+					random_owned_province = {
+						limit = { NOT = {culture = ROOT } }
+						add_base_tax = -5	
+						add_base_production = -5	
+						add_base_manpower = -5	
+						change_culture = ROOT
+						change_religion = ROOT
+					}
+					}
+		
+			}

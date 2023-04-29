@@ -478,7 +478,30 @@ polish_great_sejm = {
 			pl_reformaci
 			pl_magnaci
 		}
+}
+
+atlantropa_aztec_monarchy = {
+	icon = "aztecmonarchia"
+	allow_normal_conversion = yes
+	potential = {
+		religion = reformednahuatl
+	}
+	legacy_equivalent = feudal_monarchy
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+
+	modifiers = {
+		may_explore = yes	
+		global_trade_power = 0.1	
+		stability_cost_modifier = 0.25	
+		yearly_absolutism = 0.5
+		global_autonomy = -0.05
+		years_of_nationalism = -5	
+	}
+
+	conditional = {
 		government_abilities = {
-			polish_venedic_mechanic
+			atlantropa_aztec_mechanic
 		}
+	}
 }
