@@ -1,33 +1,23 @@
 
 nahuatl_consort_aspect = {
-	sprite = "GFX_marry_local_suitor_icon"
-	cost = 100
-	potential = {
-		government = monarchy
-		NOT = { has_reform = iqta }
-		NOT = { has_reform = mamluk_government }
-		NOT = { has_reform = ottoman_government }
-	}
+	sprite = "GFX_aztec_sacrifice" 
+	cost = 150
 	trigger = {
-		has_consort = no
-		is_female = no
-		is_lesser_in_union = no
-		has_regency = no
-	}
-	effect = {
-		custom_tooltip = gain_consort_aspect_tt
-		hidden_effect = {
-			define_consort = {
-				country_of_origin = ROOT
-				hide_skills = yes
-				female = yes
-			}
-			add_ruler_modifier = {
-				name = a_new_consort_heir_modifier
-				duration = 5475
+		OR = {
+			NOT = {
+				has_ruler_modifier = aztec_religious_acpect_7
 			}
 		}
 	}
+	effect = {
+		custom_tooltip = nahuatlaspect7
+		hidden_effect = {
+		add_ruler_modifier = {
+			name = aztec_religious_acpect_7
+		}
+	}
+
+}
 	ai_will_do = {
 		factor = 1
 		modifier = {
@@ -41,20 +31,22 @@ nahuatl_consort_aspect = {
 	}
 }
 nahuatl_stability_aspect = {
-	sprite = "GFX_aztec_temple"
-	cost = 200
+	sprite = "GFX_aztec_sacrifice"
+	cost = 150
 	trigger = {
-			manpower_percentage = 0.15
 		OR = {
 			NOT = {
-				stability = 3
+				has_ruler_modifier = aztec_religious_acpect_1
 			}
 		}
 	}
 	effect = {
-		add_stability = 1`
-		add_republican_tradition = 5
-		add_yearly_manpower = -2	
+		custom_tooltip = nahuatlaspect1
+		hidden_effect = {
+		add_ruler_modifier = {
+			name = aztec_religious_acpect_1
+		}
+	}
 
 }
 	
@@ -79,23 +71,22 @@ nahuatl_stability_aspect = {
 	}
 }
 nahuatl_manpower_aspect = {
-	sprite = "GFX_aztec_army_icon"
+	sprite = "GFX_aztec_sacrifice"
 	cost = 150
 	trigger = {
 		OR = {
 			NOT = {
-				manpower_percentage = 1
+				has_ruler_modifier = aztec_religious_acpect_2
 			}
 		}
-		is_at_war = yes
 	}
 	effect = {
-		add_legitimacy = -10
-		add_yearly_manpower = 5	
-		add_devotion = -10
-		add_horde_unity = -10
-		add_meritocracy = -10
-		add_republican_tradition = -5	
+		custom_tooltip = nahuatlaspect2
+		hidden_effect = {
+		add_ruler_modifier = {
+			name = aztec_religious_acpect_2
+		}
+	}
 
 }
 	
@@ -122,19 +113,22 @@ nahuatl_manpower_aspect = {
 
 nahuatl_purge_aspect = {
 	sprite = "GFX_aztec_sacrifice"
-	cost = 200
+	cost = 150
 	trigger = {
-			ROOT = { any_owned_province = { NOT = { culture = ROOT }}}
-			manpower_percentage = 0.15
-			stability = 3
-			is_at_war = no
+		OR = {
+			NOT = {
+				has_ruler_modifier = aztec_religious_acpect_3
+			}
+		}
 	}
 	effect = {
-			country_event = { 
-			id = nahuatlatl.2
+		custom_tooltip = nahuatlaspect3
+		hidden_effect = {
+		add_ruler_modifier = {
+			name = aztec_religious_acpect_3
 		}
-				add_yearly_manpower = -1	
-			}
+	}
+}
 
 	
 	ai_will_do = {
@@ -159,37 +153,63 @@ nahuatl_purge_aspect = {
 }
 
 nahuatl_slave_aspect = {
-	sprite = "GFX_aztec_slavery"
+	sprite = "GFX_aztec_sacrifice"
 	cost = 150
 	trigger = {
-			ROOT = { any_owned_province = { NOT = { culture = ROOT }}}
-			stability = 3
-			is_at_war = no	
+		OR = {
+			NOT = {
+				has_ruler_modifier = aztec_religious_acpect_4
+			}
+		}
 	}
 	effect = {
-	country_event = { 
-    id = nahuatlatl.1
-		}
-	add_years_of_income = 1	
-}
-	
-	ai_will_do = {
-		factor = 3
-		modifier = {
-			factor = 0
-			stability = 0
-		}
-		modifier = {
-			factor = 0.01
-			stability = 1
-		}
-		modifier = {
-			factor = 0.1
-			stability = 2
-		}
-		modifier = {
-			factor = 0.2
-			stability = 3
+		custom_tooltip = nahuatlaspect4
+		hidden_effect = {
+		add_ruler_modifier = {
+			name = aztec_religious_acpect_4
 		}
 	}
+}
+	
+}
+nahuatl_cash_aspect = {
+	sprite = "GFX_aztec_sacrifice"
+	cost = 150
+	trigger = {
+		OR = {
+			NOT = {
+				has_ruler_modifier = aztec_religious_acpect_5
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = nahuatlaspect5
+		hidden_effect = {
+		add_ruler_modifier = {
+			name = aztec_religious_acpect_5
+		}}
+
+}
+	
+}
+nahuatl_advisor_aspect = {
+	sprite = "GFX_aztec_sacrifice"
+	cost = 150
+	trigger = {
+		OR = {
+			NOT = {
+				has_ruler_modifier = aztec_religious_acpect_6
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = nahuatlaspect6
+		hidden_effect = {
+		add_ruler_modifier = {
+			name = aztec_religious_acpect_6
+		}
+		}
+
+}
+	
 }

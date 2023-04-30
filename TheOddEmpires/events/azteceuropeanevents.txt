@@ -24,7 +24,7 @@ NOT = {  is_month = 8 }
 }
 	option = {
 	name = "azteceuropa.1.a" 
-			add_church_power = 10
+			add_church_power = 5
 			add_yearly_manpower = -0.1	
 			}
 
@@ -39,16 +39,21 @@ NOT = {  is_month = 8 }
 	is_triggered_only = yes
 	option = {
 	name = "azteceuropa.1.a" 
-			add_church_power = 10
+			add_church_power = 50
 			add_adm_power = 50
 			add_mil_power = 50
 			add_dip_power = 50
 			add_yearly_manpower = -0.25	
+			add_faction_influence = {
+				faction = doom_decrease
+				influence = 15
+			}
 			random_owned_province = {
 				limit = { NOT = { religion = ROOT } }
 			add_base_tax = -1	
 			add_base_production = -1	
 			add_base_manpower = -1	
+
 			}
 			}
 
@@ -61,11 +66,15 @@ NOT = {  is_month = 8 }
 		is_triggered_only = yes
 		option = {
 		name = "azteceuropa.1.a" 
-				add_church_power = 20
+				add_church_power = 100
 				add_adm_power = 100
 				add_mil_power = 100
 				add_dip_power = 100
 				add_yearly_manpower = -0.5
+				add_faction_influence = {
+					faction = doom_decrease
+					influence = 50
+				}
 				random_owned_province = {
 					limit = { NOT = { religion = ROOT } }
 					change_religion = ROOT
@@ -85,11 +94,15 @@ NOT = {  is_month = 8 }
 			is_triggered_only = yes
 			option = {
 			name = "azteceuropa.1.a" 
-					add_church_power = 40
+					add_church_power = 200
 					add_adm_power = 200
 					add_mil_power = 200
 					add_dip_power = 200
 					add_yearly_manpower = -2
+					add_faction_influence = {
+						faction = doom_decrease
+						influence = 100
+					}
 					random_owned_province = {
 						limit = { NOT = {culture = ROOT } }
 						add_base_tax = -5	

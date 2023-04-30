@@ -203,3 +203,29 @@ sparta_navy = {
 		country_diplomatic_power = 1	
 	}
 }
+
+doom_increase = {
+
+	monarch_power = MIL
+	always = yes
+
+	modifier = {
+		stability_cost_modifier = 0.1	
+		culture_conversion_cost = -0.25	
+		religious_unity = 0.1
+		global_unrest = -1	
+		legitimacy = 1	
+	}
+}
+doom_decrease = {
+
+	monarch_power = MIL
+	always = yes
+
+	modifier = {
+		stability_cost_modifier = -0.1	
+		global_unrest = 1	
+		culture_conversion_cost = 0.25	
+		religious_unity = -0.1	
+	}
+}
