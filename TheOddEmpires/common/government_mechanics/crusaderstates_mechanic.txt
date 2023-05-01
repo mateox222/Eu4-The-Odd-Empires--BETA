@@ -31,15 +31,13 @@ crusaderstates_mechanic = {
 }
 			}
 			cooldown_years = 10
-			ai_chance = {
-				factor = 0
-			}
             ai_chance = {
-                        factor = 10
+                        factor = 0
                         modifier = {
-                                factor = at_war_with_religious_enemy = yes
-                        }
-		}
+                                factor = 10
+                                at_war_with_religious_enemy = yes
+                        }}}
+		
 		CRUSADERARMYSUPPORT = {
 			gui = russian_mechanics_interaction_gui
 			icon = GFX_crusader_ability
@@ -55,9 +53,13 @@ crusaderstates_mechanic = {
 }
 			}
 			cooldown_years = 10
-			ai_chance = {
-				factor = 10
-			}
+            ai_chance = {
+                        factor = 0
+                        modifier = {
+                                factor = 10
+                                at_war_with_religious_enemy = yes
+                        }
+		}
 		}
 		
 		}

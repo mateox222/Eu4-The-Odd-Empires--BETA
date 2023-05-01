@@ -371,9 +371,14 @@ country_event = {
 				casus_belli = cb_hundred_years_war
 			}
 		}
-		168 = {
-			change_controller = POL
+		167 = {
+			change_controller = FRA
 		}
+		hidden_effect = {
+		FRA = { free_vassal = NRM }
+		POL = { vassalize = NRM	 }
+		}
+		
 	}
 	option = {
 		name = "flavor_fra.7.b" #Unpopular but preserves the peace?
