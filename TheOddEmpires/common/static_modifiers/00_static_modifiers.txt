@@ -560,7 +560,8 @@ left_trade_company = {
 
 scorched_earth = {
 	local_hostile_movement_speed = -0.50
-	local_monthly_devastation = 0.5
+	local_monthly_devastation = 1
+	local_development_cost_modifier = 0.5	
 }
 
 ##########################################################################
@@ -640,6 +641,9 @@ positive_stability = {
 	yearly_corruption = -0.02
 	global_institution_spread = 0.05
 	yearly_harmony = 0.25
+	all_power_cost = -0.02	
+	local_prosperity_growth = 0.1	
+	yearly_harmony = 0.25
 	monthly_ottoman_decadence = -0.05
 }
 
@@ -655,6 +659,7 @@ negative_stability = {
 	devotion = 1
 	caravan_power = 0.05
 	yearly_harmony = 0.25
+	all_power_cost = 0.10	
 	monthly_russian_modernization = 0.03
 	monthly_ottoman_decadence = -0.15
 }
@@ -721,7 +726,7 @@ bankruptcy = {
 	interest = 5
 	land_morale = -0.5
 	naval_morale = -0.5
-	inflation_reduction = 0.25
+	inflation_reduction = 0.5
 	reinforce_speed = -0.25					#Slower reinforce
 	bureaucrats_influence = 0.25
 	mr_guilds_influence = 0.25
@@ -745,6 +750,7 @@ bankruptcy = {
 
 
 war = {
+	
 	monthly_militarized_society = 0.1
 	rr_girondists_influence = 0.15
 	all_power_cost = 0.05	
@@ -963,6 +969,8 @@ num_of_provinces = {
 
 # Multiplied by the amount of papal influence
 papal_influence = {
+		stability_cost_modifier = -0.001
+		improve_relation_modifier = 0.001
 }
 
 # Multiplied by the amount of Church Power
@@ -1073,7 +1081,7 @@ corruption = {
 }
 
 root_out_corruption = {
-	yearly_corruption = -1.0
+	yearly_corruption = -1.5
 }
 
 recovery_motivation = {
@@ -1566,6 +1574,7 @@ revolution_target = {
 
 dishonoured_alliance =  {
 	diplomatic_reputation = -1
+	
 }
 
 drilling_armies = { # Multiplied by percentage of forcelimit currently drilling
