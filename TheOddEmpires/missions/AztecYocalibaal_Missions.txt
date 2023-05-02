@@ -800,7 +800,7 @@ naval_strength = {
 	}
 
 				AZT_conquer_aztec5 = {
-		icon = atlantropa_canadahiber
+		icon = atlantropa_capathracs
 		required_missions = { AZT_conquer_aztec2 }
 		position = 4
 		provinces_to_highlight = {
@@ -820,6 +820,14 @@ naval_strength = {
 							add_country_modifier = {
 				name = "aztecwar5"
 				duration = -1
+			}
+			219 = {
+				add_devastation = 100
+				change_culture = ROOT
+				change_religion = ROOT
+				add_base_tax = 1	
+				add_base_production = 1	
+				add_base_manpower = 1	
 			}
 			add_prestige = 10
 					add_government_power = {
@@ -887,7 +895,7 @@ AZT_uyetitlan3 = {
 }
 AZT_uyetitlan7 = {
 		icon = atlantropa_caucasia
-		required_missions = { AAZT_uyetitlan3 }
+		required_missions = { AZT_uyetitlan3 }
 		position = 7
 		provinces_to_highlight = {
 			OR = {
@@ -908,7 +916,7 @@ AZT_uyetitlan7 = {
 		}
 		effect = {
 							add_country_modifier = {
-				name = "aztecwar12"
+				name = "aztecwar11"
 				duration = -1
 			}
 			add_prestige = 10
