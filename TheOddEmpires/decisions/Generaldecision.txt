@@ -1,6 +1,7 @@
 country_decisions = {
 	
 	decision_land_manpower_points = {
+		color = { 117 95 25 }
 		potential = {
 		   always = yes
 		}
@@ -24,9 +25,82 @@ country_decisions = {
 		}
 	}
 
-
+	decision_naval_manpower_points = {
+		color = { 117 95 25 }
+		potential = {
+		   always = yes
+		   num_of_ports = 1
+		}
+		allow = {
+			dip_power = 150
+		}
+		effect = {
+			add_dip_power = -150
+			add_yearly_sailors = 1
+		}
+		ai_will_do = { 
+			factor = 0
+			modifier = {
+				factor = 1
+				 sailors = 0
+			}
+		}
+	} 
 	
-
+	decision_naval_ship_points = {
+		color = { 117 95 25 }
+		potential = {
+		   dip_tech = 8
+		}
+		allow = {
+			dip_power = 15
+			years_of_income = 0.3
+		}
+		effect = {
+		add_years_of_income = -0.3	
+		add_dip_power = -15	
+	random_owned_province = {
+    limit = { has_port = yes }
+    ROOT = {
+        heavy_ship = PREV
+    }
+		}}
+		ai_will_do = { 
+			factor = 0
+			modifier = {
+				factor = 5
+				NOT = { num_of_heavy_ship = 5 }
+			}
+			modifier = {
+				factor = 3
+				NOT = { heavy_ship_fraction = 0.10 }
+			}
+		}
+	}
+	decision_naval_cash_points = {
+		color = { 117 95 25 }
+		potential = {
+		   always = yes
+		}
+		allow = {
+			adm_power = 150
+		}
+		effect = {
+			add_adm_power = -150
+			add_years_of_income = 1.5		
+		}
+		ai_will_do = { 
+			factor = 0
+			modifier = {
+				factor = 5
+			NOT = {	treasury = 0 }
+			}
+			modifier = {
+				factor = 3
+				NOT = { years_of_income = 0.5 }
+			}
+		}
+	}
 	
 	
 	

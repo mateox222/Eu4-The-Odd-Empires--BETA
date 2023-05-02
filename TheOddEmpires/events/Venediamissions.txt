@@ -374,6 +374,7 @@ country_event = {
 		167 = {
 			change_controller = FRA
 		}
+		tooltip = normandiaweasal
 		hidden_effect = {
 		FRA = { free_vassal = NRM }
 		POL = { vassalize = NRM	 }
@@ -782,3 +783,32 @@ country_event = { #Baltic Gold & the Gates of Kings
 }
 
 }
+
+country_event = { #Baltic Gold & the Gates of Kings 
+	id = venediaevent.57
+	title = venediaevent.57.t 
+	desc = venediaevent.57.d 
+	picture = rzeczpospolitahusarz_eventPicture
+	major = yes
+	trigger = {
+				tag = PLC
+		NOT = { has_global_flag = AKWITANIE }
+		GUY = { exists = no	}
+	}
+	mean_time_to_happen = {
+		months = 600
+	}
+	option = {
+		name = venediaevent.57.a 
+			set_global_flag = AKWITANIE
+			custom_tooltip = polacyakwitanczycy
+			hidden_effect = {
+			every_owned_province = {
+			limit = {
+				culture = gascon
+			}
+				change_culture = gasconpolish
+		 }
+			
+		}
+	}}
