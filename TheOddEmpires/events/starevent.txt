@@ -6,11 +6,7 @@ country_event = {
 	picture = BLACKSUN_eventPicture
 	major = yes
 	fire_only_once = yes
-	trigger = {
-	NOT = { has_global_flag = atlantropa_start_flag }
-	has_game_started = yes
-	ai = no
-}
+	is_triggered_only = yes
 immediate = {
 	add_reform_desire = -200
 	hidden_effect = {
