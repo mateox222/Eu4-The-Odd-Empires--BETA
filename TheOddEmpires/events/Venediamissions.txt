@@ -14,7 +14,7 @@ country_event = {
 		ai_chance = { factor = 1 } 
 		set_country_flag = lit_accepted_pu
 		POL = { 
-			create_union = GUY
+			create_union = ROOT
 			country_event = { id = flavor_pol.20 }
 		}
 		if = {
@@ -136,6 +136,100 @@ country_event = {
 			max_random_mil = 5
 			claim = 100
 			culture = polish
+		}
+		if = {
+			limit = {
+				has_states_general_mechanic = yes
+			}
+			change_statists_vs_orangists = 1
+		}
+		GUY = {
+			add_opinion = {
+				who = ROOT
+				modifier = lit_denied_birthright
+			}
+			set_country_flag = lit_decline_pu_flag
+		}
+	}
+
+	option = {
+		name = flavor_pol.18.c 
+		ai_chance = { 
+			factor = 15
+		}
+		define_ruler = {
+			name = "Louis"
+			dynasty = "de Valois"
+			adm = 0
+			dip = 1
+			mil = 1
+			age = 20
+			claim = 50
+		}
+
+		set_in_empire = yes	
+		elector = yes
+		add_historical_friend = NAP
+		NAP = {
+			add_historical_friend = ROOT
+		}
+		if = {
+			limit = {
+				has_states_general_mechanic = yes
+			}
+			change_statists_vs_orangists = 1
+		}
+		GUY = {
+			add_opinion = {
+				who = ROOT
+				modifier = lit_denied_birthright
+			}
+			set_country_flag = lit_decline_pu_flag
+		}
+	}
+	option = {
+		name = flavor_pol.18.e
+		ai_chance = { 
+			factor = 1
+		}
+		
+
+		FRA = { create_union = ROOT	}
+		add_historical_friend = FRA
+		FRA = {
+			add_historical_friend = ROOT
+		}
+		if = {
+			limit = {
+				has_states_general_mechanic = yes
+			}
+			change_statists_vs_orangists = 1
+		}
+		GUY = {
+			add_opinion = {
+				who = ROOT
+				modifier = lit_denied_birthright
+			}
+			set_country_flag = lit_decline_pu_flag
+		}
+	}
+	option = {
+		trigger = {
+			BOH = { ai = yes}
+		}
+		name = flavor_pol.19.f
+		ai_chance = { 
+			factor = 15
+		}
+		
+		set_country_flag = polskawybieraczecha
+		ROOT = { create_union = BOH	}
+		add_historical_friend = BOH
+		BOH = {
+			add_historical_friend = ROOT
+		}
+		BOH = { 
+			country_event = { id = venediaevent.1 }
 		}
 		if = {
 			limit = {
@@ -374,7 +468,7 @@ country_event = {
 		167 = {
 			change_controller = FRA
 		}
-		tooltip = normandiaweasal
+		custom_tooltip = normandiaweasal
 		hidden_effect = {
 		FRA = { free_vassal = NRM }
 		POL = { vassalize = NRM }

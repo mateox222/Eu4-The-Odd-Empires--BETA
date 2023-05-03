@@ -220,7 +220,10 @@ atlantropa_venediabonus_sca_slot_3_a = {
 		required_missions = { vnd_deal_mazovia vnd_polish_renaissance } 
 
 		trigger = {
+			OR = {
 			tag = PLC 
+			is_part_of_hre = yes
+			}
 			}
 		effect = {
 			add_prestige = 25
