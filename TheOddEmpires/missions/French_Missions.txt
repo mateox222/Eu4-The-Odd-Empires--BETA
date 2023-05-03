@@ -11,7 +11,22 @@ french_missions_north = {
 	}
 	has_country_shield = yes
 
-
+	fra_trade_hegemony = {
+		icon = mission_rb_grow_the_channel
+		trigger = {
+			1295 = { #Channel
+				trade_node_value = 1000
+			}
+			full_idea_group = trade_ideas 
+			num_of_light_ship = 200 
+		}
+		effect = {
+			add_country_modifier = {
+				name = fra_trade_hegemony_modifier
+				duration = -1 
+			}
+		}
+	}
 
 	atlantropa_france_conquest = {
 	icon = atlantropa_normandy
@@ -1289,7 +1304,75 @@ emp_france_missions_2 = {
 	has_country_shield = yes
 
 
-	
+	fra_road_connectivity = {
+		icon = claim_the_borderlands
+		required_missions = { }
+		provinces_to_highlight = {
+			owned_by = ROOT 
+			OR = { 
+				NOT = { development = 25 }
+				devastation = 1
+				NOT = { num_of_buildings_in_province = 3 } 
+			}
+		}	
+		trigger = {
+			if = { 
+				limit = { has_dlc = "Mandate of Heaven" } 
+				mission_completed = fra_connect_provinces 
+				num_of_owned_provinces_with = {
+					development = 25 
+					NOT = { devastation = 1 } 
+					num_of_buildings_in_province = 3
+					has_state_edict = french_infrastructure_network
+					value = 20 
+				}
+			}
+			else = {
+				num_of_owned_provinces_with = {
+					development = 25  
+					num_of_buildings_in_province = 3
+					value = 20
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = fra_every_province_gets_random_dev_tt
+			hidden_effect = {
+				if = { 
+					limit = { has_dlc = "Mandate of Heaven" }
+					
+					every_owned_province = {
+						limit = { 
+							development = 25 
+							NOT = { devastation = 1 } 
+							num_of_buildings_in_province = 3
+							has_state_edict = french_infrastructure_network
+						}
+						random_list = {
+							10 = { add_base_tax = 1 } 
+							12 = { add_base_production = 1 } 
+							12 = { add_base_manpower = 1 }
+						}
+					}
+				}
+				else = { 
+					every_owned_province = {
+						limit = { 
+							development = 25 
+							NOT = { devastation = 1 } 
+							num_of_buildings_in_province = 3
+							
+						}
+						random_list = {
+							10 = { add_base_tax = 1 } 
+							12 = { add_base_production = 1 } 
+							12 = { add_base_manpower = 1 }
+						}
+					}
+				}
+			}
+		}
+	}
 	
 	
 		france_empire_greek = {
@@ -2583,6 +2666,40 @@ emp_france_missions_2 = {
 					}
 				}
 				set_government_rank = 3
+			}
+		}
+	}
+	fra_rule_britannia = {
+		icon = mission_launch_a_flagship 
+		required_missions = {  } 
+		position = 11		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = fra_strongest_eu_navy
+				NOT = { 
+					any_known_country = {
+						capital_scope = { continent = europe } 
+						navy_size = ROOT 
+						num_of_heavy_ship = ROOT 
+					}
+				}
+			}
+			if = {
+				limit = { has_dlc = "Rule Britannia" }
+				has_naval_doctrine = any
+			}
+			if = { 
+				limit = { has_dlc = "Emperor" }
+				OR = { 
+					is_hegemon_of_type = naval_hegemon
+					num_of_heavy_ship = 150
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = fra_france_rules_the_waves_modifier
+				duration = -1 
 			}
 		}
 	}
