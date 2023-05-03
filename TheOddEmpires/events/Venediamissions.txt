@@ -107,7 +107,7 @@ country_event = {
 	}
 	
 	option = {
-		name = flavor_ved.18.a #We must retain the Jagiellon Dynasty
+		name =  flavor_vedpol.a #We must retain the Jagiellon Dynasty
 		ai_chance = { 
 			factor = 75 
 		}
@@ -117,7 +117,7 @@ country_event = {
 	}
 	
 	option = {
-		name = flavor_ven.18.b #Appoint a Local Noble.
+		name =  flavor_vedpol.18.b #Appoint a Local Noble.
 		ai_chance = { 
 			factor = 25
 		}
@@ -160,12 +160,8 @@ country_event = {
 			age = 20
 			claim = 50
 		}
-
 		set_in_empire = yes	
-		hidden_effect = {
-			random_elector = { elector = no }	
-			}
-		}
+		
 		elector = yes
 		add_historical_friend = NAP
 		NAP = {
@@ -184,6 +180,7 @@ country_event = {
 			}
 			set_country_flag = lit_decline_pu_flag
 		}
+
 	}
 	option = {
 		name = flavor_pol.18.e
