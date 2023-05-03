@@ -10,23 +10,76 @@ french_missions_north = {
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-
-	fra_trade_hegemony = {
-		icon = mission_rb_grow_the_channel
-		trigger = {
-			1295 = { #Channel
-				trade_node_value = 1000
-			}
-			full_idea_group = trade_ideas 
-			num_of_light_ship = 200 
+	fra_renaissance_architecture = {
+		icon = found_batavia 
+		required_missions = {  } 
+		provinces_to_highlight = {
+			owned_by = ROOT 
+			has_tax_building_trigger = no 
 		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				has_tax_building_trigger = yes 
+				value = 12
+			}
+			OR = { 
+				if = { 
+					limit = { has_dlc = "Rule Britannia" }
+					innovativeness = 20
+				}
+				prestige = 50 
+				stability = 3 
+				full_idea_group = innovativeness_ideas 
+			}
+			if = {
+				limit = { 
+					has_dlc = "Leviathan" 
+					202 = { country_or_non_sovereign_subject_holds = ROOT } 
+				}
+				202 = {
+					OR = { 
+						has_great_project = {
+							type = palace_of_the_popes
+							tier = 1 
+						}
+						has_great_project = {
+							type = palace_of_the_popes
+							tier = 2
+						}
+						has_great_project = {
+							type = palace_of_the_popes
+							tier = 3 
+						}
+					}
+				}
+			}
+		}	
 		effect = {
-			add_country_modifier = {
-				name = fra_trade_hegemony_modifier
-				duration = -1 
+			if = {
+				limit = { has_dlc = "Mandate of Heaven" } 
+				add_splendor = 200 
+			}
+			add_prestige_or_monarch_power = { amount = 25 } 
+			if = {  
+				limit = { 
+					202 = { 
+						country_or_non_sovereign_subject_holds = ROOT 
+						has_great_project = {
+							type = palace_of_the_popes
+							tier = 1 
+						}
+					}
+				}
+				202 = { 
+					add_great_project_tier = { 
+						type = palace_of_the_popes
+						tier = 1 
+					}
+				}
 			}
 		}
 	}
+
 
 	atlantropa_france_conquest = {
 	icon = atlantropa_normandy
@@ -405,10 +458,29 @@ french_missions_north = {
 			factor = 500
 		}
 	}
+
+	fra_trade_hegemony = {
+		required_missions = { discovers_atlantis_america }
+		icon = mission_rb_grow_the_channel
+		trigger = {
+			1295 = { #Channel
+				trade_node_value = 1000
+			}
+			full_idea_group = trade_ideas 
+			num_of_light_ship = 200 
+		}
+		effect = {
+			add_country_modifier = {
+				name = fra_trade_hegemony_modifier
+				duration = -1 
+			}
+		}
+	}
+
+
 		emp_fra_france_discovers_north_america = {
 		position = 10
 		icon = mission_establish_high_seas_navy
-		required_missions = { discovers_atlantis_america }
 		trigger = {
 			has_idea_group = exploration_ideas
 			has_idea = quest_for_the_new_world
