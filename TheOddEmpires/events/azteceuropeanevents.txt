@@ -124,7 +124,7 @@ NOT = {  is_month = 8 }
 			id = azteceuropa.5
 			title = azteceuropa.5.t
 			desc = azteceuropa.5.d
-			picture = aztecritaul_eventPicture
+			picture = BLACKSUNDAWN_eventPicture
 			is_triggered_only = yes
 			major = yes
 			option = {
@@ -186,3 +186,32 @@ NOT = {  is_month = 8 }
 					}
 		
 			}
+
+
+			country_event = {
+				id = azteceuropa.6
+				title = azteceuropa.6.t
+				desc = azteceuropa.6.d
+				picture = Mexcio_eventPicture
+				is_triggered_only = yes
+				major = yes
+				option = {
+					name = "azteceuropa.6.a" 
+					custom_tooltip = disabledoom
+					set_country_flag = doomend
+					remove_faction = doom_decrease
+					remove_faction = doom_increase
+									add_country_modifier = {
+						name = "aztecwar23"
+						duration = -1
+					}
+			
+					add_prestige = 100
+							add_government_power = {
+							mechanic_type = atlantropa_aztec_mechanic
+							power_type = azt_adm_power
+							value = 100
+						}			
+					
+
+				}}

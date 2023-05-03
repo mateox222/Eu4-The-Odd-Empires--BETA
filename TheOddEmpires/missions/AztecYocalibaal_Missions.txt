@@ -138,6 +138,43 @@ azt_missions_religion = {
 			factor = 500
 		}
 	}
+
+	aztec_culture_spread2 = {
+		icon = atlantropa_mayatemple
+		required_missions = { aztec_culture_spread }
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				province_id = 229
+				province_id = 5296
+				province_id = 4561									
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			owns_core_province = 229
+			owns_core_province = 5296
+			owns_core_province = 4561							
+}
+		effect = {
+						add_country_modifier = {
+				name = "azteclineupplanets15"
+				duration = -1
+			}
+						add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 50
+				}
+		
+		}
+				ai_weight = {
+			factor = 500
+		}
+	}
+
+
+
 }
 
 azt_missions_religion2 = {
@@ -461,6 +498,9 @@ A46_azt_minors_1 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 500	
+		}
 	}
 			AZT_conquer_aztec1 = {
 		icon = atlantropa_alsace
@@ -488,8 +528,11 @@ A46_azt_minors_1 = {
 				}
 			
 		}
-
+		ai_weight = {
+			factor = 500	
+		}
 }
+
 
 		AZT_conquer_aztec2 = {
 		icon = atlantropa_stalzemsty
@@ -565,7 +608,9 @@ A46_azt_minors_1 = {
 				duration = -1
 			}
 		}
-
+		ai_weight = {
+			factor = 500	
+		}
 }
 
 
@@ -603,7 +648,9 @@ A46_azt_minors_1 = {
 				}
 			
 		}
-
+		ai_weight = {
+			factor = 500	
+		}
 }
 				AZT_conquer_aztec7 = {
 		icon = atlantropa_burningkazan
@@ -646,6 +693,9 @@ A46_azt_minors_1 = {
 				}
 			
 		}
+		ai_weight = {
+			factor = 500	
+		}
 }
 
 
@@ -677,6 +727,9 @@ A46_azt_minors_1 = {
 				add_permanent_claim = ROOT
 			}
 			
+		}
+		ai_weight = {
+			factor = 500	
 		}
 
 }
@@ -736,7 +789,9 @@ A46_azt_minors_1 = {
 				}			
 			
 		}
-
+		ai_weight = {
+			factor = 500	
+		}
 }
 				AZT_uyetitlan4 = {
 		icon = atlantropa_nahuatl2cap
@@ -753,7 +808,9 @@ A46_azt_minors_1 = {
 }
 			
 		}
-
+		ai_weight = {
+			factor = 500	
+		}
 }
 
 AZT_normandia1 = {
@@ -834,24 +891,10 @@ AZT_normandia4 = {
 		army_size = 200
 	}
 	effect = {
-		custom_tooltip = disabledoom
-		set_country_flag = doomend
-		remove_faction = doom_decrease
-		remove_faction = doom_increase
-						add_country_modifier = {
-			name = "aztecwar23"
-			duration = -1
+		country_event = { 
+			id = azteceuropa.6 
 		}
 
-
-
-		add_prestige = 100
-				add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 100
-			}			
-		
 	}
 
 }
