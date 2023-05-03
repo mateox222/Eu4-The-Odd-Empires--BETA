@@ -569,6 +569,26 @@ scorched_earth = {
 ##########################################################################
 
 base_values = {
+
+	global_tax_modifier = -0.06	
+	global_missionary_strength = -0.03
+	all_estate_loyalty_equilibrium = -0.6
+	land_morale = -0.06
+	global_manpower_modifier = -0.75
+	leader_cost = 0.075
+	military_tactics = -0.06
+	army_tradition_decay = 0.015	
+	discipline = -0.03	
+	production_efficiency = -0.045	
+	unjustified_demands = 0.15
+	ae_impact = 0.15	
+	diplomatic_reputation = -0.45	
+	monthly_splendor = -0.15	
+	yearly_corruption = 0.045	
+	governing_capacity = -30	
+	tolerance_own = -0.5	
+	global_unrest = 0.5	
+	inflation_reduction = -0.06
 	max_absolutism = 65
 	merchants = 2							#Start with 2 merchants
 	diplomats = 2							#Start with 2 diplomats..
@@ -1574,7 +1594,7 @@ revolution_target = {
 
 dishonoured_alliance =  {
 	diplomatic_reputation = -1
-	
+
 }
 
 drilling_armies = { # Multiplied by percentage of forcelimit currently drilling
@@ -2182,6 +2202,7 @@ guru_teaching = {
 }
 
 diplomatic_reputation = {
+		ae_impact = -0.025	
 }
 
 tolerance_own = {
@@ -2194,18 +2215,38 @@ tolerance_heathen = {
 }
 
 num_accepted_cultures = {
+	stability_cost_modifier = -0.05	
 }
 
 ruler_adm = {
+	global_tax_modifier = 0.02	
+	global_missionary_strength = 0.01
+	all_estate_loyalty_equilibrium = 0.2
 	monthly_council_consensus = 0.1
+	inflation_reduction = 0.02
+	global_unrest = -0.15	
+	tolerance_own = 0.15	
+	governing_capacity = 10	
+	yearly_corruption = -0.015	
+	monthly_splendor = 0.05	
 }
 
 ruler_dip = {
 	monthly_council_consensus = 0.1
+	diplomatic_reputation = 0.15	
+	ae_impact = -0.05	
+	unjustified_demands = -0.05
+	production_efficiency = 0.015	
 }
 
 ruler_mil = {
+	discipline = 0.01	
+	land_morale = 0.02
+	global_manpower_modifier = 0.25
+	leader_cost = -0.025
 	monthly_council_consensus = 0.1
+	military_tactics = 0.02
+	army_tradition_decay = -0.005	
 }
 
 heir_adm = {
