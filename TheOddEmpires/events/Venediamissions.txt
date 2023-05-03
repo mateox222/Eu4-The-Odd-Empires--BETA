@@ -83,12 +83,6 @@ country_event = {
 		is_subject = no
 		has_regency = yes
 		NOT = { has_reform = celestial_empire }
-		GUY = {
-			exists = yes
-			is_subject = no
-			NOT = { junior_union_with = POL }
-			dynasty = "de Armagnac"
-		}
 		NOT = { is_year = 6959 }
 	}
 	
@@ -113,7 +107,7 @@ country_event = {
 	}
 	
 	option = {
-		name = flavor_pol.18.a #We must retain the Jagiellon Dynasty
+		name = flavor_ved.18.a #We must retain the Jagiellon Dynasty
 		ai_chance = { 
 			factor = 75 
 		}
@@ -123,7 +117,7 @@ country_event = {
 	}
 	
 	option = {
-		name = flavor_pol.18.b #Appoint a Local Noble.
+		name = flavor_ven.18.b #Appoint a Local Noble.
 		ai_chance = { 
 			factor = 25
 		}
@@ -168,6 +162,10 @@ country_event = {
 		}
 
 		set_in_empire = yes	
+		hidden_effect = {
+			random_elector = { elector = no }	
+			}
+		}
 		elector = yes
 		add_historical_friend = NAP
 		NAP = {
