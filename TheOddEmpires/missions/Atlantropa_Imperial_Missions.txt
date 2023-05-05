@@ -272,9 +272,25 @@ lubeck_misc_tree = {
 
 	has_country_shield = yes
 
+		imperial_por_flagship = {
+		icon = atlantropa_arthurianfleet
+		required_missions = {  }
+		
+		trigger = {
+			has_flagship = yes
+		}
+		effect = {
+			add_navy_tradition = 20
+			add_dip_power = 100
+		}
+		        				ai_weight = {
+			factor = 500
+		}
+	}
+
 	hsa_hanseatic_bookkeeping_mission = {
 		icon = mission_rb_monopolize_the_channel
-		required_missions = { hsa_merchant_navy_mission }
+		required_missions = { imperial_por_flagship }
 		position = 2
 
 		trigger = {
@@ -297,6 +313,9 @@ lubeck_misc_tree = {
 				}
 			}
 			else = { add_dip_power = 50 } 
+		}
+		        				ai_weight = {
+			factor = 500
 		}
 	}
 }
@@ -1031,7 +1050,8 @@ hanseatic_shipwright_tree = {
 		position = 1
 
 		trigger = {
-			num_of_light_ship = 15
+			num_of_galley = 40
+
 		}
 
 		effect = {
@@ -1056,7 +1076,7 @@ hanseatic_shipwright_tree = {
 
 	hsa_hanseatic_shipwrights_mission = {
 		icon = mission_aragonese_navy
-		required_missions = { hsa_merchant_navy_mission }
+		required_missions = { hsa_merchant_navy_mission imperial_por_flagship }
 		position = 2
 
 		provinces_to_highlight = {
