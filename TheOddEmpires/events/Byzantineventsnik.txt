@@ -3053,3 +3053,24 @@ country_event = {
 			}
 
 		}		
+
+
+		country_event = {
+	id = nikean_empire.1100
+	title = flavor_tur.1000.t
+	desc = flavor_tur.1000.desc
+	picture = EYALET_eventPicture
+	is_triggered_only = yes
+	
+	option = {	# We are free from the Turks!
+		name = flavor_tur.1000.a
+		clr_country_flag = has_rhomaioi_color
+		restore_country_name = yes
+		restore_country_color = yes
+		add_prestige = 20
+		
+		ai_chance = {
+			factor = 1
+		}
+	}
+}

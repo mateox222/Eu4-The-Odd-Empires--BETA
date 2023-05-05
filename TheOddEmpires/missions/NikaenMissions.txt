@@ -97,7 +97,10 @@ latin_empire_western = {
 		required_missions = { latinempire_romanisation_war_constantinople  }
 		trigger = {
 		controls = 151
+		OR = {
 		has_country_flag = constantinople_captured
+		tag = BYZ
+		}
 		}
 		effect = {
 				country_event = { 

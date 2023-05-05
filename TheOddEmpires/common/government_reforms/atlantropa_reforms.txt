@@ -556,3 +556,40 @@ crusading_kingdom_reform = {
 	fixed_rank = 2
 }
 
+
+
+autonomous_byzantine_province = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "eyalet_government"
+	potential = {
+			is_subject_of_type = atlantis_coempire
+	}
+	valid_for_nation_designer = no
+	maintain_dynasty = yes
+	modifiers = {
+		global_unrest = -1
+		no_religion_penalty = yes
+		governing_capacity = 100
+	}
+	removed_effect = {
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { is_subject_of_type = atlantis_coempire }
+
+				}
+				country_event = {
+					id = nikean_empire.1100
+				}
+			}
+		}
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	ai = {
+		factor = 100
+	}
+}
