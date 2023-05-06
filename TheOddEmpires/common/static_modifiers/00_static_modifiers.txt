@@ -646,6 +646,7 @@ stability = {
 	inflation_reduction = 0.05
 	monarch_lifespan = 0.05	
 	yearly_corruption = -0.01	
+	monthly_byz_adm_power  = -0.05 	
 }
 
 positive_stability = {
@@ -682,6 +683,7 @@ negative_stability = {
 	all_power_cost = 0.10	
 	monthly_russian_modernization = 0.03
 	monthly_ottoman_decadence = -0.15
+	monthly_byz_adm_power = 0.25 	
 }
 
 positive_mandate = {	# 100% strength at 100 mandate, 0% at 50 mandate
@@ -723,26 +725,34 @@ bank_loan = {
 }
 
 inflation = {
+	monthly_byz_adm_power  = 0.01	
 	all_power_cost = 0.0025
-	inflation_action_cost = -0.01
-	inflation_reduction = -0.0015
-	prestige = -0.01	
-	build_cost = 0.01						#1% for each inflation step.
-	infantry_cost = 0.01					#1% for each inflation step
-	cavalry_cost = 0.01						#1% for each inflation step
-	artillery_cost = 0.01					#1% for each inflation step
-	heavy_ship_cost = 0.01					#1% for each inflation step
-	light_ship_cost = 0.01					#1% for each inflation step
-	galley_cost = 0.01						#1% for each inflation step
-	transport_cost = 0.01					#1% for each inflation step
-	flagship_cost = 0.01					#1% for each inflation step
-	advisor_cost = 0.01						#1% for each inflation step
-	mercenary_cost = 0.01					#1% for each inflation step
-	fort_maintenance_modifier = 0.01	
-	monthly_russian_modernization = -0.01	#1% for each inflation step
+	build_cost = 0.01									#1% for each inflation step.
+	infantry_cost = 0.01								#1% for each inflation step
+	cavalry_cost = 0.01									#1% for each inflation step
+	artillery_cost = 0.01								#1% for each inflation step
+	heavy_ship_cost = 0.01								#1% for each inflation step
+	light_ship_cost = 0.01								#1% for each inflation step
+	galley_cost = 0.01									#1% for each inflation step
+	transport_cost = 0.01								#1% for each inflation step
+	flagship_cost = 0.01								#1% for each inflation step
+	advisor_cost = 0.01									#1% for each inflation step
+	mercenary_cost = 0.01								#1% for each inflation step
+	fort_maintenance_modifier = 0.01					#1% for each inflation step
+	missionary_maintenance_cost = 0.01					#1% for each inflation step
+	colony_cost_modifier = 0.01							#1% for each inflation step
+	great_project_upgrade_cost = 0.01					#1% for each inflation step
+	embracement_cost = 0.01								#1% for each inflation step
+	colonial_subject_type_upgrade_cost_modifier = 0.01	#1% for each inflation step
+	colonial_type_change_cost_modifier = 0.01			#1% for each inflation step
+	center_of_trade_upgrade_cost = 0.01					#1% for each inflation step
+	trade_company_investment_cost = 0.01				#1% for each inflation step
+	state_maintenance_modifier = 0.01					#1% for each inflation step
+	monthly_russian_modernization = -0.01
 }
 
 bankruptcy = {
+	monthly_byz_adm_power  = 0.5 	
 	interest = 5
 	land_morale = -0.5
 	naval_morale = -0.5
@@ -819,6 +829,7 @@ call_for_peace = {
 }
 
 war_exhaustion = {
+	monthly_byz_adm_power  = 0.05 	
 	global_unrest = 1
 	global_regiment_recruit_speed = 0.02
 	global_ship_recruit_speed = 0.02
@@ -847,6 +858,7 @@ authority = {
 }
 
 regency_council = {
+	monthly_byz_adm_power  = 0.25	
 	stability_cost_modifier = 0.25
 }
 
@@ -921,6 +933,7 @@ negative_piety = { #As of 1.23 Mysticism
 }
 
 defender_of_faith = {
+	monthly_byz_adm_power  = -0.25 	
 	land_morale = 0.05
 	naval_morale = 0.05
 	technology_cost = 0.05
@@ -978,6 +991,7 @@ emperor_revoked_reform =  {
 }
 
 num_of_marriages = {
+	monthly_byz_adm_power  = -0.025 	
 	legitimacy = 0.10
 	heir_chance = 0.05
 	improve_relation_modifier = 0.01
@@ -1024,6 +1038,7 @@ country_development = {
 
 # Multiplied by current Legitimacy - 50
 legitimacy = {
+	monthly_byz_adm_power  = -0.1 	
 	global_unrest = -4
 	tolerance_own = 2
 	tolerance_heathen = 2
@@ -1074,6 +1089,7 @@ low_meritocracy = {
 
 # Scaled, multiplied by current corruption / 100
 corruption = {
+	monthly_byz_adm_power  = -0.025 	
 	global_spy_defence = -0.25
 	spy_offence = -0.50
 	all_power_cost = 1.0
@@ -1530,6 +1546,11 @@ same_religion_subject_bonus_mod = {
 	manpower_in_true_faith_provinces = 0.25
 	global_sailors_modifier = 0.25
 	production_efficiency = 0.15
+}
+
+eyalet_modifier = {
+	global_manpower = -5
+	land_forcelimit	= -5
 }
 
 #scales to amount of up-to-date forts compared to total development

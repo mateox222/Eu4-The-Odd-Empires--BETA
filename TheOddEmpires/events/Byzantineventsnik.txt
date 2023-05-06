@@ -284,6 +284,7 @@ add_core = A52
 			}
 			country_event = { id = ideagroups.1 } #Swap Ideas
 			LAE = {  override_country_name = CRUSADESTATE_EMPIRE }
+			custom_tooltip = byzantineyalets
 	}
 	}
 	
@@ -2395,7 +2396,11 @@ rename_capital = "Kontastinakti"
 }
 	option = {
 	name = "nikean_empire.83.a" 
-			add_patriarch_authority = 0.05
+							add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = -5
+				}
 			change_estate_land_share = {
     estate = estate_church
     share = 1
@@ -2424,6 +2429,11 @@ add_country_modifier = {
     name = rrvenetaunpleased 
     duration = 1800
 }
+						add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = 10
+				}
 }
 }
 	
@@ -2436,7 +2446,11 @@ add_country_modifier = {
 	trigger = {
 		    has_reform = roman_byzantine_monarchy
 	has_country_modifier = rrvenetaunpleased
-	NOT = { stability = 1}
+							has_government_power = {
+	mechanic_type = nikaeanbyzantine_mechanic
+	power_type = byz_adm_power
+	value = 20
+}
 	}
 	mean_time_to_happen = {
 	months = 36
@@ -2454,6 +2468,11 @@ add_country_modifier = {
     size = 1
 }
 			}
+									add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = 5
+				}
 			}
 
 	}
@@ -2467,7 +2486,11 @@ add_country_modifier = {
 		    has_reform = roman_byzantine_monarchy
 	has_country_modifier = rrvenetaleased
 	faction_in_power = rr_veneta	
-	NOT = { stability = 2 }
+							has_government_power = {
+	mechanic_type = nikaeanbyzantine_mechanic
+	power_type = byz_adm_power
+	value = 40
+}
 	}
 	mean_time_to_happen = {
 	months = 96
@@ -2483,7 +2506,13 @@ add_country_modifier = {
     type = noble_rebels
     size = 1
 }
+
 			}
+									add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = 5
+				}
 			}
 
 	}									
@@ -2517,6 +2546,11 @@ add_country_modifier = {
     estate = estate_burghers
     share = 2
 }
+						add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = -5
+				}
 
 	add_faction_influence = {
     faction = rr_prasina
@@ -2529,6 +2563,11 @@ add_country_modifier = {
 }
 	option = {
 	name = "nikean_empire.86.b" 
+							add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = 10
+				}
 	add_legitimacy = -10
 	add_faction_influence = {
     faction = rr_prasina
@@ -2550,7 +2589,11 @@ add_country_modifier = {
 	trigger = {
 		    has_reform = roman_byzantine_monarchy
 	has_country_modifier = rrprasinapleased
-	NOT = { stability = 1}
+							has_government_power = {
+	mechanic_type = nikaeanbyzantine_mechanic
+	power_type = byz_adm_power
+	value = 20
+}
 	}
 	mean_time_to_happen = {
 	months = 100
@@ -2560,6 +2603,7 @@ add_country_modifier = {
 	}
 }
 	option = {
+		
 	name = "nikean_empire.87.a" 
 			add_patriarch_authority = -0.02
 			random_owned_province = {
@@ -2568,6 +2612,11 @@ add_country_modifier = {
     size = 1
 }
 			}
+									add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = 5
+				}
 			}
 
 	}
@@ -2581,7 +2630,11 @@ add_country_modifier = {
 		    has_reform = roman_byzantine_monarchy
 	has_country_modifier = rrprasinaunpleased
 	faction_in_power = rr_prasina
-	NOT = { stability = 1}
+							has_government_power = {
+	mechanic_type = nikaeanbyzantine_mechanic
+	power_type = byz_adm_power
+	value = 40
+}
 	}
 	mean_time_to_happen = {
 	months = 96
@@ -2597,6 +2650,11 @@ add_country_modifier = {
     type = noble_rebels
     size = 1
 }
+						add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = 5
+				}
 			}
 			}
 
@@ -2615,7 +2673,11 @@ add_country_modifier = {
 	NOT = { has_country_modifier = preatoriadevastating }
 	NOT = { has_country_modifier = preatoriansagaindevastating }	
 	faction_in_power = rr_praetorians
-	NOT = { stability = 2 }
+							has_government_power = {
+	mechanic_type = nikaeanbyzantine_mechanic
+	power_type = byz_adm_power
+	value = 40
+}
 	}
 	mean_time_to_happen = {
 	months = 100
@@ -2639,6 +2701,11 @@ add_country_modifier = {
     influence = 10
 
 }
+						add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = 5
+				}
 
 			}
 	option = {
@@ -2660,7 +2727,11 @@ add_country_modifier = {
     size = 1
 }
 			}
-
+						add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = -3
+				}
 			}
 
 	}
@@ -2677,7 +2748,11 @@ add_country_modifier = {
 	NOT = { has_country_modifier = preatoriansagaindevastating }
 	NOT = { has_country_modifier = preatoriadevastating }	
 	faction_in_power = rr_praetorians
-	NOT = { stability = 3 }
+	has_government_power = {
+	mechanic_type = nikaeanbyzantine_mechanic
+	power_type = byz_adm_power
+	value = 30
+}
 	}
 	mean_time_to_happen = {
 	months = 90
@@ -2701,6 +2776,11 @@ add_country_modifier = {
     influence = 15
 
 }
+						add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = 5
+				}
 
 			}
 	option = {
@@ -2723,6 +2803,11 @@ add_country_modifier = {
     influence = -15
 
 }
+						add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = -3
+				}
 
 			}
 
@@ -2749,7 +2834,11 @@ add_country_modifier = {
 	option = {
 	name = "nikean_empire.91.a" 
 
-		add_patriarch_authority = 0.05
+						add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = -5
+				}
 	add_ruler_modifier = { 
     name = preatoriaguards
     duration = -1
@@ -2771,6 +2860,11 @@ add_country_modifier = {
     influence = -15
 
 }
+				add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = -5
+				}
 
 	}
 		}	
@@ -2783,7 +2877,11 @@ add_country_modifier = {
 	picture = praetoriaguards_eventPicture
 	trigger = {
 		   tag = BYZ   
-			NOT = { stability = 1}
+									has_government_power = {
+	mechanic_type = nikaeanbyzantine_mechanic
+	power_type = byz_adm_power
+	value = 50
+}
 			OR = {
  has_ruler_modifier = preatoriaguards 
 			}	
@@ -2878,7 +2976,11 @@ define_ruler = {
 		   tag = BYZ   
 	NOT = { has_ruler_flag = damnvenet }
 	has_ruler_modifier = preatoriaguards
-	NOT = { stability = 3 }
+							has_government_power = {
+	mechanic_type = nikaeanbyzantine_mechanic
+	power_type = byz_adm_power
+	value = 50
+}
 	}
 	mean_time_to_happen = {
 	months = 160
@@ -2925,7 +3027,11 @@ set_ruler_flag = damnvenet
 	trigger = {
 		   tag = BYZ   
 	has_ruler_modifier = preatoriaguards
-	NOT = { stability = 3}
+						has_government_power = {
+	mechanic_type = nikaeanbyzantine_mechanic
+	power_type = byz_adm_power
+	value = 30
+}
 		NOT = { has_ruler_flag = damnprasina }
 	}
 	mean_time_to_happen = {
@@ -2973,7 +3079,11 @@ set_ruler_flag = damnvenet
 	picture = ANGRY_MOB_eventPicture
 	trigger = {
 		    has_reform = roman_byzantine_monarchy
-			NOT = { stability = 2}
+								has_government_power = {
+	mechanic_type = nikaeanbyzantine_mechanic
+	power_type = byz_adm_power
+	value = 30
+}
 	}
 mean_time_to_happen = {
 	months = 180
@@ -3028,6 +3138,11 @@ country_event = {
 	option = {
 	name = "nikean_empire.97.a" 
 	add_war_exhaustion = -3
+					add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = -5
+				}
 	 set_ruler_flag = modlitwawhagiishophia
 	
 
@@ -3052,7 +3167,70 @@ country_event = {
 	add_prestige = -5
 			}
 
-		}		
+		}	
+country_event = {
+	id = nikean_empire.99
+	title = nikean_empire.98.t
+	desc = nikean_empire.98.d
+	picture = bloodovervvistula_eventPicture
+	fire_only_once = yes
+	trigger = {
+									has_government_power = {
+	mechanic_type = nikaeanbyzantine_mechanic
+	power_type = byz_adm_power
+	value = 50
+}
+	}
+
+	option = {
+	name = "nikean_empire.99.a" 
+		add_ruler_modifier = { 
+    name = robicomozebyz
+    duration = -1
+
+}
+	add_prestige = -5
+						add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = -5
+				}
+			}
+				option = {
+	name = "nikean_empire.99.b" 
+					add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = 5
+				}
+	add_prestige = 5
+			}
+
+		}	
+
+
+
+		country_event = {
+	id = nikean_empire.100
+	title = nikean_empire.100.t
+	desc = nikean_empire.100.d
+	picture = brauchinstadr_eventPicture
+	is_triggered_only = yes
+	option = {
+	name = "nikean_empire.100.a" 
+	if = {
+		limit = { is_lesser_in_union = no }
+	kill_ruler = yes
+	}
+		if = {
+		limit = { is_lesser_in_union = yes }
+		overlord = { break_union = ROOT	 }
+	}
+	add_prestige = -5
+	add_legitimacy = 10
+			}
+
+		}	
 
 
 		country_event = {

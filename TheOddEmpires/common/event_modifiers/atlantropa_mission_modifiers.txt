@@ -173,7 +173,8 @@ vinlandic_population = {
 				byzantine_road_to_restoration = {
 			discipline = 0.01	
 			siege_ability = 0.02
-			infantry_cost = -0.02				
+			infantry_cost = -0.02		
+			monthly_byz_adm_power  = -0.05 		
 	}
 					byzantine_turkey_threat = {
 			land_morale = 0.03	
@@ -193,7 +194,8 @@ vinlandic_population = {
 			discipline = 0.01	
 			infantry_cost = -0.05
 			prestige_from_land = 0.10	
-			leader_cost = -0.10				
+			leader_cost = -0.10		
+			monthly_byz_adm_power  = -0.05 			
 	}
 			byzantine_restoration_threat = {
 			land_morale = 0.05
@@ -202,6 +204,7 @@ vinlandic_population = {
 			advisor_cost = -0.05
 			yearly_corruption = -0.01
 			legitimacy = 0.1	
+			monthly_byz_adm_power  = -0.15 	
 	}
 								byzantine_armenian_threat = {
 			land_morale = 0.02	
@@ -273,20 +276,25 @@ vinlandic_population = {
 			diplomats = 1	
 			diplomatic_reputation = 1	
 			diplomatic_upkeep = 1	
+			monthly_byz_adm_power  = -0.05 	
 	}
 	byzantine_portugal_threat   = {
 			diplomatic_reputation = 2	
 			liberty_desire = -10	
+			monthly_byz_adm_power  = -0.05 	
 	}
 
 	expansionist_romania_byzantine = {
 	harsh_treatment_cost = -0.10
 	state_maintenance_modifier = -0.05
+	monthly_byz_adm_power  = -0.01 	
 }
 	byzantine_crimea = {
 	naval_forcelimit_modifier = 0.1	
 	naval_attrition = -0.05
 	admiral_cost = -0.1	
+	monthly_byz_adm_power  = -0.01 	
+
 }
 sardinia_of_sicily = {
 	naval_forcelimit_modifier = 0.1	
@@ -294,6 +302,8 @@ sardinia_of_sicily = {
 	state_maintenance_modifier = -0.05
 	harsh_treatment_cost = -0.05
 	admiral_cost = -0.05
+	monthly_byz_adm_power  = -0.01	
+
 }
 
 switzerland_of_sicily = {
@@ -301,12 +311,16 @@ switzerland_of_sicily = {
 	harsh_treatment_cost = -0.05
 	land_morale = 0.025	
 	infantry_cost = -0.05
+	monthly_byz_adm_power  = -0.01
+
 }
 
 aeaea_of_sicily  = {
 	naval_morale = 0.05		
 	naval_attrition = -0.05
 	admiral_cost = -0.1	
+	monthly_byz_adm_power  = -0.01	
+
 }
 
 iberia_of_sicily  = {
@@ -319,6 +333,8 @@ iberia_of_sicily  = {
 	land_morale = 0.025	
 	infantry_cost = -0.05
 	defensiveness = 0.1		
+	monthly_byz_adm_power  = -0.01	
+
 }
 burnedcapitalprovince = { local_monthly_devastation = 0.1 local_prosperity_growth = -0.1	}
 burnedprovince = { local_monthly_devastation = 0.1 local_prosperity_growth = -0.1	}
@@ -415,11 +431,21 @@ solardevastating = {
 preatoriadevastating  = {
 	legitimacy = -0.1
 	global_monthly_devastation = 0.05	
+	monthly_byz_adm_power  = 0.05 	
+
+}
+ 
+robicomozebyz = {
+	global_tax_modifier = -0.25	
+	monthly_byz_adm_power  = -0.25 	
+
 }
 
 preatoriansagaindevastating  = {
 	
 	manpower_recovery_speed = -0.15	
+	monthly_byz_adm_power  = -0.05 	
+
 }
 
 lunardevastating = {
@@ -519,6 +545,7 @@ rrprasinaunpleased = {
 
 preatoriaguards = {
 	prestige = 0.5
+	monthly_byz_adm_power  = -0.025	
 }
 
 pernamentlaw = {
@@ -813,7 +840,10 @@ ruskapolska = {
 			stability_cost_modifier = 0.1	
 			}
 
-
+ byz_imperial_provinces = {
+	liberty_desire = -10	
+	stability_cost_modifier = -0.1	
+	}
 	crusadelatinempire = {
 						global_manpower_modifier = 0.10	
 						discipline = 0.025

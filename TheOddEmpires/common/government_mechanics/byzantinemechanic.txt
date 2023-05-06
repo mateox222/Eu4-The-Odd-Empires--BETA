@@ -5,93 +5,144 @@ nikaeanbyzantine_mechanic = {
 	}
 	
 	powers = {
-		byz_dip_power = {
-			max = 150
-			monarch_power = DIP
-			base_monthly_growth = 0.25
-		}
 		byz_adm_power = {
-			max = 150
-			monarch_power = adm
-			base_monthly_growth = 0.25
-		}
-		byz_MIL_power = {
-				max = 150
-				monarch_power = mil
-			base_monthly_growth = 0.25
+			max = 100
+			reset_on_new_ruler = yes
+			base_monthly_growth = 1
+			is_good = no
+			
+			scaled_modifier = {
+				modifier = {
+					legitimacy = -2
+					idea_cost = 0.1
+					stability_cost_modifier = 1	
+					manpower_recovery_speed = -0.5
+					global_unrest = 5	
+				}
+			}
+				on_max_reached = {
+				custom_tooltip = byzantinefall
+				hidden_effect = {
+					country_event = {
+						id = nikean_empire.100
+					}
+				}
+			}
 		}
 	}
 	
+	
 	interactions = {
-		BYZ_DIPLO_SUPPORT = {
-			gui = russian_mechanics_interaction_gui
-			icon = GFX_byzantine_ability_2
-			cost_type = byz_dip_power
-			cost = 100
-			trigger = {
-
-			}
-			effect = {
-				change_government_reform_progress = 10
-				add_stability = 2	
-				add_faction_influence = {
-					faction = rr_veneta 
-					influence = 33
-				}
-				
-			}
-			cooldown_years = 10
-			ai_chance = {
-				factor = 10
-			}
-		}
-		
-		BYZ_TAXCLERGY = {
+		improvepopularityruler = {
 			gui = russian_mechanics_interaction_gui
 			icon = GFX_byzantine_ability_1
-			cost_type = byz_adm_power
-			cost = 100
 			trigger = {
+				adm_power_cost = 100
 			}
-			effect = {
-				add_years_of_income = 2	
-				add_legitimacy = 10
+			effect = { 
+				adm_power_cost = 100
+				add_stability = 1	
 				add_faction_influence = {
 					faction = rr_prasina
 					influence = 33
 				}
+				add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = -5
+				}
 			}
-			cooldown_years = 10
+
+			cooldown_years = 5
 			ai_chance = {
-				factor = 10
+				factor = 1
+				modifier = {
+					factor = 10
+					has_government_power = {
+	mechanic_type = nikaeanbyzantine_mechanic
+	power_type = byz_adm_power
+	value = 10
+}
+				}
 			}
 		}
 		
-		BYZ_MILITARY = {
+		improvepopularityruler2 = {
 			gui = russian_mechanics_interaction_gui
-			icon = GFX_byzantine_ability_3
-			cost_type = byz_MIL_power
-			cost = 100
+			icon = GFX_byzantine_ability_2
 			trigger = {
+				adm_power_cost = 100
+				years_of_income = 1.0
 			}
 			effect = {
-				#custom_tooltip = RUSABIL_SUDEBNIK_EFFECT_TT
+				add_legitimacy = 10
+				add_prestige = 5
+				adm_power_cost = 100
+				add_years_of_income = -1
+								add_faction_influence = {
+					faction = rr_veneta
+					influence = 33
+				}
+					add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = -5
+				}
+
+			}
+			cooldown_years = 5
+				ai_chance = {
+				factor = 1
+				modifier = {
+					factor = 10
+					has_government_power = {
+	mechanic_type = nikaeanbyzantine_mechanic
+	power_type = byz_adm_power
+	value = 10
+}
+				}
+			}
+		}
+		
+		improvepopularityruler3 = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_byzantine_ability_3
+					trigger = {
+				manpower_percentage = 0.15		
+				mil_power_cost = 100
+			}
+			effect = {
+				mil_power_cost = 100
 				capital_scope = {
 					cavalry = ROOT
 					cavalry = ROOT
 					cavalry = ROOT
 					cavalry = ROOT
 					cavalry = ROOT
+					cavalry = ROOT					
 				}
-				add_yearly_manpower = 1	
+				add_yearly_manpower = -1	
 				add_faction_influence = {
 					faction = rr_praetorians
 					influence = 33
 				}
+									add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = -5
+				}
 			}
-			cooldown_years = 10
-			ai_chance = {
-				factor = 10
+			cooldown_years = 5
+					ai_chance = {
+				factor = 1
+				modifier = {
+					factor = 10
+					has_government_power = {
+	mechanic_type = nikaeanbyzantine_mechanic
+	power_type = byz_adm_power
+	value = 10
+}
+				}
 			}
 		}
 	}
