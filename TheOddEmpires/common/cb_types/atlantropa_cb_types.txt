@@ -10,6 +10,7 @@ cb_byzantine_autonomous_province = {
 	prerequisites = {
 		is_subject = no
 		is_neighbor_of = FROM
+		FROM =  { total_development = 20 } 		
 		FROM = { NOT = { total_development = 200 } }
 		FROM = { NOT = { total_development = ROOT } }		
 		NOT = { truce_with = FROM }		
