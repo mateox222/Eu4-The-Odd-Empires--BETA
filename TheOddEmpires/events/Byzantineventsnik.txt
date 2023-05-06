@@ -1996,6 +1996,7 @@ country_event = {
 	desc = nikean_empire.67.d
 	picture = rometriumpf_eventPicture
 	is_triggered_only = yes
+
 		option = {
 	name = "nikean_empire.67.a" 
 	add_patriarch_authority = 0.2
@@ -2042,7 +2043,33 @@ country_event = {
 					
 					}			
 		}	
-			}}
+			}
+				option = {
+	name = "nikean_empire.67.b" 
+			dismantle_hre = yes	
+			override_country_name = RestoredRome_BYZ
+						add_country_modifier = {
+				name = "conversion_of_rome"
+				duration = -1
+			}
+						add_country_modifier = {
+				name = "troubles_in_italy"
+				duration = 7200
+			}
+	}
+			option = {
+				name = "nikean_empire.67.c" 
+			override_country_name = RestoredRome_BYZ
+						add_country_modifier = {
+				name = "conversion_of_rome"
+				duration = -1
+			}
+						add_country_modifier = {
+				name = "troubles_in_italy"
+				duration = 3600
+			}
+	}}
+	
 			
 
 		country_event = {
