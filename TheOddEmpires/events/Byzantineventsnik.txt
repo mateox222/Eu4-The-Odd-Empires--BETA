@@ -2004,11 +2004,48 @@ country_event = {
 				duration = -1
 			}
 			override_country_name = RestoredRome_BYZ
-
+		custom_tooltip = egyptasanotherprovincetooltip2
+		hidden_effect = {
+		every_owned_province = { 
+			limit = {
+				region = italy_region
 			}
+			add_core =  A50
+			cede_province = A50
+}
+			every_country = {
+				limit = { 
+				is_part_of_hre = yes
+				capital_scope = {
+					region = italy_region
+				}
+				}
+				country_event = { 
+    id = nikean_empire.1111
+}
+				
 			}
+			dismantle_hre = yes	
+			create_subject = {
+    subject_type = atlantis_coempire
+    subject = A50
+}
+			italy_region = {
+			add_core =  A50
+			}
+			A50 = { add_liberty_desire = -50
+ 					set_capital = 118
+					change_primary_culture = italikos
+					add_government_reform = autonomous_byzantine_province
+					change_country_color = { color = { 108 9 9 }	}
+					set_country_flag = has_overriden_color
+					
+					}			
+		}	
+			}}
+			
 
-						country_event = {
+		country_event = {
 	id = nikean_empire.68
 	title = nikean_empire.68.t
 	desc = nikean_empire.68.d
@@ -3256,5 +3293,34 @@ country_event = {
 		ai_chance = {
 			factor = 1
 		}
+	}
+}
+
+
+country_event = {
+	id = nikean_empire.1111
+	title = flavor_tur.1000.t
+	desc = flavor_tur.1000.desc
+	picture = EYALET_eventPicture
+	is_triggered_only = yes
+	
+	option = {	# We are free from the Turks!
+		name = flavor_tur.1000.a
+		add_prestige = 10
+		ai_chance = {
+			factor = 2
+		}
+	}
+		option = {	# We are free from the Turks!
+		name = flavor_tur.1000.a
+		A50 = { inherit = ROOT }
+		ai_chance = {
+			factor = 1
+				modifier = {
+				factor = 4
+				BYZ = { is_emperor = yes }
+			}
+		}
+
 	}
 }

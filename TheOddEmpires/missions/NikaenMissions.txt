@@ -290,7 +290,7 @@ latin_empire_western = {
 		}
 		trigger = {
 		num_of_owned_provinces_with = {
-	value = 15
+	value = 20
 	owned_by = ROOT
 	region = italy_region
 }
@@ -319,9 +319,21 @@ latin_empire_western = {
 			}
 		}
 		trigger = {
-		OR = {
-		is_emperor = yes
 			owns = 118
+		OR = {
+			AND = {
+		is_emperor = yes
+		imperial_influence = 100
+			}
+			AND = {
+				army_size = emperor
+				num_of_owned_provinces_with = {
+	value = 40
+	owned_by = ROOT
+	region = italy_region
+}
+			}			
+			
 		}}
 		effect = {
 																				country_event = { 
