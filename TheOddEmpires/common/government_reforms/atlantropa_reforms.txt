@@ -156,11 +156,10 @@ roman_byzantine_monarchy = {
 	allow_force_tributary = yes	
 
 	modifiers = {
-		global_manpower = 5
+		global_manpower = 3
 		war_exhaustion = -0.03
-		global_unrest = 2
+		global_unrest = 1
 		max_absolutism = 15
-		monarch_admin_power = 1	
 		adm_advisor_cost = -0.1	
 		monthly_support_heir_gain = -0.1	
 		no_stability_loss_on_monarch_death = yes	
@@ -168,11 +167,22 @@ roman_byzantine_monarchy = {
 	}
 
 
+		conditional = {
+factions = {
+	allow = {
+            tag = BYZ
+        }
+	rr_praetorians 
+	
+}
+}
 	conditional = {
+
+
+
 		factions = {
 			rr_veneta
 			rr_prasina
-			rr_praetorians 
 			
 		}
 	}

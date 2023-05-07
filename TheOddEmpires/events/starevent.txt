@@ -8,7 +8,7 @@ country_event = {
 	fire_only_once = yes
 	is_triggered_only = yes
 immediate = {
-	add_reform_desire = -200
+	add_reform_desire = -2
 	hidden_effect = {
 	hide_ambient_object = volcano_ash_emmiter
 		country_event = { 
@@ -18,11 +18,14 @@ immediate = {
 	set_global_flag = atlantropa_start_flag
 	set_global_flag = niecrashujmizjebanagro
 	set_ruler_flag = koronowanykrolsrednio
+	MEN = { change_country_color = { color = { 153 71 124 }	}
+	set_country_flag = has_overriden_color  }
 	every_country = {
 		limit = { is_subject_of = FRA }
 		country_event = { 
     id = atlantropa_basic_event.100
 	}
+
 	
 }}}
 	option = {
