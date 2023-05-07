@@ -141,19 +141,59 @@ roman_legio_monarchy = {
 		factor = 100
 	}
 }
+roman_byzantine_monarchy2 = {
+	icon = "byzantine2"
+	legacy_equivalent = feudal_monarchy	
+	allow_normal_conversion = yes
+	potential = {
+			OR = {
+        tag = A52
+    }
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 150
+	nobles_loyalty_modifier = 0.1
+	governing_capacity_modifier = -0.25
+
+	modifiers = {
+		global_manpower = 5
+		war_exhaustion = -0.01
+		max_absolutism = 5
+		governing_capacity_modifier = 0.2
+	}
+
+
+	conditional = {
+
+
+		
+		factions = {
+			rr_veneta
+			rr_prasina
+			
+		}
+	}
+			custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
+		factor = 100
+	}
+	government_abilities = {
+		nikaeanbyzantine_mechanic
+	}
+}
 roman_byzantine_monarchy = {
 	icon = "byzantine"
 	legacy_equivalent = feudal_monarchy	
 	allow_normal_conversion = yes
 	potential = {
 			OR = {
-        tag = A52
 		tag = BYZ
     }
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 150
-	allow_force_tributary = yes	
 
 	modifiers = {
 		global_manpower = 3
@@ -167,21 +207,16 @@ roman_byzantine_monarchy = {
 	}
 
 
-		conditional = {
-			allow = {
-            tag = BYZ
-        }
-factions = {
-	rr_praetorians 
-	
-}
-}
+	conditional = {
 
+
+		
 		factions = {
 			rr_veneta
 			rr_prasina
+			rr_praetorians 
 			
-		
+		}
 	}
 			custom_attributes = {
 		locked_government_type = yes

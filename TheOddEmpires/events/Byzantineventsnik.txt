@@ -261,6 +261,7 @@ add_core = A52
 	151 = {  cede_province = A52 }
 	5150  = {  cede_province = A52 }
 	change_tag = BYZ
+	add_government_reform = roman_byzantine_monarchy
 	change_primary_culture = greek
 	add_prestige = 20
 	restore_country_name = yes	
@@ -2449,7 +2450,12 @@ rename_capital = "Kontastinakti"
 	NOT = {	has_country_modifier = rrvenetaleased }
 	NOT = {	has_country_modifier = rrvenetaunpleased }
 	faction_in_power = rr_veneta 
-	    has_reform = roman_byzantine_monarchy
+	    OR = {
+has_reform = roman_byzantine_monarchy
+has_reform = roman_byzantine_monarchy2
+}
+
+
 
 	}
 	mean_time_to_happen = {
@@ -2509,7 +2515,12 @@ add_country_modifier = {
 	desc = nikean_empire.84.d
 	picture = ANGRY_MOB_eventPicture
 	trigger = {
-		    has_reform = roman_byzantine_monarchy
+		    OR = {
+has_reform = roman_byzantine_monarchy
+has_reform = roman_byzantine_monarchy2
+}
+
+
 	has_country_modifier = rrvenetaunpleased
 							has_government_power = {
 	mechanic_type = nikaeanbyzantine_mechanic
@@ -2549,7 +2560,12 @@ add_country_modifier = {
 	desc = nikean_empire.85.d
 	picture = ANGRY_MOB_eventPicture
 	trigger = {
-		    has_reform = roman_byzantine_monarchy
+		    OR = {
+has_reform = roman_byzantine_monarchy
+has_reform = roman_byzantine_monarchy2
+}
+
+
 	has_country_modifier = rrvenetaleased
 	faction_in_power = rr_veneta	
 							has_government_power = {
@@ -2596,7 +2612,12 @@ add_country_modifier = {
 	NOT = {	has_country_modifier = rrprasinapleased }
 	NOT = {	has_country_modifier = rrprasinaunpleased }
 	faction_in_power = rr_prasina
-	    has_reform = roman_byzantine_monarchy
+	    OR = {
+has_reform = roman_byzantine_monarchy
+has_reform = roman_byzantine_monarchy2
+}
+
+
 
 	}
 	mean_time_to_happen = {
@@ -2654,7 +2675,12 @@ add_country_modifier = {
 	desc = nikean_empire.87.d
 	picture = ANGRY_MOB_eventPicture
 	trigger = {
-		    has_reform = roman_byzantine_monarchy
+		    OR = {
+has_reform = roman_byzantine_monarchy
+has_reform = roman_byzantine_monarchy2
+}
+
+
 	has_country_modifier = rrprasinapleased
 							has_government_power = {
 	mechanic_type = nikaeanbyzantine_mechanic
@@ -2695,7 +2721,12 @@ add_country_modifier = {
 	desc = nikean_empire.88.d
 	picture = ANGRY_MOB_eventPicture
 	trigger = {
-		    has_reform = roman_byzantine_monarchy
+		    OR = {
+has_reform = roman_byzantine_monarchy
+has_reform = roman_byzantine_monarchy2
+}
+
+
 	has_country_modifier = rrprasinaunpleased
 	faction_in_power = rr_prasina
 							has_government_power = {
@@ -3147,7 +3178,12 @@ set_ruler_flag = damnvenet
 	desc = nikean_empire.96.d
 	picture = ANGRY_MOB_eventPicture
 	trigger = {
-		    has_reform = roman_byzantine_monarchy
+		    OR = {
+has_reform = roman_byzantine_monarchy
+has_reform = roman_byzantine_monarchy2
+}
+
+
 								has_government_power = {
 	mechanic_type = nikaeanbyzantine_mechanic
 	power_type = byz_adm_power
