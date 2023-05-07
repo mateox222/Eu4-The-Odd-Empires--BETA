@@ -146,9 +146,7 @@ roman_byzantine_monarchy2 = {
 	legacy_equivalent = feudal_monarchy	
 	allow_normal_conversion = yes
 	potential = {
-			OR = {
         tag = A52
-    }
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 150
@@ -165,8 +163,6 @@ roman_byzantine_monarchy2 = {
 
 	conditional = {
 
-
-		
 		factions = {
 			rr_veneta
 			rr_prasina
@@ -330,29 +326,10 @@ spartocracy = {
 		governing_capacity_modifier = -0.25
 	}
 	conditional = {
-		allow = { has_dlc = "Res Publica" }
-		queen = no
-		heir = no
-		duration = 10
-		has_term_election = yes
-		states_general_mechanic = {
-
-			navygeneral = {
-				        sparta_navy_influence = 0.5
-						administrative_efficiency = 0.025	
-						heavy_ship_power = 0.1	
-						global_sailors_modifier = 0.1	
-						ship_durability = 0.1	
-			}
-			armygeneral = {
-				        sparta_army_influence = 0.5
-						administrative_efficiency = -0.025	
-						manpower_recovery_speed = 0.10	
-						drill_gain_modifier = 0.10	
-						ae_impact = -0.15		
-			}
+		government_abilities = {
+			spartan_general_mechanic
 		}
-				}
+	}
 	
 			custom_attributes = {
 		locked_government_type = yes
