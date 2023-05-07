@@ -1,0 +1,147 @@
+szlachtapower_mechanic = {
+	alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 2
+	available = {
+	}
+	
+	powers = {
+		polska_adm_power = {
+			max = 100
+			reset_on_new_ruler = no
+			base_monthly_growth = 0.25
+			is_good = no
+			
+			scaled_modifier = {
+				modifier = {
+                    max_absolutism = -50	
+                    all_power_cost = 0.15
+                    yearly_corruption = 1	
+					legitimacy = -1
+					stability_cost_modifier = 1	
+					global_unrest = -10	
+                    manpower_recovery_speed = 0.15	
+                    nobles_loyalty_modifier = 0.3	
+                    monthly_reform_progress_modifier = -0.5	
+                    global_tax_modifier = -0.2
+				}
+			}
+		}
+	}
+	
+	
+	interactions = {
+		supportlocalsejmiki = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_polskamechanika1
+			trigger = {
+				dip_power_cost = 100
+			}
+			effect = { 
+				dip_power_cost = 100
+				add_stability = 1	
+                random_owned_province = {
+                    set_seat_in_parliament = yes	
+                }
+				add_government_power = {
+					mechanic_type = szlachtapower_mechanic
+					power_type = polska_adm_power
+					value = -5
+				}
+			}
+
+			cooldown_years = 1
+			ai_chance = {
+				factor = 1
+				modifier = {
+					factor = 10
+					has_government_power = {
+                        mechanic_type = szlachtapower_mechanic
+                        power_type = polska_adm_power
+	value = 10
+}
+				}
+			}
+		}
+		
+		supportlocalsejmiki2 = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_polskamechanika2
+			trigger = {
+				adm_power_cost = 200
+			}
+			effect = {
+				add_prestige = 5
+				adm_power_cost = 200
+                change_government_reform_progress = 30
+				add_years_of_income = 0.5
+					add_government_power = {
+                        mechanic_type = szlachtapower_mechanic
+                        power_type = polska_adm_power
+					value = -10
+				}
+
+			}
+			cooldown_years = 3
+				ai_chance = {
+				factor = 1
+				modifier = {
+					factor = 10
+					has_government_power = {
+					mechanic_type = szlachtapower_mechanic
+					power_type = polska_adm_power
+	value = 20
+}
+				}
+			}
+		}
+		
+		supportlocalsejmiki3 = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_polskamechanika3
+					trigger = {
+				manpower_percentage = 0.15		
+				mil_power_cost = 150
+			}
+			effect = {
+				mil_power_cost = 150
+                random_owned_province = {
+                    spawn_rebels = {
+                        type = polish_noble_rebels
+                        size = 2
+                    }
+                }
+                random_owned_province = {
+                    spawn_rebels = {
+                        type = polish_noble_rebels
+                        size = 2
+                    }
+                }
+                random_owned_province = {
+                    spawn_rebels = {
+                        type = polish_noble_rebels
+                        size = 2
+                    }
+                }
+				add_yearly_manpower = -1	
+									add_government_power = {
+                                        mechanic_type = szlachtapower_mechanic
+                                        power_type = polska_adm_power
+					value = -30
+				}
+			}
+			cooldown_years = 5
+					ai_chance = {
+				factor = 1
+				modifier = {
+					factor = 10
+                    manpower_percentage = 0.75	
+					has_government_power = {
+                        mechanic_type = szlachtapower_mechanic
+                        power_type = polska_adm_power
+	value = 50
+}
+				}
+			}
+		}
+	}
+}
