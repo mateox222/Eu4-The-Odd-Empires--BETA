@@ -18,7 +18,13 @@ immediate = {
 	set_global_flag = atlantropa_start_flag
 	set_global_flag = niecrashujmizjebanagro
 	set_ruler_flag = koronowanykrolsrednio
-}}
+	every_country = {
+		limit = { is_subject_of = FRA }
+		country_event = { 
+    id = atlantropa_basic_event.100
+	}
+	
+}}}
 	option = {
 	name = startevent.1.a 
 	}
