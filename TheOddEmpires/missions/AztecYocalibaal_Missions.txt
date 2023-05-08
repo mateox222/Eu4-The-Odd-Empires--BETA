@@ -235,10 +235,6 @@ azt_missions_religion2 = {
 				required_missions = { aztec_town2 AZT_conquer_aztec1  }
 		trigger = {
 			owns = 229
-			has_great_project = {
-	type = atlantis_aztectempleone
-	tier = 2
-}
 		}
 		effect = {
 			add_prestige = 10
@@ -246,10 +242,11 @@ azt_missions_religion2 = {
 				name = "aztectown2"
 				duration = -1
 			}
+229 = {
 add_great_project_tier = {
     type = atlantis_aztectempleone
     tier = 1
-}
+}}
 								add_government_power = {
 					mechanic_type = atlantropa_aztec_mechanic
 					power_type = azt_adm_power

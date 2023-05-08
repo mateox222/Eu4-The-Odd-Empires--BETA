@@ -1,4 +1,4 @@
-lamanitia_mission = {
+phoenic_emission1 = {
     slot = 3                    # Which column the missions will appear in. 1 to 5.
     generic = yes	          # Whether missions within this series are considered generic.
     ai = yes                  # Whether the AI will claim missions in this series.
@@ -15,24 +15,47 @@ lamanitia_mission = {
 	icon = atlantropa_canadahiber
 		trigger = {
 				treasury = 100
-
+                dip_tech = 7
 		}
 				effect = {
-				add_mil_power = 50
-				add_treasury = -100
-				create_explorer = { tradition = 50 }	
-	random_owned_province = {
-    limit = { has_port = yes }
-    ROOT = {
-            create_flagship = {    
-                name = "Rebha"
-                type = heavy_ship
-            }
-    }
-}
-}
-				
-							
-						
-}}	
+                    country_event = { 
+                        id = phoenice_events.1
+                    }
+}}}	
 	
+
+
+
+
+phoenic_emission2 = {
+    slot = 2                    # Which column the missions will appear in. 1 to 5.
+    generic = yes	          # Whether missions within this series are considered generic.
+    ai = yes                  # Whether the AI will claim missions in this series.
+    has_country_shield = yes  # Whether to display the country shield on the icon.    
+    
+    # Determines when a series appears for a country. Country scope.
+    potential = {
+			  tag = IS6
+    }
+    
+    # The name of the mission, used for localization
+    
+	phoenica_rahba = {
+	icon = atlantropa_arthadra
+		trigger = {
+				treasury = 500
+                dip_tech = 7
+		}
+				effect = {
+                    5304 = {
+                        add_base_tax = 2	
+                        add_base_production = 2	
+                        add_base_manpower = 2	
+                        add_great_project_tier = {
+                            type = atlantis_arthadra
+                            tier = 1
+                        }
+                    }   
+
+                    }
+}}

@@ -1,0 +1,30 @@
+namespace = phoenice_events
+country_event = {
+	id = phoenice_events.1
+	title = "phoenice_events.1.t"
+	desc = "phoenice_events.1.d"
+	picture = rahbaship_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = "phoenice_events.1.a"
+		add_mil_power = 50
+		add_treasury = -100
+		create_explorer = { tradition = 50 }	
+		add_country_modifier = { 
+			name = phoenicanrahba
+			duration = -1  
+		}
+		capital_scope = {
+			create_flagship = {	
+				name = "Rebha"
+				type = heavy_ship
+			}
+		}
+		add_government_power = {
+			mechanic_type = pho_naval_professionalism_mechanic
+			power_type = phoenican_naval_professionalism
+			value = 10
+		}
+	}
+}
