@@ -21,7 +21,44 @@ phoenic_emission1 = {
                     country_event = { 
                         id = phoenice_events.1
                     }
-}}}	
+}}
+
+phoenica_establish_royal_navy = {
+    icon = mission_rb_a_mighty_fleet
+    required_missions = { phoenica_rahba phoenica_stability phoenica_ship }
+    trigger = { 
+        if = {
+            limit = { ai = no }
+            has_government_power = {
+                mechanic_type = pho_naval_professionalism_mechanic
+                power_type = phoenican_naval_professionalism
+                value = 15
+            }
+            navy_size = 30
+            navy_size_percentage = 1
+            num_of_admirals = 1
+        }
+        else = {
+            navy_size = 15
+        }
+    }	
+    effect = {
+        add_navy_tradition = 10
+        create_explorer = {
+            tradition = 50
+        }
+        add_country_modifier = {
+            name = gbr_exploration_spirit
+            duration = 9125
+        }
+    }
+    ai_weight = {
+        factor = 250
+    }
+}
+
+
+}	
 	
 
 
@@ -56,6 +93,52 @@ phoenic_emission2 = {
                             tier = 1
                         }
                     }   
+
+                    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+phoenic_emission3 = {
+    slot = 4                    # Which column the missions will appear in. 1 to 5.
+    generic = yes	          # Whether missions within this series are considered generic.
+    ai = yes                  # Whether the AI will claim missions in this series.
+    has_country_shield = yes  # Whether to display the country shield on the icon.    
+    
+    # Determines when a series appears for a country. Country scope.
+    potential = {
+			  tag = IS6
+    }
+    
+    # The name of the mission, used for localization
+    
+	phoenica_stability = {
+	icon = atlantropa_weight
+		trigger = {
+				stability = 3
+                treasury = 250   
+                total_development = 100
+		}
+				effect = {
+                    add_country_modifier = { 
+                        name = phoenicanrahba1
+                        duration = -1  
+                    }
 
                     }
 }}
