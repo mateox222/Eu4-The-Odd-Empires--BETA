@@ -878,16 +878,405 @@ every_country = {
 	desc = nikean_empire.34.d
 	picture = eastempiretradecompany_eventPicture
 	is_triggered_only = yes
+		#Establish this East India Company
 		option = {
-	name = "nikean_empire.33.a" 
-		add_dip_power = 100	
-	add_country_modifier = {
-					name = "eastern_roman_company"
-					duration = -1
+			add_dip_power = 100	
+			add_country_modifier = {
+							name = "eastern_roman_company"
+							duration = -1
+						}
+						add_prestige = 25
+			name = nikean_empire.34.a
+			custom_tooltip = nikean_empire.34.a.tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						superregion = india_superregion
+					}
+					add_core = X1N
+					if = {
+						limit = { is_core = ROOT }
+						remove_core = ROOT
+					}
 				}
-				add_prestige = 25
-			
-}}
+				release = X1N
+				create_subject = {
+					subject_type = commercial_enterprise
+					who = X1N
+				}
+				X1N = {
+					change_government = republic
+					add_government_reform = trade_company_government
+					change_religion = ROOT
+					change_primary_culture = ROOT
+					define_ruler = {
+						name = "Thomaios"
+						dynasty = "Saitos"
+						change_adm = 3
+						change_dip = 3
+						change_mil = 3
+						max_age = 50
+						min_age = 30
+					}
+					add_adm_power = 100
+					add_dip_power = 100
+					add_mil_power = 100
+					add_treasury = 200
+					set_prestige_to_zero = yes
+					add_republican_tradition = 100
+				}
+			}
+			coromandel_region = {
+				limit = {
+					NOT = { is_core = X1N }
+					NOT = { is_permanent_claim = X1N }
+				}
+				add_permanent_claim = X1N
+			}
+			malabar_area = {
+				limit = {
+					NOT = { is_core = X1N }
+					NOT = { is_permanent_claim = X1N }
+				}
+				add_permanent_claim = X1N
+			}
+			kanara_area = {
+				limit = {
+					NOT = { is_core = X1N }
+					NOT = { is_permanent_claim = X1N }
+				}
+				add_permanent_claim = X1N
+			}
+			mysore_area = {
+				limit = {
+					NOT = { is_core = X1N }
+					NOT = { is_permanent_claim = X1N }
+				}
+				add_permanent_claim = X1N
+			}
+			rayalaseema_area = {
+				limit = {
+					NOT = { is_core = X1N }
+					NOT = { is_permanent_claim = X1N }
+				}
+				add_permanent_claim = X1N
+			}
+			raichur_doab_area = {
+				limit = {
+					NOT = { is_core = X1N }
+					NOT = { is_permanent_claim = X1N }
+				}
+				add_permanent_claim = X1N
+			}
+			konkan_area = {
+				limit = {
+					NOT = { is_core = X1N }
+					NOT = { is_permanent_claim = X1N }
+				}
+				add_permanent_claim = X1N
+			}
+			orissa_area = {
+				limit = {
+					NOT = { is_core = X1N }
+					NOT = { is_permanent_claim = X1N }
+				}
+				add_permanent_claim = X1N
+			}
+			west_bengal_area = {
+				limit = {
+					NOT = { is_core = X1N }
+					NOT = { is_permanent_claim = X1N }
+				}
+				add_permanent_claim = X1N
+			}
+			east_bengal_area = {
+				limit = {
+					NOT = { is_core = X1N }
+					NOT = { is_permanent_claim = X1N }
+				}
+				add_permanent_claim = X1N
+			}
+			tapti_area = {
+				limit = {
+					NOT = { is_core = X1N }
+					NOT = { is_permanent_claim = X1N }
+				}
+				add_permanent_claim = X1N
+			}
+			ahmedabad_area = {
+				limit = {
+					NOT = { is_core = X1N }
+					NOT = { is_permanent_claim = X1N }
+				}
+				add_permanent_claim = X1N
+			}
+			saurashtra_area = {
+				limit = {
+					NOT = { is_core = X1N }
+					NOT = { is_permanent_claim = X1N }
+				}
+				add_permanent_claim = X1N
+			}
+			ai_chance = {
+				factor = 1
+			}
+		}
+		
+		#We do not need such enterprise on foreign ground
+		option = {
+			add_dip_power = 100	
+			add_country_modifier = {
+							name = "eastern_roman_company"
+							duration = -1
+						}
+						add_prestige = 25
+			name = nikean_empire.34.b
+			coromandel_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			malabar_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kanara_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			mysore_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			rayalaseema_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			raichur_doab_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			konkan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			orissa_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			west_bengal_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			east_bengal_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			tapti_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			ahmedabad_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			saurashtra_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			ai_chance = {
+				factor = 1
+			}
+		}
+		
+		#Play as the East India Company
+		option = {
+			name = nikean_empire.34.c
+			trigger = {
+				ai = no
+			}
+			add_dip_power = 100	
+			add_country_modifier = {
+							name = "eastern_roman_company"
+							duration = -1
+						}
+						add_prestige = 25
+			custom_tooltip = nikean_empire.34.a.tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						superregion = india_superregion
+					}
+					add_core = X1N
+					if = {
+						limit = { is_core = ROOT }
+						remove_core = ROOT
+					}
+				}
+				release = X1N
+				create_subject = {
+					subject_type = commercial_enterprise
+					who = X1N
+				}
+				X1N = {
+					change_government = republic
+					add_government_reform = trade_company_government
+					change_religion = ROOT
+					change_primary_culture = ROOT
+					define_ruler = {
+						name = "Thomas"
+						dynasty = "Smythe"
+						change_adm = 3
+						change_dip = 3
+						change_mil = 3
+						max_age = 50
+						min_age = 30
+					}
+					add_adm_power = 100
+					add_dip_power = 100
+					add_mil_power = 100
+					add_treasury = 200
+					set_prestige_to_zero = yes
+					add_republican_tradition = 100
+				}
+				coromandel_region = {
+					limit = {
+						NOT = { is_core = X1N }
+						NOT = { is_permanent_claim = X1N }
+					}
+					add_permanent_claim = X1N
+				}
+				malabar_area = {
+					limit = {
+						NOT = { is_core = X1N }
+						NOT = { is_permanent_claim = X1N }
+					}
+					add_permanent_claim = X1N
+				}
+				kanara_area = {
+					limit = {
+						NOT = { is_core = X1N }
+						NOT = { is_permanent_claim = X1N }
+					}
+					add_permanent_claim = X1N
+				}
+				mysore_area = {
+					limit = {
+						NOT = { is_core = X1N }
+						NOT = { is_permanent_claim = X1N }
+					}
+					add_permanent_claim = X1N
+				}
+				rayalaseema_area = {
+					limit = {
+						NOT = { is_core = X1N }
+						NOT = { is_permanent_claim = X1N }
+					}
+					add_permanent_claim = X1N
+				}
+				raichur_doab_area = {
+					limit = {
+						NOT = { is_core = X1N }
+						NOT = { is_permanent_claim = X1N }
+					}
+					add_permanent_claim = X1N
+				}
+				konkan_area = {
+					limit = {
+						NOT = { is_core = X1N }
+						NOT = { is_permanent_claim = X1N }
+					}
+					add_permanent_claim = X1N
+				}
+				orissa_area = {
+					limit = {
+						NOT = { is_core = X1N }
+						NOT = { is_permanent_claim = X1N }
+					}
+					add_permanent_claim = X1N
+				}
+				west_bengal_area = {
+					limit = {
+						NOT = { is_core = X1N }
+						NOT = { is_permanent_claim = X1N }
+					}
+					add_permanent_claim = X1N
+				}
+				east_bengal_area = {
+					limit = {
+						NOT = { is_core = X1N }
+						NOT = { is_permanent_claim = X1N }
+					}
+					add_permanent_claim = X1N
+				}
+				tapti_area = {
+					limit = {
+						NOT = { is_core = X1N }
+						NOT = { is_permanent_claim = X1N }
+					}
+					add_permanent_claim = X1N
+				}
+				ahmedabad_area = {
+					limit = {
+						NOT = { is_core = X1N }
+						NOT = { is_permanent_claim = X1N }
+					}
+					add_permanent_claim = X1N
+				}
+				saurashtra_area = {
+					limit = {
+						NOT = { is_core = X1N }
+						NOT = { is_permanent_claim = X1N }
+					}
+					add_permanent_claim = X1N
+				}
+			}
+			switch_tag = X1N
+			ai_chance = {
+				factor = 0
+			}
+		}
+	}
+	
+
 			
 
 			country_event = {

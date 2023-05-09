@@ -1,3 +1,86 @@
+phoenic_emission4 = {
+    slot = 1                    # Which column the missions will appear in. 1 to 5.
+    generic = yes	          # Whether missions within this series are considered generic.
+    ai = yes                  # Whether the AI will claim missions in this series.
+    has_country_shield = yes  # Whether to display the country shield on the icon.    
+    
+    # Determines when a series appears for a country. Country scope.
+    potential = {
+			  tag = IS6
+    }
+    
+    # The name of the mission, used for localization
+    
+    phoenicia_eng_mighty_army = {
+		icon = atlantropa_arthuriancolonist
+		required_missions = { }
+		position = 1
+		
+		trigger = {
+			army_size_percentage = 0.9
+			manpower_percentage = 0.9
+			num_of_generals = 1
+		}
+		
+		effect = {
+			atlantiswesterna_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			atlantiswestern_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_prestige = 10
+		}
+	}
+    phoenicia_eng_mighty_army2 = {
+		icon = atlantropa_aztecship
+		required_missions = { phoenicia_eng_mighty_army }
+		position = 1
+		
+		trigger = {
+            atlantiswesterna_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+            atlantiswestern_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+            country_event = { 
+                id = phoenice_events.2
+            }
+		}
+	}
+    phoenicia_eng_mighty_army3 = {
+		icon = atlantropa_antioch
+		required_missions = { phoenicia_eng_mighty_army2 }
+		
+		trigger = { grown_by_states = 5 }
+		effect = {
+            add_mil_power = 100
+			add_country_modifier = {
+				name = "expansionist_country"
+				duration = 9125 #25 years
+			}
+		}
+	}
+
+}
+
+
+
+
 phoenic_emission1 = {
     slot = 3                    # Which column the missions will appear in. 1 to 5.
     generic = yes	          # Whether missions within this series are considered generic.
@@ -21,7 +104,11 @@ phoenic_emission1 = {
                     country_event = { 
                         id = phoenice_events.1
                     }
-}}
+}
+ai_weight = {
+    factor = 50
+}
+}
 
 phoenica_establish_royal_navy = {
     icon = mission_rb_a_mighty_fleet
@@ -47,9 +134,33 @@ phoenica_establish_royal_navy = {
         create_explorer = {
             tradition = 50
         }
+        add_government_power = {
+            mechanic_type = pho_naval_professionalism_mechanic
+            power_type = phoenican_naval_professionalism
+            value = 10
+        }
+    }
+    ai_weight = {
+        factor = 250
+    }
+}
+phoenica_establish_royal_navy2 = {
+    icon = atlantropa_flotaoceaniczna
+    required_missions = { phoenica_establish_royal_navy }
+    trigger = { 
+        has_idea_group = exploration_ideas
+    }	
+    effect = {
+        add_navy_tradition = 10
+        create_explorer = { tradition = 75 }	
         add_country_modifier = {
             name = gbr_exploration_spirit
             duration = 9125
+        }
+        add_government_power = {
+            mechanic_type = pho_naval_professionalism_mechanic
+            power_type = phoenican_naval_professionalism
+            value = 5
         }
     }
     ai_weight = {
@@ -57,6 +168,54 @@ phoenica_establish_royal_navy = {
     }
 }
 
+phoenica_establish_americaway = {
+    icon = atlantropa_aztecpyramid
+    required_missions = { phoenica_establish_royal_navy2 }
+    position = 5
+    trigger = {
+        central_america_region = { has_discovered = ROOT }
+        mexico_region  = { has_discovered = ROOT }
+}
+    effect = {
+        add_dip_power = 50
+        add_navy_tradition = 10
+        create_explorer = { tradition = 75 }	
+        add_government_power = {
+            mechanic_type = pho_naval_professionalism_mechanic
+            power_type = phoenican_naval_professionalism
+            value = 5
+        }
+    }
+    ai_weight = {
+        factor = 250
+    }
+}
+
+phoenica_establish_americaway2 = {
+    icon = atlantropa_fallmexico
+    required_missions = { phoenica_establish_americaway }
+    position = 7
+    provinces_to_highlight = {
+        colonial_region = colonial_mexico
+        NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        has_discovered = ROOT
+    }
+    trigger = {
+        num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+            value = 1 # how many provinces should they own in this colonial region?
+            colonial_region = colonial_mexico
+            is_city = yes
+        }
+    }
+    effect = {
+        add_dip_power = 150
+        add_navy_tradition = 10
+        create_conquistador = { tradition = 100 }	
+    }
+    ai_weight = {
+        factor = 250
+    }
+}
 
 }	
 	
@@ -95,13 +254,157 @@ phoenic_emission2 = {
                     }   
 
                     }
+                    ai_weight = {
+                        factor = 50
+                    }
 }
 
 
+phoenica_rahba11 = {
+	icon = atlantropa_devlegio
+		trigger = {
+            total_development = 200
+		}
+        required_missions = { phoenica_rahba }
+				effect = {
+                    5304 = {
+                        add_base_tax = 1	
+                        add_base_production = 1	
+                        add_base_manpower = 1	
+                        add_great_project_tier = {
+                            type = atlantis_arthadra
+                            tier = 1
+                        }
+                    }   
+                    add_country_modifier = { 
+                        name = phoenicanrahba5
+                        duration = -1  
+                    }
 
+                    }
+                    ai_weight = {
+                        factor = 50
+                    }
+}
 
+phoenica_establish_war_navy = {
+    icon = atlantropa_battlenavy
+    required_missions = { phoenica_establish_royal_navy }
+    trigger = { 
+        if = {
+            limit = { ai = no }
+            has_government_power = {
+                mechanic_type = pho_naval_professionalism_mechanic
+                power_type = phoenican_naval_professionalism
+                value = 25
+            }
+            num_of_heavy_ship = 30
+            num_of_admirals = 2
+            has_flagship = yes
+        }
+        else = {
+            navy_size = 15
+        }
+    }	
+    effect = {
+        add_country_modifier = { 
+            name = phoenicanrahbaship
+            duration = -1  
+        }   
+        add_navy_tradition = 25
+        create_explorer = {
+            tradition = 100
+        }
+        add_government_power = {
+            mechanic_type = pho_naval_professionalism_mechanic
+            power_type = phoenican_naval_professionalism
+            value = 5
+        }
+    }
+    ai_weight = {
+        factor = 250
+    }
+}
 
+phoenica_establish_merchant_navy3 = {
+    icon = atlantropa_preparenavy
+    required_missions = { phoenica_establish_royal_navy2 }
+    trigger = {
+            maghreb_region = { has_discovered = ROOT }
+            libyasuperior_region = { has_discovered = ROOT }
+            nigeriacontinet_region = { has_discovered = ROOT }
+            guinea_region = { has_discovered = ROOT }
+            kongo_region = { has_discovered = ROOT }
+            east_africa_region = { has_discovered = ROOT }
+            horn_of_africa_region = { has_discovered = ROOT }      
+    }
+    effect = {
+      
+        add_navy_tradition = 25
+        create_explorer = {
+            tradition = 50
+        }
+        add_government_power = {
+            mechanic_type = pho_naval_professionalism_mechanic
+            power_type = phoenican_naval_professionalism
+            value = 5
+        }
+    }
+    ai_weight = {
+        factor = 250
+    }
+}
+phoenica_establish_india = {
+    icon = atlantropa_sungod
+    required_missions = { phoenica_establish_merchant_navy3 }
+    trigger = {
+        lemuria_region = { has_discovered = ROOT }   
+    }
+    effect = {
+        add_navy_tradition = 25
+        create_explorer = {
+            tradition = 50
+        }
+        add_government_power = {
+            mechanic_type = pho_naval_professionalism_mechanic
+            power_type = phoenican_naval_professionalism
+            value = 5
+        }
+    }
+    ai_weight = {
+        factor = 250
+    }
+}
 
+phoenica_establish_india2 = {
+    required_missions = { phoenica_establish_india }
+    icon = mission_rb_conquer_bengal
+    provinces_to_highlight = {
+        region = lemuria_region
+        has_port = yes
+        NOT = { owned_by = ROOT }
+    }		
+    trigger = {
+        lemuria_region = {
+            has_port = yes
+            owned_by = ROOT
+        }
+    }	
+    effect = {
+        define_advisor = {
+            type = trader
+            skill = 3
+            cost_multiplier = 0.25
+        }
+        country_event_with_insight = {
+            id = phoenice_events.3
+            insight_tooltip = gbr_establish_first_indian_trade_post_at
+        }
+    }
+    ai_weight = {
+        factor = 250
+    }
+}
 
 
 
@@ -141,4 +444,351 @@ phoenic_emission3 = {
                     }
 
                     }
-}}
+                    ai_weight = {
+                        factor = 500
+                    }
+}
+
+phoenica_establish_merchant_navy = {
+    icon = atlantropa_vikingdeal
+    required_missions = { phoenica_establish_royal_navy }
+    position = 3
+    trigger = { 
+        if = {
+            limit = { ai = no }
+            num_of_light_ship = 50
+        }
+        else = {
+            navy_size = 15
+        }
+    }	
+    effect = {
+        add_country_modifier = { 
+            name = phoenicanrahbaship2
+            duration = -1  
+        }   
+        add_navy_tradition = 25
+        create_explorer = {
+            tradition = 100
+        }
+        add_government_power = {
+            mechanic_type = pho_naval_professionalism_mechanic
+            power_type = phoenican_naval_professionalism
+            value = 5
+        }
+    }
+    ai_weight = {
+        factor = 250
+    }
+}
+
+phoenica_establish_merchant_navy2 = {
+    icon = atlantropa_britanisation
+    required_missions = { phoenica_establish_royal_navy2 }
+    trigger = {
+            british_isles_region = { has_discovered = ROOT }
+            france_region = { has_discovered = ROOT }
+            low_countries_region = { has_discovered = ROOT }
+            atlantis_sicily_region = { has_discovered = ROOT }
+        
+    }
+    effect = {
+      
+        add_navy_tradition = 25
+        create_explorer = {
+            tradition = 50
+        }
+        add_government_power = {
+            mechanic_type = pho_naval_professionalism_mechanic
+            power_type = phoenican_naval_professionalism
+            value = 5
+        }
+    }
+    ai_weight = {
+        factor = 250
+    }
+}
+
+
+
+hns_conquer_sicily_aztec2 = {
+    icon = mission_rb_take_gibraltar
+    required_missions = { phoenica_establish_merchant_navy2 }
+    provinces_to_highlight = {
+        province_id = 226
+        NOT = { owned_by = ROOT }
+    }
+    
+    trigger = {
+        owns_core_province = 226
+    }
+    effect = {
+        add_government_power = {
+            mechanic_type = pho_naval_professionalism_mechanic
+            power_type = phoenican_naval_professionalism
+            value = 25
+        }
+        226 = {
+            add_base_tax = 2 
+            add_base_manpower = 2 
+            add_base_production = 2 
+            change_culture  = ROOT
+            change_religion = ROOT
+        }
+                add_prestige = 25
+                add_years_of_income = 2
+                leon_area = {
+                    limit = {
+                        NOT = { is_core = ROOT }
+                        NOT = { is_permanent_claim = ROOT }
+                    }
+                    add_permanent_claim = ROOT
+                }
+                baleares_area = {
+                    limit = {
+                        NOT = { is_core = ROOT }
+                        NOT = { is_permanent_claim = ROOT }
+                    }
+                    add_permanent_claim = ROOT
+                }
+   northern_morocco_area = {
+            limit = {
+                NOT = { is_core = ROOT }
+                NOT = { is_permanent_claim = ROOT }
+            }
+            add_permanent_claim = ROOT
+        }
+                    galicia_area = {
+            limit = {
+                NOT = { is_core = ROOT }
+                NOT = { is_permanent_claim = ROOT }
+            }
+            add_permanent_claim = ROOT
+        }
+
+                    barbary_coast_area = {
+            limit = {
+                NOT = { is_core = ROOT }
+                NOT = { is_permanent_claim = ROOT }
+            }
+            add_permanent_claim = ROOT
+        }
+
+                    algiers_area = {
+            limit = {
+                NOT = { is_core = ROOT }
+                NOT = { is_permanent_claim = ROOT }
+            }
+            add_permanent_claim = ROOT
+        }
+
+        
+    }
+            ai_weight = {
+        factor = 500
+    }
+}
+
+           phor_conquer_sicily_aztec2 = {
+                    required_missions = { 	hns_conquer_sicily_aztec2  }
+    icon = atlantropa_nikeangalleys
+    provinces_to_highlight = {
+        OR = {
+            area = baleares_area
+             area = leon_area
+            area = northern_morocco_area
+             area = barbary_coast_area
+                 area = algiers_area            
+        }
+        NOT = { owned_by = ROOT }
+    }
+    
+    trigger = {
+        leon_area = {
+            type = all
+            country_or_non_sovereign_subject_holds = ROOT
+        }	
+           baleares_area = {
+            type = all
+            country_or_non_sovereign_subject_holds = ROOT
+        }	
+                algiers_area = {
+            type = all
+            country_or_non_sovereign_subject_holds = ROOT
+        }	
+            barbary_coast_area = {
+            type = all
+            country_or_non_sovereign_subject_holds = ROOT
+        }	
+        northern_morocco_area = {
+            type = all
+            country_or_non_sovereign_subject_holds = ROOT
+        }	
+        
+    }
+    effect = {
+        add_government_power = {
+            mechanic_type = pho_naval_professionalism_mechanic
+            power_type = phoenican_naval_professionalism
+            value = 25
+        }
+                add_prestige = 25
+                add_years_of_income = 2
+  western_morocco_area = {
+            limit = {
+                NOT = { is_core = ROOT }
+                NOT = { is_permanent_claim = ROOT }
+            }
+            add_permanent_claim = ROOT
+        }
+                    southern_morocco_area = {
+            limit = {
+                NOT = { is_core = ROOT }
+                NOT = { is_permanent_claim = ROOT }
+            }
+            add_permanent_claim = ROOT
+        }
+                kabylia_area = {
+            limit = {
+                NOT = { is_core = ROOT }
+                NOT = { is_permanent_claim = ROOT }
+            }
+            add_permanent_claim = ROOT
+        }
+
+            tunisia_area = {
+            limit = {
+                NOT = { is_core = ROOT }
+                NOT = { is_permanent_claim = ROOT }
+            }
+            add_permanent_claim = ROOT
+        }
+        
+    }
+            ai_weight = {
+        factor = 500
+    }
+} 
+
+
+
+}
+
+
+
+
+
+phoenic_emission11 = {
+    slot = 5                   # Which column the missions will appear in. 1 to 5.
+    generic = yes	          # Whether missions within this series are considered generic.
+    ai = yes                  # Whether the AI will claim missions in this series.
+    has_country_shield = yes  # Whether to display the country shield on the icon.    
+    
+    # Determines when a series appears for a country. Country scope.
+    potential = {
+			  tag = IS6
+    }
+    phoenica_gzerkarbea = {
+        icon = atlantropa_crimea
+		trigger = {
+				
+num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+	value = 5
+	colonial_region = colonial_the_carribean
+	is_city = yes
+}
+		}
+                    effect = {
+                        add_prestige = 10
+                        add_country_modifier = { 
+                            name = phoenicanrahbacolony1
+                            duration = -1  
+                        }
+                        add_government_power = {
+                            mechanic_type = pho_naval_professionalism_mechanic
+                            power_type = phoenican_naval_professionalism
+                            value = 5
+                        }
+    
+                        }
+                        ai_weight = {
+                            factor = 500
+                        }
+    }
+    phoenica_gzerkarbea2 = {
+        required_missions = { phoenica_gzerkarbea }
+        icon = atlantropa_sunsetinvasion
+		trigger = {
+				
+num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+	value = 25
+	colonial_region = colonial_the_carribean
+	is_city = yes
+}
+		}
+                    effect = {
+                        add_prestige = 25
+                        add_country_modifier = { 
+                            name = phoenicanrahbacolony2
+                            duration = -1  
+                        }
+                        add_government_power = {
+                            mechanic_type = pho_naval_professionalism_mechanic
+                            power_type = phoenican_naval_professionalism
+                            value = 15
+                        }
+    
+                        }
+                        ai_weight = {
+                            factor = 500
+                        }
+    }
+
+
+
+    phoenica_tgrade = {
+        icon = atlantropa_arthurianfleet
+        position = 3
+		trigger = {
+			home_trade_node = {
+				trade_share = {
+					country = ROOT
+					share = 75
+				}
+			}
+		}
+                    effect = {
+                        add_prestige = 10
+                        add_country_modifier = { 
+                            name = phoenicanrahba2
+                            duration = -1  
+                        }
+    
+                        }
+                        ai_weight = {
+                            factor = 500
+                        }
+    }
+    phoenica_tgrade2 = {
+        position = 4
+        required_missions = { phoenica_tgrade  phoenica_establish_merchant_navy}
+        icon = atlantropa_gold
+		trigger = {
+		   share_of_starting_income = 10 
+           treasury = 2000 
+           mercantilism = 20
+
+		}
+                    effect = {
+                        add_prestige = 10
+                        add_country_modifier = { 
+                            name = phoenicanrahba3
+                            duration = -1  
+                        }
+    
+                        }
+                        ai_weight = {
+                            factor = 500
+                        }
+    }
+}
