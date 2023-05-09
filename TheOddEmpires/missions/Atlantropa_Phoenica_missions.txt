@@ -44,7 +44,12 @@ phoenic_emission4 = {
 		icon = atlantropa_aztecship
 		required_missions = { phoenicia_eng_mighty_army }
 		position = 1
-		
+		provinces_to_highlight = {
+            OR = {
+                area = atlantiswestern_area
+                area = atlantiswesterna_area
+            }
+        }
 		trigger = {
             atlantiswesterna_area = {
 				type = all
@@ -75,6 +80,119 @@ phoenic_emission4 = {
 			}
 		}
 	}
+    phoenicia_eng_mighty_army5 = {
+		icon = atlantropa_frenchanvy
+		required_missions = { phoenicia_eng_mighty_army3 }
+		
+        trigger = {
+			num_of_owned_provinces_with = {
+				value = 20 # how many provinces should have the necessary building / buildings
+				OR = { # which buildings should be counted towards this total?
+					has_building = dock
+					has_building = drydock
+				}
+			}
+		}
+		effect = {
+            add_mil_power = 100
+            add_government_power = {
+                mechanic_type = pho_naval_professionalism_mechanic
+                power_type = phoenican_naval_professionalism
+                value = 5
+            }
+			add_country_modifier = {
+				name = "phoenicedrydocks"
+				duration = -1
+			}
+		}
+	}
+    phoenicia_eng_mighty_army4 = {
+        position = 5
+		icon = atlantropa_alsace
+		required_missions = { phoenica_establish_merchant_navy3 }
+		provinces_to_highlight = {
+            OR = {
+                area = atlantis_maderiaone
+                area = atlantis_maderiatwo
+                }
+        }
+		trigger = { 
+            atlantis_maderiaone = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+            atlantis_maderiatwo = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+
+         }
+		effect = {
+            add_dip_power = 100
+            create_explorer = {
+                tradition = 50
+            }
+            add_government_power = {
+                mechanic_type = pho_naval_professionalism_mechanic
+                power_type = phoenican_naval_professionalism
+                value = 15
+            }
+		}
+	}
+
+
+    phoenica_establish_australia = {
+        icon = atlantropa_australia
+        required_missions = { phoenica_establish_india }
+        trigger = {
+            westralia_region = { has_discovered = ROOT }   
+            australia_region = { has_discovered = ROOT }          
+        }
+        effect = {
+            add_navy_tradition = 25
+            create_explorer = {
+                tradition = 50
+            }
+            add_government_power = {
+                mechanic_type = pho_naval_professionalism_mechanic
+                power_type = phoenican_naval_professionalism
+                value = 5
+            }
+        }
+        ai_weight = {
+            factor = 250
+        }
+    }
+    phoenica_establish_australia2 = {
+        icon = atlantropa_framond
+        required_missions = { phoenica_establish_australia }
+        provinces_to_highlight = {
+            colonial_region = colonial_australia
+            NOT = { country_or_non_sovereign_subject_holds = ROOT }
+            has_discovered = ROOT
+        }
+        trigger = {
+            num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+                value = 1 # how many provinces should they own in this colonial region?
+                colonial_region = colonial_australia
+                is_city = yes
+            }
+        }
+        effect = {
+            add_navy_tradition = 25
+            create_explorer = {
+                tradition = 50
+            }
+            add_government_power = {
+                mechanic_type = pho_naval_professionalism_mechanic
+                power_type = phoenican_naval_professionalism
+                value = 5
+            }
+        }
+        ai_weight = {
+            factor = 250
+        }
+    }
 
 }
 
@@ -122,7 +240,6 @@ phoenica_establish_royal_navy = {
                 value = 15
             }
             navy_size = 30
-            navy_size_percentage = 1
             num_of_admirals = 1
         }
         else = {
@@ -407,7 +524,59 @@ phoenica_establish_india2 = {
 }
 
 
+phoenica_establish_muland = {
+    icon = atlantropa_globe
+    required_missions = { phoenica_establish_australia }
+    trigger = {
+        pacifica_region = { has_discovered = ROOT }   
+    }
+    effect = {
+        add_prestige = 15
+        add_navy_tradition = 25
+        create_explorer = {
+            tradition = 50
+        }
+        add_government_power = {
+            mechanic_type = pho_naval_professionalism_mechanic
+            power_type = phoenican_naval_professionalism
+            value = 25
+        }
+    }
+    ai_weight = {
+        factor = 250
+    }
+}
 
+phoenica_establish_muland2 = {
+    icon = atlantropa_nahuatl2cap 
+    required_missions = { phoenica_establish_muland }
+    provinces_to_highlight = {
+        colonial_region = colonial_pacifiqa
+        NOT = { country_or_non_sovereign_subject_holds = ROOT }
+        has_discovered = ROOT
+    }
+    trigger = {
+        num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+            value = 1 # how many provinces should they own in this colonial region?
+            colonial_region = colonial_pacifiqa
+            is_city = yes
+        }
+    }
+    effect = {
+        add_navy_tradition = 25
+        create_explorer = {
+            tradition = 50
+        }
+        add_government_power = {
+            mechanic_type = pho_naval_professionalism_mechanic
+            power_type = phoenican_naval_professionalism
+            value = 5
+        }
+    }
+    ai_weight = {
+        factor = 250
+    }
+}
 
 
 
@@ -442,6 +611,32 @@ phoenic_emission3 = {
                         name = phoenicanrahba1
                         duration = -1  
                     }
+
+                    }
+                    ai_weight = {
+                        factor = 500
+                    }
+}
+phoenica_stability2 = {
+	icon = atlantropa_frenchspain
+    required_missions = { phoenica_stability }
+    trigger = {
+		OR = {
+		AND = {
+		X26 = {
+		has_opinion = {
+	who = ROOT
+	value = 150
+}
+}
+		X26 = { NOT = { liberty_desire = 50 } }
+		}
+		X26 = { exists = no }
+		
+		}}
+				effect = {
+                    add_prestige = 10
+                    inherit = X26
 
                     }
                     ai_weight = {
@@ -749,6 +944,7 @@ num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
     phoenica_tgrade = {
         icon = atlantropa_arthurianfleet
         position = 3
+        required_missions = { phoenica_stability2 }
 		trigger = {
 			home_trade_node = {
 				trade_share = {
