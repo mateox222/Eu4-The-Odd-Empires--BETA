@@ -176,91 +176,7 @@ country_event = {
 				set_prestige_to_zero = yes
 				add_republican_tradition = 100
 			}
-			coromandel_region = {
-				limit = {
-					NOT = { is_core = X1M }
-					NOT = { is_permanent_claim = X1M }
-				}
-				add_permanent_claim = X1M
-			}
-			malabar_area = {
-				limit = {
-					NOT = { is_core = X1M }
-					NOT = { is_permanent_claim = X1M }
-				}
-				add_permanent_claim = X1M
-			}
-			kanara_area = {
-				limit = {
-					NOT = { is_core = X1M }
-					NOT = { is_permanent_claim = X1M }
-				}
-				add_permanent_claim = X1M
-			}
-			mysore_area = {
-				limit = {
-					NOT = { is_core = X1M }
-					NOT = { is_permanent_claim = X1M }
-				}
-				add_permanent_claim = X1M
-			}
-			rayalaseema_area = {
-				limit = {
-					NOT = { is_core = X1M }
-					NOT = { is_permanent_claim = X1M }
-				}
-				add_permanent_claim = X1M
-			}
-			raichur_doab_area = {
-				limit = {
-					NOT = { is_core = X1M }
-					NOT = { is_permanent_claim = X1M }
-				}
-				add_permanent_claim = X1M
-			}
-			konkan_area = {
-				limit = {
-					NOT = { is_core = X1M }
-					NOT = { is_permanent_claim = X1M }
-				}
-				add_permanent_claim = X1M
-			}
-			orissa_area = {
-				limit = {
-					NOT = { is_core = X1M }
-					NOT = { is_permanent_claim = X1M }
-				}
-				add_permanent_claim = X1M
-			}
-			west_bengal_area = {
-				limit = {
-					NOT = { is_core = X1M }
-					NOT = { is_permanent_claim = X1M }
-				}
-				add_permanent_claim = X1M
-			}
-			east_bengal_area = {
-				limit = {
-					NOT = { is_core = X1M }
-					NOT = { is_permanent_claim = X1M }
-				}
-				add_permanent_claim = X1M
-			}
-			tapti_area = {
-				limit = {
-					NOT = { is_core = X1M }
-					NOT = { is_permanent_claim = X1M }
-				}
-				add_permanent_claim = X1M
-			}
-			ahmedabad_area = {
-				limit = {
-					NOT = { is_core = X1M }
-					NOT = { is_permanent_claim = X1M }
-				}
-				add_permanent_claim = X1M
-			}
-			saurashtra_area = {
+			lemuria_region = {
 				limit = {
 					NOT = { is_core = X1M }
 					NOT = { is_permanent_claim = X1M }
@@ -274,3 +190,140 @@ country_event = {
 		}
 	}
 }
+
+
+country_event = {
+	id = phoenice_events.4
+	title =  phoenice_events.4.t
+	desc = phoenice_events.4.d
+	picture = shipconstantinople_eventPicture
+	is_triggered_only = yes
+	
+	#Establish this East India Company
+	option = {
+		name = phoenice_events.4.a
+		custom_tooltip = phoenice_events.4.a.tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					region =  british_isles_region
+				}
+				add_core = X1O
+				if = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+			release = X1O
+			create_subject = {
+				subject_type = commercial_enterprise
+				who = X1O
+			}
+			X1O = {
+				change_government = republic
+				add_government_reform = trade_company_government
+				change_religion = ROOT
+				change_primary_culture = ROOT
+				define_ruler = {
+					name = "'Dryk"
+					dynasty = "Sa'th"
+					change_adm = 3
+					change_dip = 3
+					change_mil = 3
+					max_age = 50
+					min_age = 30
+				}
+				add_adm_power = 100
+				add_dip_power = 100
+				add_mil_power = 100
+				add_treasury = 200
+				set_prestige_to_zero = yes
+				add_republican_tradition = 100
+			}
+		}
+
+		british_isles_region = {
+			limit = {
+				NOT = { is_core = X1O }
+				NOT = { is_permanent_claim = X1O }
+			}
+			add_permanent_claim = X1O
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	#We do not need such enterprise on foreign ground
+	option = {
+		name = phoenice_events.3.b
+		
+		british_isles_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	#Play as the East India Company
+	option = {
+		name = phoenice_events.3.c
+		trigger = {
+			ai = no
+		}
+		custom_tooltip = phoenice_events.4.a.tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					region = lemuria_region
+				}
+				add_core = X1O
+				if = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+			release = X1O
+			create_subject = {
+				subject_type = commercial_enterprise
+				who = X1O
+			}
+			X1O = {
+				change_government = republic
+				add_government_reform = trade_company_government
+				change_religion = ROOT
+				change_primary_culture = ROOT
+				define_ruler = {
+					name = "Thomas"
+					dynasty = "Smythe"
+					change_adm = 3
+					change_dip = 3
+					change_mil = 3
+					max_age = 50
+					min_age = 30
+				}
+				add_adm_power = 100
+				add_dip_power = 100
+				add_mil_power = 100
+				add_treasury = 200
+				set_prestige_to_zero = yes
+				add_republican_tradition = 100
+			}
+			british_isles_region = {
+				limit = {
+					NOT = { is_core = X1O }
+					NOT = { is_permanent_claim = X1O }
+				}
+				add_permanent_claim = X1O
+		}
+		switch_tag = X1O
+		ai_chance = {
+			factor = 0
+		}
+	}
+}}

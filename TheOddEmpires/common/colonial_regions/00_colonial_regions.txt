@@ -53,6 +53,12 @@ colonial_alaska = {
 		}
 		name = "COLONIAL_ALASKA_Lata_Peninsula"
 	}
+	names = {
+		trigger = {
+			tag = IS6
+	}
+	name = "COLONIAL_THE_gzekarbean_Antilles3"
+	}
 	# Generic
 	names = {
 		trigger = {
@@ -780,6 +786,12 @@ colonial_mexico = {
 		name = "COLONIAL_MEXICO_New_Spain"
 	}
 	names = {
+	trigger = {
+		tag = IS6
+}
+name = "COLONIAL_THE_gzekarbean_Antilles2"
+}
+	names = {
 		trigger = {
 			culture_group = central_american 
 		}
@@ -1039,6 +1051,12 @@ colonial_colombia = {
 		}
 		name = "COLONIAL_AZTEKWENEZUELA"
 	}
+	names = {
+		trigger = {
+			tag = IS6
+	}
+	name = "COLONIAL_THE_gzekarbean_colombia3"
+	}
 	# Generic
 	names = {
 		name = "COLONIAL_COLOMBIA_Root_Culture_GetName_Colombia"
@@ -1091,6 +1109,12 @@ colonial_peru = {
 #		name = ""
 #	}
 	# Generic
+	names = {
+		trigger = {
+			tag = IS6
+	}
+	name = "COLONIAL_THE_gzekarbean_peru3"
+	}
 	names = {
 		name = "COLONIAL_PERU_Root_Culture_GetName_Peru"
 	}
@@ -1158,7 +1182,12 @@ colonial_la_plata = {
 		2846 2847 2849 2860 2862 2863 2865 2866 2867 2868
 		2869 2870 2873 2874 2888 2901 2933 2938 2940    
 	}
-
+	names = {
+		trigger = {
+			tag = IS6
+	}
+	name = "COLONIAL_THE_gzekarbean_laplata"
+	}
 	# Specific
 	names = {
 		trigger = {
@@ -1273,6 +1302,12 @@ colonial_brazil = {
 	# Specific
 	names = {
 		trigger = {
+			tag = IS6
+	}
+	name = "COLONIAL_THE_gzekarbean_brazil3"
+	}
+	names = {
+		trigger = {
 			tag = FRA
 		}
 		name = "COLONIAL_BRAZIL_France_Antarctique"
@@ -1379,6 +1414,12 @@ colonial_australia = {
 	}
 	names = {
 		trigger = {
+			tag = IS6
+	}
+	name = "COLONIAL_THE_gzekarbean_Antilles4"
+	}
+	names = {
+		trigger = {
 			OR = {
 				tag = FRA
 				culture_group = french
@@ -1423,39 +1464,7 @@ colonial_australia = {
 		name = "COLONIAL_REGION_Terra_Australis"
 	}
 }
-colonial_atlantis = {
-	color = { 41 108 45 }
-	provinces = {
-		366 367 368 4565 5006 5276 5278 5279 5280 5281
-         5284 5285 5286 5287 5288 5289 5290 5291
-        5292 5293 5294 5295 5296 5297 5298 5299 5300 5301
-        5302 5303 5304 5305 5306 5307 5308 5309 5310 5311
-        5312 5313 5314 5315 5316 2571 5679 5681 5678 5683 5682 5677 
-        2535 2536 4625 4626 2534 927 926 5283 899 5120 2010  966 5282 5608 5606 5605 5607 
-	}
-	names = {
-		trigger = {
-			culture_group = central_american 
-		}
-		name = "COLONIAL_AZTEKAATLANTYDA"
-	}
 
-		names = {
-		trigger = {
-			culture_group = roman_group
-		}
-		name = "COLONIAL_ATLANTIS_Atlantic_terra"
-	}
-			names = {
-		trigger = {
-			tag = A44
-		}
-		name = "COLONIAL_ATLANTIS_Tyzvyn_terra"
-	}
-	names = {
-        name = "COLONIAL_ATLANTIS_Atlantis"
-}
-}
 colonial_ohio = {
 	color = { 141 108 45 }
 	provinces = {
@@ -1485,121 +1494,7 @@ colonial_ohio = {
         name = "COLONIAL_OHIO_Ohio"
 }
 }
-colonial_southeastern_america = {
-	color = { 129 157 208 }
 
-	# Random New World
-	tax_income = 2
-	native_size = 8
-	native_ferocity = 2
-	native_hostileness = 5
-
-	trade_goods = {
-		fur = 15
-		fish = 3
-		naval_supplies = 4
-		grain = 4
-		tobacco = 8
-		cotton = 10
-		sugar = 1
-	}
-
-	culture = {
-		creek = 5
-		choctaw = 2
-		chickasaw = 2
-		cherokee = 5
-		shawnee = 5
-		dakota = 2
-		iroquois = 3
-		powhatan = 2
-		delaware = 4
-		susquehannock = 5
-		mahican = 2
-		pequot = 2
-		abenaki = 4
-	}
-
-	religion = {
-		shamanism = 10
-	}
-
-	provinces = {
-		2554 957 962 2639 965 2560
-        967 2561 968 970 2013 4873 2564 
-        2562 4925  971 2565 2567
-         2566  2012 2583 2582 4896 2570 985 984 2568 
-         986 2569 4891 2572  5609  5610
-		}
-
-	# Specific
-	names = {
-		trigger = {
-			OR = {
-				tag = FRA
-				culture_group = french
-			}
-		}
-		name = "COLONIAL_EASTERN_AMERICA_Floride"
-	}
-	names = {
-		trigger = {
-			culture_group = central_american 
-		}
-		name = "COLONIAL_AZTEKFLORIDA"
-	}
-	names = {
-		trigger = {
-			OR = {
-				tag = SPA
-				tag = CAS
-				tag = ARA
-			}
-		}
-		name = "COLONIAL_EASTERN_AMERICA_Florida"
-	}
-		names = {
-		trigger = {
-			tag = A44
-		}
-		name = "ACOLONIAL_EASTERN_AMERICA_yvnMazrach"
-	}
-				names = {
-		trigger = {
-			culture_group = roman_group
-		}
-		name = "COLONIAL_EASTERN_AMERICA_iuxta_monte"
-	}
-
-	# Generic
-	names = {
-		name = "COLONIAL_EASTERN_AMERICA_Florida"
-	}
-	names = {
-		trigger = {
-			owns = 2528
-		}
-		name = "PROV2528" # Manhattan
-	}
-	names = {
-		trigger = {
-			owns = 923
-		}
-		name = "PROV923" # Delaware
-	}
-	names = {
-		trigger = {
-			owns = 2536
-		}
-		name = "PROV2536" # Conoy
-	}
-	names = {
-		trigger = {
-			owns = 2532
-		}
-		name = "PROV2532" # Alabama
-	}
-}
 colonial_south_africa = {
 	color = {
 		0 175 0 
@@ -1739,6 +1634,12 @@ colonial_texas = {
 	}
 	names = {
 		trigger = {
+			tag = IS6
+	}
+	name = "COLONIAL_THE_gzekarbean_texas"
+	}
+	names = {
+		trigger = {
 			culture_group = central_american 
 		}
 		name = "COLONIAL_AZTEKTEKSAS"
@@ -1749,6 +1650,12 @@ colonial_texas = {
 			culture_group = roman_group
 		}
 		name = "COLONIAL_TEXAS_Atlantic_terra"
+	}
+	names = {
+		trigger = {
+			tag = IS6
+	}
+	name = "COLONIAL_THE_gzekarbean_muland"
 	}
 			names = {
 		trigger = {
