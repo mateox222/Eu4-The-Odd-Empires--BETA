@@ -506,6 +506,28 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = plotstart_events.20
+	title = "plotstart_events.20.t"
+	desc = "plotstart_events.20.d"
+	picture = IMPERIALCOMPANY_eventPicture
+	major = yes
+		 major_trigger = { 
+			region = atlantis_region }
+	trigger = {
+		tag = IS6
+		has_game_started = yes
+		NOT = { has_country_flag = iberiacumchinagerman_start}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "plotstart_events.19.a"
+		set_country_flag = iberiacumchinagerman_start
+		add_prestige = 5	
+	}
+}
 
 
 country_event = {
