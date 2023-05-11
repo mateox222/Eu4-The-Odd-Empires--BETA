@@ -13,6 +13,7 @@ country_event = {
 		
 		ai_chance = { factor = 1 } 
 		set_country_flag = lit_accepted_pu
+		change_country_color = { color = { 197  92  106}	}
 		POL = { 
 			create_union = ROOT
 			country_event = { id = flavor_pol.20 }
@@ -367,8 +368,8 @@ country_event = {
 # The Surrender of Maine
 country_event = {
 	id = venediaevent.4
-	title = "flavor_fra.6.t"
-	desc = "flavor_fra.6.d"
+	title = "venediaevent.4.t"
+	desc = "venediaevent.4.d"
 	picture = venedia_in_siege_eventPicture
 	
 	fire_only_once = yes
@@ -484,16 +485,17 @@ country_event = {
 				has_any_disaster = yes
 			}
 		}
+		custom_tooltip = normandiaweasal
+		hidden_effect = {
+		FRA = { free_vassal = NRM }
+		POL = { vassalize = NRM }
+		NRM = { change_country_color = { color = { 197  92  106}	} }
 		FRA = {
 			declare_war_with_cb = {
 				who = POL
 				casus_belli = cb_hundred_years_war
 			}
 		}
-		custom_tooltip = normandiaweasal
-		hidden_effect = {
-		FRA = { free_vassal = NRM }
-		POL = { vassalize = NRM }
 		167 = {
 			change_controller = FRA
 		}

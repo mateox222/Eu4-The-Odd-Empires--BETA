@@ -1458,6 +1458,18 @@ emp_france_missions_2 = {
 			OR = {
 			war_with = POL
 			war_with = PLC		
+				AND = {
+					POL = { exists = no }
+					PLC = { exists = no }
+				}
+				AND = {
+					OR = {
+					POL = { is_subject_of = FRA				}
+					PLC = { is_subject_of = FRA				}
+					}
+				}
+
+
 			}
 			}
 		}

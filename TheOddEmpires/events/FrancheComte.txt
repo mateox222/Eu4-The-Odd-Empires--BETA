@@ -87,6 +87,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 	name = "french_empire.4.a" 
+				override_country_name = FRANCJADUCALNAK
 				custom_tooltip = franchepolaki
 				hidden_effect = {
 				every_province = {
@@ -99,7 +100,12 @@ country_event = {
 					change_culture = frankovenedian
 			 }
 
-			
+			 if = {
+				limit = {
+					exists = POL
+				}
+				create_union = POL
+			 }
 				france_region = {
 				limit = {
 					NOT = { is_core = ROOT }
