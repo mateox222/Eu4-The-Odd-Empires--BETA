@@ -1,66 +1,52 @@
-crusaderstates_mechanic = {
-	alert_icon_gfx = GFX_alerticons_government_mechanics
-	alert_icon_index = 2
-	available = {
-	}
-	
-	powers = {
-		crusader_adm_power = {
-			max = 100
-			monarch_power = mil
-			base_monthly_growth = 0.5
 
-	}}
-	
-	interactions = {
-        CRUSADERARMYSUPPORT2 = {
-			gui = russian_mechanics_interaction_gui
-			icon = GFX_crusader_ability
-			cost_type = crusader_adm_power
-			cost = 100
-            potential = {
-                always = no
-            }
-			trigger = {
-                always = no
+	crusaderstates_mechanic = {
+		alert_icon_gfx = GFX_alerticons_government_mechanics
+		alert_icon_index = 10
+		powers = {
+			crusader_adm_power = {
+				max = 100
+				base_monthly_growth = 0.5
+				scaled_modifier = {
+					modifier = {
+						manpower_recovery_speed = 0.20
+						land_maintenance_modifier = -0.1
+					}
+				}
 			}
-			effect = {
-				add_country_modifier = { 
-    name = crusadelatinempire
-    duration = 3600
-}
-			}
-			cooldown_years = 10
-            ai_chance = {
-                        factor = 0
-                        modifier = {
-                                factor = 10
-                                at_war_with_religious_enemy = yes
-                        }}}
-		
-		CRUSADERARMYSUPPORT = {
-			gui = russian_mechanics_interaction_gui
-			icon = GFX_crusader_ability
-			cost_type = crusader_adm_power
-			cost = 100
-			trigger = {
-                NOT = { has_country_modifier = crusadelatinempire }
-			}
-			effect = {
-				add_country_modifier = { 
-    name = crusadelatinempire
-    duration = 3600
-}
-			}
-			cooldown_years = 10
-            ai_chance = {
-                        factor = 0
-                        modifier = {
-                                factor = 10
-                                at_war_with_religious_enemy = yes
-                        }
-		}
 		}
 		
+		interactions = {
+			CRUSADERARMYSUPPORT= {
+				gui = deusvult_militarization_gov_mech
+				cost_type = crusader_adm_power
+				center = no
+				trigger = {
+					has_government_power = {
+						mechanic_type = crusaderstates_mechanic
+						power_type = crusader_adm_power
+						value = 100
+					}
+					NOT = { has_country_modifier = crusadelatinempire }
+				}
+				effect = {
+					set_government_power = {
+						mechanic_type = crusaderstates_mechanic
+						power_type = crusader_adm_power
+						value = 0
+					}
+					add_country_modifier = { 
+		name = crusadelatinempire
+		duration = 3600
+	}
+				}
+				cooldown_years = 10
+				ai_chance = {
+							factor = 0
+							modifier = {
+									factor = 10
+									at_war_with_religious_enemy = yes
+							}
+			}
+			}
 		}
 	}

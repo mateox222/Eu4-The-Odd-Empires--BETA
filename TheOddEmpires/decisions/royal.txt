@@ -121,4 +121,40 @@
 	}
 	}
 	
+
+	country_decisions = {
+		atlantropa_expellking = {
+			color = { 117 95 25 }
+			potential = {
+				government = monarchy
+				has_heir = yes
+			}
+			allow = {
+				 government = monarchy
+				 has_regency = no
+			}
+			effect = {
+		add_legitimacy = -25
+		add_absolutism = -5
+		add_prestige = -5	
+		hidden_effect = {
+			if = {
+					limit = { NOT = { stability = 3 } }
+					capital_scope = {
+					spawn_rebels = {
+						type = pretender_rebels
+						size = 3
+						should_take_capital = yes
+						use_heir_as_leader = yes
+					}
+			}
+		}
+		}
+		remove_heir = { allow_new_heir = yes }	
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		}
 	

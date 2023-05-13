@@ -3721,6 +3721,11 @@ country_event = {
 		limit = { is_lesser_in_union = yes }
 		overlord = { break_union = ROOT	 }
 	}
+	if = {
+		limit = { has_regency = yes	}
+		kill_heir = { allow_new_heir = no }	
+	}
+
 	add_prestige = -5
 	add_legitimacy = 10
 			}
