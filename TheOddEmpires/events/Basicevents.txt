@@ -59,8 +59,13 @@ province_event = {
 		owned_by = ROOT
 		controller = { 
 			war_with = ROOT
-			units_in_province = 5
 		}	
+		num_of_units_in_province = {
+    amount = 5
+	who = controller
+}
+		
+
 		}	
 		
 	
@@ -210,11 +215,20 @@ country_event = {
 		name = odbuodwapowojenna
 		duration = 3600 
 	}
-						add_government_power = {
+	if = {
+	limit = { 
+	OR = {
+	tag = BYZ
+	tag = A52
+	}}
+							add_government_power = {
 					mechanic_type = nikaeanbyzantine_mechanic
 					power_type = byz_adm_power
 					value = -5
 				}
+	}
+	
+
 
 		}
 			option = {
@@ -225,11 +239,18 @@ country_event = {
 					name = odbuodwapowojenna2
 					duration = 1800
 				}
-								add_government_power = {
+		if = {
+	limit = { 
+	OR = {
+	tag = BYZ
+	tag = A52
+	}}
+							add_government_power = {
 					mechanic_type = nikaeanbyzantine_mechanic
 					power_type = byz_adm_power
-					value = 5
+					value = -5
 				}
+	}
 						}			
 
 		}
