@@ -50,51 +50,89 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 1
-			modifier = {
-				factor = 2
-				has_opinion = {
+			factor = 0
+		modifier = {
+			factor = 100
+			OR = {
+				ai_attitude = {
 					who = A38
-					value = 100
+					attitude = attitude_friendly
+				}
+				ai_attitude = {
+					who = A38
+					attitude = attitude_loyal
+				}
+				ai_attitude = {
+					who = A38
+					attitude = attitude_allied
 				}
 			}
+		}
 			modifier = {
-				factor = 0
-				emperor = { is_rival = A38 }
-			}
-			modifier = {
-				factor = 0
-				A38 = { is_rival = emperor }
-			}
-			modifier = {
-				factor = 2
-				NOT = { emperor = { is_rival = A38 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { A38 = { is_rival = emperor } }
-			}
-			modifier = {
-				factor = 3
-				A38 = { diplomatic_reputation = 1 }
-			}
-			modifier = {
-				factor = 3
-				A38 = { diplomatic_reputation = 2 }
-			}
-			modifier = {
-				factor = 3
+				factor = 10
 				A38 = { diplomatic_reputation = 3 }
 			}
 			modifier = {
-				factor = 0
-				OR = {
-					is_enemy = A38
-					is_rival = A38
-				}
+				factor = 10
+				A38 = { diplomatic_reputation = 4 }
 			}
 			modifier = {
-				factor = 0.1
+				factor = 10
+				A38 = { diplomatic_reputation = 5 }
+			}
+
+						modifier = {
+				factor = 10
+				A38 = { diplomatic_reputation = 6 }
+			}
+																modifier = {
+				factor = 25
+				A38 = { army_size = emperor }
+			}
+
+							modifier = {
+				factor = 10
+				A38 = { army_size = 50 }
+			}
+										modifier = {
+				factor = 2
+				A38 = { army_size = 100 }
+			}
+			
+													modifier = {
+				factor = 2
+				A38 = { army_size = 150 }
+			}
+													modifier = {
+				factor = 2
+				A38 = { army_size = 200 }
+			}
+													modifier = {
+				factor = 2
+				A38 = { army_size = 250 }
+			}
+													modifier = {
+				factor = 5
+				A38 = { army_size = 300 }
+			}
+													modifier = {
+				factor = 5
+				A38 = { army_size = 350 }
+			}
+													modifier = {
+				factor = 10
+				A38 = { army_size = 400 }
+			}
+													modifier = {
+				factor = 10
+				A38 = { army_size = 450 }
+			}
+													modifier = {
+				factor = 50
+				A38 = { army_size = 500 }
+			}
+			modifier = {
+				factor = 10
 				is_neighbor_of = A38
 			}
 		}
@@ -110,41 +148,15 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 10
-			modifier = {
-				factor = 0.5
-				emperor = { is_rival = A38 }
-			}
-			modifier = {
-				factor = 0.5
-				A38 = { is_rival = emperor }
-			}
-			modifier = {
-				factor = 2
-				NOT = { emperor = { is_rival = A38 } }
-			}
-			modifier = {
-				factor = 2
-				NOT = { A38 = { is_rival = emperor } }
-			}
-			modifier = {
-				factor = 10
-				is_neighbor_of = A38
-			}
-			modifier = {
-				factor = 0
+			factor = 50
+						modifier = {
+				factor = 25
 				OR = {
-					is_enemy = A38
-					is_rival = A38
-				}
-			}
-			modifier = {
-				factor = 0
-				OR = {
-					ai_attitude = { who = A38 attitude = attitude_hostile }
-					ai_attitude = { who = A38 attitude = attitude_domineering }
-					ai_attitude = { who = A38 attitude = attitude_outraged }
-					ai_attitude = { who = A38 attitude = attitude_rivalry }
+					ai_attitude = { who = A38 attitude = attitude_allied }
+					ai_attitude = { who = A38 attitude = attitude_defensive }
+					ai_attitude = { who = A38 attitude = attitude_friendly }
+					ai_attitude = { who = A38 attitude = attitude_neutral }
+					ai_attitude = { who = A38 attitude = attitude_protective }
 				}
 			}
 		}
@@ -170,7 +182,7 @@ country_event = {
 			}
 		}
 		ai_chance = {
-			factor = 10
+			factor = 25
 			modifier = {
 				factor = 1.5
 				NOT = {
@@ -180,27 +192,50 @@ country_event = {
 					}
 				}
 			}
-			modifier = {
-				factor = 2
-				is_rival = A38
+																			modifier = {
+				factor = 100
+				NOT = { BYZ = { army_size = emperor } }
 			}
-			modifier = {
-				factor = 2
-				A38 = { is_rival = emperor }
-			}
-			modifier = {
-				factor = 0
-				alliance_with = A38
-			}
-			modifier = {
-				factor = 0
-				OR = {
-					ai_attitude = { who = A38 attitude = attitude_allied }
-					ai_attitude = { who = A38 attitude = attitude_defensive }
-					ai_attitude = { who = A38 attitude = attitude_friendly }
-					ai_attitude = { who = A38 attitude = attitude_neutral }
-					ai_attitude = { who = A38 attitude = attitude_protective }
+		modifier = {
+			factor = 200
+			OR = {
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_rivalry
 				}
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_hostile
+				}
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_threatened
+				}
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_outraged
+				}
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_disloyal
+				}
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_rebellious
+				}
+			}
+		}
+			modifier = {
+				factor = 1000
+				is_rival = BYZ
+			}
+						modifier = {
+				factor = 1000
+				is_emperor = yes
+			}
+			modifier = {
+				factor = 1
+				BYZ = { is_rival = emperor }
 			}
 		}
 	}
@@ -269,22 +304,29 @@ country_event = {
 	
 	option = {	# Okay.
 		name = incident_legio.5.a
+			ROOT = { add_casus_belli = {
+    target = emperor
+    type = cb_byzantine_war_on_empire
+    months = 360
+}}
+		name = incident_byzantine.5.a
 		if = {
 			limit = { is_part_of_hre = yes }
 			set_in_empire = no
 		}
 		118 = { add_core = ROOT }
+		hidden_effect = {
 		every_province = {
 		    limit = {
         is_part_of_hre = yes
     }
 	add_permanent_claim = ROOT
+	}}
 	set_global_flag = legioreichwarmarchonrome
 	}
-	set_country_flag = byzantinehredispute_flag
 		ai_chance = {
 			factor = 1
 		}
 	}
-}
+
 

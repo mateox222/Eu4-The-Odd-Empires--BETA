@@ -346,6 +346,8 @@ colonial_core = {
 	local_missionary_strength = -0.02
 	min_local_autonomy = 50
 	local_governing_cost = -0.5
+	global_unrest = -5.0
+	manpower_recovery_speed = 0.25	
 }
 
 territory_core = {
@@ -1425,12 +1427,21 @@ power_projection_25 = {
 #100 Land Forcelimit = 1
 land_forcelimit = {
     free_land_leader_pool = 1.25 #80 Army forcelimit -> +1 free leader
+	land_morale = 0.025
+	prestige = 0.1`
+	army_tradition_decay = -0.01	
 }
 
 #100 Naval Forcelimit = 1
 naval_forcelimit = {
     free_navy_leader_pool = 1.25 #80 Naval Forcelimit -> +1 Free Leader
 	max_flagships = 1
+	navy_tradition_decay = -0.01	
+	naval_morale = 0.025
+	prestige = 0.1
+	heavy_ship_cost = -0.05	
+	transport_cost = -0.05	
+	global_sailors_modifier = 0.1	
 }
 
 trade_company_strong = {

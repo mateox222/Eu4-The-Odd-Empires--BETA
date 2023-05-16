@@ -61,52 +61,7 @@ country_decisions = {
 	}
 }	
 
-country_decisions = {
-	deport_hungarians = {
-        color = { 144 92 128 }
-		potential = {
-            OR = {
-            tag = BYZ
-            tag = A52
-            tag = LAE
-            }
-               any_owned_province = {
-	OR = {
-        culture = turkic
-        culture = second_turkish
-    }
-}
-		}
-		allow = {
-			dip_power = 100
-            NOT = { has_country_modifier = hungdeport
-        }
-		}
-		effect = {
-            add_country_modifier = { 
-                name = hungdeport
-                duration = 3600
-            }
-           random_owned_province = {
-    limit = { 
-        culture = second_turkish
-
-     }
-   change_culture = anatolian
-   change_religion = ROOT
-   add_dip_power = -100	
-   add_base_tax = -1	
-   add_base_production = -1	
-   add_base_manpower = -1	
-   add_devastation = 10	
-}
-}
-		
-		ai_will_do = {
-			factor = 1
-		}
-	}
-}	
+	
 
 country_decisions = {
 	jews_invite = {

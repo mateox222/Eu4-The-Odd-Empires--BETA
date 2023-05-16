@@ -33,17 +33,6 @@ Atlantropa_deadstate = {
 }
 
 
-Atlantropa_scolonynation = {
-	potential = {
-		is_colonial_nation = yes
-	}
-	trigger = {
-		is_colonial_nation = yes
-	}
-	global_unrest = -5.0
-	manpower_recovery_speed = 0.25	
-}
-
 
 Atlantropa_smallstate = {
 	potential = {
@@ -165,41 +154,7 @@ Atlantropa_toolargeState = {
 	country_admin_power = -2	
 }
 
-Atlantropa_University = {
-	potential = {
-		always = yes
-	}
-	trigger = {
-		university = 1
-		NOT = { university = 5 }
-	}
 
-	development_cost = -0.05
-	build_cost = -0.05
-	yearly_corruption = -0.01
-	technology_cost = -0.025
-	global_institution_spread = 0.05
-	culture_conversion_cost = -0.05
-	promote_culture_cost = -0.1
-	stability_cost_modifier = -0.05
-}
-Atlantropa_Alotof_University = {
-	potential = {
-		always = yes
-	}
-	trigger = {
-		university = 5
-	}
-
-	development_cost = -0.1
-	build_cost = -0.1
-	yearly_corruption = -0.03
-	technology_cost = -0.05
-	global_institution_spread = 0.1
-	culture_conversion_cost = -0.1
-	promote_culture_cost = -0.2
-	stability_cost_modifier = -0.1
-}
 
 Atlantropa_lowheir = {
 	potential = {
@@ -276,158 +231,6 @@ Atlantropa_stability7 = {
 	country_diplomatic_power = 1	
 	country_military_power = 1
 }
-Atlantropa_colonial1 = {
-	potential = {
-		colony = 1
-	}
-	trigger = {
-			NOT = {	colony = 2 }
-		colony = 1
-	}	
-	
-	navy_tradition_decay = -0.01	
-	heavy_ship_cost = -0.1	
-	transport_cost = -0.1	
-	naval_forcelimit_modifier = 0.1		
-	global_sailors_modifier = 0.1	
-	naval_morale = 0.05	
-}
-Atlantropa_colonial2 = {
-	potential = {
-		colony = 2
-	}
-	trigger = {
-			NOT = {	colony = 5 }
-		colony = 1
-	}	
-	navy_tradition_decay = -0.02	
-	heavy_ship_cost = -0.15	
-	transport_cost = -0.15	
-	naval_forcelimit_modifier = 0.2		
-	global_sailors_modifier = 0.2	
-	naval_morale = 0.1	
-}
-Atlantropa_colonial3 = {
-	potential = {
-		colony = 2
-	}
-	trigger = {
-		colony = 5
-	}	
-	navy_tradition_decay = -0.03	
-	heavy_ship_cost = -0.25	
-	transport_cost = -0.25	
-	naval_forcelimit_modifier = 0.3		
-	global_sailors_modifier = 0.3	
-	naval_morale = 0.15	
-}
-
-Atlantropa_largearmy1 = {
-	potential = {
-		army_size = 25
-	}
-	trigger = {
-		NOT = {	army_size = 50 }
-		army_size = 25
-	}	
-	land_morale = 0.01
-	army_tradition_decay = -0.01		
-}
-Atlantropa_largearmy2 = {
-	potential = {
-		army_size = 50
-		NOT = {	army_size = 100 }
-	}
-	trigger = {
-		army_size = 50
-		NOT = {	army_size = 100 }
-	}	
-	land_morale = 0.025	
-	army_tradition_decay = -0.02		
-	prestige = 0.1	
-}
-Atlantropa_largearmy3 = {
-	potential = {
-		army_size = 100
-		NOT = {	army_size = 200 }
-	}
-	trigger = {
-		army_size = 100
-		NOT = {	army_size = 200 }
-	}	
-	land_morale = 0.05
-	army_tradition_decay = -0.03		
-	prestige = 0.2	
-	monthly_splendor = 0.5	
-}
-
-Atlantropa_largearmy4 = {
-	potential = {
-		army_size = 200
-	}
-	trigger = {
-		army_size = 200
-	}	
-	land_morale = 0.1
-	army_tradition_decay = -0.05		
-	prestige = 0.25
-	monthly_splendor = 1
-	country_military_power = 1
-}
-
-Atlantropa_largenavy1 = {
-	potential = {
-		navy_size = 50
-	}
-	trigger = {
-		NOT = {	navy_size = 75 }
-		navy_size = 50
-	}	
-	naval_morale = 0.02
-	navy_tradition_decay = -0.01		
-}
-Atlantropa_largenavy2 = {
-	potential = {
-		navy_size = 75
-		NOT = {	navy_size = 125 }
-	}
-	trigger = {
-		navy_size = 75
-		NOT = {	navy_size = 125 }
-	}	
-	naval_morale = 0.05	
-	navy_tradition_decay = -0.02		
-	prestige = 0.1	
-}
-Atlantropa_largenavy3 = {
-	potential = {
-		navy_size = 125
-		NOT = {	navy_size = 250 }
-	}
-	trigger = {
-		navy_size = 125
-		NOT = {	navy_size = 250 }
-	}	
-	naval_morale = 0.10	
-	navy_tradition_decay = -0.03		
-	prestige = 0.2	
-	monthly_splendor = 0.5	
-}
-
-Atlantropa_largenavy4 = {
-	potential = {
-		navy_size = 250
-	}
-	trigger = {
-		navy_size = 250
-	}	
-	naval_morale = 0.15	
-	navy_tradition_decay = -0.05		
-	prestige = 0.25
-	monthly_splendor = 1
-	country_diplomatic_power = 1	
-}
-
 
 
 Atlantropa_indoeuropan1 = {
