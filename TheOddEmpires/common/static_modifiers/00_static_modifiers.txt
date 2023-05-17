@@ -572,7 +572,7 @@ scorched_earth = {
 
 base_values = {
 
-	global_tax_modifier = -0.06	
+	global_tax_modifier = 0.14
 	global_missionary_strength = -0.03
 	land_morale = -0.06
 	global_manpower_modifier = -0.075
@@ -582,13 +582,13 @@ base_values = {
 	discipline = -0.015	
 	production_efficiency = -0.045	
 	unjustified_demands = 0.05
-	ae_impact = 0.15	
+	ae_impact = -0.05	
 	diplomatic_reputation = -0.15	
 	monthly_splendor = -0.15	
-	yearly_corruption = 0.045	
+	yearly_corruption = -0.005	
 	governing_capacity = -30	
 	tolerance_own = -0.5	
-	global_unrest = 0.5	
+	global_unrest = -2.5
 	inflation_reduction = -0.06
 	max_absolutism = 65
 	merchants = 2							#Start with 2 merchants
@@ -623,6 +623,13 @@ base_values = {
 	tolerance_of_heathens_capacity = 3
 	max_flagships = 1
 	num_of_parliament_issues = 10
+	trade_efficiency = 0.2
+	technology_cost = -0.15
+	global_institution_spread = 0.25
+	stability_cost_modifier = -0.25
+	country_admin_power = 1	
+
+
 }
 
 # AI 'cheats' that compensate for flaws in its long-term decision making, removing these may severely cripple the AI
@@ -2184,10 +2191,26 @@ over_governing_capacity_modifier = {
 	monthly_prussian_militarized_society_3 = -1
 	administrative_efficiency = -0.5
 	monthly_ottoman_decadence = 2
+	global_tax_modifier = -0.2
+	trade_efficiency = -0.2
+	yearly_corruption = 0.05
+	technology_cost = 0.15
+	global_institution_spread = -0.2
+	global_unrest = 2.0
+	country_admin_power = -2	
 }
 
 # At 1000% below capacity, this modifier will be fully used
 under_governing_capacity_modifier = {
+	ae_impact = 0.2
+	global_tax_modifier = -0.2
+	trade_efficiency = -0.2
+	yearly_corruption = 0.05
+	technology_cost = 0.15
+	global_institution_spread = -0.25
+	global_unrest = 3.0
+	stability_cost_modifier = 0.25
+	country_admin_power = -1	
 }
 
 
@@ -2313,19 +2336,22 @@ imperial_authority_member = {
 }
 
 positive_imperial_authority_emperor = {
-	
+	all_estate_loyalty_equilibrium = 0.1
+	prestige = 0.25
+	monthly_splendor = 0.1	
 }
 
 positive_imperial_authority_member = {
-	
+		prestige = 0.1
 }
 
 negative_imperial_authority_emperor = {
-	
+	all_estate_loyalty_equilibrium = -0.1
+	prestige = -0.5	
 }
 
 negative_imperial_authority_member = {
-	
+			prestige = -0.1
 }
 
 slackening_modifier = {
