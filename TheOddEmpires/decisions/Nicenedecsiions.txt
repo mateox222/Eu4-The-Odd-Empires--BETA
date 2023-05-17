@@ -113,9 +113,38 @@ potential = {
 			factor = 1
 		}
 	}
+
+	atl_nicene_advisor = {
+                color = { 121  37  130 }
+	major = yes
+		potential = { 
+			OR = {
+			tag = A52
+			tag = BYZ
+			}
+			NOT = { has_ruler_flag = advisorrecrutibyz }
+		}
+		allow = {
+		years_of_income = 0.4
+		legitimacy = 10
+		add_legitimacy = -10
 }
+		effect = {
+			add_years_of_income = -0.4
+		define_advisor = {
+    type = addadministrator4byz_tod
+    skill = 3
+    discount = yes
+    culture = ROOT
+}
+		set_ruler_flag = advisorrecrutibyz
+}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 1
+				years_of_income = 2
+			}
+		}
 
-
-
-
-
+}}
