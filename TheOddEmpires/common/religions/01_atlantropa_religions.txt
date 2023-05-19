@@ -207,9 +207,9 @@ pagan = {
 		icon = 17
 		country = {
 			culture_conversion_cost = -0.25
-			development_cost = +0.2
-			land_morale = 0.2
-			discipline = 0.05
+			development_cost = 0.2
+			land_morale = 0.1
+			discipline = 0.025
 			relation_with_heathens = -60				
 		}
 		
@@ -266,5 +266,28 @@ christian = {
 			promote_territorial_rights
 			will_of_the_martyrs
 		}
+	}
+
+	blackchristianity = {
+		color = { 13 47 50 }
+		icon = 40
+		country = {
+			land_morale = 0.1
+			legitimacy = 1	
+			yearly_absolutism = 0.2	
+		}
+		province = {
+			trade_goods_size_modifier = 0.05		
+		}
+		country_as_secondary = {
+			land_morale = 0.1
+			legitimacy = 1	
+		}
+		misguided_heretic = yes		# Other christians hate them less
+		
+		heretic = { METHODIST BAPTIST QUAKER }	
+		fervor = yes
+		
+
 	}
 	}
