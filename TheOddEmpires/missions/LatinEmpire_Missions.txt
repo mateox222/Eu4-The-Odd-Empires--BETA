@@ -10,10 +10,10 @@ latin_empire_western222 = {
 	latin_empire_greek = {
 		icon = atlantropa_focusgreek
 		trigger = {
-		OR = {
-			has_global_flag = end_of_latin_empire_crisis
-			is_year = 6920
-			}
+			OR = {
+				has_global_flag = end_of_latin_empire_crisis
+				has_country_flag = latindostajepodupie12	
+				}
 			stability = 3
 			accepted_culture = greek
 		}
@@ -743,7 +743,11 @@ lamanitia_latinamission = {
 		icon = atlantropa_latin_empire
 
 		trigger = {
+			has_any_disaster = no
+			OR = {
 			has_global_flag = end_of_latin_empire_crisis
+			has_country_flag = latindostajepodupie12	
+			}
 		}
 		effect = {
 						country_event = { 

@@ -1,55 +1,144 @@
 latin_empire_crisis = {
     potential = {
+		NOT = { is_year = 7000 }
+		owns_core_province = 151
         tag = LAE
+		is_year = 6915
 	NOT = { has_global_flag = end_of_latin_empire_crisis }	
 	}
 can_start = {
-hidden_trigger = {
- is_year = 6915
+OR = {
+A52 = {
+	is_neighbor_of = ROOT
+	is_subject = no
+	NOT = { truce_with = ROOT }
+	NOT = { alliance_with = ROOT }
+	total_development = 250
 }
+SER = {
+	is_neighbor_of = ROOT
+	is_subject = no
+	NOT = { truce_with = ROOT }
+	NOT = { alliance_with = ROOT }
+	total_development = 150
+}
+BUL = {
+	is_neighbor_of = ROOT
+	is_subject = no
+	NOT = { truce_with = ROOT }
+	NOT = { alliance_with = ROOT }
+	total_development = 150
+}
+}
+
+
+
 }
 	can_stop = { 
-		   had_country_flag = { flag = bramkarezerowadlalatindays days = 3600 }
+		if = {
+			limit = {
+			NOT = { has_country_flag = bramkarezerowadlalatin }}
+		   had_country_flag = { flag = latindostajepodupie1 days = 3600 }
+			}
+
+		   if = {
+			limit = {
+			has_country_flag = bramkarezerowadlalatin }
+		   had_country_flag = { flag = bramkarezerowadlalatin days = 3600 }
+		}
 	}
+	
 
 	progress = {
-
-			modifier = {
-			factor = 10
-			has_heir = no
+		modifier = {
+			factor = 2
+			BUL = {
+				is_subject = no
+				NOT = { truce_with = ROOT }
+				NOT = { alliance_with = ROOT }
+				total_development = 150
+			}
+		}
+		modifier = {
+			factor = 2
+			SER = {
+				is_subject = no
+				NOT = { truce_with = ROOT }
+				NOT = { alliance_with = ROOT }
+				total_development = 150
+			}
+		}
+		modifier = {
+			factor = 2
+			A52 = {
+				is_subject = no
+				NOT = { truce_with = ROOT }
+				NOT = { alliance_with = ROOT }
+				total_development = 150
+			}
 		}
 			modifier = {
-			factor = 15
+			factor = 1
+			has_heir = no
+		}
+		modifier = {
+			factor = 1
+			NOT = { stability = 3 }
+		}
+			modifier = {
+			factor = 1
 			has_regency = yes
 		}
 		modifier = {
-			factor = 10
+			factor = 1
 			NOT = { legitimacy = 75 }
 		}
 		modifier = {
-			factor = 10
+			factor = 1
 			NOT = { legitimacy = 50 }
 		}
 		modifier = {
-			factor = 10
+			factor = 1
 			NOT = { legitimacy = 25 }
 		}
 		modifier = {
-			factor = 10
+			factor = 1
+			NOT = { stability = 2 }
+		}
+		modifier = {
+			factor = 1
+			NOT = { stability = 1 }
+		}
+		modifier = {
+			factor = 3
 			NOT = { stability = 0 }
 		}
 		modifier = {
-			factor = 10
-			NOT = { heir_claim = 50 }
+			factor = -1
+			truce_with = BUL
 		}
 		modifier = {
-			factor = 10
-			NOT = { heir_claim = 90 }
+			factor = -1
+			truce_with = A52
 		}
 		modifier = {
-			factor = 10
+			factor = -1
+			truce_with = SER
+		}
+		modifier = {
+			factor = 5
+			is_at_war = yes
+		}	
+		modifier = {
+			factor = -2
+			has_country_flag = latindostajepodupie12
+		}	
+
+		modifier = {
+			factor = 1
 			ruler_age = 60
 		}
+
 		
 		
 		
@@ -57,14 +146,13 @@ hidden_trigger = {
 
 	}
 can_end = {
-hidden_trigger = {
 		OR = {
         had_country_flag = { flag = latin_empire_crisis days = 4500 }
 		AND = {
 		had_country_flag = { flag = latin_empire_crisis days = 2500 }
 		legitimacy = 100 }
 		has_global_flag = end_of_latin_empire_crisis
-		}
+		
 		
 }}
 modifier = {
@@ -86,10 +174,10 @@ on_monthly = {
         events = {
         }
         random_events = { 
-			1000 = 0
+			900 = 0
 			100 = civil_war.2
-			100 = civil_war.3
-			100 = civil_war.5
+			300 = civil_war.3
+			200 = civil_war.5
 			100 = civil_war.7
 			100 = civil_war.9
 			100 = civil_war.10
