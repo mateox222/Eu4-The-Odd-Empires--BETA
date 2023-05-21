@@ -90,6 +90,10 @@ country_event = {
 				override_country_name = FRANCJADUCALNAK
 				custom_tooltip = franchepolaki
 				hidden_effect = {
+					if = {
+						limit = { POL = { is_subject_of = ROOT	}}	
+						POL = { change_primary_culture = frankovenedian }
+					}
 				every_province = {
 				limit = {
 					OR = {
