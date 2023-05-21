@@ -650,3 +650,32 @@ autonomous_byzantine_province = {
 		factor = 100
 	}
 }
+
+vandalic_monarchy = {
+    icon = "vandalic_monarchy"
+    allow_normal_conversion = yes
+    lock_level_when_selected = yes
+    legacy_equivalent = feudal_monarchy
+    monarchy = yes    
+    potential = {
+        tag = A4F
+    }
+    valid_for_nation_designer = yes
+    nation_designer_cost = 100
+
+    modifiers = {
+        war_exhaustion = -0.01
+        unjustified_demands = -0.15
+        galley_power = 0.15
+        coast_raid_range = 1
+    }
+
+    conditional = {
+    }
+    custom_attributes = {
+        locked_government_type = yes
+    }
+    ai = {
+        factor = 100
+    }
+}
