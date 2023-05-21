@@ -112,6 +112,7 @@ country_event = {
 		ai_chance = { 
 			factor = 75 
 		}
+		custom_tooltip = POLSKAWYBIERAAKQITANIAtool
 		set_country_flag = POLSKAWYBIERAAKQITANIA
 		GUY = { 
 			country_event = { id = venediaevent.1 }
@@ -120,10 +121,11 @@ country_event = {
 	}
 	
 	option = {
-		name =  flavor_vedpol.18.b #Appoint a Local Noble.
+		name =  flavor_vedpola.18.b #Appoint a Local Noble.
 		ai_chance = { 
 			factor = 25
 		}
+		custom_tooltip = POLSKAWYBIERAAKQITANIAtool2
 		define_ruler = {
 			change_dip = 3
 			change_adm = 3
@@ -161,6 +163,7 @@ country_event = {
 		ai_chance = { 
 			factor = 15
 		}
+		custom_tooltip = POLSKAWYBIERAAKQITANIAtool3
 		define_ruler = {
 			name = "Louis"
 			dynasty = "de Valois"
@@ -171,7 +174,19 @@ country_event = {
 			claim = 50
 		}
 		set_in_empire = yes	
-		
+		hidden_effect = {
+			random_subject_country = {
+				limit = {
+					is_elector = yes
+				}
+				elector = no
+				hidden_effect = {
+					country_event = {
+						id = hre_event.14
+					}
+				}
+			}
+		}
 		elector = yes
 		add_historical_friend = NAP
 		NAP = {
@@ -205,7 +220,7 @@ country_event = {
 			factor = 1
 		}
 		
-
+		custom_tooltip = POLSKAWYBIERAAKQITANIAtool4
 		FRA = { create_union = ROOT	}
 		add_historical_friend = FRA
 		FRA = {
@@ -240,6 +255,7 @@ country_event = {
 		ai_chance = { 
 			factor = 15
 		}
+		custom_tooltip = POLSKAWYBIERAAKQITANIAtool5
 		set_country_flag = POLSKAWYBIERACZECHAA	
 		set_country_flag = polskawybieraczecha
 		ROOT = { create_union = BOH	}
