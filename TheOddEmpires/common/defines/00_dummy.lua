@@ -1289,7 +1289,7 @@ NDefines = {
 		GARRISON_SIZE = 1000, 							-- GARRISON_SIZE
 		SIEGE_FORCE_NEEDED_MULTIPLIER = 3,				-- x times garrison to be able to siege.
 		MAX_BREACH = 3,
-		SIEGE_GARRISON_SURRENDER = 100,					-- A siege ends when there is less than 100 defenders left.
+		SIEGE_GARRISON_SURRENDER = 300,					-- A siege ends when there is less than 100 defenders left.
 		ASSAULT_WIDTH_LIMIT = 5,						-- how many times the garrison size that can effectively assault at the same time.
 		ASSAULT_ATTACKER_LOSS = 1.0, 					-- MDEF_ASSAULT_ATTACKER_LOSS = 10,
 		ASSAULT_DEFENDER_LOSS = 0.05, 					-- _MDEF_ASSAULT_DEFENDER_LOSS = 10,
@@ -1314,7 +1314,7 @@ NDefines = {
 		CAVALRY_BREAKTHROUGH = 0.0,						-- Between 0 and 1
 	
 		INFANTRY_SPEED = 0.7, 							-- _MDEF_INFANTRY_SPEED = 10,
-		CAVALRY_SPEED = 0.9, 							-- _MDEF_CAVALRY_SPEED = 10,
+		CAVALRY_SPEED = 1, 							-- _MDEF_CAVALRY_SPEED = 10,
 		ARTILLERY_SPEED = 0.7, 							-- _MDEF_ARTILLERY_SPEED = 10,
 	
 		INFANTRY_COST = 10.0, 							-- _MDEF_INFANTRY_COST = 10,
@@ -1403,7 +1403,7 @@ NDefines = {
 		PRESTIGE_TO_TRIBAL_ALLEGIANCE_FACTOR = 3,	-- Multiplied with gained prestige when handing out tribal allegience in a battle
 		SEA_EXPLORE_SPEED = 5,						-- Can to some extent determine exploration speed of seas and coasts by specifying how long a ship pauses between exploration targets.
 		INF_LOOT = 0.1,								-- How many ducats/month will a single full strength infantry regiment loot?
-		CAV_LOOT = 0.3,								-- How many ducats/month will a single full strength cavalry regiment loot?
+		CAV_LOOT = 0.5,								-- How many ducats/month will a single full strength cavalry regiment loot?
 		ART_LOOT = 0.05,							-- How many ducats/month will a single full strength artillery regiment loot?
 		-- Suppression values are multiplied by the static modifier friendly_regiments
 		MAX_REBEL_SUPPRESSION = 5.0;				-- Maximum amount of rebel suppression by troops in a province
