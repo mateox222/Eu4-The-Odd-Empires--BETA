@@ -777,6 +777,17 @@ country_event = {
 	major = yes
 	is_triggered_only = yes
 	option = {
+		ai_chance = { 
+			factor = 0
+			modifier = {
+				factor = 10
+				NOT = {  army_size = 20  }
+			}
+			modifier = {
+				factor = 40
+				NOT = { army_size = SER }
+			}
+		}
 	name = "byzantine_war.8a"
 	4976 = {  add_core = A51
 	cede_province = A51 }
@@ -803,6 +814,9 @@ country_event = {
 }}
 	}
 	option = {
+		ai_chance = { 
+			factor = 10
+		}
 	name = "byzantine_war.8b" 
 	148 = {  change_controller = SER }
 		
