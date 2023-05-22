@@ -517,6 +517,7 @@ if = {
 		add_legitimacy = -100
 		set_global_flag = war_of_emperors
 		set_country_flag = bramkarezerowadlalatin
+		set_country_flag = bramkarezerowadlalatindays
 		clr_country_flag = latindostajepodupie1
 		add_war_exhaustion = 5	
 		if = {
@@ -756,7 +757,6 @@ country_event = {
 	major = yes
 	trigger = {
 		tag = SER
-		has_global_flag = A52_intervention
 		has_global_flag = war_of_emperors
 	NOT = {	has_global_flag = A52_serbianintervention}
 	}
@@ -764,17 +764,10 @@ country_event = {
 	mean_time_to_happen = { days = 60 }	
 	option = {
 	name = "byzantine_war.7a" 
-	LAE = {
-country_event = { 
-    id = byzantine_war.8
-    days = 3
-}}}
-	option = {
-	name = "byzantine_war.7b" 
-	LAE = {
-	add_prestige = -15
 	set_global_flag = A52_serbianintervention
-}}}
+	add_mil_power = 25
+}
+}
 
 country_event = {
 	id = byzantine_war.8
@@ -800,7 +793,6 @@ country_event = {
 	SER = {
 	vassalize = A51
 	}
-	set_global_flag = A52_serbianintervention
 	add_truce_with = SER
 	add_prestige = -15
 	hidden_effect = {
@@ -812,20 +804,33 @@ country_event = {
 	}
 	option = {
 	name = "byzantine_war.8b" 
-	LAE = {
-	declare_war_with_cb = {
-    who = SER
-    casus_belli = cb_annex }
-	148 = {
-	    change_controller = SER}
-	set_global_flag = A52_serbianintervention
-	hidden_effect = {
-	country_event = { 
-    id = byzantine_war.9
-    days = 90
-    random = 90
-}}
-}
+	148 = {  change_controller = SER }
+		
+		SER = {
+			declare_war_with_cb = {
+			who = LAE
+			casus_belli = cb_annex
+		}}
+		if = {
+			limit = {
+				has_global_flag = SAKSONIAPRZYJELA
+			}
+			anatolia_region  = {
+				limit = {
+					 owned_by = LAE
+							}
+		cede_province = A52
+		add_core = A52
+		}
+		A52 = { join_all_offensive_wars_of = SER }}
+		if = {
+			
+			limit = {
+				has_global_flag = BULGARIAPRZYJELA
+				has_global_flag = SAKSONIAPRZYJELA
+			}
+		BUL = { join_all_offensive_wars_of = SER }}
+
 
 }}
 country_event = {
@@ -947,16 +952,16 @@ country_event = {
 	desc = "byzantine_war.13.d"
 	picture = KING_DOING_GREAT_eventPicture
 	major = yes
-	mean_time_to_happen = { days = 80 }
+	mean_time_to_happen = { days = 100 }
+	fire_only_once = yes
 	trigger = {
+		had_country_flag = { flag = bramkarezerowadlalatin days = 1800 }	
 		OR = {
 			AND = {
 	NOT = { has_country_flag = latinfreedom }
 	NOT = { has_country_flag = latinfreedomking }	
 		num_of_rebel_armies = 0
 		tag = LAE
-		has_global_flag = A52_intervention
-		has_global_flag = A52_serbianintervention
 		has_global_flag = war_of_emperors
 		is_at_war = no
 		}
@@ -964,11 +969,8 @@ country_event = {
 	num_of_rebel_armies = 0
 	tag = LAE
 	is_at_war = no
-   had_country_flag = { flag = bramkarezerowadlalatindays days = 1800 }
 		}
 	}}
-	fire_only_once = yes
-	mean_time_to_happen = { days = 10 }	
 	option = {
 	name = "byzantine_war.13a" 
 	hidden_effect = {

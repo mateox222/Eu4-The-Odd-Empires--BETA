@@ -13,7 +13,7 @@
 
 country_decisions = {
 	formacja_koalicji_byz_bul = {
-                color = { 121  37  130 }
+        color = { 240 200 70 }
 	major = yes
 		potential = { 
             tag = A52
@@ -42,7 +42,7 @@ ai_will_do = {
 }
 
 formacja_koalicji_byz_sax = {
-    color = { 121  37  130 }
+    color = { 240 200 70 }
 major = yes
 potential = { 
 tag = A52
@@ -71,7 +71,7 @@ ai_will_do = {
 }
 
 invade_latin_empire = {
-    color = { 121  37  130 }
+    color = { 240 200 70 }
 major = yes
 potential = { 
 LAE = { owns_core_province = 151 }
@@ -82,7 +82,7 @@ NOT = { has_global_flag = war_of_emperorsSAKSONIAINFACJA2 }
 NOT = { has_global_flag = WIELKAWOJNANASZYCHCZASOWBYZ }
 }
 allow = {
-always = yes
+    NOT = { war_with = LAE }
 }
 effect = {
     set_global_flag = WIELKAWOJNANASZYCHCZASOWBYZ
@@ -128,9 +128,55 @@ hidden_effect = {
 
 }
 ai_will_do = {
-    factor = 1
+    factor = 0
+    modifier = {
+        factor = 1
+        army_size = LAE
+    }
 }
 }
+
+
+
+
+
+
+invade_latin_empire_as_saxony = {
+    color = { 240 200 70 }
+major = yes
+potential = { 
+exists = LAE
+tag = SER
+has_global_flag = war_of_emperors
+NOT = { has_global_flag = WIELKAWOJNANASZYCHCZASOWBYZ2 }
+has_global_flag = A52_serbianintervention
+}
+allow = {
+    NOT = { war_with = LAE }
+}
+effect = {
+    set_global_flag = WIELKAWOJNANASZYCHCZASOWBYZ2
+    custom_tooltip = ULTIMATUMTOLATINS
+
+hidden_effect = {
+	LAE = {
+        country_event = { 
+            id = byzantine_war.8
+            days = 3
+        }}
+}
+
+}
+ai_will_do = {
+    factor = 0
+    modifier = {
+        factor = 1
+        army_size = LAE
+    }
+}
+}
+
+
 
 
 
