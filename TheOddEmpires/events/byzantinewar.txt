@@ -453,10 +453,11 @@ country_event = {
 		has_country_flag = latindostajepodupie11
 		NOT = { has_country_flag = latindostajepodupie12 }	
 		tag = LAE
+		NOT = { has_country_flag = bramkarezerowadlalatin }	
 	NOT = {	has_disaster_progress = {
 			disaster = latin_empire_crisis
 			value = 85
-		}
+		} 
 	}}
 	option = {
 		name = byzantine_war.312.a 
@@ -466,6 +467,7 @@ country_event = {
 			disaster = latin_empire_crisis
 			value = -85
 		}
+		end_disaster = latin_empire_crisis
 }
 }
 country_event = {
@@ -515,6 +517,7 @@ if = {
 		add_legitimacy = -100
 		set_global_flag = war_of_emperors
 		set_country_flag = bramkarezerowadlalatin
+		clr_country_flag = latindostajepodupie1
 		add_war_exhaustion = 5	
 		if = {
 	 limit = {

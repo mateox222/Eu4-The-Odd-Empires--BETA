@@ -1043,7 +1043,10 @@ latin_empire_pp_balkans_north_italy = {
 		icon = atlantropa_pope
 
 		trigger = {
-			has_global_flag = end_of_latin_empire_crisis
+					OR = {
+				has_global_flag = end_of_latin_empire_crisis
+				has_country_flag = latindostajepodupie12	
+				}
 
 		}
 		effect = {
