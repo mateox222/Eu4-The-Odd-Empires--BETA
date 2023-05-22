@@ -1,0 +1,1058 @@
+hrothgardpirate_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	
+	potential_on_load = {
+		has_dlc = "Golden Century"
+	}
+
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = A5C
+	}
+
+	has_country_shield = yes
+	
+	hrothgardpirate_a_pirate_fleet = {
+		icon = atlantropa_norserpowership
+		required_missions = { }
+		
+		trigger = {
+			naval_forcelimit = 20
+			navy_size_percentage = 1
+			num_of_light_ship = 5
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "pirate_a_pirate_fleet"
+				duration = 7300
+			}
+		}
+	}
+	hrothgardpirate_a_scourge_on_the_seven_seas = {
+		icon = atlantropa_dawn
+		required_missions = { hrothgardpirate_a_pirate_fleet }
+		
+		trigger = {
+			has_flagship = yes
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "pirate_a_scourge_on_the_seven_seas"
+				duration = 7300
+			}
+			create_admiral = {
+				tradition = 50
+			}
+		}
+	}
+	hrothgardpirate_the_pirate_code = {
+		icon = atlantropa_stalzemsty
+		required_missions = { hrothgardpirate_a_scourge_on_the_seven_seas }
+		
+		trigger = {
+			army_size_percentage = 1
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "pirate_the_pirate_code"
+				duration = 7300
+			}
+		}
+	}
+	hrothgardpirate_diplomacy = {
+		icon = atlantropa_britaniqueburned
+		required_missions = { hrothgardpirate_the_pirate_code }
+		
+		trigger = {
+			any_rival_country = {
+				custom_trigger_tooltip = {
+					tooltip = has_been_insulted_by_root
+					OR = {
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = insulted
+						}
+						has_opinion_modifier = {
+							who = ROOT
+							modifier = scornfully_insulted
+						}
+					}
+				}
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "pirate_diplomacy"
+				duration = 7300
+			}
+		}
+	}
+	hrothgardpirate_the_pirate_threat = {
+		icon = atlantropa_burnwindmill
+		required_missions = { hrothgardpirate_diplomacy }
+		
+		trigger = {
+			any_rival_country = {
+				is_great_power = yes
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "pirate_the_pirate_threat"
+				duration = 7300
+			}
+			add_mil_power = 100
+		}
+	}
+}
+
+
+
+
+a5c_modernized_missions = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = A5C
+	}
+	has_country_shield = yes
+	
+	#missions
+	#1st tier
+	a5c_norse_renaissance = {
+		icon = atlantropa_medievalbook
+		required_missions = {  } #None
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = emp_ven_patronize_the_scuole_grandi_adm_advisor_tt
+				has_adm_advisor_2 = yes
+			}
+			has_institution = renaissance
+		}
+		effect = {
+			add_country_modifier = {
+				name = "a5c_norse_renaissance_modifier"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	#2nd tier
+	a5c_norse_industry = {
+		icon = atlantropa_norserenaissance
+		required_missions = { a5c_norse_renaissance }
+		provinces_to_highlight = {
+			country_or_non_sovereign_subject_holds = ROOT
+			NOT = {
+				has_production_building_trigger = yes
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 20
+				OR = {
+					has_building = workshop
+					has_building = counting_house
+				}
+			}
+		}
+		effect = {
+			capital_scope = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				area = {
+					limit = { owned_by = ROOT }
+					add_province_modifier = {
+						name = "growth_of_capital"
+						duration = 9125 #25 years
+					}
+				}
+			}
+			add_years_of_income = 1
+		}
+	}
+	#3rd tier
+	a5c_norse_manufactories = {
+		icon = industrialized_rhineland
+		required_missions = { a5c_norse_industry }
+		provinces_to_highlight = {
+			country_or_non_sovereign_subject_holds = ROOT
+			NOT = {
+				OR = {
+					has_building = wharf
+					has_building = weapons
+					has_building = textile
+					has_building = plantations
+					has_building = tradecompany
+					has_building = mills
+				}
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 15
+				OR = {
+					has_building = wharf
+					has_building = weapons
+					has_building = textile
+					has_building = plantations
+					has_building = tradecompany
+					has_building = mills
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "a5c_norse_industry"
+				duration = -1
+			}
+			add_years_of_income = 1
+		}
+	}
+}
+
+a5c_atlantis_mission_tree = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = A5C
+	}
+	has_country_shield = yes
+	
+	#missions
+	#1st tier
+	a5c_rumours_of_the_east = {
+		icon = atlantropa_sunsetinvasion
+		required_missions = {  } #None
+		trigger = {
+			num_of_light_ship = 8 # size of the army in regiments	
+		}
+		effect = {
+			create_explorer = {
+				tradition = 60
+			}
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+	#2nd tier
+	a5c_discover_the_truth = {
+		icon = atlantropa_sunsetships
+		required_missions = { a5c_rumours_of_the_east }
+		provinces_to_highlight = {
+			province_id = 957
+			NOT = { has_discovered = ROOT }
+		}
+		trigger = {
+			957 = {
+				has_discovered = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+		}
+	}
+	#3rd tier
+	a5c_mass_invasion_force = {
+		icon = atlantropa_vinterkeep
+		required_missions = { a5c_discover_the_truth }
+		trigger = {
+			num_of_transport = 10 # size of the army in regiments	
+		}
+		effect = {
+			atlantisislandsno_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			aonnia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	#4th tier
+	a5c_take_iselands = {
+		icon = mission_invade_island
+		required_missions = { a5c_mass_invasion_force }
+		position = 5
+		provinces_to_highlight = {
+			area = atlantisislandsno_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			atlantisislandsno_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "a5c_first_landing"
+				duration = 9125 #25 years
+			}
+			atlantisarchipelago_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			atlantiswesternanasa_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			5276 = {
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = 1
+				add_devastation = 25
+				change_culture = tramhian
+				change_religion = norse_pagan_reformed
+				change_province_name = "Asolfsskali"
+				rename_capital = "Asolfsskali"
+			}
+			5281 = {
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = 1
+				add_devastation = 25
+				change_culture = tramhian
+				change_religion = norse_pagan_reformed
+				change_province_name = "Hafr"
+				rename_capital = "Hafr"
+			}
+			5006 = {
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = 1
+				add_devastation = 25
+				change_culture = tramhian
+				change_religion = norse_pagan_reformed
+				change_province_name = "Nordmann"
+				rename_capital = "Nordmann"
+			}
+		}
+	}
+	#5th tier
+	a5c_break_atlantis = {
+		icon = atlantropa_focusgreek
+		required_missions = { a5c_take_iselands }
+		provinces_to_highlight = {
+			OR = {
+				area = atlantisarchipelago_area
+				area = atlantiswesternanasa_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			atlantisarchipelago_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			atlantiswesternanasa_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "expansionist_country"
+				duration = 9125 #25 years
+			}
+			florida_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			north_florida_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			macaronesia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			zatlantiswesternanasa_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			connecticut_valley_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	#6th tier
+	a5c_consolidate_eastern_atlantis = {
+		icon = mission_mayan_conquest
+		required_missions = { a5c_break_atlantis }
+		provinces_to_highlight = {
+			OR = {
+				area = florida_area
+				area = north_florida_area
+				area = macaronesia_area
+				area = zatlantiswesternanasa_area
+				area = connecticut_valley_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			florida_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			north_florida_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			macaronesia_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			zatlantiswesternanasa_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			connecticut_valley_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			massachusetts_bay_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			great_woods_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			new_york_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			eastern_maine_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			st_john_valley_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			lower_acadia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			upper_acadia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	#7th tier
+	a5c_rule_atlantis = {
+		icon = atlantropa_norserpower
+		required_missions = { a5c_consolidate_eastern_atlantis }
+		provinces_to_highlight = {
+			OR = {
+				area = massachusetts_bay_area
+				area = great_woods_area
+				area = new_york_area
+				area = eastern_maine_area
+				area = st_john_valley_area
+				area = lower_acadia_area
+				area = upper_acadia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			massachusetts_bay_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			great_woods_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			new_york_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			eastern_maine_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			st_john_valley_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			lower_acadia_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			upper_acadia_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			owns_core_province = 5279
+			owns_core_province = 2536
+		}
+		effect = {
+			atlantis_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			5288 = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 2
+			}
+			add_country_modifier = {
+				name = "a5c_west_seas_empire_modifier"
+				duration = -1
+			}
+			override_country_name = a5c_west_sea_empire
+			set_government_rank = 3
+			change_country_color = { color = { 102 38 10 } }
+			5279 = {
+				change_culture = tramhian
+				change_religion = norse_pagan_reformed
+				change_province_name = "Hamarr"
+				rename_capital = "Hamarr"
+			}
+			2536 = {
+				change_culture = tramhian
+				change_religion = norse_pagan_reformed
+				change_province_name = "Hjaltadalr"
+				rename_capital = "Hjaltadalr"
+			}
+		}
+	}
+}
+
+a5c_thule_invasion = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = A5C
+	}
+	has_country_shield = yes
+	
+	#missions
+	#1st tier
+	a5c_invade_thule = {
+		icon = atlantropa_aztecship
+		required_missions = { a5c_mass_invasion_force }
+		provinces_to_highlight = {
+			area = aonnia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			aonnia_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			thule_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+	#2nd tier
+	a5c_garzagia = {
+		icon = atlantropa_blacksunoversaratov
+		required_missions = { a5c_invade_thule }
+		
+		provinces_to_highlight = {
+			region = thule_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			thule_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			add_country_modifier = {
+				name = "a5c_conquest_of_thule"
+				duration = 9125 #25 years
+			}
+		}
+	}
+}
+
+a5c_atlantis_development = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = A5C
+	}
+	has_country_shield = yes
+	
+	#missions
+	#1st tier
+	a5c_new_capital = {
+		icon = atlantropa_waitingforantichrist
+		required_missions = { a5c_break_atlantis }
+		position = 7
+		provinces_to_highlight = {
+			province_id = 5288
+			NOT = {	development = 20 }
+		}
+		trigger = {
+			5288 = {
+				development = 20
+				has_tax_building_trigger = yes
+				religion = norse_pagan_reformed
+			}
+			owns_or_non_sovereign_subject_of = 5288
+		}
+		effect = {
+			set_capital = 5288
+			5288 = {
+				change_culture = tramhian
+				change_religion = norse_pagan_reformed
+				change_province_name = "Gnupverjahreppr"
+				rename_capital = "Gnupverjahreppr"
+			}
+		}
+	}
+	#2nd tier
+	a5c_rebuild_shrine_to_odin = {
+		icon = atlantropa_odinstatuemission
+		required_missions = { a5c_consolidate_eastern_atlantis }
+		position = 8
+		provinces_to_highlight = {
+			province_id = 5305
+		}
+		trigger = {
+			treasury = 500
+			owns_or_non_sovereign_subject_of = 5305
+		}
+		effect = {
+			add_treasury = -500
+			5305 = {
+				add_province_triggered_modifier = a5c_shrine_to_odin
+				add_base_manpower = 2
+				change_culture = tramhian
+				change_religion = norse_pagan_reformed
+				change_province_name = "Odinssal"
+				rename_capital = "Odinssal"
+			}
+		}
+	}
+	#3rd tier
+	a5c_atlantis_saga = {
+		icon = atlantropa_celtdeal
+		required_missions = { a5c_rebuild_shrine_to_odin a5c_rule_atlantis }
+		position = 9
+		provinces_to_highlight = {
+			region = atlantis_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			treasury = 500
+			atlantis_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_treasury = -500
+			add_country_modifier = {
+				name = "a5c_atlantis_sagas"
+				duration = -1
+			}
+		}
+	}
+}
+
+a5c_conquer_lyonesse = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = A5C
+	}
+	has_country_shield = yes
+	
+	#missions
+	#1st tier
+	a5c_rally_the_banners = {
+		icon = atlantropa_norsearmy
+		position = 1
+		required_missions = {  }
+		trigger = {
+			army_size_percentage = 1
+		}
+		effect = {
+			gwlamelot_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+	#2nd tier
+	a5c_the_death_of_chivalry = {
+		
+		icon = atlantropa_blacksunoversaratov
+		position = 2
+		required_missions = { a5c_rally_the_banners }
+		provinces_to_highlight = {
+			area = gwlamelot_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			gwlamelot_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			kapitallyonesse_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			mendebelkea_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	#3rd tier
+	a5c_kill_kristaperioa = {
+		icon = atlantropa_bloodyarmy
+		position = 3
+		required_missions = { a5c_the_death_of_chivalry }
+		provinces_to_highlight = {
+			OR = {
+				area = mendebelkea_area
+				area = kapitallyonesse_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			mendebelkea_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			kapitallyonesse_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			irlahandia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	#4th tier
+	a5c_kill_irlahandia = {
+		icon = mission_modernized_vikings
+		position = 4
+		required_missions = { a5c_kill_kristaperioa }
+		provinces_to_highlight = {
+			area = irlahandia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			irlahandia_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			add_country_modifier = {
+				name = "a5c_masters_of_lyonesse"
+				duration = 9125 #25 years
+			}
+			lyonesse_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+a5c_colonial_tree = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = A5C
+	}
+	has_country_shield = yes
+	
+	#missions
+	#1st tier
+	a5c_discover_america = {
+		icon = atlantropa_nativethule
+		position = 6
+		required_missions = { a5c_take_iselands }
+		provinces_to_highlight = {
+			OR = {
+				continent = new_world
+				continent = north_america
+				continent = south_america
+			}
+			NOT = { has_discovered = ROOT }
+		}
+		trigger = {
+			OR = {
+				new_world = {
+					has_discovered = ROOT
+				}
+				north_america = {
+					has_discovered = ROOT
+				}
+				south_america = {
+					has_discovered = ROOT
+				}
+			}
+		}
+		effect = {
+			add_navy_tradition = 10
+			add_country_modifier = {
+				name = nor_colonial_enthusiasm
+				duration = 14600
+			}
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+	#2nd tier
+	a5c_colonize_canada = {
+		icon = atlantropa_nilfgaard
+		position = 6
+		required_missions = { a5c_discover_america }
+		provinces_to_highlight = {
+			area = gwlamelot_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		provinces_to_highlight = {
+			has_discovered = ROOT
+			OR = {
+				colonial_region = colonial_canada
+				colonial_region = colonial_louisiana
+				colonial_region = colonial_the_carribean
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = fra_canada_colony.tooltip
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 5
+					colonial_region = colonial_canada
+				}
+			}
+		}
+		effect = {
+			create_explorer = {
+				tradition = 80
+			}
+		}
+	}
+	#3rd tier
+	a5c_colonize_eastern_seaboard = {
+		icon = atlantropa_normandy
+		position = 7
+		required_missions = { a5c_colonize_canada }
+		provinces_to_highlight = {
+			colonial_region = colonial_eastern_america
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			has_discovered = ROOT
+		}
+		
+		trigger = { 
+			custom_trigger_tooltip = {
+				tooltip = miss_colonize_eastern_america
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 1
+					colonial_region = colonial_eastern_america
+					is_city = yes
+				}
+			}
+		}
+	
+		effect = {
+			create_conquistador = {
+				tradition = 80
+			}
+		}
+	}
+}
+
+a5c_heathenry = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = A5C
+	}
+	has_country_shield = yes
+	
+	#missions
+	#1st tier
+	a5c_spread_religion = {
+		icon = mission_norse_faith
+		position = 3
+		required_missions = {  }
+		provinces_to_highlight = {
+			country_or_non_sovereign_subject_holds = ROOT
+			NOT = {
+				religion = norse_pagan_reformed
+			}
+		}
+		trigger = {
+			grown_by_states = 10
+			num_of_religion = {
+				religion = norse_pagan_reformed
+				value = 0.90
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "a5c_religion_spread"
+				duration = -1
+			}
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+	#2nd tier
+	a5c_pagan_rituals = {
+		icon = atlantropa_nahuatl2cap
+		position = 4
+		required_missions = {  }
+		provinces_to_highlight = {
+			country_or_non_sovereign_subject_holds = ROOT
+			NOT = {
+				has_production_building_trigger = yes
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 20
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+				OR = {
+					has_building = barracks
+					has_building = training_fields
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "a5c_pagan_rituals"
+				duration = 9125
+			}
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+}
