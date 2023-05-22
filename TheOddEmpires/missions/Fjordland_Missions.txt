@@ -4,10 +4,7 @@ a13_1 = {
 	ai = yes
 	potential = {
 		NOT = { map_setup = map_setup_random }
-OR = {
 		tag = A13
-		was_tag = A13
-}
 	}
 	has_country_shield = yes
 	
@@ -320,10 +317,7 @@ a13_2 = {
 	ai = yes
 	potential = {
 		NOT = { map_setup = map_setup_random }
-OR = {
 		tag = A13
-		was_tag = A13
-}
 	}
 	has_country_shield = yes
 	
@@ -716,10 +710,7 @@ a13_3 = {
 	ai = yes
 	potential = {
 		NOT = { map_setup = map_setup_random }
-OR = {
 		tag = A13
-		was_tag = A13
-}
 	}
 	has_country_shield = yes
 	
@@ -846,6 +837,9 @@ OR = {
 			else = {
 				change_dip = 1
 			}
+			atlantropa_doggerlanddwa = {
+				add_permanent_claim = ROOT
+			}
 			subarctic_islands_area = {
 				add_permanent_claim = ROOT
 			}
@@ -860,20 +854,11 @@ OR = {
 		required_missions = { fjordland_rule }
 		provinces_to_highlight = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-			OR = {
-				province_id = 4559
-				province_id = 333
-				province_id = 4560
-			}
+			area = atlantropa_doggerlanddwa
 		}
 		trigger = {
-			4559 = {
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			333 = {
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			4560 = {
+			atlantropa_doggerlanddwa = {
+				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
@@ -1010,10 +995,7 @@ a13_4 = {
 	ai = yes
 	potential = {
 		NOT = { map_setup = map_setup_random }
-OR = {
 		tag = A13
-		was_tag = A13
-}
 	}
 	has_country_shield = yes
 	
@@ -1297,10 +1279,7 @@ a13_5 = {
 	ai = yes
 	potential = {
 		NOT = { map_setup = map_setup_random }
-OR = {
 		tag = A13
-		was_tag = A13
-}
 	}
 	has_country_shield = yes
 	
