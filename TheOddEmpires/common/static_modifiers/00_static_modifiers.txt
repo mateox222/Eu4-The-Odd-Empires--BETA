@@ -288,6 +288,8 @@ development_scaled = {
 
 capital_city = {
 	fort_level = 1
+	garrison_growth = 0.05	
+	local_regiment_cost = -0.25	
 }
 
 
@@ -430,22 +432,24 @@ non_accepted_culture_republic = {
 }
 
 occupied = {
-	local_tax_modifier = -0.5
-	trade_goods_size_modifier = -0.5
-	province_trade_power_modifier = -0.5
-	local_manpower_modifier = -0.5
-	local_sailors_modifier = -0.5
+	local_tax_modifier = -1
+	trade_goods_size_modifier = -0.75
+	province_trade_power_modifier = -0.75
+	local_manpower_modifier = -0.95
+	local_sailors_modifier = -0.95
 	local_institution_spread = -0.1
-
+	local_defensiveness = -0.25
+	local_garrison_size = -0.10		
 	local_monthly_devastation = 0.2
+	local_build_time = 0.75	
 }
 
 under_siege = {
-	trade_goods_size_modifier = -0.25
-	province_trade_power_modifier = -0.25
-	local_institution_spread = -0.1
-
+	trade_goods_size_modifier = -0.75
+	local_institution_spread = -1
+	local_build_time = 1
 	local_monthly_devastation = 0.1
+	province_trade_power_modifier = -1	
 }
 
 
@@ -528,7 +532,8 @@ recent_uprising = {
 
 
 friendly_regiments = {
-	local_unrest = -1.0				#-1% for each friendly regiment in the province.
+	local_unrest = -5			#-1% for each friendly regiment in the province.
+
 }
 
 active_missionary = {
@@ -538,6 +543,9 @@ active_missionary = {
 
 # Core province of the owner's culture group, while fighting a defensive war
 national_defense = {
+	local_defensiveness = 0.1	
+	local_friendly_movement_speed = 0.1	
+	local_hostile_movement_speed = -0.1	
 	local_unrest = -5
 }
 
