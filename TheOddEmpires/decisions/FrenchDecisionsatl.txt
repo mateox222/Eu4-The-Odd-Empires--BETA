@@ -1,0 +1,48 @@
+country_decisions = {
+	francjaneustria = {
+	color = { 164 59 59 }
+	major = yes
+		potential = { 
+			OR = {
+			tag = FRA
+			tag = A59
+			}
+			POL = { is_subject_of = ROOT }
+			NOT = { has_country_flag = POLSKAZMIENIONAWNEUSTRIE }
+		}
+		allow = {
+		stability = 3
+		is_nomad = no
+		is_at_war = no
+		POL = { is_subject_of = ROOT }
+		POL = { NOT = { liberty_desire = 50	} }	
+		legitimacy = 80
+		POL = { has_opinion = {
+			who = ROOT
+			value = 190
+		}}
+		
+		
+
+}
+		effect = {
+			set_country_flag = POLSKAZMIENIONAWNEUSTRIE
+			custom_tooltip = franchepolakineustria
+			add_prestige = 5
+			add_legitimacy = -10
+			hidden_effect = {
+				POL = { change_tag = X10 }
+				every_province = { 
+					limit = { owned_by = POL }
+					add_core = X10
+					cede_province = X10  
+				}	
+				FRA = {
+					create_march = X10
+				}
+				X10 = { change_primary_culture = frankovenedian }
+
+			}
+}
+}}
+		
