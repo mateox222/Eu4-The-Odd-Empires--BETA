@@ -2506,6 +2506,13 @@ vodka_drink = {
 			factor = 3
 			has_terrain = glacier
 		}
+		modifier = {
+			factor = 1.75
+			OR = {
+				region = russia_region
+				region = ural_region
+			}
+		}
 }
 }
 tomatoes = {
@@ -2575,3 +2582,329 @@ milthrill = {
 		}
 	}
 }
+
+
+atl_cinnamon = {
+	color = { 80 60 40 }
+	modifier = {
+		
+		merc_maintenance_modifier = -0.1
+	}
+	province = {
+		local_production_efficiency = 0.1	
+	}
+
+	chance = {
+		factor = 5
+		modifier = {
+			factor = 0
+			NOT = { superregion = india_superregion }
+			NOT = { region = east_africa_region }
+			NOT = { superregion = east_indies_superregion }
+			NOT = { superregion = china_superregion }
+		}
+	}
+}
+
+atl_saffron = {
+	color = { 111 54 34 }
+	modifier = {
+		ae_impact = -0.1
+	}
+	province = {
+		trade_value_modifier = 0.10
+	}
+	chance = {
+		factor = 5
+		modifier = {
+			factor = 0
+			NOT = { superregion = india_superregion }
+			NOT = { region = east_africa_region }
+			NOT = { superregion = east_indies_superregion }
+			NOT = { superregion = china_superregion }
+		}
+	}
+}
+
+atl_opium = {
+	color = { 195 166 168 }
+	modifier = {
+		yearly_corruption = -0.1
+	}
+	province = {
+		local_governing_cost = -0.1	
+	}
+	chance = {
+		factor = 15
+		modifier = {
+			factor = 0
+			NOT = {
+				OR = {
+					superregion = india_superregion
+					region = khorasan_region
+					region = burma_region
+					region = indo_china_region
+					region = south_china_sea_islands_region
+					region = xinan_region
+				}
+			}
+		}
+	}
+}
+
+atl_marble = {
+	color = { 205 197 205 }
+	modifier = {
+		fort_maintenance_modifier = -0.15
+	}
+	province = {
+		local_governing_cost = -0.1	
+	}
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			NOT = { has_terrain = mountain }
+		}
+		modifier = {
+			factor = 4
+			has_terrain = mountain
+		}
+	}
+}
+
+
+
+atl_steam_engine = {
+	color = { 138 106 117 }
+	modifier = {
+		technology_cost = -0.05
+	}
+	province = {
+		local_development_cost = -0.1
+		local_build_cost = -0.25	
+		local_build_time = -0.25	
+	}
+
+	chance = {
+		factor = 0
+	}
+}
+
+
+atl_fruit = {
+	color = { 96 220 0 }
+	modifier = {
+		reinforce_cost_modifier = -0.10	
+	}
+	province = {
+		local_development_cost = -0.1	
+	}
+	chance = {
+		factor = 20
+		modifier = {
+			factor = 15
+			has_climate = tropical
+
+			}
+			modifier = {
+				factor = 0
+				has_climate = arid
+				}
+				modifier = {
+					factor = 0
+					has_climate = arctic
+					}
+
+				
+		}	
+	}
+
+
+		atl_paints = {
+	color = { 90 10 10 }
+	modifier = {
+		monthly_splendor = 1	
+		advisor_pool = 1	
+	}
+	province = {
+		local_development_cost = -0.1	
+		local_culture_conversion_time = -0.1	
+	}
+	chance = {
+		factor = 0.5
+		}	
+	}
+
+	atl_furnitures = {
+		color = { 196 220 0 }
+		modifier = {
+			prestige = 0.5	
+		}
+		province = {
+			institution_growth = 1	
+		}
+		chance = {
+			factor = 0.5
+			}	
+		}
+
+
+		 atl_artillery = {
+			color = { 17 28 23 }
+			modifier = {
+				artillery_cost = -0.25	
+				artillery_power = 0.10	
+			}
+			province = {
+				local_regiment_cost = -0.25	
+			}
+			chance = {
+				factor = 0
+				}	
+			}
+
+			atl_sails = {
+				color = { 199 213 213 }
+				modifier = {
+					movement_speed_in_fleet_modifier = 1	
+				}
+				province = {
+					local_production_efficiency = 0.1	
+				}
+				chance = {
+					factor = 0
+						
+					modifier = {
+						factor = 4
+						has_port = yes
+						}
+				}}
+				atl_tools = {
+					color = { 117 28 23 }
+					modifier = {
+						production_efficiency = 0.05	
+						development_cost = -0.05
+					}
+					province = {
+						local_production_efficiency = 0.1	
+					}
+					chance = {
+						factor = 0
+							
+						modifier = {
+							factor = 4
+							has_port = yes
+							}
+					}}
+
+				atl_ship = {
+					color = { 139 213 213 }
+					modifier = {
+						global_ship_cost = -0.1	
+						global_ship_recruit_speed = -0.1	
+					}
+					province = {
+						local_ship_repair = 0.5	
+						local_ship_cost = -0.5	
+						ship_recruit_speed = -0.5
+					}
+					chance = {
+						factor = 0
+						}	
+					}
+
+					atl_books = {
+						color = { 186 214 190 }
+						modifier = {
+							local_prosperity_growth = 0.1	
+						}
+						province = {
+							local_unrest = -2
+							local_prosperity_growth = 0.1	
+						}
+						chance = {
+							factor = 0
+							}	
+						}
+
+						atl_jewelery = {
+							color = { 231 237 74 }
+							modifier = {
+								accept_vassalization_reasons = 5	
+							}
+							province = {
+								local_unrest = -2
+								local_tax_modifier = 0.1	
+								local_build_time = -0.25		
+							}
+							chance = {
+								factor = 0
+								}	
+							}
+
+							atl_exoticbirds = {
+								color = { 11 237 74 }
+								modifier = {
+									improve_relation_modifier = 0.2	
+								}
+								province = {
+									province_trade_power_modifier = 0.1		
+								}
+								chance = {
+									factor = 0
+									
+									modifier = {
+										factor = 15
+										has_climate = tropical
+										}	
+									}}
+
+								atl_honey = {
+									color = { 231 137 74 }
+									modifier = {
+										mercenary_cost = -0.10	
+									}
+									province = {
+										local_tax_modifier = 0.1	
+									}
+									chance = {
+										factor = 10
+										
+										modifier = {
+											factor = 0
+											has_climate = arid
+											}		
+											modifier = {
+												factor = 0
+												has_climate = arctic
+												}		
+											}}
+									atl_clothes = {
+										color = { 31 217 174 }
+										modifier = {
+											inflation_reduction = 0.1	
+											build_cost = -0.1	
+											interest = -1	
+										}
+										province = {
+											local_build_time = -0.25		
+										}
+										chance = {
+											factor = 0
+											}}
+										
+										atl_sculpture = {
+											color = { 231 217 224 }
+											modifier = {
+												global_monthly_devastation = -0.1	
+												global_prosperity_growth = 0.1	
+												great_project_upgrade_cost = -0.1	
+											}
+											province = {
+												local_build_time = -0.25		
+											}
+											chance = {
+												factor = 0
+												}	
+											}

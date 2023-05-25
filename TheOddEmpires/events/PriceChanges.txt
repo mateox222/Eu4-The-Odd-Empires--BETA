@@ -1044,7 +1044,7 @@ country_event = {
 	major = yes
 
 	trigger = {
-		mil_tech = 7
+		mil_tech = 12
 		copper = 1
 		NOT = { has_global_flag = bronze_cannons_happened }
 	}
@@ -1055,6 +1055,22 @@ country_event = {
 	
 	option = {
 		name = prices.20.a
+		random_owned_province = {
+			limit = { 	NOT = { has_province_modifier = surowieczrespiony	} 
+			NOT = { 					OR = {
+				trade_goods = gems
+				trade_goods = gold
+				trade_goods = silver
+				trade_goods = atl_artillery
+				} } 
+		}
+			change_trade_goods = atl_artillery
+			add_base_production = 1	
+			add_province_modifier = { 
+				name = surowieczrespiony
+				duration = -1  
+			}
+		}
 		change_price = {
 			trade_goods = copper
 			key = BRONZE_CANNONS
