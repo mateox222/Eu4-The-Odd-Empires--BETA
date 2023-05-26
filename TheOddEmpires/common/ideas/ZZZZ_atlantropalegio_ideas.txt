@@ -607,3 +607,48 @@ phoenican_ideas = {
         transport_attrition = -0.2
     }
 }
+
+
+X46_ideas = {
+	start = {
+		land_morale = 0.10
+		improve_relation_modifier = 0.3
+	}
+	
+	bonus = {
+		heir_chance = 0.50
+	}
+	
+	trigger = {
+		OR = {
+			tag = X46
+		}
+	}
+	free = yes		#will be added at load.
+
+	X46_imperial_ambitions = {
+		imperial_authority = 0.1
+		diplomatic_annexation_cost = -0.15
+	}
+	X46_military_border = {
+		global_garrison_growth = 0.15
+		fort_maintenance_modifier = -0.10
+	}
+	X46_fugger_banks = {
+		inflation_reduction = 0.05
+		interest = -0.5
+	}
+	X46_dynasty_dominance = {
+		diplomatic_reputation = 2
+	}
+	X46_edict_of_restitution = {
+		global_missionary_strength = 0.02
+	}
+	X46_austrian_court = {
+		diplomatic_upkeep = 1
+	}
+	X46_consiglio_diguerra_di_corte = {
+		reinforce_speed = 0.3
+		discipline = 0.05
+	}
+}
