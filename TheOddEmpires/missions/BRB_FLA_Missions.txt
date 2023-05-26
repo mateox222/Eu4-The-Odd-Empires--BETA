@@ -124,14 +124,14 @@ fla_reconquest_group = {
 		}
 		
 		effect = {
-			holland_area = {
+			picardy_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
-			frisia_area = {
+			champagne_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
@@ -155,18 +155,18 @@ fla_reconquest_group = {
 		
 		provinces_to_highlight = {
 			OR = {
-				area = holland_area
-				area = frisia_area
+				area = picardy_area
+				area = champagne_area
 			}
 			NOT = { owned_by = ROOT }
 		}
 		
 		trigger = {
-			holland_area = {
+			picardy_area = {
 				type = all
 				owned_by = ROOT
 			}
-			frisia_area = {
+			champagne_area = {
 				type = all
 				owned_by = ROOT
 			}

@@ -27,9 +27,7 @@ ned_reconquest_group = {
 		provinces_to_highlight = {
 			OR = {
 				area = holland_area
-				area = flanders_area
-				area = brabant_area
-				area = north_brabant_area
+				area = highlands_area
 			}
 			NOT = { owned_by = ROOT }
 		}
@@ -39,15 +37,7 @@ ned_reconquest_group = {
 				type = all
 				owned_by = ROOT
 			}
-			flanders_area = {
-				type = all
-				owned_by = ROOT
-			}
-			brabant_area = {
-				type = all
-				owned_by = ROOT
-			}
-			north_brabant_area = {
+			highlands_area = {
 				type = all
 				owned_by = ROOT
 			}
@@ -70,23 +60,15 @@ ned_reconquest_group = {
 		position = 2
 		
 		provinces_to_highlight = {
-			OR = {
-				area = wallonia_area
-				province_id = 1743
-				province_id = 88		
-				province_id = 87
-			}
+			area = kingdom_of_the_isles_area
 			NOT = { owned_by = ROOT }
 		}
 		
 		trigger = {
-			wallonia_area = {
+			kingdom_of_the_isles_area = {
 				type = all
 				owned_by = ROOT
 			}
-			1743 = { owned_by = ROOT }
-			88 = { owned_by = ROOT }
-			87 = { owned_by = ROOT }
 		}
 		
 		effect = {
@@ -357,25 +339,25 @@ emp_ned_slot2_branch = {
 		trigger = {
 			if = {
 				limit = {
-					exists = A59
+					exists = T8U
 				}
 				custom_trigger_tooltip = {
 					tooltip = emp_ned_challenge_spanish_power_1_tt
 					naval_strength = {
-						who = A59
+						who = T8U
 						value = 0.33
 					}
 				}
 			}
 			else_if = {
 				limit = {
-					NOT = { exists = A59 }
-					exists = FRA
+					NOT = { exists = T8U }
+					exists = A27
 				}
 				custom_trigger_tooltip = {
 					tooltip = emp_ned_challenge_spanish_power_2_tt
 					naval_strength = {
-						who = FRA
+						who = A27
 						value = 0.5
 					}
 				}
@@ -384,12 +366,12 @@ emp_ned_slot2_branch = {
 				limit = {
 					NOT = { exists = A59 }
 					NOT = { exists = FRA }
-					exists = CAS
+					exists = ENG
 				}
 				custom_trigger_tooltip = {
 					tooltip = emp_ned_challenge_spanish_power_3_tt
 					naval_strength = {
-						who = CAS
+						who = ENG
 						value = 0.5
 					}
 				}
@@ -413,14 +395,14 @@ emp_ned_slot2_branch = {
 		position = 2
 		
 		provinces_to_highlight = {
-			region = low_countries_region
+			region = iberia_region
 		}
 		
 		trigger = {
 			calc_true_if = {
 				desc = emp_ned_fixed_garrison_system_tt
 				all_owned_province = {
-					region = low_countries_region
+					region = iberia_region
 					if = {
 						limit = {
 							ROOT = {
@@ -761,10 +743,10 @@ emp_ned_slot3_branch = {
 		position = 3
 		
 		provinces_to_highlight = {
-			province_id = 1298
+			province_id = 5028
 		}
 		trigger = {
-			1298 = {
+			5028 = {
 				trade_share = {
 					country = ROOT
 					share = 33
@@ -1052,11 +1034,11 @@ emp_ned_slot4_branch = { # Statists
 		position = 4
 		
 		provinces_to_highlight = {
-			province_id = 1295
+			province_id = 1269
 		}
 		
 		trigger = {
-			1295 = { # English Channel
+			1269 = { # English Channel
 				trade_share = {
 					country = ROOT
 					share = 50
@@ -1066,9 +1048,9 @@ emp_ned_slot4_branch = { # Statists
 		effect = {
 			if = {
 				limit = {
-					exists = FRA
-					NOT = { exists = A59 }
-					ENG = { 
+					exists = A27
+					NOT = { exists = T8U } #niflberisk
+					A27 = { 
 						valid_for_personal_unions_trigger = yes
 					}
 					religion_group = christian
@@ -1084,13 +1066,13 @@ emp_ned_slot4_branch = { # Statists
 				add_casus_belli = {
 					type = cb_restore_personal_union
 					months = 300
-					target = FRA
+					target = A27
 				}
 			}
 			else_if = {
 				limit = {
-					exists = A59
-					A59 = {
+					exists = T8U
+					T8U = {
 						valid_for_personal_unions_trigger = yes
 					}
 					religion_group = christian
@@ -1106,25 +1088,39 @@ emp_ned_slot4_branch = { # Statists
 				add_casus_belli = {
 					type = cb_restore_personal_union
 					months = 300
-					target = A59
+					target = T8U
 				}
 			}
 			else = {
-				home_counties_area = {
+				stormo_area = {
 					limit = {
 						NOT = { is_permanent_claim = ROOT }
 						NOT = { is_core = ROOT	}
 					}
 					add_permanent_claim = ROOT
 				}
-				east_anglia_area = {
+				toppenaf_area = {
 					limit = {
 						NOT = { is_permanent_claim = ROOT }
 						NOT = { is_core = ROOT	}
 					}
 					add_permanent_claim = ROOT
 				}
-				east_midlands_area = {
+				hrodingard_area = {
+					limit = {
+						NOT = { is_permanent_claim = ROOT }
+						NOT = { is_core = ROOT	}
+					}
+					add_permanent_claim = ROOT
+				}
+				grauswig_area = {
+					limit = {
+						NOT = { is_permanent_claim = ROOT }
+						NOT = { is_core = ROOT	}
+					}
+					add_permanent_claim = ROOT
+				}
+				niflport_area = {
 					limit = {
 						NOT = { is_permanent_claim = ROOT }
 						NOT = { is_core = ROOT	}
@@ -1431,7 +1427,7 @@ emp_ned_slot5_branch = { # Orangists
 			factor = 3
 			modifier = {
 				factor = 0
-				home_counties_area = {
+				niflport_area = {
 					owner = {
 						alliance_with = ROOT
 					}
@@ -1441,22 +1437,22 @@ emp_ned_slot5_branch = { # Orangists
 		
 		provinces_to_highlight = {
 			OR = {
-				area = home_counties_area
-				area = east_anglia_area
-				area = east_midlands_area
+				area = niflport_area
+				area = hrodingard_area
+				area = grauswig_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			home_counties_area = {
+			niflport_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			east_anglia_area = {
+			hrodingard_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			east_midlands_area = {
+			grauswig_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
