@@ -1,30 +1,32 @@
 country_decisions = {
 	Unite_thethule = {
-	major = yes
-	potential = {
+		major = yes
+		potential = {
 			was_never_end_game_tag_trigger = yes
 			capital_scope = {
 				region = thule_region
 			}
-			culture_group = scandinavian
-		NOT = { exists = X17 }
+			OR = {
+				culture_group = scandinavian
+				culture_group = nilfhishgroup
+			}
+			NOT = { exists = X17 }
 		}
 		provinces_to_highlight = { 
-					OR = {
-						province_id = 5110
-						province_id = 5061
-						province_id = 5045
-						province_id = 5030
-						province_id = 5037
-						province_id = 5043
-						province_id = 5057
-						province_id = 5109
-	
-	
-		} }
-			allow = {
-				NOT = { exists = X17 }
-		stability = 1
+			OR = {
+				province_id = 5110
+				province_id = 5061
+				province_id = 5045
+				province_id = 5030
+				province_id = 5037
+				province_id = 5043
+				province_id = 5057
+				province_id = 5109
+			} 
+		}
+		allow = {
+			NOT = { exists = X17 }
+			stability = 1
 			is_nomad = no
 			is_at_war = no
 			owns_core_province = 5109
@@ -35,19 +37,16 @@ country_decisions = {
 			owns_core_province = 5043
 			owns_core_province = 5109
 			owns_core_province = 5057
-			
-				}
-	
-			effect = {
-				change_tag = X17
-				add_prestige = 100
-				set_government_rank = 3
-				country_event = { id = ideagroups.1 }
-				swap_non_generic_missions = yes
-	
+		}
+		effect = {
+			change_tag = X17
+			add_prestige = 100
+			set_government_rank = 3
+			country_event = { id = ideagroups.1 }
+			swap_non_generic_missions = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
 	}
-			ai_will_do = {
-				factor = 1
-	}
-	}
-	}
+}
