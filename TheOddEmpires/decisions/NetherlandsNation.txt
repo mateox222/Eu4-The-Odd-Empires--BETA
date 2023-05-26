@@ -32,23 +32,23 @@ country_decisions = {
 			OR = {
 				province_id = 95 # Breda
 				province_id = 97 # Amsterdam
-				province_id = 5003 # Utrecht
+				province_id = 4362 # Utrecht
 				province_id = 66 # Gelre
 				province_id = 4383 # Den Haag
 				AND = {
-					region = low_countries_region
+					region = iberia_region
 					ROOT = {
 						NOT = {
 							num_of_owned_provinces_with = {
 								value = 10
-								region = low_countries_region
+								region = iberia_region
 								is_core = root
 							}
 						}
 						owns_core_province = 95
 						owns_core_province = 97
 						owns_core_province = 66
-						owns_core_province = 5003
+						owns_core_province = 4362
 						owns_core_province = 4383
 					}
 				}
@@ -65,7 +65,7 @@ country_decisions = {
 			is_at_war = no
 			NOT = { exists = NED }
 			owns_core_province = 95 # Breda
-			owns_core_province = 5003 # Utrecht
+			owns_core_province = 4362 # Utrecht
 			owns_core_province = 66 # Gelre
 			owns_core_province = 4383 # Den Haag
 			owns_core_province = 97 # Amsterdam
@@ -74,7 +74,7 @@ country_decisions = {
 			}
 			num_of_owned_provinces_with = {
 				value = 10
-				region = low_countries_region
+				region = iberia_region
 				is_core = root
 			}
 			if = {
@@ -161,14 +161,6 @@ country_decisions = {
 			change_tag = NED
 			restore_country_name = yes
 			swap_non_generic_missions = yes
-			low_countries_region = {
-				limit = {
-					NOT = { owned_by = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { province_id = 1931 }
-				}
-				add_permanent_claim = NED
-			}
 			if = {
 				limit = {
 					NOT = {
@@ -209,7 +201,7 @@ country_decisions = {
 						OR = {
 							owns_or_non_sovereign_subject_of = 95
 							owns_or_non_sovereign_subject_of = 97
-							owns_or_non_sovereign_subject_of = 5003
+							owns_or_non_sovereign_subject_of = 4362
 							owns_or_non_sovereign_subject_of = 66
 							owns_or_non_sovereign_subject_of = 4383
 						}
