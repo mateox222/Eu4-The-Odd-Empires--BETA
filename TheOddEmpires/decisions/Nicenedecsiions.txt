@@ -156,4 +156,50 @@ potential = {
 			}
 		}
 
-}}
+}
+
+
+drift_europeans_port_byz = {
+      color = { 121  37  130 }
+	major = yes
+		potential = { 
+			OR = {
+			NOT = {
+				tag = VEN
+			}
+			NOT = {
+				tag = GEN
+			}
+			owns_core_province = 151
+			}
+			NOT = { has_global_flag = WENECJANIEWYJEBANI }
+		}
+		allow = {
+			owns_core_province = 151
+			num_of_owned_provinces_with = {
+	value = 0
+	region = balkan_region
+	owned_by = GEN
+}
+num_of_owned_provinces_with = {
+	value = 0
+	region = balkan_region
+	owned_by = VEN
+}
+}
+		effect = {
+			add_global_flag = WENECJANIEWYJEBANI
+			add_years_of_income = 1
+			151 = {
+				remove_province_modifier = atlantropa_genoese_port
+				remove_province_modifier = atlantropa_venice_port
+			}
+}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+}
+
+}
