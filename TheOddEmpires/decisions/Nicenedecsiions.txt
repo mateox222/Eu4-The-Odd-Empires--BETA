@@ -176,16 +176,18 @@ drift_europeans_port_byz = {
 		}
 		allow = {
 			owns_core_province = 151
-			num_of_owned_provinces_with = {
+			GEN = {
+NOT = { 
+	num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 	value = 0
 	region = balkan_region
-	owned_by = GEN
-}
-num_of_owned_provinces_with = {
+}}}
+VEN = {
+NOT = { 
+	num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 	value = 0
 	region = balkan_region
-	owned_by = VEN
-}
+}}}
 }
 		effect = {
 			add_global_flag = WENECJANIEWYJEBANI
