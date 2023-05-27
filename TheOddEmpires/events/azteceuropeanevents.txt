@@ -6,6 +6,11 @@ namespace = azteceuropa
 	title = azteceuropa.1.t
 	desc = azteceuropa.1.d
 	picture = aztecritaul_eventPicture
+	major = yes
+	major_trigger = { 
+		is_neighbor_of = ROOT
+
+	}
 	trigger = {
 OR = {
       owns_core_province = 229
@@ -40,6 +45,11 @@ NOT = {  is_month = 8 }
 	title = azteceuropa.2.t
 	desc = azteceuropa.2.d
 	picture = aztecritaul_eventPicture
+	major = yes
+	major_trigger = { 
+		is_neighbor_of = ROOT
+
+	}
 	is_triggered_only = yes
 	option = {
 	name = "azteceuropa.1.a" 
@@ -68,6 +78,10 @@ NOT = {  is_month = 8 }
 		desc = azteceuropa.3.d
 		picture = aztecritaul_eventPicture
 		major = yes
+	major_trigger = { 
+		is_neighbor_of = ROOT
+
+	}
 		is_triggered_only = yes
 		option = {
 		name = "azteceuropa.1.a" 
