@@ -1,6 +1,9 @@
 #954 - Allegheny
 
-
+owner = ERI
+controller = ERI
+add_core = ERI
+is_city = yes
 culture = tionontate
 religion = totemism
 capital = "Allegheny"
@@ -17,3 +20,49 @@ native_hostileness = 4
 
 discovered_by = north_american
 
+
+8056.1.1 = {
+ 	owner = IRO
+	controller = IRO
+	add_core = IRO
+	culture = iroquois 
+} #Taken by Iroquois in Beaver Wars.
+
+
+
+8079.1.1 = { discovered_by = FRA }
+8107.5.12 = { discovered_by = GBR }
+
+8820.1.1 = {
+	owner = FRA
+	controller = FRA
+	add_core = FRA
+	culture = cosmopolitan_french
+	religion = catholic 
+} #Fort Presqu'Isle
+8163.2.10 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	remove_core = FRA
+	culture = english
+	religion = protestant
+} # Treaty of Paris - ceded to Britain, France gave up its claim
+8163.10.9 = {
+	owner = IRO
+	controller = IRO
+	add_core = IRO
+	remove_core = GBR
+	is_city = yes
+	culture = iroquois
+	religion = totemism
+} # Royal proclamation, Britan recognize native lands (as protectorates)
+8824.10.22 = {
+	owner = USA
+	controller = USA
+	add_core = USA
+	culture = american
+	religion = protestant 
+} #Second Treaty of Fort Stanwix, Iroquois confederacy no longer dominant
+8194.6.1 = { unrest = 5 }	# Whiskey rebellion, opposition to federal taxation
+8194.9.7 = { unrest = 0 } # The revolt is suppressed

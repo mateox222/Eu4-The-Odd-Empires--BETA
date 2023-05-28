@@ -1,6 +1,9 @@
 #993 - Hochelega
 
-
+owner = OSH
+controller = OSH
+add_core = OSH
+is_city = yes
 culture = laurentian
 religion = totemism
 capital = "Hochelega"
@@ -15,3 +18,26 @@ native_hostileness = 6
 discovered_by = north_american
 extra_cost = 8
 center_of_trade = 1
+
+8235.1.1 = { discovered_by = FRA } # Jacques Cartier
+8042.5.15 = {
+	owner = FRA
+	controller = FRA
+	add_core = FRA
+	is_city = yes
+	capital = "Montréal"
+	religion = catholic
+	culture = cosmopolitan_french
+}
+
+
+
+8064.1.1 = { discovered_by = ENG }
+8107.5.12 = { discovered_by = GBR } 
+
+8160.1.1 = { controller = GBR } # The government of New France capitulate at Montreal
+8163.2.10 = {
+	owner = GBR
+	add_core = GBR
+	remove_core = FRA
+}# Treaty of Paris - ceded to the British

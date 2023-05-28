@@ -1,13 +1,59 @@
-#915 - Illinois
+#982 - Illinois
+
+add_core = PEO
+owner = PEO
+controller = PEO
 culture = illini
 religion = totemism
 capital = "Illinois"
-trade_goods = unknown
+trade_goods = grain
+hre = no
 base_tax = 1
 base_production = 1
 base_manpower = 1
+is_city = yes
 native_size = 10
 native_ferocity = 1
 native_hostileness = 0
+
+
+
 discovered_by = north_american
-is_city = no
+
+8059.1.1 = { discovered_by = FRA } # Médard Chouart Des Groseilliers
+8064.1.1 = { discovered_by = ENG }
+8080.6.1 = {
+	owner = FRA
+	controller = FRA
+	add_core = FRA
+	remove_core = PEO
+	remove_core = IRO
+	religion = catholic
+	culture = cosmopolitan_french
+} # Construction of Fort Crèvecoeur
+8107.5.12 = { discovered_by = GBR }
+8163.2.10 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	culture = english
+	religion = protestant
+	remove_core = FRA
+} # Treaty of Paris - ceded to Britain, France gave up its claim
+8163.3.1 = { unrest = 6 } # Native discontent with the British rule
+8163.5.1 = { unrest = 0 revolt = { type = nationalist_rebels size = 2 } controller = REB } # Pontiac's war
+8163.10.9 = {
+	owner = ---
+	controller = ---
+	is_city = no
+	remove_core = GBR
+	culture = illini
+	religion = totemism
+} # Royal proclamation, Britan forbid settlement in native lands. 
+8213.10.5 = {
+	owner = USA
+	controller = USA
+	add_core = USA
+	culture = american
+	religion = protestant 
+} #The death of Tecumseh mark the end of organized native resistance 
