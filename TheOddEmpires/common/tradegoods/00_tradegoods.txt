@@ -2074,63 +2074,17 @@ beer = {
 	local_development_cost = -0.05
 	}
 	chance = {
-		factor = 5
+		factor = 0
 		modifier = {
-			factor = 0
+			factor = 1
 			area = newfoundland_area
 		}
 		modifier = {
 			factor = 3
-			OR = {
-				has_winter = severe_winter
-				has_climate = arctic
-				has_climate = arid
-				has_terrain = drylands
-				has_terrain = steppe
-				has_terrain = marsh
-				has_terrain = glacier
-			}
-		}
-		modifier = {
-			factor = 0
-			normal_or_historical_nations = yes
-			continent = south_america
-			continent = north_america
-			religion_group = muslim
-		}
-		modifier = {
-			factor = 1.5
-			has_winter = normal_winter
-		}
-		modifier = {
-			factor = 2.25
-			has_terrain = farmlands
-		}
-		modifier = {
-			factor = 2.25
-			OR = {
-				has_terrain = hills
-				has_terrain = highlands
-			}
-		}
-		modifier = {
-			factor = 0
-			area = cuyo_area
-			region = france_region
-			region = italy_region
-		}
-		modifier = {
-			factor = 1.1
-			FROM = {
-				OR = {
-					culture_group = germanic
-					culture_group = west_slavic
-					culture_group = british
-				}
-			}
-		}
-	}
-}
+			owner = { capital_scope = {
+				continent = europe
+			}}
+	}}}
 potato = {
 	color = { 0.86 0.93 0.58 }
 
