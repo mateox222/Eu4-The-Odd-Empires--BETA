@@ -17,11 +17,11 @@ war_of_the_roses = {
 	can_start = {
 		if = {
 			limit = {
-				is_at_war = no
+				NOT = { is_year = 6902 }
 			}
-			NOT = { stability = 3 }
+			NOT = { stability = 1 }
 			}
-		}
+		
 		OR = {
 		current_age = age_of_discovery
 		current_age = medieval_age
@@ -147,5 +147,6 @@ war_of_the_roses = {
 			#101 & 102 are endings for rebel victory.
 		}
 	}
-}
 
+
+}

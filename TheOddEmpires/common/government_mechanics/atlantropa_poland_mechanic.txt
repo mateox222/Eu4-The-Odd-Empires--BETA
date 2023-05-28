@@ -105,6 +105,11 @@ szlachtapower_mechanic = {
 			}
 			effect = {
 				mil_power_cost = 150
+				if = {
+					limit = {
+						ai = no
+					}
+				
                 random_owned_province = {
                     spawn_rebels = {
                         type = polish_noble_rebels
@@ -121,9 +126,21 @@ szlachtapower_mechanic = {
                     spawn_rebels = {
                         type = polish_noble_rebels
                         size = 2
+                    }
+                }
+			}
+			if = {
+				limit = {
+					ai = yes
+				}
+				random_owned_province = {
+                    spawn_rebels = {
+                        type = polish_noble_rebels
+                        size = 1
                     }
                 }
 				add_yearly_manpower = -1	
+			}
 									add_government_power = {
                                         mechanic_type = szlachtapower_mechanic
                                         power_type = polska_adm_power
@@ -132,7 +149,7 @@ szlachtapower_mechanic = {
 			}
 			cooldown_years = 5
 					ai_chance = {
-				factor = 1
+				factor = 0
 				modifier = {
 					factor = 10
                     manpower_percentage = 0.75	
