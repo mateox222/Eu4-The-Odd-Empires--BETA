@@ -52,9 +52,9 @@ coast_invasion = {
 
 	type = take_province
 	attacker = {
-		badboy_factor = 1
+		badboy_factor = 1.0
 		prestige_factor = 1
-		peace_cost_factor = 1	
+		peace_cost_factor = 1.0		
 		
 		
 		peace_options = {
@@ -81,9 +81,6 @@ coast_invasion = {
 		}
 	}
 
-
-	
-	prov_desc = ALL_CLAIMS
 	war_name = COAST_WAR_NAME
 	
 }
@@ -91,7 +88,7 @@ coast_invasion = {
 seekrieg = {
 	type = superiority
 	
-
+	attacker = {
 		badboy_factor = 8.0
 		prestige_factor = 2.5
 		peace_cost_factor = 0.5
@@ -115,9 +112,33 @@ seekrieg = {
 	
 	
 	deny_annex = yes
+	}
+	defender = {
+		badboy_factor = 8.0
+		prestige_factor = 2.5
+		peace_cost_factor = 0.5
 
-	country_desc = ALL_COUNTRIES
-	prov_desc = NO_PROVS
+	allowed_provinces = {
+		always = no
+	}
+	
+	allowed_provinces_are_eligible = yes	
+	
+	peace_options = {
+	po_gold
+	po_concede_defeat
+	po_trade_power
+	po_steer_trade
+	po_humiliate
+	po_humiliate_rival
+	}
+	
+	transfer_trade_cost_factor = 0.5
+	
+	
+	deny_annex = yes
+	}
+
 	war_name = SEEKRIEG_WAR_NAME
 }
 
