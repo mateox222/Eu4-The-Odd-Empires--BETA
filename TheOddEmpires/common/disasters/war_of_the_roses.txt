@@ -15,6 +15,13 @@ war_of_the_roses = {
 
 
 	can_start = {
+		if = {
+			limit = {
+				is_at_war = no
+			}
+			NOT = { stability = 3 }
+			}
+		}
 		OR = {
 		current_age = age_of_discovery
 		current_age = medieval_age
