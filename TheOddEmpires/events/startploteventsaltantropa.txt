@@ -151,10 +151,12 @@ country_event = {
 		set_country_flag = fraaballada_events_start
 		add_prestige = 10	
 	hidden_effect = {
-		add_ruler_modifier = low_fertility
+	add_ruler_modifier = { 
+    name = low_fertility
+    duration = -1  
+}
 	}
-	}
-	}
+	}}
 
 	country_event = { #Baltic Gold & the Gates of Kings 
 	id = plotstart_events.7
