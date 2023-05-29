@@ -5811,12 +5811,109 @@ guiTypes = {
 		name = "new_buildings_entry2"
 		backGround=""
 		position = { x=0 y =0}
-		size = { x=400 y = 320}
+		size = { x=600 y = 320}
 		moveable = 0
 		dontRender = ""
 		horizontalBorder= ""
 		verticalBorder= ""
 		fullscreen = no
+
+		checkboxType = {
+    name = "build_atlantropa_road"
+    position = { x = 420 y = 32 }
+    quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
+		}
+		
+instantTextBoxType={
+    name = "atlantropa_road_cost"
+    position = {x = 420 y = 82 }
+    font = "vic_18"
+    borderSize = {x = 0 y = 0}	
+    maxWidth = 128
+    maxHeight = 18
+    text = "2000¤"	
+}
+
+		checkboxType = {
+			name = "build_atlantropa_superfortress"
+			position = { x = 321 y = 420 }
+			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
+		}
+
+		instantTextBoxType={
+			name = "atlantropa_superfortress_cost"
+			position = {x = 321 y = 470 }
+			font = "vic_18"
+			borderSize = {x = 0 y = 0}
+  		    maxWidth = 128
+    		maxHeight = 18
+   			text = "2000¤"	
+		}
+				checkboxType = {
+			name = "build_atlantropa_superharbour"
+			position = { x = 373 y = 420 }
+			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
+		}
+
+		instantTextBoxType={
+			name = "atlantropa_superharbour_cost"
+			position = {x = 373 y = 470 }
+			font = "vic_18"
+			borderSize = {x = 0 y = 0}
+  		    maxWidth = 128
+    		maxHeight = 18
+   			text = "2000¤"	
+		}
+
+
+		
+
+		iconType = {
+			name = "trade_depot_to_road_exchange_arrow"
+			position = { x = 470 y = 42 }
+			spriteType = "GFX_building_upgrade_icon"
+		}
+
+		checkboxType = {
+    name = "build_atlantropa_tracks"
+    position = { x = 485 y = 32 }
+    quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
+		}
+		
+instantTextBoxType={
+    name = "atlantropa_tracks_cost"
+    position = {x = 485 y = 82 }
+    font = "vic_18"
+    borderSize = {x = 0 y = 0}	
+    maxWidth = 128
+    maxHeight = 18
+    text = "2000¤"	
+}
+
+
+		iconType = {
+			name = "atl_trade_banner"
+			position = { x = 400 y = 0 }
+			spriteType = "GFX_banner_left_3"
+		}
+
+		instantTextBoxType={
+			name = "atl_title_trade"
+			position = {x = 444 y = 9 }
+			font = "vic_18"
+			borderSize = {x = 0 y = 0}
+			maxWidth = 120
+			maxHeight = 18
+			text = "ROADSATL"
+		}
+
+		iconType ={
+			name ="atl_trade_icon"
+			spriteType = "GFX_macro_buildings_category_strip"
+			position = { x = 415 y = 3}
+			frame = 1
+		}	
+
 
 		iconType = {
 			name = "trade_banner"
@@ -6106,13 +6203,13 @@ guiTypes = {
 
 		checkboxType = {
 			name = "build_workshop"
-			position = { x = 268 y = 129 }
+			position = { x = 228 y = 129 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 
 		instantTextBoxType={
 			name = "workshop_cost"
-			position = {x = 268 y = 179 }
+			position = {x = 228 y = 179 }
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}
 			maxWidth = 128
@@ -6122,13 +6219,13 @@ guiTypes = {
 
 		checkboxType = {
 			name = "build_counting_house"
-			position = { x = 320 y = 129 }
+			position = { x = 280 y = 129 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 
 		instantTextBoxType={
 			name = "counting_house_cost"
-			position = {x = 320 y = 179 }
+			position = {x = 280 y = 179 }
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}
 			maxWidth = 128
@@ -6138,10 +6235,34 @@ guiTypes = {
 
 		iconType = {
 			name = "workshop_to_counting_house_arrow"
-			position = { x = 312 y = 138 }
+			position = { x = 272 y = 138 }
 			spriteType = "GFX_building_upgrade_icon"
 		}
 
+
+		#TOD
+			checkboxType = {
+			name = "build_atlantropa_factory"
+			position = { x = 332 y = 129 }
+			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
+		}
+
+		instantTextBoxType={
+			name = "atlantropa_factory_cost"
+			position = {x = 332 y = 179 }
+			font = "vic_18"
+			borderSize = {x = 0 y = 0}
+			maxWidth = 128
+			maxHeight = 18
+			text = "2000¤"
+		}
+
+		iconType = {
+			name = "workshop_to_atlantropa_factory_arrow"
+			position = { x = 324 y = 138 }
+			spriteType = "GFX_building_upgrade_icon"
+		}
+		
 
 
 
@@ -6599,6 +6720,8 @@ guiTypes = {
 			maxHeight = 18
 			text = "2000�"
 		}
+
+
 
 	}
 

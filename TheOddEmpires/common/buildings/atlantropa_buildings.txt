@@ -1,0 +1,311 @@
+#### MODDED BUILDINGS 
+
+atlantropa_road = {
+    cost = 75
+    time = 6
+
+    one_per_country = no
+    allow_in_gold_provinces = yes
+    onmap = no
+	potential = {
+		always = yes
+	}
+    modifier = {
+    	province_trade_power_modifier = 0.05
+		local_tax_modifier = 0.05
+		allowed_num_of_buildings = 1
+		local_friendly_movement_speed = 0.25
+		local_hostile_movement_speed = 0.2
+		local_development_cost = -0.025
+    }
+    ai_will_do = {
+        factor = 1
+    }
+}
+
+atlantropa_tracks = {
+    cost = 500
+    time = 16
+	make_obsolete = atlantropa_road
+
+    one_per_country = no
+    allow_in_gold_provinces = yes
+    onmap = no
+	potential = {
+		always = yes
+	}
+    modifier = {
+    	province_trade_power_modifier = 0.1
+		local_tax_modifier = 0.1
+		allowed_num_of_buildings = 2
+		local_friendly_movement_speed = 0.5
+		local_hostile_movement_speed = 0.4
+		local_development_cost = -0.075
+		local_production_efficiency = 0.10
+    }
+    ai_will_do = {
+        factor = 1
+    }
+}
+
+
+
+
+atlantropa_factory = {
+	cost = 2000
+	time = 24
+	#VU AddOn price changed from 400 to 200. Part of the comprehensive balance overhaul to adjust buildings to the VU map (with all its new provinces).
+	#VU AddOn time changed from 12 to 24. Doubling upgraded buildings' build time.
+	
+	make_obsolete = counting_house
+	modifier = {
+		#Modifier is now 75% instead of the EU4 100% or the VU 60%. It should be balanced for the extra provinces of VU while still being worth its price.
+		local_production_efficiency = 1.25
+	}
+	
+	on_built = {
+		add_development_from_upgrading_or_building = {
+			building = atlantropa_factory
+			obsolete_building = counting_house
+			type = production
+			value = 2
+			upgrade_value = 1
+		}
+	}
+	on_destroyed = {
+		remove_development_from_building = {
+			building = atlantropa_factory
+			type = production
+			value = 2
+		}
+	}
+	on_obsolete = {
+	}
+
+	allow_in_gold_provinces = no
+
+	ai_will_do = {
+		factor = 4
+		
+		#ECONOMY 101
+		#AI avoids building with loans
+		modifier = {
+			factor = 0
+			owner = { num_of_loans = 3 }
+		}
+		modifier = {
+			factor = 0.3
+			owner = { num_of_loans = 2 }
+		}
+		modifier = {
+			factor = 0.5
+			owner = { num_of_loans = 1 }
+		}
+		
+		#AI avoids building when in deficit
+		modifier = {
+			factor = 0.75
+			owner = { is_in_deficit = yes }
+		}
+		
+		#AI will try to stockpile some amount of money
+		modifier = {
+			factor = 0.75
+			owner = { NOT = { treasury = 400 } }
+		}
+		
+		#SPECIFIC
+		#AI more likely to build in provinces with high development
+		modifier = {
+			factor = 2.5
+			development = 15
+		}
+		modifier = {
+			factor = 2.5
+			development = 21
+		}
+		modifier = {
+			factor = 2.5
+			development = 30
+		}
+		modifier = {
+			factor = 1.5
+			base_production = 3
+		}
+		modifier = {
+			factor = 3.5
+			base_production = 5
+		}
+		modifier = {
+			factor = 6.5
+			base_production = 7
+		}
+		
+		#GENERAL		
+		#AI is strongly discouraged to build this where climate renders development difficult.
+		modifier = {
+			factor = 0.2
+			OR = {
+				has_climate = arctic
+				has_climate = arid
+				has_climate = tropical
+			}
+		}
+		
+		#AI is discouraged to build this where development isn't really feasible.
+		modifier = {
+			factor = 0.65
+			OR = {
+				has_terrain = steppe
+				has_terrain = highlands
+				has_terrain = jungle
+				has_terrain = desert
+				has_terrain = coastal_desert
+				has_terrain = glacier
+			}
+		}
+		
+		#Drylands, forest, coastline, marsh, hills, mountains, and savannah receive neither penalty nor bonus.
+		
+		#AI is encouraged to build this where development is feasible.
+		modifier = {
+			factor = 1.5
+			OR = {
+				has_terrain = farmlands
+				has_terrain = grasslands
+				has_terrain = woods
+			}
+		}
+		
+		#Removed for now. Massive gov changes in 1.26 make this not an easy 1 to 1 update
+		#modifier = {
+		#	factor = 1.5
+		#	FROM = {			#Economically minded governments are more likely to build workshops... that is rather their mandate, no?
+		#		OR = {
+		#			government = administrative_monarchy
+		#			government = administrative_republic
+		#			government = constitutional_republic
+		#			government = peasants_republic
+		#		}
+		#	}
+		#}
+		
+		#HRE was a production powerhouse of this period.
+		modifier = {
+			factor = 2.0
+			is_part_of_hre = yes
+		}
+	}
+}
+
+
+atlantropa_superfortress = {
+    cost = 1500
+    time = 50
+ build_trigger = {
+		OR = {
+			has_building = fort_15th
+			has_building = fort_16th
+			has_building = fort_17th
+			has_building = fort_18th
+		}
+	}
+	modifier = {
+		local_hostile_attrition = 1
+		local_defensiveness = 0.5
+		fort_level = 2	
+	}
+	onmap = no
+
+	on_built = {
+
+	}
+	
+	on_destroyed = {
+
+	}
+	ai_will_do = {
+		factor = 1
+				modifier = {
+			factor = 0
+			owner = { num_of_loans = 3 }
+		}
+		modifier = {
+			factor = 0.3
+			owner = { num_of_loans = 2 }
+		}
+		modifier = {
+			factor = 0.5
+			owner = { num_of_loans = 1 }
+		}
+		
+		#AI avoids building when in deficit
+		modifier = {
+			factor = 0.75
+			owner = { is_in_deficit = yes }
+		}
+		
+		#AI will try to stockpile some amount of money
+		modifier = {
+			factor = 0.75
+			owner = { NOT = { treasury = 1500 } }
+		}
+	}
+
+}
+
+
+atlantropa_superharbour = {
+    cost = 1500
+    time = 50
+ build_trigger = {
+		has_port = yes
+	}
+	modifier = {
+		local_ship_repair = 0.5
+		local_ship_cost = -0.5
+		ship_recruit_speed = -0.5
+		hostile_fleet_attrition = 5
+		block_slave_raid = yes			
+		local_defensiveness = 0.1
+		fort_level = 1	
+
+	}
+	onmap = no
+
+	on_built = {
+
+	}
+	
+	on_destroyed = {
+
+	}
+	ai_will_do = {
+		factor = 1
+				modifier = {
+			factor = 0
+			owner = { num_of_loans = 3 }
+		}
+		modifier = {
+			factor = 0.3
+			owner = { num_of_loans = 2 }
+		}
+		modifier = {
+			factor = 0.5
+			owner = { num_of_loans = 1 }
+		}
+		
+		#AI avoids building when in deficit
+		modifier = {
+			factor = 0.75
+			owner = { is_in_deficit = yes }
+		}
+		
+		#AI will try to stockpile some amount of money
+		modifier = {
+			factor = 0.75
+			owner = { NOT = { treasury = 400 } }
+		}
+	}
+
+}
