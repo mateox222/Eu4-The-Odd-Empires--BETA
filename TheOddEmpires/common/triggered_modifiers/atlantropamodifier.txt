@@ -316,3 +316,28 @@ nerfdlatychzjebanychplemionamerykanskich = {
 	naval_morale = -0.85
 	ship_durability = -0.95	
 }
+
+
+egyptianwar = {
+	potential = {
+		capital_scope = {
+			region = egypt_region
+		}
+	}
+
+	trigger = {
+			capital_scope = {
+			region = egypt_region
+		}
+	    NOT = { has_global_flag = atlantropa_egypt_united }
+		NOT = {
+			is_year = 6915
+		}
+	}
+	diplomatic_reputation = -100
+	diplomatic_upkeep = -4		
+	siege_ability = 0.1	
+	province_warscore_cost = -0.5	
+	can_not_declare_war = yes	
+	ae_impact = -2.5	
+}
