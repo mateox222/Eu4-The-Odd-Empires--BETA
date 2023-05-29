@@ -1040,6 +1040,27 @@ on_siege_won_province = {
 	}
 	if = {
 		limit = {
+			region = egypt_region
+			controller = {
+				has_country_modifier = egyptianwar
+				OR = {
+					is_in_war = {
+						attacker_leader = this
+					}
+					is_in_war = {
+						defender_leader = this
+					}
+				}
+			}
+		}
+		
+			cede_province = controller
+			add_core = controller
+	
+}
+
+	if = {
+		limit = {
 			from = {
 				tag = REB
 				is_rebel_type = revolutionary_rebels
