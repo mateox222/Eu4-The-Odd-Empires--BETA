@@ -487,12 +487,16 @@ a49_dev_missions = { #Series name is displayed over the slot?
 	#5th tier
 	a49_lyon_isles_recovery = {
 		icon = atlantropa_flotaoceaniczna
-		required_missions = { bend_the_throms_a49 }
+		required_missions = {  }
 		provinces_to_highlight = {
 			area = lyon_isles_area
 			NOT = { is_prosperous = yes }
 		}
 		trigger = {
+			lyon_isles_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 			lyon_isles_area = {
 				is_prosperous = yes
 			}
