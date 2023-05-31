@@ -1,0 +1,376 @@
+thulean_conquest_missions = { #Series name is displayed over the slot?
+	slot = 2 #ie, first upper left column
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes #Can exist under the series itself or within individual missions.
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = A31
+			tag = A33
+			tag = A21
+			tag = A41
+			tag = X16
+		}
+	}
+	has_country_shield = yes
+	
+	#missions
+	#1st tier
+	thule_unite_the_thuleans = {
+		icon = mission_unknown_mission
+		required_missions = { }  #None
+		provinces_to_highlight = {
+			OR = {
+				area = magaranja_area
+				area = meneforaa_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			magaranja_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			meneforaa_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "thriving_arms_industry"
+				duration = 9125 #25 years
+			}
+			hydroponika_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	#2nd tier
+	thule_seize_meropis = {
+		icon = mission_unknown_mission
+		required_missions = { thule_unite_the_thuleans }
+		provinces_to_highlight = {
+			area = hydroponika_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			hydroponika_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			capital_scope = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				area = {
+					limit = { owned_by = ROOT }
+					add_province_modifier = {
+						name = "growth_of_capital"
+						duration = 9125 #25 years
+					}
+				}
+			}
+			tuath_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			aonnia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			plymouth_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			storebugt_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	#3rd tier
+	thule_attack_the_celts = {
+		icon = mission_unknown_mission
+		required_missions = { thule_seize_meropis }
+		provinces_to_highlight = {
+			OR = {
+				area = tuath_area
+				area = aonnia_area
+				area = plymouth_area
+				area = storebugt_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			tuath_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			aonnia_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			plymouth_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			storebugt_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "army_enthusiasm"
+				duration = 9125 #25 years
+			}
+			avalon_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	#4th tier
+	thule_take_avalon = {
+		icon = mission_unknown_mission
+		required_missions = { thule_attack_the_celts }
+		provinces_to_highlight = {
+			area = avalon_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			avalon_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "hegemonic_ambition"
+				duration = 9125 #25 years
+			}
+			add_country_modifier = {
+				name = "thulean_return"
+				duration = 9125 #25 years
+			}
+			thule_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+thulean_bonus_missions = { #Series name is displayed over the slot?
+	slot = 5 #ie, first upper left column
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes #Can exist under the series itself or within individual missions.
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = A31
+			tag = A33
+			tag = A41
+			tag = A21
+			tag = X16
+		}
+	}
+	has_country_shield = yes
+	
+	#missions
+	#1st tier
+	thule_foster_outriders = {
+		icon = mission_unknown_mission
+		required_missions = {  }
+		trigger = {
+			num_of_cavalry  = 30
+		}
+		effect = {
+			add_country_modifier = {
+				name = "thule_outriders_modifier"
+				duration = -1
+			}
+		}
+	}
+	#2nd tier
+	thule_gender_equality = {
+		icon = mission_unknown_mission
+		required_missions = {  }
+		trigger = {
+			OR = {
+				is_female = yes
+				dip = 5
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "thule_equality"
+				duration = -1
+			}
+		}
+	}
+	#3rd tier
+	thule_druidist_great_power = {
+		icon = mission_unknown_mission
+		required_missions = {  }
+		trigger = {
+			is_great_power = yes
+		}
+		effect = {
+			add_country_modifier = {
+				name = "thulean_end_to_humiliation"
+				duration = 9125
+			}
+		}
+	}
+}
+
+thulean_retake_thule = { #Series name is displayed over the slot?
+	slot = 2 #ie, first upper left column
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes #Can exist under the series itself or within individual missions.
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = A31
+			tag = A33
+			tag = A41
+			tag = A21
+			tag = X16
+		}
+	}
+	has_country_shield = yes
+
+	#1st tier
+	thule_retake_thule = {
+		icon = mission_unknown_mission
+		required_missions = {  }
+		provinces_to_highlight = {
+			region = thule_region
+			NOT = { culture_group = nativethulean }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 40
+				region = thule_region
+				culture_group = nativethulean
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "thulean_renaissance"
+				duration = 9125 #25 years
+			}
+		}
+	}
+}
+
+thulean_conquest_garzag_missions = { #Series name is displayed over the slot?
+	slot = 1 #ie, first upper left column
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes #Can exist under the series itself or within individual missions.
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = A31
+			tag = A33
+			tag = A21
+			tag = A41
+			tag = X16
+		}
+	}
+	has_country_shield = yes
+	
+	#missions
+	#1st tier
+	thule_attack_the_greeks = {
+		icon = mission_unknown_mission
+		required_missions = { }  #None
+		provinces_to_highlight = {
+			OR = {
+				area = southhyberborea_area
+				area = easthyberborea_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			southhyberborea_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			easthyberborea_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			rabinsder_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	#2nd tier
+	thule_attack_storehammer = {
+		icon = mission_unknown_mission
+		required_missions = { thule_attack_the_greeks }
+		provinces_to_highlight = {
+			area = rabinsder_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			rabinsder_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "thulean_return"
+				duration = 9125 #25 years
+			}
+			magaranja_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			meneforaa_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
