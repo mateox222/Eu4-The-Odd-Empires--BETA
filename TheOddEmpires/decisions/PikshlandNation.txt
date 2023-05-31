@@ -1,0 +1,43 @@
+country_decisions = {
+	unite_pikshland = {
+		major = yes
+		potential = {
+			was_never_end_game_tag_trigger = yes
+			primary_culture = pikhish
+			NOT = { exists = PKS }
+		}
+		provinces_to_highlight = { 
+			OR = {
+				province_id = 1978
+				province_id = 5705
+				province_id = 5663
+				province_id = 5667
+				province_id = 5661
+				province_id = 5662
+				province_id = 5664
+				province_id = 5666
+			}
+		}
+		allow = {
+			NOT = { exists = PKS }
+			stability = 1
+			is_nomad = no
+			is_at_war = no
+			owns_core_province = 1978
+			owns_core_province = 5705
+			owns_core_province = 5663
+			owns_core_province = 5667
+			owns_core_province = 5661
+			owns_core_province = 5662
+			owns_core_province = 5664
+			owns_core_province = 5666
+		}
+
+		effect = {
+			change_tag = PKS
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
