@@ -1118,11 +1118,9 @@ age_of_industrialization = {
 		}
 		
 		obj_industrial_coal = {
-			num_of_owned_provinces_with = {
-	value = 5
-	coal = 5
+			atlantropa_factory = 10
 }
-		}
+		
 		obj_industrial_empire = {
 		total_development = 1500
 		great_power_rank = 1
@@ -1132,8 +1130,8 @@ age_of_industrialization = {
 			has_commanding_three_star = yes
 			army_size = 500
 		}
-		obj_cultures_accepted = {
-			num_accepted_cultures = 5
+		obj_trainsbuilded_accepted = {
+			atlantropa_tracks = 20
 		}
 		
 		obj_industrial_government = {
@@ -1226,8 +1224,9 @@ age_of_industrialization = {
 		}
 		industrial_train = {
 			modifier = {
-				movement_speed = 0.50	
 				land_morale = 0.10	
+				stability_cost_modifier = 0.25	
+				global_autonomy = -0.1	
 			}
 			ai_will_do = {
 				factor = 100
