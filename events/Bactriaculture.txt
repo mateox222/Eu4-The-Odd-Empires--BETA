@@ -652,3 +652,36 @@ province_event = {
 	}
 }
 
+
+province_event = {
+	id = bactria_culture_event.20
+	title = "bactria_culture_event.1.t"
+	desc = "bactria_culture_event.1.d"
+	picture = hellenistic_eventPicture
+	
+		trigger = {
+				holy_order = satrapia_order
+				NOT = {	culture_group = grecobactrian_group }
+				culture_group = assyriangroup
+				NOT = { has_province_flag = greekanisation }
+ 
+			owner = { culture_group = grecobactrian_group }
+		}
+		
+			
+	
+	mean_time_to_happen = {
+		months = 620
+		
+		modifier = {
+		factor = 0.8
+		 development = 20
+	}		
+	}
+	option = {
+		name = "bactria_culture_event.1.a"
+		ai_chance = { factor = 60 }
+		set_province_flag = greekanisation
+			change_culture = greek_armaic 
+	}
+}
