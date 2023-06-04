@@ -8,192 +8,618 @@ bul_1 = {
 	}
 	has_country_shield = yes
 	
-	bul_independence = {
-		icon = mission_noble_council
+	bul_invite = {
+		icon = mission_crusade_for_varna
 		required_missions = { }
 		provinces_to_highlight = {
-			OR = {
-				area = bulgaria_area
-				area = silistria_area
-			}
-			NOT = { owned_by = ROOT }
+			
 		}
 		trigger = {
-			is_subject = no
-			bulgaria_area = {
-				type = all
-				owned_by = ROOT
-			}
-			silistria_area = {
-				type = all
-				owned_by = ROOT
-			}
+			
 		}
 		effect = {
-			serbia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = {  is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			rascia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = {  is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			macedonia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = {  is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
+			
 		}
 		ai_weight = {
-			factor = 500	#Alt-History, but if Bulgaria exists than they should want to reconquer stuff
+			factor = 1
 		}
 	}
-	bul_restore_empire = {
+	bul_knights = {
 		icon = mission_crusade_for_varna
-		required_missions = { bul_independence }
+		required_missions = { bul_invite bul_divide }
 		provinces_to_highlight = {
-			OR = {
-				area = serbia_area
-				area = rascia_area
-				area = macedonia_area
-			}
-			NOT = { owned_by = ROOT }
+			
 		}
 		trigger = {
-			serbia_area = {
-				type = all
-				owned_by = ROOT
-			}
-			rascia_area = {
-				type = all
-				owned_by = ROOT
-			}
-			macedonia_area = {
-				type = all
-				owned_by = ROOT
-			}
+			
 		}
 		effect = {
-			if = {
-				limit = {
-					NOT = {
-						government_rank = 3
-					}
-				}
-				set_government_rank = 3
-			}
-			wallachia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = {  is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			moldavia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = {  is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			transylvania_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = {  is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			southern_transylvania_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = {  is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			northern_greece_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = {  is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			thrace_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = {  is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			alfold_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = {  is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
+			
 		}
 		ai_weight = {
-			factor = 500	#Alt-History, but if Bulgaria exists than they should want to reconquer stuff
+			factor = 1
 		}
 	}
-	bul_extend_empire = {
-		icon = mission_cossack_cavalry
-		required_missions = { bul_restore_empire }
+	bul_arkani = {
+		icon = mission_crusade_for_varna
+		required_missions = { bul_knights }
 		provinces_to_highlight = {
-			OR = {
-				area = wallachia_area
-				area = moldavia_area
-				area = transylvania_area
-				area = southern_transylvania_area
-				area = northern_greece_area
-				area = thrace_area
-				area = alfold_area
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			
 		}
 		trigger = {
-			wallachia_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			moldavia_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			transylvania_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			southern_transylvania_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			northern_greece_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			thrace_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			alfold_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
+			
 		}
 		effect = {
-			add_mil_power = 200
+			
 		}
 		ai_weight = {
-			factor = 500	#Alt-History, but if Bulgaria exists than they should want to reconquer stuff
+			factor = 1
+		}
+	}
+
+	bul_equine = {
+		icon = mission_crusade_for_varna
+		required_missions = { bul_arkani }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_pannonian = {
+		icon = mission_crusade_for_varna
+		required_missions = { bul_placate }
+		position = 5
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_samogia = {
+		icon = mission_crusade_for_varna
+		required_missions = { bul_pannonian }
+		position = 6
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_fleet = {
+		icon = mission_crusade_for_varna
+		required_missions = { bul_samogia bul_brave }
+		position = 8
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+}
+
+bul_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = BUL
+	}
+	has_country_shield = yes
+	
+	bul_impale = {
+		icon = mission_crusade_for_varna
+		position = 2
+		required_missions = {  }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+	
+	bul_campaign = {
+		icon = mission_crusade_for_varna
+		position = 3
+		required_missions = { bul_impale }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_italian = {
+		icon = mission_crusade_for_varna
+		position = 5
+		required_missions = { bul_placate }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_brave = {
+		icon = mission_crusade_for_varna
+		position = 7
+		required_missions = { bul_italian }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_city = {
+		icon = mission_crusade_for_varna
+		position = 8
+		required_missions = { bul_brave bul_cast }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_macedonia = {
+		icon = mission_crusade_for_varna
+		position = 9
+		required_missions = { bul_city }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+}
+
+bul_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = BUL
+	}
+	has_country_shield = yes
+	
+	bul_divide = {
+		icon = mission_crusade_for_varna
+		required_missions = {  }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_fealty = {
+		icon = mission_crusade_for_varna
+		required_missions = { bul_divide }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_placate = {
+		icon = mission_crusade_for_varna
+		required_missions = { bul_campaign bul_patriarch }
+		position = 4
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_tsar = {
+		icon = mission_crusade_for_varna
+		required_missions = { bul_placate }
+		position = 5
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_prepare = {
+		icon = mission_crusade_for_varna
+		required_missions = {  }
+		position = 6
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+	
+	bul_cast = {
+		icon = mission_crusade_for_varna
+		required_missions = { bul_prepare }
+		position = 7
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_balkan = {
+		icon = mission_crusade_for_varna
+		required_missions = { bul_macedonia bul_over }
+		position = 10
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+}
+
+bul_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = BUL
+	}
+	has_country_shield = yes
+	
+	bul_empower = {
+		icon = mission_crusade_for_varna
+		required_missions = { bul_divide bul_fate }
+		position = 2
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_patriarch = {
+		icon = mission_crusade_for_varna
+		required_missions = { bul_empower }
+		position = 3
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+
+
+	bul_branching_3 = {
+		icon = mission_unknown_mission
+		required_missions = { bul_branching_2 }
+		position = 4
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+
+
+	bul_dnieper = {
+		icon = mission_crusade_for_varna
+		required_missions = { bul_tsar }
+		position = 6
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_kiev = {
+		icon = mission_crusade_for_varna
+		required_missions = { bul_dnieper }
+		position = 7
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_saxons = {
+		icon = mission_crusade_for_varna
+		required_missions = { bul_cast }
+		position = 8
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_over = {
+		icon = mission_crusade_for_varna
+		required_missions = { bul_saxons }
+		position = 9
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+}
+
+bul_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = BUL
+	}
+	has_country_shield = yes
+	
+	bul_fate = {
+		icon = mission_crusade_for_varna
+		required_missions = {  }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_branching_1 = {
+		icon = mission_unknown_mission
+		required_missions = { bul_fate }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_branching_2 = {
+		icon = mission_unknown_mission
+		required_missions = { bul_branching_1 }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_branching_4 = {
+		icon = mission_unknown_mission
+		required_missions = { bul_branching_2 bul_tsar}
+		position = 6
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+
+
+	bul_pontic = {
+		icon = mission_crusade_for_varna
+		required_missions = { bul_kiev }
+		position = 8
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			
+		}
+		effect = {
+			
+		}
+		ai_weight = {
+			factor = 1
 		}
 	}
 }
