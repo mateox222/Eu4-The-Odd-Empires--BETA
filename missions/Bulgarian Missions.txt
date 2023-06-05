@@ -9,7 +9,7 @@ bul_1 = {
 	has_country_shield = yes
 	
 	bul_invite = {
-		icon = mission_crusade_for_varna
+		icon = mission_non-western_cavalry_raid
 		required_missions = { }
 		provinces_to_highlight = {
 			
@@ -25,7 +25,7 @@ bul_1 = {
 		}
 	}
 	bul_knights = {
-		icon = mission_crusade_for_varna
+		icon = mission_teutonic_knights
 		required_missions = { bul_invite bul_divide }
 		provinces_to_highlight = {
 			
@@ -41,7 +41,7 @@ bul_1 = {
 		}
 	}
 	bul_arkani = {
-		icon = mission_crusade_for_varna
+		icon = mission_cossack_cavalry
 		required_missions = { bul_knights }
 		provinces_to_highlight = {
 			
@@ -58,7 +58,7 @@ bul_1 = {
 	}
 
 	bul_equine = {
-		icon = mission_crusade_for_varna
+		icon = mission_abu_saids_dream
 		required_missions = { bul_arkani }
 		provinces_to_highlight = {
 			
@@ -75,7 +75,7 @@ bul_1 = {
 	}
 
 	bul_pannonian = {
-		icon = mission_crusade_for_varna
+		icon = mission_corsairs_of_the_north_sea
 		required_missions = { bul_placate }
 		position = 5
 		provinces_to_highlight = {
@@ -93,7 +93,7 @@ bul_1 = {
 	}
 
 	bul_samogia = {
-		icon = mission_crusade_for_varna
+		icon = mission_pirate_flag
 		required_missions = { bul_pannonian }
 		position = 6
 		provinces_to_highlight = {
@@ -111,7 +111,7 @@ bul_1 = {
 	}
 
 	bul_fleet = {
-		icon = mission_crusade_for_varna
+		icon = mission_unite_coromandel
 		required_missions = { bul_samogia bul_brave }
 		position = 8
 		provinces_to_highlight = {
@@ -140,7 +140,7 @@ bul_2 = {
 	has_country_shield = yes
 	
 	bul_impale = {
-		icon = mission_crusade_for_varna
+		icon = mission_impaled_soldies
 		position = 2
 		required_missions = {  }
 		provinces_to_highlight = {
@@ -158,7 +158,7 @@ bul_2 = {
 	}
 	
 	bul_campaign = {
-		icon = mission_crusade_for_varna
+		icon = mission_conquer_romania
 		position = 3
 		required_missions = { bul_impale }
 		provinces_to_highlight = {
@@ -176,7 +176,7 @@ bul_2 = {
 	}
 
 	bul_italian = {
-		icon = mission_crusade_for_varna
+		icon = capture_adriatic_ports
 		position = 5
 		required_missions = { bul_placate }
 		provinces_to_highlight = {
@@ -194,7 +194,7 @@ bul_2 = {
 	}
 
 	bul_brave = {
-		icon = mission_crusade_for_varna
+		icon = mission_control_the_black_sea
 		position = 7
 		required_missions = { bul_italian }
 		provinces_to_highlight = {
@@ -212,7 +212,7 @@ bul_2 = {
 	}
 
 	bul_city = {
-		icon = mission_crusade_for_varna
+		icon = take_constantinople
 		position = 8
 		required_missions = { bul_brave bul_cast }
 		provinces_to_highlight = {
@@ -230,7 +230,7 @@ bul_2 = {
 	}
 
 	bul_macedonia = {
-		icon = mission_crusade_for_varna
+		icon = foothold_in_greece
 		position = 9
 		required_missions = { bul_city }
 		provinces_to_highlight = {
@@ -276,7 +276,7 @@ bul_3 = {
 	}
 
 	bul_fealty = {
-		icon = mission_crusade_for_varna
+		icon = union_with_naples
 		required_missions = { bul_divide }
 		provinces_to_highlight = {
 			
@@ -293,7 +293,7 @@ bul_3 = {
 	}
 
 	bul_placate = {
-		icon = mission_crusade_for_varna
+		icon = mission_rb_monopolize_the_channel
 		required_missions = { bul_campaign bul_patriarch }
 		position = 4
 		provinces_to_highlight = {
@@ -311,7 +311,7 @@ bul_3 = {
 	}
 
 	bul_tsar = {
-		icon = mission_crusade_for_varna
+		icon = mission_the_third_rome
 		required_missions = { bul_placate }
 		position = 5
 		provinces_to_highlight = {
@@ -329,7 +329,7 @@ bul_3 = {
 	}
 
 	bul_prepare = {
-		icon = mission_crusade_for_varna
+		icon = push_on_to_bulgaria
 		required_missions = {  }
 		position = 6
 		provinces_to_highlight = {
@@ -347,7 +347,7 @@ bul_3 = {
 	}
 	
 	bul_cast = {
-		icon = mission_crusade_for_varna
+		icon = mission_subdue_rajputana
 		required_missions = { bul_prepare }
 		position = 7
 		provinces_to_highlight = {
@@ -365,7 +365,7 @@ bul_3 = {
 	}
 
 	bul_balkan = {
-		icon = mission_crusade_for_varna
+		icon = mission_balkan_conquest
 		required_missions = { bul_macedonia bul_over }
 		position = 10
 		provinces_to_highlight = {
@@ -394,7 +394,7 @@ bul_4 = {
 	has_country_shield = yes
 	
 	bul_empower = {
-		icon = mission_crusade_for_varna
+		icon = mission_noble_council
 		required_missions = { bul_divide bul_fate }
 		position = 2
 		provinces_to_highlight = {
@@ -412,7 +412,7 @@ bul_4 = {
 	}
 
 	bul_patriarch = {
-		icon = mission_crusade_for_varna
+		icon = mission_land_of_churches
 		required_missions = { bul_empower }
 		position = 3
 		provinces_to_highlight = {
@@ -439,7 +439,7 @@ bul_4 = {
 			
 		}
 		trigger = {
-			
+			always = no
 		}
 		effect = {
 			
@@ -452,7 +452,7 @@ bul_4 = {
 
 
 	bul_dnieper = {
-		icon = mission_crusade_for_varna
+		icon = mission_advance_to_the_dnieper
 		required_missions = { bul_tsar }
 		position = 6
 		provinces_to_highlight = {
@@ -470,7 +470,7 @@ bul_4 = {
 	}
 
 	bul_kiev = {
-		icon = mission_crusade_for_varna
+		icon = mission_restore_kiev
 		required_missions = { bul_dnieper }
 		position = 7
 		provinces_to_highlight = {
@@ -488,7 +488,7 @@ bul_4 = {
 	}
 
 	bul_saxons = {
-		icon = mission_crusade_for_varna
+		icon = tame_the_magnates
 		required_missions = { bul_cast }
 		position = 8
 		provinces_to_highlight = {
@@ -506,7 +506,7 @@ bul_4 = {
 	}
 
 	bul_over = {
-		icon = mission_crusade_for_varna
+		icon = the_alpine_wall
 		required_missions = { bul_saxons }
 		position = 9
 		provinces_to_highlight = {
@@ -535,7 +535,7 @@ bul_5 = {
 	has_country_shield = yes
 	
 	bul_fate = {
-		icon = mission_crusade_for_varna
+		icon = mission_unite_home_region
 		required_missions = {  }
 		provinces_to_highlight = {
 			
@@ -558,7 +558,7 @@ bul_5 = {
 			
 		}
 		trigger = {
-			
+			always = no
 		}
 		effect = {
 			
@@ -575,7 +575,7 @@ bul_5 = {
 			
 		}
 		trigger = {
-			
+			always = no
 		}
 		effect = {
 			
@@ -593,7 +593,7 @@ bul_5 = {
 			
 		}
 		trigger = {
-			
+			always = no
 		}
 		effect = {
 			
@@ -606,7 +606,7 @@ bul_5 = {
 
 
 	bul_pontic = {
-		icon = mission_crusade_for_varna
+		icon = mission_sca_lit_conquer_crimea
 		required_missions = { bul_kiev }
 		position = 8
 		provinces_to_highlight = {
