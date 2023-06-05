@@ -15,10 +15,48 @@ bul_1 = {
 			
 		}
 		trigger = {
-			
+			if = {
+				limit = {
+					exists = HU4
+				}
+				OR = {
+					alliance_with = HU4
+					HU4 = {
+						has_opinion = {
+							who = ROOT
+							value = 100
+						}
+					}
+				}
+			}
+			else = {
+				any_ally = {
+					culture_group = bulgarian_culture
+				}
+			}
+			dip_power = 100
 		}
 		effect = {
-			
+			add_dip_power = -100
+			add_country_modifier = {
+				name = bul_steppe_warfare
+				duration = 7300
+			}
+			define_advisor = {
+				type = militarist5_tod
+				skill = 2
+				culture = nyekian
+				religion = finnish_pagan_reformed
+				cost_multiplier = 0.35
+			}
+			capital_scope = {
+				add_unit_construction = {
+					type = cavalry
+					amount = 5
+					speed = 0.25
+					cost = 0
+				}
+			}
 		}
 		ai_weight = {
 			factor = 1
@@ -31,10 +69,19 @@ bul_1 = {
 			
 		}
 		trigger = {
-			
+			num_of_cavalry = 20
+			num_of_generals = 2
+			estate_loyalty = {
+    			estate = estate_nobles
+    			loyalty = 75
+			}
 		}
 		effect = {
-			
+			remove_country_modifier = bul_steppe_warfare
+			add_country_modifier = {
+				name = bul_reformed_cavalry_army
+				duration = -1
+			}
 		}
 		ai_weight = {
 			factor = 1
@@ -47,10 +94,23 @@ bul_1 = {
 			
 		}
 		trigger = {
-			
+			years_of_income	= 2
+			mil_tech = 10
+			OR = {
+				mil = 5
+				monthly_mil	= 12
+			}
+			OR = {
+				has_idea_group = aristocracy_ideas
+				has_idea_group = quality_ideas
+			}
 		}
 		effect = {
-			
+			add_years_of_income	= -2
+			add_country_modifier = {
+				name = bul_modernized_arkani
+				duration = -1
+			}
 		}
 		ai_weight = {
 			factor = 1
@@ -64,10 +124,27 @@ bul_1 = {
 			
 		}
 		trigger = {
-			
+			num_of_cavalry = 75
+			OR = {
+				army_tradition = 90
+				num_of_generals_with_traits = 3
+			}
+			all_rival_country = {
+				NOT = {
+					army_size = ROOT
+				}
+			}
 		}
 		effect = {
-			
+			remove_country_modifier = bul_reformed_cavalry_army
+			add_country_modifier = {
+				name = bul_bulgarian_hordes
+				duration = -1
+			}
+			add_country_modifier = {
+				name = bul_terror_of_europe
+				duration = 9125
+			}
 		}
 		ai_weight = {
 			factor = 1
@@ -160,7 +237,7 @@ bul_2 = {
 	bul_campaign = {
 		icon = mission_conquer_romania
 		position = 3
-		required_missions = { bul_impale }
+		required_missions = { bul_impale bul_fealty }
 		provinces_to_highlight = {
 			
 		}
@@ -214,7 +291,7 @@ bul_2 = {
 	bul_city = {
 		icon = take_constantinople
 		position = 8
-		required_missions = { bul_brave bul_cast }
+		required_missions = { bul_cast }
 		provinces_to_highlight = {
 			
 		}
@@ -265,10 +342,30 @@ bul_3 = {
 			
 		}
 		trigger = {
-			
+			if = {
+				limit = {
+					ai = no
+				}
+				has_estate_privilege = estate_nobles_land_rights
+				OR = {
+					has_estate_privilege = estate_nobles_strong_duchies
+					has_estate_privilege = estate_nobles_supremacy_over_crown
+				}
+			}
+			adm_power = 100
 		}
 		effect = {
-			
+			add_adm_power = -100
+			change_estate_land_share = {
+    			estate = estate_nobles
+    			share = 5
+			}
+			capital_scope = {
+				add_institution_embracement = {
+    				which = feudalism
+    				value = 100
+				}
+			}
 		}
 		ai_weight = {
 			factor = 1
@@ -541,7 +638,10 @@ bul_5 = {
 			
 		}
 		trigger = {
-			
+			accepted_culture = romanian
+			NOT = {
+				has_ruler = "Katrag IV"
+			}
 		}
 		effect = {
 			
