@@ -1,0 +1,51 @@
+country_decisions = {
+	Unite_izraelwameryce = {
+	major = yes
+	potential = {
+			was_never_end_game_tag_trigger = yes
+			OR = {
+			tag = IS1
+			tag = IS8
+			tag = IS4			
+			tag = IS2		
+			tag = IS3
+			tag = IS5											
+			}
+		NOT = { exists = A44 }				
+		}
+		provinces_to_highlight = { 
+					OR = {
+	province_id = 4594
+	province_id = 2638
+	province_id = 4593
+	province_id = 5115
+	province_id = 5117		
+	
+		} }
+			allow = {
+				
+				NOT = { exists = A44 }
+		stability = 1
+			is_nomad = no
+			is_at_war = no
+			owns_core_province = 4594
+			owns_core_province = 2638
+			owns_core_province = 4593	
+			owns_core_province = 5115
+			owns_core_province = 5117					
+				}
+	
+			effect = {
+
+				change_tag = A44
+				add_prestige = 100
+				set_government_rank = 3
+				country_event = { id = ideagroups.1 }
+				swap_non_generic_missions = yes
+	
+	}
+			ai_will_do = {
+				factor = 1
+	}
+	}
+	}

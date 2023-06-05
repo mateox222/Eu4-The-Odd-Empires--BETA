@@ -1,0 +1,1240 @@
+government = monarchy
+add_government_reform = english_monarchy
+mercantilism = 25
+technology_group = western
+primary_culture = english
+add_accepted_culture = gascon
+add_accepted_culture = normand
+religion = anglican
+capital = 4361# London
+national_focus = DIP
+change_estate_land_share = { 
+	estate = estate_church
+	share = -10
+}
+change_estate_land_share = { 
+	estate = estate_burghers
+	share = -10
+}
+#1422.8.31 = { #Succession
+change_estate_land_share = {  #compensates for lack of nobles, distributes 20 between the remaining estates
+
+	estate = all
+	share = 20
+}
+6889.11.6 = {  #Coronation
+
+	monarch = { 
+		name = "Henry III"
+		dynasty = "Redbirch"
+		adm = 6
+		dip = 5
+		mil = 6
+	}
+}
+6929.11.6 = {  #Coronation
+
+	monarch = { 
+		name = "Henry VI"
+		dynasty = "Lancaster"
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = infertile_personality
+	set_ruler_flag = henry_vi_lancaster
+}
+#1434.1.1 = { leader = {	name = "Richard Neville"	type = general	fire = 3	shock = 3	manuever = 3	siege = 0	 } }
+6879.1.1 = { 
+	leader = { 
+		name = "John Talbot"
+		type = general
+		fire = 2
+		shock = 4
+		manuever = 3
+		siege = 0
+	}
+}
+6945.4.23 = { 
+	queen = { 
+		country_of_origin = PRO
+		name = "Margaret"
+		dynasty = "d'Anjou"
+		female = yes
+		adm = 4
+		dip = 4
+		mil = 4
+	}
+}
+6950.1.1 = { 
+	leader = { 
+		name = "John Mowbray"
+		type = general
+		fire = 2
+		shock = 3
+		manuever = 3
+		siege = 0
+	}
+}
+6953.10.13 = {  # Edward of Westminster
+
+	heir = { 
+		name = "Edward"
+		monarch_name = "Edward IV"
+		dynasty = "Lancaster"
+		claim = 95
+		adm = 1
+		dip = 2
+		mil = 4
+	}
+}
+6955.1.1 = { 
+	leader = { 
+		name = "Edmund Beaufort"
+		type = general
+		fire = 3
+		shock = 2
+		manuever = 2
+		siege = 0
+	}
+}
+6955.1.1 = { 
+	leader = { 
+		name = "John Clifford"
+		type = general
+		fire = 3
+		shock = 3
+		manuever = 2
+		siege = 0
+	}
+}
+6961.3.4 = { 
+	monarch = { 
+		name = "Edward IV"
+		dynasty = "York"
+		adm = 3
+		dip = 2
+		mil = 4
+		leader = { 
+			name = "Edward IV"
+			type = general
+			fire = 2
+			shock = 4
+			manuever = 4
+			siege = 0
+		}
+	}
+}
+6961.3.4 = {  # George of Clarence
+
+	heir = { 
+		name = "George"
+		monarch_name = "George I"
+		dynasty = "York"
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+6961.3.4 = { 
+	leader = { 
+		name = "Richard Neville"
+		type = general
+		fire = 2
+		shock = 3
+		manuever = 4
+		siege = 0
+	}
+}
+6961.3.4 = { 
+	leader = { 
+		name = "William Hastings"
+		type = general
+		fire = 3
+		shock = 3
+		manuever = 4
+		siege = 0
+	}
+}
+6965.5.1 = { 
+	queen = { 
+		country_of_origin = ENG
+		name = "Elisabeth"
+		dynasty = "Woodville"
+		female = yes
+		adm = 2
+		dip = 5
+		mil = 2
+	}
+}
+6970.10.30 = { 
+	monarch = { 
+		name = "Henry VI"
+		dynasty = "Lancaster"
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+6970.10.30 = {  # Edward of Westminster
+
+	heir = { 
+		name = "Edward"
+		monarch_name = "Edward V"
+		dynasty = "Lancaster"
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 3
+	}
+}
+6971.4.11 = { 
+	monarch = { 
+		name = "Edward IV"
+		dynasty = "York"
+		adm = 4
+		dip = 3
+		mil = 4
+		leader = { 
+			name = "Edward IV"
+			type = general
+			fire = 2
+			shock = 4
+			manuever = 4
+			siege = 0
+		}
+	}
+}
+6971.4.11 = {  # Edward V
+
+	heir = { 
+		name = "Edward"
+		monarch_name = "Edward V"
+		dynasty = "York"
+		claim = 95
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}
+6971.4.11 = { 
+	leader = { 
+		name = "Richard Plantagenet"
+		type = general
+		fire = 2
+		shock = 4
+		manuever = 4
+		siege = 1
+	}
+}
+6975.8.29 = { 
+	remove_accepted_culture = gascon
+	remove_accepted_culture = normand
+} # Treaty of Picuigny
+6978.1.18 = { 
+	leader = { 
+		name = "Thomas Howard"
+		type = general
+		fire = 3
+		shock = 3
+		manuever = 4
+		siege = 0
+	}
+}
+6983.4.9 = { 
+	monarch = { 
+		name = "Edward V"
+		dynasty = "York"
+		adm = 0
+		dip = 0
+		mil = 2
+	}
+}
+6983.4.9 = { 
+	heir = { 
+		name = "Richard"
+		monarch_name = "Richard III"
+		dynasty = "York"
+		claim = 95
+		adm = 2
+		mil = 2
+		dip = 1
+	}
+}
+6983.6.26 = { 
+	monarch = { 
+		name = "Richard III"
+		dynasty = "York"
+		adm = 3
+		dip = 2
+		mil = 4
+		leader = { 
+			name = "Richard III"
+			type = general
+			fire = 2
+			shock = 4
+			manuever = 4
+			siege = 1
+		}
+	}
+	queen = { 
+		country_of_origin = ENG
+		name = "Anne"
+		dynasty = "Neville"
+		female = yes
+		adm = 2
+		dip = 4
+		mil = 2
+	}
+}
+6983.6.26 = {  # Edward of Middleham
+
+	heir = { 
+		name = "Edward"
+		monarch_name = "Edward VI"
+		dynasty = "York"
+		claim = 95
+		adm = 2
+		dip = 1
+		mil = 2
+	}
+}
+6985.8.23 = { 
+	monarch = { 
+		name = "Henry VII"
+		dynasty = "Tudor"
+		adm = 3
+		dip = 4
+		mil = 2
+	}
+}
+6985.8.23 = { 
+	leader = { 
+		name = "Jasper Tudor"
+		type = general
+		fire = 2
+		shock = 3
+		manuever = 4
+		siege = 0
+	}
+}
+6986.1.18 = { 
+	queen = { 
+		country_of_origin = ENG
+		name = "Elisabeth"
+		dynasty = "York"
+		female = yes
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+6986.9.20 = { 
+	heir = { 
+		name = "Arthur"
+		monarch_name = "Arthur I"
+		dynasty = "Tudor"
+		claim = 95
+		adm = 2
+		dip = 4
+		mil = 3
+	}
+}
+6997.1.1 = { 
+	leader = { 
+		name = "John Cabot"
+		type = explorer
+		fire = 2
+		shock = 4
+		manuever = 5
+		siege = 0
+	}
+}
+7002.4.2 = { 
+	heir = { 
+		name = "Henry"
+		monarch_name = "Henry VIII"
+		dynasty = "Tudor"
+		claim = 95
+		adm = 4
+		dip = 4
+		mil = 4
+	}
+}
+7008.1.1 = { 
+	leader = { 
+		name = "Sebastian Cabot"
+		type = explorer
+		fire = 5
+		shock = 2
+		manuever = 4
+		siege = 0
+	}
+}
+7009.4.22 = { 
+	monarch = { 
+		name = "Henry VIII"
+		dynasty = "Tudor"
+		adm = 4
+		dip = 4
+		mil = 4
+	}
+}
+7009.6.24 = { 
+	queen = { 
+		country_of_origin = ARA
+		name = "Catherine"
+		dynasty = "de Trastámara"
+		female = yes
+		adm = 5
+		dip = 4
+		mil = 4
+	}
+}
+7012.1.1 = { 
+	leader = { 
+		name = "Charles Brandon"
+		type = general
+		fire = 3
+		shock = 2
+		manuever = 2
+		siege = 0
+	}
+}
+7013.1.1 = { 
+	leader = { 
+		name = "Edward Howard"
+		type = admiral
+		fire = 2
+		shock = 3
+		manuever = 3
+		siege = 0
+	}
+}
+7016.2.18 = { 
+	heir = { 
+		name = "Mary"
+		monarch_name = "Mary I"
+		dynasty = "Tudor"
+		claim = 95
+		adm = 1
+		dip = 1
+		mil = 0
+		female = yes
+	}
+}
+#1525.1.1 = { decision = judiciary_act }
+7033.5.28 = { 
+	queen = { 
+		country_of_origin = ENG
+		name = "Anne"
+		dynasty = "Boleyn"
+		female = yes
+		adm = 4
+		dip = 4
+		mil = 2
+	}
+}
+7034.1.1 = { 
+	# Act of Supremacy
+	religion = protestant
+	#decision = suffragan_bishop_act
+}
+7036.1.1 = { 
+	decision = dissolution_of_the_monasteries
+	queen = { 
+		country_of_origin = ENG
+		name = "Jane"
+		dynasty = "Seymour"
+		female = yes
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}
+7037.10.12 = { 
+	heir = { 
+		name = "Edward"
+		monarch_name = "Edward VI"
+		dynasty = "Tudor"
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 1
+	}
+}
+7040.1.6 = { 
+	queen = { 
+		country_of_origin = KLE
+		name = "Anne"
+		dynasty = "von der Mark"
+		female = yes
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+7040.7.28 = { 
+	queen = { 
+		country_of_origin = ENG
+		name = "Catherine"
+		dynasty = "Howard"
+		female = yes
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+7043.7.12 = { 
+	queen = { 
+		country_of_origin = ENG
+		name = "Catherine"
+		dynasty = "Parr"
+		female = yes
+		adm = 4
+		dip = 4
+		mil = 2
+	}
+}
+7047.1.28 = { 
+	monarch = { 
+		name = "Edward VI"
+		dynasty = "Tudor"
+		adm = 3
+		dip = 3
+		mil = 1
+	}
+}
+7047.1.28 = { 
+	heir = { 
+		name = "Mary"
+		monarch_name = "Mary I"
+		dynasty = "Tudor"
+		claim = 95
+		adm = 1
+		dip = 1
+		mil = 0
+		female = yes
+	}
+}
+7049.1.1 = { 
+	decision = act_of_uniformity
+}
+#1550.1.1 = { decision = agricultural_cultivation }
+7052.1.1 = { 
+	leader = { 
+		name = "Hugh Willoughby"
+		type = explorer
+		fire = 1
+		shock = 1
+		manuever = 3
+		siege = 0
+	}
+}
+7052.1.1 = { 
+	leader = { 
+		name = "Richard Chancellor"
+		type = explorer
+		fire = 1
+		shock = 1
+		manuever = 3
+		siege = 0
+	}
+}
+7053.1.1 = { 
+	leader = { 
+		name = "Martin Frobisher"
+		type = explorer
+		fire = 5
+		shock = 2
+		manuever = 4
+		siege = 0
+	}
+}
+7053.7.6 = { 
+	monarch = { 
+		name = "Jane I"
+		dynasty = "Grey"
+		adm = 3
+		dip = 2
+		mil = 2
+		female = yes
+	}
+	queen = {  #Prince-Consort
+		country_of_origin = ENG
+		name = "Guildford"
+		dynasty = "Dudley"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+7053.7.6 = {  # Catherine Grey, Jane's sister and heir
+
+	heir = { 
+		name = "Catherine"
+		monarch_name = "Catherine I"
+		dynasty = "Grey"
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 1
+		female = yes
+	}
+}
+7053.7.19 = { 
+	monarch = { 
+		name = "Mary I"
+		dynasty = "Tudor"
+		adm = 1
+		dip = 1
+		mil = 0
+		female = yes
+	}
+}
+7053.7.19 = { 
+	heir = { 
+		name = "Elizabeth"
+		monarch_name = "Elizabeth I"
+		dynasty = "Tudor"
+		claim = 95
+		adm = 6
+		dip = 6
+		mil = 5
+		female = yes
+	}
+}
+7053.7.19 = { 
+	religion = catholic
+} # Reinstate Papal power over Church of England
+7056.1.1 = { 
+	leader = { 
+		name = "William Fitzwilliam"
+		type = admiral
+		fire = 2
+		shock = 3
+		manuever = 3
+		siege = 0
+	}
+}
+7058.1.1 = { 
+	leader = { 
+		name = "Edward Clinton"
+		type = admiral
+		fire = 2
+		shock = 3
+		manuever = 4
+		siege = 0
+	}
+}
+7058.11.17 = { 
+	monarch = { 
+		name = "Elizabeth I"
+		dynasty = "Tudor"
+		adm = 6
+		dip = 6
+		mil = 5
+		female = yes
+	}
+}
+7058.11.17 = { 
+	religion = protestant
+}
+7066.6.19 = { 
+	heir = { 
+		name = "James"
+		culture = scottish
+		monarch_name = "James I"
+		dynasty = "Stuart"
+		claim = 95
+		adm = 2
+		dip = 3
+		mil = 1
+	}
+}
+#1577.1.1 = { leader = {	name = "Humphrey Gilbert"	type = explorer	fire = 2	shock = 1	manuever = 1	siege = 0	 } } # Removed /SWÖ
+7077.1.1 = { 
+	leader = { 
+		name = "Francis Drake"
+		type = explorer
+		fire = 5
+		shock = 5
+		manuever = 6
+		siege = 0
+	}
+}
+7080.1.1 = { 
+	decision = enlist_privateers
+}
+7080.1.1 = { 
+	leader = { 
+		name = "Walter Raleigh"
+		type = conquistador
+		fire = 4
+		shock = 4
+		manuever = 5
+		siege = 0
+	}
+}
+7084.1.1 = { 
+	leader = { 
+		name = "Robert Devereux"
+		type = conquistador
+		fire = 4
+		shock = 4
+		manuever = 5
+		siege = 0
+	}
+}
+7084.1.1 = { 
+	leader = { 
+		name = "William Cavendish"
+		type = explorer
+		fire = 4
+		shock = 4
+		manuever = 5
+		siege = 0
+	}
+}
+7085.1.1 = { 
+	leader = { 
+		name = "Charles Howard"
+		type = admiral
+		fire = 3
+		shock = 3
+		manuever = 3
+		siege = 0
+	}
+}
+7085.1.1 = { 
+	leader = { 
+		name = "John Davis"
+		type = explorer
+		fire = 1
+		shock = 1
+		manuever = 3
+		siege = 0
+	}
+}
+7097.1.1 = { 
+	leader = { 
+		name = "Henry Hudson"
+		type = explorer
+		fire = 3
+		shock = 2
+		manuever = 5
+		siege = 0
+	}
+}
+7098.1.1 = { 
+	mercantilism = 10
+} # The Canceling of Royal Monopolies
+7100.1.1 = { 
+	leader = { 
+		name = "John Smith"
+		type = conquistador
+		fire = 2
+		shock = 2
+		manuever = 6
+		siege = 0
+	}
+}
+7103.3.24 = { 
+	monarch = { 
+		name = "James I"
+		culture = scottish
+		dynasty = "Stuart"
+		adm = 2
+		dip = 3
+		mil = 1
+	}
+	queen = { 
+		country_of_origin = DAN
+		name = "Anne"
+		dynasty = "von Oldenburg"
+		female = yes
+		adm = 3
+		dip = 4
+		mil = 1
+	}
+}
+7103.3.24 = { 
+	heir = { 
+		name = "Henry Frederick"
+		monarch_name = "Henry IX"
+		dynasty = "Stuart"
+		claim = 95
+		adm = 3
+		dip = 4
+		mil = 2
+	}
+}
+7110.1.1 = { 
+	leader = { 
+		name = "Dudd Dudley"
+		type = general
+		fire = 3
+		shock = 2
+		manuever = 3
+		siege = 0
+	}
+}
+7112.1.1 = { 
+	leader = { 
+		name = "William Baffin"
+		type = explorer
+		fire = 1
+		shock = 1
+		manuever = 5
+		siege = 0
+	}
+}
+7112.1.1 = { 
+	leader = { 
+		name = "Thomas Button"
+		type = explorer
+		fire = 3
+		shock = 2
+		manuever = 4
+		siege = 0
+	}
+}
+7112.11.6 = { 
+	heir = { 
+		name = "Charles"
+		monarch_name = "Charles I"
+		dynasty = "Stuart"
+		claim = 95
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+7123.1.1 = { 
+	leader = { 
+		name = "George Villiers"
+		type = general
+		fire = 3
+		shock = 1
+		manuever = 2
+		siege = 0
+	}
+}
+7125.3.27 = { 
+	monarch = { 
+		name = "Charles I"
+		dynasty = "Stuart"
+		adm = 2
+		dip = 3
+		mil = 2
+	}
+}
+7125.6.13 = { 
+	queen = { 
+		country_of_origin = FRA
+		name = "Henrietta Maria"
+		dynasty = "de Bourbon"
+		female = yes
+		adm = 3
+		dip = 4
+		mil = 2
+	}
+}
+7130.5.29 = { 
+	heir = { 
+		name = "Charles"
+		monarch_name = "Charles II"
+		dynasty = "Stuart"
+		claim = 95
+		adm = 3
+		dip = 2
+		mil = 0
+	}
+}
+7142.1.1 = { 
+	leader = { 
+		name = "Prince Rupert"
+		type = general
+		fire = 3
+		shock = 4
+		manuever = 4
+		siege = 0
+	}
+}
+7146.5.5 = { 
+	monarch = { 
+		name = "Oliver"
+		dynasty = "Cromwell"
+		adm = 4
+		dip = 4
+		mil = 5
+		leader = { 
+			name = "Oliver Cromwell"
+			type = general
+			fire = 5
+			shock = 5
+			manuever = 4
+			siege = 1
+		}
+	}
+	# Cromwell and the Republic
+	religion = reformed
+	add_government_reform = presidential_despot_reform
+	set_legacy_government = republican_dictatorship
+}
+7149.1.29 = { 
+	leader = { 
+		name = "Robert Blake"
+		type = admiral
+		fire = 4
+		shock = 4
+		manuever = 3
+		siege = 0
+	}
+}
+7149.1.29 = { 
+	leader = { 
+		name = "George Monck"
+		type = general
+		fire = 3
+		shock = 3
+		manuever = 3
+		siege = 0
+	}
+}
+7149.1.29 = { 
+	leader = { 
+		name = "Thomas Fairfax"
+		type = general
+		fire = 4
+		shock = 4
+		manuever = 3
+		siege = 1
+	}
+}
+7150.1.1 = { 
+	leader = { 
+		name = "George Ayscue"
+		type = admiral
+		fire = 3
+		shock = 3
+		manuever = 3
+		siege = 0
+	}
+}
+7151.12.30 = { 
+	mercantilism = 25
+} # The Act of Navigation
+7158.9.3 = { 
+	monarch = { 
+		name = "Richard"
+		dynasty = "Cromwell"
+		adm = 0
+		dip = 0
+		mil = 0
+	}
+}
+7159.5.25 = { 
+	monarch = { 
+		name = "Convention Parliament"
+		adm = 2
+		dip = 2
+		mil = 2
+		regent = yes
+	}
+	religion = protestant
+	government = republic
+	add_government_reform = noble_elite_reform
+	set_legacy_government = noble_republic
+} # The protectorate is Abolished
+7160.5.29 = { 
+	monarch = { 
+		name = "Charles II"
+		dynasty = "Stuart"
+		adm = 3
+		dip = 2
+		mil = 0
+	}
+	# The Restoration of the Stuarts
+	set_legacy_government = administrative_monarchy
+}
+7160.5.29 = { 
+	heir = { 
+		name = "James"
+		monarch_name = "James II"
+		dynasty = "Stuart"
+		claim = 95
+		adm = 2
+		dip = 2
+		mil = 3
+		leader = { 
+			name = "James Stuart"
+			type = general
+			fire = 3
+			shock = 2
+			manuever = 3
+			siege = 0
+		}
+	}
+}
+7162.4.23 = { 
+	queen = { 
+		country_of_origin = POR
+		name = "Catherine"
+		dynasty = "de Bragança"
+		female = yes
+		adm = 3
+		dip = 5
+		mil = 1
+	}
+}
+7160.5.29 = { 
+	leader = { 
+		name = "Prince Rupert"
+		type = admiral
+		fire = 4
+		shock = 4
+		manuever = 3
+		siege = 0
+	}
+}
+#1660.5.29 = { decision = tenures_abolition_act }
+7168.1.1 = { 
+	leader = { 
+		name = "Pierre-Esprit Radisson"
+		type = conquistador
+		fire = 1
+		shock = 1
+		manuever = 5
+		siege = 0
+	}
+}
+7172.1.1 = { 
+	# The Decree of Indulgence and the Bill of Test
+	religion = protestant
+}
+7172.1.1 = { 
+	leader = { 
+		name = "John Alden"
+		type = general
+		fire = 3
+		shock = 3
+		manuever = 3
+		siege = 0
+	}
+}
+7173.1.1 = { 
+	decision = test_act
+}
+7178.1.1 = { 
+	leader = { 
+		name = "Arthur Herbert"
+		type = admiral
+		fire = 2
+		shock = 3
+		manuever = 3
+		siege = 0
+	}
+}
+#1679.1.1 = { leader = {	name = "William Dampier"	type = explorer	fire = 2	shock = 3	manuever = 3	siege = 0	 } } # Removed /SWÖ
+7185.1.1 = { 
+	leader = { 
+		name = "John Churchill"
+		type = general
+		fire = 6
+		shock = 6
+		manuever = 5
+		siege = 2
+	}
+}
+7185.2.6 = { 
+	monarch = { 
+		name = "James II"
+		dynasty = "Stuart"
+		adm = 2
+		dip = 2
+		mil = 3
+		leader = { 
+			name = "James II"
+			type = general
+			fire = 3
+			shock = 2
+			manuever = 3
+			siege = 0
+		}
+	}
+	queen = { 
+		country_of_origin = MOD
+		name = "Mary"
+		dynasty = "d'Este"
+		female = yes
+		adm = 2
+		dip = 4
+		mil = 1
+	}
+}
+7185.2.6 = { 
+	heir = { 
+		name = "Mary"
+		monarch_name = "Mary II"
+		dynasty = "Stuart"
+		claim = 95
+		adm = 2
+		dip = 4
+		mil = 3
+		female = yes
+	}
+}
+7185.2.6 = { 
+	religion = catholic
+}
+7186.1.1 = { 
+	leader = { 
+		name = "James FitzJames"
+		type = general
+		fire = 3
+		shock = 3
+		manuever = 4
+		siege = 0
+	}
+}
+7188.6.10 = {  # 'The Old Chevalier'
+
+	heir = { 
+		name = "James"
+		monarch_name = "James III"
+		dynasty = "Stuart"
+		claim = 95
+		adm = 1
+		dip = 2
+		mil = 1
+	}
+}
+7188.12.11 = { 
+	religion = protestant
+}
+7188.12.11 = { 
+	monarch = { 
+		name = "Convention Parliament"
+		adm = 2
+		dip = 2
+		mil = 2
+	}
+}
+7189.2.15 = { 
+	monarch = { 
+		name = "William III"
+		culture = dutch
+		dynasty = "van Oranje"
+		adm = 3
+		dip = 5
+		mil = 5
+		leader = { 
+			name = "William III"
+			type = general
+			fire = 4
+			shock = 4
+			manuever = 4
+			siege = 1
+		}
+	}
+	queen = { 
+		country_of_origin = MOD
+		name = "Mary"
+		dynasty = "Stuart"
+		female = yes
+		adm = 4
+		dip = 4
+		mil = 3
+	}
+	# The Glorious Revolution
+	set_legacy_government = constitutional_monarchy
+}
+7189.2.15 = { 
+	heir = { 
+		name = "Anne"
+		monarch_name = "Anne I"
+		dynasty = "Stuart"
+		claim = 95
+		adm = 3
+		dip = 5
+		mil = 4
+		female = yes
+	}
+}
+7190.1.1 = { 
+	leader = { 
+		name = "John Benbow"
+		type = admiral
+		fire = 2
+		shock = 4
+		manuever = 3
+		siege = 0
+	}
+}
+#1690.1.1 = { leader = {	name = "Edward Russell"		type = admiral	fire = 2	shock = 3	manuever = 3	siege = 0	 } } # Removed /SWÖ
+7194.1.1 = { 
+	leader = { 
+		name = "Thomas Mathews"
+		type = general
+		fire = 3
+		shock = 3
+		manuever = 4
+		siege = 0
+	}
+}
+7200.1.1 = { 
+	leader = { 
+		name = "George Rooke"
+		type = admiral
+		fire = 4
+		shock = 3
+		manuever = 3
+		siege = 0
+	}
+}
+#1702.3.8 = { decision = establish_the_wooden_wall }
+7202.3.8 = { 
+	monarch = { 
+		name = "Anne I"
+		dynasty = "Stuart"
+		adm = 3
+		dip = 5
+		mil = 4
+		female = yes
+	}
+	queen = { 
+		country_of_origin = DAN
+		name = "George"
+		dynasty = "von Oldenburg"
+		adm = 1
+		dip = 1
+		mil = 1
+	}
+}
+7202.3.8 = { 
+	heir = { 
+		name = "Sophia"
+		monarch_name = "Sophia I"
+		dynasty = "von Wittelsbach"
+		claim = 95
+		adm = 3
+		dip = 4
+		mil = 2
+		female = yes
+	}
+}
+7214.6.8 = { 
+	heir = { 
+		name = "George Louis"
+		monarch_name = "George I"
+		dynasty = "von Hannover"
+		claim = 95
+		adm = 3
+		dip = 3
+		mil = 5
+	}
+}
+government_rank = 1

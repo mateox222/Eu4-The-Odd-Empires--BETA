@@ -1,0 +1,2536 @@
+A5F_slot_1 = {
+	slot = 3
+	generic = no
+	ai = yes
+ 
+	potential = {
+		OR = {
+		tag = A5F
+		tag = BA1
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+		bac_varna_aftermath = {
+		icon = mission_reliable_allies
+		required_missions = { } 
+		position = 1 
+		trigger = {
+			num_of_allies = 2 
+			army_size_percentage = 0.8 
+			AFG = { 
+				OR = { 
+					war_with = ROOT 
+					is_rival = ROOT 
+					has_opinion_modifier = {
+						who = ROOT
+						modifier = insulted
+					}
+					has_opinion_modifier = {
+						who = ROOT
+						modifier = scornfully_insulted
+					}
+				
+				
+					exists = no 
+				}
+			}
+			SRH = { 
+				OR = { 
+					alliance_with = ROOT 
+					NOT = { is_rival = ROOT }
+					NOT = {
+					has_opinion_modifier = {
+						who = ROOT
+						modifier = insulted
+					}
+				}
+				NOT = {
+					has_opinion_modifier = {
+						who = ROOT
+						modifier = scornfully_insulted
+					}
+				}
+					exists = no 
+				}
+			}
+		}
+		effect = {
+				add_favors = {
+					who = AFG
+					amount = -10 
+				}
+				add_favors = { 
+					who = SRH
+					amount = 10 
+				}
+				SRH = { add_historical_friend = ROOT }
+				add_historical_friend = SRH
+			
+		}
+	}
+	
+				bac_protect_hungary = {
+		icon = mission_interfaith_relations 
+		required_missions = { bac_varna_aftermath }
+		position = 2 
+		provinces_to_highlight = { 
+			owned_by = SRH
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			OR = { 
+				owns_core_province = 507
+				SRH = { is_subject_of = ROOT } 
+				SRH = { 
+					alliance_with = ROOT 
+					has_opinion = {
+						who = ROOT 
+						value = 190 
+					}
+					trust = { 	
+						who = ROOT 
+						value = 100 
+					}
+					is_at_war = no 
+					NOT = { army_size = ROOT } 
+				}
+			}
+		}
+		effect = { 
+				country_event = { id = bactriaevent.1 }
+				if = { 
+					limit = { 
+						SRH = { is_subject_of = ROOT } 
+					}
+					SRH = { add_liberty_desire = -20 } 
+				}
+		}
+	}
+		bac_annex_surinah = {
+		icon = mission_accomodate_the_rajputs
+		required_missions = { bac_protect_hungary }
+		provinces_to_highlight = { 
+			owned_by = SRH
+		}
+			trigger = {
+			OR = { 
+				owns_core_province = 507
+				SRH = { is_subject_of = ROOT } 
+				} }
+		effect = { 
+
+				if = { 
+					limit = { 
+						SRH = { is_subject_of = ROOT } 
+					}
+					SRH = { add_liberty_desire = -20 } 
+				}
+				  	hindusthan_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT		}
+			add_country_modifier = {
+				name = "garjat_fealty"
+				duration = 7300
+			}				
+}
+				
+				
+		}
+		
+			A5F_campaign = {
+		icon = mission_integrate_the_purbias
+		required_missions = { bac_annex_surinah }
+		position = 1
+		provinces_to_highlight = {
+		OR = {
+				area = upper_doab_area
+				area = katehar_area
+				area = lower_doab_area
+				area = oudh_area
+				area = baisi_rajya_area
+				}
+				
+		}
+		trigger = {
+						upper_doab_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+						katehar_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+						lower_doab_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }		
+						oudh_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }		
+						baisi_rajya_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }							
+						
+		}
+			effect = {
+  				add_prestige = 20							
+						
+}
+}
+
+	bac_paper_mills_of_ahmadabad = {
+		icon = mission_ahmadabad_paper
+		position = 5
+		required_missions = { A5F_gujarat_mission }
+		provinces_to_highlight = {
+			province_id = 2054
+			NOT = { has_building = mills }
+		}
+
+		trigger = {
+			owns_core_province = 2054
+			if = {
+				limit = {
+					2054 = { trade_goods = paper }
+				}
+				2054 = { has_building = mills }
+			}
+			else = {
+				mills = 2
+			}
+		}
+		effect = {
+			2054 = {
+				add_base_production = 2
+				add_province_modifier = {
+					name = "ahmadabad_paper"
+					duration = 10950
+				}
+			}
+		}
+		ai_weight = {
+			factor = 500	#Tall
+		}
+	}
+
+
+
+
+
+
+	bac_clear_delta = {
+		icon = mission_clear_the_delta
+		position = 7
+		required_missions = { A5F_campaign_bengal }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2039
+				province_id = 561
+				province_id = 564
+				province_id = 568
+				province_id = 2046
+				province_id = 4474
+				province_id = 4475
+			}
+			NOT = {
+				OR = {
+					has_building = temple
+					has_building = cathedral
+					has_building = marketplace
+					has_building = trade_depot
+					has_building = stock_exchange
+				}
+			}
+		}
+		trigger = {
+			2039 = {
+				owned_by = ROOT
+				custom_trigger_tooltip = {
+					tooltip = clear_delta_tooltip
+					OR = {
+						has_building = temple
+						has_building = cathedral
+						has_building = marketplace
+						has_building = trade_depot
+						has_building = stock_exchange
+					}
+				}
+			}
+			561 = {
+				owned_by = ROOT
+				custom_trigger_tooltip = {
+					tooltip = clear_delta_tooltip
+					OR = {
+						has_building = temple
+						has_building = cathedral
+						has_building = marketplace
+						has_building = trade_depot
+						has_building = stock_exchange
+					}
+				}
+			}
+			564 = {
+				owned_by = ROOT
+				custom_trigger_tooltip = {
+					tooltip = clear_delta_tooltip
+					OR = {
+						has_building = temple
+						has_building = cathedral
+						has_building = marketplace
+						has_building = trade_depot
+						has_building = stock_exchange
+					}
+				}
+			}
+			568 = {
+				owned_by = ROOT
+				custom_trigger_tooltip = {
+					tooltip = clear_delta_tooltip
+					OR = {
+						has_building = temple
+						has_building = cathedral
+						has_building = marketplace
+						has_building = trade_depot
+						has_building = stock_exchange
+					}
+				}
+			}
+			2046 = {
+				owned_by = ROOT
+				custom_trigger_tooltip = {
+					tooltip = clear_delta_tooltip
+					OR = {
+						has_building = temple
+						has_building = cathedral
+						has_building = marketplace
+						has_building = trade_depot
+						has_building = stock_exchange
+					}
+				}
+			}
+			4475 = {
+				owned_by = ROOT
+				custom_trigger_tooltip = {
+					tooltip = clear_delta_tooltip
+					OR = {
+						has_building = temple
+						has_building = cathedral
+						has_building = marketplace
+						has_building = trade_depot
+						has_building = stock_exchange
+					}
+				}
+			}
+			4474 = {
+				owned_by = ROOT
+				custom_trigger_tooltip = {
+					tooltip = clear_delta_tooltip
+					OR = {
+						has_building = temple
+						has_building = cathedral
+						has_building = marketplace
+						has_building = trade_depot
+						has_building = stock_exchange
+					}
+				}
+			}
+		}
+		effect = {
+			set_country_flag = bng_delta_flag
+			hidden_effect = {
+				country_event = { id = flavor_bng.4 }
+			}
+			tooltip = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							province_id = 2039 #Sunderbans
+							province_id = 561 #Bengal Delta
+							province_id = 564 #Dakka
+							province_id = 568 #Chittagong
+							province_id = 2046 #Nasirabad
+							province_id = 4474
+							province_id = 4475
+						}
+					}
+					add_base_production = 1
+					add_province_modifier = {
+						name = "bng_delta_reclaimed"
+						duration = -1
+					}
+				}
+			}
+		}
+		ai_weight = {
+			factor = 500	#Tall
+		}
+	}
+		
+		bactriabengal_shipyards = {
+		icon = mission_grand_bengali_shipyards
+		required_missions = { bac_clear_delta }
+		provinces_to_highlight = {
+		}
+		trigger = {
+			drydock = 10
+			num_of_heavy_ship = 50
+		}
+		effect = {
+			if = {
+				limit = {
+					has_dlc = "Rule Britannia"
+				}
+				add_innovativeness_big_effect = yes
+			}
+			add_country_modifier = {
+				name = "bng_proto_industrial_shipyards"
+				duration = -1
+			}
+		}
+		ai_weight = {
+			factor = 500	#Tall
+		}
+	}
+	
+		bac_recover_konkan_coast = {
+		icon = mission_recover_konkan_ports
+		required_missions = { bactriabengal_shipyards bac_naval_dominance }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4419
+				province_id = 539
+				province_id = 1248
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			owns = 4419
+			owns = 539
+			owns = 1248
+		}
+		effect = {
+			add_country_modifier = {
+				name = "bah_access_to_the_sea"
+				duration = 7300
+			}
+			
+				south_lanka_area = { 
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+				lanka_area = { 
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}		
+			
+		}
+		ai_weight = {
+			factor = 500	#Reconquest
+		}
+	}
+	
+			bac_recover_lanka_coast = {
+		icon = mission_secure_hajj_ports
+		required_missions = { bac_recover_konkan_coast }
+		provinces_to_highlight = {
+			OR = {
+				area = south_lanka_area
+				area = lanka_area			
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			south_lanka_area	 = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			lanka_area  = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+				add_prestige = 20
+				lemuria_region = { 
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+			
+			
+		}
+		ai_weight = {
+			factor = 500	#Reconquest
+		}
+	}
+	
+		bac_conquer_lemuria = {
+		icon = mission_bengal_entrepot
+		required_missions = { bac_recover_lanka_coast }
+		provinces_to_highlight = {
+			region = lemuria_region	
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			lemuria_region	 = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+				add_prestige = 50
+				add_adm_power = 250
+				add_mil_power = 250
+				add_dip_power = 250
+			add_country_modifier = {
+				name = atlantropa_lemuria_charter
+				duration = -1
+			}
+		}
+		ai_weight = {
+			factor = 100	#Reconquest
+		}
+	}
+	
+			A5F_caucasia_campaign = {
+			position = 13
+	icon = atlantropa_caucasia
+		required_missions = { A5F_north_persia_campaign }
+		provinces_to_highlight = {
+			OR = {
+				region = caucasia_region	
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			caucasia_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		effect = {
+	add_prestige = 20
+			add_country_modifier = {
+				name = atlantropa_army
+				duration = -1
+			}
+			
+	}
+}
+				A5F_caucasia_trade = {
+		position = 17	
+	icon = atlantropa_crimea
+		required_missions = { A5F_caucasia_campaign }
+		provinces_to_highlight = {
+			OR = {
+				region = caucasia_region	
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			1322 = { is_strongest_trade_power = ROOT } # here, "xxx" should be a province in the trade node you want to target - generally the primary province of the whole node
+		}
+
+		effect = {
+	add_prestige = 20
+			add_country_modifier = {
+				name = crimean_atlantropa_trade_mod
+				duration = -1
+			}
+			
+	}
+}	
+			A5F_macedonian_campaign = {
+			position = 13
+	icon = atlantropa_alexandermac
+		required_missions = { 
+		A5F_caucasia_trade
+		greco_subjugate_algiers
+		A5F_arabia_conquest
+		mac_conquer_southern_greece
+		bac_californian_viceroyalty
+		
+		}
+		provinces_to_highlight = {
+			OR = {
+				region = caucasia_region	
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			is_hegemon = yes
+		}
+
+		effect = {
+	add_prestige = 100
+	add_adm_power = 500
+	add_mil_power = 500
+	add_dip_power = 500
+			add_country_modifier = {
+				name = atlantropa_endless_empire_mod
+				duration = -1
+			}
+			
+	}
+}		
+		
+	
+	}
+
+
+	A5F_slot_21 = {
+	slot = 4
+	generic = no
+	ai = yes
+ 
+	potential = {
+		OR = {
+		tag = A5F
+		tag = BA1
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+		a5f_war_plunder = {
+		icon = mission_spoils_of_war
+		required_missions = { }
+		trigger = {
+			if = {
+				limit = {
+					has_dlc = "Art of War"
+				}
+				num_of_war_reparations = 3
+			}
+			else = {
+				share_of_starting_income = 1.25
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = vij_plunder_modifier
+				duration = 7300
+			}
+		}
+	}
+	
+		a5f_war_stability = {
+		icon = atlantropa_weight
+		required_missions = { a5f_war_plunder }
+		trigger = {
+			stability = 2
+			NOT = { war_exhaustion = 1 }
+	
+		}
+		effect = {
+			add_stability = 1	
+		}
+	}
+	
+	
+	A5F_agra_mission = {
+		icon = mission_found_the_city_of_agra
+		required_missions = { a5f_war_stability }
+		position = 1
+		provinces_to_highlight = {
+			province_id = 578
+		}
+		trigger = {
+			owns_core_province = 578
+			578 = {
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+				OR = {
+					has_building = marketplace
+					has_building = trade_depot
+					has_building = stock_exchange
+				}
+				development = 25
+			}
+		}
+		effect = {
+			country_event = { id = flavor_dlh.8 }
+		}
+		ai_weight = {
+			factor = 500	#Tall + resaonble conquest
+		}
+	}
+	
+
+	
+				A5F_campaign_another = {
+		icon = mission_delhi_resurgent
+		required_missions = { A5F_campaign }
+		position = 5
+		provinces_to_highlight = {
+		OR = {
+				area = purvanchal_area 
+				area = mithila_area
+				area = nepal_area
+				area = nepal_area
+				area = baghelkhand_area 
+				area = bihar_area
+				}
+				
+		}
+		trigger = {
+						purvanchal_area  = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+						mithila_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+						nepal_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }		
+						nepal_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }		
+						baghelkhand_area  = { type = all	country_or_non_sovereign_subject_holds = ROOT }	
+						bihar_area  = { type = all	country_or_non_sovereign_subject_holds = ROOT }							
+						
+		}
+			effect = {
+  				add_prestige = 20
+				bengal_region  = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+					}					
+				
+						
+}
+}
+			A5F_campaign_bengal = {
+		icon = mission_seize_the_bengal_coast
+		required_missions = { A5F_campaign_another }
+		position = 6
+		provinces_to_highlight = {
+		OR = {
+				area = north_bengal_area
+				area = gaur_area
+				area = jharkhand_area
+				area = east_bengal_area
+				}
+				
+		}
+		trigger = {
+						north_bengal_area  = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+						gaur_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+						jharkhand_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }		
+						east_bengal_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }							
+						
+		}
+			effect = {
+			add_country_modifier = {
+				name = "ori_bengal_inland_modifier"
+				duration = 7300
+			}	
+		}				
+				
+						
+}
+	
+	bac_conquer_orissa = {
+		icon = mission_conquer_cuttack
+		position = 7
+		required_missions = { A5F_campaign_bengal }
+		provinces_to_highlight = {
+			area = orissa_area
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			orissa_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "bng_orissa_conquest"
+				duration = 7300
+			}
+			jharkhand_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			upper_mahanadi_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			garjat_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 500	#Reconquest
+		}
+	}
+		bac_garjat_fealty = {
+		icon = mission_demand_garjat_fealty
+		required_missions = { bac_conquer_orissa }
+		provinces_to_highlight = {
+			OR = {
+				area = jharkhand_area
+				area = upper_mahanadi_area
+				area = garjat_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			jharkhand_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			upper_mahanadi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			garjat_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+		}
+		effect = {
+
+			deccan_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 500	#Reasonable conquest
+		}
+	}
+	
+			deccan_conquest_a5f = {
+		icon = mission_viceroyalty_of_the_deccan
+		required_missions = { bac_garjat_fealty  }
+		provinces_to_highlight = {
+			OR = {
+				region = deccan_region
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			deccan_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+		}
+		effect = {
+
+			add_country_modifier = {
+				name = "ori_bahmanis_modifier"
+				duration = -1
+			}
+		}
+		ai_weight = {
+			factor = 500	#Reasonable conquest
+		}
+	}
+	
+	
+		bac_open_up_china = {
+		icon = mission_open_up_china
+		required_missions = {
+			bac_subah_of_ayuddhya
+		}
+		position = 10
+		provinces_to_highlight = {
+			OR = {
+				area = yun_gui_borderland_area
+				area = yun_gui_area
+				area = vietnam_area
+				area = guangxi_area
+				area = west_guangdong_area
+				area = guangdong_area
+				area = red_river_delta_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			yun_gui_borderland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			yun_gui_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			vietnam_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			guangxi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			west_guangdong_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			guangdong_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			red_river_delta_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "mughal_china"
+				duration = 9125
+			}
+		}
+		ai_weight = {
+			factor = 0	#China, too, is a little bit too far fetched
+		}
+	}
+	
+	A5F_north_anatolia_campaign = {
+	position = 13
+	icon = mission_control_the_desh
+		required_missions = { A5F_north_persia_campaign }
+		provinces_to_highlight = {
+			OR = {
+				area = north_kurdistan_area	
+				area = dulkadir_area	
+				area = erzurum_area	
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			north_kurdistan_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			dulkadir_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			erzurum_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		effect = {
+	add_prestige = 20
+		caucasia_region  = { 
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+		anatolia_region  = { 
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+	}
+	
+	}
+	A5F_south_anatolia_campaign = {
+	icon = atlantropa_cappadocia
+		required_missions = { A5F_north_anatolia_campaign }
+		provinces_to_highlight = {
+			OR = {
+				area = rum_area
+				area = karaman_area	
+				area = ankara_area	
+				area = germiyan_area
+				area = hudavendigar_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			rum_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			karaman_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			ankara_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			germiyan_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			hudavendigar_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		effect = {
+	add_prestige = 25
+		balkan_region  = { 
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+	}
+	
+	}
+	
+			mac_defeat_the_byzantine_empire = { #City of Worlds Desire
+		icon = atlantropa_constantinople
+		required_missions = { A5F_south_anatolia_campaign  } #None
+		trigger = {
+			owns = 151
+		}
+		provinces_to_highlight = {
+			province_id = 151
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "defeated_byzantine_empire"
+				duration = 5475
+			}
+			every_province = {
+				limit = {
+					OR = {
+						province_id = 145
+						province_id = 146
+						province_id = 1773
+						province_id = 4701
+						province_id = 4699
+						province_id = 4698
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+
+		ai_weight = {
+			factor = 250
+		}
+	}
+	mac_conquer_southern_greece = {
+		icon = mission_early_game_buildings
+		position = 17
+		required_missions = { mac_defeat_the_byzantine_empire }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 145
+				province_id = 146
+				province_id = 1773
+				province_id = 4701
+				province_id = 4699
+				province_id = 4698
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns = 145
+			owns = 146
+			owns = 1773
+			owns = 4701
+			owns = 4699
+			owns = 4698
+		}
+		effect = {
+			add_country_modifier = {
+				name = "ottoman_naval_expansion"
+				duration = 5475
+			}
+			rascia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			serbia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			albania_area = {
+				limit = {
+					NOT = { is_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_claim = ROOT
+			}
+			atlantis_adriaticcoast = {
+				limit = {
+					NOT = { is_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_claim = ROOT
+			}
+			every_province = {
+				limit = {
+					area = aegean_archipelago_area
+					NOT = { is_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+					NOT = { province_id = 320 }
+				}
+				add_claim = ROOT
+			}
+		}
+
+		ai_weight = {
+			factor = 250
+		}
+	}
+	}
+	
+	
+	
+	A5F_slot_11 = {
+	slot = 1
+	generic = no
+	ai = yes
+ 
+	potential = {
+		OR = {
+		tag = A5F
+		tag = BA1
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	A5F_large_army = {
+		icon = atlantropa_bactria
+		required_missions = {  }
+		position = 1
+		provinces_to_highlight = {
+			is_capital = yes
+			owner = {
+				OR = {
+					is_neighbor_of = ROOT
+					ROOT = { is_rival = prev }
+				}
+				army_size = root
+				any_owned_province = { superregion = india_superregion }
+			}
+		}
+		trigger = {
+			legitimacy_equivalent = 95
+				all_neighbor_country = {
+					OR = {
+						alliance_with = ROOT
+						NOT = { army_size = root }
+					}
+				}
+			all_rival_country = { NOT = { army_size = root } }
+		}
+			effect = {
+													add_country_modifier = {
+				name = "bactria_army3"
+				duration = -1
+			}
+  				kabulistan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+  				ghor_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+
+  				kashmir_area  = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+  				multan_area  = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+
+}
+		ai_weight = {
+			factor = 500	#Tall + resaonble conquest
+		}
+	}
+	
+	
+	
+	
+		A5F_second_slot4 = {
+	icon = atlantropa_nilfgaard
+		required_missions = { A5F_large_army }
+		provinces_to_highlight = {
+			OR = {
+				area = kashmir_area
+
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			kashmir_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		effect = {
+										add_country_modifier = {
+				name = "bactria_army2"
+				duration = -1
+			}
+		
+  							ngari_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+}
+}
+	
+A5F_second_war = {
+	icon = atlantropa_conquestnorth
+		required_missions = { A5F_second_slot4 }
+		provinces_to_highlight = {
+			OR = {
+				area = ngari_area
+
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			ngari_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		effect = {
+							add_country_modifier = {
+				name = "bactria_army1"
+				duration = 7200
+			}
+  							tibet_region  = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+}
+}
+	
+	A5F_dsecond_campaign = {
+	icon = mission_conquer_malwa_guj
+		required_missions = { A5F_asecond_mission }
+		provinces_to_highlight = {
+			OR = {
+				area = kalat_area 
+				area = makran_area				
+
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			makran_area	 = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			kalat_area  = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		effect = {
+					add_country_modifier = {
+				name = "atlantropa_coring"
+				duration = -1
+			}
+  				khorasan_region  = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+					}	
+	  			persian_gulf_coast = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+					}						
+				farsistan_area  = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+					}
+				khuzestan_area  = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+					}	
+						
+
+}
+}
+	
+		A5F_great_trial = {
+	icon = atlantropa_greekarmy
+		required_missions = { A5F_dsecond_campaign }
+		position = 10
+		trigger = {
+			army_size = 100
+			total_development = 500
+			is_great_power = yes
+		}
+
+		effect = {
+
+			add_country_modifier = {
+				name = "atlantropa_army"
+				duration = -1
+			}
+
+}
+}
+			A5F_asian_campaign = {
+	icon = atlantropa_achaemind
+		required_missions = { A5F_great_trial  }
+			position = 11
+		provinces_to_highlight = {
+			region = khorasan_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			khorasan_region	 = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		effect = {
+		
+  				central_asia_region  = { 
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+}
+}
+
+A5F_iraqi_persia_campaign = {
+	icon = atlantropa_mesopataka
+		required_missions = { A5F_third_campaign }
+		provinces_to_highlight = {
+			OR = {
+				area = basra_area	
+				area = iraq_arabi_area	
+				area = al_jazira_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			basra_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			iraq_arabi_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			al_jazira_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		effect = {
+	add_prestige = 20
+		mashriq_region  = { 
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+	}
+	
+	}
+
+A5F_iraqi_egypt_campaign = {
+	icon = kingdom_of_heaven
+		required_missions = { A5F_iraqi_persia_campaign }
+		provinces_to_highlight = {
+						OR = {
+				area = aleppo_area
+				area = syria_area
+				area = palestine_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			aleppo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			syria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			palestine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "conquest_of_the_levant"
+				duration = 5475
+			}
+			delta_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			bahari_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			said_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			vostani_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			al_wahat_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			gulf_of_arabia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			cyrenaica_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	
+	}
+	
+		greco_conquer_egypt = {
+		icon = mission_egyptian_mamluk_soldier
+		required_missions = { A5F_iraqi_egypt_campaign }
+
+		provinces_to_highlight = {
+			OR = {
+				area = delta_area
+				area = bahari_area
+				area = said_area
+				area = vostani_area
+				area = al_wahat_area
+				area = gulf_of_arabia_area
+				area = cyrenaica_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			delta_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			bahari_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			said_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			vostani_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			al_wahat_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			gulf_of_arabia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			cyrenaica_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			egypt_region = {
+				limit = { owned_by = ROOT }
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			#Hejaz:
+			mecca_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			tabuk_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			medina_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			#Rhodes
+			if = {
+				limit = {
+					320 = {
+						NOT = { is_permanent_claim = ROOT }
+						NOT = { is_core = ROOT }
+					}
+				}
+				320 = {
+					add_permanent_claim = ROOT
+				}
+			}
+			#Tripolitania
+			tripolitania_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			djerba_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		
+		ai_weight = {
+			factor = 300
+		}
+	}
+
+	greco_conquer_tripolitania = { #Conquer Tripolitania
+		icon = atlantropa_tripoli
+		required_missions = { greco_conquer_egypt }
+		provinces_to_highlight = {
+			OR = {
+				area = tripolitania_area
+				area = djerba_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			tripolitania_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			djerba_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			tunisia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			kabylia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	greco_conquer_tunisia = { #Conquer Tunisia
+		icon = atlantropa_carthago
+		required_missions = { greco_conquer_tripolitania }
+		provinces_to_highlight = {
+			OR = {
+				area = tunisia_area
+				area = kabylia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			tunisia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			kabylia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			algiers_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			add_claim = 126
+		}
+	}
+	
+	greco_subjugate_algiers = { #Conquer Algiers
+		icon = mission_ottoman_harem
+		required_missions = { greco_conquer_tunisia }
+		provinces_to_highlight = {
+			area = algiers_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			algiers_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "tur_barbary_pirates"
+				duration = 9125
+			}
+		}
+	}
+
+
+
+	}
+		
+	A5F_slot_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+ 
+	potential = {
+		OR = {
+		tag = A5F
+		tag = BA1
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	A5F_tiger = {
+	icon = atlantropa_tiger
+		required_missions = {  }
+		trigger = {
+			crown_land_share = 50
+			reform_level = 4
+			total_development = 1000
+			NOT = { average_home_autonomy = 30 }
+		}
+		effect = {
+			change_government_reform_progress = 50
+			add_country_modifier = {
+				name = "mug_general_land_assessement_modifier"
+				duration = 9125
+			}
+		}
+		ai_weight = {
+			factor = 500	#Tall
+		}
+	}
+	
+		A5F_second_mission = {
+	icon = mission_conquer_the_doab
+		required_missions = { A5F_large_army }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				area = multan_area 
+
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			multan_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		effect = {
+									add_country_modifier = {
+				name = "bactria_army4"
+				duration = 7200
+			}
+  				sindh_area  = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+  				northern_sindh_area  = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+}
+}
+
+		A5F_asecond_mission = {
+	icon = mission_follow_the_brahmaputra
+		required_missions = { A5F_second_mission }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				area = sindh_area
+				area = northern_sindh_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			sindh_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			northern_sindh_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		effect = {
+											add_country_modifier = {
+				name = "bactria_army5"
+				duration = -1
+			}
+  				west_india_region  = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+				}		
+				  				kalat_area  = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+				}			
+					makran_area	  = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+				}					
+						
+
+}
+}
+
+		A5F_gujarat_mission = {
+	icon = mission_conquer_gujarat_dlh
+		required_missions = { A5F_asecond_mission }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				area = saurashtra_area 
+				area = ahmedabad_area			
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			saurashtra_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			ahmedabad_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		effect = {
+			add_yearly_sailors = 10
+			add_country_modifier = {
+				name = "mlw_gujarat_modifier"
+				duration = 7300
+			}				
+}
+}
+		bac_textile_industry = {
+		icon = mission_gujarati_textiles
+		position = 5
+		required_missions = { A5F_gujarat_mission }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			has_textile_trade_goods = yes
+			NOT = { has_building = textile }
+		}
+		trigger = {
+			textile = 4
+		}
+		effect = {
+			add_country_modifier = {
+				name = guj_textile_industry
+				duration = 7300
+			}
+		}
+		ai_weight = {
+			factor = 500	#Tall
+		}
+	}
+	bac_bankers_of_cambay = {
+		icon = mission_bankers_of_cambay
+		required_missions = {
+			bac_textile_industry
+			bac_paper_mills_of_ahmadabad
+		}
+
+		trigger = {
+			owns = 4457
+			4457 = {
+				province_has_center_of_trade_of_level = 3
+			}
+		}
+		effect = {
+			add_dip_power = 50
+			add_estate_jains_loyalty_effect = yes
+			504 = {
+				add_trade_modifier = {
+					who = root
+					duration = 7300
+					power = 50
+					key = guj_gujarati_financial_sector
+				}
+			}
+		}
+		ai_weight = {
+			factor = 500	#Tall
+		}
+	}
+	
+		bac_shipyards_of_gujarat = {
+		icon = mission_shipyards_of_gujarat
+		required_missions = {
+			bac_bankers_of_cambay
+		}
+		provinces_to_highlight = {
+			owned_by = ROOT
+			has_wharf_trade_goods = yes
+			NOT = { has_building = wharf }
+		}
+		trigger = {
+			wharf = 2
+		}
+		effect = {
+			add_permanent_claim = 1099
+			add_permanent_claim = 1192
+			add_permanent_claim = 1201
+			add_permanent_claim = 4020
+			add_country_modifier = {
+				name = "gujarati_shipyards"
+				duration = 10950
+			}
+		}
+		ai_weight = {
+			factor = 500	#Tall
+		}
+	}
+		bac_naval_dominance = {
+		icon = mission_naval_dominance
+		required_missions = {
+			bac_shipyards_of_gujarat
+		}
+
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					OR = {
+						province_id = 400
+						province_id = 503
+						province_id = 504
+						province_id = 2231
+						province_id = 2999
+					}
+					NOT = { owned_by = ROOT }
+				}
+				province_id = 504
+			}
+		}
+
+		trigger = {
+			owns = 400
+			owns = 503
+			owns = 504
+			owns = 2231
+			owns = 2999
+			504 = {
+				trade_share = {
+					country = ROOT
+					share = 85
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "gujarati_naval_dominance_modifier"
+				duration = 10950
+			}
+			1340 = {
+				add_trade_modifier = {
+					who = root
+					duration = 10950
+					power = 50
+					key = gujarati_naval_dominance
+				}
+			}
+		}
+		ai_weight = {
+			factor = 75	#Shouldn't leave India
+		}
+	}
+
+		A5F_third_campaign = {
+		position = 11
+	icon = atlantropa_iranba
+		required_missions = { A5F_great_trial }
+		provinces_to_highlight = {
+			OR = {
+				area = persian_gulf_coast
+				area = farsistan_area			
+				area = khuzestan_area		
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			persian_gulf_coast	 = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			farsistan_area  = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			khuzestan_area  = { type = all	country_or_non_sovereign_subject_holds = ROOT }		
+		}
+
+		effect = {
+	add_prestige = 20
+	
+		
+			basra_area	 = { 
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+			iraq_arabi_area	 = { 
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}				
+			al_jazira_area = { 
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+	
+		persia_region = { 
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+	}
+	
+	}	
+	A5F_north_persia_campaign = {
+	icon = mission_abu_saids_dream
+		required_missions = { A5F_third_campaign }
+		provinces_to_highlight = {
+			OR = {
+				region = persia_region	
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			persia_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		effect = {
+	add_prestige = 20
+		caucasia_region  = { 
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+	}
+	
+	}
+
+	A5F_arabia_campaign = {
+	icon = mission_afghan_frontier
+		required_missions = { A5F_north_persia_campaign }
+		provinces_to_highlight = {
+			OR = {
+				area = bahrain_area 
+				area = pirate_coast_area
+				area = mascat_area 
+				area = oman_area
+				
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }		
+			
+		}
+		trigger = {
+			bahrain_area  = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			pirate_coast_area  = { type = all	country_or_non_sovereign_subject_holds = ROOT }			
+			mascat_area   = { type = all	country_or_non_sovereign_subject_holds = ROOT }			
+			oman_area  = { type = all	country_or_non_sovereign_subject_holds = ROOT }			
+		}
+
+		effect = {
+	add_prestige = 20
+		arabia_region = { 
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+	}
+	
+	}
+	
+	A5F_arabia_conquest = {
+		position = 17	
+	icon = mission_advance_to_the_arabian_sea
+		required_missions = { A5F_arabia_campaign }
+		provinces_to_highlight = {
+			OR = {
+				region = arabia_region
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }		
+			
+		}
+		trigger = {
+			arabia_region  = { type = all	country_or_non_sovereign_subject_holds = ROOT }			
+		}
+
+		effect = {
+	add_prestige = 20
+				add_country_modifier = {
+				name = atlantropa_african_charter
+				duration = -1
+			}
+
+	}
+	
+	}	
+	
+
+	}
+	
+
+
+
+
+
+A5F_slot_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+ 
+	potential = {
+		OR = {
+		tag = A5F
+		tag = BA1
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+
+	a5f_local_temples = {
+		icon = mission_patronize_local_gods
+		required_missions = { a5f_war_stability }
+		position = 3
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 15
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = vij_local_gods_modifier
+				duration = 7300
+			}
+		}
+	}
+	
+	a5f_evamanisation = {
+   icon = atlantropa_zaroastrian
+      required_missions = { a5f_local_temples }
+
+		trigger = {
+num_of_owned_provinces_with = {
+	value = 40
+	religion = ROOT
+}
+}
+		effect = {
+	add_stability = 1	
+	add_dip_power = 150	
+		add_country_modifier = {
+		name = "atlantropa_romanisation"
+	duration = 3475
+				}
+	578 = {
+	add_building = university}	
+}
+
+			}
+			
+		a5f_romanisation = {
+   icon = atlantropa_hellenism
+      required_missions = { a5f_evamanisation }
+
+		trigger = {
+num_of_owned_provinces_with = {
+	value = 40
+	culture_group = ROOT
+}
+}
+		effect = {
+	add_stability = 1	
+	add_adm_power = 150	
+	add_dip_power = 150	
+	add_mil_power = 150	
+	2077 = {
+	add_building = university}	
+}
+
+			}
+
+
+bac_conquer_assam = {
+		icon = mission_conquer_assam
+		required_missions = { A5F_campaign_bengal }
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				area = north_bengal_area
+				area = assam_area
+				area = tripura_area
+				area = naga_hills_area
+			}
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			north_bengal_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			assam_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			tripura_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+			naga_hills_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+		}
+		effect = {
+			add_yearly_manpower = 1
+			kachin_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			chindwin_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			karenni_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			shan_hill_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		}
+		
+		bac_conquer_burma = {
+		icon = mission_conquer_burma
+		required_missions = { bac_conquer_assam  }
+		position = 3
+		provinces_to_highlight = {
+			region = burma_region
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		trigger = {
+			burma_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT	
+			}
+		}
+		effect = {
+			custom_tooltip = bng_burma.tooltip
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						region = burma_region
+					}
+					add_province_modifier = {
+						name = "bng_conquest_burma"
+						duration = 7300
+					}
+				}
+			}
+			yun_gui_borderland_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			yun_gui_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 50	#For the love of everything what is holy, Bengal should stop trying to go east...
+		}
+	}
+		bac_subah_of_ayuddhya = {
+		icon = mission_subah_of_ayuddhya
+		required_missions = { bac_conquer_burma }
+		provinces_to_highlight = {
+			OR = {
+				area = tenasserim_area
+				area = north_tenasserim_area
+				area = central_thai_area
+				area = sukhothai_area 
+				area = northern_thai_area
+				area = north_laos_area
+				area = champasak_area
+				area = vientiane_area
+				area = khorat_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			tenasserim_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			north_tenasserim_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			central_thai_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			sukhothai_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			northern_thai_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			north_laos_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			champasak_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			vientiane_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			khorat_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			
+		}
+		effect = {
+			600 = {
+				add_province_modifier = {
+					name = "subah_of_ayuddhya_modifier"
+					duration = -1
+				}
+			}
+			malacca_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			malaya_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			north_malaya_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			johor_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			vietnam_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			red_river_delta_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			guangxi_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			west_guangdong_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			guangdong_area = {
+				limit = {
+					NOT = {
+						is_permanent_claim = ROOT
+						is_core = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 0	#Too far away
+		}
+	}
+	
+		bac_malaccan_viceroyalty = {
+		position = 13
+		icon = mission_malayan_viceroyalty
+		required_missions = { bac_subah_of_ayuddhya }
+		provinces_to_highlight = {
+			OR = {
+				area = malaya_area
+				area = north_malaya_area
+				area = malacca_area
+				area = johor_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			malacca_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			north_malaya_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			malaya_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			johor_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_navy_tradition = 20
+			add_country_modifier = {
+				name = "mug_malay_seamanship"
+				duration = -1
+			}
+			1361 = {
+				add_trade_modifier = {
+					who = root
+					duration = 9125
+					power = 50
+					key = mug_malaccan_viceroyalty_established
+				}
+			}
+		}
+		ai_weight = {
+			factor = 0	#Too far away
+		}
+	}
+		bac_austrlian_viceroyalty = {
+				position = 15
+		icon = atlantropa_australia 
+		required_missions = { bac_malaccan_viceroyalty }
+			provinces_to_highlight = {
+			colonial_region = colonial_australia
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			has_discovered = ROOT
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 1 # how many provinces should they own in this colonial region?
+				colonial_region = colonial_australia
+				is_city = yes
+			}
+		}
+		effect = {
+			add_navy_tradition = 20
+			add_country_modifier = {
+				name = "arhuria_canada_colonies_mod"
+				duration = 12125
+			}
+		}
+		ai_weight = {
+			factor = 0	#Too far away
+		}
+	}
+
+		bac_californian_viceroyalty = {
+		position = 17
+		icon = atlantropa_arthurianfleet 
+		required_missions = { bac_austrlian_viceroyalty }
+			provinces_to_highlight = {
+			colonial_region = colonial_california
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			has_discovered = ROOT
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 1 # how many provinces should they own in this colonial region?
+				colonial_region = colonial_california
+				is_city = yes
+			}
+		}
+		effect = {
+			add_navy_tradition = 20
+			add_country_modifier = {
+				name = "arhuria_thirteen_colonies_mod"
+				duration = 12125
+			}
+		} 
+		ai_weight = {
+			factor = 0	#Too far away
+		}
+	}
+	
+	}

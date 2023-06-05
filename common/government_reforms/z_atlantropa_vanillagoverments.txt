@@ -1,0 +1,262 @@
+
+
+
+
+
+polish_great_sejm = {
+	icon = "parliament_hall"
+	allow_normal_conversion = no
+	potential = {
+		have_had_reform = polish_great_sejm
+	}
+	lock_level_when_selected = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 25
+	nation_designer_trigger = {
+		has_dlc = "Lions of the North"
+	}
+	legacy_equivalent = feudal_monarchy
+	modifiers = {
+		nobles_influence_modifier = 0.05
+		max_absolutism = -20
+		global_unrest = -1 
+		reform_progress_growth = -0.2
+		
+	}
+
+	conditional = {
+		allow = { has_dlc = "Common Sense" }
+		has_parliament = yes
+	}
+	government_abilities = {
+
+		szlachtapower_mechanic
+	}
+			factions = {
+			pl_reformaci
+			pl_magnaci
+		}
+
+}
+
+polish_elective_monarchy = {
+	icon = "elective_monarchy"
+	allow_normal_conversion = no 
+	lock_level_when_selected = yes
+	potential = {
+		OR = {
+			has_reform = polish_elective_monarchy
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = polish_elective_monarchy
+			}
+		}
+	}
+	legacy_equivalent = elective_monarchy_legacy
+	valid_for_nation_designer = yes
+	nation_designer_cost = 50
+	nation_designer_trigger = {
+		has_dlc = "Lions of the North"
+	}
+	modifiers = {
+		global_unrest = -1
+		max_absolutism = -30
+		nobles_influence_modifier = 0.05
+		reform_progress_growth = -0.2
+	}
+	government_abilities = {
+
+		szlachtapower_mechanic
+	}
+
+	conditional = {
+		allow = { has_dlc = "Res Publica" }
+		is_elective = yes
+		custom_attributes = {
+			has_polish_election = yes
+			locked_government_type = yes
+		}
+	}
+
+	conditional = {
+		allow = { NOT = { has_dlc = "Res Publica" } }
+		custom_attributes = {
+			locked_government_type = yes
+		}
+	}
+	factions = {
+		pl_reformaci
+		pl_magnaci
+	}
+	conditional = {
+		allow = {
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+		}
+		has_parliament = yes
+	}
+}
+
+merchants_reform = {
+	icon = "politician"
+	allow_normal_conversion = yes
+	modifiers = {
+		max_absolutism = -10
+		merchants = 1
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+	legacy_equivalent = merchant_republic
+	potential = {
+		NOT = {
+			AND = {
+				tag = VEN
+				NOT = { map_setup = map_setup_random }
+			}
+		}
+		NOT = { has_reform = crown_colony_government }
+		NOT = { has_reform = private_enterprise_colony_government }
+		NOT = { has_reform = self_governing_colony_government }
+	}
+	trigger = {
+		OR = {
+			has_reform = merchants_reform
+			crown_stronger_than_estate = { estate = all }
+		}
+	}
+	boost_income = yes
+	duration = 4
+	factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			NOT = { has_dlc = "Mare Nostrum" }
+		}
+		can_use_trade_post = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Mare Nostrum"
+			NOT = { has_dlc = "Res Publica" }
+		}
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	government_abilities = {
+		pho_naval_professionalism_mechanic
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			has_dlc = "Mare Nostrum"
+		}
+		can_use_trade_post = yes
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+		is_merchant_republic = yes
+		elections_increase_factions_influence = yes
+	}
+	ai = {
+		factor = 0.75 #generic
+		
+		modifier = {
+			factor = 0
+			num_of_cities = 11
+		}
+		
+		modifier = {
+			factor = 0
+			capital_scope = { has_port = no }
+		}
+		
+		modifier = {
+			factor = 0
+			NOT = {
+				capital_scope = { province_has_center_of_trade_of_level = 1 }
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			is_subject = yes
+		}
+	}
+}
+
+venice_merchants_reform = {
+	icon = "trading_city"
+	allow_normal_conversion = yes
+	modifiers = {
+		max_absolutism = -10
+		merchants = 1
+		yearly_corruption = -0.1
+		monarch_lifespan = 0.25
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+	legacy_equivalent = venetian_merchant_republic
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = VEN
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = venice_merchants_reform
+			}
+		}
+	}
+	boost_income = yes
+	factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			NOT = { has_dlc = "Mare Nostrum" }
+		}
+		can_use_trade_post = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Mare Nostrum"
+			NOT = { has_dlc = "Res Publica" }
+		}
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			has_dlc = "Mare Nostrum"
+		}
+		can_use_trade_post = yes
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+		lottery_election = yes
+		election_on_death = yes
+		is_merchant_republic = yes
+		elections_increase_factions_influence = yes
+		bonus_stats_for_elected_ruler = yes
+	}
+	government_abilities = {
+		pho_naval_professionalism_mechanic
+	}
+	has_term_election = no
+}
+

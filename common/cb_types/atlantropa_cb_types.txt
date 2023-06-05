@@ -1,0 +1,28 @@
+cb_byzantine_war_on_empire = {
+	is_triggered_only = yes
+		months = 360
+	war_goal = war_atlantropa_empire
+}
+
+
+cb_byzantine_autonomous_province = {
+	valid_for_subject = no
+	prerequisites_self = {
+		OR = {
+			tag = BYZ
+			tag = ROM
+		}
+	}
+
+	prerequisites = {
+		is_subject = no
+		is_neighbor_of = FROM
+		FROM =  { total_development = 20 } 		
+		FROM = { NOT = { total_development = 200 } }
+		FROM = { NOT = { total_development = ROOT } }		
+		NOT = { truce_with = FROM }		
+	}
+
+	war_goal = byzantine_provinceindependece
+}
+

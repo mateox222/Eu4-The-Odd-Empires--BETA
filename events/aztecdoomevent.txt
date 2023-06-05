@@ -1,0 +1,32 @@
+namespace = aztecantlantropadoom
+country_event = {
+	id = aztecantlantropadoom.10
+	title = aztecantlantropadoom.10.t
+	desc = aztecantlantropadoom.10.d
+	picture = aztecbattleofpyramids_eventPicture
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = blacksun.10a 
+		add_stability = -4	
+		set_country_flag = atlantropa_aztec_doom2
+	}
+}
+country_event = {
+	id = aztecantlantropadoom.20
+	title = aztecantlantropadoom.20.t
+	desc = aztecantlantropadoom.20.d
+	picture = AZTEC_PYRAMID_eventPicture
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = aztecantlantropadoom.20a 
+
+		add_stability = 3
+		clr_country_flag = atlantropa_aztec_doom2
+		add_country_modifier = { 
+			name = atl_recentlydoom
+			duration = 7200
+		}
+	}
+}

@@ -1,0 +1,1494 @@
+a13_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = A13
+	}
+	has_country_shield = yes
+	
+	fjordland_infiltrate = {
+		icon = mission_plc_edict_education
+		required_missions = { }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			if = {
+				limit = {
+					exists = DTT
+				}
+				has_spy_network_in = {
+					who = DTT
+					value = 40
+				}
+			}
+			else = {
+				OR = {
+					5004 = {
+						is_claim = ROOT
+					}
+					4992 = {
+						is_claim = ROOT
+					}
+					4141 = {
+						is_claim = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					exists = DTT
+				}
+				add_casus_belli = {
+    				target = DTT
+    				type = cb_vassalize_mission
+    				months = 120
+				}
+			}
+			else = {
+				fiskland_area = {
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_subjugate = {
+		icon = mission_serfdom
+		required_missions = { fjordland_infiltrate }
+		provinces_to_highlight = {
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			area = fiskland_area
+		}
+		trigger = {
+			fiskland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = fjordland_fjordish_unity
+				duration = 3650
+			}
+			if = {
+				limit = {
+					mil = 6
+				}
+				add_mil_power = 100
+			}
+			else = {
+				change_mil = 1
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_one = {
+		icon = mission_develop_the_scandes
+		required_missions = { fjordland_subjugate }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			if = {
+				limit = {
+					exists = DTT
+				}
+				DTT = {
+					is_subject_of = ROOT
+					has_opinion = {
+						who = ROOT
+						value = 50
+					}
+					NOT = {
+						liberty_desire = 25
+					}
+					NOT = {
+						total_development = 50
+					}
+				}
+			}
+			else = {
+				fiskland_area = {
+					type = all
+					NOT = {
+						local_autonomy = 1
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					exists = DTT
+					DTT = {
+						is_subject_of = ROOT
+					}
+				}
+				inherit = DTT
+			}
+			add_country_modifier = {
+				name = fjordland_fiskerish_dissent
+				duration = 1825
+			}
+			add_accepted_culture = fiskerisch
+			add_permanent_claim = 54
+			add_permanent_claim = 98
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_kolberg = {
+		icon = mission_bane_of_the_hansa
+		required_missions = { fjordland_one }
+		provinces_to_highlight = {
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			OR = {
+				province_id = 54
+				province_id = 98
+			}
+		}
+		trigger = {
+			54 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			98 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			54 = {
+				change_culture = ROOT
+				change_province_name = "Mestad"
+				rename_capital = "Mestad"
+			}
+			98 = {
+				change_culture = ROOT
+				change_province_name = "Kolberg"
+				rename_capital = "Kolberg"
+			}
+			braunschweig_area = {
+				add_permanent_claim = ROOT
+			}
+			provence_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_crossing = {
+		icon = mission_expand_into_the_forest
+		required_missions = { fjordland_kolberg }
+		provinces_to_highlight = {
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			OR = {
+				area = braunschweig_area
+				area = provence_area
+			}
+		}
+		trigger = {
+			braunschweig_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			provence_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			define_advisor = {
+				type = quartermaster
+				skill = 2
+				discount = yes
+			}
+			languedoc_area = {
+				add_permanent_claim = ROOT
+			}
+			savoy_dauphine_area = {
+				add_permanent_claim = ROOT
+			}
+			westphalia_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_recruit = {
+		icon = mission_swedish_military_advise
+		required_missions = { fjordland_crossing }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			years_of_income = 2.5
+			num_of_allies = 2
+			OR = {
+				army_tradition = 60
+				army_reformer = 2
+			}
+			OR = {
+				diplomatic_reputation = 4
+				diplomat = 2
+			}
+		}
+		effect = {
+			create_general = { tradition = 80 }
+			create_general = { tradition = 80 }
+			add_years_of_income = -2.5
+			add_country_modifier = {
+				name = fjordland_army_modernization
+				duration = 9125
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_reform = {
+		icon = mission_modern_knight_army
+		required_missions = { fjordland_recruit }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			mil_tech = 10
+			land_forcelimit = 25
+			addadministrator2_tod = 3
+			commandant = 3
+			OR = {
+				innovativeness = 50
+				army_professionalism = 0.20
+			}
+			OR = {
+				NOT = {
+					num_of_estate_privileges = {
+						estate = estate_nobles
+						value = 2
+					}
+				}
+				NOT = {
+					estate_influence = {
+    					estate = estate_nobles
+    					influence = 40
+					}
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = fjordland_royal_fjordish_army
+				duration = -1
+			}
+			add_estate_loyalty = {
+    			estate = estate_nobles
+    			loyalty = -10
+			}
+			add_stability = -1
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+}
+
+a13_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = A13
+	}
+	has_country_shield = yes
+	
+	fjordland_quell = {
+		icon = mission_pol_imperial_commonwealth
+		required_missions = { }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			crown_land_share = estate_nobles
+			estate_loyalty = {
+    			estate = estate_burghers
+    			loyalty = 75
+			}
+			estate_loyalty = {
+    			estate = estate_church
+    			loyalty = 75
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = fjordland_nobles_quelled
+				duration = 7300
+			}
+			change_estate_land_share = {
+    			estate = estate_nobles
+    			share = -20
+			}
+			add_stability = -2
+			capital_scope = {
+				spawn_rebels = {
+    				type = noble_rebels
+    				size = 2
+				}
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_merchant = {
+		icon = mission_dominate_home_trade_node
+		required_missions = { fjordland_quell }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				province_has_center_of_trade_of_level = 2
+			}
+			num_of_estate_privileges = {
+				estate = estate_burghers
+				value = 6
+			}
+			corruption = 4
+		}
+		effect = {
+			add_country_modifier = {
+				name = fjordland_merchant_state
+				duration = -1
+			}
+			add_mercantilism = 5
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_freedom = {
+		icon = mission_russian_navy
+		required_missions = { fjordland_merchant }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			has_reform = parliamentary_reform
+			has_estate_privilege = estate_burghers_economical_boost
+			NOT = {
+				estate_influence = {
+    				estate = estate_church
+    				influence = 30
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = fjordland_freedom_mod
+				duration = -1
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_rival = {
+		icon = mission_eric_the_pirate
+		required_missions = { fjordland_one }
+		provinces_to_highlight = {
+			if = {
+				limit = {
+					NOT = {
+						exists = DAN
+					}
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				province_id = 4995
+			}
+			else = {
+				owned_by = DAN
+			}
+		}
+		trigger = {
+			if = {
+				limit = {
+					exists = DAN
+				}
+				OR = {
+					is_rival = DAN
+					army_size = DAN
+				}
+				DAN = {
+					custom_trigger_tooltip = {
+						tooltip = has_been_insulted_by_root
+						OR = {
+							has_opinion_modifier = {
+								who = ROOT
+								modifier = insulted
+							}
+							has_opinion_modifier = {
+								who = ROOT
+								modifier = scornfully_insulted
+							}
+						}
+					}
+				}
+				OR = {
+					monthly_dip = 10
+					dip = 4
+				}
+				has_regency = no
+			}
+			else = {
+				OR = {
+					owns = 4995
+					4995 = {
+						is_claim = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = fjordland_danish_gambit
+				duration = 1825
+			}
+			if = {
+				limit = {
+					exists = DAN
+				}
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 120
+					target = DAN
+				}
+			}
+			else = {
+				jutland_area = {
+					add_permanent_claim = ROOT
+				}
+				skaneland_area = {
+					add_permanent_claim = ROOT
+				}
+				holstein_area = {
+					add_permanent_claim = ROOT
+				}
+				denmark_area = {
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_jutland = {
+		icon = mission_danish_flag
+		required_missions = { fjordland_rival }
+		provinces_to_highlight = {
+			if = {
+				limit = {
+					exists = DAN
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				owned_by = DAN
+			}
+			else = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				OR = {
+					area = jutland_area
+					area = holstein_area
+					area = skaneland_area
+					area = denmark_area
+				}
+			}
+		}
+		trigger = {
+			if = {
+				limit = {
+					exists = DAN
+				}
+				DAN = {
+					is_subject_of = ROOT
+				}
+			}
+			else = {
+				jutland_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				skaneland_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				holstein_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				denmark_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
+		effect = {
+			vestjylland_area = {
+				add_province_modifier = {
+					name = fjordland_united_jutland_prov
+					duration = -1
+				}
+			}
+			jutland_area = {
+				add_province_modifier = {
+					name = fjordland_united_jutland_prov
+					duration = -1
+				}
+			}
+			if = {
+				limit = {
+					exists = SWE
+				}
+				custom_tooltip = fjordlandSwedenClaims
+				hidden_effect = {
+					SWE = {
+						every_owned_province = {
+							add_permanent_claim = ROOT
+						}
+					}	
+				}
+			}
+			else = {
+				1 = {
+					add_permanent_claim = ROOT
+				}
+				2 = {
+					add_permanent_claim = ROOT
+				}
+				1985 = {
+					add_permanent_claim = ROOT
+				}
+				7 = {
+					add_permanent_claim = ROOT
+				}
+				4164 = {
+					add_permanent_claim = ROOT
+				}
+				5 = {
+					add_permanent_claim = ROOT
+				}
+			}
+			13 = {
+				add_permanent_claim = ROOT
+			}
+			1775 = {
+				add_permanent_claim = ROOT
+			}
+			4999 = {
+				add_permanent_claim = ROOT
+			}
+			lower_saxony_area = {
+				add_permanent_claim = ROOT
+			}
+			mecklenburg_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_continental = {
+		icon = mission_thirty_years_war
+		required_missions = { fjordland_crossing fjordland_jutland }
+		provinces_to_highlight = {
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			OR = {
+				area = lower_saxony_area
+				area = mecklenburg_area
+				area = languedoc_area
+				area = savoy_dauphine_area
+				area = westphalia_area
+			}
+		}
+		trigger = {
+			lower_saxony_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			mecklenburg_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			languedoc_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			savoy_dauphine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			westphalia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_power_projection = {
+				type = mission_rewards_power_projection
+				amount = 25
+			}
+			add_historical_rival = SAX
+			SAX = {
+				add_historical_rival = ROOT
+			}
+			north_german_region = {
+				add_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_slavic = {
+		icon = mission_dismantle_hre
+		required_missions = { fjordland_continental }
+		provinces_to_highlight = {
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			region = north_german_region
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 25
+				region = north_german_region
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = fjordland_the_serbian_wars
+				duration = -1
+			}
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+}
+
+a13_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = A13
+	}
+	has_country_shield = yes
+	
+	fjordland_control = {
+		icon = mission_look_west
+		required_missions = { }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			num_of_light_ship = 10
+			home_trade_node = {
+				ROOT = {
+					trading_policy_in_node = {
+						node = PREV
+						policy = hostile_trading
+					}
+				}
+			}
+		}
+		effect = {
+			1745 = {
+				add_trade_modifier = {
+    				who = ROOT
+    				duration = 7300
+    				power = 50
+    				key = FJORDLAND_FISH
+				}
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_fleet = {
+		icon = mission_danish_navy
+		required_missions = { fjordland_control fjordland_expand }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			num_of_admirals = 1
+			navy_size = 20
+			OR = {
+				num_of_galley = 10
+				num_of_heavy_ship = 5
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = fjordland_the_new_fleet
+				duration = 9125
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_rule = {
+		icon = mission_rb_grow_the_channel
+		required_missions = { fjordland_fleet }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			if = {
+				limit = {
+					exists = GBR
+				}
+				navy_size = GBR
+			}
+			if = {
+				limit = {
+					exists = MJO
+				}
+				navy_size = MJO
+			}
+			if = {
+				limit = {
+					exists = DAN
+				}
+				navy_size = DAN
+			}
+			if = {
+				limit = {
+					exists = SWE
+				}
+				navy_size = SWE
+			}
+			if = {
+				limit = {
+					exists = NOR
+				}
+				navy_size = NOR
+			}
+			if = {
+				limit = {
+					exists = X00
+				}
+				navy_size = X00
+			}
+			if = {
+				limit = {
+					exists = ASU
+				}
+				navy_size = ASU
+			}
+			if = {
+				limit = {
+					exists = A71
+				}
+				navy_size = X1L
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					dip = 6
+				}
+				add_dip_power = 100
+			}
+			else = {
+				change_dip = 1
+			}
+			atlantropa_doggerlanddwa = {
+				add_permanent_claim = ROOT
+			}
+			subarctic_islands_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_doggerland = {
+		icon = mission_heart_of_the_hansa
+		required_missions = { fjordland_rule }
+		provinces_to_highlight = {
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			area = atlantropa_doggerlanddwa
+		}
+		trigger = {
+			atlantropa_doggerlanddwa = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			333 = {
+				add_province_modifier = {
+					name = fjordland_into_the_beyond
+					duration = -1
+				}
+			}
+			hyperborea_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_niflish = {
+		icon = mission_north_sea_empire
+		required_missions = { fjordland_doggerland }
+		provinces_to_highlight = {
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			region = hyperborea_region
+		}
+		trigger = {
+			hyperborea_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			define_advisor = {
+				type = administrator2_tod
+				skill = 3
+				culture = nilfhish
+				religion = ROOT
+				cost_multiplier = 0.35
+				location = 5098
+			}
+			thule_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_sound = {
+		icon = mission_end_the_sound_toll
+		required_missions = { fjordland_jutland }
+		provinces_to_highlight = {
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			culture = swedish
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				culture = swedish
+			}
+		}
+		effect = {
+			12 = {
+				add_trade_modifier = {
+    				who = ROOT
+    				duration = 10950
+    				power = 75
+    				key = FJORDLAND_CONTROLLING_SOUND
+				}
+			}
+			eastern_norway = {
+				add_permanent_claim = ROOT
+			}
+			western_norway = {
+				add_permanent_claim = ROOT
+			}
+			16 = {
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_skagerrak = {
+		icon = mission_the_kalmar_union
+		required_missions = { fjordland_sound }
+		provinces_to_highlight = {
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			OR = {
+				area = eastern_norway
+				area = western_norway
+				province_id = 16
+			}
+		}
+		trigger = {
+			eastern_norway = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			western_norway = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			16 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_ruler_modifier = {
+				name = fjordland_emperor
+				duration = -1
+			}
+			add_country_modifier = {
+				name = fjordland_integrate_denmark
+				duration = 18250
+			}
+			set_government_rank = 3
+			custom_tooltip = allow_earlier_scandinavia_formation_tt
+			hidden_effect = { set_country_flag = can_form_scandinavia_earlier }
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+}
+
+a13_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = A13
+	}
+	has_country_shield = yes
+	
+	fjordland_expand = {
+		icon = mission_eastern_european_city
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 4991
+		}
+		trigger = {
+			if = {
+				limit = {
+					4991 = {
+						NOT = {
+							owned_by = ROOT
+						}
+					}
+				}
+				owns = 4991
+			}
+			4991 = {
+				OR = {
+					development = 10
+					has_building = dock
+					has_building = drydock
+				}
+			}
+		}
+		effect = {
+			4991 = {
+				add_province_modifier = {
+					name = fjordland_port_of_gamelby
+					duration = -1
+				}
+			}
+			4991 = {
+				center_of_trade = 1
+			}
+			add_navy_tradition = 10
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_breweries = {
+		icon = mission_vodka_monopoly
+		required_missions = { }
+		provinces_to_highlight = {
+			province_id = 4993
+		}
+		trigger = {
+			4993 = {
+				base_production = 10
+			}
+		}
+		effect = {
+			4993 = {
+				add_province_modifier = {
+					name = fjordland_naerhav
+					duration = -1
+				}
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_serboslavic = {
+		icon = mission_european_politics
+		required_missions = { fjordland_breweries }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			any_ally = {
+				culture_group = south_slavic
+			}
+			OR = {
+				trader = 3
+				diplomat1_tod = 3
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = fjordland_continental_trade
+				duration = 9125
+			}
+			every_ally = {
+				limit = {
+					culture_group = south_slavic
+				}
+				add_trust = {
+    				who = ROOT
+    				value = 25
+    				mutual = yes
+				}
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_european = {
+		icon = return_visby_to_the_league
+		required_missions = { fjordland_rule fjordland_serboslavic }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			12 = {
+				has_merchant = ROOT
+			}
+			25 = {
+				has_merchant = ROOT
+			}
+			61 = {
+				has_merchant = ROOT
+			}
+			1876 = {
+				has_merchant = ROOT
+			}
+			1745 = {
+				has_merchant = ROOT
+			}
+		}
+		effect = {
+			1876 = {
+				add_trade_modifier = {
+    				who = ROOT
+    				duration = 5475
+    				power = 100
+    				key = FJORDLAND_TRADE
+				}
+			}
+			61 = {
+				add_trade_modifier = {
+    				who = ROOT
+    				duration = 5475
+    				power = 100
+    				key = FJORDLAND_TRADE
+				}
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_doggish = {
+		icon = mission_rb_cod_wars
+		required_missions = { fjordland_doggerland }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 4560
+				province_id = 333
+				province_id = 4559
+			}
+			NOT = {
+				base_production = 5
+			}
+		}
+		trigger = {
+			4560 = {
+				base_production = 5
+			}
+			333 = {
+				base_production = 5
+			}
+			4559 = {
+				base_production = 5
+			}
+		}
+		effect = {
+			4560 = {
+				add_province_modifier = {
+					name = fjordland_doggish_fisheries
+					duration = -1
+				}
+			}
+			333 = {
+				add_province_modifier = {
+					name = fjordland_doggish_fisheries
+					duration = -1
+				}
+			}
+			4559 = {
+				add_province_modifier = {
+					name = fjordland_doggish_fisheries
+					duration = -1
+				}
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_thule = {
+		icon = mission_norse_faith
+		required_missions = { fjordland_niflish }
+		provinces_to_highlight = {
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			region = thule_region
+		}
+		trigger = {
+			thule_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			create_explorer = {
+				tradition = 100
+			}
+			thule_region = {
+				limit = {
+					NOT = {
+						religion = ROOT
+					}
+				}
+				add_province_modifier = {
+					name = fjordland_accursed_heathens
+					duration = -1
+				}
+			}
+			frischland_region = {
+				add_permanent_claim = ROOT
+			}
+			greenland_area = {
+				add_permanent_claim = ROOT
+			}
+			newfoundland_area = {
+				add_permanent_claim = ROOT
+			}
+			james_bay_area = {
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_west = {
+		icon = mission_colonize_the_caribbean
+		required_missions = { fjordland_thule }
+		provinces_to_highlight = {
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			colonial_region = colonial_eastern_america
+		}
+		trigger = {
+			num_of_conquistadors = 1
+			any_owned_province = {
+				colonial_region = colonial_eastern_america
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = fjordland_the_new_world
+				duration = 9125
+			}
+			northeast_america_region = {
+				add_permanent_claim = ROOT
+			}
+			southeast_america_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+}
+
+a13_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = A13
+	}
+	has_country_shield = yes
+	
+	fjordland_build = {
+		icon = mission_land_of_churches
+		required_missions = { }
+		provinces_to_highlight = {
+			area = vestjylland_area
+			NOT = {
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		trigger = {
+			vestjylland_area = {
+				type = all
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		effect = {
+			add_papal_influence = 50
+			add_church_power = 100
+			add_fervor = 100
+			add_splendor = 250
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_naval = {
+		icon = mission_danzig_or_war
+		required_missions = { fjordland_expand }
+		provinces_to_highlight = {
+			province_id = 4991
+		}
+		trigger = {
+			dip_tech = 8
+			4991 = {
+				OR = {
+					has_building = shipyard
+					has_building = grand_shipyard
+				}
+			}
+		}
+		effect = {
+			4991 = {
+				add_unit_construction = {
+					type = heavy_ship
+					amount = 5
+					speed = 0.25
+					cost = 0
+				}
+			}
+			add_mil_power = 50
+			add_dip_power = 50
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_prosperity = {
+		icon = mission_entrepot_of_india
+		required_missions = { fjordland_breweries }
+		provinces_to_highlight = {
+			OR = {
+				area = vestjylland_area
+				area = fiskland_area
+			}
+			NOT = {
+				is_prosperous = yes
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = fjordlandProsperity
+				vestjylland_area = {
+					type = all
+					is_prosperous = yes
+				}
+				fiskland_area = {
+					type = all
+					is_prosperous = yes
+				}
+			}
+		}
+		effect = {
+			4997 = {
+				change_trade_goods = glass
+			}
+			4996 = {
+				change_trade_goods = cloth
+			}
+			4991 = {
+				change_trade_goods = naval_supplies
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_diversify = {
+		icon = mission_industria_sedera
+		required_missions = { fjordland_prosperity }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			trade_income_percentage = 0.40
+		}
+		effect = {
+			add_years_of_income = 1
+			add_stability = 1
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_manufacturing = {
+		icon = mission_industrial_forging
+		required_missions = { fjordland_european fjordland_diversify }
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+			        has_building = wharf
+			        has_building = weapons
+			        has_building = textile
+			        has_building = plantations
+			        has_building = tradecompany
+			        has_building = mills
+		        }
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = fjordland_manufacturing
+				duration = 3650
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_industrial = {
+		icon = industrialized_rhineland
+		required_missions = { fjordland_manufacturing }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			trade_goods = coal
+		}
+		trigger = {
+			furnace = 3
+		}
+		effect = {
+			add_country_modifier = {
+				name = fjordland_industrial_revolution
+				duration = -1
+			}
+			add_yearly_manpower = 5
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	fjordland_arctic = {
+		icon = mission_protect_white_sea_trade
+		required_missions = { fjordland_thule }
+		provinces_to_highlight = {
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			OR = {
+				area = greenland_area
+				area = james_bay_area
+			}
+		}
+		trigger = {
+			greenland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				area = james_bay_area
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = fjordland_arctic_navigation
+				duration = -1
+			}
+			canada_region = {
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+}

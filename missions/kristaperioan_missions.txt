@@ -1,0 +1,514 @@
+a2c_military_missions = { #Series name is displayed over the slot?
+	slot = 2 #ie, second upper left column
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes #Can exist under the series itself or within individual missions.
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = A2C
+	}
+	has_country_shield = yes
+	
+	#missions
+	#1st tier
+	build_army_mission_a2c = { #Localized as reclaim_maine_title and reclaim_maine_desc
+		icon = atlantropa_waitingforantichrist
+		required_missions = {  } #None
+		trigger = {
+			army_size_percentage = 1 #What you need to complete the mission, displayed for mission tooltip
+		}
+		effect = {
+			add_country_modifier = {
+				name = "thriving_arms_industry"
+				duration = 9125 #25 years
+			}
+			kapitallyonesse_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			mendebelkea_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+	#2nd tier
+	a2c_the_imperial_core = {
+		icon = atlantropa_sackcity
+		required_missions = { build_army_mission_a2c }
+		provinces_to_highlight = {
+			OR = {
+				area = kapitallyonesse_area
+				area = mendebelkea_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			kapitallyonesse_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			mendebelkea_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			NOT = {
+				exists = A49
+			}
+		}
+		effect = {
+			capital_scope = {
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1
+			}
+			5254 = {
+				change_religion = poseidon_cult
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+			set_capital = 5254
+			set_government_rank = 3
+			add_prestige = 25
+			change_tag = A49
+			on_change_tag_effect = yes
+			hidden_effect = {
+				complete_mission = a2c_the_imperial_core
+			}
+			gwlamelot_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	#3rd tier
+	a49_end_gwlamelot = {
+		icon = atlantropa_hunderdwar
+		required_missions = { a2c_the_imperial_core }
+		provinces_to_highlight = {
+			area = gwlamelot_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			gwlamelot_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			capital_scope = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				area = {
+					limit = { owned_by = ROOT }
+					add_province_modifier = {
+						name = "growth_of_capital"
+						duration = 9125 #25 years
+					}
+				}
+			}
+			lyon_isles_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	#4th tier
+	end_the_throms_a49 = {
+		icon = atlantropa_kristaperioa
+		required_missions = { a49_end_gwlamelot }
+		provinces_to_highlight = {
+			area = lyon_isles_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			lyon_isles_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			5257 = {
+				add_base_production = 1
+			}
+			5258 = {
+				add_base_tax = -2
+				add_base_production = -2
+				add_base_manpower = -2
+				add_devastation = 50
+				change_culture = mendebaldekoan
+				change_religion = poseidon_cult
+				remove_core = A5C
+			}
+			5263 = {
+				add_base_tax = -2
+				add_base_production = -2
+				add_base_manpower = -2
+				add_devastation = 50
+				change_culture = mendebaldekoan
+				change_religion = poseidon_cult
+				change_province_name = "Erdialyon"
+				rename_capital = "Erdialyon"
+				remove_core = A5C
+			}
+			5261 = {
+				add_base_tax = -2
+				add_base_production = -2
+				add_base_manpower = -2
+				add_devastation = 50
+				change_culture = mendebaldekoan
+				change_religion = poseidon_cult
+				change_province_name = "Antzipaggor"
+				rename_capital = "Antzipaggor"
+				remove_core = A5C
+			}
+		}
+	}
+}
+
+a49_military_missions = { #Series name is displayed over the slot?
+	slot = 2 #ie, second upper left column
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes #Can exist under the series itself or within individual missions.
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = A49
+	}
+	has_country_shield = yes
+	
+	#missions
+	#1st tier
+	build_army_mission_a49 = {
+		icon = atlantropa_russianempireprussia
+		required_missions = {  } #None
+		trigger = {
+			army_size_percentage = 1 #What you need to complete the mission, displayed for mission tooltip
+		}
+		effect = {
+			add_country_modifier = {
+				name = "thriving_arms_industry"
+				duration = 9125 #25 years
+			}
+			irlahandia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+	#2nd tier
+	a49_restore_order = {
+		icon = atlantropa_stalzemsty
+		required_missions = { build_army_mission_a49 }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 5256
+				province_id = 5262
+				province_id = 5264
+				province_id = 5259
+			}
+			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 5256
+			owns_or_non_sovereign_subject_of = 5262
+			owns_or_non_sovereign_subject_of = 5264
+			owns_or_non_sovereign_subject_of = 5259
+		}
+		effect = {
+			add_prestige = 10
+			gwlamelot_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	#3rd tier
+	ba49_end_gwlamelot = {
+		icon = atlantropa_nilfgaard
+		required_missions = { a49_restore_order }
+		provinces_to_highlight = {
+			area = gwlamelot_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			gwlamelot_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			capital_scope = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				area = {
+					limit = { owned_by = ROOT }
+					add_province_modifier = {
+						name = "growth_of_capital"
+						duration = 9125 #25 years
+					}
+				}
+			}
+			lyon_isles_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	#4th tier
+	bend_the_throms_a49 = {
+		icon = atlantropa_undeabulgaria
+		required_missions = { ba49_end_gwlamelot }
+		provinces_to_highlight = {
+			area = lyon_isles_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			lyon_isles_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			5257 = {
+				add_base_production = 1
+			}
+			5258 = {
+				add_base_tax = -2
+				add_base_production = -2
+				add_base_manpower = -2
+				add_devastation = 50
+				change_culture = mendebaldekoan
+				change_religion = catholic
+				remove_core = A5C
+			}
+			5263 = {
+				add_base_tax = -2
+				add_base_production = -2
+				add_base_manpower = -2
+				add_devastation = 50
+				change_culture = mendebaldekoan
+				change_religion = catholic
+				change_province_name = "Erdialyon"
+				rename_capital = "Erdialyon"
+				remove_core = A5C
+			}
+			5261 = {
+				add_base_tax = -2
+				add_base_production = -2
+				add_base_manpower = -2
+				add_devastation = 50
+				change_culture = mendebaldekoan
+				change_religion = catholic
+				change_province_name = "Antzipaggor"
+				rename_capital = "Antzipaggor"
+				remove_core = A5C
+			}
+		}
+	}
+}
+
+a49_dev_missions = { #Series name is displayed over the slot?
+	slot = 1 #ie, first upper left column
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes #Can exist under the series itself or within individual missions.
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = A49
+			tag = A2C
+		}
+	}
+	has_country_shield = yes
+	
+	#missions
+	#1st tier
+	kapitolea_first_a49 = {
+		icon = atlantropa_templarthule
+		required_missions = {  } #None
+		provinces_to_highlight = {
+			province_id = 5254
+			NOT = {	development = 25 }
+		}
+		trigger = {
+			5254 = {
+				development = 25
+				#has_tax_building_trigger = yes
+			}
+			owns_or_non_sovereign_subject_of = 5254
+		}
+		effect = {
+			5254 = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				add_permanent_province_modifier = { 
+					name = kapitolea_first_step
+					duration = -1  
+					#desc = annoyed_people_tooltip
+				}
+			}
+		}
+	}
+	#2nd tier
+	kapitolea_second_a49 = {
+		icon = atlantropa_undeavenedia
+		required_missions = { kapitolea_first_a49 }
+		provinces_to_highlight = {
+			province_id = 5254
+			NOT = {	development = 35 }
+		}
+		trigger = {
+			5254 = {
+				development = 35
+			}
+			owns_or_non_sovereign_subject_of = 5254
+		}
+		effect = {
+			5254 = {
+				add_permanent_province_modifier = { 
+					name = kapitolea_second_step
+					duration = -1 
+					#desc = annoyed_people_tooltip
+				}
+				hidden_effect = {
+					remove_province_modifier = kapitolea_first_step
+				}
+			}
+			kapitallyonesse_area = {
+				add_base_tax = 1
+			}
+		}
+	}
+	#3rd tier
+	kapitolea_third_a49 = {
+		icon = atlantropa_krakograd
+		required_missions = { kapitolea_second_a49 }
+		provinces_to_highlight = {
+			province_id = 5254
+			NOT = {	development = 40 }
+		}
+		trigger = {
+			5254 = {
+				development = 40
+			}
+			owns_or_non_sovereign_subject_of = 5254
+		}
+		effect = {
+			5254 = {
+				add_permanent_province_modifier = { 
+					name = kapitolea_third_step
+					duration = -1 
+					#desc = annoyed_people_tooltip
+				}
+				hidden_effect = {
+					remove_province_modifier = kapitolea_second_step
+				}
+			}
+			kapitallyonesse_area = {
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+		}
+	}
+	#4th tier
+	a49_develop_gwlamelot = {
+		icon = atlantropa_kristaperioa
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 5267
+				province_id = 5272
+				province_id = 5273
+			}
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 5267
+			owns_or_non_sovereign_subject_of = 5272
+			owns_or_non_sovereign_subject_of = 5273
+			5267 = {
+				num_of_times_improved = 1
+			}
+			5272 = {
+				num_of_times_improved = 1
+			}
+			5273 = {
+				num_of_times_improved = 1
+			}
+		}
+		effect = {
+			5272 = {
+				change_culture = inperioan
+				change_religion = catholic
+				remove_core = A3C
+			}
+			5273 = {
+				change_culture = inperioan
+				change_religion = catholic
+				remove_core = A3C
+			}
+			5267 = {
+				change_culture = mendebaldekoan
+				change_religion = catholic
+				remove_core = A3C
+			}
+		}
+	}
+	#5th tier
+	a49_lyon_isles_recovery = {
+		icon = atlantropa_flotaoceaniczna
+		required_missions = {  }
+		provinces_to_highlight = {
+			area = lyon_isles_area
+			NOT = { is_prosperous = yes }
+		}
+		trigger = {
+			lyon_isles_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			lyon_isles_area = {
+				is_prosperous = yes
+			}
+		}
+		effect = {
+			lyon_isles_area = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+		}
+	}
+}
+
+

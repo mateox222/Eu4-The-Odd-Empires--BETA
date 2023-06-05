@@ -1,0 +1,880 @@
+
+francocracy = {
+    icon = "francocracy"
+	allow_normal_conversion = yes
+	lock_level_when_selected = yes
+	legacy_equivalent = feudal_monarchy
+	maintain_dynasty = yes
+	monarchy = yes	
+    potential = {
+        tag = LAE
+    }
+    modifiers = {
+        max_absolutism = -15
+		global_autonomy = -0.075
+		state_maintenance_modifier = -0.10
+		governing_capacity_modifier = 0.1
+		tolerance_heretic = 5	
+		papal_influence = 0.5
+		relation_with_same_religion = 25	
+		prestige = 0.25			
+    }
+		custom_attributes = {
+		locked_government_type = yes
+	}
+	government_abilities = {
+		crusaderstates_mechanic
+	}
+		ai = {
+		factor = 100
+	}
+    
+}
+meridioslavian_monarchy = {
+	icon = "prussian_monarchy"
+	allow_normal_conversion = yes
+	legacy_equivalent = feudal_monarchy	
+	potential = {
+     tag = A63
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 100
+
+	modifiers = {
+		war_exhaustion = -0.02
+		global_unrest = -2
+		global_autonomy = -0.075
+		max_absolutism = 10
+		monarch_military_power = 3
+		nobles_loyalty_modifier = 0.1
+		governing_capacity_modifier = -0.25
+	}
+
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		government_abilities = {
+			militarization_mechanic
+		}
+	}
+			custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
+		factor = 100
+	}
+}
+satrapia = {
+    icon = "monastic_elections_reform"
+	allow_normal_conversion = yes
+	lock_level_when_selected = yes
+	maintain_dynasty = yes
+	legacy_equivalent = feudal_monarchy	
+	monarchy = yes	
+    potential = {
+		OR = {
+        tag = A5F
+		tag = BA1
+    }
+	}
+    modifiers = {
+        max_absolutism = 15
+		global_autonomy = -0.025
+		state_maintenance_modifier = -0.05
+		governing_capacity_modifier = 0.1
+		tolerance_heretic = 25	
+		relation_with_same_religion = 25	
+		promote_culture_cost = 2
+		num_accepted_cultures = -1
+		relation_with_other_culture = -10		
+		prestige = 0.25			
+    }
+		custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
+		factor = 100
+	}
+    
+}
+roman_legio_monarchy = {
+	icon = "legiocracy"
+	allow_normal_conversion = yes
+	legacy_equivalent = feudal_monarchy	
+	potential = {
+			OR = {
+        tag = A38
+		tag = A37
+		tag = A34	
+		tag = ROM
+    }
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 150
+
+	modifiers = {
+		war_exhaustion = -0.03
+		global_unrest = -1
+		global_autonomy = -0.025
+		max_absolutism = 15
+		monarch_military_power = 2
+		nobles_loyalty_modifier = 0.1
+		governing_capacity_modifier = -0.1
+	}
+		conditional = {
+		factions = {
+			a34_legionist
+			a34_civil
+		}
+	}
+
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		government_abilities = {
+			militarization_mechanic
+		}
+	}
+			custom_attributes = {
+		locked_government_type = yes
+	}
+	
+		ai = {
+		factor = 100
+	}
+}
+roman_byzantine_monarchy2 = {
+	icon = "byzantine2"
+	legacy_equivalent = feudal_monarchy	
+	allow_normal_conversion = yes
+	potential = {
+        tag = A52
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 150
+
+	modifiers = {
+		global_manpower = 5
+		war_exhaustion = -0.01
+		max_absolutism = 5
+		nobles_loyalty_modifier = 0.1
+		governing_capacity_modifier = 0.225
+	}
+
+
+	conditional = {
+
+		factions = {
+			rr_veneta
+			rr_prasina
+			
+		}
+	}
+			custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
+		factor = 100
+	}
+	government_abilities = {
+		nikaeanbyzantine_mechanic
+	}
+}
+roman_byzantine_monarchy = {
+	icon = "byzantine"
+	legacy_equivalent = feudal_monarchy	
+	allow_normal_conversion = yes
+	potential = {
+			OR = {
+		tag = BYZ
+    }
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 150
+
+	modifiers = {
+		global_manpower = 3
+		war_exhaustion = -0.03
+		global_unrest = 1
+		max_absolutism = 15
+		adm_advisor_cost = -0.1	
+		monthly_support_heir_gain = -0.1	
+		no_stability_loss_on_monarch_death = yes	
+		governing_capacity_modifier = 0.2
+	}
+
+
+	conditional = {
+
+
+		
+		factions = {
+			rr_veneta
+			rr_prasina
+			rr_praetorians 
+			
+		}
+	}
+			custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
+		factor = 100
+	}
+	government_abilities = {
+		nikaeanbyzantine_mechanic
+	}
+
+
+	
+}
+
+     raumaria_evilocracy = {
+	icon = "raumaria_government"
+	allow_normal_conversion = yes
+	legacy_equivalent = steppe_horde
+	potential = {
+			OR = {
+        tag = DA1
+    }
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 150
+
+	modifiers = {
+		war_exhaustion = -0.25
+		global_unrest = -5
+		global_autonomy = -0.025
+		monarch_military_power = 1
+		governing_capacity_modifier = -0.3
+	}
+
+			custom_attributes = {
+		locked_government_type = yes
+		heir = no 
+		royal_marriage = no	
+		raze_province = yes	
+		nomad = yes	
+		allow_force_tributary = yes	
+	}
+	
+		ai = {
+		factor = 100
+	}
+}
+     raumaria_theocracy = {
+	icon = "schwarzsonne"
+	allow_normal_conversion = yes
+	legacy_equivalent = theocratic_government
+	potential = {
+			OR = {
+		tag = A74
+		tag = DA1
+    }
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 150
+
+	modifiers = {
+		war_exhaustion = -0.15
+		global_unrest = -1
+		global_autonomy = -0.025
+		max_absolutism = 25
+		monarch_military_power = 2
+		governing_capacity_modifier = -0.2
+		devotion = 2	
+	}
+
+			custom_attributes = {
+		locked_government_type = yes
+		raze_province = yes	
+	rulers_can_be_generals = yes
+	heirs_can_be_generals = yes
+	disables_estate_church = yes
+	disables_estate_nobles = yes	
+		
+			}
+				conditional = {
+		factions = {
+			raumaria_wiarapokojowa
+			raumaria_wiarawalczaca
+		}
+	}
+	
+		ai = {
+		factor = 100
+	}
+}
+
+spartocracy = {
+	icon = "spartocracy"
+	allow_normal_conversion = yes
+	legacy_equivalent = feudal_monarchy	
+	potential = {
+		OR = {
+     tag = GR6
+     tag = X19
+		}
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 100
+
+	modifiers = {
+		war_exhaustion = -0.02
+		global_unrest = -2
+		global_autonomy = -0.075
+		max_absolutism = 25
+		governing_capacity_modifier = -0.25
+	}
+	conditional = {
+		government_abilities = {
+			spartan_general_mechanic
+		}
+	}
+	
+			custom_attributes = {
+		locked_government_type = yes
+	}
+	factions = {
+		sparta_army
+		sparta_navy
+	 }	
+		ai = {
+		factor = 100
+	}
+}
+
+phoenice_merchants_reform = {
+	icon = "trading_city"
+	allow_normal_conversion = yes
+	modifiers = {
+		max_absolutism = -20
+		naval_forcelimit_modifier = 0.25
+		merchants = 1
+		global_sailors_modifier = 0.1	
+		navy_tradition = 1	
+		yearly_corruption = -0.1
+		monarch_lifespan = 0.25
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+	legacy_equivalent = venetian_merchant_republic
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		OR = {
+			tag = IS6
+			AND = {
+				is_playing_custom_nation = yes
+				have_had_reform = phoenice_merchants_reform 
+			}
+		}
+	}
+	boost_income = yes
+	conditional = {
+		government_abilities = {
+			pho_naval_professionalism_mechanic
+		}
+	}
+	
+	factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			NOT = { has_dlc = "Mare Nostrum" }
+		}
+		can_use_trade_post = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Mare Nostrum"
+			NOT = { has_dlc = "Res Publica" }
+		}
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Res Publica"
+			has_dlc = "Mare Nostrum"
+		}
+		can_use_trade_post = yes
+		can_form_trade_league = yes
+		trade_city_reform = trading_city
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+		lottery_election = yes
+		election_on_death = yes
+		is_merchant_republic = yes
+		elections_increase_factions_influence = yes
+		bonus_stats_for_elected_ruler = yes
+	}
+	has_term_election = no
+}
+
+balatonianmonarchy = {
+    icon = "balatonia"
+	allow_normal_conversion = yes
+	lock_level_when_selected = yes
+	legacy_equivalent = feudal_monarchy
+	maintain_dynasty = yes
+	monarchy = yes	
+    potential = {
+		OR = {
+        tag = A17
+	      tag = A10
+		}
+    }
+    modifiers = {
+        max_absolutism = -15
+		state_maintenance_modifier = -0.25
+		governing_capacity_modifier = 0.15
+		tolerance_heretic = 2	
+		relation_with_same_religion = 25	
+		prestige = 0.25	
+		num_accepted_cultures = 3		
+    }
+		conditional = {
+		allow = { has_dlc = "Common Sense" }
+		has_parliament = yes
+	}
+		custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
+		factor = 100
+	}
+    
+}
+atlantropatsardom = {
+	icon = "carstwo"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+				tag = X11
+				tag = UKR
+		}
+	}
+	fixed_rank = 3
+	legacy_equivalent = tsardom_legacy
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+	lock_level_when_selected = yes
+
+	modifiers = {
+		global_manpower_modifier = 0.20
+		yearly_absolutism = 0.5
+		global_autonomy = -0.05
+		governing_capacity = 350
+	}
+
+	conditional = {
+		allow = { has_dlc = "Third Rome" }
+		government_abilities = {
+			russian_mechanic
+		}
+		claim_states = yes
+	}
+}
+
+
+
+atlantropaniflheim = {
+	icon = "niflheim"
+	allow_normal_conversion = no
+	potential = {
+		culture = nilfhish
+	}
+	fixed_rank = 3
+	legacy_equivalent = feudal_monarchy
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+	lock_level_when_selected = yes
+
+	modifiers = {
+		global_manpower_modifier = 0.10
+		global_autonomy = -0.05
+		governing_capacity = 250
+		state_maintenance_modifier = -0.25
+		yearly_corruption = -0.1
+		monarch_lifespan = 0.25
+	}
+	factions = {
+		nilfheim_army
+		nilfheim_traders
+	}
+
+		government_abilities = {
+			
+		}
+		claim_states = yes
+	
+}
+
+
+
+atlantropa_aztec_monarchy = {
+	icon = "aztecmonarchia"
+	allow_normal_conversion = yes
+	potential = {
+		religion = reformednahuatl
+	}
+	legacy_equivalent = feudal_monarchy
+	lock_level_when_selected = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+
+	modifiers = {
+		doom_increase_influence = 0.25	
+		may_explore = yes	
+		global_trade_power = 0.1	
+		stability_cost_modifier = 0.25	
+		yearly_absolutism = 0.5
+		global_autonomy = -0.05
+		years_of_nationalism = -5	
+	}
+
+	conditional = {
+		government_abilities = {
+			atlantropa_aztec_mechanic
+		}
+	}
+	factions = {
+		doom_increase
+		doom_decrease
+	}
+}
+
+
+monastic_order_reform = {
+	potential = {
+		NOT = { tag = PAP }
+		NOT = { have_had_reform = teutonic_bishopric_reform }
+	}
+	modifiers = {
+		fort_maintenance_modifier = -0.25
+		army_tradition = 0.25
+	}
+	rulers_can_be_generals = yes
+	heirs_can_be_generals = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	icon = "monks"
+	allow_normal_conversion = yes
+	legacy_equivalent = monastic_order_government
+	monastic = yes
+	fixed_rank = 1
+	custom_attributes = {
+		monastic_order = yes
+	}
+	government_abilities = {
+		crusaderstates_mechanic
+	}
+}
+
+crusading_kingdom_reform = {
+	icon = "soldiers"
+	allow_normal_conversion = no
+	potential = {
+		OR = {
+			has_unlocked_government_reform = {
+				government_reform = crusading_kingdom_reform
+			}
+			have_had_reform = crusading_kingdom_reform
+		}
+	}
+	trigger = {
+		OR = {
+			religion = catholic
+			is_playing_custom_nation = yes
+		}
+	}
+	government_abilities = {
+		crusaderstates_mechanic
+	}
+	rulers_can_be_generals = yes
+	heirs_can_be_generals = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 75
+	modifiers = {
+		global_missionary_strength = 0.01
+		army_tradition_from_battle = 0.25
+		discipline = 0.025
+	}
+	monastic = yes
+	custom_attributes = {
+		monastic_order = yes
+	}
+	fixed_rank = 2
+}
+
+
+
+autonomous_byzantine_province = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "byzantine"
+	potential = {
+			is_subject_of_type = atlantis_coempire
+	}
+	valid_for_nation_designer = no
+	maintain_dynasty = yes
+	modifiers = {
+		global_unrest = -1
+		no_religion_penalty = yes
+		governing_capacity = 100
+	}
+	removed_effect = {
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { is_subject_of_type = atlantis_coempire }
+
+				}
+				country_event = {
+					id = nikean_empire.1100
+				}
+			}
+		}
+	}
+	government_abilities = {
+		nikaeanbyzantine_mechanic
+	}
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	ai = {
+		factor = 100
+	}
+}
+
+vandalic_monarchy = {
+    icon = "vandalic_monarchy"
+    allow_normal_conversion = yes
+    lock_level_when_selected = yes
+    legacy_equivalent = feudal_monarchy
+    monarchy = yes    
+    potential = {
+        tag = A4F
+    }
+    valid_for_nation_designer = yes
+    nation_designer_cost = 100
+
+    modifiers = {
+        war_exhaustion = -0.01
+        unjustified_demands = -0.15
+        galley_power = 0.15
+        coast_raid_range = 1
+    }
+
+    conditional = {
+    }
+    custom_attributes = {
+        locked_government_type = yes
+    }
+    ai = {
+        factor = 100
+    }
+}
+
+
+norse_viking_republic_reform = {
+	icon = "vikingogv"
+	allow_normal_conversion = no
+	legacy_equivalent = pirate_republic
+	lock_level_when_selected = yes
+	modifiers = {
+		republican_tradition = -0.5
+		max_absolutism = -10
+		naval_forcelimit_modifier = 0.5
+		capture_ship_chance = 0.33
+		state_governing_cost = 0.75
+		may_perform_slave_raid_on_same_religion = yes
+		allowed_marine_fraction = 0.25
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+	can_form_trade_league = no
+
+	potential = {
+		religion = norse_pagan_reformed
+	}
+	government_abilities = {
+		pho_naval_professionalism_mechanic
+	}
+	
+	factions_frame = 9
+	factions = {
+		pr_buccaneers
+		pr_smugglers
+		pr_captains
+	}
+	
+	duration = 4
+	
+	custom_attributes = {
+		locked_government_type = yes
+		force_admiral_leader = yes
+		elections_increase_factions_influence = yes
+		cannot_become_dictatorship = yes
+	}
+	
+}
+chivalric_monarchy = {
+    icon = "chivalric_monarchygfx"
+    allow_normal_conversion = yes
+    lock_level_when_selected = yes
+    legacy_equivalent = feudal_monarchy
+    potential = {
+        primary_culture = arthurian
+    }
+    valid_for_nation_designer = yes
+    nation_designer_cost = 100
+
+    modifiers = {
+        tolerance_own = 2
+        legitimacy = 0.5
+        prestige = 0.5
+    }
+
+    conditional = {
+    }
+    custom_attributes = {
+        locked_government_type = yes
+    }
+    ai = {
+        factor = 100
+    }
+}
+
+
+jewish_merchants_reform = {
+    icon = "jewish_plutocracy"
+    allow_normal_conversion = yes
+    modifiers = {
+        max_absolutism = -10
+        church_loyalty_modifier = 0.1
+        church_influence_modifier = 0.05
+        global_tax_modifier = 0.1
+        merchants = 1
+        tolerance_own = 1
+    }
+    valid_for_nation_designer = yes
+    nation_designer_cost = 40
+    legacy_equivalent = merchant_republic
+    potential = {
+        NOT = {
+            AND = {
+                tag = VEN
+                NOT = { map_setup = map_setup_random }
+            }
+        }
+        religion = jewish
+        NOT = { has_reform = crown_colony_government }
+        NOT = { has_reform = private_enterprise_colony_government }
+        NOT = { has_reform = self_governing_colony_government }
+    }
+    trigger = {
+        OR = {
+            has_reform = jewish_merchants_reform
+            crown_stronger_than_estate = { estate = all }
+        }
+    }
+    boost_income = yes
+    duration = 4
+    factions = {
+        jw_reform
+        jw_traditionalist
+        jw_zionist
+    }
+    conditional = {
+        allow = {
+            has_dlc = "Res Publica"
+            NOT = { has_dlc = "Mare Nostrum" }
+        }
+        can_use_trade_post = yes
+    }
+    conditional = {
+        allow = {
+            has_dlc = "Mare Nostrum"
+            NOT = { has_dlc = "Res Publica" }
+        }
+        can_form_trade_league = yes
+        trade_city_reform = trading_city
+    }
+    conditional = {
+        allow = {
+            has_dlc = "Res Publica"
+            has_dlc = "Mare Nostrum"
+        }
+        can_use_trade_post = yes
+        can_form_trade_league = yes
+        trade_city_reform = trading_city
+    }
+    custom_attributes = {
+        enables_plutocratic_idea_group = yes
+        enables_aristocratic_idea_group = no
+        is_merchant_republic = yes
+        elections_increase_factions_influence = yes
+    }
+	ai = {
+        factor = 0.75 #generic
+        
+        modifier = {
+            factor = 0
+            num_of_cities = 11
+        }
+        
+        modifier = {
+            factor = 0
+            capital_scope = { has_port = no }
+        }
+        
+        modifier = {
+            factor = 0
+            NOT = {
+                capital_scope = { province_has_center_of_trade_of_level = 1 }
+            }
+        }
+        
+        modifier = {
+            factor = 0
+            is_subject = yes
+        }
+    }
+}
+
+kristaperioan_empire = {
+    icon = "kristaperioanempire"
+    allow_normal_conversion = yes
+    lock_level_when_selected = yes
+    legacy_equivalent = feudal_monarchy
+    potential = {
+        tag = A49
+    }
+    valid_for_nation_designer = yes
+    nation_designer_cost = 200
+
+    modifiers = {
+        legitimacy = 0.5
+        drill_gain_modifier = 0.10
+        global_tax_modifier = 0.05
+        global_unrest = -2
+        all_estate_influence_modifier = 0.05
+        yearly_corruption = 0.02
+        move_capital_cost_modifier = 1
+    }
+    fixed_rank = 3
+    conditional = {
+    }
+    custom_attributes = {
+        locked_government_type = yes
+        maintain_dynasty = yes
+    }
+    ai = {
+        factor = 100
+    }
+}

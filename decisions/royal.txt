@@ -1,0 +1,160 @@
+	country_decisions = {
+	heir_babtism = {
+		color = { 117 95 25 }
+	major = yes
+		potential = {
+			government = monarchy
+			NOT = {
+				heir_age = 15
+			}
+			religion_group = christian
+				has_heir = yes
+		 NOT = { has_heir_flag	= ochrzczony }
+		}
+		allow = {
+			is_at_war = no
+			religion_group = christian
+			has_heir = yes
+			 government = monarchy
+			 has_regency = no
+		}
+		effect = {
+		country_event = { 
+    id = restorationkosciol_events.3
+}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	}
+	
+		country_decisions = {
+	sell_insignia = {
+		color = { 117 95 25 }
+		potential = {
+			government = monarchy
+			religion_group = christian
+		 NOT = { has_country_flag = insygniawyprzedanelmao }
+		}
+		allow = {
+			religion_group = christian
+			 government = monarchy
+			 has_regency = no
+		}
+		effect = {
+	set_country_flag = insygniawyprzedanelmao
+	add_heir_claim = -5
+	add_legitimacy = -10
+	add_absolutism = -5
+	add_prestige = -5
+	add_years_of_income = 2.5		
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	}
+	
+		country_decisions = {
+	buy_insignia = {
+		color = { 117 95 25 }
+		potential = {
+			government = monarchy
+			religion_group = christian
+		 has_country_flag = insygniawyprzedanelmao
+		}
+		allow = {
+			is_at_war = no
+			years_of_income = 4
+			religion_group = christian
+			 government = monarchy
+
+		}
+		effect = {
+	clr_country_flag = insygniawyprzedanelmao
+	add_legitimacy = 5
+	add_years_of_income = -4		
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	}
+			country_decisions = {
+
+	devalute_currency = {
+		color = { 117 95 25 }
+			major = yes
+		potential = {
+			inflation = 15
+		}
+		allow = {
+			inflation = 15
+			years_of_income = 3
+		}
+		effect = {
+		add_inflation = -500
+	add_legitimacy = -25
+	add_stability = -3	
+	add_years_of_income = -5
+				add_country_modifier = {
+				name = "recover_evconomy_atlantropa"
+				duration = 3600
+			}
+		}
+			ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { stability = 2 }
+			}
+			modifier = {
+				factor = 0
+				is_at_war = yes
+			}
+			modifier = {
+				factor = 1
+				is_bankrupt = yes
+			}
+		}
+	}
+	}
+	
+
+	country_decisions = {
+		atlantropa_expellking = {
+			color = { 117 95 25 }
+			potential = {
+				government = monarchy
+				has_heir = yes
+			}
+			allow = {
+				 government = monarchy
+				 has_regency = no
+			}
+			effect = {
+		add_legitimacy = -25
+		add_absolutism = -5
+		add_prestige = -5	
+		hidden_effect = {
+			if = {
+					limit = { NOT = { stability = 3 } }
+					capital_scope = {
+					spawn_rebels = {
+						type = pretender_rebels
+						size = 3
+						should_take_capital = yes
+						use_heir_as_leader = yes
+					}
+			}
+		}
+		}
+		remove_heir = { allow_new_heir = yes }	
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+		}
+	

@@ -1,0 +1,127 @@
+namespace = french_empire
+country_event = {
+	id = french_empire.1
+	title = french_empire.1.t
+	desc = french_empire.1.d
+	picture = kingdomgrandefrance_eventPicture
+	is_triggered_only = yes
+	option = {
+	name = "french_empire.1.a" 
+		add_legitimacy = 10
+		add_prestige = 10	
+	}
+	}
+
+country_event = {
+	id = french_empire.2
+	title = french_empire.2.t
+	desc = french_empire.2.d
+	picture = citysiegesalgrada_eventPicture
+	major = yes
+	is_triggered_only = yes
+	option = {
+	name = "french_empire.2.a" 
+				british_isles_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					owned_by = CAS
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+	}
+	}
+	country_event = {
+	id = french_empire.3
+	title = french_empire.3.t
+	desc = french_empire.3.d
+	picture = kingdomgrandefrance_eventPicture
+	major = yes
+	is_triggered_only = yes
+	option = {
+	name = "french_empire.3.a" 
+							custom_tooltip = franchehispania
+			hidden_effect = {
+				every_owned_province = {
+				limit = {
+					culture = castillian
+				}
+					change_culture = ROOT
+			
+		}
+							}
+				british_isles_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					OR = {
+					owned_by = POR
+					owned_by = ARA
+					owned_by = A57				
+}					
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+				add_casus_belli = {
+					target = ARA
+					type = cb_vassalize_mission
+					months = 240
+				}
+					add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = POR
+				}
+				
+	
+	}
+
+	}
+
+		country_event = {
+	id = french_empire.4
+	title = french_empire.4.t
+	desc = french_empire.4.d
+	picture = kingdomgrandefrance_eventPicture
+	major = yes
+	is_triggered_only = yes
+	option = {
+	name = "french_empire.4.a" 
+				override_country_name = FRANCJADUCALNAK
+				custom_tooltip = franchepolaki
+				hidden_effect = {
+					if = {
+						limit = { POL = { is_subject_of = ROOT	}}	
+						POL = { change_primary_culture = frankovenedian }
+					}
+				every_province = {
+				limit = {
+					OR = {
+					culture = kashubian	
+					culture = polish
+					}
+				}
+					change_culture = frankovenedian
+			 }
+
+			 if = {
+				limit = {
+					exists = POL
+				}
+				create_union = POL
+			 }
+				france_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					owned_by = GUY
+				}
+				add_permanent_claim = ROOT
+			}
+		}	
+	}
+	}	
+	
+	
+
+	

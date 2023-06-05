@@ -1,0 +1,330 @@
+namespace = incident_byzantine
+
+### PU Subject joins HRE ###
+
+country_event = {
+	id = incident_byzantine.1
+	title = incident_byzantinetitle
+	desc = incident_byzantine.1.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = incident_byzantine.1.a
+		ai_chance = {
+		factor = 10
+		}
+		set_country_flag = byzantine_incident
+					emperor = {
+		set_imperial_incident = incident_byzantine_demands_empire }
+	}
+	
+	option = {
+		name = incident_byzantine.1.b
+		ai_chance = {
+			factor = 0.5 }
+		add_prestige = -5
+			}
+		}
+
+country_event = {
+	id = incident_byzantine.2
+	title = incident_byzantine.2.t
+	desc = incident_byzantine.2.d
+	picture = KNIGHTS_eventPicture
+	is_triggered_only = yes
+	major = yes
+	
+	option = {	# Accept the order as part of the HRE
+		name = incident_byzantine.2.a
+		hidden_effect = {
+			BYZ = {
+				country_event = {
+					id = incident_byzantine.3
+				}
+				every_neighbor_country = {
+					limit = {
+						is_part_of_hre = yes
+					}
+				}
+			}
+		}
+		ai_chance = {
+			factor = 0
+		modifier = {
+			factor = 100
+			OR = {
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_friendly
+				}
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_loyal
+				}
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_allied
+				}
+			}
+		}
+			modifier = {
+				factor = 10
+				BYZ = { diplomatic_reputation = 3 }
+			}
+			modifier = {
+				factor = 10
+				BYZ = { diplomatic_reputation = 4 }
+			}
+			modifier = {
+				factor = 10
+				BYZ = { diplomatic_reputation = 5 }
+			}
+
+						modifier = {
+				factor = 10
+				BYZ = { diplomatic_reputation = 6 }
+			}
+																modifier = {
+				factor = 25
+				BYZ = { army_size = emperor }
+			}
+
+							modifier = {
+				factor = 10
+				BYZ = { army_size = 50 }
+			}
+										modifier = {
+				factor = 2
+				BYZ = { army_size = 100 }
+			}
+			
+													modifier = {
+				factor = 2
+				BYZ = { army_size = 150 }
+			}
+													modifier = {
+				factor = 2
+				BYZ = { army_size = 200 }
+			}
+													modifier = {
+				factor = 2
+				BYZ = { army_size = 250 }
+			}
+													modifier = {
+				factor = 5
+				BYZ = { army_size = 300 }
+			}
+													modifier = {
+				factor = 5
+				BYZ = { army_size = 350 }
+			}
+													modifier = {
+				factor = 10
+				BYZ = { army_size = 400 }
+			}
+													modifier = {
+				factor = 10
+				BYZ = { army_size = 450 }
+			}
+													modifier = {
+				factor = 50
+				BYZ = { army_size = 500 }
+			}
+			modifier = {
+				factor = 10
+				is_neighbor_of = BYZ
+			}
+		}
+	}
+	
+	option = {	# Accept the order, but they need to become a proper nation within the HRE
+		name = incident_byzantine.2.b
+		hidden_effect = {
+			BYZ = {
+				country_event = {
+					id = incident_byzantine.4
+				}
+			}
+		}
+		ai_chance = {
+			factor = 50
+						modifier = {
+				factor = 25
+				OR = {
+					ai_attitude = { who = BYZ attitude = attitude_allied }
+					ai_attitude = { who = BYZ attitude = attitude_defensive }
+					ai_attitude = { who = BYZ attitude = attitude_friendly }
+					ai_attitude = { who = BYZ attitude = attitude_neutral }
+					ai_attitude = { who = BYZ attitude = attitude_protective }
+				}
+			}
+		}
+	}
+	
+	option = {	# The Teutonic Order has no business in the HRE.
+		name = incident_byzantine.2c
+		hidden_effect = {
+			BYZ = {
+				country_event = {
+					id = incident_byzantine.5
+				}
+			}
+		}
+		emperor = {
+			reverse_add_opinion = {
+				who = BYZ
+				modifier = teu_rejected_us_from_joining
+			}
+			add_opinion = {
+				who = BYZ
+				modifier = teu_does_not_want_the_order_in_the_hre
+			}
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 1.5
+				NOT = {
+					has_opinion = {
+						who = emperor
+						value = 0
+					}
+				}
+			}
+																			modifier = {
+				factor = 100
+				NOT = { BYZ = { army_size = emperor } }
+			}
+		modifier = {
+			factor = 200
+			OR = {
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_rivalry
+				}
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_hostile
+				}
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_threatened
+				}
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_outraged
+				}
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_disloyal
+				}
+				ai_attitude = {
+					who = BYZ
+					attitude = attitude_rebellious
+				}
+			}
+		}
+			modifier = {
+				factor = 1000
+				is_rival = BYZ
+			}
+						modifier = {
+				factor = 1000
+				is_emperor = yes
+			}
+			modifier = {
+				factor = 1
+				BYZ = { is_rival = emperor }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = incident_byzantine.3
+	title = incident_byzantine.3.t
+	desc = incident_byzantine.3.desc
+	picture = DIPLOMACY_SIGNING_eventPicture
+	is_triggered_only = yes
+	
+	option = {	# Nice
+		name = incident_byzantine.3a
+		set_in_empire = yes
+		set_emperor = yes	
+		hre_inheritable = yes	
+		set_country_flag = teu_is_allowed_to_stay_in_the_hre
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+country_event = {
+	id = incident_byzantine.4
+	title = incident_byzantine.4.t
+	desc = incident_byzantine.4.desc
+	picture = DIPLOMAT_INTERROGATION_eventPicture
+	is_triggered_only = yes
+	
+	option = {	# Okay.
+		name = incident_byzantine.4.a
+		set_in_empire = yes
+		set_emperor = yes	
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	option = {	# This is outrageous! This is unfair!
+		name = incident_byzantine.4.b
+		if = {
+			limit = { is_part_of_hre = no }
+			set_in_empire = yes
+		}
+		country_event = { 
+    id = incident_byzantine.5
+    days = 1
+}
+		add_opinion = {
+			who = FROM
+			modifier = teu_unfair_conditions
+		}
+		ai_chance = {
+			factor = 2
+		}
+	}
+}
+
+country_event = {
+	id = incident_byzantine.5
+	title = incident_byzantine.5.t
+	desc = incident_byzantine.5.desc
+	picture = ACCUSATION_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+			ROOT = { add_casus_belli = {
+    target = emperor
+    type = cb_byzantine_war_on_empire
+    months = 360
+}}
+		name = incident_byzantine.5.a
+		if = {
+			limit = { is_part_of_hre = yes }
+			set_in_empire = no
+		}
+		118 = { add_core = ROOT }
+		hidden_effect = {
+		every_province = {
+		    limit = {
+        is_part_of_hre = yes
+    }
+	add_permanent_claim = ROOT
+	}}
+	set_country_flag = byzantinehredispute_flag
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+

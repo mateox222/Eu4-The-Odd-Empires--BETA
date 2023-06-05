@@ -1,0 +1,207 @@
+country_decisions = {
+	pahlagonian_ultimatum = {
+                color = { 121  37  130 }
+	major = yes
+		potential = { 
+			tag = A52
+			
+			has_global_flag = pahlagonianultimatumglobalflag
+			exists = CND
+			NOT = { has_country_flag = paphlagoniawillanswer }
+		}
+		allow = {
+		army_size = 20
+		owns_core_province = 325
+}
+		effect = {
+		CND = {
+		country_event = { 
+		id = nikean_empire.6
+}}
+		set_country_flag = paphlagoniawillanswer
+}
+		ai_will_do = {
+			factor = 1
+}
+}
+	mesotopolis_ultimatum = {
+	major = yes
+		potential = { 
+			tag = A52
+			has_global_flag = pahlagonianultimatumglobalflag
+			exists = TU2
+			NOT = { has_country_flag = paphlagoniawillanswer }
+		}
+		allow = {
+		army_size = 20
+		owns_core_province = 2348
+}
+		effect = {
+		TU2 = {
+		country_event = { 
+		id = nikean_empire.8
+}}
+		set_country_flag = paphlagoniawillanswer
+}
+ai_will_do = {
+	factor = 1
+}
+}
+
+
+Byzantinevarnagiaguarddec = {
+            color = { 121  37  130 }
+major = yes
+potential = {
+		has_country_flag = varnagiaguard
+        NOT = { has_country_flag = varnagiaguard2 }
+	}
+		allow = {
+	stability = 1
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 4977
+}
+		effect = {
+            custom_tooltip = varnagiatooltip
+		add_prestige = 5
+        					add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = -10
+				}
+                set_country_flag = varnagiaguard2
+
+}
+		ai_will_do = {
+			factor = 1
+}
+}
+	deport_hungarians = {
+        color = { 121  37  130 }
+		potential = {
+            OR = {
+            tag = BYZ
+            tag = A52
+            tag = LAE
+            }
+               any_owned_province = {
+	OR = {
+        culture = turkic
+        culture = second_turkish
+    }
+}
+		}
+		allow = {
+			dip_power = 100
+            NOT = { has_country_modifier = hungdeport
+        }
+		}
+		effect = {
+            add_country_modifier = { 
+                name = hungdeport
+                duration = 3600
+            }
+           random_owned_province = {
+    limit = { 
+        culture = second_turkish
+
+     }
+   change_culture = anatolian
+   change_religion = ROOT
+   add_dip_power = -100	
+   add_base_tax = -1	
+   add_base_production = -1	
+   add_base_manpower = -1	
+   add_devastation = 10	
+}
+}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	atl_nicene_advisor = {
+                color = { 121  37  130 }
+	major = yes
+		potential = { 
+			OR = {
+			tag = A52
+			tag = BYZ
+			}
+			NOT = { has_ruler_flag = advisorrecrutibyz }
+		}
+		allow = {
+		years_of_income = 0.4
+		legitimacy = 10
+
+}
+		effect = {
+			add_years_of_income = -0.4
+			add_legitimacy = -10
+		define_advisor = {
+    type = addadministrator4byz_tod
+    skill = 3
+    discount = yes
+    culture = ROOT
+}
+		set_ruler_flag = advisorrecrutibyz
+}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 1
+				years_of_income = 2
+			}
+		}
+
+}
+
+
+drift_europeans_port_byz = {
+      color = { 121  37  130 }
+	major = yes
+		potential = { 
+			OR = {
+			NOT = {
+				tag = VEN
+			}
+			NOT = {
+				tag = GEN
+			}
+			}
+			owns_core_province = 151
+			NOT = { has_global_flag = WENECJANIEWYJEBANI }
+		}
+		allow = {
+			owns_core_province = 151
+			GEN = {
+NOT = { 
+	num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+	value = 0
+	region = balkan_region
+}}}
+VEN = {
+NOT = { 
+	num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+	value = 0
+	region = balkan_region
+}}}
+}
+		effect = {
+			set_global_flag = WENECJANIEWYJEBANI
+			add_years_of_income = 1
+			151 = {
+				remove_province_modifier = atlantropa_genoese_port
+				remove_province_modifier = atlantropa_venice_port
+			}
+}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+}
+
+}

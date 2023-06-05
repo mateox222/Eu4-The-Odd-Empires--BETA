@@ -1,0 +1,29 @@
+country_decisions = {
+	byzantineincidentdecision = {
+	color = { 121  37  130 }
+	major = yes
+		potential = { 
+			tag = BYZ
+			NOT = { has_country_flag = byzantine_incident }
+		}
+		allow = {
+		stability = 3
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 151
+		total_development = 1250
+		army_size = 300
+		army_strength = {
+		who = emperor	
+		value = 0.75
+			}
+		
+
+}
+		effect = {
+			custom_tooltip = DEMANDROMEBYZ
+		country_event = { 
+		id = incident_byzantine.1
+}
+}}}
+		

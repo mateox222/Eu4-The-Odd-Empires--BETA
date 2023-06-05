@@ -1,0 +1,457 @@
+namespace = atlantropa_egyptwar
+country_event = {
+	id = atlantropa_egyptwar.1
+	title = "atlantropa_egyptwar.1.t"
+	desc = "atlantropa_egyptwar.1.d"
+	picture = NOT_DISCIPLINED_SOLDIERS_eventPicture
+	major = yes
+	trigger = {
+		    NOT = { has_country_flag = qasr_city_destroyed }
+			NOT = { is_year = 6934 }
+			NOT = { capital = 1234  }
+		capital_scope = {
+				region = egypt_region
+			}
+						exists = MAK	
+			OR = {
+			MAK = { NOT = { num_of_provinces_owned_or_owned_by_subjects_with = {
+	value = 4
+	region = egypt_region
+} } }
+			war_score_against = { who = MAK value = 75 }
+						}
+			OR = {
+			1234 = { controlled_by = ROOT }
+			1234 = { owned_by = ROOT }
+
+	}}
+	mean_time_to_happen = { days = 3 }
+	
+	option = {
+		name = atlantropa_egyptwar.1a #Sack of City
+	1234 = {
+	add_devastation = 100
+	}
+		add_mil_power = 150 
+		add_dip_power = 150 
+		add_adm_power = 150
+		add_treasury = 300	
+		set_country_flag = qasr_city_destroyed
+												egypt_region = {
+				limit = {
+					 owned_by = MAK
+				}
+		
+    cede_province = ROOT
+	add_core = ROOT
+
+	}
+
+	}
+}
+country_event = {
+	id = atlantropa_egyptwar.2
+	title = "atlantropa_egyptwar.2.t"
+	desc = "atlantropa_egyptwar.2.d"
+	picture = muslimgfx_REVOLUTION_eventPicture
+	major = yes
+	trigger = {
+		    NOT = { has_country_flag = aswan_city_destroyed }
+			NOT = { is_year = 6934 }
+			NOT = { capital = 1231  }
+						capital_scope = {
+				region = egypt_region
+			}
+						exists = A3R
+						OR = {
+			A3R = { NOT = { num_of_provinces_owned_or_owned_by_subjects_with = {
+	value = 4
+	region = egypt_region
+} } }
+			war_score_against = { who = A3R value = 75 }
+						}
+			OR = {
+			1231 = { controlled_by = ROOT }
+			1231 = { owned_by = ROOT }
+
+	}}
+	mean_time_to_happen = { days = 3 }
+	
+	option = {
+		name = atlantropa_egyptwar.3a #Sack of City
+	1231 = {
+	add_devastation = 100
+	}
+		add_mil_power = 150 
+		add_dip_power = 150 
+		add_adm_power = 150
+		add_treasury = 300	
+		set_country_flag = aswan_city_destroyed
+												egypt_region = {
+				limit = {
+					 owned_by = A3R
+				}
+		
+    cede_province = ROOT
+	add_core = ROOT
+
+	}
+
+	}
+}
+country_event = {
+	id = atlantropa_egyptwar.3
+	title = "atlantropa_egyptwar.3.t"
+	desc = "atlantropa_egyptwar.3.d"
+	picture = BORDER_TENSION_eventPicture
+	major = yes
+	trigger = {
+		    NOT = { has_country_flag = kufra_city_destroyed }
+			NOT = { is_year = 6934 }
+						capital_scope = {
+				region = egypt_region
+			}
+			NOT = { capital = 5244  }
+						exists = A2R
+						OR = {
+			A2R = { NOT = { num_of_provinces_owned_or_owned_by_subjects_with = {
+	value = 4
+	region = egypt_region
+} } }
+			war_score_against = { who = A2R value = 75 }
+						}
+			OR = {
+			5244 = { controlled_by = ROOT }
+			5244 = { owned_by = ROOT }
+
+	}}
+	mean_time_to_happen = { days = 3 }
+	
+	option = {
+		name = atlantropa_egyptwar.3a #Sack of City
+	5244 = {
+	add_devastation = 100
+	}
+		add_mil_power = 150 
+		add_dip_power = 150 
+		add_adm_power = 150
+		add_treasury = 300	
+		set_country_flag = kufra_city_destroyed
+												egypt_region = {
+				limit = {
+					 owned_by = A2R
+				}
+		
+    cede_province = ROOT
+	add_core = ROOT
+
+	}
+
+	}
+}
+country_event = {
+	id = atlantropa_egyptwar.4
+	title = "atlantropa_egyptwar.4.t"
+	desc = "atlantropa_egyptwar.4.d"
+	picture = CONQUEST_eventPicture
+	major = yes
+	trigger = {
+		    NOT = { has_country_flag = benghazi_city_destroyed }
+			NOT = { is_year = 6910 }
+			NOT = { capital = 356  }	
+						capital_scope = {
+				region = egypt_region
+			}
+			exists = A6F
+						OR = {
+			A6F = { NOT = { num_of_provinces_owned_or_owned_by_subjects_with = {
+	value = 4
+	region = egypt_region
+} } }
+			war_score_against = { who = A6F value = 75 }
+						}				
+			OR = {
+			356 = { controlled_by = ROOT }
+			356 = { owned_by = ROOT }
+
+	}}
+	mean_time_to_happen = { days = 3 }
+	
+	option = {
+		name = atlantropa_egyptwar.4a #Sack of City
+	356 = {
+	add_devastation = 100
+	}
+		add_mil_power = 150 
+		add_dip_power = 150 
+		add_adm_power = 150
+		add_treasury = 300	
+		set_country_flag = benghazi_city_destroyed
+												egypt_region = {
+				limit = {
+					 owned_by = A6F
+				}
+		
+    cede_province = ROOT
+	add_core = ROOT
+
+	}
+
+	}
+}
+country_event = {
+	id = atlantropa_egyptwar.5
+	title = "atlantropa_egyptwar.5.t"
+	desc = "atlantropa_egyptwar.5.d"
+	picture = SIEGE_eventPicture
+	major = yes
+	trigger = {
+		    NOT = { has_country_flag = qahirah_city_destroyed }
+			NOT = { is_year = 6934 }
+			NOT = { capital = 361  }	
+						capital_scope = {
+				region = egypt_region
+			}
+			exists = MAM
+						OR = {
+			MAM = { NOT = { num_of_provinces_owned_or_owned_by_subjects_with = {
+	value = 4
+	region = egypt_region
+} } }
+			war_score_against = { who = MAM value = 75 }
+						}
+			OR = {
+			361 = { controlled_by = ROOT }
+			361 = { owned_by = ROOT }
+
+	}}
+	mean_time_to_happen = { days = 3 }
+	
+	option = {
+		name = atlantropa_egyptwar.5a #Sack of City
+	361 = {
+	add_devastation = 100
+	}
+		add_mil_power = 150 
+		add_dip_power = 150 
+		add_adm_power = 150
+		add_treasury = 300	
+		set_country_flag = qahirah_city_destroyed
+												egypt_region = {
+				limit = {
+					 owned_by = MAM
+				}
+		
+    cede_province = ROOT
+	add_core = ROOT
+
+	}
+	}
+}
+country_event = {
+	id = atlantropa_egyptwar.6
+	title = "atlantropa_egyptwar.6.t"
+	desc = "atlantropa_egyptwar.6.d"
+	picture = BATTLE_eventPicture
+	major = yes
+	trigger = {
+		    NOT = { has_country_flag = suez_city_destroyed }
+			NOT = { is_year = 6934 }
+			NOT = { capital = 2315  }	
+						capital_scope = {
+				region = egypt_region
+			}
+			exists = HSN
+						OR = {
+			HSN = { NOT = { num_of_provinces_owned_or_owned_by_subjects_with = {
+	value = 4
+	region = egypt_region
+} } }
+			war_score_against = { who = HSN value = 75 }
+						}
+			OR = {
+			2315 = { controlled_by = ROOT }
+			2315 = { owned_by = ROOT }
+
+	}}
+	mean_time_to_happen = { days = 3 }
+	
+	option = {
+		name = atlantropa_egyptwar.6a #Sack of City
+	2315 = {
+	add_devastation = 100
+	}
+		add_mil_power = 150 
+		add_dip_power = 150 
+		add_adm_power = 150
+		add_treasury = 300	
+		set_country_flag = suez_city_destroyed
+										egypt_region = {
+				limit = {
+					 owned_by = HSN
+				}
+		
+    cede_province = ROOT
+	add_core = ROOT
+
+	}
+
+	}
+}
+country_event = {
+	id = atlantropa_egyptwar.7
+	title = "atlantropa_egyptwar.7.t"
+	desc = "atlantropa_egyptwar.7.d"
+	picture = TOLLS_SHIP_CARGO_eventPicture
+	major = yes
+	trigger = {
+		    NOT = { has_country_flag = alexandria_city_destroyed }
+			NOT = { is_year = 6934 }
+			NOT = { capital = 358  }	
+						capital_scope = {
+				region = egypt_region
+			}
+			exists = CYP
+						OR = {
+			CYP = { NOT = { num_of_provinces_owned_or_owned_by_subjects_with = {
+	value = 4
+	region = egypt_region
+} } }
+			war_score_against = { who = CYP value = 65 }
+						}
+			OR = {
+			358 = { controlled_by = ROOT }
+			358 = { owned_by = ROOT }
+
+	}}
+	mean_time_to_happen = { days = 3 }
+	
+	option = {
+		name = atlantropa_egyptwar.7a #Sack of City
+	358 = {
+	add_devastation = 100
+	}
+		add_mil_power = 50 
+		add_dip_power = 50 
+		add_adm_power = 50
+		add_treasury = 500	
+		CYP = {
+	    white_peace = A6F
+        white_peace = A2R
+	    white_peace = MAK
+        white_peace = HSN
+	    white_peace = A3R	
+		}
+		set_country_flag = alexandria_city_destroyed
+										egypt_region = {
+				limit = {
+					 owned_by = CYP
+				}
+		
+    cede_province = ROOT
+	add_core = ROOT
+
+	}
+	}
+}
+
+country_event = {
+	id = atlantropa_egyptwar.8
+	title = "atlantropa_egyptwar.8.t"
+	desc = "atlantropa_egyptwar.8.d"
+	picture = WOUNDED_SOLDIERS_eventPicture
+	trigger = {
+		    NOT = { has_global_flag = atlantropa_egypt_united }
+		 	OR = {
+        tag = CYP
+	    tag = A6F
+        tag = A2R
+	    tag = MAK
+        tag = HSN
+	    tag = A3R	
+}		
+			NOT = { is_year = 6934 }	
+			capital_scope = {
+				region = egypt_region		
+			}
+			OR = {
+			is_at_war = no
+			
+	}}
+	mean_time_to_happen = { days = 62 }
+	
+	option = {
+		name = atlantropa_egyptwar.8a
+		every_neighbor_country = {
+						limit = {
+							NOT = {	war_with = ROOT }
+							historical_rival_with = ROOT
+							}
+					declare_war_with_cb = {
+    who = ROOT
+    casus_belli = cb_humiliate
+}
+					}
+				}
+
+	}
+	
+	country_event = {
+	id = atlantropa_egyptwar.9
+	title = "atlantropa_egyptwar.9.t"
+	desc = "atlantropa_egyptwar.9.d"
+	picture = GREAT_BUILDING_eventPicture
+	major = yes
+	trigger = {
+		 NOT = { has_global_flag = atlantropa_egypt_united }
+			owns_core_province = 1234
+			owns_core_province = 1231
+			owns_core_province = 361
+			owns_core_province = 356
+			owns_core_province = 358
+			owns_core_province = 2315
+			owns_core_province = 5244		
+			is_at_war = no	
+			capital_scope = {
+				region = egypt_region		
+			}
+}
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+			name = atlantropa_egyptwar.9a
+		set_global_flag	= atlantropa_egypt_united
+		add_prestige = 25	
+		add_war_exhaustion = -5
+		add_stability = 1	
+			egypt_region = {
+				limit = {
+					NOT = { is_core = ROOT	}
+				}
+				add_core = ROOT		
+				}
+
+	}}
+	country_event = {
+	id = atlantropa_egyptwar.10
+	title = atlantropa_egyptwar.10.t
+	desc = atlantropa_egyptwar.10.d
+	picture = LAND_MILITARY_eventPicture
+	mean_time_to_happen = { days = 1 }
+	is_triggered_only = yes
+	option = {
+			name = atlantropa_egyptwar.10a
+		add_war_exhaustion = 5	
+}}
+	country_event = {
+	id = atlantropa_egyptwar.11
+	title = atlantropa_egyptwar.11.t
+	desc = atlantropa_egyptwar.11.d
+	picture = SIEGE_eventPicture
+	major = yes
+	mean_time_to_happen = { days = 1 }
+	is_triggered_only = yes
+	option = {
+			name = atlantropa_egyptwar.11a
+		add_war_exhaustion = -5	
+}}

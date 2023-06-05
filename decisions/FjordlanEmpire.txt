@@ -1,0 +1,48 @@
+country_decisions = {
+fjordland_empire_dec = {
+	color = { 11 11 176 }	
+major = yes
+potential = {
+		OR = {
+		tag = A13
+		was_tag = A13
+		}
+		NOT = { has_country_flag = fjordlandempireformed }
+	}
+	provinces_to_highlight = { 
+				OR = {
+province_id = 4997
+province_id = 12
+province_id = 333
+province_id = 4143
+province_id = 5693
+province_id = 1978
+province_id = 1979
+
+	} }
+		allow = {
+	stability = 1
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 4997
+		owns_core_province = 12
+		owns_core_province = 333
+		owns_core_province = 4143
+		owns_core_province = 5693
+		owns_core_province = 1978
+		owns_core_province = 1979
+}
+		effect = {
+			change_country_color = { color = { 18  29  191 }}	
+			set_country_flag = fjordlandempireformed 
+			set_country_flag = has_overriden_color_flag
+			override_country_name = NORTH_SEA_EMPIRE_ATL
+			add_prestige = 50
+			add_adm_power = 100	
+			set_government_rank = 3
+			}
+		ai_will_do = {
+			factor = 1
+}
+}
+}

@@ -1,0 +1,797 @@
+
+country_decisions = {
+
+
+
+
+
+surowiecspaints = {
+	color = { 252 199 93 }
+	ai_will_do = {
+		factor = 0
+		modifier = {
+			factor = 1
+			adm_power = 600
+		}
+	}
+		potential = { 
+			has_institution =  renaissance
+			any_owned_province = {
+				trade_goods = lumber
+			}
+			any_owned_province = {
+				NOT = { has_province_modifier = surowieczrespiony }
+			}
+			NOT = { has_country_modifier = painttradegooddodany }
+		}
+		allow = {
+		is_nomad = no
+		is_at_war = no
+		any_owned_province = {
+			development = 25
+			trade_goods = lumber
+		}
+		adm_power = 250
+		}
+
+		effect = {
+						hidden_effect = {
+				ROOT = { 
+					add_country_modifier = { 
+					name = painttradegooddodany
+					duration =  -1
+					hidden = yes
+				}
+			}
+			random_owned_province = {
+				limit = {
+				development = 25
+				trade_goods = lumber
+			 } 
+			add_base_production = -3
+			}
+		}
+		add_adm_power = -100	
+			
+			random_owned_province = {
+				limit = { 	
+				NOT = { has_province_modifier = surowieczrespiony	} 
+				NOT = { 
+					OR = {
+						trade_goods = gems
+						trade_goods = gold
+						trade_goods = silver
+						trade_goods = atl_paints
+						}
+					
+					 } 
+			}
+				change_trade_goods = atl_paints
+				add_base_production = 1	
+				add_province_modifier = { 
+					name = surowieczrespiony
+					duration = -1  
+				}
+				
+			}
+			}
+
+}
+
+surowiecatl_furnitures = {
+	color = { 252 199 93 }
+		potential = { 
+			adm_tech = 10
+			any_owned_province = {
+				trade_goods = lumber
+			}
+			any_owned_province = {
+				NOT = { has_province_modifier = surowieczrespiony }
+			}
+			NOT = { has_country_modifier = krzeslatradegooddodany }
+		}
+		allow = {
+		is_nomad = no
+		is_at_war = no
+		any_owned_province = {
+			development = 25
+			trade_goods = lumber
+		}
+		adm_power = 250
+		}
+
+		effect = {
+			add_adm_power = -250
+			
+			random_owned_province = {
+				limit = { 	NOT = { has_province_modifier = surowieczrespiony	} 
+				NOT = { 					OR = {
+					trade_goods = gems
+					trade_goods = gold
+					trade_goods = silver
+					trade_goods = atl_furnitures
+					} } 
+			}
+				change_trade_goods = atl_furnitures
+				add_base_production = 1	
+				add_province_modifier = { 
+					name = surowieczrespiony
+					duration = -1  
+				}
+			}
+			hidden_effect = {
+				ROOT = { add_country_modifier = { 
+					name = krzeslatradegooddodany
+					duration = 10000
+				}}
+			random_owned_province = {
+				limit = {
+				development = 25
+				trade_goods = lumber
+			 } 
+				add_base_production = -3
+			}}
+			}
+ai_will_do = {
+    factor = 0
+    modifier = {
+        factor = 1
+        adm_power = 600
+    }
+}
+}
+
+surowiecatl_artillery = {
+	color = { 252 199 93 }
+		potential = { 
+			mil_tech = 12
+			any_owned_province = {
+				trade_goods = copper
+			}
+			any_owned_province = {
+				NOT = { has_province_modifier = surowieczrespiony }
+			}
+			NOT = { has_country_modifier = atl_artillerytradegooddodany }
+		}
+		allow = {
+		is_nomad = no
+		is_at_war = no
+		any_owned_province = {
+			development = 25
+			trade_goods = copper
+		}
+		adm_power = 250
+		}
+
+		effect = {
+			add_adm_power = -250
+			
+			random_owned_province = {
+				limit = { 	NOT = { has_province_modifier = surowieczrespiony	} 
+				NOT = { 					OR = {
+					trade_goods = gems
+					trade_goods = gold
+					trade_goods = silver
+					trade_goods = atl_artillery
+					} } 
+			}
+				change_trade_goods = atl_artillery
+				add_base_production = 1	
+								add_province_modifier = { 
+					name = surowieczrespiony
+					duration = -1  
+				}
+			}
+			hidden_effect = {
+				ROOT = { add_country_modifier = { 
+					name = atl_artillerytradegooddodany
+					duration = -1
+					hidden = yes
+				}}
+			random_owned_province = {
+				limit = {
+				development = 25
+				trade_goods = copper } 
+				add_base_production = -3
+			}}
+			}
+ai_will_do = {
+    factor = 0
+    modifier = {
+        factor = 1
+        adm_power = 600
+    }
+}
+}
+
+surowiecatl_clothes = {
+	color = { 252 199 93 }
+		potential = { 
+			adm_tech = 10
+			any_owned_province = {
+				trade_goods = cloth
+			}
+			any_owned_province = {
+				NOT = { has_province_modifier = surowieczrespiony }
+			}
+			NOT = { has_country_modifier = atl_clothestradegooddodany }
+		}
+		allow = {
+		is_nomad = no
+		is_at_war = no
+		any_owned_province = {
+			development = 25
+			trade_goods = cloth
+		}
+		adm_power = 250
+		}
+
+		effect = {
+			add_adm_power = -250
+			
+			random_owned_province = {
+				limit = { 	NOT = { has_province_modifier = surowieczrespiony	} 
+				NOT = { 					OR = {
+					trade_goods = gems
+					trade_goods = gold
+					trade_goods = silver
+					trade_goods = atl_clothes
+					} } 
+			}
+				change_trade_goods = atl_clothes
+				add_base_production = 1	
+								add_province_modifier = { 
+					name = surowieczrespiony
+					duration = -1  
+				}
+			}
+			hidden_effect = {
+				ROOT = { add_country_modifier = { 
+					name = atl_clothestradegooddodany
+					duration = 10000
+					hidden = yes
+				}}
+			random_owned_province = {
+				limit = {
+				development = 25
+				trade_goods = cloth } 
+				add_base_production = -3
+			}}
+			}
+ai_will_do = {
+    factor = 0
+    modifier = {
+        factor = 1
+        adm_power = 600
+    }
+}}
+
+surowiecatl_tools = {
+	color = { 252 199 93 }
+		potential = { 
+			adm_tech = 10
+			any_owned_province = {
+				trade_goods = iron
+			}
+			any_owned_province = {
+				NOT = { has_province_modifier = surowieczrespiony }
+			}
+			NOT = { has_country_modifier = atl_toolsestradegooddodany }
+		}
+		allow = {
+		is_nomad = no
+		is_at_war = no
+		any_owned_province = {
+			development = 25
+			trade_goods = iron
+		}
+		adm_power = 250
+		}
+
+		effect = {
+			add_adm_power = -250
+			
+			random_owned_province = {
+				limit = { 	NOT = { has_province_modifier = surowieczrespiony	} 
+				NOT = { 					OR = {
+					trade_goods = gems
+					trade_goods = gold
+					trade_goods = silver
+					trade_goods = atl_tools
+					} } 
+			}
+				change_trade_goods = atl_tools
+				add_base_production = 1	
+								add_province_modifier = { 
+					name = surowieczrespiony
+					duration = -1  
+				}
+			}
+			hidden_effect = {
+				ROOT = { add_country_modifier = { 
+					name = atl_toolsestradegooddodany
+					duration = 10000
+					hidden = yes
+				}}
+			random_owned_province = {
+				limit = {
+				development = 25
+				trade_goods = iron } 
+				add_base_production = -3
+			}}
+			}
+ai_will_do = {
+    factor = 0
+    modifier = {
+        factor = 1
+        adm_power = 600
+    }
+}
+}
+surowiecatl_atl_books = {
+	color = { 252 199 93 }
+		potential = { 
+			adm_tech = 10
+			any_owned_province = {
+				trade_goods = paper
+			}
+			any_owned_province = {
+				NOT = { has_province_modifier = surowieczrespiony }
+			}
+			NOT = { has_country_modifier = atl_booksestradegooddodany }
+		}
+		allow = {
+		is_nomad = no
+		is_at_war = no
+		any_owned_province = {
+			development = 25
+			trade_goods = paper
+		}
+		adm_power = 250
+		}
+
+		effect = {
+			add_adm_power = -250
+			
+			random_owned_province = {
+				limit = { 	NOT = { has_province_modifier = surowieczrespiony	} 
+				NOT = { 					OR = {
+					trade_goods = gems
+					trade_goods = gold
+					trade_goods = silver
+					trade_goods = atl_books
+					} } 
+			}
+				change_trade_goods = atl_books
+				add_base_production = 1	
+								add_province_modifier = { 
+					name = surowieczrespiony
+					duration = -1  
+				}
+			}
+			hidden_effect = {
+				ROOT = { add_country_modifier = { 
+					name = atl_booksestradegooddodany
+					duration = 10000
+					hidden = yes
+				}}
+			random_owned_province = {
+				limit = {
+				development = 25
+				trade_goods = paper } 
+				add_base_production = -3
+			}}
+			}
+ai_will_do = {
+    factor = 0
+    modifier = {
+        factor = 1
+        adm_power = 600
+    }
+}
+}
+
+surowiecatl_atl_jewelery = {
+	color = { 252 199 93 }
+		potential = { 
+			adm_tech = 10
+			any_owned_province = {
+				OR = {
+				trade_goods = gems
+				trade_goods = gold
+				trade_goods = silver
+				}
+			}
+			any_owned_province = {
+				NOT = { has_province_modifier = surowieczrespiony }
+			}
+			NOT = { has_country_modifier = atl_jeweltradegooddodany }
+		}
+		allow = {
+		is_nomad = no
+		is_at_war = no
+		any_owned_province = {
+			development = 25
+			OR = {
+				trade_goods = gems
+				trade_goods = gold
+				trade_goods = silver
+				}
+		}
+		adm_power = 300
+		}
+
+		effect = {
+			add_adm_power = -300
+			
+			random_owned_province = {
+				limit = { 	NOT = { has_province_modifier = surowieczrespiony	} 
+				NOT = { 
+					OR = {
+						trade_goods = gems
+						trade_goods = gold
+						trade_goods = silver
+						trade_goods = atl_jewelery
+						}
+					 } 
+			}
+				change_trade_goods = atl_jewelery
+				add_base_production = 1	
+								add_province_modifier = { 
+					name = surowieczrespiony
+					duration = -1  
+				}
+			}
+			hidden_effect = {
+				ROOT = { add_country_modifier = { 
+					name = atl_jeweltradegooddodany
+					duration = 10000
+					hidden = yes
+				}}
+			random_owned_province = {
+				limit = {
+				development = 25
+				OR = {
+					trade_goods = gems
+					trade_goods = gold
+					trade_goods = silver
+					} } 
+				add_base_production = -3
+			}}
+			}
+ai_will_do = {
+    factor = 0
+    modifier = {
+        factor = 1
+        adm_power = 600
+    }
+}
+}
+
+
+surowiecatl_atl_vodka = {
+	color = { 252 199 93 }
+		potential = { 
+			adm_tech = 10
+			any_owned_province = {
+				trade_goods = grain
+			}
+			any_owned_province = {
+				NOT = { has_province_modifier = surowieczrespiony }
+			}
+			NOT = { has_country_modifier = vodka_drinktradegooddodany }
+		}
+		allow = {
+		is_nomad = no
+		is_at_war = no
+		any_owned_province = {
+			development = 25
+			trade_goods = grain
+		}
+		adm_power = 250
+		}
+
+		effect = {
+			add_adm_power = -250
+			
+			random_owned_province = {
+				limit = { 	NOT = { has_province_modifier = surowieczrespiony	} 
+				NOT = { 					OR = {
+					trade_goods = gems
+					trade_goods = gold
+					trade_goods = silver
+					trade_goods = vodka_drink
+					} } 
+			}
+				change_trade_goods = vodka_drink
+				add_base_production = 1	
+								add_province_modifier = { 
+					name = surowieczrespiony
+					duration = -1  
+				}
+			}
+			hidden_effect = {
+				ROOT = { add_country_modifier = { 
+					name = vodka_drinktradegooddodany
+					duration = 10000
+					hidden = yes
+				}}
+			random_owned_province = {
+				limit = {
+				development = 25
+				trade_goods = grain } 
+				add_base_production = -3
+			}}
+			}
+ai_will_do = {
+    factor = 0
+    modifier = {
+        factor = 1
+        adm_power = 600
+    }
+}
+}
+
+
+surowiecatl_atl_sails = {
+	color = { 252 199 93 }
+		potential = { 
+			adm_tech = 10
+			any_owned_province = {
+				trade_goods = cloth 
+			}
+			any_owned_province = {
+				NOT = { has_province_modifier = surowieczrespiony }
+			}
+			NOT = { has_country_modifier = atl_sailsktradegooddodany }
+		}
+		allow = {
+		is_nomad = no
+		is_at_war = no
+		any_owned_province = {
+			development = 25
+			trade_goods = cloth 
+		}
+		adm_power = 250
+		}
+
+		effect = {
+			add_adm_power = -250
+			
+			random_owned_province = {
+				limit = { 	NOT = { has_province_modifier = surowieczrespiony	} 
+				NOT = { 					OR = {
+					trade_goods = gems
+					trade_goods = gold
+					trade_goods = silver
+					trade_goods = atl_sails
+					} } 
+					has_port = yes
+			}
+				change_trade_goods = atl_sails
+				add_base_production = 1	
+								add_province_modifier = { 
+					name = surowieczrespiony
+					duration = -1  
+				}
+			}
+			hidden_effect = {
+				ROOT = { add_country_modifier = { 
+					name = atl_sailsktradegooddodany
+					duration = 10000
+					hidden = yes
+				}}
+			random_owned_province = {
+				limit = {
+				development = 25
+				trade_goods = cloth  } 
+				add_base_production = -3
+			}}
+			}
+ai_will_do = {
+    factor = 0
+    modifier = {
+        factor = 1
+        adm_power = 600
+    }
+}
+}
+
+surowiecatl_atl_statki = {
+	color = { 252 199 93 }
+		potential = { 
+			adm_tech = 10
+			any_owned_province = {
+				trade_goods = atl_tools
+			}
+			any_owned_province = {
+				trade_goods = atl_sails
+			}
+			any_owned_province = {
+				NOT = { has_province_modifier = surowieczrespiony }
+			}
+			NOT = { has_country_modifier = atl_statekktradegooddodany }
+		}
+		allow = {
+		is_nomad = no
+		is_at_war = no
+		any_owned_province = {
+			development = 25
+			trade_goods = atl_tools
+		}
+		any_owned_province = {
+			development = 25
+			trade_goods = atl_sails
+		}
+		adm_power = 400
+		}
+
+		effect = {
+			add_adm_power = -400
+			
+			random_owned_province = {
+				limit = { 	NOT = { has_province_modifier = surowieczrespiony	} 
+				trade_goods = atl_sails
+				has_port = yes
+			}
+				change_trade_goods = atl_ship
+				add_base_production = 1	
+								add_province_modifier = { 
+					name = surowieczrespiony
+					duration = -1  
+				}
+			}
+			hidden_effect = {
+				ROOT = { add_country_modifier = { 
+					name = atl_statekktradegooddodany
+					duration = 10000
+					hidden = yes
+				}}
+			random_owned_province = {
+				limit = {
+				development = 25
+				trade_goods = atl_tools  } 
+				add_base_production = -5
+			}
+		
+		
+		}
+			}
+ai_will_do = {
+    factor = 0
+    modifier = {
+        factor = 1
+        adm_power = 600
+    }
+}
+}
+
+
+
+surowiecatl_ammo = {
+	color = { 252 199 93 }
+		potential = { 
+			adm_tech = 10
+			any_owned_province = {
+				trade_goods = cloth 
+			}
+			any_owned_province = {
+				NOT = { has_province_modifier = surowieczrespiony }
+			}
+			NOT = { has_country_modifier = ammunitionlsktradegooddodany }
+		}
+		allow = {
+		is_nomad = no
+		is_at_war = no
+		any_owned_province = {
+			development = 35
+		}
+		adm_power = 250
+		}
+
+		effect = {
+			add_adm_power = -250
+			
+			random_owned_province = {
+				limit = { 	NOT = { has_province_modifier = surowieczrespiony	} 
+				NOT = { 					OR = {
+					trade_goods = gems
+					trade_goods = gold
+					trade_goods = silver
+					trade_goods = ammunition
+					} } 
+			}
+				change_trade_goods = ammunition
+				add_base_production = 1	
+								add_province_modifier = { 
+					name = surowieczrespiony
+					duration = -1  
+				}
+			}
+			hidden_effect = {
+				ROOT = { add_country_modifier = { 
+					name = atl_sailsktradegooddodany
+					duration = 10000
+					hidden = yes
+				}}
+			random_owned_province = {
+				limit = {
+				development = 35
+				 } 
+				add_base_production = -5
+			}}
+			}
+ai_will_do = {
+    factor = 0
+    modifier = {
+        factor = 1
+        adm_power = 600
+    }
+}
+}
+
+
+
+surowiecatl_atl_coal = {
+	color = { 252 199 93 }
+		potential = { 
+			has_institution =  industrialization
+			any_owned_province = {
+				trade_goods = coal
+			}
+			any_owned_province = {
+				NOT = { has_province_modifier = surowieczrespiony }
+			}
+			NOT = { has_country_modifier = coal_drinktradegooddodany }
+		}
+		allow = {
+		is_nomad = no
+		is_at_war = no
+		any_owned_province = {
+			development = 25
+			trade_goods = coal
+		}
+		adm_power = 400
+		}
+
+		effect = {
+			add_adm_power = -400
+			
+			random_owned_province = {
+				limit = { 	NOT = { has_province_modifier = surowieczrespiony	} 
+				NOT = { 					OR = {
+					trade_goods = gems
+					trade_goods = gold
+					trade_goods = silver
+					trade_goods = atl_steam_engine
+					} } 
+			}
+				change_trade_goods = atl_steam_engine
+				add_base_production = 1	
+								add_province_modifier = { 
+					name = surowieczrespiony
+					duration = -1  
+				}
+			}
+			hidden_effect = {
+				ROOT = { add_country_modifier = { 
+					name = coal_drinktradegooddodany
+					duration = 10000
+					hidden = yes
+				}}
+			random_owned_province = {
+				limit = {
+				development = 25
+				trade_goods = coal } 
+				add_base_production = -5
+			}}
+			}
+			ai_will_do = {
+				factor = 0
+				modifier = {
+				adm_power = 800
+				factor = 1
+			}}
+}
+
+}

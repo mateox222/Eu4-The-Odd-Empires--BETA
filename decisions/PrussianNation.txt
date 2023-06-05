@@ -1,0 +1,173 @@
+country_decisions = {
+
+	prussian_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			was_never_end_game_tag_trigger = yes
+			NOT = { has_country_flag = formed_prussia_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			tag = TEU
+			NOT = { has_reform = celestial_empire } 
+			OR = {
+				NOT = { exists = PRU }
+				ai = no
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			province_id = 2410	# Königsberg
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			NOT = { exists = PRU }
+			adm_tech = 10
+			is_at_war = no
+			OR = {
+				religion = protestant
+				religion = reformed
+				religion = hussite
+				religion = anglican
+				if = {
+					limit = { has_dlc = "Lions of the North" }
+					custom_trigger_tooltip = {
+						tooltip = teu_kingdom_prussia_path_ct
+						has_country_flag = teu_prussian_path
+					}
+				}
+			}
+			owns_core_province = 2410 # Königsberg
+			2410 = { 					# Königsberg
+				is_state = yes
+			}
+		}
+		effect = {
+			2410 = {
+				move_capital_effect = yes
+			}
+			change_tag = PRU
+			restore_country_name_effect = yes
+			swap_non_generic_missions = yes
+			east_prussia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = PRU
+			}
+			west_prussia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = PRU
+			}
+			add_prestige = 25
+			hidden_effect = {
+				if = {
+					limit = {
+						has_dlc = "Lions of the North"
+						has_country_flag = teu_prussian_path
+					}
+					unlock_government_reform = {
+						government_reform = prussian_monarchy
+					}
+					unlock_government_reform = {
+						government_reform = prussian_republic_reform
+					}
+					unlock_government_reform = {
+						government_reform = prussian_theocratic_reform
+					}
+				}
+			}
+			if =  {
+				limit = {
+					is_revolutionary = no
+					NOT = { government = republic }
+				}
+				change_government_to_monarchy = yes
+				if = {
+					limit = { 
+						has_dlc = "Lions of the North"
+						has_country_flag = teu_prussian_path
+					}
+					unlock_government_reform = {
+						government_reform = prussian_monarchy
+					}
+				}
+				add_government_reform = prussian_monarchy
+			}
+			else_if = {
+				limit = {
+					government = republic
+					is_revolutionary = no
+				}
+				if = {
+					limit = { 
+						has_dlc = "Lions of the North"
+						has_country_flag = teu_prussian_path
+					}
+					unlock_government_reform = {
+						government_reform = prussian_republic_reform
+					}
+				}
+				add_government_reform = prussian_republic_reform
+			}
+			if = {
+				limit = {
+					has_reform = states_general_reform
+				}
+				remove_government_reform = states_general_reform
+			}
+			every_neighbor_country = {
+				limit = { government = monarchy }
+				add_opinion = { who = ROOT modifier = secularized_monastic_order }
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					NOT = { has_idea_group = PRU_ideas }
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 3650
+			}
+			if = {
+				limit = {
+					OR = {
+						is_part_of_hre = no
+						is_elector = yes
+					}
+					is_free_or_tributary_trigger = yes
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			set_country_flag = formed_prussia_flag
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { num_of_cities = 10 }
+				NOT = { owns_core_province = 2410 }
+			}
+		}
+
+		ai_importance = 1000
+	}
+	
+}

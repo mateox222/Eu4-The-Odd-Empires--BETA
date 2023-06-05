@@ -1,0 +1,215 @@
+
+nahuatl_consort_aspect = {
+	sprite = "GFX_aztec_sacrifice" 
+	cost = 150
+	trigger = {
+		OR = {
+			NOT = {
+				has_ruler_modifier = aztec_religious_acpect_7
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = nahuatlaspect7
+		hidden_effect = {
+		add_ruler_modifier = {
+			name = aztec_religious_acpect_7
+		}
+	}
+
+}
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			ruler_age = 40
+		}
+		modifier = {
+			factor = 2
+			ruler_age = 60
+		}
+	}
+}
+nahuatl_stability_aspect = {
+	sprite = "GFX_aztec_sacrifice"
+	cost = 150
+	trigger = {
+		OR = {
+			NOT = {
+				has_ruler_modifier = aztec_religious_acpect_1
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = nahuatlaspect1
+		hidden_effect = {
+		add_ruler_modifier = {
+			name = aztec_religious_acpect_1
+		}
+	}
+
+}
+	
+	ai_will_do = {
+		factor = 3
+		modifier = {
+			factor = 0.5
+			stability = 0
+		}
+		modifier = {
+			factor = 0.5
+			stability = 1
+		}
+		modifier = {
+			factor = 0.5
+			stability = 2
+		}
+		modifier = {
+			factor = 0
+			stability = 3
+		}
+	}
+}
+nahuatl_manpower_aspect = {
+	sprite = "GFX_aztec_sacrifice"
+	cost = 150
+	trigger = {
+		OR = {
+			NOT = {
+				has_ruler_modifier = aztec_religious_acpect_2
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = nahuatlaspect2
+		hidden_effect = {
+		add_ruler_modifier = {
+			name = aztec_religious_acpect_2
+		}
+	}
+
+}
+	
+	ai_will_do = {
+		factor = 3
+		modifier = {
+			factor = 1
+			manpower_percentage = 0
+		}
+		modifier = {
+			factor = 0.5
+			manpower_percentage = 0.25
+		}
+		modifier = {
+			factor = 0.5
+				manpower_percentage = 0.5
+		}
+		modifier = {
+			factor = 0
+				manpower_percentage = 1
+		}
+	}
+}
+
+nahuatl_purge_aspect = {
+	sprite = "GFX_aztec_sacrifice"
+	cost = 150
+	trigger = {
+		OR = {
+			NOT = {
+				has_ruler_modifier = aztec_religious_acpect_3
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = nahuatlaspect3
+		hidden_effect = {
+		add_ruler_modifier = {
+			name = aztec_religious_acpect_3
+		}
+	}
+}
+
+	
+	ai_will_do = {
+		factor = 3
+		modifier = {
+			factor = 0
+			stability = 0
+		}
+		modifier = {
+			factor = 0.1
+			stability = 1
+		}
+		modifier = {
+			factor = 0.2
+			stability = 2
+		}
+		modifier = {
+			factor = 0.5
+			stability = 3
+		}
+	}
+}
+
+nahuatl_slave_aspect = {
+	sprite = "GFX_aztec_sacrifice"
+	cost = 150
+	trigger = {
+		OR = {
+			NOT = {
+				has_ruler_modifier = aztec_religious_acpect_4
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = nahuatlaspect4
+		hidden_effect = {
+		add_ruler_modifier = {
+			name = aztec_religious_acpect_4
+		}
+	}
+}
+	
+}
+nahuatl_cash_aspect = {
+	sprite = "GFX_aztec_sacrifice"
+	cost = 150
+	trigger = {
+		OR = {
+			NOT = {
+				has_ruler_modifier = aztec_religious_acpect_5
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = nahuatlaspect5
+		hidden_effect = {
+		add_ruler_modifier = {
+			name = aztec_religious_acpect_5
+		}}
+
+}
+	
+}
+nahuatl_advisor_aspect = {
+	sprite = "GFX_aztec_sacrifice"
+	cost = 150
+	trigger = {
+		OR = {
+			NOT = {
+				has_ruler_modifier = aztec_religious_acpect_6
+			}
+		}
+	}
+	effect = {
+		custom_tooltip = nahuatlaspect6
+		hidden_effect = {
+		add_ruler_modifier = {
+			name = aztec_religious_acpect_6
+		}
+		}
+
+}
+	
+}

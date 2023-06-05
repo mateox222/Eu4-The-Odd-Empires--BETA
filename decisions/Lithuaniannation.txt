@@ -1,0 +1,49 @@
+country_decisions = {
+	Unite_lithuania = {
+	major = yes
+	potential = {
+			was_never_end_game_tag_trigger = yes
+			OR = {
+			culture = lithuanian
+			}
+		NOT = { exists = LIT }			
+		}
+		provinces_to_highlight = { 
+					OR = {
+	province_id = 272
+	province_id = 1937
+	province_id = 276
+	province_id = 277
+	province_id = 269
+	province_id = 270
+	province_id = 4535
+	
+		} }
+			allow = {
+				NOT = { exists = LIT }
+		stability = 1
+			is_nomad = no
+			is_at_war = no
+			owns_core_province = 272
+			owns_core_province = 1937
+			owns_core_province = 276
+			owns_core_province = 277
+			owns_core_province = 269
+			owns_core_province = 270
+			owns_core_province = 4535
+			
+				}
+	
+			effect = {
+				change_tag = LIT
+				add_prestige = 25
+				set_government_rank = 2
+				country_event = { id = ideagroups.1 }
+				swap_non_generic_missions = yes
+	
+	}
+			ai_will_do = {
+				factor = 1
+	}
+	}
+	}
