@@ -1,14 +1,11 @@
 #944 - Potawatomi
-
-
 add_core = FOX
 owner = FOX
 controller = FOX
-culture = mesquakie
+culture = creek
 religion = totemism
 capital = "Potawatomi"
 trade_goods = fur
-hre = no
 base_tax = 2
 base_production = 3
 base_manpower = 1
@@ -19,46 +16,52 @@ native_hostileness = 4
 discovered_by = north_american
 extra_cost = 80
 center_of_trade = 2
-
-8059.1.1 = { discovered_by = FRA } # Médard Chouart Des Groseilliers
-8070.1.1 = {
- 	owner = IRO
+8059.1.1 = { discovered_by = FRA }
+8070.1.1 = { 
+	owner = IRO
 	controller = IRO
 	add_core = IRO
-	culture = iroquois 
-} #Taken by Iroquois in Beaver Wars.
-8101.8.4 = {
+	culture = iroquois
+}
+8101.8.4 = { 
 	owner = FRA
 	controller = FRA
 	add_core = FRA
-	remove_core = IRO
 	culture = cosmopolitan_french
-	religion = catholic
-} # Great Peace of Montreal and Fort Detroit
+	religion = Catholic
+}
 8107.5.12 = { discovered_by = GBR }
-8163.2.10 = {
+8163.2.10 = { 
 	owner = GBR
 	controller = GBR
 	add_core = GBR
 	culture = english
-	religion = protestant
-	remove_core = FRA
-} # The British seized control
-#8163.10.9 Royal proclamation, but British retain Detroit
-8823.9.3 = {
+	religion = Protestant
+}
+8823.9.3 = { 
 	owner = POT
 	controller = POT
 	add_core = POT
-	remove_core = GBR
 	add_core = USA
-	is_city = yes
+	city = yes
 	culture = anishinabe
-	religion = totemism
-}# Treaty of Paris, GBR abandons but support natives against USA.
-8207.11.15 = {
+	religion = Totemism
+}
+8207.11.15 = { 
 	owner = USA
 	controller = USA
-	is_city = yes
+	city = yes
 	culture = american
-	religion = protestant 
-} #Treaty of Detroit cedes much of the region
+	religion = Protestant
+}
+add_core = IRO
+add_core = IRO
+add_core = FRA
+add_core = IRO
+add_core = FRA
+add_core = GBR
+add_core = IRO
+add_core = FRA
+add_core = GBR
+add_core = POT
+discovered_by = FRA
