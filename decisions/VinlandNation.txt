@@ -1,0 +1,57 @@
+country_decisions = {
+	unite_vinland = {
+		major = yes
+		potential = {
+			was_never_end_game_tag_trigger = yes
+			primary_culture = vinlandish
+			NOT = { exists = A48 }
+			NOT = { tag = SCA }
+		}
+		provinces_to_highlight = { 
+			OR = {
+				province_id = 981
+				province_id = 5853
+				province_id = 5829
+				province_id = 2573
+				province_id = 5830
+				province_id = 980
+			}
+		}
+		allow = {
+			NOT = { exists = A48 }
+			stability = 1
+			is_nomad = no
+			is_at_war = no
+			owns_core_province = 981
+			owns_core_province = 5853
+			owns_core_province = 5829
+			owns_core_province = 2573
+			owns_core_province = 5830
+			owns_core_province = 980
+		}
+
+		effect = {
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			cabotarchipelago_area = {
+				limit = {
+					NOT = {
+						owned_by = ROOT
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+			add_prestige = 10
+			change_tag = A48
+			country_event = { id = ideagroups.1 }
+			swap_non_generic_missions = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
