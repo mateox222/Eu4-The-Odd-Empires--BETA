@@ -156,13 +156,31 @@ bul_1 = {
 		required_missions = { bul_placate }
 		position = 5
 		provinces_to_highlight = {
-			
+			province_id = 4985
 		}
 		trigger = {
-			
+			naval_strength = {
+				who = A62
+				value = 1.5
+			}
+			4985 = {
+				trade_share = {
+					country = ROOT
+					share = 50
+				}
+			}
 		}
 		effect = {
-			
+			create_admiral = { tradition = 60 }
+			155 = {
+				add_permanent_claim = ROOT
+			}
+			4126 = {
+				add_permanent_claim = ROOT
+			}
+			1864 = {
+				add_permanent_claim = ROOT
+			}
 		}
 		ai_weight = {
 			factor = 1
@@ -174,13 +192,53 @@ bul_1 = {
 		required_missions = { bul_pannonian }
 		position = 6
 		provinces_to_highlight = {
-			
+			NOT = {country_or_non_sovereign_subject_holds = ROOT }
+			OR = {
+				province_id = 155
+				province_id = 4126
+				province_id = 1864
+			}
 		}
 		trigger = {
-			
+			NOT = {
+				exists = A62
+			}
+			owns = 155
+			owns = 4126
+			owns = 1864
 		}
 		effect = {
-			
+			add_country_modifier = {
+				name = bul_pirate_menace_ended
+				duration = 7300
+			}
+			155 = {
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1
+				add_province_modifier = {
+					name = bul_pirates_expelled
+					duration = 9125
+				}
+			}
+			4126 = {
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1
+				add_province_modifier = {
+					name = bul_pirates_expelled
+					duration = 9125
+				}
+			}
+			1864 = {
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1
+				add_province_modifier = {
+					name = bul_pirates_expelled
+					duration = 9125
+				}
+			}
 		}
 		ai_weight = {
 			factor = 1
@@ -205,11 +263,11 @@ bul_1 = {
 			}
 		}
 		effect = {
+			custom_tooltip = bul10randomDanubeDip
 			add_power_projection = {
 				type = mission_rewards_power_projection
 				amount = 25
 			}
-			custom_tooltip = bul10randomDanubeDip
 			hidden_effect = {
 				random_owned_province = {
 					limit = {
@@ -888,12 +946,29 @@ bul_3 = {
 		required_missions = { bul_placate }
 		position = 5
 		provinces_to_highlight = {
-			
+			NOT = {country_or_non_sovereign_subject_holds = ROOT}
+			region = carpathia_region
 		}
 		trigger = {
-			
+			government = monarchy
+			num_of_owned_provinces_with = {
+				value = 20
+				region = carpathia_region
+			}
+			employed_advisor = {
+				category = ADM
+			}
+			employed_advisor = {
+				category = DIP
+			}
+			employed_advisor = {
+				category = MIL
+			}
+			prestige = 75
+			treasury = 300
 		}
 		effect = {
+			add_treasury = -300
 			if = {
 				limit = {
 					NOT = {
@@ -902,6 +977,7 @@ bul_3 = {
 				}
 				set_government_rank = 2
 			}
+			add_government_reform = bulgarian_monarchy
 			podolia_volhynia_area = {
 				add_permanent_claim = ROOT
 			}
@@ -1150,13 +1226,48 @@ bul_4 = {
 		required_missions = { bul_tsar }
 		position = 6
 		provinces_to_highlight = {
-			
+			NOT = {country_or_non_sovereign_subject_holds = ROOT}
+			OR = {
+				area = podolia_volhynia_area
+				area = yedisan_area
+				area = west_dniepr_area
+			}
 		}
 		trigger = {
-			
+			podolia_volhynia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			yedisan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			west_dniepr_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
-			
+			280 = {
+				change_culture = ROOT
+				change_religion = orthodox
+			}
+			custom_tooltip = bulTengri
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							area = podolia_volhynia_area
+							area = yedisan_area
+						}
+						religion = tengri_pagan_reformed
+					}
+					add_province_modifier = {
+						name = bul_tengri_heathens
+						duration = -1
+					}
+				}
+			}
 		}
 		ai_weight = {
 			factor = 1
@@ -1171,10 +1282,25 @@ bul_4 = {
 			
 		}
 		trigger = {
-			
+			current_icon = icon_michael
+			280 = {
+				development = 20
+				is_state = yes
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+			OR = {
+				administrator8_tod = 3
+				inquisitor = 3
+			}
 		}
 		effect = {
-			
+			add_country_modifier = {
+				name = bul_pontic_crusade
+				duration = 18250
+			}
 		}
 		ai_weight = {
 			factor = 1
@@ -1186,10 +1312,14 @@ bul_4 = {
 		position = 8
 		required_missions = { bul_cast }
 		provinces_to_highlight = {
-			
+			NOT = {country_or_non_sovereign_subject_holds = ROOT}
+			area = thrace_area
 		}
 		trigger = {
-			
+			thrace_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
 			add_patriarch_authority = 0.20
@@ -1277,6 +1407,7 @@ bul_5 = {
 			
 		}
 		trigger = {
+			has_matching_religion = orthodox
 			accepted_culture = romanian
 			NOT = {
 				has_ruler = "Katrag IV"
@@ -1349,12 +1480,26 @@ bul_5 = {
 		required_missions = { bul_kiev }
 		position = 8
 		provinces_to_highlight = {
-			
+			NOT ={country_or_non_sovereign_subject_holds=ROOT}
+			OR = {
+				region = crimea_region
+				region = ruthenia_region
+			}
 		}
 		trigger = {
-			
+			num_of_owned_provinces_with = {
+				value = 20
+				OR = {
+					region = crimea_region
+					region = ruthenia_region
+				}
+			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = bul_eastern_mission
+				duration = -1
+			}
 			add_power_projection = {
 				type = mission_rewards_power_projection
 				amount = 25
