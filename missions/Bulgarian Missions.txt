@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 bul_1 = {
 	slot = 1
 	generic = no
@@ -1124,7 +1132,7 @@ bul_3 = {
 	}
 }
 
-bul_4 = {
+bul_4a = {
 	slot = 4
 	generic = no
 	ai = yes
@@ -1188,7 +1196,7 @@ bul_4 = {
 				every_owned_province = {
 					limit = {
 						has_owner_culture = yes
-						has_building = temple
+						has_tax_building_trigger = yes
 					}
 					add_base_tax = 1
 				}
@@ -1198,8 +1206,29 @@ bul_4 = {
 			factor = 1
 		}
 	}
+}
 
 
+
+
+
+
+
+bul_branching_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = BUL
+		NOT = {
+			OR = {
+				has_country_flag = bul_bulgar_path_flag
+				has_country_flag = bul_romanian_path_flag
+			}
+		}
+	}
+	has_country_shield = yes
 
 	bul_branching_3 = {
 		icon = mission_unknown_mission
@@ -1218,8 +1247,106 @@ bul_4 = {
 			factor = 1
 		}
 	}
+}
+
+bul_branching_4_bul = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = BUL
+		has_country_flag = bul_bulgar_path_flag
+	}
+	has_country_shield = yes
+
+	bul_branching_3_bul = {
+		icon = mission_expand_into_the_forest
+		required_missions = { bul_branching_2_bul }
+		position = 4
+		provinces_to_highlight = {
+			province_id = 5717
+		}
+		trigger = {
+			5717 = {
+				is_capital = yes
+				development = 15
+				has_fort_building_trigger = yes
+				has_tax_building_trigger = yes
+				has_trade_building_trigger = yes
+			}
+		}
+		effect = {
+			5717 = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+				add_province_modifier = {
+					name = bul_vastar_modifier
+					duration = -1
+				}
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+}
+
+bul_branching_4_rom = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = BUL
+		has_country_flag = bul_romanian_path_flag
+	}
+	has_country_shield = yes
+
+	bul_branching_3_rom = {
+		icon = mission_novgorod_the_great
+		required_missions = { bul_branching_2_rom }
+		position = 4
+		provinces_to_highlight = {
+			province_id = 4531
+		}
+		trigger = {
+			owns_core_province = 4531
+			4531 = {
+				development = 20
+				has_courthouse_building_trigger = yes
+				has_trade_building_trigger = yes
+				has_tax_building_trigger = yes
+			}
+			treasury = 250
+		}
+		effect = {
+			add_treasury = -250
+			set_capital	= 4531
+			4531 = {
+				center_of_trade = 2
+				change_province_name = "Bucharest"
+				rename_capital = "Bucharest"
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+}
 
 
+
+bul_4b = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = BUL
+	}
+	has_country_shield = yes
 
 	bul_dnieper = {
 		icon = mission_advance_to_the_dnieper
@@ -1286,10 +1413,7 @@ bul_4 = {
 			280 = {
 				development = 20
 				is_state = yes
-				OR = {
-					has_building = temple
-					has_building = cathedral
-				}
+				has_tax_building_trigger = yes
 			}
 			OR = {
 				administrator8_tod = 3
@@ -1390,7 +1514,13 @@ bul_4 = {
 	}
 }
 
-bul_5 = {
+
+
+
+
+
+
+bul_5a = {
 	slot = 5
 	generic = no
 	ai = yes
@@ -1408,22 +1538,46 @@ bul_5 = {
 		}
 		trigger = {
 			has_matching_religion = orthodox
-			accepted_culture = romanian
 			NOT = {
 				has_ruler = "Katrag IV"
+			}
+			OR = {
+				accepted_culture = romanian
+				stability = 1
 			}
 		}
 		effect = {
 			change_religion = orthodox
+			country_event = {
+				id = bul_mission_event.1
+			}
 		}
 		ai_weight = {
 			factor = 1
 		}
 	}
+}
+
+bul_branching_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = BUL
+		NOT = {
+			OR = {
+				has_country_flag = bul_bulgar_path_flag
+				has_country_flag = bul_romanian_path_flag
+			}
+		}
+	}
+	has_country_shield = yes
 
 	bul_branching_1 = {
 		icon = mission_unknown_mission
 		required_missions = { bul_fate }
+		position = 2
 		provinces_to_highlight = {
 			
 		}
@@ -1441,6 +1595,7 @@ bul_5 = {
 	bul_branching_2 = {
 		icon = mission_unknown_mission
 		required_missions = { bul_branching_1 }
+		position = 3
 		provinces_to_highlight = {
 			
 		}
@@ -1472,9 +1627,283 @@ bul_5 = {
 			factor = 1
 		}
 	}
+}
 
+bul_branching_5_bul = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = BUL
+		has_country_flag = bul_bulgar_path_flag
+	}
+	has_country_shield = yes
 
+	bul_branching_1_bul = {
+		icon = mission_early_russian_army
+		required_missions = { bul_fate }
+		position = 2
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			development_in_provinces = {
+				value = 45
+				culture = bulgarian
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				area = wallachia_area
+				has_fort_building_trigger = yes
+			}
+		}
+		effect = {
+			define_advisor = {
+				type = treasurer
+				skill = 2
+				discount = yes
+			}
+			wallachia_area = {
+				add_province_modifier = {
+					name = bul_settlement
+					duration = -1
+				}
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
 
+	bul_branching_2_bul = {
+		icon = mission_serfdom
+		required_missions = { bul_branching_1_bul }
+		position = 3
+		provinces_to_highlight = {
+			owned_by = ROOT
+			NOT = {culture = bulgarian}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				culture = bulgarian
+			}
+			NOT = {
+				OR = {
+					accepted_culture = romanian
+					accepted_culture = rutenian
+					accepted_culture = transylvanian
+					accepted_culture = moldovan
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = bul_assimilation_campaign
+				duration = 10950
+			}
+			if = {
+				limit = {
+					dip = 6
+				}
+				add_dip_power = 100
+			}
+			else = {
+				change_dip = 1
+			}
+			add_stability = 1
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_branching_4_bul = {
+		icon = mission_protect_the_south_slavs
+		required_missions = { bul_branching_2_bul bul_tsar}
+		position = 6
+		provinces_to_highlight = {
+			OR = {
+				area = wallachia_area
+				area = moldavia_area
+				area = transylvania_area
+				area = southern_transylvania_area
+				area = silistria_area
+			}
+			NOT = {
+				culture = bulgarian
+			}
+		}
+		trigger = {
+			grown_by_development = 500
+			wallachia_area = {
+				type = all
+				culture = bulgarian
+			}
+			moldavia_area = {
+				type = all
+				culture = bulgarian
+			}
+			transylvania_area = {
+				type = all
+				culture = bulgarian
+			}
+			southern_transylvania_area = {
+				type = all
+				culture = bulgarian
+			}
+			silistria_area = {
+				type = all
+				culture = bulgarian
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = bul_cultural_superiority
+				duration = -1
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+}
+
+bul_branching_5_rom = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = BUL
+		has_country_flag = bul_romanian_path_flag
+	}
+	has_country_shield = yes
+
+	bul_branching_1_rom = {
+		icon = mission_educated_people
+		required_missions = { bul_fate }
+		position = 2
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			accepted_culture = romanian
+			OR = {
+				accepted_culture = transylvanian
+				accepted_culture = moldovan
+				accepted_culture = rutenian
+			}
+			OR = {
+				philosopher = 2
+				artist = 2
+				theologian = 2
+			}
+			employed_advisor = {
+				culture = romanian
+			}
+			NOT = {
+				any_owned_province = {
+					culture = romanian
+					unrest = 0
+				}
+			}
+		}
+		effect = {
+			add_ruler_modifier = {
+				name = bul_the_tolerant
+				duration = -1
+			}
+			add_country_modifier = {
+				name = bul_adopt_latin_alphabet
+				duration = 9125
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_branching_2_rom = {
+		icon = mission_unite_the_princes
+		required_missions = { bul_branching_1_rom }
+		position = 3
+		provinces_to_highlight = {
+			
+		}
+		trigger = {
+			current_icon = icon_eleusa
+			religious_unity = 0.95
+			stability = 3
+			legitimacy = 100
+			prestige = 25
+			is_at_war = no
+		}
+		effect = {
+			country_event = {
+				id = bul_mission_event.2
+			}
+			add_dip_power = 100
+			add_prestige = -25
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+	bul_branching_4_rom = {
+		icon = a_strong_government
+		required_missions = { bul_branching_2_rom bul_tsar}
+		position = 6
+		provinces_to_highlight = {
+			region = carpathia_region
+			OR = {
+				NOT = {
+					owned_by = ROOT
+				}
+				unrest = 0
+				local_autonomy_above_min = 1
+			}
+		}
+		trigger = {
+			adm_tech = 10
+			carpathia_region = {
+				type = all
+				owned_by = ROOT
+				NOT = {
+					unrest = 0
+				}
+				NOT = {
+					local_autonomy_above_min = 1
+				}
+			}
+		}
+		effect = {
+			override_country_name = BUL_DACHIYA
+			change_country_color = { color = { 27 68 181 } }
+			add_country_modifier = {
+				name = bul_dacia_awoken
+				duration = -1
+			}
+			add_prestige = 50
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+}
+
+bul_5b = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = BUL
+	}
+	has_country_shield = yes
+	
 	bul_pontic = {
 		icon = mission_sca_lit_conquer_crimea
 		required_missions = { bul_kiev }
