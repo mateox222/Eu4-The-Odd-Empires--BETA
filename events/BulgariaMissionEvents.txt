@@ -1,0 +1,91 @@
+
+namespace = bul_mission_event
+normal_or_historical_nations = yes
+
+country_event = { #BULGARIA CONVERTS TO PENTARCHIANISM
+	id = bul_mission_event.1
+	title = bul_mission_event.1.t
+	desc = bul_mission_event.1.d
+	picture = ORTHODOX_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { #Bulgar Assimilation
+		name = bul_mission_event.1.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_tooltip = bulBulgarPath
+		set_country_flag = bul_bulgar_path_flag
+		hidden_effect = {
+			
+			
+			swap_non_generic_missions = yes
+		}
+	}
+	
+	option = { #Romanianization
+		name = bul_mission_event.1.b
+		ai_chance = {
+			factor = 1
+		}
+		custom_tooltip = bulRomanianPath
+		set_country_flag = bul_romanian_path_flag
+		hidden_effect = {
+			
+
+			swap_non_generic_missions = yes
+		}
+	}
+}
+
+country_event = { #BULGARIA BECOMES ROMANIAN
+	id = bul_mission_event.2
+	title = bul_mission_event.2.t
+	desc = bul_mission_event.2.d
+	picture = CULTURE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { #gaming
+		name = bul_mission_event.2.a
+		ai_chance = {
+			factor = 1
+		}
+		custom_tooltip = detroitBecomeRomanian
+		hidden_effect = {
+			change_primary_culture = bulgarian_romanian
+			if = {
+				limit = {
+					ruler_culture = bulgarian
+				}
+				set_ruler_culture = bulgarian_romanian
+			}
+			if = {
+				limit = {
+					heir_culture = bulgarian
+				}
+				set_heir_culture = bulgarian_romanian
+			}
+			if = {
+				limit = {
+					consort_culture = bulgarian
+				}
+				set_consort_culture = bulgarian_romanian
+			}
+			every_owned_province = {
+				limit = {
+					culture = bulgarian
+				}
+				change_culture = bulgarian_romanian
+			}
+			every_owned_province = {
+				limit = {
+					culture = romanian
+				}
+				change_culture = bulgarian_romanian
+			}
+			remove_accepted_culture = bulgarian
+		}
+	}
+}
