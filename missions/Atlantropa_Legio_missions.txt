@@ -22,7 +22,7 @@ arthuria_mission1 = {
 			}
 		}
 		trigger = {
-			army_size = 10		
+			army_size = 13		
 		}
 				effect = {
 								country_event = { 
@@ -117,12 +117,34 @@ arthuria_mission1 = {
 		required_missions = { arthuria_fourth_slot3 }
 			
 			provinces_to_highlight = {
-			region = lyonesse_region
+				OR = {
+			area = kapitallyonesse_area
+			area = mendebelkea_area
+			area = irlahandia_area
+			area = gwlamelot_area
+			area = lyon_isles_area
+				}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		
 		trigger = {
-			lyonesse_region = {
+			kapitallyonesse_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			mendebelkea_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			irlahandia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			gwlamelot_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			lyon_isles_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -515,7 +537,28 @@ arhurian_colonist_in_north_america = {
 		}
 	}
 	
+	arthuria_gp_slot3 = {
+		
+		icon = atlantropa_greatpower
+	   required_missions = { arthuria_throw_the_pyreness }
 	
+					trigger = {
+					government_rank = 3
+					is_great_power = yes
+	}
+				
+					effect = {
+													country_event = { 
+		id = legionhispanian_events.32
+	}
+				}
+						ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+					
+	}
+
+
 	albion_conquest_brittany = {
 		icon = atlantropa_britanny
 		required_missions = { art_reclaim_arm_paris }
@@ -835,7 +878,7 @@ arthuria_eighth_slot3 = {
 	owned_by = ROOT
 	region = low_countries_region
 }
-			owns_core_province = 97
+			owns_core_province = 5795
 			
 		}
 				effect = {
@@ -905,6 +948,7 @@ arthuria_mission4 = {
 			}
 		}
 		trigger = {
+			num_of_heavy_ship = 1
 			navy_size = A36		
 			navy_size = 15
 		}
@@ -999,6 +1043,13 @@ arthuria_scotland_slot3 = {
 			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
+			OR = {
+			owns_core_province = 4546
+			OR = {
+				SCO = {	junior_union_with = ROOT	}
+				SCO = {	is_subject_of = ROOT	}
+			}
+		}
 		OR = {
 			owns_core_province = 248
 								OR = {
@@ -1048,29 +1099,67 @@ arthuria_fifth_slot3 = {
 			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
 		}
 }
-arthuria_gp_slot3 = {
-	icon = atlantropa_greatpower
-   required_missions = { arthuria_fifth_slot3 }
 
-				trigger = {
-				government_rank = 3
-				is_great_power = yes
+
+
+arthuria_throw_the_pyreness = {
+	icon = atlantropa_alsace
+   required_missions = { arthuria_fifth_slot3 }
+   	position = 6
+
+	   provinces_to_highlight = {
+		OR = {
+	area = guyenne_area
+	area = pyrenees_area
+	area = languedoc_area
+	area = poitou_area
+	area = massif_central_area
+		}
+	NOT = { country_or_non_sovereign_subject_holds = ROOT }
+}
+
+trigger = {
+	massif_central_area = {
+		type = all
+		country_or_non_sovereign_subject_holds = ROOT
+	}
+	poitou_area = {
+		type = all
+		country_or_non_sovereign_subject_holds = ROOT
+	}
+	languedoc_area = {
+		type = all
+		country_or_non_sovereign_subject_holds = ROOT
+	}
+	pyrenees_area = {
+		type = all
+		country_or_non_sovereign_subject_holds = ROOT
+	}
+	guyenne_area = {
+		type = all
+		country_or_non_sovereign_subject_holds = ROOT
+	}
 }
 			
 				effect = {
-												country_event = { 
-    id = legionhispanian_events.32
+					add_prestige = 10
+					france_region = {
+						limit = {
+							NOT = { is_permanent_claim = ROOT }
+							NOT = { is_core = ROOT	}
+						}
+						add_permanent_claim = ROOT	}
 }
-			}
-					ai_weight = {
+					
+		ai_weight = {
 			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
 		}
-				
 }
+
 
 	art_reclaim_arm_paris = {
 		icon = atlantropa_rzejpybielka
-		required_missions = { arthuria_gp_slot3 }
+		required_missions = { arthuria_throw_the_pyreness }
 		position = 3
 		
 		provinces_to_highlight = {

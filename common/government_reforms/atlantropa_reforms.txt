@@ -878,3 +878,28 @@ kristaperioan_empire = {
         factor = 100
     }
 }
+
+bulgarian_monarchy = {
+	icon = "king"
+	allow_normal_conversion = yes
+    lock_level_when_selected = yes
+	potential = {
+		has_reform = bulgarian_monarchy
+	}
+	trigger = {
+		religion = orthodox
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 30
+	modifiers = {
+		governing_capacity = 150 
+		can_claim_states = yes 
+		harsh_treatment_cost = -0.25
+		defensiveness = 0.15
+		max_absolutism = 20
+		reduced_liberty_desire = 10
+	}
+	ai = {
+		factor = 100
+	}
+}

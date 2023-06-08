@@ -39,11 +39,10 @@ country_decisions = {
 			}
 			cabotarchipelago_area = {
 				limit = {
-					NOT = {
-						owned_by = ROOT
-					}
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
 				}
-				add_permanent_claim = ROOT
+				add_permanent_claim = ROOT		
 			}
 			add_prestige = 10
 			change_tag = A48
