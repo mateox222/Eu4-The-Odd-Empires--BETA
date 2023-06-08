@@ -6,7 +6,14 @@ lamanitia_mission1 = {
     
     # Determines when a series appears for a country. Country scope.
     potential = {
-			  tag = A44
+			 OR = {
+ tag = A44
+ tag = IS1
+ tag =  IS8
+}
+
+
+
     }
     
     # The name of the mission, used for localization
@@ -21,6 +28,7 @@ lamanitia_mission1 = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
+			tag = A44
 			OR = {
 				is_at_war = no
 			}
@@ -255,7 +263,7 @@ lamanitia_conquest_mexicanregion = {
 		}
 	}
 		trigger = {
-		central_america_region  = {
+			mexico_region = {
 			type = all
 			OR = {
 				is_wasteland = yes
@@ -349,7 +357,11 @@ lamanitia_mission2 = {
     
     # Determines when a series appears for a country. Country scope.
     potential = {
-			  tag = A44
+			 OR = {
+ tag = A44
+ tag = IS1
+ tag =  IS8
+}
     }
 
 	lamanitia_bulding = {
@@ -736,7 +748,11 @@ lamanitia_mission3 = {
     
     # Determines when a series appears for a country. Country scope.
     potential = {
-			  tag = A44
+			 OR = {
+ tag = A44
+ tag = IS1
+ tag =  IS8
+}
     }
     lamanitia_buildupeconomy = {
 	position = 2
@@ -949,7 +965,11 @@ lamanitia_mission4 = {
     
     # Determines when a series appears for a country. Country scope.
     potential = {
-			  tag = A44
+			 OR = {
+ tag = A44
+ tag = IS1
+ tag =  IS8
+}
     }
 	
 	lamanitia_blacksun = {
@@ -1030,7 +1050,7 @@ lamanitia_enforce = {
 		trigger = {
 		
 num_of_owned_provinces_with = {
-	value = 20
+	value = 30
 	religion = ROOT
 	region = central_america_region
 }
@@ -1135,7 +1155,11 @@ lamanitia_mission5 = {
     
     # Determines when a series appears for a country. Country scope.
     potential = {
-			  tag = A44
+			 OR = {
+ tag = A44
+ tag = IS1
+ tag =  IS8
+}
     }
     
     # The name of the mission, used for localization
@@ -1377,7 +1401,11 @@ lamanitia_mission6 = {
     
     # Determines when a series appears for a country. Country scope.
     potential = {
-			  tag = A44
+			 OR = {
+ tag = A44
+ tag = IS1
+ tag =  IS8
+}
     }
     lamanitia_europeancolonies = {
 	position = 16

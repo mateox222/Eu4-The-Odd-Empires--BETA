@@ -1106,7 +1106,7 @@ cathar0 = {
 	
 	trigger = {
 		
-			religion = cathar
+			religion = blackchristianity
 
 	}	
 
@@ -1135,7 +1135,7 @@ cathar0 = {
 		extra_manpower_at_religious_war = yes
 	}
 	cathar6 = {
-		num_accepted_cultures = 1
+		discipline = 0.025	
 	}
 	cathar7 = {
 		idea_cost = -0.1
@@ -1198,8 +1198,11 @@ coptic0 = {
 	category = ADM
 	
 	trigger = {
-		
+		OR = {
 			religion  = coptic
+			religion  = monophysitetrue
+			religion  = monophysite
+		}
 
 	}	
 
@@ -1295,7 +1298,6 @@ romuva0 = {
 	trigger = {
 			OR = {
 			religion = baltic_pagan_reformed
-			religion = romuva
 			}
 		
 
@@ -1393,7 +1395,6 @@ suomi0 = {
 	trigger = {
 			OR = {	
 			religion = finnish_pagan_reformed
-			religion = suomenusko
 			}
 
 	}
@@ -2266,8 +2267,10 @@ nahu0 = {
 	category = ADM
 
 	trigger = {
-		
+			or = {
 			religion = nahuatl
+			religion = reformednahuatl
+			}
 			
 		
 		
