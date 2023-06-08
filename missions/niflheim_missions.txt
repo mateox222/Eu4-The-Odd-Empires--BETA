@@ -265,6 +265,10 @@ niflheim_military2_missions = { #Series name is displayed over the slot?
 		position = 1
 		icon = atlantropa_niflheim_navy
 		trigger = {
+			OR = {
+				num_of_heavy_ship = 5
+				num_of_transport = 15
+			}
 			navy_size = 15
 			legitimacy = 90
 		}
