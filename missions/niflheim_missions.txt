@@ -93,6 +93,33 @@ niflheim_main_missions = { #Series name is displayed over the slot?
 				add_permanent_claim = ROOT								
 						
 }
+
+westhyberborea_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT								
+			
+}
+easthyberborea_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT								
+			
+}
+
+southhyberborea_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT								
+			
+}
+
 subarctic_islands_area = {
 	limit = {
 		NOT = { is_permanent_claim = ROOT }
@@ -111,6 +138,66 @@ upper_andalucia_area = {
 } 
 
 
+		}
+	}
+
+
+	niflheim_church_build = {
+		icon = mission_land_of_churches
+		required_missions = { niflheim_negrocard }
+		provinces_to_highlight = {
+			OR = {
+			area = hrodingard_area
+			area = grauswig_area
+			}
+			NOT = {
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		trigger = {
+			hrodingard_area = {
+				type = all
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+			grauswig_area = {
+				type = all
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		effect = {
+			
+			add_fervor = 100
+			add_splendor = 250
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+
+
+	niflheim_imperial_cult = {
+		icon = atlantropa_aryansolarcrusade
+		required_missions = { niflheim_church_build }
+		trigger = {
+			full_idea_group = cathar0
+		}
+		effect = {
+			add_stability = 2
+			add_legitimacy = 30
+			add_fervor = 100
+			add_splendor = 250
+		}
+		ai_weight = {
+			factor = 1
 		}
 	}
 
@@ -249,6 +336,46 @@ niflheim_military_missions = { #Series name is displayed over the slot?
 
 
 
+niflheim_prepare_army4 = {
+	required_missions = { 	niflheim_prepare_army3
+}
+	icon = atlantropa_nilfgaard
+	provinces_to_highlight = {
+		OR = {
+			region = iberia_region
+		}
+		NOT = { country_or_non_sovereign_subject_holds = ROOT }
+	}
+	trigger = {
+		num_of_owned_provinces_with = {
+			value = 20
+			region = iberia_region
+			owned_by = ROOT
+		}
+		owns_core_province = 4361
+	}
+	effect = {
+
+		add_yearly_manpower = 3
+		add_prestige = 15
+		country_event = { 
+			id = niflheim_empire.3
+		}
+
+		iberia_region = {
+			limit = {
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { is_core = ROOT	}
+			}
+			add_permanent_claim = ROOT								
+					
+		}
+		
+
+	}}
+
+
+
 }
 
 niflheim_military2_missions = { #Series name is displayed over the slot?
@@ -361,8 +488,168 @@ avalon_area = {
 	add_permanent_claim = ROOT										
 }
 	}
+
+	niflheim_prepare_navy4 = {
+		icon = atlantropa_bloodysweden
+		required_missions = { niflheim_prepare_navy3
+}
+			position = 2
+			provinces_to_highlight = {
+				province_id = 5061
+			}
+					 trigger = {
+						controls = 5061
+			 }
+		effect = {
+			country_event = { 
+				id = niflheim_empire.2
+			}
+
+		magaranja_area = {
+			limit = {
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { is_core = ROOT	}
+			}
+			add_permanent_claim = ROOT										
+}
+meneforaa_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT										
+}
+storebugt_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT										
+}
+plymouth_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT										
+}
+hydroponika_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT										
+}
+tuath_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT										
+}
+aonnia_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT										
+} 
+
+	}
+
 }
 
+
+
+
+
+
+niflheim_prepare_navy5 = {
+	icon = atlantropa_niflheim
+	required_missions = { niflheim_prepare_navy4
+}
+		position = 2
+		provinces_to_highlight = {
+			region = thule_region
+		}
+				 trigger = {
+					thule_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		 }
+	effect = {
+		add_prestige = 15
+		add_legitimacy = 50
+		add_country_modifier = { 
+			name = grossimperium_niflheim
+			duration = -1  
+		}
+
+
+}
+
+}
+
+ rule_niflheim = {
+	icon = atlantropa_niflhishfleet
+	required_missions = { niflheim_prepare_navy5 } 		
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = fra_strongest_eu_navy
+			NOT = { 
+				any_known_country = {
+					capital_scope = { continent = europe } 
+					navy_size = ROOT 
+					num_of_heavy_ship = ROOT 
+				}
+			}
+		}
+		if = {
+			limit = { has_dlc = "Rule Britannia" }
+			has_naval_doctrine = any
+		}
+		if = { 
+			limit = { has_dlc = "Emperor" }
+			OR = { 
+				is_hegemon_of_type = naval_hegemon
+				num_of_heavy_ship = 150
+			}
+		}
+	}
+	effect = {
+		add_country_modifier = {
+			name = fra_france_rules_the_waves_modifier
+			duration = -1 
+		}
+	}
+}
+
+niflheim_breweries = {
+	icon = mission_vodka_monopoly
+	required_missions = { niflheim_european }
+	provinces_to_highlight = {
+		province_id = 5108
+	}
+	trigger = {
+		faction_in_power = nilfheim_traders
+		5108 = {
+			base_production = 10
+		}
+	}
+	effect = {
+		5108 = {
+			add_province_modifier = {
+				name = fjordland_naerhav
+				duration = -1
+			}
+		}
+	}
+	ai_weight = {
+		factor = 1
+	}
+
+}
+
+
+}
 
 
 niflheim_mship2_missions = { #Series name is displayed over the slot?
@@ -410,6 +697,9 @@ nilfheim_port_expand = {
 				tier = 1
 			}
 		}
+		5101 = {
+			change_trade_goods = atl_ship
+		}
 		5098 = {
 			center_of_trade = 1
 		}
@@ -422,7 +712,7 @@ nilfheim_port_expand = {
 
 
 nilfheim_tradeness = {
-	icon = atlantropa_arthadra
+	icon = atlantropa_handelsbolag
 	required_missions = { nilfheim_port_expand }
 	provinces_to_highlight = {
 		province_id = 5098
@@ -457,6 +747,251 @@ nilfheim_tradeness = {
 	}
 }
 
+nilfheim_tradeness2 = {
+	icon = atlantropa_nilfheimnordfleet
+	required_missions = { nilfheim_tradeness }
+	provinces_to_highlight = {
+		OR = {
+		area = iceland_area
+		province_id = 1979
+		}
+	}
+			 trigger = {
+				iceland_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+				owns_core_province = 1979
+	 }
+	effect = {
+		add_country_modifier = { 
+			name = black_colonist
+			duration = 7200 
+		}
+		frischland_region = {
+			limit = {
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { is_core = ROOT	}
+			}
+			add_permanent_claim = ROOT		}			
+	}
+	ai_weight = {
+		factor = 1
+	}
+}
 
+nilfheim_tradeness3 = {
+	icon = atlantropa_aryanlebesnraum
+	required_missions = { nilfheim_tradeness2 }
+	provinces_to_highlight = {
+		OR = {
+		region = frischland_region
+		}
+	}
+	trigger = {
+				num_of_owned_provinces_with = {
+					value = 10
+					region = frischland_region
+				}
+	 }
+	effect = {
+		add_prestige = 15
+		hudson_bay_region = {
+			limit = {
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { is_core = ROOT	}
+			}
+			add_permanent_claim = ROOT		
+		}				
+		add_country_modifier = { 
+			name = black_colonist
+			duration = 7200   
+		}
+	}
+	ai_weight = {
+		factor = 1
+	}
+}
+
+nilfheim_tradeness4 = {
+	icon = atlantropa_undeadarmy
+	required_missions = { nilfheim_tradeness3 }
+	provinces_to_highlight = {
+		OR = {
+		region = hudson_bay_region
+		}
+	}
+	trigger = {
+				num_of_owned_provinces_with = {
+					value = 15
+					region = hudson_bay_region
+				}
+	 }
+	effect = {
+		add_prestige = 15
+
+		north_america_superregion = {
+			limit = {
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { is_core = ROOT	}
+			}
+			add_permanent_claim = ROOT		}			
+	}
+	ai_weight = {
+		factor = 1
+	}
+}
+
+niflheim_european = {
+	icon = return_visby_to_the_league
+	required_missions = {  }
+	provinces_to_highlight = {
+		
+	}
+	trigger = {
+		faction_in_power = nilfheim_traders
+		369 = {
+			has_merchant = ROOT
+		}
+		1975 = {
+			has_merchant = ROOT
+		}
+		5028 = {
+			has_merchant = ROOT
+		}
+		5255 = {
+			has_merchant = ROOT
+		}
+		1276 = {
+			has_merchant = ROOT
+		}
+	}
+	effect = {
+		5028 = {
+			add_trade_modifier = {
+				who = ROOT
+				duration = 5475
+				power = 100
+				key = FJORDLAND_TRADE
+			}
+		}
+		369 = {
+			add_trade_modifier = {
+				who = ROOT
+				duration = 5475
+				power = 100
+				key = FJORDLAND_TRADE
+			}
+		}
+	}
+	ai_weight = {
+		factor = 1
+	}
+}
+
+
+
+
+niflheim_prosperity = {
+	icon = mission_entrepot_of_india
+	required_missions = {  }
+	provinces_to_highlight = {
+		OR = {
+			area = niflport_area
+			area = hrodingard_area
+			area = grauswig_area
+		}
+		NOT = {
+			is_prosperous = yes
+		}
+	}
+	trigger = {
+		custom_trigger_tooltip = {
+			tooltip = fjordlandProsperity
+			grauswig_area = {
+				type = all
+				is_prosperous = yes
+			}
+			hrodingard_area = {
+				type = all
+				is_prosperous = yes
+			}
+			niflport_area = {
+				type = all
+				is_prosperous = yes
+			}
+		}
+	}
+	effect = {
+		5101 = {
+			change_trade_goods = glass
+		}
+		5102 = {
+			change_trade_goods = atl_sails
+		}
+		5104 = {
+			change_trade_goods = atl_tools
+		}
+	}
+	ai_weight = {
+		factor = 1
+	}
+}
+
+
+niflheim_manufacturing = {
+	icon = mission_industrial_forging
+	required_missions = { niflheim_prosperity  }
+	provinces_to_highlight = {
+		
+	}
+	trigger = {
+		num_of_owned_provinces_with = {
+			value = 10
+			OR = {
+				has_building = wharf
+				has_building = weapons
+				has_building = textile
+				has_building = plantations
+				has_building = tradecompany
+				has_building = mills
+			}
+		}
+	}
+	effect = {
+		add_country_modifier = {
+			name = fjordland_manufacturing
+			duration = 3650
+		}
+		5095 = {
+			change_trade_goods = atl_clothes
+		}
+	}
+	ai_weight = {
+		factor = 1
+	}
+}
+
+niflheim_industrial = {
+	icon = industrialized_rhineland
+	required_missions = { niflheim_manufacturing }
+	provinces_to_highlight = {
+		owned_by = ROOT
+		trade_goods = coal
+	}
+	trigger = {
+		furnace = 3
+	}
+	effect = {
+		add_country_modifier = {
+			name = fjordland_industrial_revolution
+			duration = -1
+		}
+		5090 = {
+			change_trade_goods = atl_steam_engine
+		}
+		add_yearly_manpower = 5
+	}
+	ai_weight = {
+		factor = 1
+	}
+}
 
 }

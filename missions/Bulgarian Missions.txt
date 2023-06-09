@@ -1181,7 +1181,7 @@ bul_4a = {
 		trigger = {
 			temple = 5
 			estate_loyalty = {
-    			estate = estate_nobles
+    			estate = estate_church
     			loyalty = 70
 			}
 			patriarch_authority	= 0.10
@@ -1312,6 +1312,7 @@ bul_branching_4_rom = {
 			province_id = 4531
 		}
 		trigger = {
+			is_at_war = no
 			owns_core_province = 4531
 			4531 = {
 				development = 20
@@ -1863,7 +1864,7 @@ bul_branching_5_rom = {
 					owned_by = ROOT
 				}
 				unrest = 0
-				local_autonomy_above_min = 1
+				local_autonomy_above_min = 10
 			}
 		}
 		trigger = {
@@ -1875,7 +1876,7 @@ bul_branching_5_rom = {
 					unrest = 0
 				}
 				NOT = {
-					local_autonomy_above_min = 1
+					local_autonomy_above_min = 10
 				}
 			}
 		}
