@@ -200,3 +200,59 @@ province_event = {
 	remove_province_modifier = atlantropa_nativeatlantis_community
 }
 	}
+
+
+
+	province_event = {
+		id = atlantropa_jewish_event.10
+		title = "atlantropa_basic_event.5.t"
+		desc = "atlantropa_basic_event.5.d"
+		picture = sackniflport_eventPicture
+		hidden = yes
+		trigger = {
+			NOT = { has_province_modifier = atlantropa_neandertalczycy_community }		
+			superregion = europe_superregion
+			if = {
+				limit = { has_terrain = mountain }
+				NOT = {	development = 20 }
+			}
+			if = {
+				limit = { NOT = { has_terrain = mountain } }
+				NOT = {	development = 8 }
+			}
+		}
+	
+		option = {
+	
+		add_province_modifier = { 
+		name = atlantropa_neandertalczycy_community
+		duration = -1
+	}
+		}
+	}
+	province_event = {
+		id = atlantropa_jewish_event.11
+		title = "atlantropa_basic_event.5.t"
+		desc = "atlantropa_basic_event.5.d"
+		picture = sackniflport_eventPicture
+		hidden = yes
+		trigger = {
+			has_province_modifier = atlantropa_neandertalczycy_community
+			if = {
+				limit = { has_terrain = mountain }
+				development = 20
+			}
+			if = {
+				limit = { NOT = { has_terrain = mountain } }
+				development = 8
+			}
+		}
+	
+		option = {
+		remove_province_modifier = atlantropa_neandertalczycy_community
+	}
+		}
+
+
+
+	
