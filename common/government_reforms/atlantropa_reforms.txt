@@ -700,6 +700,7 @@ norse_viking_republic_reform = {
 	can_form_trade_league = no
 
 	potential = {
+		has_reform = norse_viking_republic_reform
 		religion = norse_pagan_reformed
 	}
 	government_abilities = {
@@ -722,6 +723,36 @@ norse_viking_republic_reform = {
 		cannot_become_dictatorship = yes
 	}
 	
+}
+norse_republic_reform = {
+	icon = "norserepublic"
+	allow_normal_conversion = yes
+	potential = {
+		religion = norse_pagan_reformed
+	}
+	modifiers = {
+		naval_forcelimit_modifier = 0.15
+		global_manpower_modifier = 0.10
+		allowed_marine_fraction = 0.20
+		max_absolutism = -10
+	}
+	conditional = {
+		allow = {
+			OR = {
+				has_dlc = "Common Sense"
+				has_dlc = "Domination"
+			}
+		}
+		has_parliament = yes
+	}
+	custom_attributes = {
+		enables_plutocratic_idea_group = yes
+		enables_aristocratic_idea_group = no
+		enables_nepotism = yes
+	}
+	ai = {
+		factor = 2
+	}
 }
 chivalric_monarchy = {
     icon = "chivalric_monarchygfx"

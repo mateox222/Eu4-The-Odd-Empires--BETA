@@ -96,7 +96,7 @@ roman_legio_monarchy = {
 	trigger = {
 		government = monarchy
 		culture_group = roman_group
-}
+	}
 }
 
 
@@ -172,6 +172,56 @@ raumaria_theocracy = {
 			religion = Kemetism
 		}
 	}
+
+norse_viking_republic = {
+	rank = {
+		1 = HEATHENARMY
+		2 = GREATHEATHENARMY
+		3 = HEATHENEMPIRE
+	}
+	
+	ruler_male = {
+		1 = JARL
+		2 = KONUNGR
+		3 = KONUNGRIKI
+	}
+	
+	ruler_female = {
+		1 = JARL
+		2 = KONUNGR
+		3 = KONUNGRIKI
+	}
+	
+	trigger = {
+		has_reform = norse_viking_republic_reform
+	}
+}
+
+norse_republic = {
+	rank = {
+		1 = NORSEREPUBLIC
+		2 = NORSEGRANDREPUBLIC
+		3 = NORSEIMPERIALRREPUBLIC
+	}
+	
+	ruler_male = {
+		1 = NORSEREPUBLICLEADER
+		2 = NORSEREPUBLICLEADER
+		3 = NORSEREPUBLICLEADER
+	}
+	
+	ruler_female = {
+		1 = NORSEREPUBLICLEADER
+		2 = NORSEREPUBLICLEADER
+		3 = NORSEREPUBLICLEADER
+	}
+	
+	trigger = {
+		government = republic
+		religion = norse_pagan_reformed
+	}
+}
+
 
 bulgarian_monarchy = {
 	rank = {
