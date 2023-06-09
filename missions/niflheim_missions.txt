@@ -93,6 +93,33 @@ niflheim_main_missions = { #Series name is displayed over the slot?
 				add_permanent_claim = ROOT								
 						
 }
+
+westhyberborea_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT								
+			
+}
+easthyberborea_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT								
+			
+}
+
+southhyberborea_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT								
+			
+}
+
 subarctic_islands_area = {
 	limit = {
 		NOT = { is_permanent_claim = ROOT }
@@ -361,8 +388,108 @@ avalon_area = {
 	add_permanent_claim = ROOT										
 }
 	}
+
+	niflheim_prepare_navy4 = {
+		icon = atlantropa_bloodysweden
+		required_missions = { niflheim_prepare_navy3
+}
+			position = 2
+			provinces_to_highlight = {
+				province_id = 5061
+			}
+					 trigger = {
+						controls = 5061
+			 }
+		effect = {
+			country_event = { 
+				id = niflheim_empire.2
+			}
+
+		magaranja_area = {
+			limit = {
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { is_core = ROOT	}
+			}
+			add_permanent_claim = ROOT										
+}
+meneforaa_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT										
+}
+storebugt_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT										
+}
+plymouth_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT										
+}
+hydroponika_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT										
+}
+tuath_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT										
+}
+aonnia_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT										
+} 
+
+	}
+
 }
 
+
+
+
+
+
+niflheim_prepare_navy5 = {
+	icon = atlantropa_niflheim
+	required_missions = { niflheim_prepare_navy4
+}
+		position = 2
+		provinces_to_highlight = {
+			region = thule_region
+		}
+				 trigger = {
+					thule_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		 }
+	effect = {
+		add_prestige = 15
+		add_legitimacy = 50
+		add_country_modifier = { 
+			name = grossimperium_niflheim
+			duration = -1  
+		}
+
+
+}
+
+}
+
+
+}
 
 
 niflheim_mship2_missions = { #Series name is displayed over the slot?
@@ -422,7 +549,7 @@ nilfheim_port_expand = {
 
 
 nilfheim_tradeness = {
-	icon = atlantropa_arthadra
+	icon = atlantropa_handelsbolag
 	required_missions = { nilfheim_port_expand }
 	provinces_to_highlight = {
 		province_id = 5098
@@ -457,6 +584,66 @@ nilfheim_tradeness = {
 	}
 }
 
+nilfheim_tradeness2 = {
+	icon = atlantropa_nilfheimnordfleet
+	required_missions = { nilfheim_tradeness }
+	provinces_to_highlight = {
+		OR = {
+		area = iceland_area
+		province_id = 1979
+		}
+	}
+			 trigger = {
+				iceland_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+				owns_core_province = 1979
+	 }
+	effect = {
+		add_country_modifier = { 
+			name = black_colonist
+			duration = 7200 
+		}
+		frischland_region = {
+			limit = {
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { is_core = ROOT	}
+			}
+			add_permanent_claim = ROOT		}			
+	}
+	ai_weight = {
+		factor = 1
+	}
+}
 
+nilfheim_tradeness3 = {
+	icon = atlantropa_aryanlebesnraum
+	required_missions = { nilfheim_tradeness2 }
+	provinces_to_highlight = {
+		OR = {
+		region = frischland_region
+		}
+	}
+			 trigger = {
+				num_of_owned_provinces_with = {
+					value = 10
+					region = frischland_region
+				}
+	 }
+	effect = {
+		add_prestige = 15
+		add_country_modifier = { 
+			name = black_colonist
+			duration = 7200   
+		}
+		hudson_bay_region = {
+			limit = {
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { is_core = ROOT	}
+			}
+			add_permanent_claim = ROOT		}			
+	}
+	ai_weight = {
+		factor = 1
+	}
+}
 
 }
