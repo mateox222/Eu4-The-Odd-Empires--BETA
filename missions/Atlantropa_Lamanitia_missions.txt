@@ -971,7 +971,24 @@ lamanitia_mission4 = {
  tag =  IS8
 }
     }
+	jews_imperial_roads = {
+		icon = atlantropa_imperialroads
+		trigger = {
+			atlantropa_road = 20
+		}
+		effect = {
+			every_owned_province = {
+				limit = {
+					has_building = atlantropa_road
+				}
+				add_base_production = 1	
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
 	
+	}
 	lamanitia_blacksun = {
 			position = 2
 		icon = atlantropa_blacksun

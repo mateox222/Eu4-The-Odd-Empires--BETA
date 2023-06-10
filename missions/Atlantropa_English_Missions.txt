@@ -744,6 +744,45 @@ atlantropa_conquer_scotland = {
 		}
 	}
 
+	british_imperial_roads = {
+		icon = atlantropa_imperialroads
+		trigger = {
+			atlantropa_road = 20
+		}
+		effect = {
+			every_owned_province = {
+				limit = {
+					has_building = atlantropa_road
+				}
+				add_base_production = 1	
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	
+	}
+	
+	british_imperial_tracks = {
+		icon = atlantropa_steamengine
+		required_missions = { british_imperial_roads
+		atlantropa_eng_rb_furnaces
+
+		}
+		trigger = {
+			atlantropa_tracks = 20
+		}
+		effect = {
+			every_owned_province = {
+				add_base_production = 1	
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	
+	}
+
 
 }
 
