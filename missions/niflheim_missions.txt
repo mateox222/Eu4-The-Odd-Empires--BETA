@@ -242,14 +242,10 @@ niflheim_firstr_missions = { #Series name is displayed over the slot?
 	
 		niflheim_absolutism = {
 			icon = atlantropa_russianempireprussia
-			required_missions = { }
-			provinces_to_highlight = {
-				
-			}
+			required_missions = { niflheim_quell }
 			trigger = {
 				absolutism = 100
 				crown_land_share = 90
-				unrest = 0
 				stability = 3
 			}
 			effect = {
@@ -576,6 +572,106 @@ upper_andalucia_area = {
 					
 			
 				}}
+				niflheim_black_colonialism = {
+					required_missions = { 	
+						
+				}
+					icon = atlantropa_niflheim_navy
+					trigger = {
+						has_institution = new_world_i
+					}
+					effect = {
+						add_dip_power = 100	
+						
+				
+					}}
+
+					nilfheim_tradeness2 = {
+						icon = atlantropa_nilfheimnordfleet
+						required_missions = { niflheim_black_colonialism }
+						provinces_to_highlight = {
+							OR = {
+							area = iceland_area
+							province_id = 1979
+							}
+						}
+								 trigger = {
+									iceland_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+									owns_core_province = 1979
+						 }
+						effect = {
+							add_country_modifier = { 
+								name = black_colonist
+								duration = 7200 
+							}
+							frischland_region = {
+								limit = {
+									NOT = { is_permanent_claim = ROOT }
+									NOT = { is_core = ROOT	}
+								}
+								add_permanent_claim = ROOT		}			
+						}
+						ai_weight = {
+							factor = 1
+						}
+					}
+					
+					nilfheim_tradeness3 = {
+						icon = atlantropa_aryanlebesnraum
+						required_missions = { nilfheim_tradeness2 }
+						provinces_to_highlight = {
+							OR = {
+							region = frischland_region
+							}
+						}
+						trigger = {
+									num_of_owned_provinces_with = {
+										value = 10
+										region = frischland_region
+									}
+						 }
+						effect = {
+							add_prestige = 15
+							hudson_bay_region = {
+								limit = {
+									NOT = { is_permanent_claim = ROOT }
+									NOT = { is_core = ROOT	}
+								}
+								add_permanent_claim = ROOT		
+							}				
+							add_country_modifier = { 
+								name = black_colonist
+								duration = 7200   
+							}
+						}
+						ai_weight = {
+							factor = 1
+						}
+					}
+					niflheim_black_empire4 = {
+						required_missions = { 	
+							nilfheim_tradeness4
+							nilfheim_tradeness3
+							nilfheim_atlantis2
+						}
+						icon = atlantropa_sunsetships
+						trigger = {
+							government_rank = 3
+							num_of_colonies = 5
+						
+						}
+						effect = {
+							add_dip_power = 200	
+							add_country_modifier = { 
+								name = nilfheim_colony_power
+								duration = -1  
+							}
+							
+						
+						}}
+						
+					
+
 
 }
 
@@ -933,6 +1029,95 @@ niflheim_prepare_army4 = {
 						}
 					}
 
+					niflheim_protection3 = {
+						icon = crush_the_revolution
+						required_missions = {   niflheim_protection2
+						niflheim_absolutism
+						}
+						trigger = {
+							has_first_revolution_started = yes
+							is_revolution_target = no 
+							is_revolutionary = no
+							revolution_target_exists = no
+						}
+						effect = {
+							add_stability = 2
+							add_country_modifier = { 
+								name = grossimperium_againstrevolution
+								duration = -1  
+							}
+							}
+							ai_weight = {
+								factor = 1
+							}
+						}
+
+						nilfheim_atlantis = {
+							icon = atlantropa_niflhishfleet
+							required_missions = { nilfheim_tradeness2 }
+							provinces_to_highlight = {
+								OR = {
+								region = atlantis_region
+								}
+							}
+							trigger = {
+										num_of_owned_provinces_with = {
+											value = 1
+											region = atlantis_region
+										}
+							 }
+							effect = {
+								add_prestige = 15
+								north_florida_area = {
+									limit = {
+										NOT = { is_permanent_claim = ROOT }
+										NOT = { is_core = ROOT	}
+									}
+									add_permanent_claim = ROOT		}			
+							}
+							ai_weight = {
+								factor = 1
+							}
+						}
+
+						nilfheim_atlantis2 = {
+							icon = mission_colonial
+							required_missions = { nilfheim_tradeness2 }
+							provinces_to_highlight = {
+								OR = {
+								region = atlantis_region
+								}
+							}
+							trigger = {
+										num_of_owned_provinces_with = {
+											value = 15
+											region = atlantis_region
+										}
+							 }
+							effect = {
+								add_prestige = 50
+								atlantis_region = {
+									limit = {
+										NOT = { is_permanent_claim = ROOT }
+										NOT = { is_core = ROOT	}
+									}
+									add_permanent_claim = ROOT		}			
+							}
+							hidden_effect = {
+								custom_tooltip = niflheimalbion4
+								every_owned_province = {
+								limit = {
+									region = atlantis_region
+								}
+									change_culture = blaklyonesseatlantis
+							
+						}
+					
+							}
+							ai_weight = {
+								factor = 1
+							}
+						}
 
 
 }
@@ -1143,7 +1328,8 @@ niflheim_prepare_navy5 = {
 
  rule_niflheim = {
 	icon = atlantropa_niflhishfleet
-	required_missions = { niflheim_prepare_navy5 } 		
+	required_missions = { niflheim_prepare_navy5 
+	niflheim_light_fleet} 		
 	trigger = {
 		custom_trigger_tooltip = {
 			tooltip = fra_strongest_eu_navy
@@ -1280,6 +1466,60 @@ niflheim_industrial = {
 	}
 }
 
+niflheim_industrial_factory = {
+	icon = atlantropa_hammer
+	required_missions = { niflheim_industrial }
+	provinces_to_highlight = {
+		owned_by = ROOT
+	}
+	trigger = {
+		atlantropa_factory = 5
+	}
+	effect = {
+		5090 = {
+			change_trade_goods = atl_steam_engine
+		}
+		5107 = {
+			change_trade_goods = atl_steam_engine
+		}
+		add_yearly_manpower = 5
+	}
+	ai_weight = {
+		factor = 1
+	}
+}
+
+nilfheim_tradeness4 = {
+	icon = atlantropa_undeadarmy
+	required_missions = { nilfheim_tradeness2 }
+	provinces_to_highlight = {
+		OR = {
+		region = hudson_bay_region
+		}
+	}
+	trigger = {
+				num_of_owned_provinces_with = {
+					value = 15
+					region = hudson_bay_region
+				}
+	 }
+	effect = {
+		add_prestige = 15
+
+		north_america_superregion = {
+			limit = {
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { is_core = ROOT	}
+			}
+			add_permanent_claim = ROOT		}			
+	}
+	ai_weight = {
+		factor = 1
+	}
+}
+
+
+
 
 }
 
@@ -1379,101 +1619,11 @@ nilfheim_tradeness = {
 	}
 }
 
-nilfheim_tradeness2 = {
-	icon = atlantropa_nilfheimnordfleet
-	required_missions = { nilfheim_tradeness }
-	provinces_to_highlight = {
-		OR = {
-		area = iceland_area
-		province_id = 1979
-		}
-	}
-			 trigger = {
-				iceland_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-				owns_core_province = 1979
-	 }
-	effect = {
-		add_country_modifier = { 
-			name = black_colonist
-			duration = 7200 
-		}
-		frischland_region = {
-			limit = {
-				NOT = { is_permanent_claim = ROOT }
-				NOT = { is_core = ROOT	}
-			}
-			add_permanent_claim = ROOT		}			
-	}
-	ai_weight = {
-		factor = 1
-	}
-}
 
-nilfheim_tradeness3 = {
-	icon = atlantropa_aryanlebesnraum
-	required_missions = { nilfheim_tradeness2 }
-	provinces_to_highlight = {
-		OR = {
-		region = frischland_region
-		}
-	}
-	trigger = {
-				num_of_owned_provinces_with = {
-					value = 10
-					region = frischland_region
-				}
-	 }
-	effect = {
-		add_prestige = 15
-		hudson_bay_region = {
-			limit = {
-				NOT = { is_permanent_claim = ROOT }
-				NOT = { is_core = ROOT	}
-			}
-			add_permanent_claim = ROOT		
-		}				
-		add_country_modifier = { 
-			name = black_colonist
-			duration = 7200   
-		}
-	}
-	ai_weight = {
-		factor = 1
-	}
-}
-
-nilfheim_tradeness4 = {
-	icon = atlantropa_undeadarmy
-	required_missions = { nilfheim_tradeness3 }
-	provinces_to_highlight = {
-		OR = {
-		region = hudson_bay_region
-		}
-	}
-	trigger = {
-				num_of_owned_provinces_with = {
-					value = 15
-					region = hudson_bay_region
-				}
-	 }
-	effect = {
-		add_prestige = 15
-
-		north_america_superregion = {
-			limit = {
-				NOT = { is_permanent_claim = ROOT }
-				NOT = { is_core = ROOT	}
-			}
-			add_permanent_claim = ROOT		}			
-	}
-	ai_weight = {
-		factor = 1
-	}
-}
 
 niflheim_european = {
 	icon = return_visby_to_the_league
-	required_missions = {  }
+	required_missions = { nilfheim_tradeness }
 	provinces_to_highlight = {
 		
 	}
@@ -1517,9 +1667,71 @@ niflheim_european = {
 		factor = 1
 	}
 }
+
+niflheim_light_fleet = {
+	position = 5
+	icon = atlantropa_weight
+	required_missions = { niflheim_european }
+	provinces_to_highlight = {
+		
+	}
+	trigger = {
+		faction_in_power = nilfheim_traders
+		num_of_light_ship = 50
+		num_of_loans = 0
+		current_income_balance = 50
+	}
+	effect = {
+		5028 = {
+			add_trade_modifier = {
+				who = ROOT
+				duration = 5475
+				power = 100
+				key = FJORDLAND_TRADE
+			}
+		}
+		369 = {
+			add_trade_modifier = {
+				who = ROOT
+				duration = 5475
+				power = 100
+				key = FJORDLAND_TRADE
+			}
+		}
+		1975 = {
+			add_trade_modifier = {
+				who = ROOT
+				duration = 5475
+				power = 100
+				key = FJORDLAND_TRADE
+			}
+		}
+		5255 = {
+			add_trade_modifier = {
+				who = ROOT
+				duration = 5475
+				power = 100
+				key = FJORDLAND_TRADE
+			}
+		}
+		1276 = {
+			add_trade_modifier = {
+				who = ROOT
+				duration = 5475
+				power = 100
+				key = FJORDLAND_TRADE
+			}
+		}
+		add_mercantilism = 5
+	}
+	ai_weight = {
+		factor = 1
+	}
+}
+
 niflheim_merchant = {
 	icon = mission_dominate_home_trade_node
-	required_missions = { niflheim_european }
+	required_missions = { niflheim_light_fleet }
 	provinces_to_highlight = {
 		
 	}
@@ -1547,8 +1759,35 @@ niflheim_merchant = {
 	}
 }
 
+niflheim_merchant_dominate = {
+	icon = mal_trade_with_europeans
+	required_missions = { niflheim_merchant }
+	provinces_to_highlight = {
+		
+	}
+	trigger = {
+		faction_in_power = nilfheim_traders
+		num_of_light_ship = 100
+		current_income_balance = 100
+		has_institution = global_trade
+	}
+	effect = {
+		add_country_modifier = {
+			name = niflhishascnetrade
+			duration = -1
+		}
+		add_mercantilism = 10
+		add_dip_power = 100
+	}
+	ai_weight = {
+		factor = 1
+	}
+}
+
+
 niflheim_breweries = {
 	icon = mission_vodka_monopoly
+	position = 8
 	required_missions = { niflheim_prosperity }
 	provinces_to_highlight = {
 		province_id = 5108
@@ -1576,6 +1815,7 @@ niflheim_breweries = {
 niflheim_imperial_roads = {
 	icon = atlantropa_imperialroads
 	required_missions = {  }
+	position = 9
 	trigger = {
 		atlantropa_road = 20
 	}
