@@ -1227,15 +1227,15 @@ a13_4 = {
 			frischland_region = {
 				add_permanent_claim = ROOT
 			}
-			greenland_area = {
-				add_permanent_claim = ROOT
-			}
-			newfoundland_area = {
-				add_permanent_claim = ROOT
-			}
-			james_bay_area = {
-				add_permanent_claim = ROOT
-			}
+			#greenland_area = {
+			#	add_permanent_claim = ROOT
+			#}
+			#newfoundland_area = {
+			#	add_permanent_claim = ROOT
+			#}
+			#james_bay_area = {
+			#	add_permanent_claim = ROOT
+			#}
 		}
 		ai_weight = {
 			factor = 1
@@ -1247,12 +1247,12 @@ a13_4 = {
 		required_missions = { fjordland_thule }
 		provinces_to_highlight = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-			colonial_region = colonial_eastern_america
+			colonial_region = colonial_hudson
 		}
 		trigger = {
 			num_of_conquistadors = 1
 			any_owned_province = {
-				colonial_region = colonial_eastern_america
+				colonial_region = colonial_hudson
 			}
 		}
 		effect = {
@@ -1261,9 +1261,6 @@ a13_4 = {
 				duration = 9125
 			}
 			northeast_america_region = {
-				add_permanent_claim = ROOT
-			}
-			southeast_america_region = {
 				add_permanent_claim = ROOT
 			}
 		}
@@ -1463,19 +1460,19 @@ a13_5 = {
 		required_missions = { fjordland_thule }
 		provinces_to_highlight = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-			OR = {
-				area = greenland_area
-				area = james_bay_area
-			}
+			area = iceland_area
 		}
 		trigger = {
-			greenland_area = {
+			iceland_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 			num_of_owned_provinces_with = {
-				value = 3
-				area = james_bay_area
+				value = 5
+				OR = {
+					area = frischland_area
+					area = greenland_area
+				}
 			}
 		}
 		effect = {
@@ -1483,7 +1480,7 @@ a13_5 = {
 				name = fjordland_arctic_navigation
 				duration = -1
 			}
-			canada_region = {
+			hudson_bay_region = {
 				add_permanent_claim = ROOT
 			}
 		}
