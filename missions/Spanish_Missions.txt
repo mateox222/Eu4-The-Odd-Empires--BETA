@@ -306,6 +306,82 @@ gc_spain_1_b = {
 			add_treasury = 500
 		}
 	}
+
+	gc_cas_spa_new_granada = {
+		icon = mission_new_kingdom_of_granada
+		required_missions = {  }
+		completed_by =  7509.1.1
+
+		provinces_to_highlight = {
+			colonial_region = colonial_colombia
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		trigger = {
+			if = {
+				limit = {
+					religion = catholic
+				}
+				custom_trigger_tooltip = {
+					tooltip = colombia_holy_order_tooltip
+					num_of_states_owned_or_owned_by_non_sovereign_subjects_with = {
+						has_holy_order_trigger = yes
+						colonial_region = colonial_colombia
+						value = 5
+					}
+				}
+			}
+			else = {
+				custom_trigger_tooltip = {
+					tooltip = colombia_holy_order_alternative_tooltip
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						religion = ROOT
+						colonial_region = colonial_colombia
+						value = 25
+					}
+				}
+			}
+			colonial_colombia = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_dip_power = 100
+			if = {
+				limit = {
+					government = monarchy
+				}
+				add_legitimacy = 25
+			}
+			add_country_modifier = {
+				name = "spa_new_granada"
+				duration = 7300
+			}
+			if = {
+				limit = {
+					any_subject_country = {
+						OR = {
+							is_subject_of_type = colony
+							is_subject_of_type = crown_colony
+							is_subject_of_type = private_enterprise
+							is_subject_of_type = self_governing_colony
+						}
+						owns = 825
+					}
+					825 = { is_capital = no }
+				}
+				every_subject_country = {
+					limit = {
+						owns = 825
+					}
+					825 = {
+						prev_move_capital_effect = yes
+					}
+				}
+			}
+		}
+	}
 	gc_cas_spa_california = {
 		icon = mission_colonize_california
 		required_missions = { gc_cas_spa_new_spain }
@@ -422,7 +498,7 @@ gc_spain_2 = {
 
 
 	gc_cas_spa_navarra = {
-		icon = mission_subjugate_navarra
+		icon = atlantropa_stalzemsty
 		required_missions = { spa_raise_army }
 		position = 2
 
@@ -2567,80 +2643,5 @@ gc_spain_5_c = {
 			}
 		}
 	}
-	gc_cas_spa_new_granada = {
-		icon = mission_new_kingdom_of_granada
-		required_missions = { gc_cas_spa_spanish_main }
-		completed_by =  7509.1.1
-		position = 6
 
-		provinces_to_highlight = {
-			colonial_region = colonial_colombia
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-
-		trigger = {
-			if = {
-				limit = {
-					religion = catholic
-				}
-				custom_trigger_tooltip = {
-					tooltip = colombia_holy_order_tooltip
-					num_of_states_owned_or_owned_by_non_sovereign_subjects_with = {
-						has_holy_order_trigger = yes
-						colonial_region = colonial_colombia
-						value = 5
-					}
-				}
-			}
-			else = {
-				custom_trigger_tooltip = {
-					tooltip = colombia_holy_order_alternative_tooltip
-					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-						religion = ROOT
-						colonial_region = colonial_colombia
-						value = 25
-					}
-				}
-			}
-			colonial_colombia = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-		}
-		effect = {
-			add_dip_power = 100
-			if = {
-				limit = {
-					government = monarchy
-				}
-				add_legitimacy = 25
-			}
-			add_country_modifier = {
-				name = "spa_new_granada"
-				duration = 7300
-			}
-			if = {
-				limit = {
-					any_subject_country = {
-						OR = {
-							is_subject_of_type = colony
-							is_subject_of_type = crown_colony
-							is_subject_of_type = private_enterprise
-							is_subject_of_type = self_governing_colony
-						}
-						owns = 825
-					}
-					825 = { is_capital = no }
-				}
-				every_subject_country = {
-					limit = {
-						owns = 825
-					}
-					825 = {
-						prev_move_capital_effect = yes
-					}
-				}
-			}
-		}
-	}
 }

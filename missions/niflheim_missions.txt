@@ -1607,6 +1607,8 @@ nilfheim_tradeness = {
 	}
 	trigger = {
 		num_of_light_ship = 20
+		if = {
+			limit = { ai = no }
 		home_trade_node = {
 			ROOT = {
 				trading_policy_in_node = {
@@ -1615,6 +1617,7 @@ nilfheim_tradeness = {
 				}
 			}
 		}
+	}
 	}
 	effect = {
 		add_country_modifier = { 

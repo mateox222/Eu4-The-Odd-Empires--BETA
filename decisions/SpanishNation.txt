@@ -62,14 +62,6 @@ country_decisions = {
 		}
 		provinces_to_highlight = {
 			OR = {
-				province_id = 213	# Barcelona
-				province_id = 220	# Arag�n
-				province_id = 219	# Castilla La Vieja
-				province_id = 217	# Salamanca
-				province_id = 1746	# Andalucia
-				province_id = 208	# Toledo
-				province_id = 207	# Valencia
-				province_id = 226	# Granada
 				AND = {
 					region = british_isles_region
 					owner = { religion_group = reformednahuatl }
@@ -86,14 +78,11 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 			is_at_war = no
-			owns_core_province = 213	# Barcelona
-			owns_core_province = 220	# Arag�n
-			owns_core_province = 219	# Castilla La Vieja
-			owns_core_province = 217	# Salamanca
-			owns_core_province = 1746	# Andalucia
-			owns_core_province = 208	# Toledo
-			owns_core_province = 207	# Valencia
-			owns_core_province = 226	# Granada
+			num_of_owned_provinces_with = {
+				value = 30
+				region = british_isles_region
+				owned_by = ROOT
+			}
 			british_isles_region = {
 				type = all
 				NOT = { owner = { religion_group = reformednahuatl } }
