@@ -939,6 +939,27 @@ num_of_owned_provinces_with = {
 		was_tag = BYZ	
 	}}
 	has_country_shield = yes
+
+	byzantine_imperial_roads = {
+		icon = atlantropa_imperialroads
+		required_missions = {  }
+		trigger = {
+			atlantropa_road = 20
+		}
+		effect = {
+			every_owned_province = {
+				add_prestige = 10
+				limit = {
+					has_building = atlantropa_road
+				}
+				add_base_production = 1	
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	
+	}
 		nikea_agra_mission = {
 		icon = atlantropa_devlegio
 		required_missions = { nikean_stabilise_greek }

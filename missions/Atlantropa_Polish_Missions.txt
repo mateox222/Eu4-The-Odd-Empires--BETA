@@ -360,10 +360,6 @@ atlantropa_venediabonus_sca_slot_3_a = {
 		position = 8 
 		provinces_to_highlight = { province_id = 172 }
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = selectable_mission_trigger_tt
-				always = no
-			}
 			172 = { 
 				base_production = 15 
 				has_manufactory_trigger = yes 
@@ -2066,13 +2062,6 @@ atlantropa_venedia_sca_slot_4_plc_1 = {
 					duration = 7300
 				}
 			}
-						holland_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
 			north_brabant_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -2099,7 +2088,6 @@ atlantropa_venedia_sca_slot_4_plc_1 = {
 		position = 5
 		provinces_to_highlight = {
 			OR = {
-				area = holland_area
 				area = north_brabant_area
 				area = frisia_area
 			}
@@ -2108,10 +2096,6 @@ atlantropa_venedia_sca_slot_4_plc_1 = {
 			}
 		}
 		trigger = {
-			holland_area = {
-				type = all
-				owned_by = ROOT
-			}
 			north_brabant_area = {
 				type = all
 				owned_by = ROOT
@@ -2122,12 +2106,6 @@ atlantropa_venedia_sca_slot_4_plc_1 = {
 			}
 		}
 		effect = {
-			holland_area = {
-				add_province_modifier = {
-					name = "faster_integration"
-					duration = 7300
-				}
-			}
 			north_brabant_area = {
 				add_province_modifier = {
 					name = "faster_integration"
@@ -2160,7 +2138,7 @@ atlantropa_venedia_sca_slot_4_plc_1 = {
 				has_port = yes 
 				value = 6
 			}
-			1744 = {
+			5796 = {
 				country_or_non_sovereign_subject_holds = ROOT 
 				if = { 
 					limit = { has_dlc = "Dharma" }
@@ -2170,7 +2148,7 @@ atlantropa_venedia_sca_slot_4_plc_1 = {
 					}
 				}
 			}
-			97 = { 
+			5003 = { 
 				country_or_non_sovereign_subject_holds = ROOT 
 				if = { 
 					limit = { has_dlc = "Dharma" }
@@ -2182,7 +2160,7 @@ atlantropa_venedia_sca_slot_4_plc_1 = {
 			}
 		}
 		effect = {
-			1871 = {
+			5796 = {
 				add_province_modifier = {
 					name = "toulon_dockyards"
 					duration = -1
@@ -2218,31 +2196,6 @@ atlantropa_venedia_sca_slot_4_plc_1 = {
 				}
 			}
 			add_mercantilism = 3
-			if = { 
-				limit = { has_dlc = "Leviathan" }
-				custom_tooltip = fra_if_complete_with_holland_40_dev
-				tooltip = {
-					97 = { 
-						add_great_project_tier = {
-							type = dutch_polders
-							tier = 1 
-						}
-					}
-				}
-				hidden_effect = {
-					if = {
-						limit = { 
-							97 = { development = 40 }
-						}
-						97 = { 
-							add_great_project_tier = {
-								type = dutch_polders
-								tier = 1 
-							}
-						}
-					}
-				}
-			}
 		}
 		}
 

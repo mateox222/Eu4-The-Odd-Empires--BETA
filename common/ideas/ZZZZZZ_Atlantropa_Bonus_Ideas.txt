@@ -274,6 +274,7 @@ X16_ideas = {
     }
     thulean_unification = {
         stability_cost_modifier = -0.25
+		monthly_reform_progress = 0.10
     }
     thulean_clansmen = {
         discipline = 0.05
@@ -1168,4 +1169,48 @@ X10_ideas = {
     x10_neustep = {
         discipline = 0.05
     }
+}
+aztek_successor_ideas = {
+	start = {
+		infantry_power = 0.1
+		idea_cost = -0.1
+	}
+
+	bonus = {
+		global_manpower_modifier = 0.25
+	}
+	
+	trigger = {
+		OR = {
+			tag = AZ2
+			tag = AZ3
+			tag = AZ4
+			tag = AZ5
+			tag = IL1
+			tag = NA1
+		}
+	}
+	free = yes		#wibe added at load.
+	
+	flower_wars = {
+		war_exhaustion_cost = -0.10
+	}
+	sustaining_the_gods = {
+		legitimacy = 1
+	}
+	aztek_successor_telpochcalli = {
+		culture_conversion_cost = -0.2
+	}
+	eagles_and_jaguars = {
+		land_morale = 0.10
+	}
+	imperial_tribute = {
+		global_tax_modifier = 0.1
+	}
+	floating_gardens = {
+		production_efficiency = 0.1
+	}
+	aztek_successor_unjust_war = {
+		unjustified_demands = 0.2
+	}
 }

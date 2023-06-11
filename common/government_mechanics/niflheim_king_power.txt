@@ -1,0 +1,125 @@
+niflheim_mechanic = {
+   alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 10
+
+	powers = {
+		niflheim_ruler_authority = {
+			max = 100
+			reset_on_new_ruler = yes
+			base_monthly_growth = 0.5
+			scaled_modifier = {
+				modifier = {
+					legitimacy = 1	
+					max_absolutism = 10	
+					monthly_fervor_increase = 1	
+				}
+			}
+		}
+	}
+	
+	interactions = {
+		niflheim_boost_ruler_army = {
+			cooldown_years = 2
+			
+			icon = GFX_niflheimarmy
+			trigger = {
+				has_government_power = {
+					mechanic_type = niflheim_mechanic
+					power_type = niflheim_ruler_authority
+					value = 75
+				}
+			}
+			effect = { 
+				add_mil_power = 50
+				add_yearly_manpower = 2	
+				create_general = { tradition = 50 }	
+				add_government_power = {
+					mechanic_type = niflheim_mechanic
+					power_type = niflheim_ruler_authority
+					value = -75
+				}
+			}
+			ai_chance = {
+				factor = 1
+			}
+		}
+		niflheim_boost_ruler_authority = {
+			cooldown_years = 2
+			
+			icon = GFX_niflheimemperor 
+			trigger = {
+				has_government_power = {
+					mechanic_type = niflheim_mechanic
+					power_type = niflheim_ruler_authority
+					value = 75
+				}
+			}
+			effect = { 
+				add_government_power = {
+					mechanic_type = niflheim_mechanic
+					power_type = niflheim_ruler_authority
+					value = -75
+				}
+				add_heir_claim = 25
+				add_legitimacy = 25
+				change_government_reform_progress = 50
+				custom_tooltip = niflheim_heir
+				hidden_effect = {
+					random_list = {
+						50 = {
+							add_legitimacy = 5
+						}
+						15 = {
+							trigger = {
+								has_heir = yes
+							}
+							change_heir_adm = 1	
+						}
+						15 = {
+							trigger = {
+								has_heir = yes
+							}
+							change_heir_dip = 1	
+						}
+						15 = {
+							trigger = {
+								has_heir = yes
+							}
+							change_heir_mil = 1	
+						}
+					}
+				}
+			}
+			ai_chance = {
+				factor = 1
+			}
+		}
+		niflheim_boost_ruler_navy = {
+			cooldown_years = 2
+			
+			icon = GFX_niflheimship
+			trigger = {
+				has_government_power = {
+					mechanic_type = niflheim_mechanic
+					power_type = niflheim_ruler_authority
+					value = 75
+				}
+			}
+			effect = { 
+				add_dip_power = 50
+				add_yearly_sailors = 2	
+				create_admiral = { tradition = 50 }	
+				add_government_power = {
+					mechanic_type = niflheim_mechanic
+					power_type = niflheim_ruler_authority
+					value = -75
+				}
+			}
+			ai_chance = {
+				factor = 1
+			}
+		}
+
+
+}
+}

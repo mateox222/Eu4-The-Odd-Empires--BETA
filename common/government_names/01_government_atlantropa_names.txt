@@ -96,7 +96,7 @@ roman_legio_monarchy = {
 	trigger = {
 		government = monarchy
 		culture_group = roman_group
-}
+	}
 }
 
 
@@ -172,3 +172,101 @@ raumaria_theocracy = {
 			religion = Kemetism
 		}
 	}
+
+norse_viking_republic = {
+	rank = {
+		1 = HEATHENARMY
+		2 = GREATHEATHENARMY
+		3 = HEATHENEMPIRE
+	}
+	
+	ruler_male = {
+		1 = JARL
+		2 = KONUNGR
+		3 = KONUNGRIKI
+	}
+	
+	ruler_female = {
+		1 = JARL
+		2 = KONUNGR
+		3 = KONUNGRIKI
+	}
+	
+	trigger = {
+		has_reform = norse_viking_republic_reform
+	}
+}
+
+norse_republic = {
+	rank = {
+		1 = NORSEREPUBLIC
+		2 = NORSEGRANDREPUBLIC
+		3 = NORSEIMPERIALRREPUBLIC
+	}
+	
+	ruler_male = {
+		1 = NORSEREPUBLICLEADER
+		2 = NORSEREPUBLICLEADER
+		3 = NORSEREPUBLICLEADER
+	}
+	
+	ruler_female = {
+		1 = NORSEREPUBLICLEADER
+		2 = NORSEREPUBLICLEADER
+		3 = NORSEREPUBLICLEADER
+	}
+	
+	trigger = {
+		government = republic
+		religion = norse_pagan_reformed
+	}
+}
+
+
+bulgarian_monarchy = {
+	rank = {
+		1 = PRINCIPALITY
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = KNYAZ
+		2 = KING
+		3 = CEZAR
+	}
+
+	ruler_female = {
+		1 = KNYAGINYA
+		2 = QUEEN
+		3 = CEZARA
+	}
+	consort_male  = {
+		1 = PRINCE_CONSORT
+		2 = PRINCE_CONSORT
+		3 = PRINCE_CONSORT
+	}
+
+	consort_female = {
+		1 = CONSORT
+		2 = QUEEN_CONSORT
+		3 = QUEEN_CONSORT
+	}
+
+	heir_male = {
+		1 = KNYAZHICH
+		2 = HEIR
+		3 = HEIR	
+	}
+
+	heir_female = {
+		1 = KNYAZHNA
+		2 = HEIR_fem
+		3 = HEIR_fem	
+	}
+
+	trigger = {
+		tag = BUL
+		government = monarchy
+	}
+}

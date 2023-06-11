@@ -534,6 +534,60 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = plotstart_events.21
+	title = "plotstart_events.21.t"
+	desc = "plotstart_events.21.d"
+	picture = praetoriaguards_eventPicture
+	major = yes
+	major_trigger = { 
+		capital_scope = { 
+			OR = {
+			region = anatolia_region 
+			region = balkan_region
+			 }}
+	}
+	trigger = {
+		tag = BUL		
+		has_game_started = yes
+		NOT = { has_country_flag = plotstart_events_start}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "plotstart_events.1.a"
+		set_country_flag = plotstart_events_start
+		add_prestige = 5	
+	}
+}
+country_event = {
+	id = plotstart_events.22
+	title = "plotstart_events.22.t"
+	desc = "plotstart_events.22.d"
+	picture = islandbrafil_eventPicture
+	major = yes
+	major_trigger = { 
+		capital_scope = { 
+			OR = {
+			region = scandinavia_region
+			 }}
+	}
+	trigger = {
+		tag = A13	
+		has_game_started = yes
+		NOT = { has_country_flag = plotstart_events_start}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "plotstart_events.1.a"
+		set_country_flag = plotstart_events_start
+		add_prestige = 5	
+	}
+}
+
 
 country_event = {
 	id = plotstart_events.69
@@ -549,6 +603,34 @@ country_event = {
 	
 	option = {
 		name = "plotstart_events.69.a"
+		set_country_flag = plotstart_events_start
+		add_prestige = 5	
+	}
+}
+country_event = {
+	id = plotstart_events.70
+	title = "plotstart_events.70.t"
+	desc = "plotstart_events.70.d"
+	picture = scottishcastle_eventPicture
+	major = yes
+	major_trigger = { 
+		capital_scope = { 
+			OR = {
+			region = hyperborea_region
+			region = thule_region
+			region = iberia_region
+			 }}
+	}
+	trigger = {
+		tag = A27	
+		has_game_started = yes
+		NOT = { has_country_flag = plotstart_events_start}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "plotstart_events.70.a"
 		set_country_flag = plotstart_events_start
 		add_prestige = 5	
 	}
