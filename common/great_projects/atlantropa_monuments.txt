@@ -3754,3 +3754,135 @@ atlantropa_zurawgdanski = {
 		heavy_ship_power = 0.05	
 		}
 	}}
+
+	atlantis_aureliansianwall = {
+		start = 5747
+		date = 6848.01.01
+		time = { months = 0 }
+		build_cost = 0
+		can_be_moved = no
+		move_days_per_unit_distance = 10
+		starting_tier = 1
+		type = monument
+		build_trigger = {
+		always = no
+		}
+	
+		on_built = {
+		}
+	
+		on_destroyed = {
+		}
+	
+		can_use_modifiers_trigger = {
+	
+			province_is_or_accepts_culture = yes
+		}
+	
+		can_upgrade_trigger = {
+	
+			province_is_or_accepts_culture = yes
+		}
+	
+		keep_trigger = {
+		}
+	
+		tier_0 = {
+			upgrade_time = {
+				months = 0
+			}
+			cost_to_upgrade = {
+				factor = 0
+			}
+			province_modifiers = {
+			}
+			area_modifier = {
+			}
+			country_modifiers = {
+			}
+			on_upgraded = {
+			}
+		}
+	
+		tier_1 = {
+			upgrade_time = {
+				months = 120
+			}
+			cost_to_upgrade = {
+				factor = 2000
+			}
+			province_modifiers = {
+				local_defensiveness = 0.4	
+				fort_level = 1	
+				local_garrison_size = 0.10	
+								
+			}
+			area_modifier = {
+				local_defensiveness = 0.1	
+				local_friendly_movement_speed = 0.1	
+				local_regiment_cost = -0.15	
+				supply_limit = 1	
+				
+			}
+			country_modifiers = {
+				garrison_growth = 0.05	
+			}
+			on_upgraded = {
+			}
+		}
+	
+		tier_2 = {
+			upgrade_time = {
+				months = 240
+			}
+			cost_to_upgrade = {
+				factor = 2500
+			}
+			province_modifiers = {
+				local_defensiveness = 0.5	
+				fort_level = 2
+				local_garrison_size = 0.20	
+								
+			}
+			area_modifier = {
+				local_defensiveness = 0.15	
+				local_friendly_movement_speed = 0.2	
+				local_regiment_cost = -0.25	
+				supply_limit = 2	
+				
+			}
+			country_modifiers = {
+				garrison_growth = 0.1
+			}
+			on_upgraded = {
+			}
+		}
+	
+		tier_3 = {
+			upgrade_time = {
+				months = 480
+			}
+			cost_to_upgrade = {
+				factor = 5000
+			}
+			province_modifiers = {
+				local_defensiveness = 0.5	
+				fort_level = 2
+				local_garrison_size = 0.30	
+								
+			}
+			area_modifier = {
+				local_defensiveness = 0.25	
+				local_friendly_movement_speed = 0.5	
+				local_regiment_cost = -0.3	
+				supply_limit = 3	
+				
+				
+			}
+			country_modifiers = {
+				garrison_growth = 0.15
+			}
+			on_upgraded = {
+			}
+		}
+	}
