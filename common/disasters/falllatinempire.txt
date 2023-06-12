@@ -7,7 +7,6 @@ latin_empire_crisis = {
 	NOT = { has_country_flag = latindostajepodupie12}
 	}
 can_start = {
-	is_year = 6915
 OR = {
 A52 = {
 	is_neighbor_of = ROOT
@@ -31,18 +30,8 @@ BUL = {
 	total_development = 150
 }
 }
-
-
-
 }
 	can_stop = { 
-		OR = {
-			AND = {
-				BUL = { exists = no		}
-				SER = { exists = no		}
-				A52 = { exists = no		}
-				BYZ = { exists = no		}
-			}
 		if = {
 			limit = {
 			NOT = { has_country_flag = bramkarezerowadlalatin }}
@@ -54,7 +43,6 @@ BUL = {
 			has_country_flag = bramkarezerowadlalatin }
 		   had_country_flag = { flag = bramkarezerowadlalatin days = 3600 }
 		}
-	}
 
 }
 	
@@ -148,8 +136,16 @@ BUL = {
 			factor = 1
 			ruler_age = 60
 		}
+		modifier = {
+			factor = -100
+		AND = {
+			NOT = { exists = BUL }
+			NOT = { exists = SER }
+			NOT = { exists = A52 } 
+			NOT = { exists = BYZ }
+		}
 
-		
+	}
 		
 		
 		
