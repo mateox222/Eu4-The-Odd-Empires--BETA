@@ -108,7 +108,7 @@ hrothgardpirate_3 = {
 	}
 	norse_scourge = {
 		icon = atlantropa_dawn
-		required_missions = { hrothgardpirate_a_pirate_fleet }
+		required_missions = { norse_prepare_drakkars }
 		
 		trigger = {
 			has_flagship = yes
@@ -126,7 +126,7 @@ hrothgardpirate_3 = {
 	}
 	norse_warrior_code = {
 		icon = atlantropa_stalzemsty
-		required_missions = { hrothgardpirate_a_scourge_on_the_seven_seas }
+		required_missions = { norse_scourge }
 		
 		trigger = {
 			army_size_percentage = 1
@@ -141,7 +141,7 @@ hrothgardpirate_3 = {
 	}
 	norse_diplomatic = {
 		icon = atlantropa_britaniqueburned
-		required_missions = { hrothgardpirate_the_pirate_code }
+		required_missions = { norse_warrior_code }
 		
 		trigger = {
 			any_rival_country = {
@@ -170,7 +170,7 @@ hrothgardpirate_3 = {
 	}
 	the_norse_threat = {
 		icon = atlantropa_burnwindmill
-		required_missions = { hrothgardpirate_diplomacy }
+		required_missions = { norse_diplomatic }
 		
 		trigger = {
 			any_rival_country = {
