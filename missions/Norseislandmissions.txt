@@ -30,6 +30,9 @@ hrothgardpirate_3 = {
 			tag = AT6
 			tag = A64
 			tag = NI1
+			tag = A48
+			tag = PKS
+			tag = X17
 		}
 	}
 
@@ -160,6 +163,9 @@ hrothgardpirate_4 = {
 			tag = AT6
 			tag = A64
 			tag = NI1
+			tag = A48
+			tag = PKS
+			tag = X17
 		}
 	}
 
@@ -242,6 +248,52 @@ hrothgardpirate_4 = {
 	}
 }
 
+vinland_1 = {
+	slot = 2
+	generic = no
+	ai = yes
+
+	potential = {
+		OR = {
+			tag = V02
+			tag = V01
+			tag = V00
+			tag = V03
+			tag = A48
+		}
+	}
+
+	has_country_shield = yes
+	
+	vinland_unite_vinland = {
+		icon = atlantropa_vinland_unite
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = {
+				area = vinterfell_area
+				area = Cabotarchipelago_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			vinterfell_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			Cabotarchipelago_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		effect = {
+			vinterfell_area = {
+				add_base_manpower = 1
+			}
+			Cabotarchipelago_area = {
+				add_base_manpower = 1
+			}
+		}
+	}
+}
 
 a5c_modernized_missions = {
 	slot = 1
@@ -249,7 +301,31 @@ a5c_modernized_missions = {
 	ai = yes
 	potential = {
 		NOT = { map_setup = map_setup_random }
-		tag = A5C
+		OR = {
+			tag = A5C
+			tag = A36
+			tag = A39
+			tag = A28
+			tag = A43
+			tag = A32
+			tag = X40
+			tag = X39
+			tag = X38
+			tag = X00
+			tag = SB5
+			tag = PSK
+			tag = ICE
+			tag = V02
+			tag = V01
+			tag = V00
+			tag = V03
+			tag = AT6
+			tag = A64
+			tag = NI1
+			tag = A48
+			tag = PKS
+			tag = X17
+		}
 	}
 	has_country_shield = yes
 	
