@@ -303,28 +303,10 @@ a3c_colonial_missions = { #Series name is displayed over the slot?
 		}
 	}
 	#2nd tier: (second because it is the second mission to be listed)
-	a3c_colonization = {
-		icon = atlantropa_arthuriancolonist
-		position = 3
-		required_missions = { build_navy_a3c }
-		provinces_to_highlight = {}
-		trigger = {
-			has_idea = quest_for_the_new_world
-			share_of_starting_income = 1.5
-			is_in_deficit = no
-			NOT = { num_of_loans = 1 }
-		}
-		effect = {
-			2554 = {
-				add_permanent_claim = ROOT
-			}
-		}
-	}
-	#3rd
 	a3c_discover_new_world = {
 		icon = atlantropa_arthadra
 		position = 5
-		required_missions = { a3c_colonization }
+		required_missions = { build_navy_a3c }
 		provinces_to_highlight = {
 			OR = {
 				continent = new_world
@@ -348,6 +330,28 @@ a3c_colonial_missions = { #Series name is displayed over the slot?
 		}
 		effect = {
 			add_navy_tradition = 10
+			add_country_modifier = {
+				name = nor_colonial_enthusiasm
+				duration = 14600
+			}
+		}
+	}
+	#3rd
+	a3c_colonization = {
+		icon = atlantropa_arthuriancolonist
+		position = 3
+		required_missions = { a3c_discover_new_world }
+		provinces_to_highlight = {}
+		trigger = {
+			has_idea = quest_for_the_new_world
+			share_of_starting_income = 1.5
+			is_in_deficit = no
+			NOT = { num_of_loans = 1 }
+		}
+		effect = {
+			2554 = {
+				add_permanent_claim = ROOT
+			}
 			add_country_modifier = {
 				name = nor_colonial_enthusiasm
 				duration = 14600

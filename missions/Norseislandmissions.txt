@@ -1,25 +1,95 @@
+vinland_1 = {
+	slot = 2
+	generic = no
+	ai = yes
+
+	potential = {
+		OR = {
+			tag = V02
+			tag = V01
+			tag = V00
+			tag = V03
+			tag = A48
+		}
+	}
+
+	has_country_shield = yes
+	
+	vinland_unite_vinland = {
+		icon = atlantropa_vinland_unite
+		position = 1
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 981
+				province_id = 5853
+				province_id = 5829
+				province_id = 2573
+				province_id = 5830
+				province_id = 980
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_core_province = 981
+			owns_core_province = 5853
+			owns_core_province = 5829
+			owns_core_province = 2573
+			owns_core_province = 5830
+			owns_core_province = 980
+		}
+		effect = {
+			Vinterfell_area = {
+				add_base_production = 1
+			}
+			Cabotarchipelago_area = {
+				add_base_production = 1
+			}
+		}
+	}
+}
+
 hrothgardpirate_3 = {
 	slot = 3
 	generic = no
 	ai = yes
 	
-	potential_on_load = {
-		has_dlc = "Golden Century"
-	}
+	#potential_on_load = {
+	#	has_dlc = "Golden Century"
+	#}
 
 	potential = {
 		NOT = { map_setup = map_setup_random }
 		OR = {
 			tag = A5C
 			tag = A36
+			tag = A39
+			tag = A28
+			tag = A43
+			tag = A32
+			tag = X40
+			tag = X39
+			tag = X38
+			tag = X00
+			tag = SB5
+			tag = PSK
+			tag = ICE
+			tag = V02
+			tag = V01
+			tag = V00
+			tag = V03
 			tag = AT6
 			tag = A64
+			tag = NI1
+			tag = A48
+			tag = PKS
+			tag = X17
 		}
 	}
 
 	has_country_shield = yes
 	
-	hrothgardpirate_a_pirate_fleet = {
+	norse_prepare_drakkars = {
 		icon = atlantropa_norserpowership
 		required_missions = { }
 		
@@ -31,14 +101,14 @@ hrothgardpirate_3 = {
 		
 		effect = {
 			add_country_modifier = {
-				name = "pirate_a_pirate_fleet"
+				name = "norse_fleet"
 				duration = 7300
 			}
 		}
 	}
-	hrothgardpirate_a_scourge_on_the_seven_seas = {
+	norse_scourge = {
 		icon = atlantropa_dawn
-		required_missions = { hrothgardpirate_a_pirate_fleet }
+		required_missions = { norse_prepare_drakkars }
 		
 		trigger = {
 			has_flagship = yes
@@ -46,7 +116,7 @@ hrothgardpirate_3 = {
 		
 		effect = {
 			add_country_modifier = {
-				name = "pirate_a_scourge_on_the_seven_seas"
+				name = "norse_scourge"
 				duration = 7300
 			}
 			create_admiral = {
@@ -54,9 +124,9 @@ hrothgardpirate_3 = {
 			}
 		}
 	}
-	hrothgardpirate_the_pirate_code = {
+	norse_warrior_code = {
 		icon = atlantropa_stalzemsty
-		required_missions = { hrothgardpirate_a_scourge_on_the_seven_seas }
+		required_missions = { norse_scourge }
 		
 		trigger = {
 			army_size_percentage = 1
@@ -64,14 +134,14 @@ hrothgardpirate_3 = {
 		
 		effect = {
 			add_country_modifier = {
-				name = "pirate_the_pirate_code"
+				name = "warrior_code"
 				duration = 7300
 			}
 		}
 	}
-	hrothgardpirate_diplomacy = {
+	norse_diplomatic = {
 		icon = atlantropa_britaniqueburned
-		required_missions = { hrothgardpirate_the_pirate_code }
+		required_missions = { norse_warrior_code }
 		
 		trigger = {
 			any_rival_country = {
@@ -93,14 +163,14 @@ hrothgardpirate_3 = {
 		
 		effect = {
 			add_country_modifier = {
-				name = "pirate_diplomacy"
+				name = "norse_diplomacy"
 				duration = 7300
 			}
 		}
 	}
-	hrothgardpirate_the_pirate_threat = {
+	the_norse_threat = {
 		icon = atlantropa_burnwindmill
-		required_missions = { hrothgardpirate_diplomacy }
+		required_missions = { norse_diplomatic }
 		
 		trigger = {
 			any_rival_country = {
@@ -110,7 +180,7 @@ hrothgardpirate_3 = {
 		
 		effect = {
 			add_country_modifier = {
-				name = "pirate_the_pirate_threat"
+				name = "norse_threat"
 				duration = 7300
 			}
 			add_mil_power = 100
@@ -118,8 +188,116 @@ hrothgardpirate_3 = {
 	}
 }
 
+hrothgardpirate_4 = {
+	slot = 2
+	generic = no
+	ai = yes
 
+	potential = {
+		OR = {
+			tag = A36
+			tag = A39
+			tag = A28
+			tag = A43
+			tag = A32
+			tag = X40
+			tag = X39
+			tag = X38
+			tag = X00
+			tag = SB5
+			tag = PSK
+			tag = ICE
+			tag = V02
+			tag = V01
+			tag = V00
+			tag = V03
+			tag = AT6
+			tag = A64
+			tag = NI1
+			tag = A48
+			tag = PKS
+			tag = X17
+		}
+	}
 
+	has_country_shield = yes
+	
+	norse_mass_a_raiding_force = {
+		icon = atlantropa_celtdeal
+		position = 2
+		required_missions = { norse_prepare_drakkars }
+		
+		trigger = {
+			land_forcelimit = 20
+			army_size_percentage = 0.80
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "norse_raiding_force"
+				duration = 7300
+			}
+		}
+	}
+	norse_conquer_weaklings = {
+		icon = atlantropa_bloodysweden
+		required_missions = { norse_mass_a_raiding_force }
+		
+		trigger = {
+			grown_by_states = 5
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "norse_warriors_way"
+				duration = 9125
+			}
+		}
+	}
+	norse_great_heathen_army = {
+		icon = atlantropa_sendgard
+		required_missions = { norse_conquer_weaklings }
+		
+		trigger = {
+			army_size = 60
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "norse_berserkers"
+				duration = 3650
+			}
+		}
+	}
+	norse_rulers_of_the_world = {
+		icon = atlantropa_permburn
+		required_missions = { norse_great_heathen_army }	
+		provinces_to_highlight = {
+			region_for_scope_province = {
+				is_capital_of = ROOT
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = unite_home_region_ct
+				capital_scope = {
+					region_for_scope_province = {
+						type = all
+						owned_by = ROOT #Subjects won't count, empty provinces will need to be colonized.
+					}
+				}
+			}
+		}
+		effect = {
+			add_mil_power = 150
+			add_country_modifier = {
+				name = "norse_rulers_of_the_world"
+				duration = 9125
+			}
+		}
+	}
+}
 
 a5c_modernized_missions = {
 	slot = 1
@@ -127,7 +305,31 @@ a5c_modernized_missions = {
 	ai = yes
 	potential = {
 		NOT = { map_setup = map_setup_random }
-		tag = A5C
+		OR = {
+			tag = A5C
+			tag = A36
+			tag = A39
+			tag = A28
+			tag = A43
+			tag = A32
+			tag = X40
+			tag = X39
+			tag = X38
+			tag = X00
+			tag = SB5
+			tag = PSK
+			tag = ICE
+			tag = V02
+			tag = V01
+			tag = V00
+			tag = V03
+			tag = AT6
+			tag = A64
+			tag = NI1
+			tag = A48
+			tag = PKS
+			tag = X17
+		}
 	}
 	has_country_shield = yes
 	
@@ -193,26 +395,33 @@ a5c_modernized_missions = {
 			country_or_non_sovereign_subject_holds = ROOT
 			NOT = {
 				OR = {
-					has_building = wharf
-					has_building = weapons
-					has_building = textile
-					has_building = plantations
-					has_building = tradecompany
 					has_building = mills
+					has_building = farm_estate
+					has_building = tradecompany
+					has_building = plantations
+					has_building = textile
+					has_building = weapons
+					has_building = wharf
+					has_building = furnace
 				}
 			}
 		}
 		trigger = {
-			num_of_owned_provinces_with = {
-				value = 15
-				OR = {
-					has_building = wharf
-					has_building = weapons
-					has_building = textile
-					has_building = plantations
-					has_building = tradecompany
-					has_building = mills
+			calc_true_if = {
+				desc = build_manufactories_mission_tooltip
+				all_owned_province = {
+					OR = {
+						has_building = mills
+						has_building = farm_estate
+						has_building = tradecompany
+						has_building = plantations
+						has_building = textile
+						has_building = weapons
+						has_building = wharf
+						has_building = furnace
+					}
 				}
+				amount = 15
 			}
 		}
 		effect = {
@@ -1004,7 +1213,7 @@ a5c_heathenry = {
 	ai = yes
 	potential = {
 		NOT = { map_setup = map_setup_random }
-		tag = A5C
+		religion = norse_pagan_reformed
 	}
 	has_country_shield = yes
 	
@@ -1012,7 +1221,7 @@ a5c_heathenry = {
 	#1st tier
 	a5c_spread_religion = {
 		icon = mission_norse_faith
-		position = 3
+		position = 1
 		required_missions = {  }
 		provinces_to_highlight = {
 			country_or_non_sovereign_subject_holds = ROOT
@@ -1040,12 +1249,19 @@ a5c_heathenry = {
 	#2nd tier
 	a5c_pagan_rituals = {
 		icon = atlantropa_nahuatl2cap
-		position = 4
+		position = 2
 		required_missions = {  }
 		provinces_to_highlight = {
 			country_or_non_sovereign_subject_holds = ROOT
 			NOT = {
-				has_production_building_trigger = yes
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+				OR = {
+					has_building = barracks
+					has_building = training_fields
+				}
 			}
 		}
 		trigger = {
@@ -1069,6 +1285,22 @@ a5c_heathenry = {
 		}
 		ai_weight = {
 			factor = 10
+		}
+	}
+	#3rd
+	norse_war_the_weak = {
+		icon = atlantropa_bloodyarmy
+		required_missions = {  }
+		
+		trigger = {
+			at_war_with_religious_enemy = yes
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "norse_heathen_army"
+				duration = 7300
+			}
 		}
 	}
 }
