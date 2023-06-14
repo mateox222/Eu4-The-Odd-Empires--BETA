@@ -21,20 +21,22 @@ vinland_1 = {
 		required_missions = {  }
 		provinces_to_highlight = {
 			OR = {
-				area = Vinterfell_area
-				area = Cabotarchipelago_area
+				province_id = 981
+				province_id = 5853
+				province_id = 5829
+				province_id = 2573
+				province_id = 5830
+				province_id = 980
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			Vinterfell_area = {
-				type = all	
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			Cabotarchipelago_area = {
-				type = all	
-				country_or_non_sovereign_subject_holds = ROOT
-			}
+			owns_core_province = 981
+			owns_core_province = 5853
+			owns_core_province = 5829
+			owns_core_province = 2573
+			owns_core_province = 5830
+			owns_core_province = 980
 		}
 		effect = {
 			Vinterfell_area = {
