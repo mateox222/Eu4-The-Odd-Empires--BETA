@@ -89,7 +89,7 @@ hrothgardpirate_3 = {
 
 	has_country_shield = yes
 	
-	hrothgardpirate_a_pirate_fleet = {
+	norse_prepare_drakkars = {
 		icon = atlantropa_norserpowership
 		required_missions = { }
 		
@@ -101,12 +101,12 @@ hrothgardpirate_3 = {
 		
 		effect = {
 			add_country_modifier = {
-				name = "pirate_a_pirate_fleet"
+				name = "norse_fleet"
 				duration = 7300
 			}
 		}
 	}
-	hrothgardpirate_a_scourge_on_the_seven_seas = {
+	norse_scourge = {
 		icon = atlantropa_dawn
 		required_missions = { hrothgardpirate_a_pirate_fleet }
 		
@@ -116,7 +116,7 @@ hrothgardpirate_3 = {
 		
 		effect = {
 			add_country_modifier = {
-				name = "pirate_a_scourge_on_the_seven_seas"
+				name = "norse_scourge"
 				duration = 7300
 			}
 			create_admiral = {
@@ -124,7 +124,7 @@ hrothgardpirate_3 = {
 			}
 		}
 	}
-	hrothgardpirate_the_pirate_code = {
+	norse_warrior_code = {
 		icon = atlantropa_stalzemsty
 		required_missions = { hrothgardpirate_a_scourge_on_the_seven_seas }
 		
@@ -134,12 +134,12 @@ hrothgardpirate_3 = {
 		
 		effect = {
 			add_country_modifier = {
-				name = "pirate_the_pirate_code"
+				name = "warrior_code"
 				duration = 7300
 			}
 		}
 	}
-	hrothgardpirate_diplomacy = {
+	norse_diplomatic = {
 		icon = atlantropa_britaniqueburned
 		required_missions = { hrothgardpirate_the_pirate_code }
 		
@@ -163,12 +163,12 @@ hrothgardpirate_3 = {
 		
 		effect = {
 			add_country_modifier = {
-				name = "pirate_diplomacy"
+				name = "norse_diplomacy"
 				duration = 7300
 			}
 		}
 	}
-	hrothgardpirate_the_pirate_threat = {
+	the_norse_threat = {
 		icon = atlantropa_burnwindmill
 		required_missions = { hrothgardpirate_diplomacy }
 		
@@ -180,7 +180,7 @@ hrothgardpirate_3 = {
 		
 		effect = {
 			add_country_modifier = {
-				name = "pirate_the_pirate_threat"
+				name = "norse_threat"
 				duration = 7300
 			}
 			add_mil_power = 100
