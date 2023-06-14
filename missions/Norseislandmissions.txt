@@ -1,3 +1,52 @@
+vinland_1 = {
+	slot = 2
+	generic = no
+	ai = yes
+
+	potential = {
+		OR = {
+			tag = V02
+			tag = V01
+			tag = V00
+			tag = V03
+			tag = A48
+		}
+	}
+
+	has_country_shield = yes
+	
+	vinland_unite_vinland = {
+		icon = atlantropa_vinland_unite
+		position = 1
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = {
+				area = Vinterfell_area
+				area = Cabotarchipelago_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			Vinterfell_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			Cabotarchipelago_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			Vinterfell_area = {
+				add_base_production = 1
+			}
+			Cabotarchipelago_area = {
+				add_base_production = 1
+			}
+		}
+	}
+}
+
 hrothgardpirate_3 = {
 	slot = 3
 	generic = no
@@ -243,55 +292,6 @@ hrothgardpirate_4 = {
 			add_country_modifier = {
 				name = "norse_rulers_of_the_world"
 				duration = 9125
-			}
-		}
-	}
-}
-
-vinland_1 = {
-	slot = 2
-	generic = no
-	ai = yes
-
-	potential = {
-		OR = {
-			tag = V02
-			tag = V01
-			tag = V00
-			tag = V03
-			tag = A48
-		}
-	}
-
-	has_country_shield = yes
-	
-	vinland_unite_vinland = {
-		icon = atlantropa_vinland_unite
-		position = 1
-		required_missions = {  }
-		provinces_to_highlight = {
-			OR = {
-				area = vinterfell_area
-				area = Cabotarchipelago_area
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			vinterfell_area = {
-				type = all	
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			Cabotarchipelago_area = {
-				type = all	
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-		}
-		effect = {
-			vinterfell_area = {
-				add_base_manpower = 1
-			}
-			Cabotarchipelago_area = {
-				add_base_manpower = 1
 			}
 		}
 	}
