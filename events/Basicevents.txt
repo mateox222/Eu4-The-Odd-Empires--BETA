@@ -4,7 +4,7 @@ namespace = atlantropa_basic_event
 
 province_event = {
 	id = atlantropa_basic_event.1
-	title = "atlantropa_basic_eventt.1.t"
+	title = "atlantropa_basic_event.1.t"
 	desc = "atlantropa_basic_event.1.d"
 	picture = VILLAGE_BURNING_eventPicture
 	
@@ -38,9 +38,23 @@ province_event = {
 	option = {
 		name = "atlantropa_basic_event.1.a"
 		ai_chance = { factor = 60 }
+	   	set_province_flag = alewkurwiamnietaprowka	
+		owner = {
+		random_neighbor_country = { 	
+			limit = {
+				ai = yes
+				is_neighbor_of = ROOT
+					any_neighbor_province = {
+					is_owned_by = THIS
+				}
+			}
+					country_event = { 
+    id = atlantropa_basic_event.1001
+}
+		 }	
+		}
 		add_nationalism = 10	
-		add_unrest = 15
-		nationalist_rebels = 2	
+
 	add_province_modifier = { 
     name = revoltedprovince
     duration = 3600 
@@ -48,6 +62,30 @@ province_event = {
 }
 	}
 }
+
+
+country_event = {
+	id = atlantropa_basic_event.1001
+	title = "atlantropa_basic_eventt.1.t"
+	desc = "atlantropa_basic_event.1.d"
+	picture = sackniflport_eventPicture
+	is_triggered_only = yes
+	hidden = yes
+option = {
+
+every_province = { 
+	limit = {
+		has_province_flag = alewkurwiamnietaprowka	
+	}
+	cede_province = ROOT
+clr_province_flag = alewkurwiamnietaprowka	
+}	
+
+		
+		name = "atlantropa_basic_event.1.a"
+}
+}
+
 province_event = {
 	id = atlantropa_basic_event.2
 	title = "atlantropa_basic_eventt.2.t"
