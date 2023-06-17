@@ -102,6 +102,8 @@ city = {
 	local_sailors_modifier = 0.25
 	garrison_growth = 0.05
 	allowed_num_of_manufactories = 1
+	local_friendly_movement_speed = -0.05
+	local_hostile_movement_speed = -0.05
 }
 
 port = {
@@ -118,6 +120,8 @@ in_capital_state = {
 	local_institution_spread = 0.05
 	local_state_maintenance_modifier = -0.5
 	local_governing_cost = -1.0
+	local_friendly_movement_speed = 0.1
+	min_local_autonomy = -10	
 }
 
 coastal = {
@@ -233,6 +237,8 @@ blockaded = {
 	ship_recruit_speed = 0.2
 	local_monthly_devastation = 0.25
 	province_trade_power_modifier = -1
+	local_colonial_growth = -25
+	local_institution_spread = -0.10
 }
 
 no_adjacent_controlled = {
@@ -290,6 +296,9 @@ capital_city = {
 	fort_level = 1
 	garrison_growth = 0.05	
 	local_regiment_cost = -0.25	
+	local_warscore_cost_modifier = 0.1	
+	local_governing_cost = -0.25	
+	
 }
 
 
@@ -436,8 +445,8 @@ occupied = {
 	local_manpower_modifier = -0.95
 	local_sailors_modifier = -0.95
 	local_institution_spread = -0.1
-	local_defensiveness = -0.25
-	local_garrison_size = -0.10		
+	local_defensiveness = -0.5
+	local_garrison_size = -0.25		
 	local_monthly_devastation = 0.2
 	local_build_time = 0.75	
 }
@@ -445,13 +454,16 @@ occupied = {
 under_siege = {
 	trade_goods_size_modifier = -0.75
 	local_institution_spread = -1
-	local_build_time = 1
+	local_build_time = 2
 	local_monthly_devastation = 0.1
 	province_trade_power_modifier = -1	
+	local_unrest = 5	
+	local_governing_cost = -0.75	
 }
 
 
 devastation = {
+	local_build_time = 1
 	trade_goods_size_modifier = -2
 	supply_limit_modifier = -0.5
 	local_institution_spread = -2.0
@@ -840,7 +852,7 @@ unconditional_surrender = {
 
 call_for_peace = {
 	war_exhaustion = 0.0025
-	monthly_byz_adm_power  = 0.25 	
+	monthly_byz_adm_power  = 0.05 	
 }
 
 war_exhaustion = {

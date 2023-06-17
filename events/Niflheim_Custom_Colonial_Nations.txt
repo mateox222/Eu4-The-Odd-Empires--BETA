@@ -1,0 +1,232 @@
+
+namespace = atlantropa_niflheim_colonialevent
+country_event = {
+	id = atlantropa_niflheim_colonialevent.1
+	title = "atlantropa_niflheim_colonialevent.1.t"
+	desc = "atlantropa_niflheim_colonialevent.1.d"
+	picture = COLONIZATION_eventPicture
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_hudson
+			is_core = ROOT
+		}
+		NOT = { exists = CN1 }
+        OR = {
+		is_colonial_nation_of = A27
+    	is_colonial_nation_of = T8U   
+        }
+	}
+	immediate = {
+		change_tag = CN1
+		if = {
+    limit = {
+       is_subject_of = A27
+    }
+
+change_culture = A27
+}
+if = {
+    limit = {
+       is_subject_of = T8U
+    }
+
+change_culture = T8U 
+}
+	}
+	option = {
+		name = "atlantropa_niflheim_colonialevent.1.a"
+	}
+}
+
+
+
+
+country_event = {
+	id = atlantropa_niflheim_colonialevent.2
+	title = "atlantropa_niflheim_colonialevent.2.t"
+	desc = "atlantropa_niflheim_colonialevent.2.d"
+	picture = COLONIZATION_eventPicture
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_louisiana
+			is_core = ROOT
+		}
+		NOT = { exists = CN4 }
+        OR = {
+		is_colonial_nation_of = A27
+    	is_colonial_nation_of = T8U   
+        }
+	}
+	immediate = {
+		change_tag = CN4
+		if = {
+    limit = {
+       is_subject_of = A27
+    }
+
+change_culture = A27
+}
+if = {
+    limit = {
+       is_subject_of = T8U
+    }
+
+change_culture = T8U 
+}
+	}
+	option = {
+		name = "atlantropa_niflheim_colonialevent.1.a"
+	}
+}
+
+country_event = {
+	id = atlantropa_niflheim_colonialevent.3
+	title = "atlantropa_niflheim_colonialevent.2.t"
+	desc = "atlantropa_niflheim_colonialevent.2.d"
+	picture = COLONIZATION_eventPicture
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_eastern_america 
+			is_core = ROOT
+		}
+		NOT = { exists = CN2 }
+        OR = {
+		is_colonial_nation_of = A27
+    	is_colonial_nation_of = T8U   
+        }
+	}
+	immediate = {
+		change_tag = CN2
+		if = {
+    limit = {
+       is_subject_of = A27
+    }
+
+change_culture = A27
+}
+if = {
+    limit = {
+       is_subject_of = T8U
+    }
+
+change_culture = T8U 
+}
+	}
+	option = {
+		name = "atlantropa_niflheim_colonialevent.1.a"
+	}
+}
+
+country_event = {
+	id = atlantropa_niflheim_colonialevent.4
+	title = "atlantropa_niflheim_colonialevent.2.t"
+	desc = "atlantropa_niflheim_colonialevent.2.d"
+	picture = COLONIZATION_eventPicture
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_canada
+			is_core = ROOT
+		}
+		NOT = { exists = CN3 }
+        OR = {
+		is_colonial_nation_of = A27
+    	is_colonial_nation_of = T8U   
+        }
+	}
+	immediate = {
+		change_tag = CN3
+		if = {
+    limit = {
+       is_subject_of = A27
+    }
+
+change_culture = A27
+}
+if = {
+    limit = {
+       is_subject_of = T8U
+    }
+
+change_culture = T8U 
+}
+	}
+	option = {
+		name = "atlantropa_niflheim_colonialevent.1.a"
+	}
+}
+
+
+
+
+country_event = {
+	id = atlantropa_niflheim_colonialevent.19
+	title = "atlantropa_niflheim_colonialevent.19.t"
+	desc = "atlantropa_niflheim_colonialevent.19.d"
+    fire_only_once = yes
+	picture = COLONIZATION_eventPicture
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+        	num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 5
+				region = atlantis_region
+				is_city = yes
+			}
+		
+        OR = {
+            TAG = A27
+            TAG = T8U 
+        }
+    }
+	option = {
+		name = "atlantropa_niflheim_colonialevent.19.a"
+        every_owned_province = {
+            limit = {
+                region = atlantis_region
+             }
+             add_core = CN5
+             cede_province = CN5
+        }
+        			create_subject = {
+				subject_type = commercial_enterprise
+				who = CN5
+			}
+        add_adm_power = 100
+        CN5 = {
+            	change_government = republic
+				add_government_reform = trade_company_government
+				change_religion = ROOT
+				change_primary_culture = ROOT
+               define_ruler = {
+					change_adm = 3
+					change_dip = 3
+					change_mil = 3
+					max_age = 50
+					min_age = 30
+				}
+                add_adm_power = 100
+				add_dip_power = 100
+				add_mil_power = 100
+				add_treasury = 200
+				set_prestige_to_zero = yes
+				add_republican_tradition = 100
+                
+        }
+        add_stability = 1
+	}
+    	option = {
+		name = "atlantropa_niflheim_colonialevent.19.b"
+        add_stability = -2
+	}
+}
