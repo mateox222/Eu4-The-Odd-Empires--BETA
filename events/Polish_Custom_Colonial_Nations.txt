@@ -163,45 +163,7 @@ change_culture = PLC
 	}
 }
 
-country_event = {
-	id = atlantropa_venedia_colonialevent.4
-	title = "atlantropa_venedia_colonialevent.2.t"
-	desc = "atlantropa_venedia_colonialevent.2.d"
-	picture = COLONIZATION_eventPicture
-	hidden = yes
-	
-	trigger = {
-		capital_scope = {
-			colonial_region = colonial_the_carribean
-			is_core = ROOT
-		}
-		NOT = { exists = CE5 }
-        OR = {
-		is_colonial_nation_of = POL
-    	is_colonial_nation_of = PLC   
-        }
-	}
-	immediate = {
-		change_tag = CE5
-		if = {
-    limit = {
-       is_subject_of = POL
-    }
 
-change_culture = POL
-}
-if = {
-    limit = {
-       is_subject_of = PLC
-    }
-
-change_culture = PLC 
-}
-	}
-	option = {
-		name = "atlantropa_venedia_colonialevent.1.a"
-	}
-}
 
 country_event = {
 	id = atlantropa_venedia_colonialevent.5
@@ -484,3 +446,42 @@ change_culture = PLC
 	}
 }
 
+country_event = {
+	id = atlantropa_venedia_colonialevent.12
+	title = "atlantropa_venedia_colonialevent.2.t"
+	desc = "atlantropa_venedia_colonialevent.2.d"
+	picture = COLONIZATION_eventPicture
+	hidden = yes
+	
+	trigger = {
+		capital_scope = {
+			colonial_region = colonial_the_carribean
+			is_core = ROOT
+		}
+		NOT = { exists = CE5 }
+        OR = {
+		is_colonial_nation_of = POL
+    	is_colonial_nation_of = PLC   
+        }
+	}
+	immediate = {
+		change_tag = CE5
+		if = {
+    limit = {
+       is_subject_of = POL
+    }
+
+change_culture = POL
+}
+if = {
+    limit = {
+       is_subject_of = PLC
+    }
+
+change_culture = PLC 
+}
+	}
+	option = {
+		name = "atlantropa_venedia_colonialevent.1.a"
+	}
+}
