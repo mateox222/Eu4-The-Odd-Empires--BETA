@@ -1316,6 +1316,7 @@ on_regent = {
 
 # country
 on_extend_regency = {
+	add_legitimacy = -10
 }
 
 # country
@@ -5652,10 +5653,13 @@ on_centralized_state = {
 
 #ROOT = country
 monarch_on_shipwreck = {
+		ROOT = { kill_ruler = yes }
 }
 heir_on_shipwreck = {
+			ROOT = { kill_heir = { allow_new_heir = yes }	}
 }
 consort_on_shipwreck = {
+			ROOT = { remove_consort = yes }
 }
 
 #ROOT = country
@@ -5868,6 +5872,11 @@ on_naval_barrage = { #ROOT - barraging country, FROM - barraged province
 }
 
 on_scorch_earth  = { #ROOT - scorching country, FROM - scorched province
+	FROM = {
+		add_base_manpower = -1	
+		add_base_production = -1	
+		add_base_tax = -1	
+	}
 
 }
 
