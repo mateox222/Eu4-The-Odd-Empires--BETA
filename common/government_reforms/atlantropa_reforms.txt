@@ -936,3 +936,96 @@ bulgarian_monarchy = {
 		factor = 100
 	}
 }
+mount_hwa_reform = {
+	icon = "hwa_sect"
+	allow_normal_conversion = yes
+	legacy_equivalent = theocratic_government
+	potential = {
+		tag = KO2
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 150
+
+	modifiers = {
+		global_unrest = -1
+		monarch_military_power = 1
+		discipline = 0.01
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+		rulers_can_be_generals = yes
+		heirs_can_be_generals = yes
+	}
+	#conditional = {
+	#	factions = {
+	#		raumaria_wiarapokojowa
+	#		raumaria_wiarawalczaca
+	#	}
+	#}
+	
+	ai = {
+		factor = 100
+	}
+}
+
+agmajongpa_reform = {
+    icon = "agma_jongpa"
+    allow_normal_conversion = yes
+    lock_level_when_selected = yes
+    legacy_equivalent = feudal_monarchy
+    potential = {
+        tag = KO1
+    }
+    valid_for_nation_designer = yes
+    nation_designer_cost = 200
+
+    modifiers = {
+		global_manpower_modifier = 0.10
+		max_absolutism = 20
+		global_autonomy = -0.05
+    }
+    conditional = {
+    }
+    custom_attributes = {
+        locked_government_type = yes
+        maintain_dynasty = yes
+    }
+    ai = {
+        factor = 100
+    }
+}
+
+murim_union_reform = {
+	icon = "murim_union"
+	allow_normal_conversion = yes
+	legacy_equivalent = theocratic_government
+	potential = {
+		tag = KO3
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 150
+
+	modifiers = {
+		global_unrest = -1
+		monarch_military_power = 1
+		discipline = 0.01
+		max_absolutism = -20
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+		rulers_can_be_generals = yes
+		heirs_can_be_generals = yes
+	}
+	#conditional = {
+	#	factions = {
+	#		raumaria_wiarapokojowa
+	#		raumaria_wiarawalczaca
+	#	}
+	#}
+	
+	ai = {
+		factor = 100
+	}
+}

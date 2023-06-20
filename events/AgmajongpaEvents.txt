@@ -1,0 +1,314 @@
+namespace = agmajongpa
+country_event = { #Intro
+	id = agmajongpa.1
+	title = agmajongpa.1.t 
+	desc = agmajongpa.1.d 
+	picture = cheonmathrone_eventPicture
+	is_triggered_only = yes 
+	
+	major = yes 
+	major_trigger = { 
+		OR = {
+			capital_scope = { region = korea_region }
+			capital_scope = { region = manchuria_region }
+		}
+	}
+	option = { 
+		name = agmajongpa.1.a
+		add_prestige = 20
+		ai_chance = { factor = 2 } 
+	}
+}
+country_event = { #Fate of Jianzhou
+	id = agmajongpa.2
+	title = agmajongpa.2.t 
+	desc = agmajongpa.2.d 
+	picture = CHINESE_GENERAL_eventPicture
+	is_triggered_only = yes 
+	option = { 
+		name = agmajongpa.2.a
+		trigger = {
+			2111 = {
+				is_core = ROOT
+			}
+			4201 = {
+				is_core = ROOT
+			}
+		}
+		2112 = {
+			add_permanent_claim = KO1
+		}
+		add_prestige = 10
+		ai_chance = { factor = 2 } 
+	}
+	
+	option = {
+		name = agmajongpa.2.b
+		trigger = {
+			dip_power = 100
+			exists = MJZ
+		}
+		dip_power_cost = 100
+		custom_tooltip = ko1vassalizemjz
+		hidden_effect = {
+			add_trust = {
+				who = MJZ
+				value = 75
+				mutual = yes
+			}
+			vassalize = MJZ
+			2111 = {
+				cede_province = MJZ
+			}
+			4201 = {
+				change_religion = demonic
+				cede_province = MJZ
+			}
+			add_historical_friend = MJZ
+			MJZ = {
+				add_historical_friend = ROOT
+				set_capital = 4201
+			}
+		}
+	}
+}
+country_event = { #The Highest Order
+	id = agmajongpa.3
+	title = agmajongpa.3.t 
+	desc = agmajongpa.3.d 
+	picture = cheonmathrone_eventPicture
+	is_triggered_only = yes 
+	
+	major = yes 
+	major_trigger = { 
+		capital_scope = { continent = asia }
+	}
+	option = { 
+		name = agmajongpa.3.a
+		add_prestige = 50
+		add_country_modifier = {
+			name = the_highest_order
+			duration = -1
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #A Meeting of Demons
+	id = agmajongpa.4
+	title = agmajongpa.4.t 
+	desc = agmajongpa.4.d 
+	picture = demonmeeting_eventPicture
+	is_triggered_only = yes 
+	
+	option = { 
+		name = agmajongpa.4.a
+		custom_tooltip = permclaimonallmurimunionprovinces
+		hidden_effect = {
+			korea_region = {
+				limit = {
+					is_core = KO3
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #The End of Mount Hwa
+	id = agmajongpa.5
+	title = agmajongpa.5.t 
+	desc = agmajongpa.5.d 
+	picture = endofhwa_eventPicture
+	is_triggered_only = yes 
+	
+	major = yes 
+	major_trigger = { 
+		capital_scope = { region = korea_region }
+	}
+	option = { 
+		name = agmajongpa.5.a
+		add_prestige = 10
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #The Secrets of Mount Hwa
+	id = agmajongpa.6
+	title = agmajongpa.6.t 
+	desc = agmajongpa.6.d 
+	picture = mounthwa_eventPicture
+	is_triggered_only = yes 
+	
+	option = { 
+		name = agmajongpa.6.a
+		custom_tooltip = secretsunlocked
+		set_country_flag = secrets_of_hwasan_flag
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = agmajongpa.6.b
+		custom_tooltip = secretsunlocked
+		set_country_flag = secrets_of_hwasan_flag
+		change_personal_deity = secrets_of_hwasan
+		ai_chance = { factor = 0 } 
+	}
+}
+
+country_event = { #The Burning of Hanseong
+	id = agmajongpa.7
+	title = agmajongpa.7.t 
+	desc = agmajongpa.7.d 
+	picture = fierytemple_eventPicture
+	is_triggered_only = yes 
+	
+	major = yes 
+	major_trigger = { 
+		capital_scope = { region = korea_region }
+	}
+	option = {
+		name = agmajongpa.7.a
+		735 = {
+			add_base_tax = -2
+			add_base_production = -2
+			add_base_manpower = -2
+			add_devastation = 50
+			cede_province = KO1
+		}
+		KO3 = {
+			kill_ruler = yes
+		}
+		add_treasury = 200
+		ai_chance = { factor = 0 } 
+	}
+	option = {
+		name = agmajongpa.7.b
+		trigger = {
+			ai = yes
+		}
+		735 = {
+			add_base_tax = -2
+			add_base_production = -2
+			add_base_manpower = -2
+			add_devastation = 50
+		}
+		KO3 = {
+			kill_ruler = yes
+		}
+		add_treasury = 200
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #A New Order
+	id = agmajongpa.8
+	title = agmajongpa.8.t 
+	desc = agmajongpa.8.d 
+	picture = endofhwa_eventPicture
+	is_triggered_only = yes 
+	
+	major = yes 
+	major_trigger = { 
+		capital_scope = { continent = asia }
+	}
+	option = {
+		name = agmajongpa.8.a
+		732 = {
+			change_culture = demonkorean
+		}
+		733 = {
+			change_culture = demonkorean
+		}
+		pyongan_area = {
+			change_culture = demonkorean
+		}
+		2108 = {
+			center_of_trade = 1
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #The Demon Overseas
+	id = agmajongpa.9
+	title = agmajongpa.9.t 
+	desc = agmajongpa.9.d 
+	picture = islandbrafil_eventPicture
+	is_triggered_only = yes 
+	
+	option = {
+		name = agmajongpa.9.a
+		add_country_modifier = {
+			name = nor_colonial_enthusiasm
+			duration = 14600
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #The Northern Dominion
+	id = agmajongpa.10
+	title = agmajongpa.10.t 
+	desc = agmajongpa.10.d 
+	picture = islandbrafil_eventPicture
+	is_triggered_only = yes 
+	
+	option = {
+		name = agmajongpa.10.a
+		add_country_modifier = {
+			name = ko1_northern_dominion
+			duration = -1
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #The Secrets of Ilin Hala
+	id = agmajongpa.11
+	title = agmajongpa.11.t 
+	desc = agmajongpa.11.d 
+	picture = ilinhala_eventPicture
+	is_triggered_only = yes 
+	
+	option = { 
+		name = agmajongpa.11.a
+		custom_tooltip = secretsunlocked
+		set_country_flag = secrets_of_ilin_hala_flag
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = agmajongpa.11.b
+		custom_tooltip = secretsunlocked
+		set_country_flag = secrets_of_ilin_hala_flag
+		change_personal_deity = secrets_of_hwasan
+		ai_chance = { factor = 0 } 
+	}
+}
+
+country_event = { #The Blood Sect
+	id = agmajongpa.12
+	title = agmajongpa.12.t 
+	desc = agmajongpa.12.d 
+	picture = bloodsect_eventPicture
+	is_triggered_only = yes 
+	
+	option = { 
+		name = agmajongpa.12.a
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #The Poison Sect
+	id = agmajongpa.13
+	title = agmajongpa.13.t 
+	desc = agmajongpa.13.d 
+	picture = poisonsect_eventPicture
+	is_triggered_only = yes 
+	
+	option = { 
+		name = agmajongpa.13.a
+		ai_chance = { factor = 2 } 
+	}
+}
