@@ -1717,32 +1717,32 @@ atlantropa_venedia_sca_slot_2_a = {
 		required_missions = { vnd_fra_polska }
 		provinces_to_highlight = {
 			OR = {
-				area = basque_country
 				area = pyrenees_area
+				area = guyenne_area
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		trigger = {
-			basque_country = {
+			pyrenees_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			pyrenees_area = {
+			guyenne_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
-			asturias_area = {
+			basque_country = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
-			galicia_area = {
+			yorkshire_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -1759,21 +1759,21 @@ atlantropa_venedia_sca_slot_2_a = {
 		icon = atlantropa_sunsetinvasion
 		required_missions = { vnd_fra_annex_navarra }
 		provinces_to_highlight = {
-			province_id = 369
+			province_id = 5697
 			OR = {
 				has_shipyard_building_trigger = no
 				NOT = { owned_by = ROOT }
 			}
 		}
 		trigger = {
-			369 = {
+			5697 = {
 				has_shipyard_building_trigger = yes
 				owned_by = ROOT
 			}
 			navy_size_percentage = 1
 		}
 		effect = {
-			369 = {
+			5697 = {
 				add_province_modifier = {
 					name = "toulon_dockyards"
 					duration = -1
