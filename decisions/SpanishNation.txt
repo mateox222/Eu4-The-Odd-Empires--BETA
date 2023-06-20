@@ -133,6 +133,29 @@ country_decisions = {
 			}
 			set_country_flag = formed_spain_flag
 			add_prestige = 25
+			hidden_effect = {
+			if = {
+				limit = { was_tag = A57 }
+				override_country_name = IBERIAOFGOD	
+				change_country_color = { color = { 246 248 213 } }
+			}
+			if = {
+				limit = { was_tag = ARA }
+				override_country_name = IBERIABAETICA
+				change_country_color = { color = { 221 52 25} }
+			}
+			if = {
+				limit = { was_tag = LON }
+				override_country_name = IBERIAEBRO
+				change_country_color = { color = { 222 204 191 } }
+			}
+			if = {
+				limit = { was_tag = POR }
+				override_country_name = IBERIAPORTUG
+				change_country_color = { color = { 133 147 208 } }
+			}
+		}
+
 		}
 		ai_will_do = {
 			factor = 1
