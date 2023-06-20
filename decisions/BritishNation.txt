@@ -43,13 +43,10 @@ country_decisions = {
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 			is_at_war = no
-			owns_core_province = 4361		# Oxfordshire
-			owns_core_province = 237		# Wessex
-			owns_core_province = 5699		# Lothian
-			owns_core_province = 4546		# Aberdeen
-			owns_core_province = 251		# London
-			4361 = {							# London
-				is_state = yes
+			num_of_owned_provinces_with = {
+				value = 20
+				region = iberia_region
+				owned_by = ROOT
 			}
 		}
 		effect = {
@@ -65,7 +62,7 @@ country_decisions = {
 					complete_mission = conquer_scotland
 				}	
 			}
-			change_tag = GBR
+			hidden_effect = { change_tag = GBR }
 			restore_country_name = yes
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
@@ -103,6 +100,128 @@ country_decisions = {
 				}
 				370 = { add_claim = GBR }
 				371 = { add_claim = GBR }
+			}
+			if = {
+				limit = { 
+					OR = {
+					was_tag = SCO
+					was_tag = TU7
+			}
+		}
+				override_country_name = ALBIONSCOTIA
+				change_country_color = { color = { 197 156 1 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = TU8
+						tag = TU8
+					}
+				}
+				override_country_name = ALBIONREX
+				change_country_color = { color = { 127 49 63 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = A67
+						tag = A67
+					}
+				}
+				override_country_name = ALBIONANGLIA
+				change_country_color = { color = { 147 49 63 } }
+			}
+			#MORE
+			if = {
+				limit = { 
+					OR = {
+						was_tag = LOI
+						tag = LOI
+					}
+				}
+				override_country_name = ALBIONHIBERNIA
+				change_country_color = { color = { 127 141 63 } }
+			}
+
+			if = {
+				limit = { 
+					OR = {
+						was_tag = HSC
+						tag = HSC
+					}
+				}
+				override_country_name = ALBIONCELTICA
+				change_country_color = { color = { 127 108 156 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = T4U
+						tag = T4U
+					}
+				}
+				override_country_name = ALBIONIBERIA
+				change_country_color = { color = { 84 116 156 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = TU9
+						tag = TU9
+					}
+				}
+				override_country_name = ALBIONLANCTUM
+				change_country_color = { color = { 84 55 226 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = NOL
+						tag = NOL
+					}
+				}
+				override_country_name = ALBIONEBOR
+				change_country_color = { color = { 184 144 92 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = T3U
+						tag = T3U
+					}
+				}
+				override_country_name = ALBIOTALAMHIA
+				change_country_color = { color = { 111 144 92 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = X37
+						tag = X37
+					}
+				}
+				override_country_name = ALBIOREPUBLIC
+				change_country_color = { color = { 151 144 92 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = T1U
+						tag = T1U
+					}
+				}
+				override_country_name = ALBIONCUM
+				change_country_color = { color = { 156 144 92 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = X42
+						tag = X42
+					}
+				}
+				override_country_name = ALBIONHOLY
+				change_country_color = { color = { 184 26 20 } }
 			}
 
 			if = {
