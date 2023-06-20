@@ -3,6 +3,7 @@
 
     atlantropa_disable_colonies = {
 		potential = {
+			always = no
 			ai = no
             NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
 		}
@@ -18,4 +19,27 @@
 		}
     }
     }
-	
+	country_decisions = {
+
+		atlantropa_color_colonies = {
+			potential = {
+				ai = no
+				any_subject_country = { 
+					is_colonial_nation = yes
+				}	
+			}
+			allow = {
+				always = yes
+			}
+			effect = {
+				every_subject_country = {
+					limit = {
+						is_colonial_nation = yes
+					}
+					change_country_color = { country = ROOT }
+			  }
+	}
+			
+
+	}
+}
