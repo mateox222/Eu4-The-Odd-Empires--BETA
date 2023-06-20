@@ -2069,13 +2069,6 @@ atlantropa_venedia_sca_slot_4_plc_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			frisia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
 		}
 		ai_weight = {
 			factor = 75
@@ -2089,7 +2082,6 @@ atlantropa_venedia_sca_slot_4_plc_1 = {
 		provinces_to_highlight = {
 			OR = {
 				area = north_brabant_area
-				area = frisia_area
 			}
 			NOT = {
 				owned_by = ROOT
@@ -2100,19 +2092,9 @@ atlantropa_venedia_sca_slot_4_plc_1 = {
 				type = all
 				owned_by = ROOT
 			}
-			frisia_area = {
-				type = all
-				owned_by = ROOT
-			}
 		}
 		effect = {
 			north_brabant_area = {
-				add_province_modifier = {
-					name = "faster_integration"
-					duration = 7300
-				}
-			}
-			frisia_area = {
 				add_province_modifier = {
 					name = "faster_integration"
 					duration = 7300
