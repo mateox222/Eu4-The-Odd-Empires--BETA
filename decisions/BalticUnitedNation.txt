@@ -7,7 +7,6 @@ country_decisions = {
 				region = baltic_region
 			}
 		NOT = { exists = X05 }
-		NOT = { tag = LIT }
 		}
 		provinces_to_highlight = { 
 					OR = {
@@ -45,7 +44,7 @@ country_decisions = {
 				}
 	
 			effect = {
-				change_tag = X05
+				 hidden_effect = { change_tag = X05 }
 				add_prestige = 100
 				set_government_rank = 3
 				country_event = { id = ideagroups.1 }
@@ -55,7 +54,162 @@ country_decisions = {
 					change_religion = ROOT
 				}
 				swap_non_generic_missions = yes
-	
+				if = {
+					limit = { 
+						OR = {
+							was_tag = LIV
+							tag = LIV
+						}
+					}
+					set_country_flag = has_overriden_color_flag
+					override_country_name = BALTICTERRAMARIANA
+					change_country_color = { color = { 87 1 10 } }
+				}
+				if = {
+					limit = { 
+						OR = {
+							was_tag = LTG
+							tag = LTG
+						}
+					}
+					set_country_flag = has_overriden_color_flag
+					override_country_name = BALTICTELATVIA
+					change_country_color = { color = { 130 43 101 } }
+				}
+				if = {
+					limit = { 
+						OR = {
+							was_tag = KUR
+							tag = KUR
+						}
+					}
+					set_country_flag = has_overriden_color_flag
+					override_country_name = BALTICTKUR
+					change_country_color = { color = { 69 135 217 } }
+				}
+				if = {
+					limit = { 
+						OR = {
+							was_tag = EST
+							tag = EST
+						}
+					}
+					set_country_flag = has_overriden_color_flag
+					override_country_name = BALTICTEST
+					change_country_color = { color = { 88 126 142 } }
+				}
+				if = {
+					limit = { 
+						OR = {
+							was_tag = RIG
+							tag = RIG
+						}
+					}
+					set_country_flag = has_overriden_color_flag
+					override_country_name = BALTICTRIG
+					change_country_color = { color = { 88 69 74z } }
+				}
+				if = {
+					limit = { 
+						OR = {
+							was_tag = SA7
+							tag = SA7
+						}
+					}
+					set_country_flag = has_overriden_color_flag
+					override_country_name = BALTICTZEM
+					change_country_color = { color = { 42 97 74 } }
+				}
+				if = {
+					limit = { 
+						OR = {
+							was_tag = A16
+							tag = A16
+						}
+					}
+					set_country_flag = has_overriden_color_flag
+					override_country_name = BALTICTSAMBIA
+					change_country_color = { color = { 109 150 159 } }
+				}
+				if = {
+					limit = { 
+						OR = {
+							was_tag = A15
+							tag = A15
+						}
+					}
+					set_country_flag = has_overriden_color_flag
+					override_country_name = BALTICTYOTV
+					change_country_color = { color = { 83 99 159 } }
+				}
+				if = {
+					limit = { 
+						OR = {
+							was_tag = SA6
+							tag = SA6
+						}
+					}
+					set_country_flag = has_overriden_color_flag
+					override_country_name = BALTICTNADRU
+					change_country_color = { color = { 199 99 15 } }
+				}
+				if = {
+					limit = { 
+						OR = {
+							was_tag = SA4
+							tag = SA4
+						}
+					}
+					set_country_flag = has_overriden_color_flag
+					override_country_name = BALTICGALINDIA
+					change_country_color = { color = { 199 177 159 } }
+				}
+				if = {
+					limit = { 
+						OR = {
+							was_tag = SA5
+							tag = SA5
+						}
+					}
+					set_country_flag = has_overriden_color_flag
+					override_country_name = BALTICTRADED
+					change_country_color = { color = { 71 86 159 } }
+				}
+				if = {
+					limit = { 
+						OR = {
+							was_tag = SA3
+							tag = SA3
+						}
+					}
+					set_country_flag = has_overriden_color_flag
+					override_country_name = BALTICPRIBALTIKA
+					change_country_color = { color = { 71 125 46 } }
+				}
+				if = {
+					limit = { 
+						OR = {
+							was_tag = PSK
+							tag = PSK
+						}
+					}
+					set_country_flag = has_overriden_color_flag
+					override_country_name = BALTICPRIPSK
+					change_country_color = { color = { 112 47 46 } }
+				}
+				if = {
+					limit = { 
+						OR = {
+							was_tag = LIT
+							tag = LIT
+						}
+					}
+					set_country_flag = has_overriden_color_flag
+					override_country_name = BALTICLIHUANIA
+					change_country_color = { color = { 130 53 101 } }
+				}
+				
+				
 	}
 			ai_will_do = {
 				factor = 1
