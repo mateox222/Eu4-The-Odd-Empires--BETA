@@ -39,23 +39,24 @@ province_event = {
 		name = "atlantropa_basic_event.1.a"
 		ai_chance = { factor = 60 }
 	   	set_province_flag = alewkurwiamnietaprowka	
-		
+	    add_nationalism = 10	
 		random_country = { 	
 			limit = {
+				region = ROOT
 				ai = yes
 				is_neighbor_of = PREV
-			}
 					any_neighbor_province = {
 					has_province_flag = alewkurwiamnietaprowka	
 					is_neighbor_of = ROOT	
 				}
 			}
+			
 					country_event = { 
     id = atlantropa_basic_event.1001
 }
 		 }	
 		
-		add_nationalism = 10	
+		
 
 	add_province_modifier = { 
     name = revoltedprovince
@@ -63,6 +64,7 @@ province_event = {
     hidden = yes
 }
 	}
+}
 
 
 
