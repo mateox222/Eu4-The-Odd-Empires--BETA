@@ -68,6 +68,7 @@ country_decisions = {
 				}
 			}
 			change_tag = TEX
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -124,6 +125,108 @@ country_decisions = {
 				}
 				change_government = monarchy
 				add_government_reform = feudalism_reform
+			}
+						#CUSTOMCOLONIALNATIONS
+						if = {
+				limit = { 
+					culture_group = british
+				}
+				override_country_name = TEKSASbritish
+				change_country_color = { color = { 140 68 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = gaelic
+				}
+				override_country_name = TEKSASgaelic
+				change_country_color = { color = { 69 181 90 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = latin
+				}
+				override_country_name = TEKSASitalian
+				change_country_color = { color = { 69 159 98 } }
+			}
+			if = {
+				limit = { 
+					culture_group = iberian
+				}
+				override_country_name = TEKSASiberian
+				change_country_color = { color = { 151 189 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = french
+				}
+				override_country_name = TEKSASfrench
+				change_country_color = { color = { 84 107 182 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+					culture_group = east_slavic
+					culture_group =  slavic
+					}
+				}
+				override_country_name = TEKSASrussian
+				change_country_color = { color = { 68 124 180 } }
+			}
+			if = {
+				limit = { 
+					culture_group = byzantine
+				}
+				override_country_name = TEKSASgreek
+				change_country_color = { color = { 168 78 149 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = maghrebi
+				}
+				override_country_name = TEKSASarab
+				change_country_color = { color = { 168 158 189 } }
+			}		
+			if = {
+				limit = { 
+					culture_group = east_asian
+				}
+				override_country_name = TEKSASchinese
+				change_country_color = { color = { 180 179 186 } }
+			}			
+			
+			if = {
+				limit = { 
+					culture_group = japanese_g 
+				}
+				override_country_name = TEKSASjapanese
+				change_country_color = { color = { 209 76 68 } }
+			}			
+
+			if = {
+				limit = { 
+					culture_group = germanic 
+				}
+				override_country_name = TEKSASgerman
+				change_country_color = { color = { 140 185 157 } }
+			}	
+			
+			if = {
+				limit = { 
+					culture_group = scandinavian
+				}
+				override_country_name = TEKSASnorge
+				change_country_color = { color = { 91 186 167 } }
+			}	
+
+			
+			if = {
+				limit = { 
+					primary_culture = polish
+				}
+				override_country_name = TEKSASpolish
+				change_country_color = { color = { 271 80 34 } }
 			}
 			set_country_flag = changed_from_colonial_nation
 		}

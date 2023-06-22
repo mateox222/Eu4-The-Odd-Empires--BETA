@@ -72,6 +72,7 @@ country_decisions = {
 				}
 			}
 			change_tag = LOU
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -105,6 +106,108 @@ country_decisions = {
 			}
 			add_prestige = 25
 			set_country_flag = changed_from_colonial_nation
+						#CUSTOMCOLONIALNATIONS
+						if = {
+				limit = { 
+					culture_group = british
+				}
+				override_country_name = LUIZJANAbritish
+				change_country_color = { color = { 111 64 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = gaelic
+				}
+				override_country_name = LUIZJANAgaelic
+				change_country_color = { color = { 69 111 90 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = latin
+				}
+				override_country_name = LUIZJANAitalian
+				change_country_color = { color = { 69 119 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = iberian
+				}
+				override_country_name = LUIZJANAiberian
+				change_country_color = { color = { 151 159 91 } }
+			}
+			if = {
+				limit = { 
+					culture_group = french
+				}
+				override_country_name = LUIZJANAfrench
+				change_country_color = { color = { 84 117 162 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+					culture_group = east_slavic
+					culture_group =  slavic
+					}
+				}
+				override_country_name = LUIZJANArussian
+				change_country_color = { color = { 68 121 100 } }
+			}
+			if = {
+				limit = { 
+					culture_group = byzantine
+				}
+				override_country_name = LUIZJANAgreek
+				change_country_color = { color = { 161 74 119 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = maghrebi
+				}
+				override_country_name = LUIZJANAarab
+				change_country_color = { color = { 168 118 141 } }
+			}		
+			if = {
+				limit = { 
+					culture_group = east_asian
+				}
+				override_country_name = LUIZJANAchinese
+				change_country_color = { color = { 180 119 176 } }
+			}			
+			
+			if = {
+				limit = { 
+					culture_group = japanese_g 
+				}
+				override_country_name = LUIZJANAjapanese
+				change_country_color = { color = { 209 176 67 } }
+			}			
+
+			if = {
+				limit = { 
+					culture_group = germanic 
+				}
+				override_country_name = LUIZJANAgerman
+				change_country_color = { color = { 140 135 117 } }
+			}	
+			
+			if = {
+				limit = { 
+					culture_group = scandinavian
+				}
+				override_country_name = LUIZJANAnorge
+				change_country_color = { color = { 191 106 117 } }
+			}	
+
+			
+			if = {
+				limit = { 
+					primary_culture = polish
+				}
+				override_country_name = LUIZJANApolish
+				change_country_color = { color = { 217 30 34 } }
+			}
 		}
 		ai_will_do = {
 			factor = 1

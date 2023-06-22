@@ -72,6 +72,7 @@ country_decisions = {
 				}
 			}
 			change_tag = QUE
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -109,6 +110,108 @@ country_decisions = {
 				add_government_reform = feudalism_reform
 			}
 			set_country_flag = changed_from_colonial_nation
+			#CUSTOMCOLONIALNATIONS
+if = {
+	limit = { 
+	culture_group = british
+	}
+	override_country_name = QUEBECbritish
+	change_country_color = { color = { 69 64 50 } }
+	}
+	if = {
+	limit = { 
+	culture_group = gaelic
+	}
+	override_country_name = QUEBECgaelic
+	change_country_color = { color = { 89 161 76 } }
+	}
+	
+	if = {
+	limit = { 
+	culture_group = latin
+	}
+	override_country_name = QUEBECitalian
+	change_country_color = { color = { 89 159 46 } }
+	}
+	if = {
+	limit = { 
+	culture_group = iberian
+	}
+	override_country_name = QUEBECiberian
+	change_country_color = { color = { 181 169 54 } }
+	}
+	if = {
+	limit = { 
+	culture_group = french
+	}
+	override_country_name = QUEBECfrench
+	change_country_color = { color = { 68 107 142 } }
+	}
+	if = {
+	limit = { 
+	OR = {
+	culture_group = east_slavic
+	culture_group =  slavic
+	}
+	}
+	override_country_name = QUEBECrussian
+	change_country_color = { color = { 68 174 140 } }
+	}
+	if = {
+	limit = { 
+	culture_group = byzantine
+	}
+	override_country_name = QUEBECgreek
+	change_country_color = { color = { 168 44 144 } }
+	}
+	
+	if = {
+	limit = { 
+	culture_group = maghrebi
+	}
+	override_country_name = QUEBECarab
+	change_country_color = { color = { 168 188 149 } }
+	}		
+	if = {
+	limit = { 
+	culture_group = east_asian
+	}
+	override_country_name = QUEBECchinese
+	change_country_color = { color = { 180 176 178 } }
+	}			
+	
+	if = {
+	limit = { 
+	culture_group = japanese_g 
+	}
+	override_country_name = QUEBECjapanese
+	change_country_color = { color = { 209 66 47 } }
+	}			
+	
+	if = {
+	limit = { 
+	culture_group = germanic 
+	}
+	override_country_name = QUEBECgerman
+	change_country_color = { color = { 140 185 147 } }
+	}	
+	
+	if = {
+	limit = { 
+	culture_group = scandinavian
+	}
+	override_country_name = QUEBECnorge
+	change_country_color = { color = { 96 126 147 } }
+	}	
+	
+	
+	if = {
+	limit = { 
+	primary_culture = polish
+	}
+	override_country_name = QUEBECpolish
+	change_country_color = { color = { 167 37 44 } }
+	}
 		}
 		ai_will_do = {
 			factor = 1

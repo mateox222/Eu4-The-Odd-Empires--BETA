@@ -93,6 +93,7 @@ country_decisions = {
 				}
 			}
 			change_tag = FLO
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -158,6 +159,108 @@ country_decisions = {
 			}
 			add_prestige = 25
 			set_country_flag = changed_from_colonial_nation
+						#CUSTOMCOLONIALNATIONS
+						if = {
+				limit = { 
+					culture_group = british
+				}
+				override_country_name = FLORIDAbritish
+				change_country_color = { color = { 122 64 91 } }
+			}
+			if = {
+				limit = { 
+					culture_group = gaelic
+				}
+				override_country_name = FLORIDAgaelic
+				change_country_color = { color = { 69 112 91 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = latin
+				}
+				override_country_name = FLORIDAitalian
+				change_country_color = { color = { 69 151 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = iberian
+				}
+				override_country_name = FLORIDAiberian
+				change_country_color = { color = { 151 151 92 } }
+			}
+			if = {
+				limit = { 
+					culture_group = french
+				}
+				override_country_name = FLORIDAfrench
+				change_country_color = { color = { 84 101 162 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+					culture_group = east_slavic
+					culture_group =  slavic
+					}
+				}
+				override_country_name = FLORIDArussian
+				change_country_color = { color = { 68 124 101 } }
+			}
+			if = {
+				limit = { 
+					culture_group = byzantine
+				}
+				override_country_name = FLORIDAgreek
+				change_country_color = { color = { 161 74 149 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = maghrebi
+				}
+				override_country_name = FLORIDAarab
+				change_country_color = { color = { 168 151 149 } }
+			}		
+			if = {
+				limit = { 
+					culture_group = east_asian
+				}
+				override_country_name = FLORIDAchinese
+				change_country_color = { color = { 181 171 176 } }
+			}			
+			
+			if = {
+				limit = { 
+					culture_group = japanese_g 
+				}
+				override_country_name = FLORIDAjapanese
+				change_country_color = { color = { 209 76 61 } }
+			}			
+
+			if = {
+				limit = { 
+					culture_group = germanic 
+				}
+				override_country_name = FLORIDAgerman
+				change_country_color = { color = { 140 131 157 } }
+			}	
+			
+			if = {
+				limit = { 
+					culture_group = scandinavian
+				}
+				override_country_name = FLORIDAnorge
+				change_country_color = { color = { 91 111 167 } }
+			}	
+
+			
+			if = {
+				limit = { 
+					primary_culture = polish
+				}
+				override_country_name = FLORIDApolish
+				change_country_color = { color = { 217 30 34 } }
+			}
 		}
 		ai_will_do = {
 			factor = 1

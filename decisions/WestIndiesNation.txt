@@ -74,6 +74,7 @@ country_decisions = {
 				}
 			}
 			change_tag = WSI
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -110,6 +111,108 @@ country_decisions = {
 			if = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+						#CUSTOMCOLONIALNATIONS
+						if = {
+				limit = { 
+					culture_group = british
+				}
+				override_country_name = WESTISLESbritish
+				change_country_color = { color = { 153 64 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = gaelic
+				}
+				override_country_name = WESTISLESgaelic
+				change_country_color = { color = { 64 117 91 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = latin
+				}
+				override_country_name = WESTISLESitalian
+				change_country_color = { color = { 61 151 94 } }
+			}
+			if = {
+				limit = { 
+					culture_group = iberian
+				}
+				override_country_name = WESTISLESiberian
+				change_country_color = { color = { 157 153 95 } }
+			}
+			if = {
+				limit = { 
+					culture_group = french
+				}
+				override_country_name = WESTISLESfrench
+				change_country_color = { color = { 82 102 165 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+					culture_group = east_slavic
+					culture_group =  slavic
+					}
+				}
+				override_country_name = WESTISLESrussian
+				change_country_color = { color = { 64 124 104 } }
+			}
+			if = {
+				limit = { 
+					culture_group = byzantine
+				}
+				override_country_name = WESTISLESgreek
+				change_country_color = { color = { 164 74 149 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = maghrebi
+				}
+				override_country_name = WESTISLESarab
+				change_country_color = { color = { 168 154 149 } }
+			}		
+			if = {
+				limit = { 
+					culture_group = east_asian
+				}
+				override_country_name = WESTISLESchinese
+				change_country_color = { color = { 180 174 176 } }
+			}			
+			
+			if = {
+				limit = { 
+					culture_group = japanese_g 
+				}
+				override_country_name = WESTISLESjapanese
+				change_country_color = { color = { 209 78 68 } }
+			}			
+
+			if = {
+				limit = { 
+					culture_group = germanic 
+				}
+				override_country_name = WESTISLESgerman
+				change_country_color = { color = { 140 138 157 } }
+			}	
+			
+			if = {
+				limit = { 
+					culture_group = scandinavian
+				}
+				override_country_name = WESTISLESnorge
+				change_country_color = { color = { 91 108 167 } }
+			}	
+
+			
+			if = {
+				limit = { 
+					primary_culture = polish
+				}
+				override_country_name = WESTISLESpolish
+				change_country_color = { color = { 207 38 34 } }
 			}
 		}
 		ai_will_do = {

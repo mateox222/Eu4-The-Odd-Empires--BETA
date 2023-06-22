@@ -74,6 +74,7 @@ country_decisions = {
 				}
 			}
 			change_tag = PEU
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -107,6 +108,108 @@ country_decisions = {
 			}
 			add_prestige = 25
 			set_country_flag = changed_from_colonial_nation
+						#CUSTOMCOLONIALNATIONS
+						if = {
+				limit = { 
+					culture_group = british
+				}
+				override_country_name = PERUbritish
+				change_country_color = { color = { 70 77 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = gaelic
+				}
+				override_country_name = PERUgaelic
+				change_country_color = { color = { 69 171 70 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = latin
+				}
+				override_country_name = PERUitalian
+				change_country_color = { color = { 79 159 70 } }
+			}
+			if = {
+				limit = { 
+					culture_group = iberian
+				}
+				override_country_name = PERUiberian
+				change_country_color = { color = { 151 179 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = french
+				}
+				override_country_name = PERUfrench
+				change_country_color = { color = { 74 107 162 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+					culture_group = east_slavic
+					culture_group =  slavic
+					}
+				}
+				override_country_name = PERUrussian
+				change_country_color = { color = { 68 124 170 } }
+			}
+			if = {
+				limit = { 
+					culture_group = byzantine
+				}
+				override_country_name = PERUgreek
+				change_country_color = { color = { 178 74 179 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = maghrebi
+				}
+				override_country_name = PERUarab
+				change_country_color = { color = { 168 178 179 } }
+			}		
+			if = {
+				limit = { 
+					culture_group = east_asian
+				}
+				override_country_name = PERUchinese
+				change_country_color = { color = { 170 177 176 } }
+			}			
+			
+			if = {
+				limit = { 
+					culture_group = japanese_g 
+				}
+				override_country_name = PERUjapanese
+				change_country_color = { color = { 207 76 77 } }
+			}			
+
+			if = {
+				limit = { 
+					culture_group = germanic 
+				}
+				override_country_name = PERUgerman
+				change_country_color = { color = { 140 175 157 } }
+			}	
+			
+			if = {
+				limit = { 
+					culture_group = scandinavian
+				}
+				override_country_name = PERUnorge
+				change_country_color = { color = { 91 176 167 } }
+			}	
+
+			
+			if = {
+				limit = { 
+					primary_culture = polish
+				}
+				override_country_name = PERUpolish
+				change_country_color = { color = { 207 70 34 } }
+			}
 		}
 		ai_will_do = {
 			factor = 1

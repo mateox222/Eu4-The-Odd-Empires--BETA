@@ -72,6 +72,7 @@ country_decisions = {
 				}
 			}
 			change_tag = HAT
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -105,6 +106,108 @@ country_decisions = {
 			}
 			add_prestige = 25
 			set_country_flag = changed_from_colonial_nation
+						#CUSTOMCOLONIALNATIONS
+						if = {
+				limit = { 
+					culture_group = british
+				}
+				override_country_name = HAITIbritish
+				change_country_color = { color = { 55 64 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = gaelic
+				}
+				override_country_name = HAITIgaelic
+				change_country_color = { color = { 69 151 90 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = latin
+				}
+				override_country_name = HAITIitalian
+				change_country_color = { color = { 69 159 50 } }
+			}
+			if = {
+				limit = { 
+					culture_group = iberian
+				}
+				override_country_name = HAITIiberian
+				change_country_color = { color = { 151 159 50 } }
+			}
+			if = {
+				limit = { 
+					culture_group = french
+				}
+				override_country_name = HAITIfrench
+				change_country_color = { color = { 84 157 162 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+					culture_group = east_slavic
+					culture_group =  slavic
+					}
+				}
+				override_country_name = HAITIrussian
+				change_country_color = { color = { 68 124 150 } }
+			}
+			if = {
+				limit = { 
+					culture_group = byzantine
+				}
+				override_country_name = HAITIgreek
+				change_country_color = { color = { 158 74 149 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = maghrebi
+				}
+				override_country_name = HAITIarab
+				change_country_color = { color = { 168 155 149 } }
+			}		
+			if = {
+				limit = { 
+					culture_group = east_asian
+				}
+				override_country_name = HAITIchinese
+				change_country_color = { color = { 185 179 176 } }
+			}			
+			
+			if = {
+				limit = { 
+					culture_group = japanese_g 
+				}
+				override_country_name = HAITIjapanese
+				change_country_color = { color = { 251 76 67 } }
+			}			
+
+			if = {
+				limit = { 
+					culture_group = germanic 
+				}
+				override_country_name = HAITIgerman
+				change_country_color = { color = { 140 155 157 } }
+			}	
+			
+			if = {
+				limit = { 
+					culture_group = scandinavian
+				}
+				override_country_name = HAITInorge
+				change_country_color = { color = { 91 106 157 } }
+			}	
+
+			
+			if = {
+				limit = { 
+					primary_culture = polish
+				}
+				override_country_name = HAITIpolish
+				change_country_color = { color = { 205 30 34 } }
+			}
 		}
 		ai_will_do = {
 			factor = 1

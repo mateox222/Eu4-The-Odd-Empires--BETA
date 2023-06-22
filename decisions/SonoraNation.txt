@@ -75,6 +75,7 @@ country_decisions = {
 				}
 			}
 			change_tag = SNA
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -172,6 +173,108 @@ country_decisions = {
 				change_government = monarchy
 				add_government_reform = feudalism_reform
 			}
+			#CUSTOMCOLONIALNATIONS
+if = {
+	limit = { 
+	culture_group = british
+	}
+	override_country_name = SONORAbritish
+	change_country_color = { color = { 69 64 90 } }
+	}
+	if = {
+	limit = { 
+	culture_group = gaelic
+	}
+	override_country_name = SONORAgaelic
+	change_country_color = { color = { 89 161 90 } }
+	}
+	
+	if = {
+	limit = { 
+	culture_group = latin
+	}
+	override_country_name = SONORAitalian
+	change_country_color = { color = { 89 159 96 } }
+	}
+	if = {
+	limit = { 
+	culture_group = iberian
+	}
+	override_country_name = SONORAiberian
+	change_country_color = { color = { 181 169 90 } }
+	}
+	if = {
+	limit = { 
+	culture_group = french
+	}
+	override_country_name = SONORAfrench
+	change_country_color = { color = { 68 107 182 } }
+	}
+	if = {
+	limit = { 
+	OR = {
+	culture_group = east_slavic
+	culture_group =  slavic
+	}
+	}
+	override_country_name = SONORArussian
+	change_country_color = { color = { 68 174 160 } }
+	}
+	if = {
+	limit = { 
+	culture_group = byzantine
+	}
+	override_country_name = SONORAgreek
+	change_country_color = { color = { 168 84 149 } }
+	}
+	
+	if = {
+	limit = { 
+	culture_group = maghrebi
+	}
+	override_country_name = SONORAarab
+	change_country_color = { color = { 168 188 169 } }
+	}		
+	if = {
+	limit = { 
+	culture_group = east_asian
+	}
+	override_country_name = SONORAchinese
+	change_country_color = { color = { 180 176 178 } }
+	}			
+	
+	if = {
+	limit = { 
+	culture_group = japanese_g 
+	}
+	override_country_name = SONORAjapanese
+	change_country_color = { color = { 209 66 87 } }
+	}			
+	
+	if = {
+	limit = { 
+	culture_group = germanic 
+	}
+	override_country_name = SONORAgerman
+	change_country_color = { color = { 140 185 167 } }
+	}	
+	
+	if = {
+	limit = { 
+	culture_group = scandinavian
+	}
+	override_country_name = SONORAnorge
+	change_country_color = { color = { 96 126 167 } }
+	}	
+	
+	
+	if = {
+	limit = { 
+	primary_culture = polish
+	}
+	override_country_name = SONORApolish
+	change_country_color = { color = { 167 37 34 } }
+	}
 		}
 		ai_will_do = {
 			factor = 1
