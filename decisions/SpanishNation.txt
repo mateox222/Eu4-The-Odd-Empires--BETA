@@ -174,25 +174,42 @@ country_decisions = {
 				override_country_name = IBERIAPORTUG
 				change_country_color = { color = { 133 147 208 } }
 			}
+
+			if = {
+				limit = { 
+					OR = {
+						was_tag = SP1
+						tag = SP1
+					}
+				}
+				override_country_name = IBERIAHISPANIASPAIN
+				change_country_color = { color = { 221 201 75 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = SP2
+						tag = SP2
+					}
+				}
+				override_country_name = IBERIABURGOSSPAIN
+				change_country_color = { color = { 94 157 127 } }
+			}
+			every_subject_country = { 
+				limit = {
+					is_colonial_nation = yes
+				}
+				change_country_color = { country = ROOT }
+			}	
+		
 		}
+
 
 		}
 		ai_will_do = {
 			factor = 1
-			modifier = {
-				factor = 0
-				tag = CAS
-				NOT = { is_enemy = ARA }
-				NOT = { is_rival = ARA }
-			}
-			modifier = {
-				factor = 0
-				tag = ARA
-				NOT = { is_enemy = CAS }
-				NOT = { is_rival = CAS }
-			}
 		}
-		ai_importance = 400
+		ai_importance = 500
 	}
 	
 
