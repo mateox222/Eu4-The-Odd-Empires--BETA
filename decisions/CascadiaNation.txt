@@ -73,6 +73,7 @@ country_decisions = {
 				}
 			}
 			change_tag = CSC
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -125,7 +126,110 @@ country_decisions = {
 				add_government_reform = feudalism_reform
 			}
 			set_country_flag = changed_from_colonial_nation
+						#CUSTOMCOLONIALNATIONS
+						if = {
+				limit = { 
+					culture_group = british
+				}
+				override_country_name = CASCADIAbritish
+				change_country_color = { color = { 13 64 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = gaelic
+				}
+				override_country_name = CASCADIAgaelic
+				change_country_color = { color = { 69 111 30 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = latin
+				}
+				override_country_name = CASCADIAitalian
+				change_country_color = { color = { 69 139 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = iberian
+				}
+				override_country_name = CASCADIAiberian
+				change_country_color = { color = { 131 159 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = french
+				}
+				override_country_name = CASCADIAfrench
+				change_country_color = { color = { 84 107 132 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+					culture_group = east_slavic
+					culture_group =  slavic
+					}
+				}
+				override_country_name = CASCADIArussian
+				change_country_color = { color = { 68 124 130 } }
+			}
+			if = {
+				limit = { 
+					culture_group = byzantine
+				}
+				override_country_name = CASCADIAgreek
+				change_country_color = { color = { 168 34 149 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = maghrebi
+				}
+				override_country_name = CASCADIAarab
+				change_country_color = { color = { 168 158 139 } }
+			}		
+			if = {
+				limit = { 
+					culture_group = east_asian
+				}
+				override_country_name = CASCADIAchinese
+				change_country_color = { color = { 180 139 176 } }
+			}			
+			
+			if = {
+				limit = { 
+					culture_group = japanese_g 
+				}
+				override_country_name = CASCADIAjapanese
+				change_country_color = { color = { 239 76 67 } }
+			}			
+
+			if = {
+				limit = { 
+					culture_group = germanic 
+				}
+				override_country_name = CASCADIAgerman
+				change_country_color = { color = { 140 135 137 } }
+			}	
+			
+			if = {
+				limit = { 
+					culture_group = scandinavian
+				}
+				override_country_name = CASCADIAnorge
+				change_country_color = { color = { 91 136 167 } }
+			}	
+
+			
+			if = {
+				limit = { 
+					primary_culture = polish
+				}
+				override_country_name = CASCADIApolish
+				change_country_color = { color = { 237 30 34 } }
+			}
 		}
+
 		ai_will_do = {
 			factor = 1
 		}

@@ -39,7 +39,17 @@ province_id = 5020
 			set_government_rank = 2
 			swap_non_generic_missions = yes
 			country_event = { id = ideagroups.1 }
-			}
+			
+			if = {
+				limit = { 
+					OR = {
+						was_tag = A23
+						tag = A23	
+					}
+				}
+				override_country_name = DOGGERLANDMEROSIA
+				change_country_color = { color = { 222 44 61 } }
+			}}
 		ai_will_do = {
 			factor = 1
 }

@@ -78,6 +78,7 @@ country_decisions = {
 				}
 			}
 			change_tag = ALA
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -93,7 +94,10 @@ country_decisions = {
 			}
 			if = {
 				limit = {
-					culture_group = british
+					OR = {
+						culture_group = british
+						primary_culture = anglois
+					}
 					NOT = { primary_culture = american }
 				}
 				change_primary_culture = american
@@ -136,6 +140,111 @@ country_decisions = {
 				add_government_reform = feudalism_reform
 			}
 			set_country_flag = changed_from_colonial_nation
+
+			#CUSTOMCOLONIALNATIONS
+			if = {
+				limit = { 
+					culture_group = british
+				}
+				override_country_name = ALASKAbritish
+				change_country_color = { color = { 173 64 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = gaelic
+				}
+				override_country_name = ALASKAgaelic
+				change_country_color = { color = { 69 111 90 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = latin
+				}
+				override_country_name = ALASKAitalian
+				change_country_color = { color = { 69 159 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = iberian
+				}
+				override_country_name = ALASKAiberian
+				change_country_color = { color = { 151 159 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = french
+				}
+				override_country_name = ALASKAfrench
+				change_country_color = { color = { 84 107 162 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+					culture_group = east_slavic
+					culture_group =  slavic
+					}
+				}
+				override_country_name = ALASKArussian
+				change_country_color = { color = { 68 124 100 } }
+			}
+			if = {
+				limit = { 
+					culture_group = byzantine
+				}
+				override_country_name = ALASKAgreek
+				change_country_color = { color = { 168 74 149 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = maghrebi
+				}
+				override_country_name = ALASKAarab
+				change_country_color = { color = { 168 158 149 } }
+			}		
+			if = {
+				limit = { 
+					culture_group = east_asian
+				}
+				override_country_name = ALASKAchinese
+				change_country_color = { color = { 180 179 176 } }
+			}			
+			
+			if = {
+				limit = { 
+					culture_group = japanese_g 
+				}
+				override_country_name = ALASKAjapanese
+				change_country_color = { color = { 209 76 67 } }
+			}			
+
+			if = {
+				limit = { 
+					culture_group = germanic 
+				}
+				override_country_name = ALASKAgerman
+				change_country_color = { color = { 140 135 157 } }
+			}	
+			
+			if = {
+				limit = { 
+					culture_group = scandinavian
+				}
+				override_country_name = ALASKAnorge
+				change_country_color = { color = { 91 106 167 } }
+			}	
+
+			
+			if = {
+				limit = { 
+					primary_culture = polish
+				}
+				override_country_name = ALASKApolish
+				change_country_color = { color = { 207 30 34 } }
+			}
+
+
 		}
 		ai_will_do = {
 			factor = 1
