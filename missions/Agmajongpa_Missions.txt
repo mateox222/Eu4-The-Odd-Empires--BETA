@@ -69,14 +69,7 @@ ko1_korean_conquest = {
 			}
 		}
 		effect = {
-			4230 = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			1013 = {
+			5887 = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -882,7 +875,7 @@ ko1_reorganization = {
 		}
 		#trigger_event "The Reorganization of Agmajongpa"
 		effect = {
-			country_event = { id = ideagroups.1 }
+			country_event = { id = agmajongpa.14 }
 		}
 		ai_weight = {
 			factor = 10
@@ -916,11 +909,13 @@ ko1_mongolian_conquest = {
 	}
 	#2nd tier
 	the_secrets_of_genghis_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_horsey
 		required_missions = { more_steppe_conquest_ko1 }
 		trigger = {
 		}
+		#trigger_event "The Borjigin Scion"
 		effect = {
+			country_event = { id = agmajongpa.150 }
 		}
 		ai_weight = {
 			factor = 10
@@ -941,12 +936,20 @@ ko1_the_furthest_conquests = {
 	#missions
 	#1st tier
 	prepare_invasion_fleet_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_handelsbolag
 		position = 8
 		required_missions = { the_reorganization_of_agmajongpa_ko1 }
 		trigger = {
+			num_of_transport = 20 # size of the army in regiments	
 		}
 		effect = {
+			northern_kyushu = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 		ai_weight = {
 			factor = 10
@@ -954,11 +957,40 @@ ko1_the_furthest_conquests = {
 	}
 	#2nd tier
 	landing_in_japan_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_barge
 		required_missions = { prepare_invasion_fleet_ko1 }
+		provinces_to_highlight = {
+			area = northern_kyushu
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
+			northern_kyushu = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
+			kyushu_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			shikoku_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			saigoku_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 		ai_weight = {
 			factor = 10
@@ -966,7 +998,7 @@ ko1_the_furthest_conquests = {
 	}
 	#3rd tier
 	port_hizen_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_bargetwo
 		required_missions = { landing_in_japan_ko1 }
 		trigger = {
 		}
@@ -978,11 +1010,66 @@ ko1_the_furthest_conquests = {
 	}
 	#4th tier
 	the_southern_conquest_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_cityscape
 		required_missions = { port_hizen_ko1 }
+		provinces_to_highlight = {
+			OR = {
+				area = kyushu_area
+				area = shikoku_area
+				area = saigoku_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				area = kyushu_area
+				value = 3
+			}
+			shikoku_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			saigoku_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
+			sanindo_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kinai_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			chubu_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			hokuriku_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			eastern_chubu_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 		ai_weight = {
 			factor = 10
@@ -990,11 +1077,48 @@ ko1_the_furthest_conquests = {
 	}
 	#5th tier
 	the_central_conquest_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_cityscapetwo
 		required_missions = { the_southern_conquest_ko1 }
+		provinces_to_highlight = {
+			OR = {
+				area = sanindo_area
+				area = kinai_area
+				area = chubu_area
+				area = hokuriku_area
+				area = eastern_chubu_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
+			sanindo_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			kinai_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			chubu_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			hokuriku_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			eastern_chubu_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
+			japan_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 		ai_weight = {
 			factor = 10
@@ -1002,7 +1126,7 @@ ko1_the_furthest_conquests = {
 	}
 	#6th tier
 	the_sunset_dominion_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_sunsetdominion
 		required_missions = { the_central_conquest_ko1 }
 		trigger = {
 		}
@@ -1040,7 +1164,7 @@ ko1_the_grandest_jewel = {
 	}
 	#2nd tier
 	invade_the_northern_plain_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_cityscapethree
 		required_missions = { mass_our_army_ko1 }
 		trigger = {
 		}
@@ -1150,7 +1274,7 @@ ko1_burn_the_palaces = {
 	}
 }
 
-ko1_burn_the_palaces = {
+ko1_industrial = {
 	slot = 1
 	generic = no
 	ai = yes
@@ -1173,7 +1297,8 @@ ko1_burn_the_palaces = {
 			has_institution = renaissance
 		}
 		effect = {
-			add_adm_power = 100
+			custom_tooltip = secretsunlocked
+			set_country_flag = secrets_of_gunpowder_flag
 		}
 		ai_weight = {
 			factor = 10
@@ -1314,7 +1439,7 @@ ko1_the_greatest_treasures = {
 	}
 	#2nd tier
 	the_hunt_for_the_thousand_year_ginseng_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_ginseng
 		required_missions = { sponsor_alchemical_pursuits_ko1 }
 		provinces_to_highlight = {
 			province_id = 2139
@@ -1326,6 +1451,7 @@ ko1_the_greatest_treasures = {
 			}
 		}
 		effect = {
+			custom_tooltip = wecollectthousandyearginseng
 		}
 		ai_weight = {
 			factor = 10
@@ -1333,7 +1459,7 @@ ko1_the_greatest_treasures = {
 	}
 	#3rd tier
 	the_preparations_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_alchemicalcauldron
 		required_missions = { the_hunt_for_the_thousand_year_ginseng_ko1 the_hunt_for_the_yin_root_flower_ko1 }
 		trigger = {
 			years_of_income	= 4
@@ -1347,11 +1473,13 @@ ko1_the_greatest_treasures = {
 	}
 	#4th tier
 	the_potion_complete_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_poison
 		required_missions = { the_preparations_ko1 }
 		trigger = {
 		}
+		#trigger_event "The Potion Complete"
 		effect = {
+			country_event = { id = agmajongpa.3 }
 		}
 		ai_weight = {
 			factor = 10
@@ -1372,7 +1500,7 @@ ko1_the_yin_root_flower = {
 	#missions
 	#1st tier
 	the_hunt_for_the_yin_root_flower_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_yinflower
 		position = 9
 		required_missions = { sponsor_alchemical_pursuits_ko1 }
 		provinces_to_highlight = {
@@ -1406,23 +1534,27 @@ ko1_the_secrets_of_the_yamato = {
 	#missions
 	#1st tier
 	the_secrets_of_the_yamato_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_yamatosecrets
 		position = 13
 		required_missions = { the_central_conquest_ko1 }
 		trigger = {
 		}
+		#trigger_event "Secrets of the Yamato"
 		effect = {
+			country_event = { id = agmajongpa.3 }
 		}
 		ai_weight = {
 			factor = 10
 		}
 	}
 	yokai_subjugation_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_yokai
 		required_missions = { the_secrets_of_the_yamato_ko1 }
 		trigger = {
 		}
+		#trigger_event "Yokai Subjugation"
 		effect = {
+			country_event = { id = agmajongpa.3 }
 		}
 		ai_weight = {
 			factor = 10
