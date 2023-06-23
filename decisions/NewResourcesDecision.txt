@@ -715,8 +715,10 @@ surowiecatl_ammo = {
 			add_adm_power = -250
 			
 			random_owned_province = {
-				development = 35
-				limit = { 	NOT = { has_province_modifier = surowieczrespiony	} 
+				
+				limit = { 
+					development = 35
+					NOT = { has_province_modifier = surowieczrespiony	} 
 				NOT = { 					OR = {
 					trade_goods = gems
 					trade_goods = gold
