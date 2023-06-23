@@ -373,7 +373,24 @@ country_event = {
 		}
 
 
-
+		country_event = {
+			id = atlantropa_basic_event.7
+			title = atlantropa_basic_event.6.t
+			desc = atlantropa_basic_event.6.d
+			picture = CITY_DEVELOPMENT_eventPicture
+			is_triggered_only = yes
+			immediate = {
+			every_subject_country = { 
+				limit = {
+					is_colonial_nation = yes
+				}
+				change_country_color = { country = ROOT }
+			}
+		
+				}
+				option = {
+				}		
+			}
 
 		country_event = {
 	id = atlantropa_basic_event.100
