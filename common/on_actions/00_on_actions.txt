@@ -4399,6 +4399,27 @@ on_province_religion_converted = {
 	on_province_religion_converted_effect = yes
 	if = {
 		limit = { 
+            owner = {
+			religion = reformednahuatl 
+            }
+		}
+		change_culture = FROM
+    }
+		
+	
+	if = {
+		limit = {
+			religion = reformednahuatl
+                owner = {
+                  NOT = {  religion = reformednahuatl }
+                    }
+            
+            }
+            change_culture = FROM
+		}
+
+	if = {
+		limit = { 
 			owner = { 
 				has_government_attribute = more_25_tax_in_true_faith_provinces
 			}
