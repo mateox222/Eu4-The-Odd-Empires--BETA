@@ -11,6 +11,6 @@ tags={
 	"Expansion"
 	"Loading Screen"
 }
-name="The Odd Empires"
+name="The Odd Empires - beta"
 supported_version="1.35.3"
 remote_file_id="2935918398"

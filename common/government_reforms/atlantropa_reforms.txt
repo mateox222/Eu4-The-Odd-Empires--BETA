@@ -981,7 +981,7 @@ agmajongpa_reform = {
     nation_designer_cost = 200
 
     modifiers = {
-		global_manpower_modifier = 0.10
+		manpower_in_true_faith_provinces = 0.10
 		max_absolutism = 20
 		global_autonomy = -0.05
     }
@@ -1028,4 +1028,33 @@ murim_union_reform = {
 	ai = {
 		factor = 100
 	}
+}
+
+agmajongpa2_reform = {
+    icon = "agma_jongpa2"
+    allow_normal_conversion = yes
+    lock_level_when_selected = yes
+    legacy_equivalent = feudal_monarchy
+    potential = {
+        tag = KO1
+		has_country_flag = reorganized_agmajongpa_flag
+    }
+    valid_for_nation_designer = yes
+    nation_designer_cost = 400
+
+    modifiers = {
+		manpower_in_true_faith_provinces = 0.15
+		core_creation = -0.10
+		max_absolutism = 30
+		global_autonomy = -0.05
+    }
+    conditional = {
+    }
+    custom_attributes = {
+        locked_government_type = yes
+        maintain_dynasty = yes
+    }
+    ai = {
+        factor = 100
+    }
 }

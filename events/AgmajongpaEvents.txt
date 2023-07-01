@@ -227,6 +227,12 @@ country_event = { #A New Order
 		2108 = {
 			center_of_trade = 1
 		}
+		korea_region = {
+			add_province_modifier = { 
+				name = adjustingtodemons
+				duration = 3650
+			}
+		}
 		ai_chance = { factor = 2 } 
 	}
 }
@@ -336,7 +342,11 @@ country_event = { #The Jongpa Reorganization
 	}
 	option = { 
 		name = agmajongpa.14.a
-		add_prestige
+		add_prestige = 25
+		add_government_reform = agmajongpa2_reform
+		2108 = {
+			change_trade_goods = atl_books
+		}
 		ai_chance = { factor = 2 } 
 	}
 }
@@ -345,17 +355,21 @@ country_event = { #The Secrets of Genghis
 	id = agmajongpa.15
 	title = agmajongpa.15.t 
 	desc = agmajongpa.15.d 
-	picture = genghis_eventPicture
+	picture = coffin_eventPicture
 	is_triggered_only = yes 
 	
 	option = { 
 		name = agmajongpa.15.a
+		add_prestige = 10
+		add_years_of_income = 2
 		custom_tooltip = secretsunlocked
 		set_country_flag = secrets_of_genghis_flag
 		ai_chance = { factor = 2 } 
 	}
 	option = { 
 		name = agmajongpa.15.b
+		add_prestige = 10
+		add_years_of_income = 2
 		custom_tooltip = secretsunlocked
 		set_country_flag = secrets_of_genghis_flag
 		change_personal_deity = secrets_of_genghis
@@ -374,15 +388,21 @@ country_event = { #The Borjigin Scion
 	option = { 
 		name = agmajongpa.150.a
 		add_years_of_income = -1
-		country_event = { id = agmajongpa.151 }
+		country_event = {
+			id = agmajongpa.151
+			days = 28
+		}
 		ai_chance = { factor = 1 } 
 	}
 	#Torture them
 	option = { 
 		name = agmajongpa.150.b
 		mil_power_cost = 25
-		country_event = { id = agmajongpa.151 }
-		ai_chance = { factor = 1 } 
+		country_event = {
+			id = agmajongpa.151
+			days = 21
+		}
+		ai_chance = { factor = 0 } 
 	}
 }
 
@@ -390,10 +410,10 @@ country_event = { #The Tomb
 	id = agmajongpa.151
 	title = agmajongpa.151.t 
 	desc = agmajongpa.151.d 
-	picture = genghis_eventPicture
+	picture = tombdoor_eventPicture
 	is_triggered_only = yes 
 	
-	#
+	#Continue onwards
 	option = { 
 		name = agmajongpa.151.a
 		country_event = { id = agmajongpa.152 }
@@ -402,8 +422,11 @@ country_event = { #The Tomb
 	#Bury the bodies and continue onwards
 	option = { 
 		name = agmajongpa.151.b
-		add_manpower = -0.1
-		country_event = { id = agmajongpa.153 }
+		add_manpower = -0.100
+		hidden_effect = {
+			set_country_flag = { nice_to_genghis  }
+		}
+		country_event = { id = agmajongpa.152 }
 		ai_chance = { factor = 1 } 
 	}
 }
@@ -412,34 +435,158 @@ country_event = { #The Chamber
 	id = agmajongpa.152
 	title = agmajongpa.152.t 
 	desc = agmajongpa.152.d 
-	picture = genghis_eventPicture
+	picture = innertomb_eventPicture
 	is_triggered_only = yes 
 	
 	#Break through the wall
 	option = { 
 		name = agmajongpa.152.a
-		country_event = { id = agmajongpa.15 }
+		trigger = {
+			NOT = {
+				has_country_flag = nice_to_genghis
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				50 = {
+					country_event = { id = agmajongpa.15 }
+				}
+				20 = {
+					country_event = { id = agmajongpa.153 }
+				}
+			}
+		}
+		ai_chance = { factor = 2 } 
+	}
+	#Break through the wall
+	option = { 
+		name = agmajongpa.152.a
+		trigger = {
+			has_country_flag = nice_to_genghis
+		}
+		hidden_effect = {
+			country_event = { id = agmajongpa.15 }
+		}
 		ai_chance = { factor = 2 } 
 	}
 }
 
-country_event = { #The Chamber 2
+country_event = { #The Collapse...
 	id = agmajongpa.153
-	title = agmajongpa.153.t 
-	desc = agmajongpa.153.d 
-	picture = genghis_eventPicture
+	title = agmajongpa.153.t
+	desc = agmajongpa.153.d
+	picture = greatdying_eventPicture
 	is_triggered_only = yes 
 	
-	#Take the Treasures back
+	#Damnation!
 	option = { 
 		name = agmajongpa.153.a
-		add_years_of_income = 4
+		add_prestige = -10
+		add_manpower = -0.250
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #Port Hizen
+	id = agmajongpa.16
+	title = agmajongpa.16.t
+	desc = agmajongpa.16.d
+	picture = porthizen_eventPicture
+	is_triggered_only = yes 
+	
+	option = { 
+		name = agmajongpa.16.a
+		4182 = {
+			change_culture = yogoe
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #Port Hizen
+	id = agmajongpa.16
+	title = agmajongpa.16.t
+	desc = agmajongpa.16.d
+	picture = porthizen_eventPicture
+	is_triggered_only = yes 
+	
+	option = { 
+		name = agmajongpa.16.a
+		4182 = {
+			change_culture = yogoe
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #No Palaces. No Gods.
+	id = agmajongpa.17
+	title = agmajongpa.17.t 
+	desc = agmajongpa.17.d 
+	picture = fierytemple_eventPicture
+	is_triggered_only = yes 
+	
+	major = yes 
+	major_trigger = { 
+		capital_scope = { continent = asia }
+	}
+	option = {
+		name = agmajongpa.17.a
+		1816 = {
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+			add_devastation = 50
+			change_culture = koreosino
+		}
+		1821 = {
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+			add_devastation = 50
+			change_culture = koreosino
+		}
+		add_treasury = 400
 		ai_chance = { factor = 0 } 
 	}
-	#Continue Searching
+}
+
+country_event = { #Amaterasu's End
+	id = agmajongpa.18
+	title = agmajongpa.18.t 
+	desc = agmajongpa.18.d 
+	picture = fierytemple_eventPicture
+	is_triggered_only = yes 
+	
+	major = yes 
+	major_trigger = { 
+		capital_scope = { region = japan_region }
+	}
+	#record
 	option = { 
-		name = agmajongpa.153.a
-		country_event = { id = agmajongpa.15 }
+		name = agmajongpa.18.a
+		add_prestige = 10
+		1020 = {
+			add_base_manpower = -1
+			add_devastation = 10
+		}
+		swap_non_generic_missions = yes
+		custom_tooltip = secretsunlocked
+		set_country_flag = secrets_of_yamato_flag
 		ai_chance = { factor = 2 } 
+	}
+	#establish
+	option = { 
+		name = agmajongpa.18.b
+		add_prestige = 10
+		1020 = {
+			add_base_manpower = -1
+			add_devastation = 10
+		}
+		swap_non_generic_missions = yes
+		custom_tooltip = secretsunlocked
+		set_country_flag = secrets_of_yamato_flag
+		change_personal_deity = secrets_of_yamato
+		ai_chance = { factor = 0 } 
 	}
 }

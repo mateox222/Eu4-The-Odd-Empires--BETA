@@ -336,6 +336,7 @@ ko1_colonial = {
 	#1st tier
 	lands_of_the_east_ko1 = {
 		icon = atlantropa_nilfheimnordfleet
+		position = 1
 		required_missions = {  }
 		trigger = {
 			has_idea = quest_for_the_new_world
@@ -353,6 +354,7 @@ ko1_colonial = {
 	#2nd tier
 	the_demon_overseas_ko1 = {
 		icon = atlantropa_vinland_unite
+		position = 2
 		required_missions = { lands_of_the_east_ko1 }
 		trigger = {
 			OR = {
@@ -430,16 +432,34 @@ ko1_cheongma_palace = {
 			}
 		}
 		trigger = {
-			2108 = {
-				has_great_project = {
-					type = atlantropa_palace_of_cheonma
-					tier = 3
+			if = {
+				limit = { has_dlc = "Leviathan"	}
+				2108 = {
+					has_great_project = {
+						type = atlantropa_palace_of_cheonma
+						tier = 3
+					}
 				}
+			}
+			else = {
+				dip_power = 50
+				adm_power = 50
+				mil_power = 50
 			}
 		}
 		#trigger_event "The Highest Order"
 		effect = {
 			country_event = { id = agmajongpa.3 }
+			IF = {
+				limit = {
+					NOT = {
+						has_dlc = "Leviathan"
+					}
+				}
+				dip_power_cost = 50
+				adm_power_cost = 50
+				mil_power_cost = 50
+			}
 		}
 	}
 }
@@ -458,6 +478,7 @@ ko1_manchuria_conquest = {
 	#1st tier
 	secure_borderlands_ko1 = {
 		icon = atlantropa_borderlands
+		position = 3
 		required_missions = { finish_jianzhou_ko1 }
 		provinces_to_highlight = {
 			OR = {
@@ -511,6 +532,7 @@ ko1_manchuria_conquest = {
 	#2nd tier
 	push_further_into_steppes_ko1 = {
 		icon = atlantropa_coldnorth
+		position = 4
 		required_missions = { secure_borderlands_ko1 }
 		provinces_to_highlight = {
 			OR = {
@@ -600,6 +622,27 @@ ko1_manchuria_conquest = {
 					}
 					change_culture = northkorean
 				}
+			}
+			xilin_gol_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			inner_mongolia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			ordos_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
 			}
 		}
 	}
@@ -819,6 +862,7 @@ ko1_blood_sect = {
 	#2nd tier
 	establish_blood_sect_in_pyeongyang_ko1 = {
 		icon = atlantropa_undeavenedia
+		position = 4
 		required_missions = { the_blood_sect_ko1 }
 		provinces_to_highlight = {
 			province_id = 1845
@@ -855,6 +899,153 @@ ko1_blood_sect = {
 	}
 }
 
+ko1_industrial = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = KO1
+	}
+	has_country_shield = yes
+	
+	#missions
+	#1st tier
+	winds_of_the_west_ko1 = {
+		icon = atlantropa_medievalbook
+		position = 5
+		required_missions = {  }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = emp_ven_patronize_the_scuole_grandi_adm_advisor_tt
+				has_adm_advisor_2 = yes
+			}
+			has_institution = renaissance
+		}
+		effect = {
+			custom_tooltip = secretsunlocked
+			set_country_flag = secrets_of_gunpowder_flag
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+	#2nd tier
+	modern_industry_ko1 = {
+		icon = atlantropa_norserenaissance
+		position = 6
+		required_missions = { winds_of_the_west_ko1 }
+		provinces_to_highlight = {
+			country_or_non_sovereign_subject_holds = ROOT
+			NOT = {
+				has_production_building_trigger = yes
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 20
+				OR = {
+					has_building = workshop
+					has_building = counting_house
+				}
+			}
+		}
+		effect = {
+			capital_scope = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				area = {
+					limit = { owned_by = ROOT }
+					add_province_modifier = {
+						name = "growth_of_capital"
+						duration = 9125 #25 years
+					}
+				}
+			}
+			add_years_of_income = 1
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+	#3rd tier
+	manufactories_ko1 = {
+		icon = industrialized_rhineland
+		position = 7
+		required_missions = { modern_industry_ko1 }
+		provinces_to_highlight = {
+			country_or_non_sovereign_subject_holds = ROOT
+			NOT = {
+				OR = {
+					has_building = mills
+					has_building = farm_estate
+					has_building = tradecompany
+					has_building = plantations
+					has_building = textile
+					has_building = weapons
+					has_building = wharf
+					has_building = furnace
+				}
+			}
+		}
+		trigger = {
+			calc_true_if = {
+				desc = build_manufactories_mission_tooltip
+				all_owned_province = {
+					OR = {
+						has_building = mills
+						has_building = farm_estate
+						has_building = tradecompany
+						has_building = plantations
+						has_building = textile
+						has_building = weapons
+						has_building = wharf
+						has_building = furnace
+					}
+				}
+				amount = 15
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "toe_industrialization"
+				duration = -1
+			}
+			add_years_of_income = 1
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+	#4th tier
+	demonic_roads_ko1 = {
+		icon = atlantropa_imperialroads
+		position = 8
+		required_missions = {  }
+		provinces_to_highlight = {
+			country_or_non_sovereign_subject_holds = ROOT
+			NOT = {
+				has_building = atlantropa_road
+			}
+		}
+		trigger = {
+			atlantropa_road = 20
+		}
+		effect = {
+			every_owned_province = {
+				limit = {
+					has_building = atlantropa_road
+				}
+				add_base_production = 1	
+			}
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+}
+
 ko1_reorganization = {
 	slot = 3
 	generic = no
@@ -875,7 +1066,40 @@ ko1_reorganization = {
 		}
 		#trigger_event "The Reorganization of Agmajongpa"
 		effect = {
-			country_event = { id = agmajongpa.14 }
+			custom_tooltip = reorganizeko1
+			hidden_effect = {
+				country_event = { id = agmajongpa.14 }
+				set_country_flag = reorganized_agmajongpa_flag
+			}
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+}
+
+ko1_minor = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = KO1
+	}
+	has_country_shield = yes
+	
+	#missions
+	#1st tier
+	demonic_dawn_ko1 = {
+		icon = atlantropa_dawn
+		position = 6
+		required_missions = {  }
+		trigger = {
+			is_great_power = yes
+		}
+		effect = {
+			add_prestige = 10
+			add_splendor = 250
 		}
 		ai_weight = {
 			factor = 10
@@ -899,9 +1123,36 @@ ko1_mongolian_conquest = {
 		icon = atlantropa_furthersteppes
 		position = 7
 		required_missions = { northern_dominion_ko1 }
+		provinces_to_highlight = {
+			OR = {
+				area = xilin_gol_area
+				area = inner_mongolia_area
+				area = ordos_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
+			xilin_gol_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			inner_mongolia_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			ordos_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
+			mongolia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 		ai_weight = {
 			factor = 10
@@ -911,7 +1162,15 @@ ko1_mongolian_conquest = {
 	the_secrets_of_genghis_ko1 = {
 		icon = atlantropa_horsey
 		required_missions = { more_steppe_conquest_ko1 }
+		provinces_to_highlight = {
+			region = mongolia_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
+			mongolia_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		#trigger_event "The Borjigin Scion"
 		effect = {
@@ -1000,9 +1259,30 @@ ko1_the_furthest_conquests = {
 	port_hizen_ko1 = {
 		icon = atlantropa_bargetwo
 		required_missions = { landing_in_japan_ko1 }
-		trigger = {
+		provinces_to_highlight = {
+			province_id = 4182
+			NOT = {
+				country_or_non_sovereign_subject_holds = ROOT
+				religion = demonic
+				OR = {
+					has_building = dock
+					has_building = drydock
+				}
+			}
 		}
+		trigger = {
+			4182 = {
+				religion = demonic
+				OR = {
+					has_building = dock
+					has_building = drydock
+				}
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		#trigger_event "Port Hizen"
 		effect = {
+			country_event = { id = agmajongpa.16 }
 		}
 		ai_weight = {
 			factor = 10
@@ -1128,9 +1408,41 @@ ko1_the_furthest_conquests = {
 	the_sunset_dominion_ko1 = {
 		icon = atlantropa_sunsetdominion
 		required_missions = { the_central_conquest_ko1 }
-		trigger = {
+		provinces_to_highlight = {
+			OR = {
+				area = kanto_area
+				area = eastern_kanto_area
+				area = thohoku_area
+				area = hokkaido_area
+				area = sakhalin_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
+		trigger = {
+			kanto_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			eastern_kanto_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			thohoku_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			hokkaido_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			sakhalin_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		#trigger_event "Sunset Dominion"
 		effect = {
+			country_event = { id = agmajongpa.150 }
 		}
 		ai_weight = {
 			factor = 10
@@ -1151,12 +1463,65 @@ ko1_the_grandest_jewel = {
 	#missions
 	#1st tier
 	mass_our_army_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_army
 		position = 8
 		required_missions = { the_reorganization_of_agmajongpa_ko1 }
 		trigger = {
+			army_size_percentage = 1
 		}
 		effect = {
+			custom_tooltip = claimnorthernplainko1
+			hidden_effect = {
+				hebei_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				south_hebei_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				shandong_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				jiangsu_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				anhui_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				north_henan_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				henan_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
 		}
 		ai_weight = {
 			factor = 10
@@ -1166,9 +1531,63 @@ ko1_the_grandest_jewel = {
 	invade_the_northern_plain_ko1 = {
 		icon = atlantropa_cityscapethree
 		required_missions = { mass_our_army_ko1 }
+		provinces_to_highlight = {
+			OR = {
+				area = hebei_area
+				area = south_hebei_area
+				area = shandong_area
+				area = jiangsu_area
+				area = anhui_area
+				area = north_henan_area
+				area = henan_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
+			hebei_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			south_hebei_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			shandong_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			jiangsu_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			anhui_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			north_henan_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			henan_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
+			north_china_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			south_china_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 		ai_weight = {
 			factor = 10
@@ -1176,11 +1595,26 @@ ko1_the_grandest_jewel = {
 	}
 	#3rd tier
 	march_southwards_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_burningchina3
 		required_missions = { invade_the_northern_plain_ko1 }
+		provinces_to_highlight = {
+			region = south_china_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
+			south_china_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
+			xinan_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 		ai_weight = {
 			factor = 10
@@ -1188,9 +1622,29 @@ ko1_the_grandest_jewel = {
 	}
 	#4th tier
 	end_the_mandate_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_fieryend
 		required_missions = { march_southwards_ko1 }
+		provinces_to_highlight = {
+			OR = {
+				region = xinan_region
+				region = south_china_region
+				region = north_china_region
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
+			xinan_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			south_china_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			north_china_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
 		}
@@ -1200,47 +1654,20 @@ ko1_the_grandest_jewel = {
 	}
 	#5th tier
 	serfs_no_longer_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_skulls
+		position = 14
 		required_missions = { end_the_mandate_ko1 }
 		trigger = {
+			OR = {
+				NOT = {
+					great_power_rank = 2
+				}
+				total_development = 1500
+			}
 		}
+		#trigger_event "Serfs No Longer"
 		effect = {
-		}
-		ai_weight = {
-			factor = 10
-		}
-	}
-	#6th tier
-	the_new_way_of_life_ko1 = {
-		icon = mission_unknown_mission
-		required_missions = { burn_the_palaces_ko1 serfs_no_longer_ko1 }
-		trigger = {
-		}
-		effect = {
-		}
-		ai_weight = {
-			factor = 10
-		}
-	}
-	#7th tier
-	life_goes_on_ko1 = {
-		icon = mission_unknown_mission
-		required_missions = { the_new_way_of_life_ko1 }
-		trigger = {
-		}
-		effect = {
-		}
-		ai_weight = {
-			factor = 10
-		}
-	}
-	#8th tier
-	the_secrets_of_china_ko1 = {
-		icon = mission_unknown_mission
-		required_missions = { life_goes_on_ko1 }
-		trigger = {
-		}
-		effect = {
+			country_event = { id = agmajongpa.150 }
 		}
 		ai_weight = {
 			factor = 10
@@ -1261,10 +1688,44 @@ ko1_burn_the_palaces = {
 	#missions
 	#1st tier
 	burn_the_palaces_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_burningchina2
 		position = 12
 		required_missions = { end_the_mandate_ko1 }
 		trigger = {
+			1816 = {
+				infantry_in_province = 20
+			}
+			1821 = {
+				infantry_in_province = 20
+			}
+		}
+		#trigger_event "The Burning of the Palaces"
+		effect = {
+			country_event = { id = agmajongpa.17 }
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+	#6th tier
+	the_new_way_of_life_ko1 = {
+		icon = atlantropa_lifegoeson
+		required_missions = { burn_the_palaces_ko1 }
+		trigger = {
+		}
+		#trigger_event "The New Way of Life"
+		effect = {
+			country_event = { id = agmajongpa.150 }
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+	#7th tier
+	life_goes_on_ko1 = {
+		icon = atlantropa_mandateend
+		required_missions = { the_new_way_of_life_ko1 }
+		trigger = {
 		}
 		effect = {
 		}
@@ -1272,138 +1733,15 @@ ko1_burn_the_palaces = {
 			factor = 10
 		}
 	}
-}
-
-ko1_industrial = {
-	slot = 1
-	generic = no
-	ai = yes
-	potential = {
-		NOT = { map_setup = map_setup_random }
-		tag = KO1
-	}
-	has_country_shield = yes
-	
-	#missions
-	#1st tier
-	winds_of_the_west_ko1 = {
-		icon = atlantropa_medievalbook
-		required_missions = {  }
+	#8th tier
+	the_secrets_of_china_ko1 = {
+		icon = atlantropa_wizarddude
+		required_missions = { life_goes_on_ko1 }
 		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = emp_ven_patronize_the_scuole_grandi_adm_advisor_tt
-				has_adm_advisor_2 = yes
-			}
-			has_institution = renaissance
 		}
+		#trigger_event "Secrets of China"
 		effect = {
-			custom_tooltip = secretsunlocked
-			set_country_flag = secrets_of_gunpowder_flag
-		}
-		ai_weight = {
-			factor = 10
-		}
-	}
-	#2nd tier
-	modern_industry_ko1 = {
-		icon = atlantropa_norserenaissance
-		required_missions = { winds_of_the_west_ko1 }
-		provinces_to_highlight = {
-			country_or_non_sovereign_subject_holds = ROOT
-			NOT = {
-				has_production_building_trigger = yes
-			}
-		}
-		trigger = {
-			num_of_owned_provinces_with = {
-				value = 20
-				OR = {
-					has_building = workshop
-					has_building = counting_house
-				}
-			}
-		}
-		effect = {
-			capital_scope = {
-				add_base_tax = 1
-				add_base_production = 1
-				add_base_manpower = 1
-				area = {
-					limit = { owned_by = ROOT }
-					add_province_modifier = {
-						name = "growth_of_capital"
-						duration = 9125 #25 years
-					}
-				}
-			}
-			add_years_of_income = 1
-		}
-		ai_weight = {
-			factor = 10
-		}
-	}
-	#3rd tier
-	manufactories_ko1 = {
-		icon = industrialized_rhineland
-		required_missions = { modern_industry_ko1 }
-		provinces_to_highlight = {
-			country_or_non_sovereign_subject_holds = ROOT
-			NOT = {
-				OR = {
-					has_building = mills
-					has_building = farm_estate
-					has_building = tradecompany
-					has_building = plantations
-					has_building = textile
-					has_building = weapons
-					has_building = wharf
-					has_building = furnace
-				}
-			}
-		}
-		trigger = {
-			calc_true_if = {
-				desc = build_manufactories_mission_tooltip
-				all_owned_province = {
-					OR = {
-						has_building = mills
-						has_building = farm_estate
-						has_building = tradecompany
-						has_building = plantations
-						has_building = textile
-						has_building = weapons
-						has_building = wharf
-						has_building = furnace
-					}
-				}
-				amount = 15
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "toe_industrialization"
-				duration = -1
-			}
-			add_years_of_income = 1
-		}
-		ai_weight = {
-			factor = 10
-		}
-	}
-	#4th tier
-	demonic_roads_ko1 = {
-		icon = atlantropa_imperialroads
-		required_missions = {  }
-		trigger = {
-			atlantropa_road = 20
-		}
-		effect = {
-			every_owned_province = {
-				limit = {
-					has_building = atlantropa_road
-				}
-				add_base_production = 1	
-			}
+			country_event = { id = agmajongpa.150 }
 		}
 		ai_weight = {
 			factor = 10
@@ -1448,6 +1786,7 @@ ko1_the_greatest_treasures = {
 		trigger = {
 			2139 = {
 				country_or_non_sovereign_subject_holds = ROOT
+				infantry_in_province = 4
 			}
 		}
 		effect = {
@@ -1465,6 +1804,10 @@ ko1_the_greatest_treasures = {
 			years_of_income	= 4
 		}
 		effect = {
+			add_country_modifier = {
+				name = ko1_preparing_potion
+				duration = 3650
+			}
 			add_years_of_income = -4
 		}
 		ai_weight = {
@@ -1476,6 +1819,9 @@ ko1_the_greatest_treasures = {
 		icon = atlantropa_poison
 		required_missions = { the_preparations_ko1 }
 		trigger = {
+			NOT = {
+				has_country_modifier = ko1_preparing_potion
+			}
 		}
 		#trigger_event "The Potion Complete"
 		effect = {
@@ -1510,6 +1856,7 @@ ko1_the_yin_root_flower = {
 		trigger = {
 			1055 = {
 				country_or_non_sovereign_subject_holds = ROOT
+				infantry_in_province = 4
 			}
 		}
 		effect = {
@@ -1521,12 +1868,15 @@ ko1_the_yin_root_flower = {
 	}
 }
 
-ko1_the_secrets_of_the_yamato = {
+ko1_the_secrets_of_the_yamato2 = {
 	slot = 4
 	generic = no
 	ai = yes
 	potential = {
-		NOT = { map_setup = map_setup_random }
+		NOT = {
+			map_setup = map_setup_random
+			has_country_flag = yokai_countryflag
+		}
 		tag = KO1
 	}
 	has_country_shield = yes
@@ -1537,7 +1887,69 @@ ko1_the_secrets_of_the_yamato = {
 		icon = atlantropa_yamatosecrets
 		position = 13
 		required_missions = { the_central_conquest_ko1 }
+		provinces_to_highlight = {
+			province_id = 1020
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
+			1020 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				infantry_in_province = 20
+			}
+		}
+		#trigger_event "Secrets of the Yamato"
+		effect = {
+			country_event = { id = agmajongpa.18 }
+			hidden_effect = {
+				set_country_flag = yokai_countryflag
+			}
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+	unknown_mission_yokai_ko1 = {
+		icon = mission_unknown_mission
+		required_missions = { the_secrets_of_the_yamato_ko1 }
+		trigger = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		effect = {
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+}
+
+ko1_the_secrets_of_the_yamato2 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = { map_setup = map_setup_random }
+		tag = KO1
+		has_country_flag = yokai_countryflag
+	}
+	has_country_shield = yes
+	
+	#missions
+	#1st tier
+	the_secrets_of_the_yamato_ko1 = {
+		icon = atlantropa_yamatosecrets
+		position = 13
+		required_missions = { the_central_conquest_ko1 }
+		provinces_to_highlight = {
+			province_id = 1020
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			1020 = {
+				country_or_non_sovereign_subject_holds = ROOT
+				infantry_in_province = 20
+			}
 		}
 		#trigger_event "Secrets of the Yamato"
 		effect = {
@@ -1551,9 +1963,13 @@ ko1_the_secrets_of_the_yamato = {
 		icon = atlantropa_yokai
 		required_missions = { the_secrets_of_the_yamato_ko1 }
 		trigger = {
+			manpower = 10
+			mil_power = 100
 		}
 		#trigger_event "Yokai Subjugation"
 		effect = {
+			add_mil_power = -100
+			add_manpower = -10
 			country_event = { id = agmajongpa.3 }
 		}
 		ai_weight = {
@@ -1575,12 +1991,14 @@ ko1_the_demon_in_the_east = {
 	#missions
 	#1st tier
 	the_demon_in_the_east_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_demonthrone
 		position = 15
-		required_missions = { life_goes_on_ko1 the_sunset_dominion_ko1 }
+		required_missions = { serfs_no_longer_ko1 the_sunset_dominion_ko1 }
 		trigger = {
 		}
+		#trigger_event "The Demon in the East"
 		effect = {
+			country_event = { id = agmajongpa.3 }
 		}
 		ai_weight = {
 			factor = 10
@@ -1604,7 +2022,37 @@ ko1_india = {
 		icon = mission_unknown_mission
 		position = 16
 		required_missions = { the_demon_in_the_east_ko1 }
+		provinces_to_highlight = {
+			OR = {
+				region = bengal_region
+				region = coromandel_region
+				region = deccan_region
+				region = hindustan_region
+				region = western_india_region
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
+			bengal_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			coromandel_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			deccan_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			hindustan_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			western_india_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
 		}
@@ -1630,7 +2078,22 @@ ko1_siberia = {
 		icon = mission_unknown_mission
 		position = 16
 		required_missions = { the_demon_in_the_east_ko1 }
+		provinces_to_highlight = {
+			OR = {
+				region = west_siberia_region
+				region = east_siberia_region
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
+			west_siberia_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			east_siberia_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
 		}
@@ -1656,7 +2119,27 @@ ko1_indo_china_asia = {
 		icon = mission_unknown_mission
 		position = 16
 		required_missions = { the_demon_in_the_east_ko1 }
+		provinces_to_highlight = {
+			OR = {
+				region = burma_region
+				region = indo_china_region
+				region = malaya_region
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
+			burma_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			indo_china_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			malaya_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 		}
 		effect = {
 		}
