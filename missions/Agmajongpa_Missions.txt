@@ -1175,6 +1175,13 @@ ko1_mongolian_conquest = {
 		#trigger_event "The Borjigin Scion"
 		effect = {
 			country_event = { id = agmajongpa.150 }
+			central_asia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 		ai_weight = {
 			factor = 10
@@ -1442,7 +1449,7 @@ ko1_the_furthest_conquests = {
 		}
 		#trigger_event "Sunset Dominion"
 		effect = {
-			country_event = { id = agmajongpa.150 }
+			country_event = { id = agmajongpa.23 }
 		}
 		ai_weight = {
 			factor = 10
@@ -1667,7 +1674,7 @@ ko1_the_grandest_jewel = {
 		}
 		#trigger_event "Serfs No Longer"
 		effect = {
-			country_event = { id = agmajongpa.150 }
+			country_event = { id = agmajongpa.24 }
 		}
 		ai_weight = {
 			factor = 10
@@ -1715,7 +1722,7 @@ ko1_burn_the_palaces = {
 		}
 		#trigger_event "The New Way of Life"
 		effect = {
-			country_event = { id = agmajongpa.150 }
+			country_event = { id = agmajongpa.25 }
 		}
 		ai_weight = {
 			factor = 10
@@ -1741,7 +1748,7 @@ ko1_burn_the_palaces = {
 		}
 		#trigger_event "Secrets of China"
 		effect = {
-			country_event = { id = agmajongpa.150 }
+			country_event = { id = agmajongpa.26 }
 		}
 		ai_weight = {
 			factor = 10
@@ -1825,7 +1832,7 @@ ko1_the_greatest_treasures = {
 		}
 		#trigger_event "The Potion Complete"
 		effect = {
-			country_event = { id = agmajongpa.3 }
+			country_event = { id = agmajongpa.20 }
 		}
 		ai_weight = {
 			factor = 10
@@ -1868,14 +1875,13 @@ ko1_the_yin_root_flower = {
 	}
 }
 
-ko1_the_secrets_of_the_yamato2 = {
+ko1_the_secrets_of_the_yamato = {
 	slot = 4
 	generic = no
 	ai = yes
 	potential = {
 		NOT = {
 			map_setup = map_setup_random
-			has_country_flag = yokai_countryflag
 		}
 		tag = KO1
 	}
@@ -1897,7 +1903,7 @@ ko1_the_secrets_of_the_yamato2 = {
 				infantry_in_province = 20
 			}
 		}
-		#trigger_event "Secrets of the Yamato"
+		#trigger_event "Amaterasu's End"
 		effect = {
 			country_event = { id = agmajongpa.18 }
 			hidden_effect = {
@@ -1908,6 +1914,23 @@ ko1_the_secrets_of_the_yamato2 = {
 			factor = 10
 		}
 	}
+}
+
+ko1_the_secrets_of_the_yamato2 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		NOT = {
+			map_setup = map_setup_random
+			has_country_flag = yokai_countryflag
+		}
+		tag = KO1
+	}
+	has_country_shield = yes
+	
+	#mission
+	#1st tier
 	unknown_mission_yokai_ko1 = {
 		icon = mission_unknown_mission
 		required_missions = { the_secrets_of_the_yamato_ko1 }
@@ -1924,7 +1947,7 @@ ko1_the_secrets_of_the_yamato2 = {
 	}
 }
 
-ko1_the_secrets_of_the_yamato2 = {
+ko1_the_secrets_of_the_yamato3 = {
 	slot = 4
 	generic = no
 	ai = yes
@@ -1935,30 +1958,8 @@ ko1_the_secrets_of_the_yamato2 = {
 	}
 	has_country_shield = yes
 	
-	#missions
+	#mission
 	#1st tier
-	the_secrets_of_the_yamato_ko1 = {
-		icon = atlantropa_yamatosecrets
-		position = 13
-		required_missions = { the_central_conquest_ko1 }
-		provinces_to_highlight = {
-			province_id = 1020
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			1020 = {
-				country_or_non_sovereign_subject_holds = ROOT
-				infantry_in_province = 20
-			}
-		}
-		#trigger_event "Secrets of the Yamato"
-		effect = {
-			country_event = { id = agmajongpa.3 }
-		}
-		ai_weight = {
-			factor = 10
-		}
-	}
 	yokai_subjugation_ko1 = {
 		icon = atlantropa_yokai
 		required_missions = { the_secrets_of_the_yamato_ko1 }
@@ -1970,7 +1971,7 @@ ko1_the_secrets_of_the_yamato2 = {
 		effect = {
 			add_mil_power = -100
 			add_manpower = -10
-			country_event = { id = agmajongpa.3 }
+			country_event = { id = agmajongpa.19 }
 		}
 		ai_weight = {
 			factor = 10
@@ -1998,7 +1999,7 @@ ko1_the_demon_in_the_east = {
 		}
 		#trigger_event "The Demon in the East"
 		effect = {
-			country_event = { id = agmajongpa.3 }
+			country_event = { id = agmajongpa.21 }
 		}
 		ai_weight = {
 			factor = 10
@@ -2019,7 +2020,7 @@ ko1_india = {
 	#missions
 	#1st tier
 	the_breaking_of_ind_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_ind
 		position = 16
 		required_missions = { the_demon_in_the_east_ko1 }
 		provinces_to_highlight = {
@@ -2027,8 +2028,8 @@ ko1_india = {
 				region = bengal_region
 				region = coromandel_region
 				region = deccan_region
-				region = hindustan_region
-				region = western_india_region
+				region = hindusthan_region
+				region = west_india_region
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
@@ -2045,11 +2046,11 @@ ko1_india = {
 				type = all	
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			hindustan_region = {
+			hindusthan_region = {
 				type = all	
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			western_india_region = {
+			west_india_region = {
 				type = all	
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -2075,7 +2076,7 @@ ko1_siberia = {
 	#missions
 	#1st tier
 	the_deadlands_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_deadlands
 		position = 16
 		required_missions = { the_demon_in_the_east_ko1 }
 		provinces_to_highlight = {
@@ -2116,7 +2117,7 @@ ko1_indo_china_asia = {
 	#missions
 	#1st tier
 	the_end_of_indochina_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_southeasia
 		position = 16
 		required_missions = { the_demon_in_the_east_ko1 }
 		provinces_to_highlight = {
@@ -2149,12 +2150,14 @@ ko1_indo_china_asia = {
 	}
 	#2nd tier
 	dominion_over_asia_ko1 = {
-		icon = mission_unknown_mission
+		icon = atlantropa_deadmanfireland
 		position = 17
 		required_missions = { the_end_of_indochina_ko1 the_breaking_of_ind_ko1 the_deadlands_ko1 }
 		trigger = {
 		}
+		#trigger_event "The End"
 		effect = {
+			country_event = { id = agmajongpa.22 }
 		}
 		ai_weight = {
 			factor = 10
