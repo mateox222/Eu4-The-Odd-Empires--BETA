@@ -562,9 +562,23 @@ country_event = { #Amaterasu's End
 	major_trigger = {
 		capital_scope = { region = japan_region }
 	}
+	#Oh deer
+	option = {
+		name = agmajongpa.20.a
+		ai_chance = { factor = 0 }
+	}
+}
+
+country_event = { #Yokai Subjugation
+	id = agmajongpa.19
+	title = agmajongpa.19.t
+	desc = agmajongpa.19.d
+	picture = yokai_eventPicture
+	is_triggered_only = yes
+	
 	#record
 	option = {
-		name = agmajongpa.18.a
+		name = agmajongpa.19.a
 		add_prestige = 10
 		1020 = {
 			add_base_manpower = -1
@@ -577,7 +591,7 @@ country_event = { #Amaterasu's End
 	}
 	#establish
 	option = { 
-		name = agmajongpa.18.b
+		name = agmajongpa.19.b
 		add_prestige = 10
 		1020 = {
 			add_base_manpower = -1
@@ -588,19 +602,6 @@ country_event = { #Amaterasu's End
 		set_country_flag = secrets_of_yamato_flag
 		change_personal_deity = secrets_of_yamato
 		ai_chance = { factor = 0 } 
-	}
-}
-
-country_event = { #Yokai Subjugation
-	id = agmajongpa.19
-	title = agmajongpa.19.t
-	desc = agmajongpa.19.d
-	picture = yokai_eventPicture
-	is_triggered_only = yes
-	
-	option = {
-		name = agmajongpa.19.a
-		ai_chance = { factor = 0 }
 	}
 }
 
