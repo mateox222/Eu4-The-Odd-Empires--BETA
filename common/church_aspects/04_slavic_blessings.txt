@@ -1,0 +1,81 @@
+blessing_perun = {
+	is_blessing = yes
+
+	modifier = {
+		stability_cost_modifier = -0.25	
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
+
+blessing_Weles = {
+	is_blessing = yes
+
+	modifier = {
+		merchants = 1	
+	}
+
+	ai_will_do = {
+		factor = 15
+	}
+}
+
+blessing_Svetovit = {
+	is_blessing = yes
+
+	modifier = {
+		discipline = 0.05	
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 2
+			NOT = {
+				religious_unity = 0.9
+			}
+		}
+		modifier = {
+			factor = 2
+			NOT = {
+				religious_unity = 0.7
+			}
+		}
+		modifier = {
+			factor = 2
+			NOT = {
+				religious_unity = 0.5
+			}
+		}
+	}
+}
+
+blessing_Svarog = {
+	is_blessing = yes
+
+	modifier = {
+		production_efficiency = 0.05	
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 2
+			governing_capacity_percentage = 0.9
+		}
+		modifier = {
+			factor = 3
+			governing_capacity_percentage = 1.0
+		}
+	}
+}
+
+blessing_Chernoglav = {
+	is_blessing = yes
+
+	modifier = {
+		prestige = 1
+	}
+	ai_will_do = {
+		factor = 10
+	}
+}
