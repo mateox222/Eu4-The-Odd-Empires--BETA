@@ -1,0 +1,256 @@
+namespace = greatsaxony
+country_event = {
+	id = greatsaxony.1
+	title = "greatsaxony.1.t"
+	desc = "greatsaxony.1.d"
+	picture = saxontownburn_eventPicture
+	fire_only_once = yes
+	major = yes
+	trigger = {
+			NOT = { has_global_flag = WEISENSTADT_city_destroyed }
+						tag = SER
+						exists = X54
+				OR = {
+			4239 = { controlled_by = ROOT }
+			4239 = { owned_by = SER }
+				}
+				OR = {
+			4755 = { controlled_by = ROOT }
+			4755 = { owned_by = SER }
+				}
+
+	}
+	option = {
+		name = greatsaxony.1.a #Sack of City
+        SER = {
+            white_peace = X54
+            }
+			4239 = {
+	add_devastation = 50
+	add_base_tax = -1	
+	add_base_production = -1	
+	add_base_manpower = -1	
+	}
+	4755 = {
+		add_devastation = 50
+		add_base_tax = -1	
+		add_base_production = -1	
+		add_base_manpower = -1	
+		}
+
+		add_mil_power = 150 
+		add_dip_power = 150 
+		add_adm_power = 150
+		add_treasury = 300	
+		set_global_flag = WEISENSTADT_city_destroyed
+		balkan_region = {
+				limit = {
+					 owned_by = X54
+				}
+		
+    cede_province = ROOT
+	add_core = ROOT
+
+	}
+}
+
+}
+
+country_event = {
+	major = yes
+	major_trigger = { 
+		capital_scope = {
+			continent = europe
+		}
+	 }
+	id = greatsaxony.2
+	title = greatsaxony.2.t
+	desc = greatsaxony.2.d
+	picture = Blackempireparliament_eventPicture
+	is_triggered_only = yes
+	option = {
+	name = "greatsaxony.2.a" 
+		add_adm_power = 100	
+		change_tag = A53
+		country_event = { id = ideagroups.1 }
+		override_country_name = SAXONYONE
+		change_country_color = { color = { 79 78 79 } }
+	}
+	option = {
+		name = "greatsaxony.2.b" 
+			add_adm_power = 100	
+			change_tag = A53
+			country_event = { id = ideagroups.1 }
+			override_country_name = SAXONYTWO
+			change_country_color = { color = { 138 72 96 } }
+		}
+		option = {
+			name = "greatsaxony.2.c" 
+				add_adm_power = 100	
+				change_tag = A53
+				country_event = { id = ideagroups.1 }
+				override_country_name = SAXONYTHREE
+				change_country_color = { color = { 139 32 15 } }
+			}
+			option = {
+				name = "greatsaxony.2.e" 
+					add_adm_power = 100	
+					change_tag = A53
+					country_event = { id = ideagroups.1 }
+					override_country_name = SAXONYFOUR
+					change_country_color = { color = { 185 171 225 } }
+				}			
+	}
+
+	country_event = {
+		major = yes
+		major_trigger = { 
+			capital_scope = {
+				continent = europe
+			}
+		 }
+		id = greatsaxony.2
+		title = greatsaxony.2.t
+		desc = greatsaxony.2.d
+		picture = Blackempireparliament_eventPicture
+		is_triggered_only = yes
+		option = {
+		name = "greatsaxony.2.a" 
+			add_adm_power = 100	
+			change_tag = A53
+			country_event = { id = ideagroups.1 }
+			override_country_name = SAXONYONE
+			change_country_color = { color = { 79 78 79 } }
+		}
+			option = {
+				name = "greatsaxony.2.c" 
+					add_adm_power = 100	
+					change_tag = A53
+					country_event = { id = ideagroups.1 }
+					override_country_name = SAXONYTHREE
+					change_country_color = { color = { 139 32 15 } }
+				}
+				option = {
+					name = "greatsaxony.2.e" 
+						add_adm_power = 100	
+						change_tag = A53
+						country_event = { id = ideagroups.1 }
+						override_country_name = SAXONYFOUR
+						change_country_color = { color = { 185 171 225 } }
+					}			
+		}
+
+		country_event = {
+			id = greatsaxony.3
+			title = "byzantine_war.10.t"
+			desc = "byzantine_war.10.d"
+			picture = constantinoplefall_eventPicture
+			major = yes
+			fire_only_once = yes
+			trigger = {
+				tag = SER
+					NOT = { has_global_flag = SAXONconstantinople_captured }
+								OR = {
+					LAE = { NOT = { army_size = 5 } }
+					war_score_against = { who = LAE value = 75 }
+								}
+					OR = {
+					151 = { controlled_by = ROOT }
+					151 = { owned_by = ROOT }
+		
+			}}
+			mean_time_to_happen = { days = 2 }
+			
+			option = {
+				name = byzantine_war.10a #Sack of City
+				country_event = { 
+					id = greatsaxony.4
+				}
+			151 = {
+			add_devastation = 50
+			}
+				add_mil_power = 145
+				add_dip_power = 150 
+				add_adm_power = 150
+				add_treasury = 500	
+				set_global_flag = SAXONconstantinople_captured
+				add_historical_rival = A52
+				A52 = { add_historical_rival = ROOT	}
+				if = {
+					limit = {
+						NOT = {  has_global_flag = constantinople_captured }
+					}
+				
+			balkan_region  = {
+						limit = {
+							 owned_by = LAE
+						}
+			cede_province = ROOT
+			add_core = ROOT
+			}
+			anatolia_region  = {
+						limit = {
+							 owned_by = LAE
+									}
+			cede_province = A52
+			add_core = A52
+		}
+		set_global_flag = constantinople_captured
+			}
+	}
+}
+
+country_event = {
+	major = yes
+	major_trigger = { 
+		capital_scope = {
+			continent = europe
+		}
+	 }
+	id = greatsaxony.4
+	title = greatsaxony.4.t
+	desc = greatsaxony.4.d
+	picture = Blackempireparliament_eventPicture
+	is_triggered_only = yes
+	option = {
+		
+	name = "greatsaxony.4.a" 
+	add_adm_power = 100	
+	add_dip_power = 100	
+	add_mil_power = 100	
+	change_primary_culture = greekosaxon
+	custom_tooltip = empiresaxonculture
+	hidden_effect = {
+	every_owned_province = {
+	limit = {
+		OR = {
+		culture = saxon
+		}
+	}
+		change_culture = greekosaxon
+ }
+	}
+		set_country_flag = GREKOREICH
+		change_tag = A53
+		country_event = { id = ideagroups.1 }
+		override_country_name = SAXONYTWO
+		change_country_color = { color = { 138 72 96 } }
+		add_government_reform = roman_byzantine_monarchy
+		151 = {
+			move_capital_effect = yes
+		}
+		add_country_modifier = {
+			name = "byzantine_restoration_threat"
+			duration = -1
+		}
+		add_country_modifier = {
+			name = "centralization_modifier"
+			duration = 7300
+		}
+	}
+	option = {
+		name = "greatsaxony.4.b" 
+			add_stability = -2
+		}
+		
+	}

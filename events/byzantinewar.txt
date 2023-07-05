@@ -872,53 +872,7 @@ country_event = {
 	}
 	
 	
-country_event = {
-	id = byzantine_war.10
-	title = "byzantine_war.10.t"
-	desc = "byzantine_war.10.d"
-	picture = constantinoplefall_eventPicture
-	major = yes
-	fire_only_once = yes
-	trigger = {
-		tag = SER
-		    NOT = { has_global_flag = constantinople_captured }
-						exists = LAE
-						OR = {
-			LAE = { NOT = { army_size = 5 } }
-			war_score_against = { who = LAE value = 75 }
-						}
-			OR = {
-			151 = { controlled_by = ROOT }
-			151 = { owned_by = ROOT }
 
-	}}
-	mean_time_to_happen = { days = 2 }
-	
-	option = {
-		name = byzantine_war.10a #Sack of City
-	151 = {
-	add_devastation = 50
-	}
-		add_mil_power = 145
-		add_dip_power = 150 
-		add_adm_power = 150
-		add_treasury = 500	
-		set_global_flag = constantinople_captured
-	balkan_region  = {
-				limit = {
-					 owned_by = LAE
-				}
-    cede_province = ROOT
-	add_core = ROOT
-	}
-	inherit = A51	
-	anatolia_region  = {
-				limit = {
-					 owned_by = LAE
-							}
-    cede_province = A52
-	add_core = A52
-}}}
 country_event = {
 	id = byzantine_war.12
 	title = "byzantine_war.12.t"
