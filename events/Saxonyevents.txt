@@ -239,6 +239,20 @@ country_event = {
 		151 = {
 			move_capital_effect = yes
 		}
+		balkan_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		anatolia_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
 		add_country_modifier = {
 			name = "byzantine_restoration_threat"
 			duration = -1
