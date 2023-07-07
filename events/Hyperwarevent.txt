@@ -7,9 +7,125 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 	name = "hyper_war.1.a" 
+		set_government_rank = 3	
+		change_tag = X15
 		add_adm_power = 100	
 		add_dip_power = 100	
 		add_mil_power = 100		
 		add_prestige = 15	
+		swap_non_generic_missions = yes	
 	}
 	}
+	country_event = {
+	id = hyper_war.2
+	title = hyper_war.2.t
+	desc = hyper_war.2.d
+	picture = FINSKATEMPLE_eventPicture
+	is_triggered_only = yes
+	option = {
+	name = "hyper_war.2.a" 	
+		add_prestige = 5	
+	}
+	}
+	country_event = {
+	id = hyper_war.3
+	title = hyper_war.3.t
+	desc = hyper_war.3.d
+	picture = frozendoor_eventPicture
+	is_triggered_only = yes
+	option = {
+	name = "hyper_war.3.a" 	
+		add_prestige = 5	
+	}
+	}
+	country_event = {
+	id = hyper_war.4
+	title = hyper_war.4.t
+	desc = hyper_war.4.d
+	picture = frozendoor_eventPicture
+	is_triggered_only = yes
+	option = {
+	name = "hyper_war.4.b" 		
+		add_prestige = -5
+		country_event = { 
+    id = hyper_war.6
+    days = 60
+    random = 180
+}
+	}
+	option = {
+	name = "hyper_war.4.a" 	
+		add_prestige = 5	
+		add_mil_power = -300
+		country_event = { 
+    id = hyper_war.5
+}
+	}
+	}
+	country_event = {
+	id = hyper_war.5
+	title = hyper_war.5.t
+	desc = hyper_war.5.d
+	picture = frozendoor_eventPicture
+	is_triggered_only = yes
+	option = {
+	name = "hyper_war.5.a" 		
+	country_event = { 
+    id = hyper_war.6
+}
+	}
+}
+country_event = {
+	id = hyper_war.6
+	title = hyper_war.6.t
+	desc = hyper_war.6.d
+	picture = frozendoor_eventPicture
+	is_triggered_only = yes
+	option = {
+	name = "hyper_war.6.a" 		
+	country_event = { 
+    id = hyper_war.7
+	days = 60
+    random = 360
+}
+	}
+	option = {
+	name = "hyper_war.6.b" 		
+	custom_tooltip = suomueskoendhyper
+	}
+}
+
+country_event = {
+	id = hyper_war.7
+	title = hyper_war.7.t
+	desc = hyper_war.7.d
+	picture = FINSKATEMPLE_eventPicture
+	is_triggered_only = yes
+	option = {
+	name = "hyper_war.7.a" 		
+	set_country_flag = FINOWIEPOWSTALI
+	change_religion = hypersuomi_pagan_reformed 
+	change_government = monarchy
+	add_government_reform = hypersoumikaganate
+	5902 = {
+		change_religion = hypersuomi_pagan_reformed 
+	}
+	define_ruler = {
+    name = "Utuvi XXXVII Kest‰‰"
+    dynasty = "Kuninkaallinen"
+    adm = 6
+    dip = 6
+    mil = 6
+    age = 99
+    claim = 100
+}
+
+add_ruler_personality = immortal_personality
+add_ruler_personality = tactical_genius_personality
+add_ruler_personality = cruel_personality
+
+
+	}
+
+
+}

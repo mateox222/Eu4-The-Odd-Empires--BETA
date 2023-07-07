@@ -1059,3 +1059,36 @@ agmajongpa2_reform = {
         factor = 100
     }
 }
+
+hypersoumikaganate = {
+    icon = "hypersuomi"
+	allow_normal_conversion = yes
+	lock_level_when_selected = yes
+	legacy_equivalent = feudal_monarchy
+	maintain_dynasty = yes
+	monarchy = yes	
+    potential = {
+        religion = hypersuomi_pagan_reformed 
+    }
+    modifiers = {
+        max_absolutism = 25
+		global_autonomy = -0.075
+		state_maintenance_modifier = -0.50
+		governing_capacity_modifier = 0.5
+		tolerance_heretic = -5
+		tolerance_heathen = -10	
+		prestige = 1		
+		land_morale_constant = 0.25	
+		reinforce_speed = 0.10	
+    }
+		custom_attributes = {
+		locked_government_type = yes
+	}
+	government_abilities = {
+		crusaderstates_mechanic
+	}
+		ai = {
+		factor = 100
+	}
+    
+}
