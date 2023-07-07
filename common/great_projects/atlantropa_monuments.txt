@@ -4129,3 +4129,120 @@ atlantropa_mount_hwa = {
 		}
 	}
 }
+
+
+hypersuomitemple_gibraltar  = {
+    start = 5902
+	date = 6890.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 1
+	type = monument
+	build_trigger = {
+		always = no
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		religion = hypersuomi_pagan_reformed 
+	}
+
+	can_upgrade_trigger = {
+		religion = demonic
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			local_garrison_size	 = 0.25	
+			fort_level = 1
+			local_development_cost = -0.10
+			province_trade_power_modifier = 0.10
+		}
+		country_modifiers = {
+			global_missionary_strength = 0.005
+			monthly_splendor = 1
+			max_absolutism = 10
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+			local_garrison_size	 = 0.33
+			fort_level = 2
+			local_development_cost = -0.25
+			province_trade_power_modifier = 0.25
+		}
+		country_modifiers = {
+			global_missionary_strength = 0.01
+			monthly_splendor = 2
+			advisor_pool = 1
+			max_absolutism = 20
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+			local_garrison_size	 = 0.50
+			fort_level = 3
+			local_development_cost = -0.33
+			province_trade_power_modifier = 0.33
+		}
+		country_modifiers = {
+			global_missionary_strength = 0.015
+			monthly_splendor = 3
+			advisor_pool = 1
+			max_absolutism = 30
+		}
+		on_upgraded = {
+		}
+	}
+}
