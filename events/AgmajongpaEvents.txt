@@ -503,22 +503,6 @@ country_event = { #Port Hizen
 	}
 }
 
-country_event = { #Port Hizen
-	id = agmajongpa.16
-	title = agmajongpa.16.t
-	desc = agmajongpa.16.d
-	picture = porthizen_eventPicture
-	is_triggered_only = yes 
-	
-	option = { 
-		name = agmajongpa.16.a
-		4182 = {
-			change_culture = yogoe
-		}
-		ai_chance = { factor = 2 } 
-	}
-}
-
 country_event = { #No Palaces. No Gods.
 	id = agmajongpa.17
 	title = agmajongpa.17.t 
@@ -564,7 +548,14 @@ country_event = { #Amaterasu's End
 	}
 	#Oh deer
 	option = {
-		name = agmajongpa.20.a
+		name = agmajongpa.18.a
+		1020 = {
+			add_base_tax = -3
+			add_base_production = -3
+			add_base_manpower = -3
+			add_devastation = 50
+			change_culture = yogoe
+		}
 		ai_chance = { factor = 0 }
 	}
 }
@@ -587,6 +578,22 @@ country_event = { #Yokai Subjugation
 		swap_non_generic_missions = yes
 		custom_tooltip = secretsunlocked
 		set_country_flag = secrets_of_yamato_flag
+		custom_tooltip = japanconvertcult3
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						region = japan_region
+					}
+					OR = {
+						culture = japanese
+						culture = togoku
+						culture = kyushuan
+					}
+				}
+				change_culture = yogoe
+			}
+		}
 		ai_chance = { factor = 2 } 
 	}
 	#establish
@@ -601,6 +608,22 @@ country_event = { #Yokai Subjugation
 		custom_tooltip = secretsunlocked
 		set_country_flag = secrets_of_yamato_flag
 		change_personal_deity = secrets_of_yamato
+		custom_tooltip = japanconvertcult3
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						region = japan_region
+					}
+					OR = {
+						culture = japanese
+						culture = togoku
+						culture = kyushuan
+					}
+				}
+				change_culture = yogoe
+			}
+		}
 		ai_chance = { factor = 0 } 
 	}
 }
@@ -609,11 +632,15 @@ country_event = { #The Potion Complete
 	id = agmajongpa.20
 	title = agmajongpa.20.t
 	desc = agmajongpa.20.d
-	picture = yokai_eventPicture
+	picture = poisonsect_eventPicture
 	is_triggered_only = yes
 	
 	option = {
 		name = agmajongpa.20.a
+		add_country_modifier = {
+			name = ko1_potion
+			duration = -1
+		}
 		ai_chance = { factor = 0 }
 	}
 }
@@ -624,6 +651,7 @@ country_event = { #The Demon in the East
 	desc = agmajongpa.21.d
 	picture = yokai_eventPicture
 	is_triggered_only = yes
+	major = yes 
 	
 	option = {
 		name = agmajongpa.21.a
@@ -637,6 +665,7 @@ country_event = { #The End
 	desc = agmajongpa.22.d
 	picture = yokai_eventPicture
 	is_triggered_only = yes
+	major = yes 
 	
 	option = {
 		name = agmajongpa.22.a
@@ -653,6 +682,23 @@ country_event = { #Sunset Dominion
 	
 	option = {
 		name = agmajongpa.23.a
+		custom_tooltip = japanconvertcult1
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						region = japan_region
+					}
+					OR = {
+						culture = japanese
+						culture = togoku
+						culture = kyushuan
+					}
+					development = 10
+				}
+				change_culture = yogoe
+			}
+		}
 		ai_chance = { factor = 0 }
 	}
 }
@@ -679,6 +725,16 @@ country_event = { #The New Way of Life
 	
 	option = {
 		name = agmajongpa.25.a
+		custom_tooltip = chinaconvertcult1
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					region = north_china_region
+					culture_group = east_asian
+				}
+				change_culture = koreosino
+			}
+		}
 		ai_chance = { factor = 0 }
 	}
 }
@@ -690,8 +746,82 @@ country_event = { #Secrets of China
 	picture = yokai_eventPicture
 	is_triggered_only = yes
 	
-	option = {
+	option = { 
 		name = agmajongpa.26.a
+		custom_tooltip = secretsunlocked
+		set_country_flag = secrets_of_china_flag
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = agmajongpa.26.b
+		custom_tooltip = secretsunlocked
+		set_country_flag = secrets_of_china_flag
+		change_personal_deity = secrets_of_china
+		ai_chance = { factor = 0 } 
+	}
+}
+
+country_event = { #Inding.
+	id = agmajongpa.27
+	title = agmajongpa.27.t
+	desc = agmajongpa.27.d
+	picture = yokai_eventPicture
+	is_triggered_only = yes
+	
+	#Continue as we have.
+	option = {
+		name = agmajongpa.27.a
+		ai_chance = { factor = 10 }
+	}
+	#Thousand pieces.
+	option = {
+		name = agmajongpa.27.b
+		custom_tooltip = indiamorelikegone
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						region = bengal_region
+						region = coromandel_region
+						region = deccan_region
+						region = hindusthan_region
+						region = west_india_region
+						
+					}
+				}
+				add_province_modifier = {
+					name = ko1_anarchy
+					duration = -1
+				}
+				decolonize = THIS
+			}
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+country_event = { #Indochina
+	id = agmajongpa.28
+	title = agmajongpa.28.t
+	desc = agmajongpa.28.d
+	picture = yokai_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = agmajongpa.28.a
+		ai_chance = { factor = 0 }
+	}
+}
+
+country_event = { #Deadlands
+	id = agmajongpa.29
+	title = agmajongpa.29.t
+	desc = agmajongpa.29.d
+	picture = yokai_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = agmajongpa.29.a
 		ai_chance = { factor = 0 }
 	}
 }

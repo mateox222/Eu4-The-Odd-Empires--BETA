@@ -1718,7 +1718,15 @@ ko1_burn_the_palaces = {
 	the_new_way_of_life_ko1 = {
 		icon = atlantropa_lifegoeson
 		required_missions = { burn_the_palaces_ko1 }
+		provinces_to_highlight = {
+			region = north_china_region
+			NOT = { has_owner_religion = yes }
+		}
 		trigger = {
+			north_china_region = {
+				type = all	
+				has_owner_religion = yes
+			}
 		}
 		#trigger_event "The New Way of Life"
 		effect = {
@@ -1732,9 +1740,43 @@ ko1_burn_the_palaces = {
 	life_goes_on_ko1 = {
 		icon = atlantropa_mandateend
 		required_missions = { the_new_way_of_life_ko1 }
+		provinces_to_highlight = {
+			OR = {
+				region = xinan_region
+				region = south_china_region
+				region = north_china_region
+			}
+			NOT = { has_owner_religion = yes }
+		}
 		trigger = {
+			north_china_region = {
+				type = all	
+				has_owner_religion = yes
+			}
+			xinan_region = {
+				type = all	
+				has_owner_religion = yes
+			}
+			south_china_region = {
+				type = all	
+				has_owner_religion = yes
+			}
 		}
 		effect = {
+			custom_tooltip = chinaconvertcult2
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							region = xinan_region
+							region = south_china_region
+							region = north_china_region
+						}
+						culture_group = east_asian
+					}
+					change_culture = koreosino
+				}
+			}
 		}
 		ai_weight = {
 			factor = 10
@@ -1745,9 +1787,15 @@ ko1_burn_the_palaces = {
 		icon = atlantropa_wizarddude
 		required_missions = { life_goes_on_ko1 }
 		trigger = {
+			adm_power = 25
+			dip_power = 25
+			mil_power = 25
 		}
 		#trigger_event "Secrets of China"
 		effect = {
+			dip_power_cost = 25
+			adm_power_cost = 25
+			mil_power_cost = 25
 			country_event = { id = agmajongpa.26 }
 		}
 		ai_weight = {
@@ -2055,7 +2103,9 @@ ko1_india = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
+		#trigger_event "Ind"
 		effect = {
+			country_event = { id = agmajongpa.27 }
 		}
 		ai_weight = {
 			factor = 10
@@ -2096,7 +2146,9 @@ ko1_siberia = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
+		#trigger_event "Deadlands"
 		effect = {
+			country_event = { id = agmajongpa.29 }
 		}
 		ai_weight = {
 			factor = 10
@@ -2142,7 +2194,9 @@ ko1_indo_china_asia = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
+		#trigger_event "Indochina"
 		effect = {
+			country_event = { id = agmajongpa.28 }
 		}
 		ai_weight = {
 			factor = 10
