@@ -1,0 +1,280 @@
+country_decisions = {
+	United_European_Empire = {
+	major = yes
+	potential = {
+			capital_scope = {
+						continent = europe
+						is_core = ROOT
+					}
+		NOT = { tag = A70 }
+		NOT = { tag = BYZ }	
+		NOT = { tag = DA1 }	
+		NOT = { was_tag = DA1 }		
+		NOT = { culture_group = nilfhishgroup }
+	
+		}
+		provinces_to_highlight = { 
+					continent = europe
+					 }
+			allow = {
+		stability = 3
+			is_nomad = no
+			is_at_war = no
+		num_of_owned_provinces_with = {
+	value = 500
+	continent = europe
+}
+			
+				}
+	
+			effect = {
+				restore_country_name = yes	
+				add_prestige = 100
+				set_government_rank = 3
+	
+
+ #Customformables
+ 			if = {
+				limit = { 
+					primary_culture = icelandic
+				}
+				override_country_name = UNITEDEUROPEICELAND
+				change_country_color = { color = { 51 69 58 } }
+			}
+ 			if = {
+				limit = { 
+					primary_culture = czech
+				}
+				override_country_name = UNITEDEUROPECZECH
+				change_country_color = { color = { 223 183 77 } }
+			}
+ 			if = {
+				limit = { 
+					primary_culture = moravian
+				}
+				override_country_name = UNITEDEUROPEmoravia
+				change_country_color = { color = { 15 91 55 } }
+			}
+	 			if = {
+				limit = { 
+					primary_culture = kashubian
+				}
+				override_country_name = UNITEDEUROPEkashubian
+				change_country_color = { color = { 15 146 55 } }
+			}
+	 			if = {
+				limit = { 
+					primary_culture = polish
+				}
+				override_country_name = UNITEDEUROPEpolish
+				change_country_color = { color = { 167 49 55 } }
+			}
+
+	 			if = {
+				limit = { 
+					primary_culture = sorbian
+				}
+				override_country_name = UNITEDEUROPEsorbian
+				change_country_color = { color = { 167 151 144 } }
+			}
+	 			if = {
+				limit = { 
+					primary_culture = ruthenian
+				}
+				override_country_name = UNITEDEUROPEruthenian
+				change_country_color = { color = { 113 35 50 } }
+			}
+				 			if = {
+				limit = { 
+					primary_culture = schlesian
+				}
+				override_country_name = UNITEDEUROPEschlesian
+				change_country_color = { color = { 100 116 50 } }
+			}
+
+				 			if = {
+				limit = { 
+					primary_culture = prussian
+				}
+				override_country_name = UNITEDEUROPEprussian
+				change_country_color = { color = { 51 55 50 } }
+			}
+						 			if = {
+				limit = { 
+					primary_culture = prussian
+				}
+				override_country_name = UNITEDEUROPEprussian
+				change_country_color = { color = { 51 55 50 } }
+			}	
+									 			if = {
+				limit = { 
+				NOT = {	primary_culture = prussian }
+				culture_group = germanic
+				}
+				override_country_name = UNITEDEUROPEgermanic
+				change_country_color = { color = { 51 55 50 } }
+			}	
+			if = {
+				limit = { 
+				culture_group = scandinavian
+				NOT = { primary_culture = icelandic }
+				}
+				override_country_name = UNITEDEUROPEscandinavian
+				change_country_color = { color = { 51 55 125 } }
+			}	
+			if = {
+				limit = { 
+				culture_group = british
+				}
+				override_country_name = UNITEDEUROPEbritish
+				change_country_color = { color = { 101 32 23 } }
+			}	
+			if = {
+				limit = { 
+				culture_group = latin
+				}
+				override_country_name = UNITEDEUROPElatin
+				change_country_color = { color = { 53 108 23 } }
+			}	
+			if = {
+				limit = { 
+				culture_group = iberian
+				}
+				override_country_name = UNITEDEUROPEiberian
+				change_country_color = { color = { 228 211 59 } }
+			}	
+						if = {
+				limit = { 
+				culture_group = french
+				}
+				override_country_name = UNITEDEUROPEfrench
+				change_country_color = { color = { 44 61 110 } }
+			}
+						if = {
+				limit = { 
+					OR = {
+				culture_group = finno_ugric
+				culture_group = ugrofinic
+					}
+				}
+				override_country_name = UNITEDEUROPEfinno_ugric
+				change_country_color = { color = { 77 136 110 } }
+			}			
+									if = {
+				limit = { 
+				culture_group = south_slavic
+				}
+				override_country_name = UNITEDEUROPEsouth_slavic
+				change_country_color = { color = { 117 136 198 } }
+			}		
+				if = {
+				limit = { 
+				culture_group = east_slavic
+				}
+				override_country_name = UNITEDEUROPEeast_slavic
+				change_country_color = { color = { 70 136 162 } }
+			}	
+						if = {
+				limit = { 
+				culture_group = baltic
+				}
+				override_country_name = UNITEDEUROPEbaltic
+				change_country_color = { color = { 135 136 162 } }
+			}	
+									if = {
+				limit = { 
+				culture_group = caucasian
+				}
+				override_country_name = UNITEDEUROPEgeorgian
+				change_country_color = { color = { 63 12 10 } }
+			}	
+												if = {
+				limit = { 
+				culture_group = byzantine
+				}
+				override_country_name = UNITEDEUROPEbyzantine
+				change_country_color = { color = { 63 152 233 } }
+			}	
+							if = {
+				limit = { 
+				culture_group = romanian_group
+				}
+				override_country_name = UNITEDEUROPEromanian_group
+				change_country_color = { color = { 141 116 109 } }
+			}	
+							if = {
+				limit = { 
+				culture_group = albanian_group
+				}
+				override_country_name = UNITEDEUROPEalbanian_group
+				change_country_color = { color = { 118 16 22 } }
+			}	
+										if = {
+				limit = { 
+				culture_group = jewish_group
+				}
+				override_country_name = UNITEDEUROPEjewish_group
+				change_country_color = { color = { 30 66 220 } }
+			}	
+										if = {
+				limit = { 
+				culture_group = preindoeuropean
+				}
+				override_country_name = UNITEDEUROPEpreindoeuropean
+				change_country_color = { color = { 154 198 51 } }
+			}	
+													if = {
+				limit = { 
+				culture_group = nativethulean
+				}
+				override_country_name = UNITEDEUROPEnativethulean
+				change_country_color = { color = { 154 98 51 } }
+			}	
+
+													if = {
+				limit = { 
+				culture_group = roman_group
+				}
+				override_country_name = UNITEDEUROPEroman_group
+				change_country_color = { color = { 154 32 28 } }
+			}	
+			
+			if = {
+				limit = { 
+				culture_group = bulgarian_culture
+				}
+				override_country_name = UNITEDEUROPEbulgarian_culture
+				change_country_color = { color = { 202 193 78 } }
+			}	
+						if = {
+				limit = { 
+				culture_group = south_germanic
+				}
+				override_country_name = UNITEDEUROPEsouth_germanic
+				change_country_color = { color = { 222 218 220 } }
+			}	
+						if = {
+				limit = { 
+				culture_group = armenian_group
+				}
+				override_country_name = UNITEDEUROPEarmenian_group
+				change_country_color = { color = { 168 70 57 } }
+			}
+									if = {
+				limit = { 
+				culture_group = visigothic
+				}
+				override_country_name = UNITEDEUROPEvisigothic
+				change_country_color = { color = { 87 70 57 } }
+			}
+
+
+			
+			
+			
+	}
+			ai_will_do = {
+				factor = 1
+	}
+	}
+	}
