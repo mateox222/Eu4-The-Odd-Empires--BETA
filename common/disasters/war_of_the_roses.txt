@@ -27,18 +27,18 @@ war_of_the_roses = {
 		current_age = medieval_age
 		}
 		OR = {
-			dynasty = Chatou
-			dynasty = Puteaux
-			dynasty = Plantagenet
+			dynasty = "Chatou"
+			dynasty = "Puteaux"
+			dynasty = "Plantagenet"
 		}
 		has_any_disaster = no
 		OR = {
 			has_heir = no
 			AND = {
 				has_heir = yes
-				NOT = { heir_dynasty = Chatou }
-				NOT = { heir_dynasty = Puteaux }
-				NOT = { heir_dynasty = Plantagenet }
+				NOT = { heir_dynasty = "Chatou" }
+				NOT = { heir_dynasty = "Puteaux" }
+				NOT = { heir_dynasty = "Plantagenet" }
 			}
 		}
 		has_regency = no
@@ -51,9 +51,9 @@ war_of_the_roses = {
 			AND = {
 				has_heir = yes
 				OR = {
-					heir_dynasty = Chatou
-					heir_dynasty = Puteaux
-					heir_dynasty = Plantagenet
+					heir_dynasty = "Chatou"
+					heir_dynasty = "Puteaux"
+					heir_dynasty = "Plantagenet"
 				}
 			}
 			has_regency = yes
@@ -79,11 +79,11 @@ war_of_the_roses = {
 		}
 		modifier = {
 			factor = 0.5
-			NOT = { dynasty = Chatou }
+			NOT = { dynasty = "Chatou" }
 		}
 		modifier = {
 			factor = 0.5
-			NOT = { dynasty = Puteaux }
+			NOT = { dynasty = "Puteaux" }
 		}
 		modifier = {
 			factor = 0.5
