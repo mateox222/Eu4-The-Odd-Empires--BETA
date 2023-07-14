@@ -427,13 +427,21 @@ country_event = {
 		has_country_flag = francjawasal
 	NOT = {	is_subject_of = FRA }
 	NOT = {	is_subject_of = A59 }
-	NOT = { has_country_flag = FRANCUSKAWOJNADOMOWA }
+
 	}
 
 	option = {
 	name = "atlantropa_basic_event.6.a" 
 	clr_country_flag = francjawasal
 	 restore_country_color = yes	
+	 	if = {
+		limit = {
+			has_country_flag = FRANCUSKAWOJNADOMOWA
+		}
+				change_country_color = { 
+    color = { 123 19 0 }
+}
+	}
 		}		
 
 		}
