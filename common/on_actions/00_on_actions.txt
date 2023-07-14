@@ -1038,6 +1038,22 @@ on_siege_won_province = {
 	events = {
 		synthetic_dawn.4
 	}
+
+
+	if = {
+		limit = {
+			controller = {
+				has_country_flag = FRANCUSKAWOJNADOMOWA
+			}
+			owner = {
+				has_country_flag = FRANCUSKAWOJNADOMOWA
+			}
+		}
+		
+			cede_province = controller
+			add_core = controller
+	
+}
 	if = {
 		limit = {
 			region = egypt_region
