@@ -15,3 +15,5 @@ name="The Odd Empires"
 supported_version="1.35.4"
 path="C:/Users/matpo/Documents/Paradox Interactive/Europa Universalis IV/mod/TheOddEmpires"
 remote_file_id="2935918398"
+
+#Among us
