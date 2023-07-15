@@ -1,5 +1,10 @@
 war_of_the_roses = {
 	potential = {
+		num_of_subjects = 4
+				OR = {
+		current_age = age_of_discovery
+		current_age = medieval_age
+		}
 		OR = {
 		tag = FRA
 		tag = A59
@@ -8,7 +13,7 @@ war_of_the_roses = {
 		government = monarchy
 		is_free_or_tributary_trigger = yes
 		uses_doom = no
-		NOT = { has_country_flag = had_war_of_the_roses  }
+		NOT = { has_global_flag = FRANCUSKAWOJNADOMOWA222  }
 		is_tutorial_active = no
 	}
 
@@ -27,18 +32,18 @@ war_of_the_roses = {
 		current_age = medieval_age
 		}
 		OR = {
-			dynasty = Chatou
-			dynasty = Puteaux
-			dynasty = Plantagenet
+			dynasty = "Chatou"
+			dynasty = "Puteaux"
+			dynasty = "Plantagenet"
 		}
 		has_any_disaster = no
 		OR = {
 			has_heir = no
 			AND = {
 				has_heir = yes
-				NOT = { heir_dynasty = Chatou }
-				NOT = { heir_dynasty = Puteaux }
-				NOT = { heir_dynasty = Plantagenet }
+				NOT = { heir_dynasty = "Chatou" }
+				NOT = { heir_dynasty = "Puteaux" }
+				NOT = { heir_dynasty = "Plantagenet" }
 			}
 		}
 		has_regency = no
@@ -51,9 +56,9 @@ war_of_the_roses = {
 			AND = {
 				has_heir = yes
 				OR = {
-					heir_dynasty = Chatou
-					heir_dynasty = Puteaux
-					heir_dynasty = Plantagenet
+					heir_dynasty = "Chatou"
+					heir_dynasty = "Puteaux"
+					heir_dynasty = "Plantagenet"
 				}
 			}
 			has_regency = yes
@@ -71,7 +76,6 @@ war_of_the_roses = {
 		}
 		modifier = {
 			factor = 3
-			is_year = 6964
 			OR = {
 				has_ruler_modifier = low_fertility
 				ruler_has_personality = infertile_personality
@@ -79,11 +83,11 @@ war_of_the_roses = {
 		}
 		modifier = {
 			factor = 0.5
-			NOT = { dynasty = Chatou }
+			NOT = { dynasty = "Chatou" }
 		}
 		modifier = {
 			factor = 0.5
-			NOT = { dynasty = Puteaux }
+			NOT = { dynasty = "Puteaux" }
 		}
 		modifier = {
 			factor = 0.5
@@ -105,19 +109,8 @@ war_of_the_roses = {
 	}
 	
 	can_end = {
-		NOT = { num_of_rebel_controlled_provinces = 1 }
-		NOT = { has_spawned_rebels = pretender_rebels }
-		hidden_trigger = {
-			NOT = { has_country_modifier = just_lost_to_rebels }
-		}
-		custom_trigger_tooltip = {
-			tooltip = war_of_the_roses_end_tooltip_pretender_still_lives
-			NOT = { has_country_modifier = wotr_one_year_timer }
-			NOT = { has_country_flag = war_of_the_roses_pretender_fled }
-		}
+	  has_global_flag = FRANCUSKAWOJNADOMOWA222
 	}
-	
-
 
 
 	modifier = {
