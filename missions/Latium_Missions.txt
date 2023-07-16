@@ -108,19 +108,12 @@ latin_hab_holy_roman_ambitions = {
 		provinces_to_highlight = {
 			OR = {
 				province_id = 121
-					ROOT = {
-						NOT = {
 							num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 								value = 4
 								OR = {
 									area = atlantis_napoli_area
 								}
 							}
-						}
-					
-				}
-			
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }}
 		}
 		
 		trigger = {
@@ -137,7 +130,7 @@ latin_hab_holy_roman_ambitions = {
 				name = "habsburg_bohemia"
 				duration = 5475 #15 years
 			}
-			silesia_area = {
+			calabria_area = {
 				add_permanent_claim = ROOT
 			}
 			hidden_effect = {
