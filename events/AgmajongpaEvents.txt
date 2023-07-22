@@ -786,15 +786,44 @@ country_event = { #Inding.
 						region = deccan_region
 						region = hindusthan_region
 						region = west_india_region
-						
 					}
 				}
+				decolonize = THIS
+			}
+			bengal_region = {
 				add_province_modifier = {
 					name = ko1_anarchy
 					duration = -1
 				}
-				decolonize = THIS
 			}
+			coromandel_region = {
+				add_province_modifier = {
+					name = ko1_anarchy
+					duration = -1
+				}
+			}
+			deccan_region = {
+				add_province_modifier = {
+					name = ko1_anarchy
+					duration = -1
+				}
+			}
+			hindusthan_region = {
+				add_province_modifier = {
+					name = ko1_anarchy
+					duration = -1
+				}
+			}
+			west_india_region = {
+				add_province_modifier = {
+					name = ko1_anarchy
+					duration = -1
+				}
+			}
+		}
+		add_country_modifier = {
+			name = ko1_indian_tribute
+			duration = -1
 		}
 		ai_chance = { factor = 0 }
 	}
@@ -809,7 +838,11 @@ country_event = { #Indochina
 	
 	option = {
 		name = agmajongpa.28.a
-		ai_chance = { factor = 0 }
+		add_country_modifier = {
+			name = ko1_indochina_nexus
+			duration = -1
+		}
+		ai_chance = { factor = 100 }
 	}
 }
 
