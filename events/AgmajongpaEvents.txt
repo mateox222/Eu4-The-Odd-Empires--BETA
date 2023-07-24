@@ -531,7 +531,7 @@ country_event = { #No Palaces. No Gods.
 			change_culture = koreosino
 		}
 		add_treasury = 400
-		ai_chance = { factor = 0 } 
+		ai_chance = { factor = 1 } 
 	}
 }
 
@@ -556,7 +556,15 @@ country_event = { #Amaterasu's End
 			add_devastation = 50
 			change_culture = yogoe
 		}
-		ai_chance = { factor = 0 }
+		add_prestige = 50
+		add_years_of_income = 1
+		capital_scope = {
+			add_province_modifier = {
+				name = kor_japanese_loot
+				duration = -1
+			}
+		}
+		ai_chance = { factor = 1 }
 	}
 }
 
@@ -641,7 +649,7 @@ country_event = { #The Potion Complete
 			name = ko1_potion
 			duration = -1
 		}
-		ai_chance = { factor = 0 }
+		ai_chance = { factor = 1 }
 	}
 }
 
@@ -649,13 +657,19 @@ country_event = { #The Demon in the East
 	id = agmajongpa.21
 	title = agmajongpa.21.t
 	desc = agmajongpa.21.d
-	picture = yokai_eventPicture
+	picture = cityburned_eventPicture
 	is_triggered_only = yes
 	major = yes 
 	
 	option = {
 		name = agmajongpa.21.a
-		ai_chance = { factor = 0 }
+		2108 = {
+			add_province_modifier = { 
+				name = ko1_demonseat
+				duration = -1
+			}
+		}
+		ai_chance = { factor = 1 }
 	}
 }
 
@@ -663,13 +677,13 @@ country_event = { #The End
 	id = agmajongpa.22
 	title = agmajongpa.22.t
 	desc = agmajongpa.22.d
-	picture = yokai_eventPicture
+	picture = endtimes_eventPicture
 	is_triggered_only = yes
 	major = yes 
 	
 	option = {
 		name = agmajongpa.22.a
-		ai_chance = { factor = 0 }
+		ai_chance = { factor = 1 }
 	}
 }
 
@@ -677,7 +691,7 @@ country_event = { #Sunset Dominion
 	id = agmajongpa.23
 	title = agmajongpa.23.t
 	desc = agmajongpa.23.d
-	picture = yokai_eventPicture
+	picture = deademperor_eventPicture
 	is_triggered_only = yes
 	
 	option = {
@@ -699,7 +713,7 @@ country_event = { #Sunset Dominion
 				change_culture = yogoe
 			}
 		}
-		ai_chance = { factor = 0 }
+		ai_chance = { factor = 1 }
 	}
 }
 
@@ -707,12 +721,12 @@ country_event = { #Serfs No Longer
 	id = agmajongpa.24
 	title = agmajongpa.24.t
 	desc = agmajongpa.24.d
-	picture = yokai_eventPicture
+	picture = chinesehellscape_eventPicture
 	is_triggered_only = yes
 	
 	option = {
 		name = agmajongpa.24.a
-		ai_chance = { factor = 0 }
+		ai_chance = { factor = 1 }
 	}
 }
 
@@ -720,7 +734,7 @@ country_event = { #The New Way of Life
 	id = agmajongpa.25
 	title = agmajongpa.25.t
 	desc = agmajongpa.25.d
-	picture = yokai_eventPicture
+	picture = lifegoeson_eventPicture
 	is_triggered_only = yes
 	
 	option = {
@@ -735,7 +749,7 @@ country_event = { #The New Way of Life
 				change_culture = koreosino
 			}
 		}
-		ai_chance = { factor = 0 }
+		ai_chance = { factor = 1 }
 	}
 }
 
@@ -743,7 +757,7 @@ country_event = { #Secrets of China
 	id = agmajongpa.26
 	title = agmajongpa.26.t
 	desc = agmajongpa.26.d
-	picture = yokai_eventPicture
+	picture = secretchina_eventPicture
 	is_triggered_only = yes
 	
 	option = { 
@@ -765,7 +779,7 @@ country_event = { #Inding.
 	id = agmajongpa.27
 	title = agmajongpa.27.t
 	desc = agmajongpa.27.d
-	picture = yokai_eventPicture
+	picture = indiancityscape_eventPicture
 	is_triggered_only = yes
 	
 	#Continue as we have.
@@ -850,11 +864,11 @@ country_event = { #Deadlands
 	id = agmajongpa.29
 	title = agmajongpa.29.t
 	desc = agmajongpa.29.d
-	picture = yokai_eventPicture
+	picture = deadlands_eventPicture
 	is_triggered_only = yes
 	
 	option = {
 		name = agmajongpa.29.a
-		ai_chance = { factor = 0 }
+		ai_chance = { factor = 1 }
 	}
 }
