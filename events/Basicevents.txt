@@ -14,7 +14,7 @@ province_event = {
 		has_owner_culture = no
 		has_port = no
 		is_overseas = no
-		owner = { ai = yes }
+		owner = { ai = no }
 		NOT = { has_province_modifier = revoltedprovince }
 		NOT = {
 		any_neighbor_province = {
@@ -42,7 +42,7 @@ province_event = {
 	    add_nationalism = 10	
 		random_country = { 	
 			limit = {
-				ai = yes
+		
 				is_neighbor_of = PREV
 					any_neighbor_province = {
 					has_province_flag = alewkurwiamnietaprowka	
@@ -500,5 +500,109 @@ province_event = {
 	name = "atlantropa_basic_event.6.a" 
 		}	
 }		
+
+
+
+
+country_event = {
+	id = atlantropa_basic_event.300																			
+	title = "atlantropa_basic_event.5.t"
+	desc = "atlantropa_basic_event.5.d"
+	picture = HARBOUR_eventPicture
+	
+	trigger = {
+		religion = united_christianity
+		has_religious_school = no
+
+	}
+	
+	is_triggered_only = yes
+
+	option = {
+	name = "atlantropa_basic_event.6.a" 
+		trigger = {
+	
+		}
+    }
+    option = {
+	name = "atlantropa_basic_event.6.a" 
+		trigger = {
+	
+			capital_scope = { continent = africa }
+			NOT = { culture_group = byzantine }
+			NOT = { culture_group = latin  }
+		}
+		set_religious_school = {
+			group = christian
+			school = alexandria_pentarch
+		}
+	}
+    option = {
+	name = "atlantropa_basic_event.6.a" 
+		trigger = {
+	
+							OR = {
+				capital_scope = {  continent = asia }
+				capital_scope = { superregion = eastern_europe_superregion }
+				culture_group = byzantine
+			}
+			NOT = { culture_group = latin  }
+			NOT = { culture_group = french  }
+			
+		}
+		set_religious_school = {
+			group = christian
+			school = constantinople_pentarch
+		}
+	}
+    option = {
+	name = "atlantropa_basic_event.6.a" 
+		trigger = {
+	
+			capital_scope = {  continent = asia }
+			NOT = { culture_group = byzantine }
+			NOT = { culture_group = latin  }
+			NOT = { culture_group = french  }
+		}
+		set_religious_school = {
+			group = christian
+			school = antioch_pentarch
+		}
+	}
+    option = {
+	name = "atlantropa_basic_event.6.a" 
+		trigger = {
+	
+			capital_scope = { continent = asia }
+			NOT = { culture_group = byzantine }
+			NOT = { culture_group = latin  }
+			NOT = { culture_group = french  }
+		}
+		set_religious_school = {
+			group = christian
+			school = jerusalem_pentarch
+		}
+	}
+    option = {
+	name = "atlantropa_basic_event.6.a" 
+		trigger = {
+			OR = {
+			NOT = {
+			capital_scope = { 	continent = asia }
+			capital_scope = { 	continent = africa }
+			}
+			culture_group = latin  
+			culture_group = french 
+			}
+			NOT = { culture_group = byzantine }
+				
+		}
+		set_religious_school = {
+			group = christian
+			school = rome_pentarch 
+		}
+	}
+   
+}
 
 

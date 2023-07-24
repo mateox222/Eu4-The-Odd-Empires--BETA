@@ -295,7 +295,281 @@ pagan = {
 	
 
 
+
+
+
 christian = {
+		center_of_religion = 379
+		religious_schools = {
+			
+		constantinople_pentarch = {
+			potential_invite_scholar = {
+				OR = {
+					knows_of_scholar_country_capital_trigger = yes
+				}
+				religion = united_christianity
+				
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+					can_invite_scholar = {
+			NOT = { has_country_flag = christianityforever }	
+				
+				NOT = { has_country_modifier = constantinople_pentarch_modifier }
+							OR = {
+				capital_scope = {  continent = asia }
+				capital_scope = { superregion = eastern_europe_superregion }
+				culture_group = byzantine
+			}
+			NOT = { culture_group = latin  }
+			NOT = { culture_group = french  }
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+				clear_atlantis_scholar_modifiers_effect = yes
+						set_religious_school = {
+			group = christian
+			school = constantinople_pentarch
+		}
+				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
+				add_country_modifier = { name = constantinople_pentarch_modifier duration = 73000 }
+				if = {	#Ensures that the AI doesn't waste all of their ADM power on inviting scholars should they be able to invite them baseline
+					limit = {
+						ai = yes
+					}
+					set_country_flag = christianityforever
+					add_country_modifier = { name = has_invited_scholar_recently duration = 73000 hidden = yes }
+				}
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			invite_scholar_modifier_display = constantinople_pentarch_modifier
+
+			picture = "GFX_icon_constantinople_school"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			global_unrest = -1
+		}
+
+			alexandria_pentarch = {
+			potential_invite_scholar = {
+				OR = {
+					knows_of_scholar_country_capital_trigger = yes
+				}
+				religion = united_christianity
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+					can_invite_scholar = {
+			NOT = { has_country_flag = christianityforever }	
+							capital_scope = { continent = africa }
+			NOT = { culture_group = byzantine }
+			NOT = { culture_group = latin  }
+				NOT = { has_country_modifier = alexandria_pentarch_modifier }
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+				clear_atlantis_scholar_modifiers_effect = yes
+		set_religious_school = {
+			group = christian
+			school = alexandria_pentarch
+		}
+				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
+				add_country_modifier = { name = alexandria_pentarch_modifier duration = 73000 }
+				if = {	#Ensures that the AI doesn't waste all of their ADM power on inviting scholars should they be able to invite them baseline
+					limit = {
+						ai = yes
+					}
+					set_country_flag = christianityforever
+					add_country_modifier = { name = has_invited_scholar_recently duration = 73000 hidden = yes }
+				}
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			invite_scholar_modifier_display = alexandria_pentarch_modifier
+
+			picture = "GFX_icon_alexandria_school"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			global_unrest = -1
+		}
+			rome_pentarch = {
+			potential_invite_scholar = {
+				OR = {
+					knows_of_scholar_country_capital_trigger = yes
+				}
+				religion = united_christianity
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+					can_invite_scholar = {
+			NOT = { has_country_flag = christianityforever }	
+							OR = {
+			NOT = {
+			capital_scope = { 	continent = asia }
+			capital_scope = { 	continent = africa }
+			}
+			culture_group = latin  
+			culture_group = french 
+			}
+			NOT = { culture_group = byzantine }
+				NOT = { has_country_modifier = rome_pentarch_modifier }
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+				clear_atlantis_scholar_modifiers_effect = yes
+						set_religious_school = {
+			group = christian
+			school = rome_pentarch
+		}
+				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
+				add_country_modifier = { name = rome_pentarch_modifier duration = 73000 }
+				if = {	#Ensures that the AI doesn't waste all of their ADM power on inviting scholars should they be able to invite them baseline
+					limit = {
+						ai = yes
+					}
+					set_country_flag = christianityforever
+					add_country_modifier = { name = has_invited_scholar_recently duration = 73000 hidden = yes }
+				}
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			invite_scholar_modifier_display = rome_pentarch_modifier
+
+			picture = "GFX_icon_rome_school"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			global_unrest = -1	
+		}
+				antioch_pentarch = {
+			potential_invite_scholar = {
+				OR = {
+					knows_of_scholar_country_capital_trigger = yes
+				}
+				religion = united_christianity
+				
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+					can_invite_scholar = {
+			NOT = { has_country_flag = christianityforever }	
+							capital_scope = {  continent = asia }
+			NOT = { culture_group = byzantine }
+			NOT = { culture_group = latin  }
+			NOT = { culture_group = french  }
+				NOT = { has_country_modifier = antioch_pentarch_modifier }
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+
+				clear_atlantis_scholar_modifiers_effect = yes
+										set_religious_school = {
+			group = christian
+			school = antioch_pentarch
+		}
+				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
+				add_country_modifier = { name = antioch_pentarch_modifier duration = 73000 }
+				if = {	#Ensures that the AI doesn't waste all of their ADM power on inviting scholars should they be able to invite them baseline
+					limit = {
+						ai = yes
+					}
+					set_country_flag = christianityforever
+					add_country_modifier = { name = has_invited_scholar_recently duration = 73000 hidden = yes }
+				}
+			}
+
+			# If you don't set this it will expand on_invite_scholar effect which might be super big
+			invite_scholar_modifier_display = antioch_pentarch_modifier
+
+			picture = "GFX_icon_antioch_school"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			
+			global_unrest = -1
+		}
+			jerusalem_pentarch = {
+			potential_invite_scholar = {
+				OR = {
+					knows_of_scholar_country_capital_trigger = yes
+				}
+				religion = united_christianity
+			}
+
+			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
+					can_invite_scholar = {
+			NOT = { has_country_flag = christianityforever }	
+							capital_scope = { continent = asia }
+			NOT = { culture_group = byzantine }
+			NOT = { culture_group = latin  }
+			NOT = { culture_group = french  }
+				NOT = { has_country_modifier = jerusalem_pentarch_modifier }
+			}
+
+			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
+			on_invite_scholar = {
+				clear_atlantis_scholar_modifiers_effect = yes
+			set_religious_school = {
+			group = christian
+			school = jerusalem_pentarch
+		}
+				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
+				add_country_modifier = { name = jerusalem_pentarch_modifier duration = 73000 }
+				if = {	#Ensures that the AI doesn't waste all of their ADM power on inviting scholars should they be able to invite them baseline
+					limit = {
+						ai = yes
+					}
+					set_country_flag = christianityforever
+					add_country_modifier = { name = has_invited_scholar_recently duration = 73000 hidden = yes }
+				}
+			}
+
+			# If you don't set this it will expand clear_atlantis_scholar_modifiers_effect = yeseffect which might be super big
+			invite_scholar_modifier_display = jerusalem_pentarch_modifier
+
+			picture = "GFX_icon_jerusalem_school"
+
+			# religion_sub_modifier = no is possible, will hide icon in religious screen
+			global_unrest = -1
+		}
+
+	}
+		united_christianity = {
+	
+		hre_religion = yes
+		flags_with_emblem_percentage = 20
+		flag_emblem_index_range = { 1 4 }
+
+		color = { 243 232 191 }
+		icon = 1
+		country = {
+			tolerance_own = 2
+		}
+		country_as_secondary = {
+			tolerance_own = 1
+		}
+		province = {
+			local_missionary_strength = -0.02
+		}
+		
+
+		
+		heretic = { ZAMIKAELITES STEPHANITES EUSTATHIANS }
+		holy_sites = { 379 118 151 2313 358 }
+		
+		blessings = {
+			legitimize_government
+			encourage_warriors_of_the_faith
+			send_monks_to_establish_monasteries
+			promote_territorial_rights
+			will_of_the_martyrs
+		}
+		misguided_heretic = yes
+	
+	}
 	monophysite = {
 		color = { 0.8 0.4 0.1 }
 		icon = 36
