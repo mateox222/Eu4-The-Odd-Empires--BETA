@@ -1,0 +1,572 @@
+namespace = chalcedonism_fall
+
+#Startup
+country_event = {
+	id = chalcedonism_fall.1
+	title = chalcedonism_fall.1.t
+	desc = chalcedonism_fall.1.d
+	picture = cheonmathrone_eventPicture
+	major = yes
+	major_trigger = {
+		religion_group = christian
+	}
+	trigger = {
+		owns_core_province = 118
+	}
+	option = {
+	name = "chalcedonism_fall.1.a" 
+	set_global_flag = chalcedonismwillfallin30years
+	A52 = {  country_event = { id = chalcedonism_fall.6 } }
+	}
+	}
+
+
+		#FallofConstantinople
+	country_event = {
+	major = yes
+	id = chalcedonism_fall.5
+	title = chalcedonism_fall.5.t
+	desc = chalcedonism_fall.5.d
+	fire_only_once = yes
+	picture = byzantinehagia_legion_eventPicture
+	is_triggered_only = YES
+	option = {
+	name = "chalcedonism_fall.5.a" 
+			add_prestige = 5
+			custom_tooltip = byzantiumhavelessthan30years
+	}
+	}
+
+#FallofJerusalem
+
+country_event = {
+	id = chalcedonism_fall.2
+	title = chalcedonism_fall.2.t
+	desc = chalcedonism_fall.2.d
+	fire_only_once = yes
+		major = yes
+	major_trigger = {
+		religion_group = christian
+	}
+	picture = JERUSALEM_eventPicture
+	trigger = {
+		has_global_flag = chalcedonismwillfallin30years
+		owns_core_province = 379
+		379 = {
+			owner = {
+				NOT = { religion_group = christian }
+			}
+		}
+	}
+	option = {
+	name = "chalcedonism_fall.2.a" 
+	set_global_flag = chalcedonismjerusalemfall
+	}
+	}
+
+	#FallofAntioch
+	country_event = {
+	major = yes
+	major_trigger = {
+		religion_group = christian
+	}
+	id = chalcedonism_fall.3
+	title = chalcedonism_fall.3.t
+	desc = chalcedonism_fall.3.d
+	fire_only_once = yes
+	picture = Antioch_eventPicture
+	trigger = {
+		has_global_flag = chalcedonismwillfallin30years
+		owns_core_province = 2313
+		2313 = {
+			owner = {
+				NOT = { religion_group = christian }
+			}
+		}
+	}
+	option = {
+	name = "chalcedonism_fall.3.a" 
+	set_global_flag = chalcedonismantiochfall
+	}
+	}
+		#FallofAlexandria
+	country_event = {
+	major = yes
+	id = chalcedonism_fall.4
+	title = chalcedonism_fall.4.t
+	desc = chalcedonism_fall.4.d
+	fire_only_once = yes
+	picture = alexandrialighthouse_eventPicture
+	trigger = {
+		is_year = 6910
+		has_global_flag = chalcedonismwillfallin30years
+		owns_core_province = 358
+		358 = {
+			owner = {
+				NOT = { religion_group = christian }
+			}
+		}
+	}
+	option = {
+	name = "chalcedonism_fall.4.a" 
+	set_global_flag = chalcedonismalexandriafall
+	}
+	}
+
+
+
+	#Schisma Pope Won
+		country_event = {
+	major = yes
+	id = chalcedonism_fall.6
+	title = chalcedonism_fall.6.t
+	desc = chalcedonism_fall.6.d
+	fire_only_once = yes
+	picture = cheonmathrone_eventPicture
+	trigger = {
+				NOT = { has_global_flag = chrzescijanstwosierozpadlo }
+		is_year = 6930
+			151 = {
+			owner = {
+				OR = {
+				tag = LAE
+				culture_group = latin
+				culture_group = french
+				tag = PAP
+				is_part_of_hre = yes
+				NOT = { 
+					religion_group = christian
+				}
+				}
+			}
+		}
+	}
+	option = {
+	name = "chalcedonism_fall.6.a" 
+	clr_global_flag = chalcedonismwillfallin30years
+	set_global_flag = popevictorybecausebyzantiumfall
+	set_global_flag = chrzescijanstwosierozpadlo	
+	custom_tooltip = CHRISTIANSCHISMAISCOMING
+hidden_effect = {
+	every_province = {
+		limit = {
+			religion = united_christianity
+		}
+		change_religion = christian_change_religion_for_debug
+	}
+	every_country = {
+				limit = {
+			religion = united_christianity
+		}
+		change_religion = christian_change_religion_for_debug
+
+	}
+
+
+
+
+	if = {
+		limit = {
+	NOT = { has_global_flag = chalcedonismjerusalemfall }
+		}
+			every_province = {
+		limit = {
+			religion = christian_change_religion_for_debug
+			OR = {
+			area = palestine_area
+			area = trans_jordan_area
+			}
+			
+		}
+		change_religion = assyrianchurch
+	} 
+	every_country = {
+		limit = {
+			capital_scope = {
+			OR = {
+			area = palestine_area
+			area = trans_jordan_area
+			}
+			}
+			religion = christian_change_religion_for_debug
+		}
+		change_religion = assyrianchurch
+	}
+
+	}
+	if = {
+		limit = {
+	NOT = { has_global_flag = chalcedonismantiochfall }
+		}
+			every_province = {
+		limit = {
+			religion = christian_change_religion_for_debug
+			OR = {
+			area = cukurova_area
+			area = aleppo_area
+			area = syria_area	
+			}
+			
+		}
+		change_religion = assyrianchurch
+	} 
+	every_country = {
+		limit = {
+			capital_scope = {
+			OR = {
+			area = cukurova_area
+			area = aleppo_area
+			area = syria_area	
+			}
+			}
+			religion = christian_change_religion_for_debug
+		}
+		change_religion = assyrianchurch
+	}
+
+	}
+	if = {
+		limit = {
+	NOT = { has_global_flag = chalcedonismalexandriafall }
+		}
+			every_province = {
+		limit = {
+			religion = christian_change_religion_for_debug
+		}
+			OR = {
+			region = egypt_region
+			}
+			
+		}
+		change_religion = monophysitetrue
+	every_country = {
+		limit = {
+			capital_scope = {
+			OR = {
+			region = egypt_region
+			}
+			}
+			religion = christian_change_religion_for_debug
+		}
+		change_religion = monophysitetrue
+	}
+	}
+	if = {
+		limit = {
+			OR = {
+			exists = A52
+			exists = BYZ
+			exists = A4R
+		}
+	}
+	A52 = {
+		change_religion = orthodox
+	}
+	A4R = {
+		change_religion = orthodox
+	}
+	BYZ = {
+		change_religion = orthodox
+	}
+	A4R = {
+	every_owned_province = {
+		limit = {
+			religion = christian_change_religion_for_debug
+		}
+		change_religion = orthodox
+	}
+	}
+	BYZ = {
+	every_owned_province = {
+		limit = {
+			religion = christian_change_religion_for_debug
+		}
+		change_religion = orthodox
+	}
+	}
+	A52 = {
+	every_owned_province = {
+				limit = {
+			religion = christian_change_religion_for_debug
+		}
+		change_religion = orthodox
+	}
+	}
+	}
+	every_province = {
+		limit = {
+			religion = christian_change_religion_for_debug
+		}
+		change_religion = catholic
+	}
+	every_country = {
+				limit = {
+			religion = christian_change_religion_for_debug
+		}
+		change_religion = catholic
+
+	}
+	LAE = {
+	change_religion = catholic
+	}
+	every_country = {
+	remove_country_modifier = alexandria_pentarch_modifier
+	remove_country_modifier = rome_pentarch_modifier
+	remove_country_modifier = antioch_pentarch_modifier
+	remove_country_modifier = jerusalem_pentarch_modifier
+    remove_country_modifier = constantinople_pentarch_modifier	
+	}
+	118 = {
+		add_core = PAP
+		cede_province = PAP
+	}
+	PAP = {
+			hidden_effect = {
+			random_subject_country = {
+				limit = {
+					is_elector = yes
+				}
+				elector = no
+				hidden_effect = {
+					country_event = {
+						id = hre_event.14
+					}
+				}
+			}
+		}
+		elector = yes
+	}
+	set_hre_religion = catholic	
+	}
+}
+	}
+	
+	#Schisma Constantinople still exists
+			country_event = {
+	major = yes
+	id = chalcedonism_fall.7
+	title = chalcedonism_fall.7.t
+	desc = chalcedonism_fall.7.d
+	fire_only_once = yes
+	picture = cheonmathrone_eventPicture
+	trigger = {
+		NOT = { has_global_flag = chrzescijanstwosierozpadlo }
+		is_year = 6930
+		NOT = { is_year = 7000 }
+		151 = {
+			owner = {
+				NOT = { tag = LAE }
+				NOT = { tag = PAP }
+				OR = {
+				NOT = { culture_group = latin  }
+				NOT = { culture_group = french  }
+				is_part_of_hre = no
+				NOT = { 
+					religion_group = christian
+				}
+				tag = BYZ
+				tag = A52
+				}
+			}
+		}
+	}
+	option = {
+	name = "chalcedonism_fall.7.a" 
+	clr_global_flag = chalcedonismwillfallin30years
+	set_global_flag = popevictorybecausebyzantiumfall
+	set_global_flag = chrzescijanstwosierozpadlo
+	custom_tooltip = CHRISTIANSCHISMAISCOMING
+hidden_effect = {
+	every_province = {
+		limit = {
+			religion = united_christianity
+		}
+		change_religion = christian_change_religion_for_debug
+	}
+	every_country = {
+				limit = {
+			religion = united_christianity
+		}
+		change_religion = christian_change_religion_for_debug
+
+	}
+
+
+
+
+	if = {
+		limit = {
+	NOT = { has_global_flag = chalcedonismjerusalemfall }
+		}
+			every_province = {
+		limit = {
+			religion = christian_change_religion_for_debug
+			OR = {
+			area = palestine_area
+			area = trans_jordan_area
+			}
+			
+		}
+		change_religion = assyrianchurch
+	} 
+	every_country = {
+		limit = {
+			capital_scope = {
+			OR = {
+			area = palestine_area
+			area = trans_jordan_area
+			}
+			}
+			religion = christian_change_religion_for_debug
+		}
+		change_religion = assyrianchurch
+	}
+
+	}
+	if = {
+		limit = {
+	NOT = { has_global_flag = chalcedonismantiochfall }
+		}
+			every_province = {
+		limit = {
+			religion = christian_change_religion_for_debug
+			OR = {
+			area = cukurova_area
+			area = aleppo_area
+			area = syria_area	
+			}
+			
+		}
+		change_religion = assyrianchurch
+	} 
+	every_country = {
+		limit = {
+			capital_scope = {
+			OR = {
+			area = cukurova_area
+			area = aleppo_area
+			area = syria_area	
+			}
+			}
+			religion = christian_change_religion_for_debug
+		}
+		change_religion = assyrianchurch
+	}
+
+	}
+	if = {
+		limit = {
+	NOT = { has_global_flag = chalcedonismalexandriafall }
+		}
+			every_province = {
+		limit = {
+			religion = christian_change_religion_for_debug
+		}
+			OR = {
+			region = egypt_region
+			}
+			
+		}
+		change_religion = monophysitetrue
+	every_country = {
+		limit = {
+			capital_scope = {
+			OR = {
+			region = egypt_region
+			}
+			}
+			religion = christian_change_religion_for_debug
+		}
+		change_religion = monophysitetrue
+	}
+	}
+	every_province = {
+		limit = {
+			religion = christian_change_religion_for_debug
+			NOT = { superregion = near_east_superregion }
+			NOT = { superregion = eastern_europe_superregion }
+			NOT = { superregion = persia_superregion }
+			NOT = { superregion = tartary_superregion }
+			NOT = { superregion = far_east_superregion }
+		}
+		change_religion = catholic
+	}
+	every_country = {
+				limit = {
+			religion = christian_change_religion_for_debug
+			OR = {
+			NOT = { has_country_flag = awiecwybieraszbizantyjczykareligieok }
+
+			capital_scope = {
+			NOT = { superregion = near_east_superregion }
+			NOT = { superregion = eastern_europe_superregion }
+			NOT = { superregion = persia_superregion }
+			NOT = { superregion = tartary_superregion }
+			NOT = { superregion = far_east_superregion }
+			}
+			}
+		}
+		change_religion = catholic
+
+	}
+		every_province = {
+		limit = {
+			religion = christian_change_religion_for_debug
+			OR = {
+			superregion = near_east_superregion
+			superregion = eastern_europe_superregion
+			superregion = persia_superregion
+			superregion = tartary_superregion
+			superregion = far_east_superregion
+			}
+			
+		}
+		change_religion = orthodox
+	}
+	BYZ = {
+		change_religion = orthodox
+		every_owned_province = {
+			change_religion = orthodox
+		}
+	}
+	A52 = {
+		change_religion = orthodox
+		every_owned_province = {
+			change_religion = orthodox
+		}
+	}
+	A4R = {
+		change_religion = orthodox
+		every_owned_province = {
+			change_religion = orthodox
+		}
+	}
+
+	every_country = {
+			limit = {
+			religion = christian_change_religion_for_debug
+			OR = {
+			culture_group = byzantine
+		has_country_flag = awiecwybieraszbizantyjczykareligieok
+			}
+			
+		}
+		change_religion = orthodox
+
+	}
+	every_country = {
+	remove_country_modifier = alexandria_pentarch_modifier
+	remove_country_modifier = rome_pentarch_modifier
+	remove_country_modifier = antioch_pentarch_modifier
+	remove_country_modifier = jerusalem_pentarch_modifier
+    remove_country_modifier = constantinople_pentarch_modifier	
+	}
+	118 = {
+		add_core = PAP
+		cede_province = PAP
+	}
+	set_hre_religion = catholic	
+	}
+}
+	}
+	
