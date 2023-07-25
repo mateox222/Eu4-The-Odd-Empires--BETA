@@ -3,6 +3,7 @@ namespace = chalcedonism_fall
 #Startup
 country_event = {
 	id = chalcedonism_fall.1
+fire_only_once = yes
 	title = chalcedonism_fall.1.t
 	desc = chalcedonism_fall.1.d
 	picture = cheonmathrone_eventPicture
@@ -16,20 +17,20 @@ country_event = {
 	option = {
 	name = "chalcedonism_fall.1.a" 
 	set_global_flag = chalcedonismwillfallin30years
-	A52 = {  country_event = { id = chalcedonism_fall.6 } }
+	A52 = {  country_event = { id = chalcedonism_fall.5 } }
 	}
 	}
 
 
 		#FallofConstantinople
 	country_event = {
-	major = yes
+	fire_only_once = yes
 	id = chalcedonism_fall.5
 	title = chalcedonism_fall.5.t
 	desc = chalcedonism_fall.5.d
 	fire_only_once = yes
 	picture = byzantinehagia_legion_eventPicture
-	is_triggered_only = YES
+	is_triggered_only = yes
 	option = {
 	name = "chalcedonism_fall.5.a" 
 			add_prestige = 5
