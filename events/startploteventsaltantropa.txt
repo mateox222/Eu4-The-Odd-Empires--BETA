@@ -1,31 +1,5 @@
 namespace = plotstart_events
-country_event = {
-	id = plotstart_events.1
-	title = "plotstart_events.1.t"
-	desc = "plotstart_events.1.d"
-	picture = byzantinehagia_legion_eventPicture
-	major = yes
-	major_trigger = { 
-		capital_scope = { 
-			OR = {
-			region = anatolia_region 
-			region = balkan_region
-			 }}
-	}
-	trigger = {
-		tag = A52		
-		has_game_started = yes
-		NOT = { has_country_flag = plotstart_events_start}
-	}
-	fire_only_once = yes
-	mean_time_to_happen = { days = 1 }
-	
-	option = {
-		name = "plotstart_events.1.a"
-		set_country_flag = plotstart_events_start
-		add_prestige = 5	
-	}
-}
+
 country_event = {
 	id = plotstart_events.2
 	title = "plotstart_events.2.t"

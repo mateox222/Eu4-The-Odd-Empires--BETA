@@ -2,17 +2,9 @@
 
 # country
 on_startup = {
+	set_hre_religion = united_christianity
 	add_reform_desire = -200
 	initialize_atlantis_schools_effect = yes
-		every_country = {
-		limit = { ai = yes
-		 }
-	remove_country_modifier = alexandria_pentarch_modifier
-	remove_country_modifier = rome_pentarch_modifier
-	remove_country_modifier = antioch_pentarch_modifier
-	remove_country_modifier = jerusalem_pentarch_modifier
-    remove_country_modifier = constantinople_pentarch_modifier	
-	}
 		random_country = {
 		limit = { ai = no }
 		country_event = { id = startevent.1 }

@@ -1,6 +1,23 @@
 
 
 pagan = {
+		christian_change_religion_for_debug = {
+		icon = 44
+		color = { 164 185 0 }
+		country = {
+			manpower_recovery_speed = 0.1
+			tolerance_own = 1
+		}
+		province = {
+			local_defensiveness = 0.1
+		}
+		country_as_secondary = {
+			shock_damage_received = -0.1
+		}
+		heretic = { GOAT_SKULL }	
+	} 
+
+		}
 		arabic_pagan_reformed = {
 		icon = 44
 		color = { 164 185 0 }
@@ -328,6 +345,7 @@ christian = {
 			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
 			on_invite_scholar = {
 				clear_atlantis_scholar_modifiers_effect = yes
+				set_country_flag = awiecwybieraszbizantyjczykareligieok
 						set_religious_school = {
 			group = christian
 			school = constantinople_pentarch
