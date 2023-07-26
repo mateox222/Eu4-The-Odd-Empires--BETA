@@ -22,7 +22,24 @@ country_decisions = {
 		effect = {
 			151 = {
 				change_culture = greek
-				change_religion = orthodox
+								if = {
+					limit = {
+						has_global_flag = popevictorybecausebyzantiumfall
+					}
+					change_religion = catholic
+				}
+				if = {
+					limit = {
+						has_global_flag = byzantinevictoryoverpope
+					}
+					change_religion = orthodox
+				}
+				if = {
+					limit = {
+						NOT = { has_global_flag = chrzescijanstwosierozpadlo }
+					}
+					change_religion = united_christianity
+				}
 				rename_capital = Constantinople
 			}
 			clr_global_flag = greek_need_restore_constantinople

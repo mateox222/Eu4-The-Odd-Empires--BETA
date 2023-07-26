@@ -13,6 +13,29 @@ clear_atlantis_scholar_modifiers_effect = {
 
 
 }
+united_christianity_convert_effect = {
+
+				if = {
+					limit = {
+						has_global_flag = popevictorybecausebyzantiumfall
+					}
+					change_religion = catholic
+				}
+				if = {
+					limit = {
+						has_global_flag = byzantinevictoryoverpope
+					}
+					change_religion = orthodox
+				}
+				if = {
+					limit = {
+						NOT = { has_global_flag = chrzescijanstwosierozpadlo }
+					}
+					change_religion = united_christianity
+				}
+
+
+}
 
 
 initialize_atlantis_schools_effect = {

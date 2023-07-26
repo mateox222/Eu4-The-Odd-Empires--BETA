@@ -1104,7 +1104,24 @@ country_event = {
 	every_war_enemy_country = { white_peace = ATH	}}
 	change_tag = GRE
 	change_primary_culture = greek
-	change_religion = orthodox
+					if = {
+					limit = {
+						has_global_flag = popevictorybecausebyzantiumfall
+					}
+					change_religion = catholic
+				}
+				if = {
+					limit = {
+						has_global_flag = byzantinevictoryoverpope
+					}
+					change_religion = orthodox
+				}
+				if = {
+					limit = {
+						NOT = { has_global_flag = chrzescijanstwosierozpadlo }
+					}
+					change_religion = united_christianity
+				}
 	set_government_rank = 2	
 	ACH = { switch_tag = GRE }
 	MOE = { switch_tag = GRE }
