@@ -1,0 +1,53 @@
+
+namespace = armenian_events
+
+
+country_event = {
+	id = armenian_events.1
+	title = "armenian.events.1.t"
+	desc = "armenian.events.1.d"
+	picture = easternchurches_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "armenian.events.1.a"
+		add_prestige = 40
+		add_stability = 2
+		add_legitimacy = 50
+		419 = {
+			add_great_project_tier = {
+				type = etchimiadzin_cathedral
+				tier = 1
+			}
+
+			
+		}
+	}
+}
+country_event = {
+	id = armenian_events.2
+	title = "armenian.events.2.t"
+	desc = "armenian.events.2.d"
+	picture = hellenistic_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = "armenian.events.2.a"
+		override_country_name = WIELKIHAJASTAN
+		change_country_color = { color = { 121 7 25 } }
+		add_prestige = 10
+		add_country_modifier = {
+			name = armenia_fourth_mission
+			duration = -1
+		}
+		mashriq_region = {
+			limit = {
+				NOT = { is_permanent_claim = ROOT }
+				NOT = { is_core = ROOT	}
+			}
+			add_permanent_claim = ROOT
+		}
+		add_stability = 1
+		add_legitimacy = 50
+	}
+}
+

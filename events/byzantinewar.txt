@@ -983,7 +983,7 @@ country_event = {
 	picture = constantinoplefall_eventPicture
 	major = yes
 	trigger = {
-		religion_group = muslim
+		not = { religion_group = christian }
 		NOT = {has_global_flag = fall_of_constantinople}
 		
 			OR = {
@@ -1292,3 +1292,48 @@ BUL = {
 		}
 
 
+
+
+		country_event = {
+			id = byzantine_war.319
+			title = "byzantine_war.319.t"
+			desc = "byzantine_war.319.d"
+			fire_only_once = yes
+			picture = constantinoplefall_eventPicture
+			major = yes
+			trigger = {
+				NOT = {has_global_flag = fall_of_constantinople_armenia}
+				tag = ARM
+					OR = {
+					151 = { controlled_by = ROOT }
+					151 = { owned_by = ROOT }
+		
+			}}
+			mean_time_to_happen = { days = 2 }
+			
+			option = {
+				name = byzantine_war.319.a #Sack of City
+			151 = {
+			add_devastation = 95
+			add_base_tax = -4	
+			add_base_production = -4	
+			add_base_manpower = -4	
+			}
+				add_prestige = 50	
+				add_mil_power = 250
+				add_dip_power = 250 
+				add_adm_power = 250
+				add_treasury = 500	
+				set_country_flag = constantinople_captured
+				set_global_flag = fall_of_constantinople_armenia
+					anatolia_region = {
+						limit = {
+							NOT = { is_permanent_claim = ROOT }
+							NOT = { is_core = ROOT	}
+						}
+						add_permanent_claim = ROOT
+						
+								
+		}
+		
+		}}
