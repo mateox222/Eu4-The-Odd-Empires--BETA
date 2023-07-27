@@ -1092,3 +1092,36 @@ hypersoumikaganate = {
 	}
     
 }
+
+armenian_monarchy = {
+    icon = "armeniakingdom"
+	allow_normal_conversion = yes
+	lock_level_when_selected = yes
+	maintain_dynasty = yes
+	legacy_equivalent = feudal_monarchy	
+	monarchy = yes	
+    potential = {
+		OR = {
+        tag = ARM
+    }
+	}
+    modifiers = {
+        max_absolutism = 15
+		tolerance_heretic = -1
+		tolerance_heathen = -2	
+		state_maintenance_modifier = -0.05
+		governing_capacity_modifier = 0.1
+		harsh_treatment_cost = -0.15
+		defensiveness = 0.10
+		promote_culture_cost = 2
+		num_accepted_cultures = -1
+		relation_with_other_culture = -10			
+    }
+		custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
+		factor = 100
+	}
+    
+}
