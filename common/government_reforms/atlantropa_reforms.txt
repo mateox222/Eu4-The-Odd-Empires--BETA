@@ -1125,3 +1125,31 @@ armenian_monarchy = {
 	}
     
 }
+
+epirus_monarchy = {
+    icon = "greckaflaga"
+	allow_normal_conversion = yes
+	lock_level_when_selected = yes
+	legacy_equivalent = feudal_monarchy	
+	monarchy = yes	
+    potential = {
+        tag = EPI
+	}
+    modifiers = {
+		local_culture_conversion_cost = -0.25	
+		local_culture_conversion_time = -0.25	
+		state_maintenance_modifier = -0.25
+		governing_capacity_modifier = -0.3
+		promote_culture_cost = 2
+		num_accepted_cultures = -2
+		administrative_efficiency = 0.05
+		relation_with_other_culture = -10			
+    }
+		custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
+		factor = 100
+	}
+    
+}
