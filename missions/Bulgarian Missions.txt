@@ -1378,7 +1378,24 @@ bul_4b = {
 		effect = {
 			280 = {
 				change_culture = ROOT
-				change_religion = orthodox
+								if = {
+					limit = {
+						has_global_flag = popevictorybecausebyzantiumfall
+					}
+					change_religion = catholic
+				}
+				if = {
+					limit = {
+						has_global_flag = byzantinevictoryoverpope
+					}
+					change_religion = orthodox
+				}
+				if = {
+					limit = {
+						NOT = { has_global_flag = chrzescijanstwosierozpadlo }
+					}
+					change_religion = united_christianity
+				}
 			}
 			custom_tooltip = bulTengri
 			hidden_effect = {
@@ -1548,7 +1565,24 @@ bul_5a = {
 			}
 		}
 		effect = {
-			change_religion = orthodox
+							if = {
+					limit = {
+						has_global_flag = popevictorybecausebyzantiumfall
+					}
+					change_religion = catholic
+				}
+				if = {
+					limit = {
+						has_global_flag = byzantinevictoryoverpope
+					}
+					change_religion = orthodox
+				}
+				if = {
+					limit = {
+						NOT = { has_global_flag = chrzescijanstwosierozpadlo }
+					}
+					change_religion = united_christianity
+				}
 			country_event = {
 				id = bul_mission_event.1
 			}

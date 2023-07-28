@@ -1527,7 +1527,24 @@ country_event = {
 				limit = {
 					NOT = { religion = orthodox }
 				}
-				change_religion = orthodox
+								if = {
+					limit = {
+						has_global_flag = popevictorybecausebyzantiumfall
+					}
+					change_religion = catholic
+				}
+				if = {
+					limit = {
+						has_global_flag = byzantinevictoryoverpope
+					}
+					change_religion = orthodox
+				}
+				if = {
+					limit = {
+						NOT = { has_global_flag = chrzescijanstwosierozpadlo }
+					}
+					change_religion = united_christianity
+				}
 			}
 		}
 	}
@@ -2028,7 +2045,24 @@ country_event = {
 					NOT = { religion = orthodox }
 				}
 				clr_province_flag = will_be_orthodox_flag
-				change_religion = orthodox
+								if = {
+					limit = {
+						has_global_flag = popevictorybecausebyzantiumfall
+					}
+					change_religion = catholic
+				}
+				if = {
+					limit = {
+						has_global_flag = byzantinevictoryoverpope
+					}
+					change_religion = orthodox
+				}
+				if = {
+					limit = {
+						NOT = { has_global_flag = chrzescijanstwosierozpadlo }
+					}
+					change_religion = united_christianity
+				}
 			}
 			if = {
 				limit = {
@@ -2040,7 +2074,24 @@ country_event = {
 					limit = { is_religion_enabled = reformed }
 					change_religion = reformed
 					else = {
-						change_religion = orthodox
+										if = {
+					limit = {
+						has_global_flag = popevictorybecausebyzantiumfall
+					}
+					change_religion = catholic
+				}
+				if = {
+					limit = {
+						has_global_flag = byzantinevictoryoverpope
+					}
+					change_religion = orthodox
+				}
+				if = {
+					limit = {
+						NOT = { has_global_flag = chrzescijanstwosierozpadlo }
+					}
+					change_religion = united_christianity
+				}
 					}
 				}
 			}
@@ -2054,7 +2105,24 @@ country_event = {
 					limit = { is_religion_enabled = protestant }
 					change_religion = protestant
 					else = {
-						change_religion = orthodox
+										if = {
+					limit = {
+						has_global_flag = popevictorybecausebyzantiumfall
+					}
+					change_religion = catholic
+				}
+				if = {
+					limit = {
+						has_global_flag = byzantinevictoryoverpope
+					}
+					change_religion = orthodox
+				}
+				if = {
+					limit = {
+						NOT = { has_global_flag = chrzescijanstwosierozpadlo }
+					}
+					change_religion = united_christianity
+				}
 					}
 				}
 			}
@@ -2992,7 +3060,24 @@ country_event = {
 
 		151 = {
 			change_culture = greek
-			change_religion = orthodox
+							if = {
+					limit = {
+						has_global_flag = popevictorybecausebyzantiumfall
+					}
+					change_religion = catholic
+				}
+				if = {
+					limit = {
+						has_global_flag = byzantinevictoryoverpope
+					}
+					change_religion = orthodox
+				}
+				if = {
+					limit = {
+						NOT = { has_global_flag = chrzescijanstwosierozpadlo }
+					}
+					change_religion = united_christianity
+				}
 		}
 
 		ai_chance = {
