@@ -208,11 +208,20 @@ add_stability = -1
 	id = daqin_events.8
 	title = "daqin_events.8.t"
 	desc = "daqin_events.8.d"
-	picture = easternchurches_eventPicture
+	picture = fierytemple_eventPicture
+	major = yes
 	is_triggered_only = yes
 	option = {
 		name = "daqin_events.8.a"
+		set_global_flag = CHINYMASZERUJANARZYMCZYTAMNAODWRÓTNVM
 		add_stability = -1
+		north_china_region = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT
+}
 		add_core = 1816
 		1816 = {
 			owner = {
@@ -222,7 +231,74 @@ add_stability = -1
 		event_target:Daqinwojnazimperatoremchinskim = {
 			declare_war = ROOT
 			add_stability = -3
-
+			hidden_effect = {
+					if = {
+							is_emperor_of_china = yes
+						add_disaster_progress = {
+    disaster = empire_of_china_nomadic_border
+    value = 100
+}
+					}
+										if = {
+							is_emperor_of_china = no
+		add_disaster_progress = {
+    disaster = internal_conflicts
+    value = 100
+}
+					}
+				
+			}
 		}
+		
+}
+	}
+
+
+				country_event = { #fallofbeijing
+	id = daqin_events.9
+	title = "daqin_events.9.t"
+	desc = "daqin_events.9.d"
+	picture = rometriumpf_eventPicture
+	trigger = {
+		has_global_flag = CHINYMASZERUJANARZYMCZYTAMNAODWRÓTNVM
+		tag = A56
+		OR = {
+			controls = 1816
+			owns = 1816
+		}
+	}
+	option = {
+		name = "daqin_events.9.a"
+		clr_global_flag = CHINYMASZERUJANARZYMCZYTAMNAODWRÓTNVM
+		north_china_region = {
+			limit = {
+				owned_by = event_target:Daqinwojnazimperatoremchinskim
+			}
+		cede_province = ROOT
+		 add_territorial_core = ROOT
+		}
+		set_capital = 1816
+		1816 = {
+			add_core = ROOT
+			cede_province = ROOT
+			add_devastation = 50
+			add_base_production = -3
+			add_base_manpower = -3
+			add_base_tax = -3
+		}
+		change_tag = A58
+		add_stability = -3
+		add_prestige = 100
+		set_government_rank = 3
+		add_government_reform = celestial_empire	
+		set_emperor_of_china = ROOT	
+		set_mandate = 50
+		every_war_enemy_country = { white_peace = ROOT }
+		swap_non_generic_missions = yes		
+		override_country_name = IMPERIUMCHINARZYMIANNIE
+		event_target:Daqinwojnazimperatoremchinskim = {
+			add_stability = -6
+		}
+
 }
 	}
