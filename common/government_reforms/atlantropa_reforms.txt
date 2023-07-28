@@ -1154,3 +1154,37 @@ epirus_monarchy = {
 	}
     
 }
+
+Daqin_monarchy = {
+	icon = "daqinmonarchy"
+	allow_normal_conversion = yes
+	legacy_equivalent = feudal_monarchy	
+	potential = {
+     tag = A56
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 100
+
+	modifiers = {
+		war_exhaustion = -0.02
+		global_unrest = -2
+		global_autonomy = -0.075
+		max_absolutism = -10
+		monarch_military_power = 1
+		nobles_loyalty_modifier = 0.1
+		governing_capacity_modifier = -0.25
+	}
+
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		government_abilities = {
+			militarization_mechanic
+		}
+	}
+			custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
+		factor = 100
+	}
+}

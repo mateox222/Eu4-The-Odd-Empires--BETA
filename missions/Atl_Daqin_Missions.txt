@@ -1,0 +1,218 @@
+atl_daqin_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = A56
+		}
+	}
+
+	daqin_religion_question = {
+		icon = atlantropa_hellenism
+		position = 5
+		required_missions = { Daqin_Seize_Tibet }
+		trigger = {
+			stability = 3
+		}
+		effect = {
+			country_event = {
+				id = daqin_events.5
+			}
+		}
+	}
+	Atl_Daqin_forcelimit = {
+		icon = atlantropa_niflheim_army
+		position = 7
+		required_missions = { Daqin_prepare_stronger_army }
+		trigger = {
+			army_size = 50
+			army_size_percentage = 1
+		}
+		effect = {
+						if = {
+				limit = { NOT = { mil_tech = 12 } }
+				capital_scope = {
+					large_cast_bronze_mortar = ROOT
+					large_cast_bronze_mortar = ROOT
+					large_cast_bronze_mortar = ROOT
+					large_cast_bronze_mortar = ROOT
+				}
+				custom_tooltip = tur_guns_of_urban_ct
+			}
+			else = {
+				capital_scope = {
+					artillery = ROOT
+					artillery = ROOT
+					artillery = ROOT
+					artillery = ROOT
+				}
+			}
+				
+			add_yearly_manpower = 5
+			add_government_power = {
+				mechanic_type = militarization_mechanic
+				power_type = militarized_society
+				value = 33
+			}
+		}
+	}
+}
+
+atl_daqin_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = A56
+		}
+	}
+
+	Daqin_Prepare_Country = {
+		icon = a_roman_empire
+		position = 1
+		required_missions = {  }
+		trigger = {
+			total_development = 35
+			stability = 2
+		}
+		effect = {
+			country_event = {
+				id = daqin_events.1
+			}
+		}
+	}
+	Daqin_prepare_army = {
+		icon = give_him_back_his_legions
+		position = 2
+		required_missions = { Daqin_Prepare_Country }
+		trigger = {
+			army_size = 10
+		}
+		effect = {
+			country_event = {
+				id = daqin_events.2
+			}
+		}
+	}
+	dAQIN_aRMY_FIRST_CONQ = {
+		icon = mission_asian_city
+		position = 3
+		required_missions = { Daqin_prepare_army }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 8
+				is_core = ROOT
+			}
+		}
+		effect = {
+			country_event = {
+				id = daqin_events.3
+			}
+		}
+	}
+	Daqin_Seize_Tibet = {
+		icon = mission_chinese_general_riding
+		position = 4
+		required_missions = { dAQIN_aRMY_FIRST_CONQ }
+		provinces_to_highlight = {
+			region = tibet_region
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 15
+				is_core = ROOT
+				region = tibet_region
+			}
+		}
+		effect = {
+			country_event = {
+				id = daqin_events.4
+			}
+		}
+	}
+	Daqin_prepare_stronger_army = {
+		icon = mission_asian_cannon
+		position = 6
+		required_missions = { daqin_religion_question Daqin_Seize_Tibet Daqin_culture_question }
+		trigger = {
+			manpower_percentage = 1
+			stability = 2
+		}
+		effect = {
+			country_event = {
+				id = daqin_events.7
+			}
+		}
+	}
+	Atl_Invade_china = {
+		icon = jap_conquer_north_china
+		position = 8
+		required_missions = { Atl_Daqin_forcelimit Atl_Quality }
+		trigger = {
+			army_size = 50
+			stability = 3
+		}
+		effect = {
+			country_event = {
+				id = daqin_events.8
+			}
+		}
+	}
+}
+
+atl_daqin_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = A56
+		}
+	}
+
+	Daqin_culture_question = {
+		icon = mission_plc_cultural_flowering
+		position = 5
+		required_missions = { Daqin_Seize_Tibet }
+		trigger = {
+			stability = 3
+		}
+		effect = {
+			country_event = {
+				id = daqin_events.6
+			}
+		}
+	}
+	Atl_Quality = {
+		icon = mission_modern_knight_army
+		position = 7
+		required_missions = { Daqin_prepare_stronger_army }
+		trigger = {
+			army_size = 50
+			num_of_generals = 2
+		}
+		effect = {
+			create_general = { tradition = 100 }	
+			add_government_power = {
+				mechanic_type = militarization_mechanic
+				power_type = militarized_society
+				value = 33
+			}
+		}
+	}
+}
+
+atl_daqin_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = A56
+		}
+	}
+
+}
+

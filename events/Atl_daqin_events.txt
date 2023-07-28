@@ -1,0 +1,228 @@
+
+namespace = daqin_events
+
+
+country_event = {
+	id = daqin_events.1
+	title = "daqin_events.1.t"
+	desc = "daqin_events.1.d"
+	picture = Daqincity_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "daqin_events.1.a"
+		add_stability = 1
+capital_scope = {
+	add_base_tax = 2
+	add_base_production = 2
+	add_base_manpower = 2
+}
+add_years_of_income = 3	
+				add_government_power = {
+					mechanic_type = militarization_mechanic
+					power_type = militarized_society
+					value = 10
+				}
+	}
+}
+country_event = {
+	id = daqin_events.2
+	title = "daqin_events.2.t"
+	desc = "daqin_events.2.d"
+	picture = roman_legion_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = "daqin_events.2.a"
+		add_country_modifier = {
+	name = armenia_first_mission
+	duration = -1
+}
+create_general = { tradition = 65 }	
+add_prestige = 10
+amdo_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT
+}
+				add_government_power = {
+					mechanic_type = militarization_mechanic
+					power_type = militarized_society
+					value = 10
+				}
+shanshan_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT
+}
+west_gansu_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT
+}
+
+
+	}
+}
+
+country_event = {
+	id = daqin_events.3
+	title = "daqin_events.3.t"
+	desc = "daqin_events.3.d"
+	picture = Romanwarrior_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "daqin_events.3.a"
+		set_government_rank = 2
+add_country_modifier = {
+	name = 	atl_daqin_prepare
+	duration = -1
+}
+				add_government_power = {
+					mechanic_type = militarization_mechanic
+					power_type = militarized_society
+					value = 10
+				}
+tibet_region = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+
+}
+	}
+}
+
+
+
+country_event = {
+	id = daqin_events.4
+	title = "daqin_events.4.t"
+	desc = "daqin_events.4.d"
+	picture = cumorahhill_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "daqin_events.4.a"
+add_government_power = {
+	mechanic_type = militarization_mechanic
+	power_type = militarized_society
+	value = 30
+}
+add_stability = 2
+add_prestige = 10
+
+}
+	}
+
+
+country_event = {
+	id = daqin_events.5
+	title = "daqin_events.5.t"
+	desc = "daqin_events.5.d"
+	picture = demonmeeting_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "daqin_events.5.a"
+		add_stability = 2
+		add_prestige = 10
+
+}
+	option = {
+		name = "daqin_events.5.b"
+		add_stability = -1
+		add_prestige = -10
+		change_religion = mars_cult
+		every_owned_province = {
+			change_religion = mars_cult
+		}
+
+}
+	}
+
+	country_event = {
+	id = daqin_events.6
+	title = "daqin_events.6.t"
+	desc = "daqin_events.6.d"
+	picture = demonmeeting_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "daqin_events.6.a"
+	add_country_modifier = {
+	name = 	atl_daqin_collaboration
+	duration = -1
+}
+add_stability = -1
+}
+	option = {
+		name = "daqin_events.6.b"
+	add_country_modifier = {
+	name = 	atl_daqin_romanisation
+	duration = -1
+}
+add_stability = -1
+}
+	}
+
+
+		country_event = {
+	id = daqin_events.7
+	title = "daqin_events.7.t"
+	desc = "daqin_events.7.d"
+	picture = chinawar_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "daqin_events.7.a" #focusmnapower
+	add_country_modifier = {
+	name = 	atl_focus_manpower
+	duration = -1
+}
+				add_government_power = {
+					mechanic_type = militarization_mechanic
+					power_type = militarized_society
+					value = 10
+				}
+}
+	option = {
+		name = "daqin_events.7.b" #focusquality
+	add_country_modifier = {
+	name = 	atl_focus_quality
+	duration = -1
+}
+
+				add_government_power = {
+					mechanic_type = militarization_mechanic
+					power_type = militarized_society
+					value = 10
+				}
+
+}
+	}
+
+
+			country_event = {
+	id = daqin_events.8
+	title = "daqin_events.8.t"
+	desc = "daqin_events.8.d"
+	picture = easternchurches_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "daqin_events.8.a"
+		add_stability = -1
+		add_core = 1816
+		1816 = {
+			owner = {
+				    save_global_event_target_as = Daqinwojnazimperatoremchinskim
+			}
+		}
+		event_target:Daqinwojnazimperatoremchinskim = {
+			declare_war = ROOT
+			add_stability = -3
+
+		}
+}
+	}
