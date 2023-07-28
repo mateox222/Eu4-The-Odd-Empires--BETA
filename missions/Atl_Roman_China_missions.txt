@@ -1,0 +1,1423 @@
+Romanchina_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = A58
+		}
+	}
+
+	China_Culture_Question = {
+		icon = a_roman_empire
+		position = 2
+		required_missions = { Rochina_first_day }
+		trigger = {
+			stability = 3
+		}
+		effect = {
+			country_event = {
+				id = daqin_events.11
+			}
+		}
+	}
+	Rochina_paper = {
+		icon = aldine_press
+		position = 3
+		required_missions = { China_Culture_Question China_Roma_Religion }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			trade_goods = paper
+			OR = {
+				NOT = { base_production = 10 }
+				has_production_building_trigger = no
+			}
+		}
+		trigger = {
+			if = {
+				limit = {
+					has_dlc = "Mandate of Heaven"
+					is_emperor_of_china = yes
+				}
+				imperial_mandate = 80
+			}
+			else = { prestige = 40 }
+			num_of_owned_provinces_with = {
+				trade_goods = paper
+				base_production = 10
+				has_production_building_trigger = yes
+				value = 4
+			}
+			OR = {
+				if = {
+					limit = { has_dlc = "Rights of Man" }
+					ruler_has_personality = free_thinker_personality
+				}
+				else = { monthly_adm = 9 }
+				if = {
+					limit = { has_dlc = "Rights of Man" }
+					ruler_has_personality = scholar_personality
+				}
+				else = { has_adm_advisor_3 = yes }
+				full_idea_group = innovativeness_ideas
+				has_institution = printing_press
+			}
+		}
+		effect = {
+			if = {
+				limit = { has_dlc = "Rule Britannia" }
+				change_innovativeness = 5
+			}
+			else = { add_adm_power = 50 add_dip_power = 50 add_mil_power = 50 }
+			custom_tooltip = mng_every_province_requirements_tt
+			tooltip = {
+				add_province_modifier = {
+					name = mng_imperial_printing_center_modifier
+					duration = -1
+				}
+			}
+			custom_tooltip = mng_before_printing_press_embraced_tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						trade_goods = paper
+						base_production = 10
+						has_production_building_trigger = yes
+					}
+					add_institution_embracement = {
+						which = printing_press
+						value = 100
+					}
+					add_province_modifier = {
+						name = mng_imperial_printing_center_modifier
+						duration = -1
+					}
+				}
+			}
+		}
+	}
+	Rochina_Establish_Economy = {
+		icon = dominant_economy
+		position = 4
+		required_missions = { rochina_chinese_country }
+		trigger = {
+			OR = {
+				monthly_income = 30
+				AND = {
+					monthly_income = 25
+					advisor = treasurer
+				}
+			}
+		}
+		effect = {
+			add_years_of_income = 0.5
+			add_country_modifier = {
+				name = 	rochina_economybonus
+				duration = -1
+			}
+		}
+	}
+	China_agroreform = {
+		icon = prosperity_for_all
+		position = 5
+		required_missions = { Rochina_Establish_Economy }
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 10
+				OR = {
+					trade_goods = grain
+					trade_goods = atl_fruit
+				}
+				base_production = 5
+			}
+		}
+		effect = {
+			add_years_of_income = 1
+			every_owned_province = {
+				limit = {
+					OR = {
+						trade_goods = grain
+						trade_goods = atl_fruit
+					}
+				}
+				add_base_manpower = 1
+			}
+		}
+	}
+	rochina_workshopes = {
+		icon = public_works
+		position = 7
+		required_missions = { China_agroreform rochania_developmentotal }
+		trigger = {
+			workshop = 15
+		}
+		effect = {
+			every_owned_province = {
+				limit = {
+					has_building = workshop
+				}
+				add_base_production = 1
+			}
+			add_adm_power = 100
+			add_mandate = 10
+		}
+	}
+	rhomana_manufactories = {
+		icon = saxon_manufacturing
+		position = 8
+		required_missions = { rochina_workshopes rochina_prosperity_whole }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					has_building = wharf
+					has_building = weapons
+					has_building = textile
+					has_building = plantations
+					has_building = tradecompany
+					has_building = mills
+				}
+			}
+		}
+		effect = {
+			add_years_of_income = 2.5	
+			add_country_modifier = {
+				name = fjordland_manufacturing
+				duration = 3650
+			}
+			672 = {
+				change_trade_goods = atl_clothes
+			}
+		}
+	}
+	Rochina_Revolution_Indusr = {
+		icon = mission_rb_prospect_for_coal
+		position = 9
+		required_missions = { rhomana_manufactories }
+		trigger = {
+			furnace = 1
+		}
+		effect = {
+			add_country_modifier = {
+				name = fjordland_industrial_revolution
+				duration = -1
+			}
+			690 = {
+				change_trade_goods = atl_steam_engine
+			}
+			add_yearly_manpower = 5
+		}
+	}
+}
+
+Romanchina_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = A58
+		}
+	}
+
+	China_Roma_Religion = {
+		icon = mission_rb_control_state_religion
+		position = 2
+		required_missions = { Rochina_first_day }
+		trigger = {
+			stability = 3
+		}
+		effect = { }
+	}
+	Rochina_Consolidate_Xhina = {
+		icon = qng_conquer_south_china
+		position = 4
+		required_missions = { rochina_chinese_country }
+		provinces_to_highlight = {
+			region = south_china_region
+		}
+		trigger = {
+			south_china_region = = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = 	united_rhochina
+				duration = -1
+			}
+			add_prestige = 15
+			add_meritocracy = 10
+			add_mandate = 10
+			change_monarch_points_or_power = {
+				points = 1
+				power = adm
+			}
+		}
+	}
+	rochina_establish_allies = {
+		icon = mission_the_chola_campaigns
+		position = 5
+		required_missions = { Rochina_Consolidate_Xhina }
+		trigger = {
+			num_of_allies = 3
+			all_ally = {
+				has_opinion = {
+					who = ROOT
+					value = 150
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = rochinaallies
+				duration = -1
+			}
+		}
+	}
+	Rochina_Establish_Tribut = {
+		icon = mission_to_china
+		position = 6
+		required_missions = { rochina_establish_allies }
+		trigger = {
+			if = {
+				limit = {
+					has_dlc = "Mandate of Heaven"
+				}
+				calc_true_if = {
+					desc = establish_tributaries_tt
+					all_country = {
+						is_subject_of_type = tributary_state
+						is_subject_of = ROOT
+					}
+					amount = 5
+				}
+			}
+			else = {
+				num_of_subjects = 3
+				NOT = {
+					any_subject_country = {
+						liberty_desire = 50
+					}
+				}
+			}
+		}
+		effect = {
+			add_mandate = 10
+			add_prestige = 10
+			add_meritocracy = 10
+		}
+	}
+	Rochinaproduction_jadeit = {
+		icon = atlantropa_empero_jadeit
+		position = 7
+		required_missions = { rochania_developmentotal }
+		provinces_to_highlight = {
+			province_id = 2171
+		}
+		trigger = {
+			2171 = {
+				owned_by = ROOT
+				base_production = 10
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = rochinajadeit
+				duration = -1
+			}
+		}
+	}
+	Rochina_Establish_Uniwer = {
+		icon = mission_early_modern_university
+		position = 8
+		required_missions = { rochina_prosperity_whole }
+		provinces_to_highlight = {
+			NOT = {
+				has_building = university
+			}
+			owned_by = ROOT
+		}
+		trigger = {
+			university = 10
+		}
+		effect = {
+			change_government_reform_progress = 100
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			add_mandate = 10
+		}
+	}
+	Rochina_roads = {
+		icon = atlantropa_imperialroads
+		position = 9
+		required_missions = {  }
+		trigger = {
+			atlantropa_road = 30
+		}
+		effect = {
+			add_mandate = 10
+			every_owned_province = {
+				limit = {
+					has_building = atlantropa_road
+				}
+				add_base_production = 1
+			}
+		}
+	}
+	Rhochina_Trains = {
+		icon = atlantropa_steamengine
+		position = 10
+		required_missions = { Rochina_roads Rochina_Revolution_Indusr }
+		trigger = {
+			atlantropa_tracks = 20
+		}
+		effect = {
+			add_mandate = 10
+			every_owned_province = {
+				limit = {
+					has_building = atlantropa_tracks
+				}
+				add_base_production = 3
+			}
+		}
+	}
+}
+
+Romanchina_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = A58
+		}
+	}
+
+	Rochina_first_day = {
+		icon = atlantropa_burningchina3
+		position = 1
+		required_missions = {  }
+		trigger = {
+			stability = 3
+		}
+		effect = {
+			country_event = {
+				id = daqin_events.10
+			}
+		}
+	}
+	Question_of_Capital = {
+		icon = jap_conquer_north_china
+		position = 2
+		required_missions = { Rochina_first_day }
+		trigger = {
+			stability = 3
+		}
+		effect = { }
+	}
+	rochina_chinese_country = {
+		icon = mission_consolidate_the_state
+		position = 3
+		required_missions = { China_Culture_Question China_Roma_Religion Question_of_Capital question_chiromania_army Question_of_chiromania_elites }
+		provinces_to_highlight = {
+			region = north_china_region
+		}
+		trigger = {
+			north_china_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = chi_warring_era_kingdoms_modifier
+				duration = 9125
+			}
+			add_mandate = 20
+			add_prestige = 10
+			change_monarch_points_or_power = {
+				points = 1
+				power = adm
+			}
+		}
+	}
+	Reformed_rocina_army = {
+		icon = spa_reform_tercios
+		position = 4
+		required_missions = { rochina_chinese_country }
+		trigger = {
+			army_size_percentage = 0.8
+			num_of_generals = 2
+			OR = {
+				army_tradition = 60
+				has_global_modifier_value = {
+					which = discipline
+					value = 0.2
+				}
+			}
+		}
+		effect = {
+			add_yearly_manpower = 2
+			add_country_modifier = {
+				name = rochina_reorganized_army
+				duration = -1
+			}
+		}
+	}
+	Rochina_Economical_Expansion = {
+		icon = reform_the_state
+		position = 5
+		required_missions = { Rochina_Northern_Campaign Rochina_Consolidate_Xhina }
+		trigger = {
+			total_development = 1000
+		}
+		effect = {
+			add_adm_power = 200
+			add_dip_power = 200
+			add_mil_power = 200
+			add_mandate = 10
+		}
+	}
+	rochania_developmentotal = {
+		icon = mission_open_up_china
+		position = 6
+		required_missions = { rochina_establish_allies Rochina_Economical_Expansion rhochina_expand_great_wall }
+		provinces_to_highlight = {
+			NOT = {
+				OR = {
+					development = 15
+					AND = {
+						province_has_center_of_trade_of_level = 1
+						NOT = {
+							province_has_center_of_trade_of_level = 2
+						}
+					}
+				}
+			}
+			owned_by = ROOT
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 4
+				superregion = china_superregion
+				province_has_center_of_trade_of_level = 2
+				development = 15
+			}
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			add_mandate = 10
+			add_country_modifier = {
+				name = rochania_economical_expansion
+				duration = -1
+			}
+		}
+	}
+	rochina_prosperity_whole = {
+		icon = mng_tame_china_sorrow
+		position = 7
+		required_missions = { rochania_developmentotal }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			is_prosperous = no
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 25
+				is_prosperous = yes
+			}
+		}
+		effect = {
+			2142 = {
+				change_trade_goods = atl_ship
+			}
+			4196 = {
+				change_trade_goods = glass
+			}
+			691 = {
+				change_trade_goods = glass
+			}
+			668 = {
+				change_trade_goods = atl_sails
+			}
+			2159 = {
+				change_trade_goods = atl_sails
+			}
+			692 = {
+				change_trade_goods = atl_tools
+			}
+			683 = {
+				change_trade_goods = atl_tools
+			}
+		}
+	}
+	Rochina_Expand_Capital = {
+		icon = atlantropa_china
+		position = 8
+		required_missions = { rochina_prosperity_whole }
+		trigger = {
+			capital_scope = {
+				development = 40
+			}
+		}
+		effect = {
+			capital_scope = {
+				add_province_modifier = {
+					name = 	rochina_romeoftheeast
+					duration = -1
+				}
+			}
+			add_mandate = 10
+		}
+	}
+	Rochina_MAndate_of = {
+		icon = qng_balance_mandate
+		position = 9
+		required_missions = { Rochina_Establish_Uniwer Rochina_Expand_Capital Establish_Trade_Ports }
+		trigger = {
+			imperial_mandate = 100
+			NOT = { great_power_rank = 2 }
+		}
+		effect = {
+			if = {
+				limit = {
+					in_golden_age = no
+				}
+				reset_golden_age = yes
+			}
+			if = {
+				limit = {
+					in_golden_age = yes
+				}
+				extend_golden_age = 1800
+			}
+		}
+	}
+}
+
+Romanchina_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = A58
+		}
+	}
+
+	question_chiromania_army = {
+		icon = atlantropa_niflheim_army
+		position = 2
+		required_missions = { Rochina_first_day }
+		trigger = {
+			stability = 3
+		}
+		effect = { }
+	}
+	Rochina_Artillery = {
+		icon = mission_asian_cannon
+		position = 3
+		required_missions = {  }
+		trigger = {
+			owns_core_province = 2178
+
+				2178 = { base_production = 10	}
+		}
+		effect = {
+			2178 = {
+			change_trade_goods = atl_artillery	
+			}
+		}
+	}
+	Rochina_Northern_Campaign = {
+		icon = mng_nomadic_frontier
+		position = 4
+		required_missions = { rochina_chinese_country }
+		provinces_to_highlight = {
+			OR = {
+				area = jilin_area
+				area = liaoning_area
+				region = mongolia_region
+			}
+		}
+		trigger = {
+			liaoning_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			jilin_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			mongolia_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			any_country = {
+				is_neighbor_of = ROOT
+				NOT = { army_size = ROOT }
+				NOT = { development = 300 }
+			}
+		}
+		effect = {
+			change_monarch_points_or_power = {
+				points = 1
+				power = mil
+			}
+			add_meritocracy = 10
+			custom_tooltip = mng_if_completed_via_diplomacy_tt
+			tooltip = {
+				if = {
+					limit = { has_dlc = "Mandate of Heaven" }
+					add_country_modifier = {
+						name = mng_banner_recruitment_modifier
+						duration = 9125
+					}
+				}
+				else = {
+					add_country_modifier = {
+						name = mng_banner_recruitment_2_modifier
+						duration = 9125
+					}
+				}
+			}
+			custom_tooltip = mng_if_completed_via_conquest_tt
+			tooltip = {
+				country_event = { id = flavor_mng.32 }
+			}
+			custom_tooltip = mng_insight_32_tt
+			hidden_effect = {
+				if = {
+					limit = {
+						jilin_area = {
+							type = all
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+					}
+					country_event = { id = flavor_mng.32 }
+				}
+				else_if = {
+					limit = { has_dlc = "Mandate of Heaven" }
+					add_country_modifier = {
+						name = mng_banner_recruitment_modifier
+						duration = 9125
+					}
+					capital_scope = {
+						add_province_modifier = {
+							name = allow_local_banners_modifier
+							duration = 9125
+							hidden = yes
+						}
+					}
+				}
+				else = {
+					add_country_modifier = {
+						name = mng_banner_recruitment_2_modifier
+						duration = 9125
+					}
+				}
+			}
+		}
+	}
+	rhochina_expand_great_wall = {
+		icon = mission_expand_great_wall
+		position = 5
+		required_missions = { Rochina_Northern_Campaign }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 697
+				province_id = 708
+				province_id = 698
+			}
+			OR = {
+				NOT = { num_of_times_expanded_infrastructure = 1 }
+				NOT = { num_of_times_improved = 3 }
+				has_fort_building_trigger = no
+			}
+		}
+		trigger = {
+			if = {
+				limit = { has_dlc = "Leviathan" }
+				OR = {
+					698 = {
+						OR = {
+							has_great_project = {
+								type = the_great_wall_of_china
+								tier = 2
+							}
+							has_great_project = {
+								type = the_great_wall_of_china
+								tier = 3
+							}
+						}
+					}
+					AND = {
+						698 = {
+							has_fort_building_trigger = yes
+							OR = {
+								num_of_times_improved = 3
+								num_of_times_expanded_infrastructure = 1
+							}
+						}
+						708 = {
+							has_fort_building_trigger = yes
+							OR = {
+								num_of_times_improved = 3
+								num_of_times_expanded_infrastructure = 1
+							}
+						}
+						697 = {
+							has_fort_building_trigger = yes
+							OR = {
+								num_of_times_improved = 3
+								num_of_times_expanded_infrastructure = 1
+							}
+						}
+					}
+				}
+			}
+			else = {
+				AND = {
+					698 = {
+						has_fort_building_trigger = yes
+						OR = {
+							num_of_times_improved = 3
+							num_of_times_expanded_infrastructure = 1
+						}
+					}
+					708 = {
+						has_fort_building_trigger = yes
+						OR = {
+							num_of_times_improved = 3
+							num_of_times_expanded_infrastructure = 1
+						}
+					}
+					697 = {
+						has_fort_building_trigger = yes
+						OR = {
+							num_of_times_improved = 3
+							num_of_times_expanded_infrastructure = 1
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = mng_less_than_3_with_leviathan_tt
+			tooltip = {
+				698 = {
+					add_great_project_tier = {
+						type = the_great_wall_of_china
+						tier = 1
+					}
+					add_building = ramparts
+				}
+				add_army_tradition = 15
+			}
+			custom_tooltip = pol_alternatively_great_wall_expansion_tt
+			tooltip = {
+				add_province_modifier = {
+					name = mng_great_wall_china_expanded_modifier
+					duration = -1
+					desc = until_it_is_conquered_desc
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_dlc = "Leviathan"
+						698 = {
+							NOT = {
+								has_great_project = {
+									type = the_great_wall_of_china
+									tier = 3
+								}
+							}
+						}
+					}
+					698 = {
+						add_great_project_tier = {
+							type = the_great_wall_of_china
+							tier = 1
+						}
+						if = {
+							limit = {
+								NOT = { has_building = ramparts }
+							}
+							add_building = ramparts
+						}
+					}
+					add_army_tradition = 15
+				}
+				else = {
+					698 = {
+						if = {
+							limit = { country_or_non_sovereign_subject_holds = ROOT }
+							add_province_modifier = {
+								name = mng_great_wall_china_expanded_modifier
+								duration = -1
+								desc = until_it_is_conquered_desc
+							}
+						}
+					}
+					4223 = {
+						if = {
+							limit = { country_or_non_sovereign_subject_holds = ROOT }
+							add_province_modifier = {
+								name = mng_great_wall_china_expanded_modifier
+								duration = -1
+								desc = until_it_is_conquered_desc
+							}
+						}
+					}
+					702 = {
+						if = {
+							limit = { country_or_non_sovereign_subject_holds = ROOT }
+							add_province_modifier = {
+								name = mng_great_wall_china_expanded_modifier
+								duration = -1
+								desc = until_it_is_conquered_desc
+							}
+						}
+					}
+					697 = {
+						if = {
+							limit = { country_or_non_sovereign_subject_holds = ROOT }
+							add_province_modifier = {
+								name = mng_great_wall_china_expanded_modifier
+								duration = -1
+								desc = until_it_is_conquered_desc
+							}
+						}
+					}
+					2136 = {
+						if = {
+							limit = { country_or_non_sovereign_subject_holds = ROOT }
+							add_province_modifier = {
+								name = mng_great_wall_china_expanded_modifier
+								duration = -1
+								desc = until_it_is_conquered_desc
+							}
+						}
+					}
+					1816 = {
+						if = {
+							limit = { country_or_non_sovereign_subject_holds = ROOT }
+							add_province_modifier = {
+								name = mng_great_wall_china_expanded_modifier
+								duration = -1
+								desc = until_it_is_conquered_desc
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	Rochina_Superfortress = {
+		icon = fortress_of_belgrade
+		position = 6
+		required_missions = { rhochina_expand_great_wall Fortify_Coast_rochina }
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 5
+				has_building = atlantropa_superfortress
+			}
+		}
+		effect = {
+			add_prestige = 15
+			add_meritocracy = 10
+			add_mandate = 10
+			change_monarch_points_or_power = {
+				points = 2
+				power = mil
+			}
+		}
+	}
+	Rochina_build_canals = {
+		icon = mng_jing_hang_grand_canal
+		position = 7
+		required_missions = { rochania_developmentotal }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 684
+				province_id = 1822
+				province_id = 2145
+				province_id = 1821
+			}
+			OR = {
+				NOT = { num_of_buildings_in_province = 3 }
+				has_production_building_trigger = no
+				NOT = { num_of_times_expanded_infrastructure = 1 }
+			}
+		}
+		trigger = {
+			if = {
+				limit = { has_dlc = "Leviathan" }
+				684 = {
+					OR = {
+						has_great_project = {
+							type = grand_canal_1
+							tier = 2
+						}
+						AND = {
+							num_of_buildings_in_province = 3
+							has_production_building_trigger = yes
+							num_of_times_expanded_infrastructure = 1
+						}
+					}
+				}
+			}
+			else = {
+				684 = { num_of_times_improved = 5 }
+			}
+			if = {
+				limit = { has_dlc = "Mandate of Heaven" }
+				684 = {
+					NOT = { devastation = 1 }
+				}
+			}
+			else = {
+				684 = {
+					NOT = { local_autonomy_above_min = 5 }
+				}
+			}
+			if = {
+				limit = { has_dlc = "Leviathan" }
+				1822 = {
+					OR = {
+						has_great_project = {
+							type = grand_canal_2
+							tier = 2
+						}
+						AND = {
+							num_of_buildings_in_province = 3
+							has_production_building_trigger = yes
+							num_of_times_expanded_infrastructure = 1
+						}
+					}
+				}
+			}
+			else = {
+				1822 = { num_of_times_improved = 5 }
+			}
+			if = {
+				limit = { has_dlc = "Mandate of Heaven" }
+				1822 = {
+					NOT = { devastation = 1 }
+				}
+			}
+			else = {
+				1822 = {
+					NOT = { local_autonomy_above_min = 5 }
+				}
+			}
+			if = {
+				limit = { has_dlc = "Leviathan" }
+				2145 = {
+					OR = {
+						has_great_project = {
+							type = grand_canal_3
+							tier = 2
+						}
+						AND = {
+							num_of_buildings_in_province = 3
+							has_production_building_trigger = yes
+							num_of_times_expanded_infrastructure = 1
+						}
+					}
+				}
+			}
+			else = {
+				2145 = { num_of_times_improved = 5 }
+			}
+			if = {
+				limit = { has_dlc = "Mandate of Heaven" }
+				2145 = {
+					NOT = { devastation = 1 }
+				}
+			}
+			else = {
+				2145 = {
+					NOT = { local_autonomy_above_min = 5 }
+				}
+			}
+			if = {
+				limit = { has_dlc = "Leviathan" }
+				1821 = {
+					OR = {
+						has_great_project = {
+							type = grand_canal_4
+							tier = 2
+						}
+						AND = {
+							num_of_buildings_in_province = 3
+							has_production_building_trigger = yes
+							num_of_times_expanded_infrastructure = 1
+						}
+					}
+				}
+			}
+			else = {
+				1821 = { num_of_times_improved = 5 }
+			}
+			if = {
+				limit = { has_dlc = "Mandate of Heaven" }
+				1821 = {
+					NOT = { devastation = 1 }
+				}
+			}
+			else = {
+				1821 = {
+					NOT = { local_autonomy_above_min = 5 }
+				}
+			}
+		}
+		effect = {
+			country_event = { id = flavor_mng.34 }
+			custom_tooltip = mng_insight_34_tt
+		}
+	}
+	Establish_Trade_Ports = {
+		icon = mission_to_the_south_china_sea
+		position = 8
+		required_missions = { rochina_prosperity_whole Rochina_build_canals }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 679
+				province_id = 667
+				province_id = 1821
+				province_id = 1816
+			}
+			OR = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT  }
+				NOT = { base_production = 15 }
+				NOT = { province_trade_power = 100 }
+				has_trade_building_trigger = no
+			}
+		}
+		trigger = {
+			OR = {
+				679 = {
+					country_or_non_sovereign_subject_holds = ROOT
+					has_trade_building_trigger = yes
+					OR = {
+						base_production = 15
+						province_trade_power = 100
+					}
+				}
+				667 = {
+					country_or_non_sovereign_subject_holds = ROOT
+					has_trade_building_trigger = yes
+					OR = {
+						base_production = 15
+						province_trade_power = 100
+					}
+				}
+				1821 = {
+					country_or_non_sovereign_subject_holds = ROOT
+					has_trade_building_trigger = yes
+					OR = {
+						base_production = 15
+						province_trade_power = 100
+					}
+				}
+				1816 = {
+					country_or_non_sovereign_subject_holds = ROOT
+					has_trade_building_trigger = yes
+					OR = {
+						base_production = 15
+						province_trade_power = 100
+					}
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = chi_each_req_province_gets_tt
+			tooltip = {
+				add_province_modifier = {
+					name = chi_imperial_center_of_commerce_modifier
+					duration = -1
+				}
+			}
+			add_mercantilism = 10
+			hidden_effect = {
+				if = {
+					limit = {
+						679 = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					679 = {
+						add_province_modifier = {
+							name = chi_imperial_center_of_commerce_modifier
+							duration = -1
+						}
+					}
+				}
+				if = {
+					limit = {
+						667 = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					667 = {
+						add_province_modifier = {
+							name = chi_imperial_center_of_commerce_modifier
+							duration = -1
+						}
+					}
+				}
+				if = {
+					limit = {
+						1821 = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					1821 = {
+						add_province_modifier = {
+							name = chi_imperial_center_of_commerce_modifier
+							duration = -1
+						}
+					}
+				}
+				if = {
+					limit = {
+						1816 = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					1816 = {
+						add_province_modifier = {
+							name = chi_imperial_center_of_commerce_modifier
+							duration = -1
+						}
+					}
+				}
+			}
+		}
+	}
+	rochina_trade_japan = {
+		icon = mission_trade_with_japan
+		position = 10
+		required_missions = { Establish_Trade_Ports Rochina_ConquestMoluccas }
+		trigger = {
+			1376 = { is_strongest_trade_power = ROOT }
+		}
+		effect = {
+			add_country_modifier = {
+				name = rochina_japanesetrade
+				duration = -1
+			}
+			add_prestige = 10
+			japan_region= {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+			
+			}
+		}
+	}
+}
+
+Romanchina_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = A58
+		}
+	}
+
+	Question_of_chiromania_elites = {
+		icon = mission_chinese_general_riding
+		position = 2
+		required_missions = { Rochina_first_day }
+		trigger = {
+			stability = 3
+		}
+		effect = { }
+	}
+	rochina_crownland = {
+		icon = mission_monarch_in_throne_room
+		position = 3
+		required_missions = { Question_of_chiromania_elites }
+		trigger = {
+			crown_land_share = 60
+		}
+		effect = {
+			add_country_modifier = {
+				name = 	rochina_trupower
+				duration = -1
+			}
+			add_mandate = 10
+		}
+	}
+	Rchina_formdepots = {
+		icon = mng_outer_city_beijing
+		position = 4
+		required_missions = { rochina_chinese_country }
+		provinces_to_highlight = {
+			province_id = 1816
+		}
+		trigger = {
+			province_id = 1816
+			OR = {
+				has_tax_building_trigger = no
+				has_production_building_trigger = no
+				has_trade_building_trigger = no
+				has_manpower_building_trigger = no
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					1816 = { has_manufactory_trigger = no }
+				}
+				1816 = {
+					add_province_modifier = {
+						name = mng_outer_wall_beijing_modifier
+						duration = -1
+						desc = until_it_is_conquered_desc
+					}
+				}
+			}
+			else = {
+				1816 = {
+					add_province_modifier = {
+						name = mng_outer_wall_beijing_and_imperial_granary_modifier
+						duration = -1
+					}
+				}
+			}
+		}
+	}
+	Fortify_Coast_rochina = {
+		icon = mission_seize_the_bengal_coast
+		position = 5
+		required_missions = { Rchina_formdepots }
+		provinces_to_highlight = {
+			owned_by = ROOT
+			has_port = yes
+			OR = {
+				has_coast_defense_building_trigger = no
+				NOT = { development = 20 }
+				devastation = 1
+			}
+		}
+		trigger = {
+			if = {
+				limit = { has_dlc = "Mandate of Heaven" }
+				NOT = {
+					any_owned_province = {
+						has_port = yes
+						devastation = 1
+					}
+				}
+			}
+			num_of_owned_provinces_with = {
+				has_coast_defense_building_trigger = yes
+				development = 20
+				value = 8
+			}
+			OR = {
+				num_of_galley = 50
+				num_of_light_ship = 50
+			}
+			if = {
+				limit = { tag = MNG }
+				OR = {
+					mission_completed = mng_repeal_haijin_policy
+					mission_completed = mng_improve_haijin_policy
+				}
+			}
+			else = {
+				OR = {
+					full_idea_group = trade_ideas
+					dip = 6
+					monthly_dip = 10
+					national_focus = DIP
+				}
+			}
+		}
+		effect = {
+			every_owned_province = {
+				limit = { has_port = yes
+				}
+				add_province_modifier = {
+					name = mng_safe_coasts_modifier
+					duration = 9125
+				}
+			}
+			define_advisor = {
+				type = trader
+				cost_multiplier = 0.1
+			}
+			add_mandate = 10
+		}
+	}
+	Rochina_Naval = {
+		icon = toulon_dockyards
+		position = 7
+		required_missions = {  Fortify_Coast_rochina }
+		trigger = {
+			dock = 10
+		}
+		effect = {
+			every_owned_province = {
+				limit = {
+					has_building = dock
+				}
+				add_base_tax = 1
+				add_base_production = 1
+			}
+			add_country_modifier = {
+				name = 	epirus_ship_build_mission
+				duration = -1
+			}
+		}
+	}
+	Rochina_Establish_Navy = {
+		icon = atlantropa_niflheim_navy
+		position = 8
+		required_missions = { Rochina_Naval }
+		trigger = {
+			num_of_heavy_ship = 30
+		}
+		effect = {
+			add_country_modifier = {
+				name = 	rochina_heavy_shippower
+				duration = -1
+			}
+			moluccas_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+			
+			}
+			add_prestige = 10
+			add_dip_power = 100
+			add_navy_tradition = 10
+		}
+	}
+	Rochina_ConquestMoluccas = {
+		icon = mission_invade_island
+		position = 9
+		required_missions = { Rochina_Establish_Navy }
+		provinces_to_highlight = {
+			region = moluccas_region
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 25
+					region = moluccas_region
+			}
+		}
+		effect = {
+			add_prestige = 10
+			add_mil_power = 250
+			add_navy_tradition = 10
+		}
+	}
+}
+
