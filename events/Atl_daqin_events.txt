@@ -39,7 +39,7 @@ country_event = {
 }
 create_general = { tradition = 65 }	
 add_prestige = 10
-amdo_area = {
+mongol_region = {
 	limit = {
 		NOT = { is_permanent_claim = ROOT }
 		NOT = { is_core = ROOT	}
@@ -51,20 +51,7 @@ amdo_area = {
 					power_type = militarized_society
 					value = 10
 				}
-shanshan_area = {
-	limit = {
-		NOT = { is_permanent_claim = ROOT }
-		NOT = { is_core = ROOT	}
-	}
-	add_permanent_claim = ROOT
-}
-west_gansu_area = {
-	limit = {
-		NOT = { is_permanent_claim = ROOT }
-		NOT = { is_core = ROOT	}
-	}
-	add_permanent_claim = ROOT
-}
+
 
 
 	}
@@ -223,10 +210,12 @@ add_stability = -1
 	add_permanent_claim = ROOT
 }
 		add_core = 1816
+		hidden_effect = {
 		1816 = {
 			owner = {
 				    save_global_event_target_as = Daqinwojnazimperatoremchinskim
 			}
+		}
 		}
 		event_target:Daqinwojnazimperatoremchinskim = {
 			declare_war = ROOT
@@ -277,6 +266,7 @@ add_stability = -1
 		cede_province = ROOT
 		 add_territorial_core = ROOT
 		}
+		
 		set_capital = 1816
 		1816 = {
 			add_core = ROOT
@@ -351,7 +341,7 @@ add_stability = -1
 	duration = 7200
    }
    	capital_scope = {
-				change_culture = daqian_new
+				change_culture = daqian
 	}
    hidden_effect = {
 	restore_country_name = yes	
@@ -438,14 +428,14 @@ add_stability = -1
 						option = {
 		name = "daqin_events.13.c"
 		add_stability = -1
-		set_capital = 2184
+		set_capital = 4670
 		1816 = {
 			add_devastation = 50
 			add_base_tax = -4	
 			add_base_production = -4
 			add_base_manpower = -4
 		}
-		2184 = {
+		4670 = {
 			add_base_tax = 1	
 			add_base_production = 1	
 			add_base_manpower = 1	
