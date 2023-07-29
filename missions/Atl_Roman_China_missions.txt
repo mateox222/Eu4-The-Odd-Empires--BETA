@@ -13,7 +13,8 @@ Romanchina_1 = {
 		position = 2
 		required_missions = { Rochina_first_day }
 		trigger = {
-			stability = 3
+			stability = 0
+			has_country_flag = daqin1_stabilise.1
 		}
 		effect = {
 			country_event = {
@@ -225,9 +226,14 @@ Romanchina_2 = {
 		position = 2
 		required_missions = { Rochina_first_day }
 		trigger = {
-			stability = 3
+			stability = 0
+			has_country_flag = daqin1_stabilise.2
 		}
-		effect = { }
+		effect = { 
+						country_event = {
+				id = daqin_events.12
+			}
+		}
 	}
 	Rochina_Consolidate_Xhina = {
 		icon = qng_conquer_south_china
@@ -237,7 +243,7 @@ Romanchina_2 = {
 			region = south_china_region
 		}
 		trigger = {
-			south_china_region = = {
+			south_china_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -401,7 +407,7 @@ Romanchina_3 = {
 		position = 1
 		required_missions = {  }
 		trigger = {
-			stability = 3
+			always = yes
 		}
 		effect = {
 			country_event = {
@@ -414,9 +420,14 @@ Romanchina_3 = {
 		position = 2
 		required_missions = { Rochina_first_day }
 		trigger = {
-			stability = 3
+			stability = 0
+			has_country_flag = daqin1_stabilise.3
 		}
-		effect = { }
+		effect = {
+						country_event = {
+				id = daqin_events.13
+			}
+		 }
 	}
 	rochina_chinese_country = {
 		icon = mission_consolidate_the_state
@@ -426,10 +437,7 @@ Romanchina_3 = {
 			region = north_china_region
 		}
 		trigger = {
-			north_china_region = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
+			stability = 3
 		}
 		effect = {
 			add_country_modifier = {
@@ -615,9 +623,14 @@ Romanchina_4 = {
 		position = 2
 		required_missions = { Rochina_first_day }
 		trigger = {
-			stability = 3
+			stability = 0
+			has_country_flag = daqin1_stabilise.4
 		}
-		effect = { }
+		effect = {
+						country_event = {
+				id = daqin_events.14
+			}
+		 }
 	}
 	Rochina_Artillery = {
 		icon = mission_asian_cannon
@@ -646,6 +659,10 @@ Romanchina_4 = {
 			}
 		}
 		trigger = {
+			north_china_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 			liaoning_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
@@ -1233,9 +1250,14 @@ Romanchina_5 = {
 		position = 2
 		required_missions = { Rochina_first_day }
 		trigger = {
-			stability = 3
+			stability = 0
+			has_country_flag = daqin1_stabilise.5
 		}
-		effect = { }
+		effect = { 
+						country_event = {
+				id = daqin_events.15
+			}
+		}
 	}
 	rochina_crownland = {
 		icon = mission_monarch_in_throne_room

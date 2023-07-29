@@ -208,7 +208,7 @@ add_stability = -1
 	id = daqin_events.8
 	title = "daqin_events.8.t"
 	desc = "daqin_events.8.d"
-	picture = fierytemple_eventPicture
+	picture = rometriumpf_eventPicture
 	major = yes
 	is_triggered_only = yes
 	option = {
@@ -258,7 +258,7 @@ add_stability = -1
 	id = daqin_events.9
 	title = "daqin_events.9.t"
 	desc = "daqin_events.9.d"
-	picture = rometriumpf_eventPicture
+	picture = fierytemple_eventPicture
 	trigger = {
 		has_global_flag = CHINYMASZERUJANARZYMCZYTAMNAODWRÓTNVM
 		tag = A56
@@ -308,4 +308,212 @@ add_stability = -1
 		}
 
 }
+	}
+
+	country_event = { 
+	id = daqin_events.10
+	title = "daqin_events.10.t"
+	desc = "daqin_events.10.d"
+	picture = Daqin_City_eventPicture
+	is_triggered_only = yes
+	immediate = {
+	set_country_flag = daqin1_stabilise.1
+}
+		option = {
+		name = "daqin_events.10.a"
+		add_stability = 1
+		add_country_modifier = {
+	name = 	rochina_firstdayreform
+	duration = 1800
+   }
+
+		}
+	}
+	country_event = { 
+	id = daqin_events.11
+	title = "daqin_events.11.t"
+	desc = "daqin_events.11.d"
+	picture = SUFFERING_CHINESE_VILLAGE_eventPicture
+	is_triggered_only = yes
+		immediate = {
+	set_country_flag = daqin1_stabilise.2
+}
+		option = {
+		name = "daqin_events.11.a"
+		add_stability = -2
+		custom_tooltip = DAQINADAPTTOLANGUAGE2
+		add_country_modifier = {
+	name = 	rochina_firstdayreform
+	duration = 3600
+   }
+   		add_country_modifier = {
+	name = 	rochina_firstdayreform2
+	duration = 7200
+   }
+   	capital_scope = {
+				change_culture = daqian_new
+	}
+   hidden_effect = {
+	restore_country_name = yes	
+   }
+
+
+		}
+				option = {
+		name = "daqin_events.11.b"
+		add_stability = 1
+		custom_tooltip = DAQINADAPTTOLANGUAGE
+
+		override_country_name = DAQINJUSTNAME
+		capital_scope = {
+				change_culture = daqian_new
+		}
+		hidden_effect = {
+		every_owned_province = {
+			limit = {
+				culture = daqian
+			}
+			change_culture = daqian_new
+		}
+		}
+		change_primary_culture = daqian_new
+
+		}
+	}
+
+
+	
+		country_event = { 
+	id = daqin_events.12
+	title = "daqin_events.12.t"
+	desc = "daqin_events.12.d"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+			immediate = {
+	set_country_flag = daqin1_stabilise.3
+}
+	is_triggered_only = yes
+		option = {
+		name = "daqin_events.12.a"
+		add_stability = -2
+		add_prestige = 5
+		}
+				option = {
+		name = "daqin_events.12.b"
+		add_stability = -1
+		change_religion = confucianism
+
+
+		}
+	}
+
+			country_event = { 
+	id = daqin_events.13
+	title = "daqin_events.13.t"
+	desc = "daqin_events.13.d"
+	picture = avaloncity_eventPicture
+	is_triggered_only = yes
+				immediate = {
+	set_country_flag = daqin1_stabilise.4
+}
+		option = {
+		name = "daqin_events.13.a"
+		add_stability = 1
+		set_capital = 1816
+		}
+				option = {
+		name = "daqin_events.13.b"
+				set_capital = 1816
+		add_years_of_income = -1
+
+		1816 = {
+			change_province_name = "Longe Oriente Roma"	
+			rename_capital = "Longe Oriente Roma"	
+			add_base_tax = 1	
+			add_base_production = 1	
+			add_base_manpower = 1	
+		}
+
+
+		}
+						option = {
+		name = "daqin_events.13.c"
+		add_stability = -1
+		set_capital = 2184
+		1816 = {
+			add_devastation = 50
+			add_base_tax = -4	
+			add_base_production = -4
+			add_base_manpower = -4
+		}
+		2184 = {
+			add_base_tax = 1	
+			add_base_production = 1	
+			add_base_manpower = 1	
+			change_province_name = "Longe Oriente Roma"	
+			rename_capital = "Longe Oriente Roma"	
+		}
+		add_years_of_income = 4	
+
+		}
+	}
+
+			country_event = { 
+	id = daqin_events.14
+	title = "daqin_events.14.t"
+	desc = "daqin_events.14.d"
+	picture = roman_legion_eventPicture
+	is_triggered_only = yes
+					immediate = {
+	set_country_flag = daqin1_stabilise.5
+}
+		option = {
+		name = "daqin_events.14.a"
+		add_stability = 1
+		change_estate_land_share = {
+    estate = estate_nobles	
+    share = 25
+   }
+   start_estate_agenda = estate_nobles	
+   	add_years_of_income = -2
+		}
+				option = {
+		name = "daqin_events.14.b"
+		add_stability = -2
+		add_yearly_manpower = -2
+		capital_scope = {
+			spawn_rebels = {
+    type = noble_rebels
+    size = 2
+}
+		}
+
+		}
+	}
+
+
+				country_event = { 
+	id = daqin_events.15
+	title = "daqin_events.15.t"
+	desc = "daqin_events.15.d"
+	picture = ADVISOR_eventPicture
+	is_triggered_only = yes
+		option = {
+		name = "daqin_events.15.a"
+				add_stability = -1
+				add_country_modifier = {
+	name = rochina_firstdayreform3
+	duration = -1
+}
+
+		}
+				option = {
+		name = "daqin_events.15.b"
+		add_stability = 1
+		add_yearly_manpower = 1
+		add_country_modifier = {
+	name = rochina_firstdayreform4
+	duration = -1
+}
+
+		}
 	}
