@@ -153,6 +153,12 @@ Romanchina_1 = {
 			workshop = 15
 		}
 		effect = {
+			change_price = {
+				trade_goods = chinaware
+				key = qing_chinaware
+				value = 0.5
+				duration = 18250
+			}
 			every_owned_province = {
 				limit = {
 					has_building = workshop
@@ -181,7 +187,7 @@ Romanchina_1 = {
 			}
 		}
 		effect = {
-			add_years_of_income = 2.5	
+			add_years_of_income = 2.5
 			add_country_modifier = {
 				name = fjordland_manufacturing
 				duration = 3650
@@ -209,6 +215,95 @@ Romanchina_1 = {
 			add_yearly_manpower = 5
 		}
 	}
+	Rochina_preparea_army = {
+		icon = mission_new_army
+		position = 10
+		required_missions = {  }
+		trigger = {
+			army_size = 150
+		}
+		effect = {
+			manchuria_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			korea_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			
+			xinan_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	Rochina_conquest_manchuria = {
+		icon = mission_manchu_warrior
+		position = 11
+		required_missions = { Rochina_preparea_army }
+		provinces_to_highlight = {
+			region = manchuria_region
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 25
+				region = manchuria_region
+			}
+		}
+		effect = {
+			add_mandate = 20
+							add_country_modifier = {
+								name = qng_new_heavenly_era_modifier
+								duration = 7300
+							}
+							add_adm_power = 100
+			
+			every_owned_province = {
+			limit = {
+			culture = manchu
+			}
+			change_culture = manchu_new 
+			}
+		}
+	}
+	Rochina_conquest_korea = {
+		icon =  mjz_into_korea
+		position = 12
+		required_missions = { Rochina_conquest_manchuria }
+		provinces_to_highlight = {
+			region = korea_region
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 15
+				region = korea_region
+			}
+		}
+		effect = {
+			add_country_modifier = {
+							name = mjz_dominance_of_the_horselords_modifier
+							duration = 3650
+						}
+			add_prestige = 10
+							add_mil_power = 100
+			every_owned_province = {
+			limit = {
+			culture = korean
+			}
+			change_culture = korean_new 
+			}
+		}
+	}
 }
 
 Romanchina_2 = {
@@ -221,6 +316,28 @@ Romanchina_2 = {
 		}
 	}
 
+	Rochina_Eposiwelki = {
+		icon = mission_book_of_royal_degrees
+		position = 1
+		required_missions = {  }
+		trigger = {
+			stability = 3
+			employed_advisor = {
+				category = ADM
+			}
+			employed_advisor = {
+				category = DIP
+			}
+			employed_advisor = {
+				category = MIL
+			}
+		}
+		effect = {
+			country_event = {
+				id = daqin_events.16
+			}
+		}
+	}
 	China_Roma_Religion = {
 		icon = mission_rb_control_state_religion
 		position = 2
@@ -229,10 +346,32 @@ Romanchina_2 = {
 			stability = 0
 			has_country_flag = daqin1_stabilise.2
 		}
-		effect = { 
-						country_event = {
+		effect = {
+			country_event = {
 				id = daqin_events.12
 			}
+		}
+	}
+	Kaifeng_Rochina_Vodka = {
+		icon = mission_vodka_monopoly
+		position = 3
+		required_missions = {  }
+		provinces_to_highlight = {
+			province_id = 688
+		}
+		trigger = {
+			owns_core_province = 688
+						688 = {
+							base_production = 10
+						}
+		}
+		effect = {
+			688 = {
+							add_province_modifier = {
+								name = china_huangjiu
+								duration = -1
+							}
+						}
 		}
 	}
 	Rochina_Consolidate_Xhina = {
@@ -376,7 +515,7 @@ Romanchina_2 = {
 	Rhochina_Trains = {
 		icon = atlantropa_steamengine
 		position = 10
-		required_missions = { Rochina_roads Rochina_Revolution_Indusr }
+		required_missions = { Rochina_Revolution_Indusr Rochina_roads }
 		trigger = {
 			atlantropa_tracks = 20
 		}
@@ -388,6 +527,58 @@ Romanchina_2 = {
 				}
 				add_base_production = 3
 			}
+		}
+	}
+	Rochina_conquest_malaya = {
+		icon = mission_annex_prome
+		position = 11
+		required_missions = { Rochina_preparea_army }
+		provinces_to_highlight = {
+			region = xinan_region
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 15
+				region = xinan_region
+			}
+		}
+		effect = {
+			burma_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+			}
+			malaya_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+							add_mil_power = 100
+							add_adm_power = 100
+							add_dip_power = 100
+							add_mandate = 20
+		}
+	}
+	Rochina_Xinax = {
+		icon = mission_upper_burma_campaign
+		position = 12
+		required_missions = { Rochina_conquest_malaya }
+		provinces_to_highlight = {
+			region = burma_region
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = burma_region
+				value = 25
+			}
+		}
+		effect = {
+			add_mil_power = 200
+			country_event = { id = flavor_mch.12 }
+			custom_tooltip = qng_event_insight_12_tt
 		}
 	}
 }
@@ -424,10 +615,10 @@ Romanchina_3 = {
 			has_country_flag = daqin1_stabilise.3
 		}
 		effect = {
-						country_event = {
+			country_event = {
 				id = daqin_events.13
 			}
-		 }
+		}
 	}
 	rochina_chinese_country = {
 		icon = mission_consolidate_the_state
@@ -606,6 +797,50 @@ Romanchina_3 = {
 			}
 		}
 	}
+	rochina_hegemon_is = {
+		icon = a_roman_empire
+		position = 11
+		required_missions = { Rochina_MAndate_of }
+		trigger = {
+			empire_of_china_num_reforms_passed = 15
+						is_emperor_of_china = yes
+						stability = 3
+						if = {
+							limit = { has_dlc = "Emperor" }
+							is_hegemon = yes
+						}
+						else = { total_development = 2000 }
+						has_regency = no
+		}
+		effect = {
+			country_event = { id = flavor_mng.38 }
+						set_country_flag = mng_mandate_unleashed_flag
+						custom_tooltip = mng_insight_38_tt
+		}
+	}
+	Rochinamalezja = {
+		icon = mission_malayan_viceroyalty
+		position = 12
+		required_missions = { Rochina_conquest_malaya }
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 15
+				region = malaya_region 
+			}
+			owns_core_province = 2686
+		}
+		effect = {
+			add_mil_power = 100
+							add_adm_power = 100
+							add_dip_power = 100
+							add_mandate = 20
+			2686 = {
+							change_culture = ROOT
+							change_province_name = "Daqin Gangkou"
+							rename_capital = "Daqin Gangkou"
+			}
+		}
+	}
 }
 
 Romanchina_4 = {
@@ -618,6 +853,39 @@ Romanchina_4 = {
 		}
 	}
 
+	Rochina_silk = {
+		icon = mission_silk_road
+		position = 1
+		required_missions = {  }
+		provinces_to_highlight = {
+			if = {
+							limit = {
+								ROOT = {
+									NOT = { silk = 8 }
+								}
+							}
+							trade_goods = silk
+							has_discovered = ROOT
+						}
+						else = {
+							always = no
+						}
+		}
+		trigger = {
+			production_leader = {
+							trade_goods = silk
+						}
+						silk = 8
+					}
+		
+		effect = {
+			add_country_modifier = {
+							name = "silk_road_modifier"
+							duration = -1
+						}
+						add_mercantilism = 2
+		}
+	}
 	question_chiromania_army = {
 		icon = atlantropa_niflheim_army
 		position = 2
@@ -627,10 +895,10 @@ Romanchina_4 = {
 			has_country_flag = daqin1_stabilise.4
 		}
 		effect = {
-						country_event = {
+			country_event = {
 				id = daqin_events.14
 			}
-		 }
+		}
 	}
 	Rochina_Artillery = {
 		icon = mission_asian_cannon
@@ -638,12 +906,11 @@ Romanchina_4 = {
 		required_missions = {  }
 		trigger = {
 			owns_core_province = 2178
-
-				2178 = { base_production = 10	}
+			2178 = { base_production = 10	}
 		}
 		effect = {
 			2178 = {
-			change_trade_goods = atl_artillery	
+				change_trade_goods = atl_artillery
 			}
 		}
 	}
@@ -1214,7 +1481,7 @@ Romanchina_4 = {
 	rochina_trade_japan = {
 		icon = mission_trade_with_japan
 		position = 10
-		required_missions = { Establish_Trade_Ports Rochina_ConquestMoluccas }
+		required_missions = { Establish_Trade_Ports }
 		trigger = {
 			1376 = { is_strongest_trade_power = ROOT }
 		}
@@ -1229,8 +1496,29 @@ Romanchina_4 = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT	}
 				}
-			
 			}
+		}
+	}
+	Daqin_Colonize_Australia = {
+		icon = colonize_australia
+		position = 13
+		required_missions = { Daqin_Colonize }
+		trigger = {
+			custom_trigger_tooltip = {
+							tooltip = ned_spice_australia.tooltip
+							colonial_australia = {
+								has_discovered = ROOT
+							}
+						}
+		}
+		effect = {
+			create_admiral = {
+							tradition = 80
+						}
+			add_prestige = 20
+			add_mandate = 10
+			add_adm_power = 100
+			add_dip_power = 100
 		}
 	}
 }
@@ -1253,8 +1541,8 @@ Romanchina_5 = {
 			stability = 0
 			has_country_flag = daqin1_stabilise.5
 		}
-		effect = { 
-						country_event = {
+		effect = {
+			country_event = {
 				id = daqin_events.15
 			}
 		}
@@ -1380,7 +1668,7 @@ Romanchina_5 = {
 	Rochina_Naval = {
 		icon = toulon_dockyards
 		position = 7
-		required_missions = {  Fortify_Coast_rochina }
+		required_missions = { Fortify_Coast_rochina }
 		trigger = {
 			dock = 10
 		}
@@ -1415,7 +1703,7 @@ Romanchina_5 = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT	}
 				}
-			
+				add_permanent_claim = ROOT
 			}
 			add_prestige = 10
 			add_dip_power = 100
@@ -1432,13 +1720,71 @@ Romanchina_5 = {
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				value = 25
-					region = moluccas_region
+				region = moluccas_region
 			}
 		}
 		effect = {
 			add_prestige = 10
 			add_mil_power = 250
 			add_navy_tradition = 10
+		}
+	}
+	Rochina_Conquestjapan = {
+		icon = mission_japanese_fort
+		position = 11
+		required_missions = { rochina_trade_japan Rochina_ConquestMoluccas }
+		provinces_to_highlight = {
+			region = japan_region
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 25
+				region =  japan_region
+			}
+		}
+		effect = { }
+	}
+	Daqin_Colonize = {
+		icon = mission_colonize_the_west
+		position = 12
+		required_missions = {  }
+		trigger = {
+			num_of_explorers = 1
+			owns_core_province = 2138
+		}
+		effect = {
+			create_admiral = {
+							tradition = 50
+						}
+						2138 = {
+							add_unit_construction = {
+								type = heavy_ship
+								amount = 3
+								speed = 0.50
+								cost = 0
+							}
+						}
+		}
+	}
+	Daqin_Colonize_America = {
+		icon = mission_colonize_california
+		position = 13
+		required_missions = { Daqin_Colonize }
+		trigger = {
+			any_owned_province = {
+									OR = {
+										continent = north_america
+										continent = south_america
+										continent = new_world
+									}
+								}
+		}
+		effect = {
+			create_conquistador = { tradition = 100 }	
+			add_prestige = 20
+			add_mandate = 10
+			add_adm_power = 100
+			add_dip_power = 100
 		}
 	}
 }
