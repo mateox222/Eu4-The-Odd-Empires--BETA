@@ -869,6 +869,18 @@ country_event = { #Deadlands
 	
 	option = {
 		name = agmajongpa.29.a
+		custom_tooltip = no_more_siberians_ko1
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						region = west_siberia_region
+						region = east_siberia_region
+					}
+				}
+				change_culture = northkorean
+			}
+		}
 		ai_chance = { factor = 1 }
 	}
 }
