@@ -365,3 +365,65 @@ swap_non_generic_missions = yes
 		name = "atlantropa_venedia_colonialevent.1.a"
 	}
 }
+
+country_event = {
+	id = atlantropa_venedia_colonialevent.13
+	title = "atlantropa_venedia_colonialevent.2.t"
+	desc = "atlantropa_venedia_colonialevent.2.d"
+	picture = COLONIZATION_eventPicture
+		is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			OR = {
+				continent = north_america
+				continent = south_america
+			}
+		}
+		NOT = { exists = C1G }
+        OR = {
+		is_colonial_nation_of = A58
+    	is_colonial_nation_of = A56 
+        }
+	}
+	immediate = {
+swap_non_generic_missions = yes
+		change_tag = C1G
+
+	}
+	option = {
+		name = "atlantropa_venedia_colonialevent.1.a"
+	}
+}
+
+country_event = {
+	id = atlantropa_venedia_colonialevent.14
+	title = "atlantropa_venedia_colonialevent.2.t"
+	desc = "atlantropa_venedia_colonialevent.2.d"
+	picture = COLONIZATION_eventPicture
+		is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_australia
+			is_core = ROOT
+		}
+		NOT = { exists = C2G }
+        OR = {
+		is_colonial_nation_of = A58
+    	is_colonial_nation_of = A56 
+        }
+	}
+	immediate = {
+swap_non_generic_missions = yes
+		change_tag = C2G
+
+	}
+	option = {
+		name = "atlantropa_venedia_colonialevent.1.a"
+	}
+}

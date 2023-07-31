@@ -103,6 +103,7 @@ roman_legio_monarchy = {
 	potential = {
 			OR = {
         tag = A38
+        tag = A56		
 		tag = A37
 		tag = A34	
 		tag = ROM
@@ -110,7 +111,7 @@ roman_legio_monarchy = {
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 150
-
+	is_elective = yes	
 	modifiers = {
 		war_exhaustion = -0.03
 		global_unrest = -1
@@ -489,6 +490,7 @@ atlantropaniflheim = {
 	allow_normal_conversion = no
 	potential = {
 		culture = nilfhish
+		has_country_flag = szwartkartenpodpisanen
 	}
 	fixed_rank = 3
 	legacy_equivalent = feudal_monarchy
@@ -1091,4 +1093,99 @@ hypersoumikaganate = {
 		factor = 100
 	}
     
+}
+
+armenian_monarchy = {
+    icon = "armeniakingdom"
+	allow_normal_conversion = yes
+	lock_level_when_selected = yes
+	maintain_dynasty = yes
+	legacy_equivalent = feudal_monarchy	
+	monarchy = yes	
+    potential = {
+		OR = {
+        tag = ARM
+    }
+	}
+    modifiers = {
+        max_absolutism = 15
+		tolerance_heretic = -1
+		tolerance_heathen = -2	
+		state_maintenance_modifier = -0.05
+		governing_capacity_modifier = 0.1
+		harsh_treatment_cost = -0.15
+		defensiveness = 0.10
+		promote_culture_cost = 2
+		num_accepted_cultures = -1
+		relation_with_other_culture = -10			
+    }
+		custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
+		factor = 100
+	}
+    
+}
+
+epirus_monarchy = {
+    icon = "greckaflaga"
+	allow_normal_conversion = yes
+	lock_level_when_selected = yes
+	legacy_equivalent = feudal_monarchy	
+	monarchy = yes	
+    potential = {
+        tag = EPI
+	}
+    modifiers = {
+		local_culture_conversion_cost = -0.25	
+		local_culture_conversion_time = -0.25	
+		state_maintenance_modifier = -0.25
+		governing_capacity_modifier = -0.3
+		promote_culture_cost = 2
+		num_accepted_cultures = -2
+		administrative_efficiency = 0.05
+		relation_with_other_culture = -10			
+    }
+		custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
+		factor = 100
+	}
+    
+}
+
+Daqin_monarchy = {
+	icon = "daqinmonarchy"
+	allow_normal_conversion = yes
+	legacy_equivalent = feudal_monarchy	
+	potential = {
+     tag = A56
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 100
+
+	modifiers = {
+		war_exhaustion = -0.02
+		global_unrest = -2
+		global_autonomy = -0.075
+		max_absolutism = -10
+		monarch_military_power = 1
+		nobles_loyalty_modifier = 0.1
+		governing_capacity_modifier = -0.25
+	}
+
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		government_abilities = {
+			militarization_mechanic
+		}
+	}
+			custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
+		factor = 100
+	}
 }

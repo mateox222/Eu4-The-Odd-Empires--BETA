@@ -1,0 +1,678 @@
+atl_Epirus1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = EPI
+	}
+
+	epirus_buy_province = {
+		icon = mission_seize_north_sea_trade
+		position = 2
+		required_missions = { Epirus_development }
+		provinces_to_highlight = {
+			province_id = 5724
+		}
+		trigger = {
+			OR = {
+				owns_core_province = 5724
+				AND = {
+					owned_by = VEN
+					has_opinion = {
+						who = VEN
+						value = 120
+					}
+					treasury = 300
+				}
+			}
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			5724 = {
+				add_core = ROOT
+				cede_province = ROOT
+				change_culture = ROOT
+				remove_core = VEN
+			}
+			add_treasury = -300
+		}
+	}
+	epirus_portes = {
+		icon = atlantropa_arthadra
+		position = 4
+		required_missions = { epirus_buy_province }
+		trigger = {
+			dock = 5
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			every_owned_province = {
+				limit = {
+					has_building = dock
+				}
+				add_base_tax = 1
+				add_base_production = 1
+			}
+			add_country_modifier = {
+				name = 	epirus_ship_build_mission
+				duration = -1
+			}
+		}
+	}
+	Eprius_galley = {
+		icon = mission_galleys_in_port
+		position = 5
+		required_missions = { epirus_portes }
+		trigger = {
+			navy_size = 50
+			num_of_galley = 40
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			add_prestige = 10
+			add_stability = 1
+			add_dip_power = 50
+			add_mil_power = 50
+			add_adm_power = 50
+			create_admiral = { tradition = 50 }
+			add_country_modifier = {
+				name = 	epirus_ship_galleys
+				duration = -1
+			}
+		}
+	}
+	epirus_roads = {
+		icon = atlantropa_imperialroads
+		position = 6
+		required_missions = {  }
+		trigger = {
+			atlantropa_road = 15
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			every_owned_province = {
+				limit = {
+					has_building = atlantropa_road
+				}
+				add_base_production = 1
+			}
+		}
+	}
+	epirus_trains = {
+		icon = atlantropa_steamengine
+		position = 9
+		required_missions = { epirus_roads epirus_revolutiontotal }
+		trigger = {
+			atlantropa_tracks = 15
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			every_owned_province = {
+				limit = {
+					has_building = atlantropa_tracks
+				}
+				add_base_production = 3
+			}
+		}
+	}
+}
+
+atl_Epirus2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = EPI
+	}
+
+	Epirus_churches = {
+		icon = mission_european_church
+		position = 2
+		required_missions = { Epirus_development }
+		trigger = {
+			temple = 10
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			define_advisor = {
+				type = administrator8_tod
+				skill = 3
+				discount = yes
+			}
+			every_owned_province = {
+				limit = {
+					has_building = temple
+				}
+				add_base_tax = 2
+			}
+		}
+	}
+	Epirus_manufactories = {
+		icon = saxon_manufacturing
+		position = 3
+		required_missions = { epirus_buy_province Epirus_prosperity }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					has_building = wharf
+					has_building = weapons
+					has_building = textile
+					has_building = plantations
+					has_building = tradecompany
+					has_building = mills
+				}
+			}
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			add_country_modifier = {
+				name = fjordland_manufacturing
+				duration = 3650
+			}
+			5724 = {
+				change_trade_goods = atl_clothes
+			}
+		}
+	}
+	Epirus_industrial_rev = {
+		icon = mission_rb_central_belt_coal_mining
+		position = 7
+		required_missions = { Epirus_manufactories Epirus_conquest_thrace }
+		provinces_to_highlight = {
+			province_id = 147
+		}
+		trigger = {
+			has_institution = enlightenment
+			147 = {
+				base_production = 15
+			}
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			change_trade_goods = coal
+		}
+	}
+	epirus_revolutiontotal = {
+		icon = mission_industrial_forging
+		position = 8
+		required_missions = { Epirus_industrial_rev Epirus_Greek_populate }
+		trigger = {
+			furnace = 1
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			add_country_modifier = {
+				name = fjordland_industrial_revolution
+				duration = -1
+			}
+			146 = {
+				change_trade_goods = atl_steam_engine
+			}
+			add_yearly_manpower = 5
+		}
+	}
+	Greekdifertcolonies = {
+		icon = mission_dominate_genoa
+		position = 10
+		required_missions = { Greekmegalla }
+		provinces_to_highlight = {
+			area = atlantropa_greekcities
+		}
+		trigger = {
+			atlantropa_greekcities = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			add_prestige = 20
+			add_adm_power = 150
+			add_stability = 2
+		}
+	}
+}
+
+atl_Epirus3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = EPI
+	}
+
+	Epirus_development = {
+		icon = despot_of_epirus
+		position = 1
+		required_missions = {  }
+		trigger = {
+			total_development = 35
+			stability = 2
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			4699 = {
+				change_culture = ROOT
+			}
+			144 = {
+				change_culture = ROOT
+			}
+			add_stability = 1
+			capital_scope = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+		}
+	}
+	Epirus_prosperity = {
+		icon = prosperity_for_all
+		position = 2
+		required_missions = { Epirus_development }
+		provinces_to_highlight = {
+			area = northern_greece_area
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = fjordlandProsperity
+				northern_greece_area = {
+					type = all
+					is_prosperous = yes
+				}
+			}
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			144 = {
+				change_trade_goods = glass
+			}
+			4975 = {
+				change_trade_goods = ammunition
+			}
+			4699 = {
+				change_trade_goods = atl_tools
+			}
+		}
+	}
+	Epirus_wine_production = {
+		icon = mission_vodka_monopoly
+		position = 3
+		required_missions = { Epirus_prosperity }
+		provinces_to_highlight = {
+			province_id = 1221
+		}
+		trigger = {
+			1221 = {
+				owned_by = ROOT
+				base_production = 10
+			}
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			1221 = {
+				add_province_modifier = {
+					name = 	armenia_wines
+					duration = -1
+				}
+			}
+		}
+	}
+	Epirot_renaisasance = {
+		icon = renaissance_city
+		position = 4
+		required_missions = { epirus_conquest_morea }
+		provinces_to_highlight = {
+			province_id = 146
+		}
+		trigger = {
+			owns_core_province = 146
+			has_institution = renaissance
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			add_adm_tech = 1
+			add_prestige = 10
+			add_splendor = 100
+			create_advisor = philosopher
+		}
+	}
+	Epirus_Greek_populate = {
+		icon = mission_hanseatic_city
+		position = 7
+		required_missions = { Epirus_conquest_thrace }
+		trigger = {
+			adm_power = 200
+			dip_power = 200
+			mil_power = 200
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			add_adm_power = -200
+			add_dip_power = -200
+			add_mil_power = -200
+			every_owned_province = {
+				limit = {
+					culture_group = ROOT
+					region = balkan_region
+				}
+				add_base_tax = 2
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+		}
+	}
+	Greekmegalla = {
+		icon = atlantropa_megaliidea
+		position = 9
+		required_missions = { Epirus_Greek_populate }
+		trigger = {
+			total_development = 300
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			add_prestige = 10
+			add_stability = 1
+			add_adm_power = 50
+			custom_tooltip = greekallcoresprovic
+			hidden_		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			every_province = {
+				limit = {
+					NOT = { is_core = ROOT	}
+			culture_group = byzantine
+				}
+				add_core = ROOT
+			}
+		}
+	}
+	}
+	Greekconquestmegallia = {
+		icon = a_roman_empire
+		position = 10
+		required_missions = { Greekmegalla }
+		provinces_to_highlight = {
+			area = aegean_archipelago_area
+			area = hudavendigar_area
+		}
+		trigger = {
+			aegean_archipelago_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			hudavendigar_area  = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			add_adm_power = 150
+			add_mil_power = 150
+			add_dip_power = 150
+			anatolia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+atl_Epirus4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = EPI
+	}
+
+	Epirus_army = {
+		icon = army_reforms
+		position = 2
+		required_missions = { Epirus_development }
+		trigger = {
+			army_size = 15
+			num_of_generals = 1
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			add_country_modifier = {
+				name = armenia_first_mission
+				duration = -1
+			}
+			add_prestige = 10
+			morea_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	epirus_conquest_morea = {
+		icon = foothold_in_greece
+		position = 3
+		required_missions = { Epirus_army }
+		provinces_to_highlight = {
+			area = morea_area
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 4
+				area = morea_area
+			}
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			every_province = {
+				limit = {
+					area = morea_area
+				}
+				add_core = ROOT
+			}
+			add_prestige = 10
+			add_yearly_manpower = 1
+			atlantropa_thessalia = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	Epirus_conquest_macedonia = {
+		icon = atlantropa_hellenism
+		position = 5
+		required_missions = { epirus_conquest_morea }
+		provinces_to_highlight = {
+			area = atlantropa_thessalia
+		}
+		trigger = {
+			atlantropa_thessalia = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			macedonia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT    }
+				}
+				add_permanent_claim = ROOT
+			}
+			thrace_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT    }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	Epirus_conquest_thrace = {
+		icon = atlantropa_constantinople
+		position = 6
+		required_missions = { Epirus_conquest_macedonia }
+		provinces_to_highlight = {
+			area = macedonia_area
+			area = thrace_area
+		}
+		trigger = {
+			macedonia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			thrace_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			country_event = {
+				id = eprius_events.1
+			}
+		}
+	}
+	Epirus_Greekseizebut = {
+		icon = mission_rule_italy
+		position = 10
+		required_missions = { Greekmegalla }
+		provinces_to_highlight = {
+			
+			        culture_group = byzantine
+			        region = atlantis_sicily_region
+
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				region = atlantis_sicily_region
+				owned_by = ROOT
+			}
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			add_adm_power = 250
+			add_mil_power = 250
+			add_dip_power = 250
+			add_prestige = 25
+		}
+	}
+}
+
+	atldsatl_Epirus5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = EPI
+	}
+
+	Greek_trade_venetia = {
+		icon = mission_dominate_the_mediterranean
+		position = 2
+		required_missions = { Epirus_development }
+		provinces_to_highlight = {
+			province_id = 112
+		}
+		trigger = {
+			112 = {
+				has_trader = ROOT
+			}
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			add_country_modifier = {
+				name = 	epirus_mediterranean_trade_wines
+				duration = 7200
+			}
+		}
+	}
+	Epirus_establish_fleet = {
+		icon = mission_rb_mediterranean_authority
+		position = 7
+		required_missions = { Epirus_conquest_thrace Greek_trade_venetia }
+		trigger = {
+			num_of_light_ship = 20
+			num_of_loans = 0
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			add_prestige = 10
+			add_country_modifier = {
+				name = 	epirus_mediterranean_trade_wines
+				duration = -1
+			}
+		}
+	}
+	Epirus_Greek_Trade = {
+		icon = mission_rb_monopolize_the_channel
+		position = 8
+		required_missions = { Epirus_Greek_populate Epirus_establish_fleet }
+		trigger = {
+			148 = {
+				trade_node_value = 55
+			}
+			151 = {
+				trade_node_value = 20
+			}
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+effect = {
+			add_country_modifier = {
+				name = 	epirus_greek_trade_wines
+				duration = -1
+			}
+			add_prestige = 10
+			add_years_of_income = 3
+		}
+	}
+}
+
