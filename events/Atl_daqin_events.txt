@@ -39,7 +39,7 @@ country_event = {
 }
 create_general = { tradition = 65 }	
 add_prestige = 10
-mongol_region = {
+mongolia_region = {
 	limit = {
 		NOT = { is_permanent_claim = ROOT }
 		NOT = { is_core = ROOT	}
@@ -222,14 +222,14 @@ add_stability = -1
 			add_stability = -3
 			hidden_effect = {
 					if = {
-							is_emperor_of_china = yes
+							limit = { is_emperor_of_china = yes }
 						add_disaster_progress = {
     disaster = empire_of_china_nomadic_border
     value = 100
 }
 					}
 										if = {
-							is_emperor_of_china = no
+									limit = { is_emperor_of_china = no }
 		add_disaster_progress = {
     disaster = internal_conflicts
     value = 100
