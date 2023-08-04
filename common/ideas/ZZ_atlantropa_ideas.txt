@@ -8,7 +8,7 @@ arthurian1_ideas = {
 		unjustified_demands = -0.2	
 	}
 	
-	trigger = {
+	trigger = {  
 	OR = {
 		tag = A34
 		tag = A56		
@@ -654,5 +654,46 @@ X46_ideas = {
 	X46_consiglio_diguerra_di_corte = {
 		reinforce_speed = 0.3
 		discipline = 0.05
+	}
+}
+
+daqin_ideas = {
+	start = {
+		global_manpower_modifier = 0.10	
+		land_morale = 0.10		
+	}
+	
+	bonus = {
+		meritocracy = 1.5
+		imperial_mandate = 0.075	
+	}
+	
+	trigger = {  
+	OR = {
+		tag = A58	
+		}
+	}
+	free = yes
+	DAQ1 = {
+		global_institution_spread = 0.2			
+	}
+	DAQ2 = {
+		years_of_nationalism = -10	
+	}
+	DAQ3 = {
+	inflation_reduction = 0.15	
+	}
+	DAQ4 = {
+		overextension_impact_modifier = -0.15		
+	}
+	DAQ5 = {
+		province_warscore_cost = -0.15	
+	}
+	DAQ6 = {
+		accept_vassalization_reasons = 15	
+	}
+	DAQ7 = {
+		envoy_travel_time = -0.2	
+		improve_relation_modifier = 0.15	
 	}
 }
