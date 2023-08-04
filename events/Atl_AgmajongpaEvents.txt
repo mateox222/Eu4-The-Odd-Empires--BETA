@@ -392,10 +392,10 @@ country_event = { #The Borjigin Scion
 			id = agmajongpa.151
 			days = 28
 		}
-		ai_chance = { factor = 1 } 
+		ai_chance = { factor = 1 }
 	}
 	#Torture them
-	option = { 
+	option = {
 		name = agmajongpa.150.b
 		mil_power_cost = 25
 		country_event = {
@@ -683,6 +683,7 @@ country_event = { #The End
 	
 	option = {
 		name = agmajongpa.22.a
+		custom_tooltip = thustidesdecidedko1
 		ai_chance = { factor = 1 }
 	}
 }
@@ -878,7 +879,11 @@ country_event = { #Deadlands
 						region = east_siberia_region
 					}
 				}
-				change_culture = northkorean
+				change_culture = farnorthkorean
+				add_province_modifier = {
+					name = ko1_northern_prosperity
+					duration = -1
+				}
 			}
 		}
 		ai_chance = { factor = 1 }
