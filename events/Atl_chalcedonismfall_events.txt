@@ -124,9 +124,16 @@ country_event = {
 	desc = chalcedonism_fall.6.d
 	fire_only_once = yes
 	picture = cheonmathrone_eventPicture
+		immediate = {
+	clr_global_flag = chalcedonismwillfallin30years
+	set_global_flag = popevictorybecausebyzantiumfall
+	set_global_flag = chrzescijanstwosierozpadlo	
+	}
 	trigger = {
 				NOT = { has_global_flag = chrzescijanstwosierozpadlo }
 		is_year = 6930
+		owns = 118
+
 			151 = {
 			owner = {
 				OR = {
@@ -144,9 +151,7 @@ country_event = {
 	}
 	option = {
 	name = "chalcedonism_fall.6.a" 
-	clr_global_flag = chalcedonismwillfallin30years
-	set_global_flag = popevictorybecausebyzantiumfall
-	set_global_flag = chrzescijanstwosierozpadlo	
+
 
 	custom_tooltip = CHRISTIANSCHISMAISCOMING
 hidden_effect = {
@@ -351,7 +356,16 @@ hidden_effect = {
 	desc = chalcedonism_fall.7.d
 	fire_only_once = yes
 	picture = cheonmathrone_eventPicture
+	immediate = {
+	clr_global_flag = chalcedonismwillfallin30years
+	set_global_flag = byzantinevictoryoverpope
+	set_global_flag = chrzescijanstwosierozpadlo
+	}
+
+
+
 	trigger = {
+		owns = 151
 		NOT = { has_global_flag = chrzescijanstwosierozpadlo }
 		is_year = 6930
 		NOT = { is_year = 7000 }
@@ -374,9 +388,7 @@ hidden_effect = {
 	}
 	option = {
 	name = "chalcedonism_fall.7.a" 
-	clr_global_flag = chalcedonismwillfallin30years
-	set_global_flag = byzantinevictoryoverpope
-	set_global_flag = chrzescijanstwosierozpadlo
+
 	
 	custom_tooltip = CHRISTIANSCHISMAISCOMING
 hidden_effect = {
