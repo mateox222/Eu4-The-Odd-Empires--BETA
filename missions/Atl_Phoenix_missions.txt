@@ -1,0 +1,696 @@
+atl_phx1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = XA8
+	}
+
+	phx_renesans = {
+		icon = renaissance_city
+		position = 1
+		required_missions = {  }
+		trigger = {
+			has_institution = renaissance
+		}
+		effect = {
+			add_country_modifier = {
+				name = "lan_florentine_renaissance_modifier"
+				duration = 5475
+			}
+		}
+	}
+	phx_dyplomacja = {
+		icon = mission_diplomatic_relation
+		position = 3
+		required_missions = { phx_renesans }
+		trigger = {
+			monthly_dip = 12
+			NOT = { num_of_loans = 1 }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "lan_affable_leadership"
+				duration = 5475
+			}
+		}
+	}
+	phx_calabria = {
+		icon = mission_sea_battles
+		position = 6
+		required_missions = { Phx_Reformed_Army }
+		provinces_to_highlight = {
+			OR = {
+				area = calabria_area
+				area = apulia_area
+			}
+		}
+		trigger = {
+			calabria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			apulia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = { }
+	}
+	phx_economy = {
+		icon =dominant_economy
+		position = 8
+		required_missions = { phx_rise_of_empire }
+		trigger = {
+			OR = {
+				monthly_income = 30
+				AND = {
+					monthly_income = 25
+					advisor = treasurer
+				}
+			}
+		}
+		effect = {
+			add_years_of_income = 0.5
+			add_country_modifier = {
+				name = 	rochina_economybonus
+				duration = -1
+			}
+		}
+	}
+	phx_workshopes = {
+		icon = public_works
+		position = 9
+		required_missions = { phx_economy }
+		trigger = {
+			workshop = 15
+		}
+		effect = {
+			every_owned_province = {
+				limit = {
+					has_building = workshop
+				}
+				add_base_production = 1
+			}
+			add_adm_power = 100
+			add_mandate = 10
+		}
+	}
+	phx_factories = {
+		icon = saxon_manufacturing
+		position = 10
+		required_missions = { phx_workshopes }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					has_building = wharf
+					has_building = weapons
+					has_building = textile
+					has_building = plantations
+					has_building = tradecompany
+					has_building = mills
+				}
+			}
+		}
+		effect = {
+			add_years_of_income = 2.5
+			add_country_modifier = {
+				name = fjordland_manufacturing
+				duration = 3650
+			}
+			672 = {
+				change_trade_goods = atl_clothes
+			}
+		}
+	}
+	phx_agral_reform = {
+		icon = mission_lit_harness_steppes
+		position = 12
+		required_missions = { phx_empire_is_clean }
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 10
+				OR = {
+					trade_goods = grain
+					trade_goods = atl_fruit
+				}
+				base_production = 5
+			}
+		}
+		effect = {
+			add_years_of_income = 1
+			every_owned_province = {
+				limit = {
+					OR = {
+						trade_goods = grain
+						trade_goods = atl_fruit
+					}
+				}
+				add_base_manpower = 1
+			}
+		}
+	}
+}
+
+atl_phx2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = XA8
+	}
+
+	phx_army_reform = {
+		icon = mission_modern_knight_army
+		position = 2
+		required_missions = { atl_phx_prepare_country }
+		trigger = {
+			mil_power = 100
+			army_size = 15
+		}
+		effect = {
+			add_mil_power = -100
+			add_country_modifier = {
+				name = armenia_first_mission
+				duration = -1
+			}
+		}
+	}
+	Phx_Reformed_Army = {
+		icon = atlantropa_homeregion
+		position = 5
+		required_missions = { phx_army_reform phx_the_great_awaken }
+		trigger = {
+			army_size_percentage = 0.8
+			num_of_generals = 2
+			OR = {
+				army_tradition = 60
+				has_global_modifier_value = {
+					which = discipline
+					value = 0.15
+				}
+			}
+		}
+		effect = {
+			add_yearly_manpower = 2
+			add_country_modifier = {
+				name = phoenix_reorganized_army
+				duration = -1
+			}
+		}
+	}
+	phx_seize_sicily = {
+		icon = atlantropa_italysicility
+		position = 6
+		required_missions = { Phx_Reformed_Army }
+		provinces_to_highlight = {
+			OR = {
+				area = sicily_area
+				area = western_sicily_area
+			}
+		}
+		trigger = {
+			western_sicily_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			sicily_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = { }
+	}
+	Phoenix_Capital = {
+		icon = imperial_capitals
+		position = 8
+		required_missions = { phx_rise_of_empire }
+		trigger = {
+			treasury = 2500
+			adm_power = 100
+			adm_power = 100
+		}
+		effect = {
+			add_adm_power = -100
+			add_adm_power = -100
+			add_treasury = -2500
+			124 = {
+				add_center_of_trade_level = 2
+				add_base_tax = 5
+				add_base_production = 5
+				add_base_manpower = 5
+				rename_capital = "Fenicio"
+				change_province_name = "Fenicio"
+				add_great_project = {
+					type = kiel_canal
+					instant = yes
+				}
+			}
+		}
+	}
+	phx_deport_greeks = {
+		icon = atlantropa_bloodysweden
+		position = 10
+		required_missions = { phx_cultural_revolution }
+		trigger = {
+			any_owned_province = {
+				OR = {
+					region = italy_region
+					region = atlantis_sicily_region
+				}
+				NOT = {
+					culture_group = byzantine
+				}
+			}
+		}
+		effect = {
+			country_event = {
+				id = phoenixempire_events.7
+			}
+		}
+	}
+}
+
+atl_phx3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = XA8
+	}
+
+	atl_phx_prepare_country = {
+		icon = atlantropa_southeasia
+		position = 1
+		required_missions = {  }
+		trigger = {
+			stability = 2
+			num_of_loans = 0
+		}
+		effect = {
+			add_prestige = 10
+			add_adm_power = 100
+		}
+	}
+	atl_phx_expand_states = {
+		icon = atlantropa_thulehorseman
+		position = 2
+		required_missions = { atl_phx_prepare_country }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				is_overseas = no
+			}
+		}
+		effect = {
+			add_prestige = 10
+			atlantis_sicily_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	phx_Messina_city = {
+		icon = mission_hanseatic_city
+		position = 3
+		required_missions = { atl_phx_expand_states }
+		trigger = {
+			owns_core_province = 124
+			capital = 124
+			124 = {
+			development = 25 }
+		}
+		effect = {
+			124 = {
+				change_trade_goods = atl_books
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				add_prosperity = 50
+			}
+		}
+	}
+	phx_the_great_awaken = {
+		icon = atlantropa_dawn
+		position = 4
+		required_missions = {  }
+		trigger = {
+			religion = protestant
+		}
+		effect = {
+			country_event = {
+				id = phoenixempire_events.1
+			}
+		}
+	}
+	phx_question_of_religion = {
+		icon = atlantropa_deadmanfireland
+		position = 5
+		required_missions = { phx_the_great_awaken }
+		trigger = { }
+		effect = {
+			country_event = {
+				id = phoenixempire_events.2
+			}
+		}
+	}
+	phx_rise_of_empire = {
+		icon = atlantropa_phoenixempiredas
+		position = 7
+		required_missions = { phx_question_of_religion }
+		trigger = {
+			total_development = 250
+		}
+		effect = {
+			country_event = {
+				id = phoenixempire_events.3
+			}
+		}
+	}
+	phx_march_on_rome = {
+		icon = mission_fall_of_constantinople
+		position = 8
+		required_missions = { phx_rise_of_empire }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 5747
+				province_id = 118
+			}
+		}
+		trigger = {
+			owns = 5747
+			owns = 118
+		}
+		effect = {
+			country_event = {
+				id = phoenixempire_events.4
+			}
+		}
+	}
+	phx_cultural_revolution = {
+		icon = french_revolution
+		position = 9
+		required_missions = { phx_march_on_rome }
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 40
+				OR = {
+					region = italy_region
+					region = atlantis_sicily_region
+				}
+			}
+		}
+		effect = {
+			country_event = {
+				id = phoenixempire_events.5
+			}
+		}
+	}
+	phx_destroy_catholics = {
+		icon = mission_devastate_christianity
+		position = 10
+		required_missions = { phx_cultural_revolution }
+		trigger = {
+			religious_unity = 0.90
+		}
+		effect = {
+			country_event = {
+				id = phoenixempire_events.6
+			}
+		}
+	}
+	phx_empire_is_clean = {
+		icon = atlantropa_phoenixempire
+		position = 11
+		required_missions = { phx_deport_greeks phx_destroy_catholics phx_purge_carthagos }
+		trigger = { }
+		effect = {
+			country_event = {
+				id = phoenixempire_events.9
+			}
+		}
+	}
+	phx_conquest_north = {
+		icon = mission_build_up_to_force_limit
+		position = 12
+		required_missions = { phx_empire_is_clean }
+		trigger = { }
+		effect = { }
+	}
+}
+
+atl_phx4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = XA8
+	}
+
+	phx_national_navy = {
+		icon = mission_galleys_in_port
+		position = 2
+		required_missions = { atl_phx_prepare_country }
+		trigger = {
+			dock = 10
+		}
+		effect = {
+			add_country_modifier = {
+				name = 	phoenix_heavy_shippower
+				duration = -1
+			}
+			add_prestige = 10
+			add_dip_power = 100
+			add_navy_tradition = 10
+		}
+	}
+	phx_expanded_navy = {
+		icon = build_a_roman_navy
+		position = 5
+		required_missions = { phx_the_great_awaken phx_national_navy }
+		trigger = {
+			any_country = {
+				is_part_of_hre = yes
+				NOT = { navy_size = ROOT }
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = atl_phoenix_navy
+				duration = -1
+			}
+		}
+	}
+	phx_seize_tunis = {
+		icon = atlantropa_carthago
+		position = 6
+		required_missions = { phx_expanded_navy }
+		provinces_to_highlight = {
+			OR = {
+				area = tunisia_area
+				area = djerba_area
+				area = kabylia_area
+			}
+		}
+		trigger = {
+			tunisia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			djerba_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			kabylia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = { }
+	}
+	phx_artillery = {
+		icon = mission_cannons_firing
+		position = 8
+		required_missions = { phx_rise_of_empire }
+		trigger = {
+			owns_core_province = 4737
+			4737 = {
+				base_production = 10
+			}
+		}
+		effect = {
+			4737 = {
+				change_trade_goods = tl_artillery
+			}
+		}
+	}
+	phx_purge_carthagos = {
+		icon = atlantropa_poison
+		position = 10
+		required_missions = { phx_cultural_revolution }
+		trigger = {
+			crown_land_share = 80
+		}
+		effect = {
+			country_event = {
+				id = phoenixempire_events.8
+			}
+		}
+	}
+}
+
+atl_phx5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = XA8
+	}
+
+	phx_italian_trade = {
+		icon = mission_trade_with_cathay
+		position = 1
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 112
+				province_id = 124
+				province_id = 1298
+			}
+		}
+		trigger = {
+			124 = {
+				has_merchant = ROOT
+			}
+			112 = {
+				has_merchant = ROOT
+			}
+			1298 = {
+				has_merchant = ROOT
+			}
+		}
+		effect = {
+			112 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 5475
+					power = 100
+					key = FJORDLAND_TRADE
+				}
+			}
+			1298 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 5475
+					power = 100
+					key = FJORDLAND_TRADE
+				}
+			}
+			123 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 5475
+					power = 100
+					key = FJORDLAND_TRADE
+				}
+			}
+		}
+	}
+	phx_trade_navy = {
+		icon = mission_dominate_trade_in_aden 
+		position = 3
+		required_missions = { phx_national_navy phx_italian_trade }
+		trigger = {
+			num_of_light_ship = 50
+			num_of_loans = 0
+			current_income_balance = 50
+		}
+		effect = {
+			112 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 5475
+					power = 100
+					key = FJORDLAND_TRADE
+				}
+			}
+			1298 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 5475
+					power = 100
+					key = FJORDLAND_TRADE
+				}
+			}
+			123 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 5475
+					power = 100
+					key = FJORDLAND_TRADE
+				}
+			}
+			add_mercantilism = 10
+			add_years_of_income = 1
+		}
+	}
+	phx_seize_islandger = {
+		icon = seize_sardinia
+		position = 6
+		required_missions = { phx_expanded_navy }
+		provinces_to_highlight = {
+			OR = {
+				area = corsica_sardinia_area
+				area = corsica_area
+			}
+		}
+		trigger = {
+			corsica_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			corsica_sardinia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = { }
+	}
+	phx_roads = {
+		icon = atlantropa_imperialroads
+		position = 8
+		required_missions = { phx_rise_of_empire }
+		trigger = {
+			atlantropa_road = 20
+		}
+		effect = {
+			every_owned_province = {
+				limit = {
+					has_building = atlantropa_road
+				}
+				add_base_production = 1
+			}
+		}
+	}
+	phx_kolej = {
+		icon = atlantropa_steamengine
+		position = 10
+		required_missions = { phx_roads }
+		trigger = {
+			atlantropa_tracks = 20
+		}
+		effect = {
+			every_owned_province = {
+				limit = {
+					has_building = atlantropa_tracks
+				}
+				add_base_production = 3
+			}
+		}
+	}
+}
+
