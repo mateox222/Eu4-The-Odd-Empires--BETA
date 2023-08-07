@@ -170,7 +170,14 @@ ko1_hwasan_conquest = {
 						is_core = ROOT
 					}
 				}
-				dip_power = 100
+				AND = {
+					dip_power = 100
+					hidden_trigger = {
+						MJZ = {
+							ai = yes
+						}
+					}
+				}
 			}
 		}
 		#trigger_event "The Fate of Jianzhou"
@@ -1044,6 +1051,61 @@ ko1_industrial = {
 			factor = 10
 		}
 	}
+	#5th tier
+	mount_paektu_ko1 = {
+		icon = atlantropa_conquestnorth
+		position = 9
+		required_missions = {  }
+		provinces_to_highlight = {
+			province_id = 4201
+			NOT = {
+				owned_by = ROOT
+				infantry_in_province = 4
+				OR = {
+					has_building = barracks
+					has_building = training_fields
+				}
+			}
+		}
+		trigger = {
+			4201 = {
+				owned_by = ROOT
+				infantry_in_province = 4
+				OR = {
+					has_building = barracks
+					has_building = training_fields
+				}
+			}
+		}
+		effect = {
+			add_manpower = -4
+			4201 = {
+				add_province_triggered_modifier = mount_paektu_mod_ko1
+			}
+			KO1 = {
+				every_known_country = {
+					limit = {
+						OR = {
+							culture_group = korean_g
+							culture = manchu
+							culture = manchu_new
+							culture = korean_new
+						}
+						NOT = {
+							tag = KO1
+						}
+					}
+					add_opinion = {
+						who = ROOT
+						modifier = "paektu_opinion"
+					}
+				}
+			}
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
 }
 
 ko1_reorganization = {
@@ -1668,9 +1730,9 @@ ko1_the_grandest_jewel = {
 		trigger = {
 			OR = {
 				NOT = {
-					great_power_rank = 2
+					great_power_rank = 6
 				}
-				total_development = 1500
+				total_development = 2500
 			}
 		}
 		#trigger_event "Serfs No Longer"
