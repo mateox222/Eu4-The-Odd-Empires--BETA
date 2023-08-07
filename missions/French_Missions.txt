@@ -1008,7 +1008,7 @@ emp_france_missions_2 = {
 		trigger = {
 			OR = {
 				SWI = {
-					is_subject_of = FRA
+					is_subject_of = ROOT
 				}
 				AND = {
 					switzerland_area = {
@@ -1315,7 +1315,7 @@ emp_france_missions_2 = {
 			india_superregion = {
 				type = all
 				OR = {
-					owned_by = FRA
+					owned_by = ROOT
 					owner = {
 						NOT = {
 							technology_group = western
@@ -1454,9 +1454,9 @@ emp_france_missions_2 = {
 				}
 				AND = {
 					OR = {
-					POL = { is_subject_of = FRA				}
-					X10 = { is_subject_of = FRA				}				
-					PLC = { is_subject_of = FRA				}
+					POL = { is_subject_of = ROOT			}
+					X10 = { is_subject_of = ROOT			}				
+					PLC = { is_subject_of = ROOT				}
 					}
 				}
 
@@ -1621,7 +1621,7 @@ emp_france_missions_2 = {
 		GUY = { exists = no }
 		owns_core_province = 174
 		}
-		GUY = { is_subject_of = FRA }
+		GUY = { is_subject_of = ROOT	 }
 		}
 		}
 		effect = {
@@ -1996,7 +1996,7 @@ emp_france_missions_2 = {
 		CAS = { exists = no }
 		owns_core_province = 217
 		}
-		CAS = { is_subject_of = FRA }
+		CAS = { is_subject_of = ROOT }
 		}
 		}
 		effect = {
@@ -2505,6 +2505,8 @@ emp_france_missions_2 = {
 			crown_land_share = 70
 		}
 		effect = {
+			add_government_reform =  absolutist_france_reform
+
 			add_country_modifier = {
 				name = "the_state_is_me"
 				duration = -1

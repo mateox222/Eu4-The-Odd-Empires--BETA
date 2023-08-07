@@ -580,11 +580,8 @@ latin_empire_another2 = {
 					exists = no 
 				}
 			}
-			HRZ = { 
-				OR = { 
-					alliance_with = ROOT 
-					is_rival = ROOT 
-					has_opinion_modifier = {
+			LAE = {
+				has_opinion_modifier = {
 						who = ROOT
 						modifier = insulted
 					}
@@ -592,7 +589,16 @@ latin_empire_another2 = {
 						who = ROOT
 						modifier = scornfully_insulted
 					}
+			}
+			HRZ = {  
+				OR = { 
+					alliance_with = ROOT 
 					exists = no 
+					has_opinion = {
+	who = ROOT
+	value = 150
+}
+				
 				}
 			}
 		}

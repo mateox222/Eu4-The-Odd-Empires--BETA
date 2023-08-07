@@ -1,0 +1,73 @@
+frenchannexapanage_mechanic = {
+   alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 10
+	
+	interactions = {
+        frnchshadowmechanic = { #Improvemandate
+			cooldown_years = 10
+			
+			potential = {
+				always = no
+			}
+			trigger = {
+                imperial_mandate = 80
+			}
+			effect = { 
+             add_mandate = -10	
+             add_yearly_sailors = 2
+             create_admiral = { tradition = 75 }	
+             add_diP_power = 150
+             add_stability = -1
+
+			}
+			ai_chance = {
+				factor = 0
+			}
+		}
+        french_annex_appanage = { 
+			cooldown_years = 20
+			
+			icon = GFX_frenchappanagew
+			trigger = {
+				any_subject_country = {
+					is_subject_of_type = appanage
+				NOT = {
+					liberty_desire = 33
+				}}
+			   is_at_war = no
+               adm_power = 100
+			   dip_power = 100
+			   mil_power = 100
+			   stability = 2
+			}
+			effect = { 
+				hidden_effect = {
+            random_subject_country = {
+				limit = {
+					is_subject_of_type = appanage
+				NOT = {
+					liberty_desire = 33
+				}
+				}
+				    save_event_target_as = frabceanneksa	
+
+			 }	
+				}
+			 add_adm_power = -100
+			 add_adm_power = -100
+			 add_adm_power = -100
+			 add_stability = -1
+			inherit = event_target:frabceanneksa
+
+
+			}
+			ai_chance = {
+				factor = 1
+			}
+		}
+
+		
+
+
+}
+}

@@ -79,13 +79,7 @@ country_event = {
 	fire_only_once = yes
 	major = yes
 	
-	trigger = {
-		tag = POL
-		is_subject = no
-		has_regency = yes
-		NOT = { has_reform = celestial_empire }
-		NOT = { is_year = 6959 }
-	}
+	is_triggered_only = yes
 	
 	immediate = {
 		set_global_flag = plc_union_outcome_flag
@@ -250,11 +244,13 @@ country_event = {
 	option = {
 		trigger = {
 			BOH = { ai = yes}
+			NOT = { war_with = BOH }
 		}
 		name = flavor_pol.19.f
 		ai_chance = { 
 			factor = 15
 		}
+		add_stability = -5
 		custom_tooltip = POLSKAWYBIERAAKQITANIAtool5
 		set_country_flag = POLSKAWYBIERACZECHAA	
 		set_country_flag = polskawybieraczecha
@@ -966,3 +962,118 @@ country_event = { #Baltic Gold & the Gates of Kings
 			
 		}
 	}}
+
+
+
+
+
+country_event = { #Czesistart
+	id = venediaevent.59
+	title = venediaevent.59.t 
+	desc = venediaevent.59.d 
+	picture = citysiegea_eventPicture
+	major = yes
+	major_trigger = {
+		culture_group = west_slavic
+	}
+	trigger = {
+		tag = BOH
+		NOT = { has_global_flag = CZESKIEVENTSTARTOWY }
+	}
+	option = {
+		set_global_flag = CZESKIEVENTSTARTOWY
+		name = venediaevent.59.a 
+		custom_tooltip = czeskitooltipstartowy
+		 }
+	}
+
+	country_event = { #Polish Victory
+	id = venediaevent.58
+	title = venediaevent.58.t 
+	desc = venediaevent.58.d 
+	picture = rzeczpospolitahusarz_eventPicture
+	major = yes
+	major_trigger = {
+		culture_group = west_slavic
+	}
+	trigger = {
+		tag = POL
+		is_year = 6903
+		NOT = {
+			has_global_flag = POLSKAWOJNAOUTCOME
+		}
+	}
+	option = {
+		set_global_flag = Czeskainwazjazakonczylasieporazkacalkowita
+		set_global_flag = POLSKAWOJNAOUTCOME
+		name = venediaevent.58.a 
+		add_prestige = 5
+		add_years_of_income = 2
+		BOH = {
+			add_years_of_income = -3
+			every_war_enemy_country = {
+			white_peace = ROOT
+			white_peace = MVA
+			white_peace = NEV
+			white_peace = PL7		
+		 }	
+		}
+
+
+
+		 4390 = { cede_province = ROOT }
+		 hidden_effect = {
+		 country_event = { 
+    id = venediaevent.2
+}
+		 }
+	}}
+
+	country_event = { #Czech Victory
+	id = venediaevent.60
+	title = venediaevent.60.t 
+	desc = venediaevent.60.d 
+	picture = LIBERUM_VETO_eventPicture
+	major = yes
+	major_trigger = {
+		culture_group = west_slavic
+	}
+	trigger = {
+		tag = BOH
+		NOT = { has_global_flag = POLSKAWOJNAOUTCOME }
+		OR = {
+			owns_core_province = 184
+			controls = 184
+		}
+		NOT = {
+		is_year = 6903
+		}
+	}
+	option = {
+		set_global_flag = POLSKAWOJNAOUTCOME
+		name = venediaevent.60.a 
+		 }
+		every_war_enemy_country = {
+			white_peace = ROOT
+			white_peace = MVA
+			white_peace = NEV
+			white_peace = PL7		
+		 }	
+		 		create_union = POL
+				POL = { change_country_color = { 
+    color = { 165 151 88 }
+} }
+set_country_flag = has_overriden_color_flag
+		add_prestige = 15
+		add_years_of_income = 2
+		POL = {
+			add_years_of_income = -3
+		}
+		GUY = {
+					add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 480
+					target = POL
+				}
+		}
+	}
