@@ -244,6 +244,38 @@ country_event = { #A New Order
 	}
 }
 
+country_event = { #The Finno-Korean Hyperwar
+	id = agmajongpa.80
+	title = agmajongpa.80.t 
+	desc = agmajongpa.80.d 
+	picture = frozendoor_eventPicture
+	is_triggered_only = yes 
+	
+	major = yes 
+	major_trigger = { 
+		culture_group = ugrofinic
+	}
+	option = {
+		name = agmajongpa.80.a
+		KO1 = {
+			every_country = {
+				limit = {
+					culture_group = ugrofinic
+					NOT = {
+						tag = KO1
+					}
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = "finno_korean_hyperwar"
+				}
+			}
+		}
+		set_country_flag = learned_of_hwan_empire_flag
+		ai_chance = { factor = 2 } 
+	}
+}
+
 country_event = { #The Demon Overseas
 	id = agmajongpa.9
 	title = agmajongpa.9.t 
