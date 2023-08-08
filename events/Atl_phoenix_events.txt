@@ -30,11 +30,9 @@ country_event = {
 	desc = "phoenixempire_events.2.d"
 	picture = Daqincity_eventPicture
 	is_triggered_only = yes
-	option = {
-		name = "phoenixempire_events.2.a"
-		add_stability = 1
-	}
+
 		option = {
+			
 		name = "phoenixempire_events.2.b"
 		change_religion = hellenic_pagan
 					add_country_modifier = {
@@ -60,6 +58,10 @@ country_event = {
 	desc = "phoenixempire_events.3.d"
 	picture = Daqincity_eventPicture
 	is_triggered_only = yes
+	major = yes
+	immediate = {
+set_in_empire = no
+	}
 	option = {
 		name = "phoenixempire_events.3.a"
 					set_government_rank = 2	
@@ -133,6 +135,11 @@ country_event = { #Fate of Rome
 	desc = "phoenixempire_events.4.d"
 	picture = Daqincity_eventPicture
 	is_triggered_only = yes
+		immediate = {
+118 = { cede_province = ROOT }
+ 5747 = { cede_province = ROOT }
+ set_country_flag = przedrewolucjakulturalna
+	}
 	option = {
 		set_government_rank = 3	
 		dismantle_hre = yes	
@@ -146,11 +153,7 @@ rename_capital = "North Urbsignis"
 			change_province_name = "South Urbsignis"	
 			rename_capital = "South Urbsignis"	
 		}
-				if = {
-			limit = { religion = hellenic_pagan }
-		5747 = { change_religion = hellenic_pagan }
-		118 = { change_religion = hellenic_pagan }	
-				}
+
 		add_government_power = {
 					mechanic_type = phoenix_mechanic
 					power_type = phoenix_power
@@ -158,10 +161,19 @@ rename_capital = "North Urbsignis"
 				}
 	}
 		option = {
+			hidden_effect = {
+				country_event = { 
+    id = phoenixempire_events.17 }
+			}
 			add_stability = 1
 			set_government_rank = 3	
 			dismantle_hre = yes	
 		name = "phoenixempire_events.4.b"
+						if = {
+			limit = { religion = hellenic_pagan }
+		5747 = { change_religion = hellenic_pagan }
+		118 = { change_religion = hellenic_pagan }	
+				}
 				118 = {
 change_province_name = "North Urbsignis"	
 rename_capital = "North Urbsignis"	
@@ -193,13 +205,13 @@ country_event = {
 	id = phoenixempire_events.5
 	title = "phoenixempire_events.5.t"
 	desc = "phoenixempire_events.5.d"
-	picture = Daqincity_eventPicture
+	picture =  demonmeeting_eventPicture
 	is_triggered_only = yes
 	option = {
 		name = "phoenixempire_events.5.a"
-		add_stability = -6
+		add_stability = 1
 		set_country_flag = PHOENIXCULTURAREVOLUTION
-		add_prestige = 10
+		add_prestige = -10
 				every_owned_province = {
 			limit = {
 				culture = ROOT
@@ -220,7 +232,7 @@ country_event = {
 	id = phoenixempire_events.6
 	title = "phoenixempire_events.6.t"
 	desc = "phoenixempire_events.6.d"
-	picture = Daqincity_eventPicture
+	picture = sackniflport_eventPicture
 	is_triggered_only = yes
 	option = {
 		name = "phoenixempire_events.6.a"
@@ -228,6 +240,8 @@ country_event = {
 		add_adm_power = 100
 		add_dip_power = 100		
 		add_mil_power = 100
+		custom_tooltip = catholicsaregonephoenix
+		hidden_effect = {
 		every_owned_province = {
 			limit = {
 				religion = catholic
@@ -237,8 +251,17 @@ country_event = {
 			add_base_tax = -2
 			add_base_production = -2
 			remove_building = temple	
-			
 		}
+				every_owned_province = {
+			limit = {
+				religion = hellenic_pagan
+			}
+			add_devastation = 10
+			add_base_manpower = -1
+			add_base_tax = -1
+			add_base_production = -1	
+		}
+		
 		if = {
 			limit = { religion = hellenic_pagan }
 			every_owned_province = {
@@ -256,7 +279,14 @@ country_event = {
 			}
 			change_religion = protestant
 			}
-		}
+
+		}}
+					every_neighbor_country = {
+				capital_scope = {
+				add_base_manpower = 2	
+				}
+			 }	
+
 		add_prestige = 10
 				add_government_power = {
 					mechanic_type = phoenix_mechanic
@@ -271,6 +301,7 @@ country_event = {
 	title = "phoenixempire_events.7.t"
 	desc = "phoenixempire_events.7.d"
 	picture = Daqincity_eventPicture
+	major = yes
 	is_triggered_only = yes
 	option = {
 		name = "phoenixempire_events.7.a"
@@ -287,6 +318,14 @@ country_event = {
 			add_base_tax = -3
 			add_base_production = -3
 			change_culture = ROOT
+		}
+				every_neighbor_country = {
+				capital_scope = {
+				add_base_manpower = 2	
+				}
+			 }
+		hidden_effect = {
+	
 		}
 		add_prestige = 10
 				add_government_power = {
@@ -305,6 +344,12 @@ country_event = {
 	picture = Daqincity_eventPicture
 	is_triggered_only = yes
 	option = {
+					hidden_effect = {
+				country_event = { 
+    id = phoenixempire_events.201 
+	    days = 30
+}
+			}
 		name = "phoenixempire_events.8.a"
 		add_adm_power = 200
 		add_dip_power = 200		
@@ -343,29 +388,6 @@ add_estate_loyalty = {
 }
 
 country_event = {
-	id = phoenixempire_events.9
-	title = "phoenixempire_events.9.t"
-	desc = "phoenixempire_events.9.d"
-	picture = Daqincity_eventPicture
-	is_triggered_only = yes
-	option = {
-		name = "phoenixempire_events.9.a"
-		add_adm_power = 200
-		add_dip_power = 200		
-		add_mil_power = 200
-		add_stability = 2
-		add_absolutism = 10	
-		add_prestige = 10
-
-				add_government_power = {
-					mechanic_type = phoenix_mechanic
-					power_type = phoenix_power
-					value = 10
-				}
-	}
-
-}
-country_event = {
 	id = phoenixempire_events.10
 	title = "phoenixempire_events.10.t"
 	desc = "phoenixempire_events.10.d"
@@ -394,4 +416,230 @@ country_event = {
 				}
 	}
 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+country_event = { #Sacco di Roma
+	id = phoenixempire_events.16
+	title = "phoenixempire_events.16.t"
+	desc = "phoenixempire_events.16.d"
+	picture = christians_in_phoenix_empire_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "phoenixempire_events.16.a"
+		add_adm_power = 50
+		add_dip_power = 50		
+		add_mil_power = 50
+		add_prestige = 10
+		add_manpower = -0.5
+	}
+
+}
+country_event = { #Sacco di Roma
+	id = phoenixempire_events.17
+	title = "phoenixempire_events.17.t"
+	desc = "phoenixempire_events.17.d"
+	picture = Daqincity_eventPicture
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = "phoenixempire_events.17.a"
+		add_adm_power = 50
+		add_dip_power = 50		
+		add_mil_power = 50
+		every_country = {
+    limit = {
+		OR = {
+        religion = catholic
+ 		religion = united_christianity
+		}
+    }
+	add_opinion = {
+    who = ROOT
+    modifier = sacco_rzymu
+}
+}
+		
+	}
+
+}
+
+country_event = { #Sacco di Roma
+	id = phoenixempire_events.18
+	title = "phoenixempire_events.18.t"
+	desc = "phoenixempire_events.18.d"
+	picture = Daqincity_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "phoenixempire_events.18.a"
+		add_adm_power = 150
+		add_dip_power = 150		
+		add_mil_power = 150
+		
+		1216 = {
+			add_great_project = {
+    type = atlantis_phoenix_temple 
+    instant = yes
+}
+		}
+	}
+
+}
+
+
+
+country_event = { #Cultural Revolution
+	id = phoenixempire_events.100
+	major = yes
+	title = "phoenixempire_events.100.t"
+	desc = "phoenixempire_events.100.d"
+	picture = Cultist_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "phoenixempire_events.100.a"
+		add_stability = -6
+	}
+
+}
+country_event = { #Cultural Revolution
+	id = phoenixempire_events.101
+	title = "phoenixempire_events.101.t"
+	desc = "phoenixempire_events.101.d"
+	picture = phoenix_civil_war_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "phoenixempire_events.101.a"
+		random_owned_province = {
+			add_base_manpower = -1	
+			add_devastation = 10
+		}
+	}
+
+}
+country_event = { #Cultural Revolution
+	id = phoenixempire_events.102
+	title = "phoenixempire_events.102.t"
+	desc = "phoenixempire_events.102.d"
+	picture = phoenix_civil_war_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "phoenixempire_events.102.a"
+		random_owned_province = {
+			add_base_tax = -1	
+			add_devastation = 10		
+		}
+	}
+}
+
+
+
+country_event = { #Cultural Revolution
+	id = phoenixempire_events.103
+	title = "phoenixempire_events.103.t"
+	desc = "phoenixempire_events.103.d"
+	picture = phoenix_civil_war_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "phoenixempire_events.101.a"
+		random_owned_province = {
+			limit = {
+				OR = {
+					culture = ROOT
+				}
+			}
+			add_base_manpower = -2
+			add_base_tax = -2	
+			add_devastation = 20
+
+		}
+	}
+
+}
+
+country_event = { #Cultural Revolution
+	id = phoenixempire_events.200
+	title = "phoenixempire_events.200.t"
+	desc = "phoenixempire_events.200.d"
+	picture = demonmeeting_eventPicture
+	is_triggered_only = yes
+	immediate = {
+				set_country_flag = revolution_is_over
+	}
+	option = {
+		name = "phoenixempire_events.200.a"
+		add_adm_power = 200
+		add_dip_power = 200		
+		add_mil_power = 200
+		add_stability = 2
+		add_absolutism = 10	
+		add_prestige = 10
+
+
+				add_government_power = {
+					mechanic_type = phoenix_mechanic
+					power_type = phoenix_power
+					value = 10
+				}
+	}
+
+}
+
+country_event = {
+id = phoenixempire_events.201
+	title = "phoenixempire_events.201.t"
+	desc = "phoenixempire_events.201.d"
+	picture = byzantinehorseman_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "phoenixempire_events.201.a"
+		
+	}
+}
+
+country_event = {
+id = phoenixempire_events.202
+	title = "phoenixempire_events.202.t"
+	desc = "phoenixempire_events.202.d"
+	picture = citysiegea_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "phoenixempire_events.202.a"
+		add_stability = -2
+		add_manpower = -1
+		capital_scope = {
+			add_devastation = 25
+		}
+						country_event = { 
+    id = phoenixempire_events.203 
+	    days = 10
+}
+	}
+}
+
+country_event = {
+id = phoenixempire_events.203
+	title = "phoenixempire_events.203.t"
+	desc = "phoenixempire_events.203.d"
+	picture = burningcarpathia_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "phoenixempire_events.203.a"
+		add_stability = 1
+		add_manpower = -5	
+		capital_scope = {
+			add_devastation = 25
+		}
+		set_country_flag = questionsofpuritans
+		set_country_flag = cultural_revolution_coming_to_end
+	}
 }

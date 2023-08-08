@@ -4235,3 +4235,244 @@ hypersuomitemple_gibraltar  = {
 		}
 	}
 }
+
+atlantis_colosseum_roma = {
+    start = 5747
+	date = 6808.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 1
+	type = monument
+	build_trigger = {
+	always = no
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		province_is_or_accepts_culture = yes
+			owner = { religion_group = pagan  }
+	}
+
+	can_upgrade_trigger = {
+		province_is_or_accepts_culture = yes
+				owner = { religion_group = pagan  }
+
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+					
+					autonomy_change_time = -0.1		
+		}
+		area_modifier = {
+			hostile_attrition = 1	
+		}
+		country_modifiers = {
+			unrest_catholic_provinces = 2	
+			global_unrest = -1	
+			stability_cost_modifier = -0.1	
+			harsh_treatment_cost = -0.1
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+					
+					autonomy_change_time = -0.2		
+		}
+		area_modifier = {
+			hostile_attrition = 1	
+		}
+		country_modifiers = {
+			unrest_catholic_provinces = 3	
+			global_unrest = -2	
+			stability_cost_modifier = -0.2	
+			harsh_treatment_cost = -0.2
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+
+					autonomy_change_time = -0.25
+					
+		}
+		area_modifier = {
+			hostile_attrition = 1	
+		}
+		country_modifiers = {
+			unrest_catholic_provinces = 5	
+			global_unrest = -3	
+			stability_cost_modifier = -0.25	
+			harsh_treatment_cost = -0.25
+		}
+		on_upgraded = {
+		}
+	}
+}
+atlantis_phoenix_temple = {
+    start = 124
+	date = 6808.01.01
+	time = { months = 0 }
+	build_cost = 1500
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 0
+	type = monument
+	build_trigger = {
+	always = no
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		province_is_or_accepts_culture = yes
+		owner = { religion_group = pagan  }
+		owner = { tag = XA8 }
+	}
+
+	can_upgrade_trigger = {
+		province_is_or_accepts_culture = yes
+		owner = { religion_group = pagan  }
+			owner = { tag = XA8 }
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			global_missionary_strength = 0.02	
+			religious_unity = 0.05
+			tolerance_heathen = -1	
+			culture_conversion_time = -0.1	
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		}
+		province_modifiers = {
+
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			global_missionary_strength = 0.03	
+			religious_unity = 0.1
+			tolerance_heathen = -2	
+			culture_conversion_time = -0.15	
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			global_missionary_strength = 0.05	
+			religious_unity = 0.15
+			tolerance_heathen = -5	
+			culture_conversion_time = -0.35	
+		}
+		on_upgraded = {
+		}
+	}

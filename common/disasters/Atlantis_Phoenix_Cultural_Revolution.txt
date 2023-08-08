@@ -1,0 +1,98 @@
+phx_cultural_revolution = {
+	potential = {
+        NOT = {
+		OR = {
+			current_age = age_of_discovery
+			current_age = medieval_age
+		}
+        }
+		NOT = { has_country_flag = revolution_is_over }
+		has_country_flag = przedrewolucjakulturalna
+	}
+	
+	
+	can_start = {
+                    num_of_cities = 20
+        NOT = {
+		OR = {
+			current_age = age_of_discovery
+			current_age = medieval_age
+		}
+        }
+		has_any_disaster = no
+    }
+	
+	can_stop = {
+		always = no
+	}
+	
+	progress = {
+		modifier = {
+			factor = 1
+			always = yes
+		}
+		modifier = {
+			factor = 1
+			war_exhaustion = 10
+		}
+		modifier = {
+			factor = 5
+			NOT = { stability = 3 }
+		}		
+		modifier = {
+			factor = 1.5
+			government = monarchy
+			NOT = { legitimacy = 50 }
+		} 
+		modifier = {
+			factor = 1
+			num_of_loans = 10
+		}	
+		modifier = {
+			factor = 2
+			is_bankrupt = yes
+		}		
+		modifier = {
+			factor = 0.5
+			overextension_percentage = 0.25
+			NOT = { 
+				overextension_percentage = 0.5
+			}
+		}
+		modifier = {
+			factor = 1.0
+			overextension_percentage = 0.5
+		}
+	}
+	
+	can_end = {
+		has_country_flag = cultural_revolution_coming_to_end
+	}
+	
+
+	modifier = {
+		global_unrest = 5
+		stability_cost_modifier = 1
+	}	
+	
+	
+	on_start = phoenixempire_events.100
+	on_end = phoenixempire_events.200
+	
+	on_monthly = {
+		events = {
+	
+		}
+		random_events = { 
+			1000 = 0
+			100 = peasants_war.2
+			100 = peasants_war.3
+			50 = peasants_war.4
+			50 = peasants_war.5
+            200 = phoenixempire_events.101
+            200 = phoenixempire_events.102
+            50 = phoenixempire_events.103
+		
+		}
+	}
+}
