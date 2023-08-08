@@ -1153,9 +1153,7 @@ epirus_monarchy = {
 		ai = {
 		factor = 100
 	}
-			government_abilities = {
-			phoenix_mechanic
-		}
+
     
 }
 
@@ -1183,6 +1181,45 @@ Daqin_monarchy = {
 		allow = { has_dlc = "Rights of Man" }
 		government_abilities = {
 			militarization_mechanic
+		}
+	}
+			custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
+		factor = 100
+	}
+}
+
+
+Phoenix_monarchy = {
+	icon = "phoenixmonarchy"
+	allow_normal_conversion = no
+	legacy_equivalent = feudal_monarchy	
+	potential = {
+     tag = XA8
+	 has_country_flag = phoenixarises
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 100
+
+	modifiers = {
+		war_exhaustion = -0.02
+		global_autonomy = -0.075
+		num_accepted_cultures = -5
+		promote_culture_cost = 2		
+		max_absolutism = -10
+		nobles_loyalty_modifier = 0.1
+		governing_capacity_modifier = -0.25
+	}
+
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+			government_abilities = {
+			phoenix_mechanic
+		}
+				government_abilities = {
+			pho_naval_professionalism_mechanic
 		}
 	}
 			custom_attributes = {

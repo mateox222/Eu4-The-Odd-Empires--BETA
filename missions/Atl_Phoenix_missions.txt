@@ -55,10 +55,19 @@ atl_phx1 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		effect = { }
+		effect = {
+			add_adm_power = 50
+			add_dip_power = 50
+			add_mil_power = 50
+			add_government_power = {
+				mechanic_type = phoenix_mechanic
+				power_type = phoenix_power
+				value = 1
+			}
+		}
 	}
 	phx_economy = {
-		icon =dominant_economy
+		icon = dominant_economy
 		position = 8
 		required_missions = { phx_rise_of_empire }
 		trigger = {
@@ -129,11 +138,13 @@ atl_phx1 = {
 		position = 12
 		required_missions = { phx_empire_is_clean }
 		trigger = {
+			stability = 3
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				value = 10
 				OR = {
 					trade_goods = grain
 					trade_goods = atl_fruit
+					trade_goods = sea_food
 				}
 				base_production = 5
 			}
@@ -143,11 +154,126 @@ atl_phx1 = {
 			every_owned_province = {
 				limit = {
 					OR = {
-						trade_goods = grain
-						trade_goods = atl_fruit
+					trade_goods = grain
+					trade_goods = atl_fruit
+					trade_goods = sea_food
 					}
 				}
 				add_base_manpower = 1
+			}
+							add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 2
+							}
+		}
+	}
+	phx_marble_production = {
+		icon = reform_the_state
+		position = 13
+		required_missions = { phx_agral_reform }
+		provinces_to_highlight = {
+			province_id = 120
+		}
+		trigger = {
+			120 = {
+				owned_by = ROOT
+				base_production = 10
+			}
+		}
+		effect = {
+			add_adm_power = 100
+			120 = {
+			change_trade_goods = atl_sculpture
+			}
+							add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 2
+							}
+		}
+	}
+	phx_italian_fortresses = {
+		icon = fortress_switzerland
+		position = 15
+		required_missions = { phx_italian_empire }
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 5
+				has_building = atlantropa_superfortress
+			}
+		}
+		effect = {
+			add_adm_power = 200
+			add_dip_power = 200
+			add_mil_power = 200
+							add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 5
+							}
+		}
+	}
+	phx_ethnostate = {
+		icon = establish_client_states
+		position = 16
+		required_missions = { phx_Italian_prosperity }
+		trigger = {
+			num_of_owned_provinces_with = {
+					value = 50
+					culture = ROOT
+				}
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+							add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 5
+							}
+		}
+	}
+	phx_attack_east = {
+		icon = mission_balkan_conquest
+		position = 17
+		required_missions = { phx_establish_flamearmyy }
+		provinces_to_highlight = {
+			region = balkan_region
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+					value = 20
+					OR = {
+						region = balkan_region
+					}
+			
+				}
+		}
+		effect = {
+			add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 5
+							}
+			add_adm_power = 250
+			add_dip_power = 250
+			add_mil_power = 250
+		}
+	}
+	seize_constantinople = {
+		icon = mission_city_of_the_world's_desire
+		position = 18
+		required_missions = { phx_attack_east }
+		provinces_to_highlight = {
+			province_id = 151
+		}
+		trigger = {
+			owns_core_province = 151
+		}
+		effect = {
+			country_event = {
+				id = phoenixempire_events.13
 			}
 		}
 	}
@@ -220,7 +346,16 @@ atl_phx2 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		effect = { }
+		effect = {
+			add_adm_power = 50
+			add_dip_power = 50
+			add_mil_power = 50
+			add_government_power = {
+				mechanic_type = phoenix_mechanic
+				power_type = phoenix_power
+				value = 1
+			}
+		}
 	}
 	Phoenix_Capital = {
 		icon = imperial_capitals
@@ -268,6 +403,139 @@ atl_phx2 = {
 			country_event = {
 				id = phoenixempire_events.7
 			}
+		}
+	}
+	imperial_prohibition = {
+		icon = mission_vodka_monopoly
+		position = 12
+		required_missions = { phx_empire_is_clean }
+		trigger = {
+			adm_power = 100
+			stability = 3
+		}
+		effect = {
+			add_adm_power = -100
+					add_country_modifier = {
+				name = atl_phoenix_prohibition
+				duration = -1
+			}
+							add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 2
+							}
+		}
+	}
+	phx_monopoly_truth = {
+		icon = atlantropa_sisisisisisi
+		position = 13
+		required_missions = { imperial_prohibition }
+		trigger = {
+			num_of_owned_provinces_with = {
+				trade_goods = paper
+				base_production = 4
+			}
+			
+			
+				OR = {
+				full_idea_group = innovativeness_ideas
+				has_institution = printing_press
+				}
+		}
+		effect = {
+			add_country_modifier = {
+				name = atl_phoenix_TRUTH
+				duration = -1
+			}
+							add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 2
+							}
+		}
+	}
+	phx_Italian_prosperity = {
+		icon = prosperity_for_all
+		position = 15
+		required_missions = { phx_italian_empire }
+		trigger = {
+			num_of_owned_provinces_with = {
+					value = 60
+					is_prosperous = yes
+			
+				}
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+							add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 5
+							}
+		}
+	}
+	phx_attack_south = {
+		icon = mission_into_africa
+		position = 17
+		required_missions = { phx_establish_flamearmyy }
+		provinces_to_highlight = {
+			OR = {
+						region = maghreb_region
+						region = libyasuperior_region	
+						region = egypt_region	
+					}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+					value = 35
+					OR = {
+						region = maghreb_region
+						region = libyasuperior_region	
+						region = egypt_region	
+					}
+			
+				}
+		}
+		effect = {
+			add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 5
+							}
+			add_adm_power = 250
+			add_dip_power = 250
+			add_mil_power = 250
+		}
+	}
+	phx_seize_egypt = {
+		icon = atlantropa_navalpower
+		position = 18
+		required_missions = { phx_attack_south phx_attack_east }
+		provinces_to_highlight = {
+			OR = {
+						region = anatolia_region
+						region = mashriq_region
+				}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+					value = 40
+					OR = {
+						region = anatolia_region
+						region = mashriq_region
+				}
+			}
+		}
+		effect = {
+			add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 5
+							}
+			add_adm_power = 250
+			add_dip_power = 250
+			add_mil_power = 250
 		}
 	}
 }
@@ -435,11 +703,109 @@ atl_phx3 = {
 		}
 	}
 	phx_conquest_north = {
-		icon = mission_build_up_to_force_limit
-		position = 12
+		icon = atlantropa_nilfgaard
+		position = 13
 		required_missions = { phx_empire_is_clean }
-		trigger = { }
-		effect = { }
+		trigger = {
+			num_of_owned_provinces_with = {
+					value = 30
+					OR = {
+						region = italy_region
+					}
+				}
+		}
+		effect = {
+			add_prestige = 50
+							add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 10
+							}
+			add_mil_power = 200
+		}
+	}
+	phx_italian_empire = {
+		icon = atlantropa_italia
+		position = 14
+		required_missions = { phx_conquest_north phoenix_university phoenix_close_economy phx_monopoly_truth phx_marble_production }
+		trigger = {
+			total_development = 1000
+		}
+		effect = {
+			country_event = {
+				id = phoenixempire_events.10
+			}
+		}
+	}
+	phx_establish_flamearmyy = {
+		icon = atlantropa_army
+		position = 16
+		required_missions = { phx_italian_empire }
+		trigger = {
+			army_size = 200
+		}
+		effect = {
+			country_event = {
+				id = phoenixempire_events.11
+			}
+		}
+	}
+	phx_unite_italy = {
+		icon = mission_rule_italy
+		position = 18
+		required_missions = { phx_establish_flamearmyy }
+		provinces_to_highlight = {
+			region = italy_region
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+					value = 90
+					OR = {
+						region = italy_region
+			
+				}
+			}
+		}
+		effect = {
+			country_event = {
+				id = phoenixempire_events.12
+			}
+		}
+	}
+	phx_european_empire = {
+		icon = a_roman_empire
+		position = 19
+		required_missions = { seize_constantinople phx_seize_francja phx_seize_egypt phx_seize_britta }
+		trigger = {
+			num_of_owned_provinces_with = {
+					value = 1000
+					owned_by = ROOT
+			}
+		}
+		effect = {
+			country_event = {
+				id = phoenixempire_events.14
+			}
+		}
+	}
+	phx_hegemon = {
+		icon = centralized_empire
+		position = 20
+		required_missions = { phx_european_empire }
+		trigger = {
+			stability = 3
+			if = {
+				limit = { has_dlc = "Emperor" }
+				is_hegemon = yes
+			}
+			else = { total_development = 2000 }
+			has_regency = no
+		}
+		effect = {
+			country_event = {
+				id = phoenixempire_events.15
+			}
+		}
 	}
 }
 
@@ -473,9 +839,11 @@ atl_phx4 = {
 		position = 5
 		required_missions = { phx_the_great_awaken phx_national_navy }
 		trigger = {
-			any_country = {
-				is_part_of_hre = yes
-				NOT = { navy_size = ROOT }
+			NOT = {
+				any_country = {
+					is_part_of_hre = yes
+					navy_size = ROOT
+				}
 			}
 		}
 		effect = {
@@ -510,7 +878,16 @@ atl_phx4 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		effect = { }
+		effect = {
+			add_adm_power = 50
+			add_dip_power = 50
+			add_mil_power = 50
+			add_government_power = {
+				mechanic_type = phoenix_mechanic
+				power_type = phoenix_power
+				value = 1
+			}
+		}
 	}
 	phx_artillery = {
 		icon = mission_cannons_firing
@@ -539,6 +916,123 @@ atl_phx4 = {
 			country_event = {
 				id = phoenixempire_events.8
 			}
+		}
+	}
+	phx_atk_imperial_cult = {
+		icon = atlantropa_armenianking
+		position = 12
+		required_missions = { phx_empire_is_clean }
+		trigger = {
+			stability = 3
+		}
+		effect = {
+			add_country_modifier = {
+				name = atl_phoenix_imperial_cult
+				duration = -1
+			}
+							add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 2
+							}
+		}
+	}
+	phoenix_university = {
+		icon = wittenberg_university
+		position = 13
+		required_missions = { phx_atk_imperial_cult }
+		trigger = {
+			university = 10
+		}
+		effect = {
+			change_government_reform_progress = 100
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+							add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 2
+							}
+		}
+	}
+	phx_italian_metropolis = {
+		icon = the_great_city_of_buda
+		position = 15
+		required_missions = { phx_italian_empire }
+		trigger = {
+			num_of_owned_provinces_with = {
+					value = 5
+					development = 45
+			
+				}
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+							add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 5
+							}
+					add_country_modifier = {
+				name = atl_phoenix_metropolies
+				duration = -1
+			}
+		}
+	}
+	phx_attack_north = {
+		icon = encroach_on_the_germans
+		position = 17
+		required_missions = { phx_establish_flamearmyy }
+		provinces_to_highlight = {
+			region = south_german_region
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+					value = 20
+					OR = {
+						region = south_german_region
+					}
+			
+				}
+		}
+		effect = {
+			add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 5
+							}
+			add_adm_power = 250
+			add_dip_power = 250
+			add_mil_power = 250
+		}
+	}
+	phx_seize_britta = {
+		icon = fra_great_britain
+		position = 18
+		required_missions = { phx_attack_west phx_attack_north }
+		provinces_to_highlight = {
+			region = iberia_region
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+					value = 30
+					OR = {
+						region = iberia_region
+			
+				}
+			}
+		}
+		effect = {
+			add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 5
+							}
+			add_adm_power = 250
+			add_dip_power = 250
+			add_mil_power = 250
 		}
 	}
 }
@@ -601,7 +1095,7 @@ atl_phx5 = {
 		}
 	}
 	phx_trade_navy = {
-		icon = mission_dominate_trade_in_aden 
+		icon = mission_dominate_trade_in_aden
 		position = 3
 		required_missions = { phx_national_navy phx_italian_trade }
 		trigger = {
@@ -658,7 +1152,16 @@ atl_phx5 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		effect = { }
+		effect = {
+			add_adm_power = 50
+			add_dip_power = 50
+			add_mil_power = 50
+			add_government_power = {
+				mechanic_type = phoenix_mechanic
+				power_type = phoenix_power
+				value = 1
+			}
+		}
 	}
 	phx_roads = {
 		icon = atlantropa_imperialroads
@@ -692,5 +1195,150 @@ atl_phx5 = {
 			}
 		}
 	}
+	phx_nationalize_banks = {
+		icon = medici_bank_ledgers
+		position = 12
+		required_missions = { phx_empire_is_clean }
+		trigger = {
+			adm_power = 100
+			stability = 3
+		}
+		effect = {
+			add_adm_power = -100
+			add_years_of_income = 5	
+			add_mercantilism = 25
+			add_estate_loyalty = {
+			    estate = estate_burghers
+			    loyalty = -10
+			}
+					add_country_modifier = {
+				name = atl_phoenix_imperial_economy
+				duration = -1
+			}
+							add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 2
+							}
+		}
+	}
+	phoenix_close_economy = {
+		icon = mission_disrupt_portuguese_trade
+		position = 13
+		required_missions = { phx_nationalize_banks }
+		trigger = {
+			num_of_trade_embargos = 10
+		}
+		effect = {
+			add_country_modifier = {
+				name = atl_phoenix_embargo
+				duration = -1
+			}
+							add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 2
+							}
+		}
+	}
+	phx_total_asbsolutism = {
+		icon = mission_english_absolutism
+		position = 15
+		required_missions = { phx_italian_empire }
+		trigger = {
+			crown_land_share = 100
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+			
+						add_country_modifier = {
+							name = "the_state_is_me"
+							duration = -1
+						}
+							add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 5
+							}
+		}
+	}
+	phx_total_ports = {
+		icon = mission_secure_hajj_ports
+		position = 16
+		required_missions = { phx_italian_metropolis }
+		trigger = {
+			num_of_ports = 30
+		}
+		effect = {
+			set_country_flag = navy_availible
+			custom_tooltip = enable_naval_mechanic
+							add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 5
+							}
+		}
+	}
+	phx_attack_west = {
+		icon = atlantropa_burnwindmill
+		position = 17
+		required_missions = { phx_establish_flamearmyy }
+		provinces_to_highlight = {
+			OR = {
+						region = low_countries_region
+						region = france_region
+					}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+					value = 50
+					OR = {
+						region = low_countries_region
+						region = france_region
+					}
+			
+				}
+		}
+		effect = {
+			add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 5
+							}
+			add_adm_power = 250
+			add_dip_power = 250
+			add_mil_power = 250
+		}
+	}
+	phx_seize_francja = {
+		icon = atlantropa_Franceaisearmy
+		position = 18
+		required_missions = { phx_attack_west }
+		provinces_to_highlight = {
+			region = british_isles_region
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+					value = 30
+					OR = {
+						region = british_isles_region
+			
+				}
+			}
+		}
+		effect = {
+			add_government_power = {
+								mechanic_type = phoenix_mechanic
+								power_type = phoenix_power
+								value = 5
+							}
+			add_adm_power = 250
+			add_dip_power = 250
+			add_mil_power = 250
+		}
+	}
 }
+
+
 

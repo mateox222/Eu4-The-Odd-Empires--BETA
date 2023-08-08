@@ -2,6 +2,15 @@ pho_naval_professionalism_mechanic = {
    alert_icon_gfx = GFX_alerticons_government_mechanics
 	alert_icon_index = 15
 
+	available = {
+ if = {
+	limit = {
+		tag = XA8
+	}
+	has_country_flag = navy_availible
+ }
+	}
+
 	powers = {
 		phoenican_naval_professionalism = {
 			gui = atlantropa_naval_gov_mech
