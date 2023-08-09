@@ -3,7 +3,10 @@ atl_phx1 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = XA8
+				OR = {
+tag = XA8
+tag = A79
+}
 	}
 
 	phx_renesans = {
@@ -283,7 +286,10 @@ atl_phx2 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = XA8
+				OR = {
+tag = XA8
+tag = A79
+}
 	}
 
 	phx_army_reform = {
@@ -546,7 +552,10 @@ atl_phx3 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = XA8
+			OR = {
+tag = XA8
+tag = A79
+}
 	}
 
 	atl_phx_prepare_country = {
@@ -763,9 +772,7 @@ atl_phx3 = {
 			}
 		}
 		effect = {
-			country_event = {
-				id = phoenixempire_events.12
-			}
+			add_prestige = 50
 		}
 	}
 	phx_european_empire = {
@@ -798,8 +805,9 @@ atl_phx3 = {
 			has_regency = no
 		}
 		effect = {
-			country_event = {
-				id = phoenixempire_events.15
+			add_country_modifier = {
+				name = "pax_phoenix"
+				duration = -1
 			}
 		}
 	}
@@ -810,7 +818,10 @@ atl_phx4 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = XA8
+				OR = {
+tag = XA8
+tag = A79
+}
 	}
 
 	phx_national_navy = {
@@ -1051,7 +1062,10 @@ atl_phx5 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = XA8
+				OR = {
+tag = XA8
+tag = A79
+}
 	}
 
 	phx_italian_trade = {
