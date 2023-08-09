@@ -73,34 +73,13 @@ country_event = {
 	id = venediaevent.2
 	title = flavor_pol.18.t
 	desc = flavor_pol.18.d
-
 	picture = LIBERUM_VETO_eventPicture
-	
-	fire_only_once = yes
 	major = yes
-	
 	is_triggered_only = yes
 	
 	immediate = {
 		set_global_flag = plc_union_outcome_flag
 	}
-	
-	mean_time_to_happen = {
-		months = 12
-		modifier = {
-			factor = 0.1
-			is_year = 6901
-		}
-		modifier = {
-			factor = 0.01
-			is_year = 6902
-		}
-		modifier = {
-			factor = 0.001
-			is_year = 6903
-		}
-	}
-	
 	option = {
 		name =  flavor_vedpol.18.a #We must retain the Jagiellon Dynasty
 		ai_chance = { 
@@ -1052,7 +1031,6 @@ country_event = { #Czesistart
 	option = {
 		set_global_flag = POLSKAWOJNAOUTCOME
 		name = venediaevent.60.a 
-		 }
 		every_war_enemy_country = {
 			white_peace = ROOT
 			white_peace = MVA
@@ -1076,4 +1054,5 @@ set_country_flag = has_overriden_color_flag
 					target = POL
 				}
 		}
+	}
 	}
