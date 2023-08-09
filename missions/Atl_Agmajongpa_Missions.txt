@@ -1054,11 +1054,14 @@ ko1_industrial = {
 			atlantropa_road = 20
 		}
 		effect = {
-			every_owned_province = {
-				limit = {
-					has_building = atlantropa_road
+			custom_tooltip = atl_one_production_every_road_tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						has_building = atlantropa_road
+					}
+					add_base_production = 1	
 				}
-				add_base_production = 1	
 			}
 		}
 		ai_weight = {
@@ -1082,6 +1085,7 @@ ko1_industrial = {
 			}
 		}
 		trigger = {
+			manpower = 4
 			4201 = {
 				owned_by = ROOT
 				infantry_in_province = 4

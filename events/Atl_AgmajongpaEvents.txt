@@ -439,7 +439,7 @@ country_event = { #The Borjigin Scion
 		mil_power_cost = 25
 		country_event = {
 			id = agmajongpa.151
-			days = 21
+			days = 14
 		}
 		ai_chance = { factor = 0 } 
 	}
@@ -463,7 +463,7 @@ country_event = { #The Tomb
 		name = agmajongpa.151.b
 		add_manpower = -0.100
 		hidden_effect = {
-			set_country_flag = { nice_to_genghis  }
+			set_country_flag = nice_to_genghis
 		}
 		country_event = { id = agmajongpa.152 }
 		ai_chance = { factor = 1 } 
@@ -688,6 +688,31 @@ country_event = { #The Potion Complete
 			name = ko1_potion
 			duration = -1
 		}
+		hidden_effect = {
+			country_event = { 
+				id = agmajongpa.201
+				days = 365
+				random = 182625
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+}
+
+country_event = { #oh fuck
+	id = agmajongpa.201
+	title = agmajongpa.201.t
+	desc = agmajongpa.201.d
+	picture = poisonsect_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = agmajongpa.201.a
+		remove_country_modifier = ko1_potion
+		kill_ruler = yes
+		add_prestige = -40
+		add_legitimacy = -25
+		add_stability = -1
 		ai_chance = { factor = 1 }
 	}
 }
@@ -761,7 +786,7 @@ country_event = { #Serfs No Longer
 	id = agmajongpa.24
 	title = agmajongpa.24.t
 	desc = agmajongpa.24.d
-	picture = chinesehellscape_eventPicture
+		picture = chinesehellscape_eventPicture
 	is_triggered_only = yes
 	
 	option = {
