@@ -9,6 +9,16 @@ country_event = {
 	is_triggered_only = yes
 immediate = {
 	hidden_effect = {
+		every_country = {
+			limit = {
+				ai = yes
+				has_heir = no
+				has_regency = no
+			}
+			define_heir = {
+    dynasty = ROOT
+}
+		}
 		set_hre_religion = united_christianity
 	151 = { 
 		add_province_modifier = { 

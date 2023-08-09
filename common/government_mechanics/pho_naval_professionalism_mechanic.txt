@@ -2,6 +2,15 @@ pho_naval_professionalism_mechanic = {
    alert_icon_gfx = GFX_alerticons_government_mechanics
 	alert_icon_index = 15
 
+	available = {
+ if = {
+	limit = {
+		tag = XA8
+	}
+	has_country_flag = navy_availible
+ }
+	}
+
 	powers = {
 		phoenican_naval_professionalism = {
 			gui = atlantropa_naval_gov_mech
@@ -29,11 +38,11 @@ pho_naval_professionalism_mechanic = {
 			
 			icon = GFX_naval_professionalism_button_1
 			trigger = {
-				dip_power_cost = 100
+				dip_power_cost = 75
 				manpower_percentage = 0.10
 			}
 			effect = { 
-				dip_power_cost = 100
+				dip_power_cost = 75
 				add_yearly_manpower = -1	
 				add_yearly_sailors = 1
 				add_government_power = {
@@ -58,7 +67,7 @@ pho_naval_professionalism_mechanic = {
 						cooldown_years = 2
 			icon = GFX_naval_professionalism_button_2
 			trigger = {
-				dip_power_cost = 100
+				dip_power_cost = 75
 				years_of_income = 0.5
 
 			}
@@ -82,7 +91,7 @@ random_owned_province = {
     }
 }
 				add_years_of_income = -0.5	
-				dip_power_cost = 100
+				dip_power_cost = 75
 				add_government_power = {
 					mechanic_type = pho_naval_professionalism_mechanic
 					power_type = phoenican_naval_professionalism
@@ -102,13 +111,13 @@ random_owned_province = {
 						cooldown_years = 2
 			icon = GFX_naval_professionalism_button_3
 			trigger = {
-				dip_power_cost = 100
-				mil_power_cost = 25
+				dip_power_cost = 33
+				mil_power_cost = 33
 			}
 			effect = { 
 				create_admiral = { tradition = 55 }	
-				dip_power_cost = 100
-				mil_power_cost = 25
+				dip_power_cost = 33
+				mil_power_cost = 33
 				add_government_power = {
 					mechanic_type = pho_naval_professionalism_mechanic
 					power_type = phoenican_naval_professionalism
