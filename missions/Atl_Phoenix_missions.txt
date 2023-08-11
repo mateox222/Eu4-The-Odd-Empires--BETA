@@ -3,7 +3,10 @@ atl_phx1 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = XA8
+				OR = {
+tag = XA8
+tag = A79
+}
 	}
 
 	phx_renesans = {
@@ -283,7 +286,10 @@ atl_phx2 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = XA8
+				OR = {
+tag = XA8
+tag = A79
+}
 	}
 
 	phx_army_reform = {
@@ -376,10 +382,11 @@ atl_phx2 = {
 				add_base_manpower = 5
 				rename_capital = "Fenicio"
 				change_province_name = "Fenicio"
-				add_great_project = {
-					type = kiel_canal
-					instant = yes
-				}
+
+				add_great_project_tier = {
+    type = kiel_canal
+    tier = 1
+}
 			}
 		}
 	}
@@ -401,7 +408,10 @@ atl_phx2 = {
 		position = 10
 		required_missions = { phx_cultural_revolution }
 		trigger = {
+			custom_trigger_tooltip = {
+	tooltip = CULTURALREVOLUTION1YEAR
 			had_country_flag = { flag = phx_cultural_revolution days = 360 }
+		}
 		}
 		effect = {
 			country_event = {
@@ -546,7 +556,10 @@ atl_phx3 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = XA8
+			OR = {
+tag = XA8
+tag = A79
+}
 	}
 
 	atl_phx_prepare_country = {
@@ -679,7 +692,10 @@ atl_phx3 = {
 		position = 10
 		required_missions = { phx_cultural_revolution }
 		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = CULTURALREVOLUTION3YEAR
 			had_country_flag = { flag = phx_cultural_revolution days = 1080 }
+		}
 		}
 		effect = {
 			country_event = {
@@ -692,8 +708,10 @@ atl_phx3 = {
 		position = 11
 		required_missions = { phx_deport_greeks phx_destroy_catholics phx_purge_carthagos }
 		trigger = { 
+			custom_trigger_tooltip = {
+				tooltip = questionsofpuritans
 			has_country_flag = questionsofpuritans
-
+			}
 		}
 		effect = {
 			add_prestige = 20
@@ -756,16 +774,14 @@ atl_phx3 = {
 		}
 		trigger = {
 			num_of_owned_provinces_with = {
-				value = 90
+				value = 80
 				OR = {
 					region = italy_region
 				}
 			}
 		}
 		effect = {
-			country_event = {
-				id = phoenixempire_events.12
-			}
+			add_prestige = 50
 		}
 	}
 	phx_european_empire = {
@@ -798,8 +814,9 @@ atl_phx3 = {
 			has_regency = no
 		}
 		effect = {
-			country_event = {
-				id = phoenixempire_events.15
+			add_country_modifier = {
+				name = "pax_phoenix"
+				duration = -1
 			}
 		}
 	}
@@ -810,7 +827,10 @@ atl_phx4 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = XA8
+				OR = {
+tag = XA8
+tag = A79
+}
 	}
 
 	phx_national_navy = {
@@ -906,9 +926,11 @@ atl_phx4 = {
 		position = 9
 		required_missions = { phx_march_on_rome }
 		trigger = {
+			any_owned_province = {
 			has_great_project = {
 				type = atlantis_colosseum_roma
 				tier = 1
+			}
 			}
 		}
 		effect = {
@@ -921,8 +943,12 @@ atl_phx4 = {
 		icon = atlantropa_poison
 		position = 10
 		required_missions = { phx_cultural_revolution }
+		
 		trigger = {
-			had_country_flag = { flag = phx_cultural_revolution days = 1720 }
+			custom_trigger_tooltip = {
+			tooltip = CULTURALREVOLUTION5YEAR
+			had_country_flag = { flag = phx_cultural_revolution days = 1825 }
+		}
 		}
 		effect = {
 			country_event = {
@@ -1051,7 +1077,10 @@ atl_phx5 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = XA8
+				OR = {
+tag = XA8
+tag = A79
+}
 	}
 
 	phx_italian_trade = {

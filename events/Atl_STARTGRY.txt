@@ -15,9 +15,10 @@ immediate = {
 				has_heir = no
 				has_regency = no
 			}
-			define_heir = {
-    dynasty = ROOT
-}
+			country_event = {
+				id = startevent.302
+			}
+
 		}
 		set_hre_religion = united_christianity
 	151 = { 
@@ -300,9 +301,7 @@ country_event = {
 	title = startevent.2.t
 	desc = startevent.2.d
 	picture = BLACKSUN_eventPicture
-	trigger = {
-	always = no
-}
+		is_triggered_only = yes
 	option = {
 	name = startevent.1.a 
 
@@ -313,4 +312,39 @@ country_event = {
 
 
 	}
+}
+
+country_event = {
+	id = startevent.301
+	title = startevent.2.t
+	desc = startevent.2.d
+	picture = BLACKSUN_eventPicture
+		is_triggered_only = yes
+	option = {
+	name = startevent.1.a 
+
+	atlantis_sicily_region = {
+		add_core = ROOT
+		cede_province = ROOT
+	}
+	italy_region = {
+		add_core = ROOT
+		cede_province = ROOT
+	}
+
+	}
+}
+
+country_event = {
+	id = startevent.302
+	title = startevent.2.t
+	desc = startevent.2.d
+	picture = BLACKSUN_eventPicture
+	is_triggered_only = yes
+	option = {
+	name = startevent.1.a 
+			define_heir = {
+    dynasty = ROOT
+	}
+}
 }
