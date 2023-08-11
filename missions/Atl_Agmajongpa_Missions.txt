@@ -136,6 +136,20 @@ ko1_korean_conquest = {
 			country_event = { id = agmajongpa.8 }
 		}
 	}
+	#6th tier
+	matteo_mandated_hyperwar_reference_ko1 = {
+		icon = atlantropa_temple
+		required_missions = { a_new_order_ko1 }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = KO1_DISCOVER_KORKEIN
+				has_discovered = 5902
+			}
+		}
+		effect = {
+			country_event = { id = agmajongpa.80 }
+		}
+	}
 }
 
 ko1_hwasan_conquest = {
@@ -170,7 +184,14 @@ ko1_hwasan_conquest = {
 						is_core = ROOT
 					}
 				}
-				dip_power = 100
+				AND = {
+					dip_power = 100
+					hidden_trigger = {
+						MJZ = {
+							ai = yes
+						}
+					}
+				}
 			}
 		}
 		#trigger_event "The Fate of Jianzhou"
@@ -1033,11 +1054,70 @@ ko1_industrial = {
 			atlantropa_road = 20
 		}
 		effect = {
-			every_owned_province = {
-				limit = {
-					has_building = atlantropa_road
+			custom_tooltip = atl_one_production_every_road_tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						has_building = atlantropa_road
+					}
+					add_base_production = 1	
 				}
-				add_base_production = 1	
+			}
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+	#5th tier
+	mount_paektu_ko1 = {
+		icon = atlantropa_conquestnorth
+		position = 9
+		required_missions = {  }
+		provinces_to_highlight = {
+			province_id = 4201
+			NOT = {
+				owned_by = ROOT
+				infantry_in_province = 4
+				OR = {
+					has_building = barracks
+					has_building = training_fields
+				}
+			}
+		}
+		trigger = {
+			manpower = 4
+			4201 = {
+				owned_by = ROOT
+				infantry_in_province = 4
+				OR = {
+					has_building = barracks
+					has_building = training_fields
+				}
+			}
+		}
+		effect = {
+			add_manpower = -4
+			4201 = {
+				add_province_triggered_modifier = mount_paektu_mod_ko1
+			}
+			KO1 = {
+				every_known_country = {
+					limit = {
+						OR = {
+							culture_group = korean_g
+							culture = manchu
+							culture = manchu_new
+							culture = korean_new
+						}
+						NOT = {
+							tag = KO1
+						}
+					}
+					add_opinion = {
+						who = ROOT
+						modifier = "paektu_opinion"
+					}
+				}
 			}
 		}
 		ai_weight = {
@@ -1654,6 +1734,7 @@ ko1_the_grandest_jewel = {
 			}
 		}
 		effect = {
+			add_prestige = 100
 		}
 		ai_weight = {
 			factor = 10
@@ -1667,9 +1748,9 @@ ko1_the_grandest_jewel = {
 		trigger = {
 			OR = {
 				NOT = {
-					great_power_rank = 2
+					great_power_rank = 6
 				}
-				total_development = 1500
+				total_development = 2500
 			}
 		}
 		#trigger_event "Serfs No Longer"
@@ -1718,7 +1799,15 @@ ko1_burn_the_palaces = {
 	the_new_way_of_life_ko1 = {
 		icon = atlantropa_lifegoeson
 		required_missions = { burn_the_palaces_ko1 }
+		provinces_to_highlight = {
+			region = north_china_region
+			NOT = { has_owner_religion = yes }
+		}
 		trigger = {
+			north_china_region = {
+				type = all	
+				has_owner_religion = yes
+			}
 		}
 		#trigger_event "The New Way of Life"
 		effect = {
@@ -1732,9 +1821,43 @@ ko1_burn_the_palaces = {
 	life_goes_on_ko1 = {
 		icon = atlantropa_mandateend
 		required_missions = { the_new_way_of_life_ko1 }
+		provinces_to_highlight = {
+			OR = {
+				region = xinan_region
+				region = south_china_region
+				region = north_china_region
+			}
+			NOT = { has_owner_religion = yes }
+		}
 		trigger = {
+			north_china_region = {
+				type = all	
+				has_owner_religion = yes
+			}
+			xinan_region = {
+				type = all	
+				has_owner_religion = yes
+			}
+			south_china_region = {
+				type = all	
+				has_owner_religion = yes
+			}
 		}
 		effect = {
+			custom_tooltip = chinaconvertcult2
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							region = xinan_region
+							region = south_china_region
+							region = north_china_region
+						}
+						culture_group = east_asian
+					}
+					change_culture = koreosino
+				}
+			}
 		}
 		ai_weight = {
 			factor = 10
@@ -1745,9 +1868,15 @@ ko1_burn_the_palaces = {
 		icon = atlantropa_wizarddude
 		required_missions = { life_goes_on_ko1 }
 		trigger = {
+			adm_power = 25
+			dip_power = 25
+			mil_power = 25
 		}
 		#trigger_event "Secrets of China"
 		effect = {
+			dip_power_cost = 25
+			adm_power_cost = 25
+			mil_power_cost = 25
 			country_event = { id = agmajongpa.26 }
 		}
 		ai_weight = {
@@ -1933,7 +2062,7 @@ ko1_the_secrets_of_the_yamato2 = {
 	#1st tier
 	unknown_mission_yokai_ko1 = {
 		icon = mission_unknown_mission
-		required_missions = { the_secrets_of_the_yamato_ko1 }
+		required_missions = { the_secrets_of_the_yamato_ko1 the_sunset_dominion_ko1 }
 		trigger = {
 			hidden_trigger = {
 				always = no
@@ -1962,7 +2091,7 @@ ko1_the_secrets_of_the_yamato3 = {
 	#1st tier
 	yokai_subjugation_ko1 = {
 		icon = atlantropa_yokai
-		required_missions = { the_secrets_of_the_yamato_ko1 }
+		required_missions = { the_secrets_of_the_yamato_ko1 the_sunset_dominion_ko1 }
 		trigger = {
 			manpower = 10
 			mil_power = 100
@@ -2055,7 +2184,9 @@ ko1_india = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
+		#trigger_event "Ind"
 		effect = {
+			country_event = { id = agmajongpa.27 }
 		}
 		ai_weight = {
 			factor = 10
@@ -2096,7 +2227,9 @@ ko1_siberia = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
+		#trigger_event "Deadlands"
 		effect = {
+			country_event = { id = agmajongpa.29 }
 		}
 		ai_weight = {
 			factor = 10
@@ -2142,7 +2275,9 @@ ko1_indo_china_asia = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
+		#trigger_event "Indochina"
 		effect = {
+			country_event = { id = agmajongpa.28 }
 		}
 		ai_weight = {
 			factor = 10

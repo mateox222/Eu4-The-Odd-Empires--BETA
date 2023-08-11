@@ -1,0 +1,45 @@
+country_decisions = {
+	unite_great_hwan = {
+		major = yes
+		potential = {
+			was_never_end_game_tag_trigger = yes
+			culture_group = korean_g
+			NOT = { exists = KO5 }
+			has_country_flag = learned_of_hwan_empire_flag
+		}
+		allow = {
+			NOT = { exists = KO5 }
+			stability = 1
+			is_nomad = no
+			is_at_war = no
+			owns_all_provinces = {
+				continent = asia
+				NOT = {
+					OR = {
+						region = bengal_region
+						region = coromandel_region
+						region = deccan_region
+						region = hindusthan_region
+						region = west_india_region
+					}
+				}
+			}
+		}
+
+		effect = {
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			add_prestige = 100
+			change_tag = KO5
+			#country_event = { id = ideagroups.1 }
+			#swap_non_generic_missions = yes
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
