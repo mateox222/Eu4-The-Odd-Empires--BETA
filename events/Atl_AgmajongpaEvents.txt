@@ -786,11 +786,18 @@ country_event = { #Serfs No Longer
 	id = agmajongpa.24
 	title = agmajongpa.24.t
 	desc = agmajongpa.24.d
-		picture = chinesehellscape_eventPicture
+	picture = chinesehellscape_eventPicture
 	is_triggered_only = yes
 	
 	option = {
 		name = agmajongpa.24.a
+		add_adm_power = 50
+		add_dip_power = 50
+		add_mil_power = 50
+		add_country_modifier = {
+			name = ko1_no_longer_serfs
+			duration = -1
+		}
 		ai_chance = { factor = 1 }
 	}
 }
