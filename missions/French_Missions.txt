@@ -1171,7 +1171,7 @@ emp_france_missions_2 = {
 			}
 		}
 		effect = {
-			iberia_region = {
+			british_isles_region = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -1188,13 +1188,13 @@ emp_france_missions_2 = {
 		icon = atlantropa_frenchspain
 		required_missions = { fra_conquer_spain  }
 		provinces_to_highlight = {
-				region = iberia_region
+				region = british_isles_region
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		trigger = {	
-			iberia_region = {
+			british_isles_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -2012,12 +2012,12 @@ emp_france_missions_2 = {
 		# free mission
 
 		provinces_to_highlight = {
-			region = british_isles_region
+			region = iberia_region
 			NOT = { religion_group = ROOT }
 		}
 
 		trigger = {
-			british_isles_region = {
+			iberia_region = {
 				type = all
 				religion_group = ROOT
 			}
@@ -2422,7 +2422,7 @@ emp_france_missions_2 = {
 			owner = {
 				is_subject_of = ROOT
 				capital_scope = {
-					region = british_isles_region
+					region = iberia_region
 				}
 			}
 		}
@@ -2433,7 +2433,7 @@ emp_france_missions_2 = {
 				NOT = {
 					any_subject_country = {
 						capital_scope = {
-							region = british_isles_region
+							region = iberia_region
 						}
 					}
 				}

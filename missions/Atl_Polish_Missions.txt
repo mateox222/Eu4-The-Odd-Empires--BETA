@@ -388,12 +388,12 @@ atlantropa_venediabonus_sca_slot_3_a = {
 		required_missions = { vnd_fra_asturia_dockyard vnd_branching_mission_pm }
 		provinces_to_highlight = {
 			OR = {
-			region = iberia_region
+			region = british_isles_region
 			region = france_region
 		}
 		}
 		trigger = {
-			iberia_region = {
+			british_isles_region = {
 				type = all
 				religion = catholic
 			}
@@ -1568,7 +1568,7 @@ atlantropa_venedia_sca_slot_2_a = {
 			owner = {
 				NOT = { tag = FRA }
 				capital_scope = {
-					region = british_isles_region
+					region = iberia_region
 				}
 				total_development = 70
 			}
@@ -1578,13 +1578,13 @@ atlantropa_venedia_sca_slot_2_a = {
 					any_country = {
 						NOT = { tag = FRA }
 						capital_scope = {
-							region = british_isles_region
+							region = iberia_region
 						}
 						has_opinion = { who = ROOT value = 100 }
 						total_development = 70
 					}
 				
-				british_isles_region = {
+				iberia_region = {
 					country_or_non_sovereign_subject_holds = ROOT
 					type = all
 				}
@@ -1592,7 +1592,7 @@ atlantropa_venedia_sca_slot_2_a = {
 		}
 		effect = {
 			hidden_effect = {
-				british_isles_region = {
+				iberia_region = {
 					limit = {
 						OR = {
 							owned_by = FRA
@@ -1611,12 +1611,12 @@ atlantropa_venedia_sca_slot_2_a = {
 		icon = defeat_the_english
 		required_missions = { vnd_fra_auld_alliance }
 		provinces_to_highlight = {
-			region = british_isles_region
+			region = iberia_region
 			if = {
 				limit = {
 						FRA = {
 							num_of_owned_provinces_with = {
-								region = british_isles_region
+								region = iberia_region
 								value = 10
 							}
 						}
@@ -1633,7 +1633,7 @@ atlantropa_venedia_sca_slot_2_a = {
 				NOT = {
 					FRA = {
 						num_of_owned_provinces_with = {
-							region = british_isles_region
+							region = iberia_region
 							value = 10
 						}
 					}

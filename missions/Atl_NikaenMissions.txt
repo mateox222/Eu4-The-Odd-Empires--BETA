@@ -423,7 +423,7 @@ latin_empire_western = {
 		position = 15
 		required_missions = { nikean_annex_southfrance }
 				provinces_to_highlight = {
-				region = british_isles_region
+				region = iberia_region
 				OR = {
 				owned_by = FRA
 				owned_by = A59				
@@ -501,12 +501,12 @@ latin_empire_western = {
 		position = 5
 		required_missions = { recover_south_spain nikean_maurrethaln}
 				provinces_to_highlight = {
-			region = british_isles_region
+			region = iberia_region
 			NOT = { religion_group = ROOT }
 		}
 
 		trigger = {
-			british_isles_region = {
+			iberia_region = {
 				type = all
 				religion_group = ROOT
 			}
@@ -1425,13 +1425,13 @@ num_of_owned_provinces_with = {
 		required_missions = { nikean_annex_calais }
 				provinces_to_highlight = {
 				OR = {
-				region = iberia_region
+				region = british_isles_region
 				}
 				}
 		trigger = {
 						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				value = 20 # how many provinces should be owned in the areas below
-				region = iberia_region
+				region = british_isles_region
 			}
 
 		}

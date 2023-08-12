@@ -846,7 +846,7 @@ phoenica_establish_merchant_navy2 = {
     icon = atlantropa_britanisation
     required_missions = { phoenica_establish_royal_navy2 }
     trigger = {
-            british_isles_region = { has_discovered = ROOT }
+            iberia_region = { has_discovered = ROOT }
             france_region = { has_discovered = ROOT }
             low_countries_region = { has_discovered = ROOT }
             atlantis_sicily_region = { has_discovered = ROOT }
@@ -1426,7 +1426,7 @@ num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}}
         effect = {
-            british_isles_region = {
+            iberia_region = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -1458,14 +1458,14 @@ num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
         position = 9
         required_missions = { phoenica_establish_merchant_lyonesse2 }
 		provinces_to_highlight = {
-				region =  british_isles_region
+				region =  iberia_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				value = 15 # how many provinces should be owned in the areas below
 				OR = {
-					region = british_isles_region # this can also be region or colonial region
+					region = iberia_region # this can also be region or colonial region
 				}
 			}
 		}

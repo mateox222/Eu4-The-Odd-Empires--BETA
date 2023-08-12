@@ -206,7 +206,7 @@ country_event = {
 		hidden_effect = {
 			every_owned_province = {
 				limit = {
-					region =  british_isles_region
+					region =  iberia_region
 				}
 				add_core = X1O
 				if = {
@@ -242,7 +242,7 @@ country_event = {
 			}
 		}
 
-		british_isles_region = {
+		iberia_region = {
 			limit = {
 				NOT = { is_core = X1O }
 				NOT = { is_permanent_claim = X1O }
@@ -258,7 +258,7 @@ country_event = {
 	option = {
 		name = phoenice_events.3.b
 		
-		british_isles_region = {
+		iberia_region = {
 			limit = {
 				NOT = { is_core = ROOT }
 				NOT = { is_permanent_claim = ROOT }
@@ -314,7 +314,7 @@ country_event = {
 				set_prestige_to_zero = yes
 				add_republican_tradition = 100
 			}
-			british_isles_region = {
+			iberia_region = {
 				limit = {
 					NOT = { is_core = X1O }
 					NOT = { is_permanent_claim = X1O }

@@ -1170,7 +1170,7 @@ tr_russia_conquest_3 = {
 		position = 6
 		completed_by =  7518.1.1
 		provinces_to_highlight = {
-			region = west_siberia_region
+			region = west_sbritish_isles_region
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -1183,7 +1183,7 @@ tr_russia_conquest_3 = {
 			1075 = {
 				owned_by = ROOT
 			}
-			west_siberia_region = {
+			west_sbritish_isles_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -1199,7 +1199,7 @@ tr_russia_conquest_3 = {
 				change_culture = ROOT
 				add_base_production = 1
 			}
-			west_siberia_region = {
+			west_sbritish_isles_region = {
 				limit = {
 					trade_goods = fur
 					owned_by = ROOT
@@ -1216,20 +1216,20 @@ tr_russia_conquest_3 = {
 		required_missions = { tr_russian_colony_in_east_siberia }
 		completed_by =  7592.1.1
 		provinces_to_highlight = {
-			region = east_siberia_region
+			region = east_sbritish_isles_region
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 			has_discovered = ROOT
 		}
 		trigger = {
-			east_siberia_region = {
+			east_sbritish_isles_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
-			east_siberia_region = {
+			east_sbritish_isles_region = {
 				limit = {
 					trade_goods = fur
 					owned_by = ROOT
@@ -1428,7 +1428,7 @@ tr_siberia_missions = {
 				}
 				add_permanent_claim = ROOT
 			}
-			west_siberia_region = {
+			west_sbritish_isles_region = {
 				limit = {
 					is_empty = no
 					NOT = { is_permanent_claim = ROOT	}
@@ -1451,7 +1451,7 @@ tr_siberia_missions = {
 					is_empty = no
 				}
 				AND = {
-					region = west_siberia_region
+					region = west_sbritish_isles_region
 					is_empty = no
 				}
 			}
@@ -1481,7 +1481,7 @@ tr_siberia_missions = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = remaining_steppe_2.tooltip
-				west_siberia_region = {
+				west_sbritish_isles_region = {
 					type = all
 					OR = {
 						is_empty = yes
@@ -1504,7 +1504,7 @@ tr_siberia_missions = {
 					duration = 5475
 				}
 			}
-			west_siberia_region = {
+			west_sbritish_isles_region = {
 				limit = {
 					owned_by = ROOT
 				}
@@ -1560,7 +1560,7 @@ tr_siberia_missions = {
 		required_missions = { rus_integrate_perm }
 		completed_by =  7518.1.1
 		provinces_to_highlight = {
-			region = west_siberia_region
+			region = west_sbritish_isles_region
 			has_discovered = ROOT
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -1568,7 +1568,7 @@ tr_siberia_missions = {
 		}
 		trigger = {
 			num_of_owned_provinces_with = {
-				region = west_siberia_region
+				region = west_sbritish_isles_region
 				value = 15
 			}
 		}
@@ -1588,7 +1588,7 @@ tr_siberia_missions = {
 		required_missions = { tr_russian_colony_in_west_siberia_new }
 		completed_by =  7501.1.1
 		provinces_to_highlight = {
-			region = east_siberia_region
+			region = east_sbritish_isles_region
 			has_discovered = ROOT
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -1596,7 +1596,7 @@ tr_siberia_missions = {
 		}
 		trigger = {
 			num_of_owned_provinces_with = {
-				region = east_siberia_region
+				region = east_sbritish_isles_region
 				value = 10
 			}
 			owns_core_province = 1043

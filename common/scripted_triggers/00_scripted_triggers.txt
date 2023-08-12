@@ -2482,7 +2482,7 @@ has_unlocked_government_reform_tooltip = {
 mal_target_country_exists_in_region = {
 	OR = {
 		AND = { has_country_flag = mal_journey_to_maghreb			any_country = { capital_scope = { region = maghreb_region			} } }
-		AND = { has_country_flag = mal_journey_to_iberia			any_country = { capital_scope = { region = iberia_region			} } }
+		AND = { has_country_flag = mal_journey_to_iberia			any_country = { capital_scope = { region = british_isles_region			} } }
 		AND = { has_country_flag = mal_journey_to_france			any_country = { capital_scope = { region = france_region			} } }
 		AND = { has_country_flag = mal_journey_to_italy				any_country = { capital_scope = { region = italy_region				} } }
 		AND = { has_country_flag = mal_journey_to_south_germany		any_country = { capital_scope = { region = south_german_region		} } }
@@ -2498,7 +2498,7 @@ mal_target_country_exists_in_region = {
 mal_owns_provinces_in_region = {
 	OR = {
 		AND = { has_country_flag = mal_journey_to_maghreb			any_owned_province = { region = maghreb_region			} }
-		AND = { has_country_flag = mal_journey_to_iberia			any_owned_province = { region = iberia_region			} }
+		AND = { has_country_flag = mal_journey_to_iberia			any_owned_province = { region = british_isles_region			} }
 		AND = { has_country_flag = mal_journey_to_france			any_owned_province = { region = france_region			} }
 		AND = { has_country_flag = mal_journey_to_italy				any_owned_province = { region = italy_region			} }
 		AND = { has_country_flag = mal_journey_to_south_germany		any_owned_province = { region = south_german_region		} }
@@ -3528,14 +3528,14 @@ is_not_eligible_for_trade_good_copper = {
 			NOT = { area = inner_ontario_area }
 			NOT = { area = maryland_area }
 			NOT = { area = ofaie_area }
-			NOT = { region = west_siberia_region }
-			NOT = { region = east_siberia_region }
+			NOT = { region = west_sbritish_isles_region }
+			NOT = { region = east_sbritish_isles_region }
 			NOT = { region = central_africa_region }
 		}
 		AND = {
 			is_random_new_world = yes
-			NOT = { region = west_siberia_region }
-			NOT = { region = east_siberia_region }
+			NOT = { region = west_sbritish_isles_region }
+			NOT = { region = east_sbritish_isles_region }
 			NOT = { continent = new_world }
 		}
 	}
@@ -3545,8 +3545,8 @@ is_not_eligible_for_trade_good_gold = {
 		area = newfoundland_area
 		AND = {
 			is_random_new_world = no
-			NOT = { region = west_siberia_region }
-			NOT = { region = east_siberia_region }
+			NOT = { region = west_sbritish_isles_region }
+			NOT = { region = east_sbritish_isles_region }
 			NOT = { region = cascadia_region }
 			NOT = { region = australia_region }
 			NOT = { region = california_region }
@@ -3572,8 +3572,8 @@ is_not_eligible_for_trade_good_gold = {
 		AND = {
 			is_random_new_world = yes
 			NOT = { continent = new_world }
-			NOT = { region = west_siberia_region }
-			NOT = { region = east_siberia_region }
+			NOT = { region = west_sbritish_isles_region }
+			NOT = { region = east_sbritish_isles_region }
 			NOT = { region = australia_region }
 			NOT = { region = south_africa_region }
 			NOT = { region = central_africa_region }
@@ -3601,8 +3601,8 @@ is_not_eligible_for_trade_good_iron = {
 		area = newfoundland_area
 		AND = {
 			normal_or_historical_nations = yes
-			NOT = { region = west_siberia_region }
-			NOT = { region = east_siberia_region }
+			NOT = { region = west_sbritish_isles_region }
+			NOT = { region = east_sbritish_isles_region }
 			NOT = { region = central_africa_region }
 			NOT = { province_id = 990 }
 			NOT = { area = great_valley_area }
@@ -3648,8 +3648,8 @@ is_not_eligible_for_trade_good_ivory = {
 			NOT = { has_terrain = savannah }
 			NOT = { has_terrain = glacier }
 		}
-		region = west_siberia_region
-		region = east_siberia_region
+		region = west_sbritish_isles_region
+		region = east_sbritish_isles_region
 		region = manchuria_region
 		region = central_asia_region
 		region = south_africa_region
@@ -4023,8 +4023,8 @@ is_not_eligible_for_trade_good_gems = {
 		area = newfoundland_area
 		AND = {
 			is_random_new_world = no
-			NOT = { region = west_siberia_region }
-			NOT = { region = east_siberia_region }
+			NOT = { region = west_sbritish_isles_region }
+			NOT = { region = east_sbritish_isles_region }
 			NOT = { region = australia_region }
 			NOT = { region = south_africa_region }
 			NOT = { region = central_africa_region }
@@ -4060,8 +4060,8 @@ is_not_eligible_for_trade_good_gems = {
 		AND = {
 			is_random_new_world = yes
 			NOT = { continent = new_world }
-			NOT = { region = west_siberia_region }
-			NOT = { region = east_siberia_region }
+			NOT = { region = west_sbritish_isles_region }
+			NOT = { region = east_sbritish_isles_region }
 			NOT = { region = australia_region }
 			NOT = { region = south_africa_region }
 			NOT = { region = indonesia_region }

@@ -442,12 +442,12 @@ upper_andalucia_area = {
 		icon = atlantropa_nilfgaard
 		provinces_to_highlight = {
 			OR = {
-				region = iberia_region
+				region = british_isles_region
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			iberia_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			british_isles_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
 		}
 		effect = {
 	
@@ -821,14 +821,14 @@ niflheim_prepare_army4 = {
 	icon = atlantropa_hunderdwar
 	provinces_to_highlight = {
 		OR = {
-			region = iberia_region
+			region = british_isles_region
 		}
 		NOT = { country_or_non_sovereign_subject_holds = ROOT }
 	}
 	trigger = {
 		num_of_owned_provinces_with = {
 			value = 20
-			region = iberia_region
+			region = british_isles_region
 			owned_by = ROOT
 		}
 		owns_core_province = 4361
@@ -841,7 +841,7 @@ niflheim_prepare_army4 = {
 			id = niflheim_empire.3
 		}
 
-		iberia_region = {
+		british_isles_region = {
 			limit = {
 				NOT = { is_permanent_claim = ROOT }
 				NOT = { is_core = ROOT	}
