@@ -1123,7 +1123,7 @@ gc_por_4 = {
 			}
 		}
 		effect = {
-			british_isles_region = {
+			iberia_region = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -1137,12 +1137,12 @@ gc_por_4 = {
 		required_missions = { gc_por_intervene_in_castile }
 		
 		provinces_to_highlight = {
-			region = british_isles_region
+			region = iberia_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		
 		trigger = {
-			british_isles_region = {
+			iberia_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}

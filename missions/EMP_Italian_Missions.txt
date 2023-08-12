@@ -781,7 +781,7 @@ emp_ita_war_branch = {
 			}
 		}
 		effect = {
-			iberia_region = {
+			british_isles_region = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -797,11 +797,11 @@ emp_ita_war_branch = {
 		required_missions = { emp_ita_spagna_tarraconense }
 		
 		provinces_to_highlight = {
-			region = iberia_region
+			region = british_isles_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			iberia_region = {
+			british_isles_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}

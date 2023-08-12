@@ -1665,7 +1665,7 @@ country_event = {
 			name = "Venediaplonie"
 			duration = -1
 		}
-		iberia_region  = {
+		british_isles_region  = {
 			limit = {
 				NOT = { is_core = ROOT }
 				NOT = { is_permanent_claim = ROOT }
@@ -1679,7 +1679,7 @@ country_event = {
 			}
 			add_permanent_claim = ROOT
 		}
-		british_isles_region  = {
+		iberia_region  = {
 			limit = {
 				NOT = { is_core = ROOT }
 				NOT = { is_permanent_claim = ROOT }
@@ -1706,7 +1706,7 @@ custom_tooltip = burnaiberiazdobyta
 hidden_effect = {
 every_province = {
 	limit = {
-		region = iberia_region
+		region = british_isles_region
 	}
 		add_core = ROOT
 		cede_province = ROOT
@@ -1780,7 +1780,7 @@ country_event = {
 			name = "szykujemysiedoinwazjinabrytanie"
 			duration = -1
 		}
-		british_isles_region = {
+		iberia_region = {
 			limit = {
 				NOT = { is_core = ROOT }
 				NOT = { is_permanent_claim = ROOT }
@@ -1807,7 +1807,7 @@ country_event = {
 		hidden_effect = {
 		every_province = {
 			limit = {
-				region = british_isles_region
+				region = iberia_region
 			}
 				add_core = ROOT
 				cede_province = ROOT
@@ -2321,7 +2321,7 @@ country_event = {
 							option = {	
 								custom_tooltip = raumariacollapsesolaris1
 								hidden_effect = {
-									british_isles_region = {
+									iberia_region = {
 									add_core = X03
 									cede_province = X03
 								}
@@ -2358,7 +2358,7 @@ country_event = {
 								option = {	
 									custom_tooltip = raumariacollapsesolaris2
 									hidden_effect = {
-										iberia_region = {
+										british_isles_region = {
 										add_core = X04
 										cede_province = X04
 									}
@@ -2478,7 +2478,7 @@ country_event = {
 														OR = {
 														region = korea_region
 														region = manchuria_region		
-														region = east_siberia_region		
+														region = east_sbritish_isles_region		
 													}}
 													add_core = KOR
 													cede_province = KOR
@@ -2527,7 +2527,7 @@ country_event = {
 													limit = {
 														OR = {
 														region = mongolia_region
-														region = west_siberia_region	
+														region = west_sbritish_isles_region	
 														region = central_asia_region		
 													}
 												}

@@ -611,7 +611,7 @@ atlantropa_conquer_scotland = {
 				name = "wessex_army"
 				duration = -1
 			}
-				iberia_region = {
+				british_isles_region = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -630,14 +630,14 @@ atlantropa_conquer_scotland = {
 		required_missions = { atlantropa_conquer_scotlandandalucia }
 		
 		provinces_to_highlight = {
-				region = iberia_region
+				region = british_isles_region
 
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		
 		trigger = {
 			tag = GBR
-				iberia_region = {
+				british_isles_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}		

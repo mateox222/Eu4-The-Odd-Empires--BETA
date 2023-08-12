@@ -1082,7 +1082,7 @@ arthuria_fifth_slot3 = {
 	num_of_owned_provinces_with = {
 	value = 30
 	owned_by = ROOT
-	region = iberia_region
+	region = british_isles_region
 	}
 	owns_core_province = 4361
 	}
@@ -1617,12 +1617,12 @@ arhurian_canada = {
 		required_missions = { albion_conquest_brittany  }
 		provinces_to_highlight = {
 			OR = {
-				region = british_isles_region
+				region = iberia_region
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			iberia_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			british_isles_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
 
 		}
 

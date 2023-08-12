@@ -430,7 +430,7 @@ province_event = {
 	trigger = {
 		FROM = { tag = REB }
 		OR = { #so that is isn't unrelated rebels
-			region = british_isles_region
+			region = iberia_region
 			NOT = { nationalism = 1 }
 		}
 		owner = {
@@ -553,7 +553,7 @@ country_event = {
 	
 	trigger = {
 		any_owned_province = {
-			NOT = { region = british_isles_region }
+			NOT = { region = iberia_region }
 			unrest = 3
 			OR = {
 				has_province_modifier = wotr_local_support_for_lancaster
@@ -581,7 +581,7 @@ country_event = {
 		ai_chance = { factor = 75 }
 		random_owned_province = {
 			limit = {
-				NOT = { region = british_isles_region }
+				NOT = { region = iberia_region }
 				unrest = 3
 				OR = {
 					has_province_modifier = wotr_local_support_for_lancaster
@@ -677,7 +677,7 @@ country_event = {
 			AND = {
 				num_of_cities = 2
 				capital_scope = {
-					region = british_isles_region
+					region = iberia_region
 				}
 			}
 			AND = {
@@ -714,11 +714,11 @@ country_event = {
 					limit = {
 						ROOT = {
 							capital_scope = {
-								region = british_isles_region
+								region = iberia_region
 							}
 						}
 					}
-					region = british_isles_region
+					region = iberia_region
 				}
 				unit_in_siege = no
 			}
@@ -850,7 +850,7 @@ country_event = {
 			AND = {
 				num_of_cities = 2
 				capital_scope = {
-					region = british_isles_region
+					region = iberia_region
 				}
 			}
 			AND = {
@@ -887,11 +887,11 @@ country_event = {
 					limit = {
 						ROOT = {
 							capital_scope = {
-								region = british_isles_region
+								region = iberia_region
 							}
 						}
 					}
-					region = british_isles_region
+					region = iberia_region
 				}
 				unit_in_siege = no
 			}
@@ -1057,11 +1057,11 @@ country_event = {
 							limit = {
 								ROOT = {
 									capital_scope = {
-										region = british_isles_region
+										region = iberia_region
 									}
 								}
 							}
-							region = british_isles_region
+							region = iberia_region
 						}
 					}
 				}
@@ -1073,11 +1073,11 @@ country_event = {
 							limit = {
 								ROOT = {
 									capital_scope = {
-										region = british_isles_region
+										region = iberia_region
 									}
 								}
 							}
-							region = british_isles_region
+							region = iberia_region
 						}
 					}
 					save_event_target_as = the_province
@@ -1685,7 +1685,7 @@ country_event = {
 				limit = {
 					any_owned_province = {
 						controlled_by = root
-						region = british_isles_region
+						region = iberia_region
 						NOT = { units_in_province = 1 }
 						NOT = { has_province_modifier = wotr_local_support }
 					}
@@ -1693,7 +1693,7 @@ country_event = {
 				random_owned_province = {
 					limit = {
 						controlled_by = root
-						region = british_isles_region
+						region = iberia_region
 						NOT = { units_in_province = 1 }
 						NOT = { has_province_modifier = wotr_local_support }
 					}

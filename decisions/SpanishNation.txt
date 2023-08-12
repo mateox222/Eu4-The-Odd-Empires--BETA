@@ -63,7 +63,7 @@ country_decisions = {
 		provinces_to_highlight = {
 			OR = {
 				AND = {
-					region = british_isles_region
+					region = iberia_region
 					owner = { religion_group = reformednahuatl }
 				}
 			}
@@ -80,10 +80,10 @@ country_decisions = {
 			is_at_war = no
 			num_of_owned_provinces_with = {
 				value = 30
-				region = british_isles_region
+				region = iberia_region
 				owned_by = ROOT
 			}
-			british_isles_region = {
+			iberia_region = {
 				type = all
 				NOT = { owner = { religion_group = reformednahuatl } }
 			}
@@ -119,7 +119,7 @@ country_decisions = {
 			}
 			custom_tooltip = spanish_unification_effect.tooltip
 			hidden_effect = {
-				british_isles_region = {
+				iberia_region = {
 					limit = {
 						NOT = { area = alentejo_area }
 						NOT = { area = beieras_area }
