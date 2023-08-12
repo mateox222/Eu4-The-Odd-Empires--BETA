@@ -1,0 +1,109 @@
+namespace = murimunion
+country_event = { #Intro
+	id = murimunion.1
+	title = murimunion.1.t 
+	desc = murimunion.1.d 
+	picture = thousandsword_eventPicture
+	
+	trigger = {
+		tag = KO3	
+		has_game_started = yes
+		NOT = { has_country_flag = murimunion_events_start}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	#major = yes 
+	#major_trigger = { 
+	#	OR = {
+	#		capital_scope = { region = korea_region }
+	#		capital_scope = { region = manchuria_region }
+	#	}
+	#}
+	option = { 
+		name = murimunion.1.a
+		add_prestige = 10
+		set_country_flag = murimunion_events_start
+		734 = {
+			add_devastation = 5
+		}
+		4231 = {
+			add_devastation = 5
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #Korea Or The Union
+	id = murimunion.2
+	title = murimunion.2.t 
+	desc = murimunion.2.d 
+	picture = thousandsword_eventPicture
+	is_triggered_only = yes 
+	major = yes 
+	major_trigger = { 
+		OR = {
+			capital_scope = { region = korea_region }
+			capital_scope = { region = manchuria_region }
+		}
+	}
+	option = { 
+		name = murimunion.2.a
+		trigger = {
+			exists = KOR
+		}
+		hidden_effect = {
+			every_subject_country = {
+				KO3 = {
+					free_vassal = KOR
+				}
+			}
+			country_event = {
+				id = murimunion.3
+				days = 2
+			}
+		}
+		custom_tooltip = aftertwodaysko3
+		switch_tag = KOR
+		ai_chance = { factor = 200 } 
+	}
+	option = { 
+		name = murimunion.2.a
+		trigger = {
+			NOT = {
+				exists = KOR
+			}
+		}
+		hidden_effect = {
+			set_dynasty = "Yi"
+		}
+		change_government = monarchy
+		add_government_reform = korean_monarchy
+		change_tag = KOR
+		swap_non_generic_missions = yes
+		ai_chance = { factor = 200 } 
+	}
+	#option = { 
+	#	name = murimunion.2.b
+	#set_country_flag = keep_to_murim_countryflag
+	#	ai_chance = { factor = 2 } 
+	#}
+}
+
+country_event = { #annex dummy event
+	id = murimunion.3
+	title = murimunion.3.t 
+	desc = murimunion.3.d 
+	picture = thousandsword_eventPicture
+	is_triggered_only = yes 
+	major = yes 
+	major_trigger = { 
+		capital_scope = { region = korea_region }
+	}
+	option = { 
+		name = murimunion.3.a
+		KOR = {
+			inherit = KO3
+		}
+		ai_chance = { factor = 200 } 
+	}
+}

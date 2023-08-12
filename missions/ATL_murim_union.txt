@@ -1,0 +1,235 @@
+murim_beginning_ko3 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = KO3
+	}
+	has_country_shield = yes
+
+	recover_from_war_ko3 = {
+		icon = atlantropa_army
+		position = 1
+		required_missions = {  }
+		trigger = {
+			army_size_percentage = 0.90
+		}
+		effect = {
+			custom_tooltip = permclaimonallhwasanprovinces
+			hidden_effect = {
+				korea_region = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+						owner = {
+							tag = KO2
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			hamgyeong_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	court_in_joseon_ko3 = {
+		icon = atlantropa_cityscapethree
+		position = 2
+		required_missions = { recover_from_war_ko3 }
+		trigger = {
+			dip_power = 100
+		}
+		effect = {
+			country_event = { id = murimunion.1 }
+		}
+	}
+	placating_the_yi_ko3 = {
+		icon = atlantropa_demonmeeting
+		position = 3
+		required_missions = { court_in_joseon_ko3 reaching_out_to_the_south_ko3 }
+		trigger = {
+			OR = {
+				NOT = {
+					exists = KOR
+				}
+			}
+		}
+		effect = {
+			country_event = { id = murimunion.1 }
+		}
+	}
+}
+
+namgung_ko3 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = KO3
+	}
+	has_country_shield = yes
+
+	reaching_out_to_the_south_ko3 = {
+		icon = atlantropa_cityscape
+		position = 2
+		required_missions = { recover_from_war_ko3 }
+		trigger = {
+			OR = {
+				NOT = {
+					exists = KO4
+				}
+				alliance_with = KO4
+			}
+		}
+		effect = {
+			country_event = { id = murimunion.1 }
+		}
+	}
+}
+
+hwasan_ko3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = KO3
+	}
+	has_country_shield = yes
+
+	striking_hwasan_ko3 = {
+		icon = atlantropa_mounthwa
+		position = 2
+		required_missions = { recover_from_war_ko3 }
+		provinces_to_highlight = {
+			OR = {
+				area = pyongan_area
+				province_id = 733
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			pyongan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			NOT = {
+				exists = KO2
+			}
+		}
+		effect = {
+			country_event = { id = murimunion.1 }
+		}
+	}
+	reaching_agreements_with_hwasan = {
+		icon = atlantropa_southeasia
+		position = 3
+		required_missions = { striking_hwasan_ko3 }
+		trigger = {
+			pyongan_area = {
+				type = all
+				is_core = ROOT
+			}
+		}
+		effect = {
+			country_event = { id = murimunion.1 }
+		}
+	}
+	reckoning_with_the_yi_ko3 = {
+		icon = atlantropa_sadnamgung
+		position = 4
+		required_missions = { placating_the_yi_ko3 reaching_agreements_with_hwasan purging_demons_ko3 }
+		trigger = { }
+		effect = {
+			country_event = { id = murimunion.2 }
+		}
+	}
+}
+
+agmajongpa_ko3 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = KO3
+	}
+	has_country_shield = yes
+
+	reconquer_the_east_ko3 = {
+		icon = atlantropa_fieryend
+		position = 1
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = {
+				area = hamgyeong_area
+				province_id = 2694
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			hamgyeong_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2694 = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = { }
+	}
+	push_to_agmaui_ko3 = {
+		icon = atlantropa_endunion
+		position = 2
+		required_missions = { reconquer_the_east_ko3 }
+		provinces_to_highlight = {
+			province_id = 2108
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			2108 = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = { }
+	}
+	purging_demons_ko3 = {
+		icon = atlantropa_lifegoeson
+		position = 3
+		required_missions = { push_to_agmaui_ko3 }
+		provinces_to_highlight = {
+			owned_by = KO1
+		}
+		trigger = {
+			NOT = {
+				exists = KO1
+			}
+		}
+		effect = { }
+	}
+}
+
+post_reckoning_ko3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		has_country_flag = keep_to_murim_countryflag
+		tag = KO3
+	}
+	has_country_shield = yes
+
+	preparing_for_greatness_ko3 = {
+		icon = atlantropa_sunsetdominion
+		position = 5
+		required_missions = { reckoning_with_the_yi_ko3 }
+		trigger = { }
+		effect = { }
+	}
+}
+
