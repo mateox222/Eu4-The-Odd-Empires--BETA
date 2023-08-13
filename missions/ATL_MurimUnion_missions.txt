@@ -39,28 +39,13 @@ murim_beginning_ko3 = {
 	}
 	court_in_joseon_ko3 = {
 		icon = atlantropa_cityscapethree
-		position = 2
+		position = 3
 		required_missions = { recover_from_war_ko3 }
 		trigger = {
-			dip_power = 100
+			dip_power = 50
 		}
 		effect = {
-			country_event = { id = murimunion.1 }
-		}
-	}
-	placating_the_yi_ko3 = {
-		icon = atlantropa_demonmeeting
-		position = 3
-		required_missions = { court_in_joseon_ko3 reaching_out_to_the_south_ko3 }
-		trigger = {
-			OR = {
-				NOT = {
-					exists = KOR
-				}
-			}
-		}
-		effect = {
-			country_event = { id = murimunion.1 }
+			country_event = { id = murimunion.10 }
 		}
 	}
 }
@@ -87,7 +72,7 @@ namgung_ko3 = {
 			}
 		}
 		effect = {
-			country_event = { id = murimunion.1 }
+			country_event = { id = murimunion.7 }
 		}
 	}
 }
@@ -129,6 +114,10 @@ hwasan_ko3 = {
 		icon = atlantropa_southeasia
 		position = 3
 		required_missions = { striking_hwasan_ko3 }
+		provinces_to_highlight = {
+			area = pyongan_area
+			NOT = { is_core = ROOT }
+		}
 		trigger = {
 			pyongan_area = {
 				type = all
@@ -136,16 +125,17 @@ hwasan_ko3 = {
 			}
 		}
 		effect = {
-			country_event = { id = murimunion.1 }
+			country_event = { id = murimunion.5 }
 		}
 	}
 	reckoning_with_the_yi_ko3 = {
 		icon = atlantropa_sadnamgung
 		position = 4
-		required_missions = { placating_the_yi_ko3 reaching_agreements_with_hwasan purging_demons_ko3 }
+		required_missions = { court_in_joseon_ko3 reaching_agreements_with_hwasan purging_demons_ko3 }
 		trigger = { }
 		effect = {
 			country_event = { id = murimunion.2 }
+			custom_tooltip = allowustodecideourfateko3
 		}
 	}
 }
@@ -180,7 +170,18 @@ agmajongpa_ko3 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		effect = { }
+		effect = {
+			every_province = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+					owner = {
+						tag = KO1
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
 	}
 	push_to_agmaui_ko3 = {
 		icon = atlantropa_endunion
@@ -188,15 +189,17 @@ agmajongpa_ko3 = {
 		required_missions = { reconquer_the_east_ko3 }
 		provinces_to_highlight = {
 			province_id = 2108
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { controlled_by = ROOT }
 		}
 		trigger = {
 			2108 = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				controlled_by = ROOT
 			}
 		}
-		effect = { }
+		effect = {
+			country_event = { id = murimunion.6 }
+		}
 	}
 	purging_demons_ko3 = {
 		icon = atlantropa_lifegoeson
@@ -209,8 +212,12 @@ agmajongpa_ko3 = {
 			NOT = {
 				exists = KO1
 			}
+			manpower = 2
 		}
-		effect = { }
+		effect = {
+			add_manpower = -2
+			country_event = { id = murimunion.4 }
+		}
 	}
 }
 
