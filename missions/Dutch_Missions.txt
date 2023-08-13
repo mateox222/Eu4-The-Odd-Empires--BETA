@@ -27,7 +27,6 @@ ned_reconquest_group = {
 		provinces_to_highlight = {
 			OR = {
 				area = holland_area
-				area = highlands_area
 			}
 			NOT = { owned_by = ROOT }
 		}
@@ -37,10 +36,7 @@ ned_reconquest_group = {
 				type = all
 				owned_by = ROOT
 			}
-			highlands_area = {
-				type = all
-				owned_by = ROOT
-			}
+
 		}
 		
 		effect = {
@@ -60,12 +56,12 @@ ned_reconquest_group = {
 		position = 2
 		
 		provinces_to_highlight = {
-			area = kingdom_of_the_isles_area
+			area = normandy_area
 			NOT = { owned_by = ROOT }
 		}
 		
 		trigger = {
-			kingdom_of_the_isles_area = {
+			normandy_area = {
 				type = all
 				owned_by = ROOT
 			}
@@ -87,6 +83,8 @@ ned_reconquest_group = {
 		
 		trigger = {
 			NOT = { current_age = age_of_discovery }
+			NOT = { current_age = medieval_age }
+
 			OR = {
 				NOT = {
 					religion = catholic
@@ -117,11 +115,6 @@ emp_ned_slot1_branch = {
 		OR = {
 			tag = NED
 			tag = HOL
-
-
-			
-
-
 		}
 		NOT = { map_setup = map_setup_random }
 	}
