@@ -729,7 +729,7 @@ russia_steppe_siberia_missions = {
 				}
 				add_permanent_claim = ROOT
 			}
-			west_sbritish_isles_region = {
+			west_siberia_region = {
 				limit = {
 					is_empty = no
 					NOT = { is_permanent_claim = ROOT }
@@ -794,12 +794,12 @@ russia_siberian_missions_slot = {
 		}
 	}
 	has_country_shield = yes
-	russian_colony_in_west_siberia_new = {
+	russian_colony_in_west_siberia_region_new = {
 		icon = mission_colonial
 		required_missions = { cross_the_mongol_border }
 		position = 6
 		provinces_to_highlight = {
-			region = west_sbritish_isles_region
+			region = west_siberia_region
 			has_discovered = ROOT
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -807,7 +807,7 @@ russia_siberian_missions_slot = {
 		}
 		trigger = {
 			num_of_owned_provinces_with = {
-				region = west_sbritish_isles_region
+				region = west_siberia_region
 				value = 15
 			}
 		}
@@ -828,7 +828,7 @@ russia_siberian_missions_slot = {
 			else = {
 				add_dip_power = 100
 			}
-			west_sbritish_isles_region = {
+			west_siberia_region = {
 				limit = {
 					trade_goods = fur
 					owned_by = ROOT
@@ -843,11 +843,11 @@ russia_siberian_missions_slot = {
 			factor = 75
 		}
 	}
-	russian_colony_in_east_siberia = {
+	russian_colony_in_east_siberia_region = {
 		icon = mission_trade_company_region_abroad
-		required_missions = { russian_colony_in_west_siberia_new }
+		required_missions = { russian_colony_in_west_siberia_region_new }
 		provinces_to_highlight = {
-			region = east_sbritish_isles_region
+			region = east_siberia_region
 			has_discovered = ROOT
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -855,7 +855,7 @@ russia_siberian_missions_slot = {
 		}
 		trigger = {
 			num_of_owned_provinces_with = {
-				region = east_sbritish_isles_region
+				region = east_siberia_region
 				value = 10
 			}
 			owns_core_province = 1043
@@ -923,7 +923,7 @@ russia_continue_steppes_mission_slot = {
 					is_empty = no
 				}
 				AND = {
-					region = west_sbritish_isles_region
+					region = west_siberia_region
 					is_empty = no
 				}
 			}
@@ -953,7 +953,7 @@ russia_continue_steppes_mission_slot = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = remaining_steppe_2.tooltip
-				west_sbritish_isles_region = {
+				west_siberia_region = {
 					type = all
 					OR = {
 						is_empty = yes
@@ -976,7 +976,7 @@ russia_continue_steppes_mission_slot = {
 					duration = 5475
 				}
 			}
-			west_sbritish_isles_region = {
+			west_siberia_region = {
 				limit = {
 					owned_by = ROOT
 				}

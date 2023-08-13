@@ -385,28 +385,12 @@ latin_empire_western = {
 		required_missions = { recover_lombardia }
 				provinces_to_highlight = {
 				OR = {
-				area = holland_area
-				area = north_brabant_area	
-				area = brabant_area				
-				area = flanders_area
+				region = low_countries_region
 		
 				}
 				}
 		trigger = {
-			holland_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-						north_brabant_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-						brabant_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			
-				flanders_area = {
+			low_countries_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}

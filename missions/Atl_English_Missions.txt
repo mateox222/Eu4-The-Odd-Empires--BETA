@@ -883,60 +883,11 @@ atlantropa_eng_british_naval_conq = {
 		}
 	}
 
-		atlantropa_eng_rb_take_baleares = {
-		icon = mission_rb_increase_our_reach
-		required_missions = { atlantropa_eng_rb_take_gibraltar }
-		position = 3
-		
-		provinces_to_highlight = {
-				region = lyonesse_region
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		
-		trigger = {
 
-			lyonesse_region = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-		}
-		
-		effect = {
-			add_prestige = 10
-			munster_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			connacht_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			ulster_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			leinster_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-		}
-	}
  
  	atlantropa_conquer_irelandia = {
 		icon = atlantropa_irelandia
-		required_missions = { atlantropa_eng_rb_take_baleares }
+		required_missions = { atlantropa_eng_rb_take_gibraltar }
 		position = 2
 		
 		provinces_to_highlight = {
@@ -996,6 +947,57 @@ atlantropa_eng_british_naval_conq = {
 		}
 		ai_weight = {
 			factor = 500
+		}
+	}
+
+			atlantropa_eng_rb_take_baleares = {
+		icon = mission_rb_increase_our_reach
+		required_missions = { atlantropa_conquer_irelandia }
+		position = 3
+		
+		provinces_to_highlight = {
+				region = lyonesse_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		trigger = {
+
+			lyonesse_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			add_prestige = 10
+			munster_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			connacht_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			ulster_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			leinster_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 
