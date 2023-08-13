@@ -28,3 +28,57 @@ country_event = { #The Last Mammoth
 		ai_chance = { factor = 2 } 
 	}
 }
+
+country_event = { #Frischland Colonists
+	id = atl_bonusevent.2
+	title = atl_bonusevent.2.t 
+	desc = atl_bonusevent.2.d 
+	picture = deadlands_eventPicture
+	
+	trigger = {
+		owns = 5553
+		OR = {
+			religion = norse_pagan_reformed
+			culture_group = nilfhishgroup
+			culture_group = scandinavian
+		}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 365 }
+	option = { 
+		name = atl_bonusevent.2.a
+		EFR = {
+			frischland_area = {
+				create_colony = 1000
+				add_core = EFR
+				cede_province = EFR
+				change_culture = frisian
+				change_religion = norse_pagan_reformed
+			}
+		}
+		ROOT = {
+			vassalize = EFR
+		}
+		add_treasury = 25
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_bonusevent.2.b
+		EFR = {
+			frischland_area = {
+				create_colony = 1000
+				add_core = EFR
+				cede_province = EFR
+				change_culture = frisian
+				change_religion = norse_pagan_reformed
+			}
+		}
+		switch_tag = EFR
+		add_treasury = 25
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_bonusevent.2.c
+		ai_chance = { factor = 2 } 
+	}
+}
