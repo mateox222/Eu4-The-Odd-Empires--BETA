@@ -1199,7 +1199,7 @@ kor_settle_land = {
 		
 		provinces_to_highlight = {
 			owned_by = root
-			NOT = { culture = korean }
+			NOT = { culture_group = korean_g }
 			NOT = { culture = korean_new }
 		}
 
@@ -1207,7 +1207,7 @@ kor_settle_land = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				value = 30
 				OR = {
-					culture = korean
+					culture_group = korean_g
 					culture = korean_new
 				}
 			}
