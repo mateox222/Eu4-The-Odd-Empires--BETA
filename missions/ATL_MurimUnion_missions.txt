@@ -152,7 +152,6 @@ agmajongpa_ko3 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 			2694 = {
-				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
@@ -179,7 +178,6 @@ agmajongpa_ko3 = {
 		}
 		trigger = {
 			2108 = {
-				type = all
 				controlled_by = ROOT
 			}
 		}
@@ -220,8 +218,13 @@ post_reckoning_ko3 = {
 		icon = atlantropa_sunsetdominion
 		position = 6
 		required_missions = { reckoning_with_the_yi_ko3 }
-		trigger = { }
-		effect = { }
+		trigger = {
+			is_great_power = yes
+		}
+		effect = {
+			add_prestige = 10
+			add_splendor = 250
+		}
 	}
 }
 
