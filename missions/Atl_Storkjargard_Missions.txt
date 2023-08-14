@@ -134,7 +134,7 @@ prepare_for_niflhish_a36 = {
 			}
 		}
 	}
-	finish_niflheim_136 = {
+	finish_niflheim_a36 = {
 		icon = atlantropa_niflheim
 		position = 8
 		required_missions = { niflport_conquest_a36 toppenhaf_conquest }
@@ -166,7 +166,7 @@ toppenhaf_a36 = {
 	}
 	has_country_shield = yes
 
-	toppenaf_conquest = {
+	toppenaf_conquest_a36 = {
 		icon = atlantropa_deadlands
 		position = 7
 		required_missions = { strong_allies_a36 }
@@ -181,6 +181,7 @@ toppenhaf_a36 = {
 			}
 		}
 		effect = {
+			custom_tooltip = convert_toppenaf
 			toppenaf_area = {
 				change_religion = norse_pagan_reformed
 			}
@@ -201,10 +202,20 @@ greenland_tree_a36 = {
 		icon = atlantropa_coldnorth
 		position = 6
 		required_missions = {  }
+		provinces_to_highlight = {
+			area = iceland_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
-			has_spy_network_in = {
-				who = ICE
-				value = 50
+			OR = {
+				has_spy_network_in = {
+					who = ICE
+					value = 50
+				}
+				iceland_area = {
+					type = all	
+					country_or_non_sovereign_subject_holds = ROOT
+				}
 			}
 		}
 		effect = {
@@ -226,8 +237,8 @@ greenland_tree_a36 = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			all_owned_province = {
-				area = iceland_area
+			iceland_area = {
+				type = all	
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
