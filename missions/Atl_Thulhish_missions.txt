@@ -66,7 +66,7 @@ vinterkeep_tree_a43 = {
 			army_size_percentage = 1
 		}
 		effect = {
-			toppenaf_area = {
+			stormo_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -80,14 +80,17 @@ vinterkeep_tree_a43 = {
 		position = 7
 		required_missions = { raising_a_warhost_a43 }
 		provinces_to_highlight = {
-			area = toppenaf_area
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			OR = {
+				province_id = 5066
+				province_id = 5071
+				province_id = 5109
+			}
+			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			toppenaf_area = {
-				type = all	
-				country_or_non_sovereign_subject_holds = ROOT
-			}
+			owns_or_non_sovereign_subject_of = 5066
+			owns_or_non_sovereign_subject_of = 5071
+			owns_or_non_sovereign_subject_of = 5109
 		}
 		effect = {
 			add_prestige = 10
