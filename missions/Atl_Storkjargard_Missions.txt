@@ -1,0 +1,246 @@
+island_conquest = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = A36
+	}
+	has_country_shield = yes
+
+	ally_vinterkeep_a36 = {
+		icon = atlantropa_ilinhala
+		position = 6
+		required_missions = {  }
+		trigger = {
+			alliance_with = A28
+		}
+		effect = {
+			A28 = {
+				country_event = { id = atl_bonusevent.8 }
+			}
+			toppenaf_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = A36
+			}
+		}
+	}
+	rabinsder_a36 = {
+		icon = atlantropa_furdan
+		position = 7
+		required_missions = { ally_vinterkeep_a36 }
+		provinces_to_highlight = {
+			area = rabinsder_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			rabinsder_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			avalon_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = A36
+			}
+		}
+	}
+	end_the_roman_exiles_a36 = {
+		icon = atlantropa_burningkazan
+		position = 8
+		required_missions = { rabinsder_a36 }
+		provinces_to_highlight = {
+			area = avalon_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			avalon_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 50
+		}
+	}
+}
+
+prepare_for_niflhish_a36 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = A36
+	}
+	has_country_shield = yes
+
+	strong_allies_a36 = {
+		icon = mission_alliances
+		position = 6
+		required_missions = {  }
+		trigger = {
+			OR = {
+				offensive_war_with = A27
+				owns_core_province = 5098
+				any_ally = {
+					is_rival = a27
+				}
+			}
+		}
+		effect = {
+			toppenaf_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = A36
+			}
+			hrodingard_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = A36
+			}
+		}
+	}
+	niflport_conquest_a36 = {
+		icon = atlantropa_nilfgaard
+		position = 7
+		required_missions = { strong_allies_a36 }
+		provinces_to_highlight = {
+			area = hrodingard_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			hrodingard_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			hyperborea_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = A36
+			}
+		}
+	}
+	finish_niflheim_136 = {
+		icon = atlantropa_niflheim
+		position = 8
+		required_missions = { niflport_conquest_a36 toppenhaf_conquest }
+		provinces_to_highlight = {
+			region = hyperborea_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			hyperborea_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			add_splendor = 800
+		}
+	}
+}
+
+toppenhaf_a36 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = A36
+	}
+	has_country_shield = yes
+
+	toppenaf_conquest = {
+		icon = atlantropa_deadlands
+		position = 7
+		required_missions = { strong_allies_a36 }
+		provinces_to_highlight = {
+			area = toppenaf_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			toppenaf_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			toppenaf_area = {
+				change_religion = norse_pagan_reformed
+			}
+		}
+	}
+}
+
+greenland_tree_a36 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = A36
+	}
+	has_country_shield = yes
+
+	spynetwork_in_greenland_a36 = {
+		icon = atlantropa_coldnorth
+		position = 6
+		required_missions = {  }
+		trigger = {
+			has_spy_network_in = {
+				who = ICE
+				value = 50
+			}
+		}
+		effect = {
+			iceland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = A36
+			}
+		}
+	}
+	going_west_a36 = {
+		icon = atlantropa_arthurianfleet
+		position = 7
+		required_missions = { spynetwork_in_greenland_a36 }
+		provinces_to_highlight = {
+			area = iceland_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			all_owned_province = {
+				area = iceland_area
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			frischland_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = A36
+			}
+			create_explorer = { tradition = 25 }
+		}
+	}
+}
+

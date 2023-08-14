@@ -208,3 +208,26 @@ country_event = { #Frischland Religion
 		ai_chance = { factor = 2 } 
 	}
 }
+
+country_event = { #Storkjargard Envoys
+	id = atl_bonusevent.8
+	title = atl_bonusevent.8.t 
+	desc = atl_bonusevent.8.d 
+	picture = demonmeeting_eventPicture
+	is_triggered_only = yes
+	major = yes 
+	major_trigger = { 
+		tag = A36
+	}
+	option = { 
+		name = atl_bonusevent.8.a
+		A36 = {
+			vassalize = A28
+		}
+		ai_chance = { factor = 10 } 
+	}
+	option = { 
+		name = atl_bonusevent.8.b
+		ai_chance = { factor = 2 } 
+	}
+}
