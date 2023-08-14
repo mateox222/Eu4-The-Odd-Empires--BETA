@@ -46,7 +46,6 @@ ko1_korean_conquest = {
 		}
 		trigger = {
 			735 = {
-				type = all
 				controlled_by = KO1
 			}
 		}
@@ -70,10 +69,6 @@ ko1_korean_conquest = {
 		}
 		effect = {
 			5887 = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
 				add_permanent_claim = ROOT
 			}
 		}
@@ -213,7 +208,6 @@ ko1_hwasan_conquest = {
 		}
 		trigger = {
 			2112 = {
-				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
@@ -247,18 +241,10 @@ ko1_hwasan_conquest = {
 				add_permanent_claim = ROOT
 			}
 			733 = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
 				add_permanent_claim = ROOT
 			}
 			hidden_effect = {
 				2112 = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
 					add_permanent_claim = ROOT
 				}
 			}

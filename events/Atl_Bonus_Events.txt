@@ -10,13 +10,6 @@ country_event = { #The Last Mammoth
 	}
 	fire_only_once = yes
 	mean_time_to_happen = { days = 14600 }
-	major = yes 
-	major_trigger = { 
-		OR = {
-			capital_scope = { continent = north_america }
-			capital_scope = { continent = europe }
-		}
-	}
 	option = { 
 		name = atl_bonusevent.1.a
 		980 = {
@@ -26,5 +19,461 @@ country_event = { #The Last Mammoth
 		}
 		add_treasury = 25
 		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #Frischland Colonists
+	id = atl_bonusevent.2
+	title = atl_bonusevent.2.t 
+	desc = atl_bonusevent.2.d 
+	picture = deadlands_eventPicture
+	
+	trigger = {
+		owns = 5553
+		OR = {
+			religion = norse_pagan_reformed
+			culture_group = nilfhishgroup
+			culture_group = scandinavian
+		}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 365 }
+	option = { 
+		name = atl_bonusevent.2.a
+		EFR = {
+			frischland_area = {
+				create_colony = 1000
+				add_core = EFR
+				cede_province = EFR
+				change_culture = frisian
+				change_religion = norse_pagan_reformed
+				add_province_modifier = {
+					name = efr_spread_thin_modifier
+					duration = 18250
+				}
+			}
+		}
+		ROOT = {
+			vassalize = EFR
+		}
+		hidden_effect = {
+			spawn_new_nation = { tag = EFR }
+		}
+		add_treasury = 25
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_bonusevent.2.b
+		trigger = {
+			ai = no
+		}
+		EFR = {
+			frischland_area = {
+				create_colony = 1000
+				add_core = EFR
+				cede_province = EFR
+				change_culture = frisian
+				change_religion = norse_pagan_reformed
+				add_province_modifier = {
+					name = efr_spread_thin_modifier
+					duration = 18250
+				}
+			}
+		}
+		hidden_effect = {
+			spawn_new_nation = { tag = EFR }
+		}
+		switch_tag = EFR
+		add_treasury = 25
+		ai_chance = { factor = 0 } 
+	}
+	option = { 
+		name = atl_bonusevent.2.c
+		frischland_area = {
+			add_core = EFR
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #Frischland Christianity
+	id = atl_bonusevent.3
+	title = atl_bonusevent.3.t 
+	desc = atl_bonusevent.3.d 
+	picture = PAY_POPE_eventPicture
+	is_triggered_only = yes 
+	option = { 
+		name = atl_bonusevent.3.a
+		add_prestige = 10
+		add_splendor = 400
+		add_treasury = 100
+		5553 = {
+			add_base_tax = 1
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #Frischland Germanic
+	id = atl_bonusevent.4
+	title = atl_bonusevent.4.t 
+	desc = atl_bonusevent.4.d 
+	picture = citysiegea_eventPicture
+	is_triggered_only = yes 
+	option = { 
+		name = atl_bonusevent.4.a
+		add_splendor = 400
+		5553 = {
+			add_base_manpower = 1
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #Frischland Army
+	id = atl_bonusevent.5
+	title = atl_bonusevent.5.t 
+	desc = atl_bonusevent.5.d 
+	picture = jianzhou_eventPicture
+	is_triggered_only = yes 
+	option = { 
+		name = atl_bonusevent.5.a
+		add_dip_power = 50
+		add_mil_power = 50
+		add_adm_power = 50
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_bonusevent.5.b
+		add_stability = -1
+		add_mil_power = -50
+		change_technology_group = western
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #Frischland Government
+	id = atl_bonusevent.6
+	title = atl_bonusevent.6.t 
+	desc = atl_bonusevent.6.d 
+	picture = fortaleza_eventPicture
+	is_triggered_only = yes 
+	option = { 
+		name = atl_bonusevent.6.a
+		trigger = {
+			religion = norse_pagan_reformed
+		}
+		change_government = republic
+		add_government_reform = norse_republic_reform
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_bonusevent.6.b
+		change_government = republic
+		add_government_reform = peasants_republic
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_bonusevent.6.c
+		change_government = monarchy
+		add_government_reform = feudalism_reform
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #Frischland Religion
+	id = atl_bonusevent.7
+	title = atl_bonusevent.7.t 
+	desc = atl_bonusevent.7.d 
+	picture = fortaleza_eventPicture
+	is_triggered_only = yes 
+	option = { 
+		name = atl_bonusevent.7.a
+		trigger = {
+			religion = norse_pagan_reformed
+		}
+		set_country_flag = efr_germanic_path
+		swap_non_generic_missions = yes
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_bonusevent.7.b
+		trigger = {
+			religion_group = christian
+		}
+		set_country_flag = efr_christian_path
+		swap_non_generic_missions = yes
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_bonusevent.7.c
+		trigger = {
+			NOT = {
+				OR = {
+					religion = norse_pagan_reformed
+					religion_group = christian
+				}
+			}
+		}
+		set_country_flag = efr_ERROR_path
+		swap_non_generic_missions = yes
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #Storkjargard Envoys
+	id = atl_bonusevent.8
+	title = atl_bonusevent.8.t 
+	desc = atl_bonusevent.8.d 
+	picture = jianzhou_eventPicture
+	is_triggered_only = yes
+	major = yes 
+	major_trigger = { 
+		tag = A36
+	}
+	option = { 
+		name = atl_bonusevent.8.a
+		A36 = {
+			vassalize = A28
+		}
+		ai_chance = { factor = 10 } 
+	}
+	option = { 
+		name = atl_bonusevent.8.b
+		ai_chance = { factor = 2 } 
+	}
+}
+
+#Below events are ripped from anbennar
+#Order of Santiago - Mojave
+country_event = {
+	id = atl_bonusevent.9
+	title = atl_bonusevent.9.t
+	desc = atl_bonusevent.9.d
+	picture = rahbaship_eventPicture
+	goto = spawn_province
+	
+	fire_only_once = yes
+	
+	trigger = {
+		owns = 217 #Madrid
+		is_year = 6960
+		rio_grande_region = {
+			is_empty = yes
+			#has_discovered = ROOT
+			has_empty_adjacent_province = yes
+		}
+	}
+	mean_time_to_happen = {
+		months = 300
+		modifier = {
+			factor = 0.05
+			rio_grande_region = {
+				is_colony = yes
+			}
+		}
+		modifier = {
+			factor = 0.5
+			ai = no
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			random_province = {
+				limit = {
+					region = rio_grande_region
+					is_empty = yes
+					has_empty_adjacent_province = yes
+				}
+				save_event_target_as = spawn_province
+			}
+			random_province = {
+				limit = {
+					region = rio_grande_region
+					is_empty = yes
+					has_empty_adjacent_province = yes
+					has_port = yes
+				}
+				save_event_target_as = spawn_province
+			}		
+		}
+	}
+	option = {
+		name = atl_bonusevent.9.a
+		S00 = {
+			event_target:spawn_province = {
+				create_colony = 1000
+				add_core = S00
+			}
+		}
+		hidden_effect = {
+			S00 = {
+				country_event = { 
+					id = atl_bonusevent.10
+					days = 7
+				}
+				define_ruler = {
+					name = "Ferdinand"
+					dynasty = "Mamaduna"
+					adm = 3
+					dip = 2
+					mil = 4
+					age = 45
+				}
+			}
+		}
+		spawn_new_nation = { tag = S00 }
+	}
+	option = { # play as the order
+		name = atl_bonusevent.9.b
+		trigger = {
+			ai = no
+		}
+		S00 = {
+			event_target:spawn_province = {
+				create_colony = 1000
+				add_core = S00
+			}
+		}
+		hidden_effect = {
+			S00 = {
+				country_event = { 
+					id = atl_bonusevent.10
+					days = 7
+				}
+				define_ruler = {
+					name = "Ferdinand"
+					dynasty = "Mamaduna"
+					adm = 3
+					dip = 2
+					mil = 4
+					age = 45
+				}
+			}
+		}
+		spawn_new_nation = { tag = S00 }
+		switch_tag = S00
+	}
+}
+
+#spawnable gets stuff
+country_event = {
+	id = atl_bonusevent.10
+	title = atl_bonusevent.10.t
+	desc = atl_bonusevent.10.d
+	picture = latinempirecrusaders_eventPicture
+	goto = spawn_province
+	option = {
+		name = atl_bonusevent.10.a
+		add_country_modifier = { 
+			name = atl_spawnable_modifier
+			duration = 7300
+		}
+		create_conquistador = {
+			tradition = 50
+		}
+		add_idea_group = exploration_ideas
+		capital_scope = {
+			build_to_forcelimit = {
+				infantry = 0.7
+				cavalry = 0.2
+				artillery = 0.1
+			}
+			change_province_name = "Peregrinaje"
+			rename_capital = "Fin del Peregrinaje"
+			hidden_effect = {
+				if = {
+					limit = {
+						is_institution_enabled = feudalism
+						any_province = {
+							feudalism = 90 
+							culture_group = ROOT
+						}
+					}
+					add_institution_embracement = {
+						which = feudalism
+						value = 100
+					}
+				}
+				if = {
+					limit = {
+						is_institution_enabled = renaissance
+						any_province = {
+							renaissance = 90 
+							culture_group = ROOT
+						}
+					}
+					add_institution_embracement = {
+						which = renaissance
+						value = 100
+					}
+				}
+				if = {
+					limit = {
+						is_institution_enabled = new_world_i
+						any_province = {
+								new_world_i = 90 
+								culture_group = ROOT
+						}
+					}
+					add_institution_embracement = {
+						which = new_world_i
+						value = 100
+					}
+				}
+				if = {
+					limit = {
+						is_institution_enabled = printing_press
+						any_province = {
+								printing_press = 90 
+								culture_group = ROOT
+						}
+					}
+					add_institution_embracement = {
+						which = printing_press
+						value = 100
+					}
+				}
+				if = {
+					limit = {
+						is_institution_enabled = global_trade
+						any_province = {
+								global_trade = 90 
+								culture_group = ROOT
+						}
+					}
+					add_institution_embracement = {
+						which = global_trade
+						value = 100
+					}
+				}
+				if = {
+					limit = {
+						is_institution_enabled = manufactories
+						any_province = {
+								manufactories = 90 
+								culture_group = ROOT
+						}
+					}
+					add_institution_embracement = {
+						which = manufactories
+						value = 100
+					}
+				}
+				if = {
+					limit = {
+						is_institution_enabled = enlightenment
+						any_province = {
+								enlightenment = 90 
+								culture_group = ROOT
+						}
+					}
+					add_institution_embracement = {
+						which = enlightenment
+						value = 100
+					}
+				}
+			}
+		}
 	}
 }
