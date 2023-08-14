@@ -56,11 +56,17 @@ country_event = { #Frischland Colonists
 		ROOT = {
 			vassalize = EFR
 		}
+		hidden_effect = {
+			spawn_new_nation = { tag = EFR }
+		}
 		add_treasury = 25
 		ai_chance = { factor = 2 } 
 	}
 	option = { 
 		name = atl_bonusevent.2.b
+		trigger = {
+			ai = no
+		}
 		EFR = {
 			frischland_area = {
 				create_colony = 1000
@@ -74,12 +80,18 @@ country_event = { #Frischland Colonists
 				}
 			}
 		}
+		hidden_effect = {
+			spawn_new_nation = { tag = EFR }
+		}
 		switch_tag = EFR
 		add_treasury = 25
-		ai_chance = { factor = 2 } 
+		ai_chance = { factor = 0 } 
 	}
 	option = { 
 		name = atl_bonusevent.2.c
+		frischland_area = {
+			add_core = EFR
+		}
 		ai_chance = { factor = 2 } 
 	}
 }

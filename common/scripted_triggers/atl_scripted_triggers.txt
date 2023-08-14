@@ -1,0 +1,87 @@
+# SOME META SCRIPT EXAMPLES
+# This also works for Scripted effects the same. Provided arguments will be pasted in
+# wherever the key occurs. If it fails to compile you should get a proper error message
+# and the source generated in the error log. There is no added overhead during runtime but
+# if used extensivley it might make loading time longer.
+#
+# my_test_trigger = {
+#	OR = {
+#		has_country_modifier = $ARG1$_modifier
+#		AND = {
+#			has_country_modifier = $ARG2$_modifier
+#			$CONTEXT$ = {
+#				NOT = { has_country_modifier = $ARG1$_modifier }
+#			}
+#		}
+#	}
+# }
+# Usage:
+# my_test_trigger = { ARG1=foo ARG2=bar CONTEXT=FROM }
+
+#from anbennar (taken by kennedia not matteo)
+
+#Checks if $tag$ has lower mil tech than the country scope the scripted trigger is within
+mil_tech_is_inferior = {
+	variable_arithmetic_trigger = {
+		export_to_variable = {
+			which = root_tech
+			value = mil_tech
+		}
+		export_to_variable = {
+			which = from_tech
+			value = mil_tech
+			who = $tag$
+		}
+
+		subtract_variable = { root_tech = 1 }
+
+		check_variable = {
+			which = root_tech
+			which = from_tech
+		}
+	}
+}
+
+#Checks if $tag$ has lower dip tech than the country scope the scripted trigger is within
+dip_tech_is_inferior = {
+	variable_arithmetic_trigger = {
+		export_to_variable = {
+			which = root_tech
+			value = dip_tech
+		}
+		export_to_variable = {
+			which = from_tech
+			value = dip_tech
+			who = $tag$
+		}
+
+		subtract_variable = { root_tech = 1 }
+
+		check_variable = {
+			which = root_tech
+			which = from_tech
+		}
+	}
+}
+
+#Checks if $tag$ has lower adm tech than the country scope the scripted trigger is within
+adm_tech_is_inferior = {
+	variable_arithmetic_trigger = {
+		export_to_variable = {
+			which = root_tech
+			value = adm_tech
+		}
+		export_to_variable = {
+			which = from_tech
+			value = adm_tech
+			who = $tag$
+		}
+
+		subtract_variable = { root_tech = 1 }
+
+		check_variable = {
+			which = root_tech
+			which = from_tech
+		}
+	}
+}

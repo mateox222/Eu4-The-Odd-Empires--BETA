@@ -132,3 +132,21 @@ initialize_atlantis_schools_effect = {
 		}
     }
 }
+
+#from anbennar (taken by kennedia not matteo)
+spawn_new_nation = {
+	while = {
+		limit = { mil_tech_is_inferior = { tag=$tag$ } }
+		$tag$ = { add_mil_tech = 1 }
+	}
+	
+	while = {
+		limit = { adm_tech_is_inferior = { tag=$tag$ } }
+		$tag$ = { add_adm_tech = 1 }
+	}
+	
+	while = {
+		limit = { dip_tech_is_inferior = { tag=$tag$ } }
+		$tag$ = { add_dip_tech = 1 }
+	}
+}
