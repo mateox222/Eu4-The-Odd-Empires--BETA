@@ -4,10 +4,13 @@ country_decisions = {
 	potential = {
 			was_never_end_game_tag_trigger = yes
 		 culture_group = gaelic
-		NOT = { exists = X52 }			
+		NOT = { exists = X52 }		
+		OR = {
 		capital_scope = {
 			region = france_region
 		}	
+		Tag = BRI
+			}
 		}
 		provinces_to_highlight = { 
 					OR = {
