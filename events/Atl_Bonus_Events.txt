@@ -10,13 +10,6 @@ country_event = { #The Last Mammoth
 	}
 	fire_only_once = yes
 	mean_time_to_happen = { days = 14600 }
-	major = yes 
-	major_trigger = { 
-		OR = {
-			capital_scope = { continent = north_america }
-			capital_scope = { continent = europe }
-		}
-	}
 	option = { 
 		name = atl_bonusevent.1.a
 		980 = {
@@ -54,6 +47,10 @@ country_event = { #Frischland Colonists
 				cede_province = EFR
 				change_culture = frisian
 				change_religion = norse_pagan_reformed
+				add_province_modifier = {
+					name = efr_spread_thin_modifier
+					duration = 18250
+				}
 			}
 		}
 		ROOT = {
@@ -71,6 +68,10 @@ country_event = { #Frischland Colonists
 				cede_province = EFR
 				change_culture = frisian
 				change_religion = norse_pagan_reformed
+				add_province_modifier = {
+					name = efr_spread_thin_modifier
+					duration = -1
+				}
 			}
 		}
 		switch_tag = EFR
@@ -79,6 +80,131 @@ country_event = { #Frischland Colonists
 	}
 	option = { 
 		name = atl_bonusevent.2.c
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #Frischland Christianity
+	id = atl_bonusevent.3
+	title = atl_bonusevent.3.t 
+	desc = atl_bonusevent.3.d 
+	picture = PAY_POPE_eventPicture
+	is_triggered_only = yes 
+	option = { 
+		name = atl_bonusevent.3.a
+		add_prestige = 10
+		add_splendor = 400
+		add_treasury = 100
+		5553 = {
+			add_base_tax = 1
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #Frischland Germanic
+	id = atl_bonusevent.4
+	title = atl_bonusevent.4.t 
+	desc = atl_bonusevent.4.d 
+	picture = citysiegea_eventPicture
+	is_triggered_only = yes 
+	option = { 
+		name = atl_bonusevent.4.a
+		add_splendor = 400
+		5553 = {
+			add_base_manpower = 1
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #Frischland Army
+	id = atl_bonusevent.5
+	title = atl_bonusevent.5.t 
+	desc = atl_bonusevent.5.d 
+	picture = jianzhou_eventPicture
+	is_triggered_only = yes 
+	option = { 
+		name = atl_bonusevent.5.a
+		add_dip_power = 50
+		add_mil_power = 50
+		add_adm_power = 50
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_bonusevent.5.b
+		add_stability = -1
+		add_mil_power = -50
+		change_technology_group = western
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #Frischland Government
+	id = atl_bonusevent.6
+	title = atl_bonusevent.6.t 
+	desc = atl_bonusevent.6.d 
+	picture = fortaleza_eventPicture
+	is_triggered_only = yes 
+	option = { 
+		name = atl_bonusevent.6.a
+		trigger = {
+			religion = norse_pagan_reformed
+		}
+		change_government = republic
+		add_government_reform = norse_republic_reform
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_bonusevent.6.b
+		change_government = republic
+		add_government_reform = peasants_republic
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_bonusevent.6.c
+		change_government = monarchy
+		add_government_reform = feudalism_reform
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #Frischland Religion
+	id = atl_bonusevent.7
+	title = atl_bonusevent.7.t 
+	desc = atl_bonusevent.7.d 
+	picture = fortaleza_eventPicture
+	is_triggered_only = yes 
+	option = { 
+		name = atl_bonusevent.7.a
+		trigger = {
+			religion = norse_pagan_reformed
+		}
+		set_country_flag = efr_germanic_path
+		swap_non_generic_missions = yes
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_bonusevent.7.b
+		trigger = {
+			religion_group = christian
+		}
+		set_country_flag = efr_christian_path
+		swap_non_generic_missions = yes
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_bonusevent.7.c
+		trigger = {
+			NOT = {
+				OR = {
+					religion = norse_pagan_reformed
+					religion_group = christian
+				}
+			}
+		}
+		set_country_flag = efr_ERROR_path
+		swap_non_generic_missions = yes
 		ai_chance = { factor = 2 } 
 	}
 }

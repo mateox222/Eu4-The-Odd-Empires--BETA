@@ -1,0 +1,420 @@
+birth_of_frischland_EFR = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = EFR
+	}
+
+	spread_thin_efr = {
+		icon = atlantropa_vinland_unite
+		position = 6
+		required_missions = {  }
+		trigger = {
+			exists = EFR
+		}
+		effect = {
+			set_capital = 5553
+			if ={
+				limit = {
+					is_subject = yes
+				}
+				add_country_modifier = {
+					name = efr_sow_land_modifier
+					duration = 3650
+				}
+			}
+		}
+	}
+	sowing_the_land_efr = {
+		icon = atlantropa_slavia
+		position = 7
+		required_missions = { spread_thin_efr the_faith_of_the_people_EFR }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 5550
+				province_id = 5552
+				province_id = 5553
+				province_id = 5555
+			}
+			NOT = {
+				num_of_times_improved = 1
+			}
+		}
+		trigger = {
+			5550 = {
+				num_of_times_improved = 1
+			}
+			5552 = {
+				num_of_times_improved = 1
+			}
+			5553 = {
+				num_of_times_improved = 1
+			}
+			5555 = {
+				num_of_times_improved = 1
+			}
+		}
+		effect = {
+			frischland_area = {
+				remove_province_modifier = efr_spread_thin_modifier
+				add_province_modifier = {
+					name = efr_population_boom_modifier
+					duration = 3650
+				}
+			}
+			add_adm_power = 50
+			add_dip_power = 50
+			add_mil_power = 50
+		}
+	}
+	the_birth_of_the_state_efr = {
+		icon = atlantropa_arthuriancolonist
+		position = 8
+		required_missions = { sowing_the_land_efr }
+		trigger = {
+			stability = 1
+			total_development = 35
+		}
+		effect = {
+			country_event = { id = atl_bonusevent.6 }
+		}
+	}
+	preparing_for_the_future_efr = {
+		icon = atlantropa_armenianking
+		position = 10
+		required_missions = { the_birth_of_the_state_efr }
+		trigger = {
+			is_subject = no
+		}
+		effect = {
+			add_prestige = 10
+			add_stability = 1
+			add_adm_power = 25
+			add_dip_power = 25
+			add_mil_power = 25
+		}
+	}
+}
+
+the_miltar_EFR = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = EFR
+	}
+
+	establishing_a_military_efr = {
+		icon = atlantropa_northern_dominion
+		position = 7
+		required_missions = { spread_thin_efr }
+		trigger = {
+			if = {
+				limit = { has_dlc = "Cradle of Civilization" }
+				army_professionalism = 0.10
+			}
+			else = {
+				army_size_percentage = 1
+			}
+		}
+		effect = {
+			country_event = { id = atl_bonusevent.5 }
+		}
+	}
+}
+
+religion_EFR = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = EFR
+	}
+
+	the_faith_of_the_people_efr = {
+		icon = atlantropa_dawn
+		position = 6
+		required_missions = {  }
+		trigger = {
+			OR = {
+				mission_completed = the_birth_of_the_state_efr
+				custom_trigger_tooltip = {
+					tooltip = atl_not_norse
+					NOT = {
+						religion = norse_pagan_reformed
+					}
+				}
+			}
+		}
+		effect = {
+			define_advisor = {
+				type = inquisitor
+				skill = 1
+				discount = yes
+			}
+			country_event = { id = atl_bonusevent.7 }
+		}
+	}
+}
+
+frisian_navy_efr = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = EFR
+	}
+
+	the_republics_navy_efr = {
+		icon = atlantropa_niflheim_navy
+		position = 7
+		required_missions = { spread_thin_efr }
+		trigger = {
+			navy_size_percentage = 0.66
+		}
+		effect = {
+			add_navy_tradition = 50
+		}
+	}
+	charting_the_north_efr = {
+		icon = atlantropa_coldnorth
+		position = 8
+		required_missions = { the_republics_navy_efr }
+		trigger = {
+			has_idea = quest_for_the_new_world
+		}
+		effect = {
+			create_explorer = { tradition = 65 }
+		}
+	}
+	brothers_in_vinland_efr = {
+		icon = atlantropa_norsearmy
+		position = 9
+		required_missions = { charting_the_north_efr }
+		trigger = {
+			has_discovered = 980
+		}
+		effect = {
+			frischland_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = EFR
+			}
+		}
+	}
+}
+
+branching_religion_missions_efr = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = EFR
+		NOT = {
+			map_setup = map_setup_random
+			OR = {
+				has_country_flag = efr_christian_path
+				has_country_flag = efr_germanic_path
+				has_country_flag = efr_ERROR_path
+			}
+		}
+	}
+
+	branching_mission_1_efr = {
+		icon = mission_unknown_mission
+		position = 7
+		required_missions = { the_faith_of_the_people_efr }
+		trigger = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		effect = { }
+	}
+	branching_mission_2_efr = {
+		icon = mission_unknown_mission
+		position = 8
+		required_missions = { branching_mission_1_efr }
+		trigger = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		effect = { }
+	}
+}
+
+germanic_religion_missions_efr = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = EFR
+		NOT = {
+			map_setup = map_setup_random
+		}
+		has_country_flag = efr_germanic_path
+	}
+
+	germanic_mission_1_efr = {
+		icon = atlantropa_odinstatuemission
+		position = 7
+		required_missions = { the_faith_of_the_people_efr }
+		provinces_to_highlight = {
+			province_id = 5553
+			NOT = {
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+				OR = {
+					has_building = barracks
+					has_building = training_fields
+				}
+			}
+		}
+		trigger = {
+			5553 = {
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+				OR = {
+					has_building = barracks
+					has_building = training_fields
+				}
+			}
+		}
+		effect = {
+			country_event = { id = atl_bonusevent.4 }
+		}
+	}
+	germanic_mission_2_efr = {
+		icon = mission_build_up_to_force_limit
+		position = 8
+		required_missions = { germanic_mission_1_efr }
+		trigger = { }
+		effect = { }
+	}
+}
+
+christian_religion_missions_efr = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = EFR
+		NOT = {
+			map_setup = map_setup_random
+		}
+		has_country_flag = efr_christian_path
+	}
+
+	christian_mission_1_efr = {
+		icon = mission_sword_of_the_reformation
+		position = 7
+		required_missions = { the_faith_of_the_people_efr }
+		provinces_to_highlight = {
+			area = frischland_area
+			NOT = { has_owner_religion = yes }
+		}
+		trigger = {
+			all_owned_province = {
+				area = frischland_area
+				has_owner_religion = yes
+			}
+		}
+		effect = {
+			country_event = { id = atl_bonusevent.3 }
+		}
+	}
+	christian_mission_2_efr = {
+		icon = mission_build_up_to_force_limit
+		position = 8
+		required_missions = { christian_mission_1_efr }
+		provinces_to_highlight = {
+			area = frischland_area
+			NOT = {
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 6
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		effect = { }
+	}
+}
+
+error_religion_missions_efr = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = EFR
+		NOT = {
+			map_setup = map_setup_random
+		}
+		has_country_flag = efr_ERROR_path
+	}
+
+	error_mission_1_efr = {
+		icon = atlantropa_temple
+		position = 7
+		required_missions = { the_faith_of_the_people_efr }
+		provinces_to_highlight = {
+			area = frischland_area
+			NOT = { has_owner_religion = yes }
+		}
+		trigger = {
+			frischland_area = {
+				has_owner_religion = yes
+			}
+		}
+		effect = {
+			5553 = {
+				add_base_tax = 1
+			}
+			add_splendor = 400
+		}
+	}
+	error_mission_2_efr = {
+		icon = atlantropa_yinflower
+		position = 8
+		required_missions = { error_mission_1_efr }
+		provinces_to_highlight = {
+			area = frischland_area
+			NOT = {
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 6
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		effect = {
+			add_prestige = 10
+			add_splendor = 400
+		}
+	}
+}
+
