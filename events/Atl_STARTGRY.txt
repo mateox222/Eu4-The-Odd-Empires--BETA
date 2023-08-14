@@ -154,11 +154,8 @@ country_event = {
 	option = {
 		name = startevent.101.b
 		trigger = {
-			157 = {
-				has_great_project = {
-					type = atlantis_castle_bihar
-					tier = any
-				}
+			NOT = {
+				has_global_flag = fort_destroyed_atlantropa
 			}
 		}
 		country_event = { 
@@ -379,14 +376,12 @@ country_event = {
 		name = startevent.101.e
 		custom_tooltip = destroys_all_fort_monuments
 		trigger = {
-			157 = {
-				has_great_project = {
-					type = atlantis_castle_bihar
-					tier = any
-				}
+			NOT = {
+				has_global_flag = fort_destroyed_atlantropa
 			}
 		}
 		hidden_effect = {
+			set_global_flag = fort_destroyed_atlantropa
 			destroy_great_project = {
 				type = atlantis_castle_bihar
 			}
@@ -803,7 +798,7 @@ country_event = {
 			}
 		}
 		country_event = { 
-			id = startevent.5
+			id = startevent.101
 		}
 	}
 	option = {
