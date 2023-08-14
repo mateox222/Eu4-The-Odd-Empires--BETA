@@ -374,15 +374,21 @@ country_event = {
 			tradition = 50
 		}
 		add_idea_group = exploration_ideas
+		add_idea = quest_for_the_new_world
+		add_idea = colonial_ventures
+		add_idea = overseas_exploration
+		add_dip_power = 100
+		add_mil_power = 100
+		add_adm_power = 100
 		capital_scope = {
-			build_to_forcelimit = {
-				infantry = 0.7
-				cavalry = 0.2
-				artillery = 0.1
-			}
 			change_province_name = "Peregrinaje"
 			rename_capital = "Fin del Peregrinaje"
 			hidden_effect = {
+				build_to_forcelimit = {
+					infantry = 0.7
+					cavalry = 0.2
+					artillery = 0.1
+				}
 				if = {
 					limit = {
 						is_institution_enabled = feudalism
