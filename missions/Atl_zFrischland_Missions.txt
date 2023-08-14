@@ -293,11 +293,15 @@ germanic_religion_missions_efr = {
 		}
 	}
 	germanic_mission_2_efr = {
-		icon = mission_build_up_to_force_limit
+		icon = atlantropa_skulls
 		position = 8
 		required_missions = { germanic_mission_1_efr }
-		trigger = { }
-		effect = { }
+		trigger = {
+			army_tradition = 50
+		}
+		effect = {
+			add_splendor = 400
+		}
 	}
 }
 
@@ -332,7 +336,7 @@ christian_religion_missions_efr = {
 		}
 	}
 	christian_mission_2_efr = {
-		icon = mission_build_up_to_force_limit
+		icon = atlantropa_yinflower
 		position = 8
 		required_missions = { christian_mission_1_efr }
 		provinces_to_highlight = {
@@ -353,7 +357,10 @@ christian_religion_missions_efr = {
 				}
 			}
 		}
-		effect = { }
+		effect = {
+			add_prestige = 10
+			add_splendor = 400
+		}
 	}
 }
 
