@@ -84,10 +84,14 @@ latin_empire_western = {
 		}
 		OR = {
 		owns_core_province = 151	
+			
+custom_trigger_tooltip = {
+	tooltip = niceazdoby?akonstantynopol
 		AND = {
 		has_global_flag = war_of_emperors
 		}
 		}}
+		}
 		effect = {
 				country_event = { 
     id = nikean_empire.12
@@ -97,9 +101,12 @@ latin_empire_western = {
 		required_missions = { latinempire_romanisation_war_constantinople  }
 		trigger = {
 		controls = 151
+		custom_trigger_tooltip = {
+	tooltip = niceazdoby?akonstantynopol2
 		OR = {
 		has_country_flag = constantinople_captured
 		tag = BYZ
+		}
 		}
 		}
 		effect = {
