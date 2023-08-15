@@ -1,133 +1,181 @@
+
+
 ATLAN_azt_missions_religion = {
 	slot = 1
 	generic = no
 	ai = yes
 	potential = {
-		OR = {
-			tag = A69
-			tag = A68
-			tag = A4C
-			tag = AZT
-			tag = A46
-			was_tag = A46
+			OR = {
+		tag = A69
+		tag = A68
+		tag = A4C
+		tag = AZT					
+		tag = A46
+		was_tag = A46
 		}
 		NOT = { map_setup = map_setup_random }
 	}
+	has_country_shield = yes
 
-	aztec_religion_army = {
+
+			aztec_religion_army = {
 		icon = atlantropa_BLACKSUNOVEROSTLAND
+		required_missions = { }
 		position = 1
-		required_missions = {  }
+		
 		trigger = {
 			church_power = 150
 		}
+		
 		effect = {
-			add_country_modifier = {
+				add_country_modifier = {
 				name = "azteclineupplanets"
 				duration = -1
 			}
-			add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 10
-			}
+
+				add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 10
+				}
+		
+		}
+				ai_weight = {
+			factor = 500
 		}
 	}
-	aztec_culture_spread = {
-		icon = atlantropa_nahuatl2
-		position = 2
-		required_missions = { aztec_religion_spread aztec_town3 }
-		trigger = {
-			num_of_provinces_owned_or_owned_by_subjects_with = {
-				value = 50
-				culture_group = ROOT
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "azteclineupplanets4"
-				duration = -1
-			}
-			add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 25
-			}
-		}
-	}
-	aztec_religion_spread = {
-		icon = atlantropa_nahuatlwarrior
-		position = 2
-		required_missions = { aztec_religion_cult }
-		trigger = {
-			num_of_provinces_owned_or_owned_by_subjects_with = {
-				value = 30
-				religion = ROOT
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "azteclineupplanets3"
-				duration = -1
-			}
-			add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 20
-			}
-		}
-	}
-	aztec_religion_cult = {
+
+		aztec_religion_cult = {
 		icon = atlantropa_aztecpyramid
+		required_missions = { 	aztec_religion_army }
 		position = 2
-		required_missions = { aztec_religion_army }
+		
 		trigger = {
 			num_of_provinces_owned_or_owned_by_subjects_with = {
-				value = 30
-				holy_order = aztec_order
-			}
+	value = 30
+	holy_order = aztec_order 
+}
+			
+
 		}
+		
 		effect = {
-			add_country_modifier = {
+						add_country_modifier = {
 				name = "azteclineupplanets2"
 				duration = -1
 			}
-			add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 15
-			}
+			
+								add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 15
+				}
+		
+		}
+				ai_weight = {
+			factor = 500
 		}
 	}
+
+		aztec_religion_spread = {
+		icon = atlantropa_nahuatlwarrior
+		required_missions = { aztec_religion_cult }
+		position = 2
+		
+		trigger = {
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+	value = 30
+	religion = ROOT
+}
+			
+
+		}
+		
+		effect = {
+						add_country_modifier = {
+				name = "azteclineupplanets3"
+				duration = -1
+			}
+											add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 20
+				}
+		
+		}
+				ai_weight = {
+			factor = 500
+		}
+	}
+
+
+			aztec_culture_spread = {
+		icon = atlantropa_nahuatl2
+		required_missions = { aztec_religion_spread aztec_town3 }
+		position = 2
+		
+		trigger = {
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+	value = 50
+	culture_group = ROOT
+}
+			
+
+		}
+		
+		effect = {
+						add_country_modifier = {
+				name = "azteclineupplanets4"
+				duration = -1
+			}
+											add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 25
+				}
+		
+		}
+				ai_weight = {
+			factor = 500
+		}
+	}
+
 	aztec_culture_spread2 = {
 		icon = atlantropa_mayatemple
-		position = 7
 		required_missions = { aztec_culture_spread }
+		position = 7
 		provinces_to_highlight = {
 			OR = {
 				province_id = 229
 				province_id = 5296
-				province_id = 4561
+				province_id = 4561									
 			}
 			NOT = { owned_by = ROOT }
 		}
 		trigger = {
 			owns_core_province = 229
 			owns_core_province = 5296
-			owns_core_province = 4561
-		}
+			owns_core_province = 4561							
+}
 		effect = {
-			add_country_modifier = {
+						add_country_modifier = {
 				name = "azteclineupplanets15"
 				duration = -1
 			}
-			add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 50
-			}
+						add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 50
+				}
+		
+		}
+				ai_weight = {
+			factor = 500
 		}
 	}
+
+
+
 }
 
 BTLAN_azt_missions_religion2 = {
@@ -135,82 +183,270 @@ BTLAN_azt_missions_religion2 = {
 	generic = no
 	ai = yes
 	potential = {
-		OR = {
-			tag = A46
-			was_tag = A46
+			OR = {
+		tag = A46
+		was_tag = A46
 		}
 		NOT = { map_setup = map_setup_random }
 	}
+	has_country_shield = yes
 
-	aztec_town = {
+    	aztec_town = {
 		icon = atlantropa_technotilian
-		position = 1
-		required_missions = {  }
 		provinces_to_highlight = {
 			province_id = 4552
-		}
+			}
 		trigger = {
 			4552 = {
 				owned_by = ROOT
-				development = 20
-			}
+               development = 20
+            }
 		}
 		effect = {
 			add_prestige = 10
-			create_general = { tradition = 50 }
-			add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 5
-			}
+            create_general = { tradition = 50 }	
+								add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 5
+				}
 		}
 	}
-	aztec_town2 = {
+    	aztec_town2 = {
 		icon = atlantropa_cumorah
-		position = 2
-		required_missions = { aztec_town }
+				required_missions = { aztec_town  }
 		trigger = {
 			total_development = 150
 		}
 		effect = {
 			add_prestige = 10
-			add_country_modifier = {
+									add_country_modifier = {
 				name = "aztectown1"
 				duration = -1
 			}
-			add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 5
-			}
+								add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 5
+				}
 		}
 	}
-	aztec_town3 = {
+	    	aztec_town3 = {
 		icon = atlantropa_fallmexico
-		position = 3
-		required_missions = { aztec_town2 AZT_conquer_aztec1 }
+				required_missions = { aztec_town2 AZT_conquer_aztec1  }
 		trigger = {
 			owns = 229
 		}
 		effect = {
 			add_prestige = 10
-			add_country_modifier = {
+									add_country_modifier = {
 				name = "aztectown2"
 				duration = -1
 			}
-			229 = {
-				add_great_project_tier = {
-					type = atlantis_aztectempleone
-					tier = 1
-				}}
-				add_government_power = {
+229 = {
+add_great_project_tier = {
+    type = atlantis_aztectempleone
+    tier = 1
+}}
+								add_government_power = {
 					mechanic_type = atlantropa_aztec_mechanic
 					power_type = azt_adm_power
 					value = 10
 				}
-			}
 		}
 	}
+				AZT_conquer_aztec4 = {
+		icon = atlantropa_bloodysweden
+		required_missions = { AZT_conquer_aztec2 }
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 5561		
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			owns_core_province = 5561				
+		}
+		effect = {
+							add_country_modifier = {
+				name = "aztecwar4"
+				duration = -1
+			}
+			5561 = {
+				add_devastation = 100
+				change_culture = ROOT
+				change_religion = ROOT
+				add_base_tax = 1	
+				add_base_production = 1	
+				add_base_manpower = 1	
+
+			}
+			add_years_of_income = 0.5	
+			add_prestige = 10
+					add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 5
+				}
+			
+		}
+
+}
+				AZT_conquer_aztec6 = {
+		icon = atlantropa_bloodyarmy
+		required_missions = { AZT_conquer_aztec4 }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = valencia_area				
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+						valencia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}	
+		}
+		effect = {
+							add_country_modifier = {
+				name = "aztecwar6"
+				duration = -1
+			}
+			add_prestige = 10
+					add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 10
+				}
+						doggerland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+						westdoggerland_area	 = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			
+		}
+
+}
+				AZT_conquer_aztec12 = {
+		icon = atlantropa_vikingdeal
+		required_missions = { AZT_conquer_aztec6 }
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				area = doggerland_area
+				area = westdoggerland_area					
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+						westdoggerland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}	
+					doggerland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}	
+		}
+		effect = {
+							add_country_modifier = {
+				name = "aztecwar12"
+				duration = -1
+			}
+			add_prestige = 10
+					add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 25
+				}
+			
+		}
+
+}
+
+AZT_normandia3 = {
+	icon = atlantropa_italysicility
+	required_missions = { AZT_uyetitlan4 AZT_conquer_aztec12 }
+	position = 9
+	provinces_to_highlight = {
+		OR = {
+			area = corsica_area
+			area = corsica_sardinia_area
+			area = western_sicily_area
+			area = sicily_area
+			area = calabria_area
+			area = atlantis_napoli_area
+		}
+		NOT = { owned_by = ROOT }
+	}
+	
+	trigger = {
+		corsica_area = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}			
+		corsica_sardinia_area = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}			
+		western_sicily_area = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}					
+		sicily_area = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}					
+		calabria_area = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}					
+		atlantis_napoli_area = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}			
+		
+	}
+	effect = {
+		italy_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+						add_country_modifier = {
+			name = "aztecwar22"
+			duration = -1
+		}
+		add_prestige = 10
+				add_government_power = {
+				mechanic_type = atlantropa_aztec_mechanic
+				power_type = azt_adm_power
+				value = 30
+			}			
+		
+	}
+
+}
+
+
+
+
 }
 
 AA46_azt_minors_1 = {
@@ -220,19 +456,22 @@ AA46_azt_minors_1 = {
 	potential = {
 		OR = {
 			tag = A46
-			was_tag = A46
+		was_tag = A46
 		}
 	}
+	has_country_shield = yes
+
 
 	azt_mighty_army = {
 		icon = atlantropa_undeabulgaria
 		position = 1
-		required_missions = {  }
+		
 		trigger = {
 			army_size_percentage = 0.8
 			manpower_percentage = 0.6
 			num_of_generals = 1
 		}
+		
 		effect = {
 			galicia_area = {
 				limit = {
@@ -241,11 +480,11 @@ AA46_azt_minors_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 5
-			}
+								add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 5
+				}
 			if = {
 				limit = {
 					exists = A69
@@ -257,17 +496,21 @@ AA46_azt_minors_1 = {
 				}
 			}
 		}
+		ai_weight = {
+			factor = 500	
+		}
 	}
-	AZT_conquer_aztec1 = {
+			AZT_conquer_aztec1 = {
 		icon = atlantropa_alsace
-		position = 2
 		required_missions = { azt_mighty_army }
+		
 		provinces_to_highlight = {
 			OR = {
 				area = galicia_area
 			}
 			NOT = { owned_by = ROOT }
 		}
+		
 		trigger = {
 			galicia_area = {
 				type = all
@@ -276,30 +519,37 @@ AA46_azt_minors_1 = {
 		}
 		effect = {
 			add_prestige = 10
-			add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 10
-			}
+					add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 10
+				}
+			
 		}
-	}
-	AZT_conquer_aztec2 = {
+		ai_weight = {
+			factor = 500	
+		}
+}
+
+
+		AZT_conquer_aztec2 = {
 		icon = atlantropa_stalzemsty
-		position = 3
 		required_missions = { AZT_conquer_aztec1 }
+		
 		trigger = {
+				
 			army_strength = {
-				who = CAS
-				value = 0.75
-			}
+	who = CAS
+	value = 0.75
+}
 			army_strength = {
-				who = SPA
-				value = 0.75
-			}
-			army_strength = {
-				who = POR
-				value = 0.75
-			}
+	who = SPA
+	value = 0.75
+}	
+		army_strength = {
+	who = POR
+	value = 0.75
+}
 		}
 		effect = {
 			beieras_area = {
@@ -315,7 +565,7 @@ AA46_azt_minors_1 = {
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
-			}
+			} 
 			valencia_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -344,373 +594,429 @@ AA46_azt_minors_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
+
 			add_prestige = 10
-			add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 30
-			}
-			add_country_modifier = {
+					add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 30
+				}
+				add_country_modifier = {
 				name = "aztecwar1"
 				duration = -1
 			}
 		}
-	}
-	AZT_conquer_aztec7 = {
-		icon = atlantropa_burningkazan
-		position = 4
-		required_missions = { AZT_conquer_aztec3 }
-		provinces_to_highlight = {
-			OR = {
-				area = castille_area
-				area = catalonia_area
-				area = alentejo_area
-			}
-			NOT = { owned_by = ROOT }
+		ai_weight = {
+			factor = 500	
 		}
-		trigger = {
-			castille_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			catalonia_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			alentejo_area	 = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "aztecwar7"
-				duration = -1
-			}
-			add_prestige = 10
-			add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 30
-			}
-		}
-	}
-	AZT_conquer_aztec3 = {
+}
+
+
+			AZT_conquer_aztec3 = {
 		icon = mission_union_with_portugal
-		position = 4
 		required_missions = { AZT_conquer_aztec2 }
+		
 		provinces_to_highlight = {
 			OR = {
 				area = beieras_area
 				province_id = 227
-				province_id = 4787
+				province_id = 4787					
 			}
 			NOT = { owned_by = ROOT }
 		}
+		
 		trigger = {
 			beieras_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 			owns_core_province = 227
-			owns_core_province = 4787
+			owns_core_province = 4787				
 		}
 		effect = {
-			add_country_modifier = {
+							add_country_modifier = {
 				name = "aztecwar3"
 				duration = -1
 			}
 			add_prestige = 10
-			add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 15
-			}
+					add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 15
+				}
+			
 		}
-	}
-	AZT_uyetitlan = {
+		ai_weight = {
+			factor = 500	
+		}
+}
+				AZT_conquer_aztec7 = {
+		icon = atlantropa_burningkazan
+		required_missions = { AZT_conquer_aztec3 }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = castille_area
+				area = catalonia_area
+				area = alentejo_area			
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+						castille_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+					catalonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+				alentejo_area	 = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}			
+
+		}
+		effect = {
+							add_country_modifier = {
+				name = "aztecwar7"
+				duration = -1
+			}
+			add_prestige = 10
+					add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 30
+				}
+			
+		}
+		ai_weight = {
+			factor = 500	
+		}
+}
+
+
+				AZT_uyetitlan = {
 		icon = atlantropa_blacksunoverbulgaria
-		position = 5
 		required_missions = { AZT_conquer_aztec7  AZT_conquer_aztec6 }
+		
 		trigger = {
 			total_development = 300
 			tag = ZT1
 			army_size = 40
 		}
 		effect = {
-			add_country_modifier = {
+							add_country_modifier = {
 				name = "aztecwar8"
 				duration = -1
 			}
 			add_prestige = 10
-			add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 60
-			}
-			iberia_region = {
+					add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 60
+				}	
+						british_isles_region = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
+			
 		}
-	}
-	AZT_uyetitlan2 = {
+		ai_weight = {
+			factor = 500	
+		}
+
+}
+				AZT_uyetitlan2 = {
 		icon = atlantropa_burnwindmill
-		position = 6
 		required_missions = { AZT_uyetitlan }
+		
 		provinces_to_highlight = {
 			OR = {
 				area = east_midlands_area
 				area = west_midlands_area
-				area = wales_area
-				area = wessex_area
-				area = east_anglia_area
+				area = wales_area			
+				area = wessex_area		
+				area = east_anglia_area		
 				area = home_counties_area
 			}
 			NOT = { owned_by = ROOT }
 		}
+		
 		trigger = {
-			east_midlands_area = {
+				east_midlands_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}
-			west_midlands_area = {
+			}			
+				west_midlands_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}
-			wales_area	 = {
+			}			
+				 wales_area	 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}
-			wessex_area = {
+			}					
+				wessex_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}
-			east_anglia_area = {
+			}					
+				east_anglia_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}
-			home_counties_area = {
+			}					
+				 home_counties_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}
+			}			
+			
 		}
 		effect = {
-			add_country_modifier = {
+							add_country_modifier = {
 				name = "aztecwar9"
 				duration = -1
 			}
 			add_prestige = 10
-			add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 60
-			}
+					add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 60
+				}			
+			
 		}
-	}
-	AZT_uyetitlan4 = {
+		ai_weight = {
+			factor = 500	
+		}
+}
+				AZT_uyetitlan4 = {
 		icon = atlantropa_nahuatl2cap
-		position = 7
 		required_missions = { AZT_uyetitlan2 AZT_conquer_aztec12 AZT_uyetitlan7 }
+		
 		trigger = {
 			total_development = 500
 			tag = ZT1
 			army_size = 60
 		}
 		effect = {
-			country_event = {
-				id = azteceuropa.5
-			}
+			country_event = { 
+    id = azteceuropa.5 
+}
+			
 		}
+		ai_weight = {
+			factor = 500	
+		}
+}
+
+AZT_normandia1 = {
+	icon = atlantropa_permburn
+	required_missions = { AZT_uyetitlan4 }
+	
+	provinces_to_highlight = {
+		OR = {
+			area = normandy_area
+			area = loire_area
+			area = ile_de_france_area	
+			area = picardy_area	
+			area = flanders_area
+			area = champagne_area
+		}
+		NOT = { owned_by = ROOT }
 	}
-	AZT_normandia1 = {
-		icon = atlantropa_permburn
-		position = 8
-		required_missions = { AZT_uyetitlan4 }
-		provinces_to_highlight = {
-			OR = {
-				area = normandy_area
-				area = loire_area
-				area = ile_de_france_area
-				area = picardy_area
-				area = flanders_area
-				area = champagne_area
-			}
-			NOT = { owned_by = ROOT }
+	
+	trigger = {
+		normandy_area = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}			
+		loire_area = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}			
+		ile_de_france_area	 = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}					
+		picardy_area	 = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}					
+		flanders_area = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}					
+		champagne_area = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}			
+		
+	}
+	effect = {
+						add_country_modifier = {
+			name = "aztecwar20"
+			duration = -1
 		}
-		trigger = {
-			normandy_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+		iberia_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
 			}
-			loire_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			ile_de_france_area	 = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			picardy_area	 = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			flanders_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			champagne_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
+			add_permanent_claim = ROOT
 		}
-		effect = {
-			add_country_modifier = {
-				name = "aztecwar20"
-				duration = -1
-			}
-			british_isles_region = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			add_prestige = 10
-			add_government_power = {
+		add_prestige = 10
+				add_government_power = {
 				mechanic_type = atlantropa_aztec_mechanic
 				power_type = azt_adm_power
 				value = 30
-			}
-		}
+			}			
+		
 	}
-	AZT_normandia4 = {
-		icon = atlantropa_sungod
-		position = 9
-		required_missions = { AZT_normandia1 AZT_normandia2 AZT_normandia3 }
-		trigger = {
-			total_development = 1000
-			great_power_rank = 1
-			government_rank = 3
-			num_of_colonies = 3
-			army_size = 200
-		}
-		effect = {
-			country_event = {
-				id = azteceuropa.6
-			}
-		}
+
+}
+
+AZT_normandia4 = {
+	icon = atlantropa_sungod
+	required_missions = { AZT_normandia1 AZT_normandia2 AZT_normandia3 }
+
+	trigger = {
+		total_development = 1000
+		great_power_rank = 1
+		government_rank = 3
+		num_of_colonies = 3
+		army_size = 200
 	}
-	azt_colonial_mexico = {
-		icon = atlantropa_aztec5
-		position = 11
-		required_missions = { azt_rb_caribbean_colony }
-		provinces_to_highlight = {
+	effect = {
+		country_event = { 
+			id = azteceuropa.6 
+		}
+
+	}
+
+}
+
+
+
+azt_colonial_mexico = {
+	icon = atlantropa_aztec5
+	required_missions = { azt_rb_caribbean_colony }
+	position = 11
+	provinces_to_highlight = {
+		colonial_region = colonial_mexico
+		NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		has_discovered = yes
+	}
+	
+	trigger = {
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			value = 5
 			colonial_region = colonial_mexico
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-			has_discovered = yes
+			is_city = yes
 		}
-		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 5
-				colonial_region = colonial_mexico
-				is_city = yes
-			}
-		}
-		effect = {
+	
+}
+	effect = {
 			add_country_modifier = {
 				name = "aztecolony4"
 				duration = -1
 			}
+			
 			add_government_power = {
 				mechanic_type = atlantropa_aztec_mechanic
 				power_type = azt_adm_power
 				value = 5
 			}
-		}
 	}
-	azt_colonial_colombia = {
-		icon = atlantropa_aztec6
-		position = 12
-		required_missions = { azt_colonial_mexico }
-		provinces_to_highlight = {
+}
+
+azt_colonial_colombia = {
+	icon = atlantropa_aztec6
+	required_missions = { azt_colonial_mexico }
+	provinces_to_highlight = {
+		colonial_region = colonial_colombia
+		NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		has_discovered = yes
+	}
+	
+	trigger = {
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			value = 5
 			colonial_region = colonial_colombia
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-			has_discovered = yes
-		}
-		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 5
-				colonial_region = colonial_colombia
-				is_city = yes
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "aztecolony1"
-				duration = -1
-			}
-			add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 5
-			}
+			is_city = yes
 		}
 	}
-	azt_colonial_pacifiqa = {
-		icon = mission_iberian_conquistador
-		position = 13
-		required_missions = { azt_colonial_colombia }
-		provinces_to_highlight = {
+	
+	effect = {
+		add_country_modifier = {
+			name = "aztecolony1"
+			duration = -1
+		}
+		
+		add_government_power = {
+			mechanic_type = atlantropa_aztec_mechanic
+			power_type = azt_adm_power
+			value = 5
+		}
+	}
+
+	}
+azt_colonial_pacifiqa = {
+	icon = mission_iberian_conquistador
+	required_missions = { azt_colonial_colombia }
+	provinces_to_highlight = {
+		colonial_region = colonial_pacifiqa
+		NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		has_discovered = yes
+	}
+	
+	trigger = {
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			value = 5
 			colonial_region = colonial_pacifiqa
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-			has_discovered = yes
-		}
-		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 5
-				colonial_region = colonial_pacifiqa
-				is_city = yes
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "aztecolony1"
-				duration = -1
-			}
+			is_city = yes
 		}
 	}
-	azt_colonial_australia = {
-		icon = atlantropa_australia
-		position = 14
-		required_missions = { azt_colonial_pacifiqa }
-		provinces_to_highlight = {
+	
+	effect = {
+		add_country_modifier = {
+			name = "aztecolony1"
+			duration = -1
+		}
+	}
+}
+azt_colonial_australia = {
+	icon = atlantropa_australia
+	required_missions = { azt_colonial_pacifiqa }
+	provinces_to_highlight = {
+		colonial_region = colonial_australia
+		NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		has_discovered = yes
+	}
+	
+	trigger = {
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			value = 5
 			colonial_region = colonial_australia
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-			has_discovered = yes
+			is_city = yes
 		}
-		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 5
-				colonial_region = colonial_australia
-				is_city = yes
-			}
-		}
+	}
+	
 		effect = {
 			add_country_modifier = {
 				name = "aztecolony5"
 				duration = -1
 			}
+			
 			add_government_power = {
 				mechanic_type = atlantropa_aztec_mechanic
 				power_type = azt_adm_power
 				value = 5
 			}
-		}
 	}
+}
+
 }
 
 AL46_azt_minors_5 = {
@@ -720,84 +1026,365 @@ AL46_azt_minors_5 = {
 	potential = {
 		OR = {
 			tag = A46
-			was_tag = A46
+		was_tag = A46
 		}
 	}
+	has_country_shield = yes
 
-	aztec_flagship = {
-		icon = atlantropa_sunsetinvasion
-		position = 1
-		required_missions = {  }
+
+			aztec_flagship = {
+		icon = atlantropa_sunsetinvasion 
+		
 		trigger = {
-			OR = {
-				has_flagship = yes
-				num_of_heavy_ship = 10
+				OR = {
+		has_flagship = yes
+		num_of_heavy_ship = 10
 			}
-		}
+}
+	
+		
 		effect = {
-			add_country_modifier = {
+						add_country_modifier = {
 				name = "aztecship1"
 				duration = -1
 			}
-			add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 5
-			}
+
+					add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 5
+				}
 		}
-	}
-	trigger = {
-		icon = mission_build_up_to_force_limit
-		position = 2
-		required_missions = {  }
-		trigger = { }
-		effect = { }
-	}
-	effect = {
-		icon = mission_build_up_to_force_limit
-		position = 3
-		required_missions = {  }
-		trigger = { }
-		effect = { }
-	}
-	ai_weight = {
-		icon = mission_build_up_to_force_limit
-		position = 4
-		required_missions = {  }
-		trigger = { }
-		effect = { }
-	}
-	aztec_flagship2 = {
+				ai_weight = {
+			factor = 500
+		}}
+
+					aztec_flagship2 = {
+			required_missions = { aztec_flagship }
 		icon = atlantropa_aztecnavy
-		position = 5
-		required_missions = { aztec_flagship }
+		
 		trigger = {
 			naval_strength = {
-				who = POR
-				value = 0.5
-			}
-			naval_strength = {
-				who = CAS
-				value = 0.5
-			}
-			naval_strength = {
-				who = SPA
-				value = 0.5
-			}
-		}
+	who = POR
+	value = 0.5
+}
+naval_strength = {
+	who = CAS
+	value = 0.5
+}
+naval_strength = {
+	who = SPA
+	value = 0.5
+}
+}
+	
+		
 		effect = {
-			add_country_modifier = {
+						add_country_modifier = {
 				name = "aztecship2"
 				duration = -1
 			}
+
+					add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 5
+				}
+		}
+				ai_weight = {
+			factor = 500
+		}}
+
+	azt_discover_african_coast = {
+		icon = atlantropa_carthago
+		required_missions = { aztec_flagship2 }
+		position = 3
+		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = miss_discover_west_africa
+				west_africa_coast_area = {
+					has_discovered = ROOT
+				}
+			}
+			num_of_colonists = 1
+		}
+		
+		effect = {
+			add_prestige = 10
+			add_country_modifier = {
+				name = "the_unknown_frontier"
+				duration = 5475
+			}
+		}
+	
+	}
+
+				AZT_conquer_aztec5 = {
+		icon = atlantropa_capathracs
+		required_missions = { AZT_conquer_aztec2 }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = toledo_area					
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+						toledo_area	 = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}	
+		}
+		effect = {
+							add_country_modifier = {
+				name = "aztecwar5"
+				duration = -1
+			}
+			219 = {
+				add_devastation = 100
+				change_culture = ROOT
+				change_religion = ROOT
+				add_base_tax = 1	
+				add_base_production = 1	
+				add_base_manpower = 1	
+			}
+			add_prestige = 10
+					add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 10
+				}
+			
+		}
+
+}
+
+AZT_uyetitlan3 = {
+		icon = atlantropa_nativethule
+		required_missions = { AZT_conquer_aztec7 }
+		position = 6
+		provinces_to_highlight = {
+			OR = {
+				area = munster_area
+				area = connacht_area
+				area = ulster_area		
+
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+				ulster_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}			
+				connacht_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}			
+				 munster_area	 = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}			
+	 
+
+			
+		}
+		effect = {
+							add_country_modifier = {
+				name = "aztecwar10"
+				duration = -1
+			}
+			add_prestige = 10
+					add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 10
+				}	
+				lyonesse_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}		
+			
+		}
+
+}
+AZT_uyetitlan7 = {
+		icon = atlantropa_slavia
+		required_missions = { AZT_uyetitlan3 }
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				region = lyonesse_region	
+
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+				lyonesse_region	= {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}			
+
+
+			
+		}
+		effect = {
+							add_country_modifier = {
+				name = "aztecwar11"
+				duration = -1
+			}
+			add_prestige = 10
+					add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 25
+				}			
+			
+		}
+
+}
+
+AZT_normandia2 = {
+	icon = atlantropa_burningturkland
+	required_missions = { AZT_uyetitlan4 AZT_uyetitlan7 }
+	position = 9
+	provinces_to_highlight = {
+		OR = {
+			area = atlantiswesternanasa_area
+			area = atlantisislandsno_area
+			area = atlantisarchipelago_area
+			area = macaronesia_area
+			area = florida_area
+			area = zatlantiswesternanasa_area
+		}
+		NOT = { owned_by = ROOT }
+	}
+	
+	trigger = {
+		atlantiswesternanasa_area = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}			
+		atlantisislandsno_area = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}			
+		atlantisarchipelago_area = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}					
+		macaronesia_area	 = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}					
+		florida_area = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}					
+		zatlantiswesternanasa_area = {
+			type = all
+			country_or_non_sovereign_subject_holds = ROOT
+		}			
+		
+	}
+	effect = {
+		nigeriacontinet_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+						add_country_modifier = {
+			name = "aztecwar21"
+			duration = -1
+		}
+		add_prestige = 10
+				add_government_power = {
+				mechanic_type = atlantropa_aztec_mechanic
+				power_type = azt_adm_power
+				value = 30
+			}			
+		
+	}
+
+}
+
+
+
+azt_colonial_eastern_america = {
+	icon = atlantropa_aztec4
+	required_missions = { azt_rb_caribbean_colony }
+	position = 11
+	provinces_to_highlight = {
+		colonial_region = colonial_eastern_america
+		NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		has_discovered = yes
+	}
+	
+	trigger = {
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			value = 5
+			colonial_region = colonial_eastern_america
+			is_city = yes
+		}
+	}
+	
+		effect = {
+			add_country_modifier = {
+				name = "aztecolony6"
+				duration = -1
+			}
+			
 			add_government_power = {
 				mechanic_type = atlantropa_aztec_mechanic
 				power_type = azt_adm_power
 				value = 5
 			}
-		}
 	}
 }
+
+azt_colonial_colonial_canada = {
+	icon = atlantropa_aztec3
+	required_missions = { azt_colonial_eastern_america }
+	position = 11
+	provinces_to_highlight = {
+		colonial_region = colonial_canada
+		NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		has_discovered = yes
+	}
+	
+	trigger = {
+		num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+			value = 5
+			colonial_region = colonial_canada
+			is_city = yes
+		}
+	}
+	
+		effect = {
+			add_country_modifier = {
+				name = "aztecolony7"
+				duration = -1
+			}
+			
+			add_government_power = {
+				mechanic_type = atlantropa_aztec_mechanic
+				power_type = azt_adm_power
+				value = 5
+			}
+	}
+}
+
+
+	}
 
 A4N6_azt_minors_5 = {
 	slot = 5
@@ -806,9 +1393,11 @@ A4N6_azt_minors_5 = {
 	potential = {
 		OR = {
 			tag = A46
-			was_tag = A46
+		was_tag = A46
 		}
 	}
+	has_country_shield = yes
+
 
 	aztec_yao_roads = {
 		icon = atlantropa_imperialroads
@@ -842,10 +1431,12 @@ A4N6_azt_minors_5 = {
 						}
 		}
 	}
-	azt_rb_caribbean_discovery = {
+	
+		azt_rb_caribbean_discovery = {
 		icon = atlantropa_aztecship
-		position = 3
 		required_missions = { aztec_flagship2 }
+		position = 3
+		
 		trigger = {
 			if = {
 				limit = {
@@ -864,84 +1455,31 @@ A4N6_azt_minors_5 = {
 				}
 			}
 		}
-		effect = {
-			add_country_modifier = {
-				name = "aztecolony2"
-				duration = -1
-			}
-			add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 5
-			}
-		}
-	}
-	azt_rb_lsouthafrica = {
-		icon = atlantropa_aryanlebesnraum
-		position = 10
-		required_missions = { azt_rb_la_plata }
-		provinces_to_highlight = {
-			colonial_region = colonial_south_africa
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-			has_discovered = yes
-		}
-		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 5
-				colonial_region = colonial_south_africa
-				is_city = yes
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "aztecolony3"
-				duration = -1
-			}
-			add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 5
-			}
-		}
-	}
-	azt_rb_la_plata = {
-		icon = atlantropa_laplata1
-		position = 10
-		completed_by = 7508.1.1
-		required_missions = { azt_rb_caribbean_colony }
-		provinces_to_highlight = {
-			colonial_region = colonial_la_plata
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-			has_discovered = yes
-		}
-		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 5
-				colonial_region = colonial_la_plata
-				is_city = yes
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "aztecolony8"
-				duration = -1
-			}
-			add_government_power = {
-				mechanic_type = atlantropa_aztec_mechanic
-				power_type = azt_adm_power
-				value = 5
-			}
+		
+			effect = {
+				add_country_modifier = {
+					name = "aztecolony2"
+					duration = -1
+				}
+				
+				add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 5
+				}
 		}
 	}
 	azt_rb_caribbean_colony = {
-		icon = atlantropa_aztecnavy2
 		position = 10
+		icon = atlantropa_aztecnavy2
 		required_missions = { azt_rb_caribbean_discovery }
+		
 		provinces_to_highlight = {
 			colonial_region = colonial_the_carribean
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			has_discovered = yes
 		}
+		
 		trigger = {
 			custom_trigger_tooltip = {
 				tooltip = miss_colonize_caribbean
@@ -952,6 +1490,7 @@ A4N6_azt_minors_5 = {
 				}
 			}
 		}
+		
 		effect = {
 			add_prestige = 15
 			add_country_modifier = {
@@ -960,5 +1499,72 @@ A4N6_azt_minors_5 = {
 			}
 		}
 	}
-}
+	
+	azt_rb_la_plata = {
+		icon = atlantropa_laplata1
+		required_missions = { azt_rb_caribbean_colony }
+		completed_by =  7508.1.1
+		position = 10
+		provinces_to_highlight = {
+			colonial_region = colonial_la_plata
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			has_discovered = yes
+		}
+		
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 5
+				colonial_region = colonial_la_plata
+				is_city = yes
+			}
+		}
+		
+			effect = {
+				add_country_modifier = {
+					name = "aztecolony8"
+					duration = -1
+				}
+				
+				add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 5
+				}
+		}
+	}
 
+	azt_rb_lsouthafrica = {
+		icon = atlantropa_aryanlebesnraum
+		required_missions = { azt_rb_la_plata }
+		position = 10
+		provinces_to_highlight = {
+			colonial_region = colonial_south_africa 
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			has_discovered = yes
+		}
+		
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 5
+				colonial_region = colonial_south_africa 
+				is_city = yes
+			}
+		}
+		
+			effect = {
+				add_country_modifier = {
+					name = "aztecolony3"
+					duration = -1
+				}
+				
+				add_government_power = {
+					mechanic_type = atlantropa_aztec_mechanic
+					power_type = azt_adm_power
+					value = 5
+				}
+		}
+	}
+
+
+
+}
