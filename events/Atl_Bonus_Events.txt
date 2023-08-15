@@ -381,8 +381,13 @@ country_event = {
 		add_mil_power = 100
 		add_adm_power = 100
 		capital_scope = {
-			change_province_name = "Peregrinaje"
-			rename_capital = "Fin del Peregrinaje"
+			if = {
+				limit = {
+					tag = S00
+				}
+				change_province_name = "Peregrinaje"
+				rename_capital = "Fin del Peregrinaje"
+			}
 			hidden_effect = {
 				build_to_forcelimit = {
 					infantry = 0.7

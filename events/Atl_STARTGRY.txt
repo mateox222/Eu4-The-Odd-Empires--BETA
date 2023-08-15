@@ -53,20 +53,26 @@ add_province_modifier = {
 	
 }}}
 	option = {
-	name = startevent.1.a 
+		name = startevent.1.a 
 	}
 	
-		option = {
-	name = startevent.1.b
-	country_event = { 
-    id = startevent.5
-}
+	option = {
+		name = startevent.1.b
+		country_event = { 
+			id = startevent.5
+		}
 	}
-			option = {
-	name = startevent.101.a
-	country_event = { 
-    id = startevent.100
-}
+	option = {
+		name = startevent.101.a
+		country_event = { 
+			id = startevent.100
+		}
+	}
+	option = {
+		name = startevent.101.b
+		country_event = { 
+			id = startevent.101
+		}
 	}
 }
 
@@ -140,10 +146,21 @@ country_event = {
 	}
 
 	option = {
-	name = startevent.101.a
-	country_event = { 
-    id = startevent.100
-}
+		name = startevent.101.a
+		country_event = { 
+			id = startevent.100
+		}
+	}
+	option = {
+		name = startevent.101.b
+		trigger = {
+			NOT = {
+				has_global_flag = fort_destroyed_atlantropa
+			}
+		}
+		country_event = { 
+			id = startevent.101
+		}
 	}
 	
 }
@@ -347,4 +364,447 @@ country_event = {
     dynasty = ROOT
 	}
 }
+}
+
+country_event = {
+	id = startevent.101
+	title = startevent.101.t
+	desc = startevent.101.d
+	picture = BLACKSUN_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = startevent.101.e
+		custom_tooltip = destroys_all_fort_monuments
+		trigger = {
+			NOT = {
+				has_global_flag = fort_destroyed_atlantropa
+			}
+		}
+		hidden_effect = {
+			set_global_flag = fort_destroyed_atlantropa
+			destroy_great_project = {
+				type = atlantis_castle_bihar
+			}
+			destroy_great_project = {
+				type = atlantis_castle_Sardars
+			}
+			destroy_great_project = {
+				type = atlantis_castle_nassau
+			}
+			destroy_great_project = {
+				type = atlantis_castle_arad
+			}
+			destroy_great_project = {
+				type = atlantis_castle_awal
+			}
+			destroy_great_project = {
+				type = atlantis_castle_narbonnais
+			}
+			destroy_great_project = {
+				type = atlantis_castle_labourd
+			}
+			destroy_great_project = {
+				type = atlantis_castle_zaragoza
+			}
+			destroy_great_project = {
+				type = atlantis_castle_toledo
+			}
+			destroy_great_project = {
+				type = atlantis_castle_gibraltar
+			}
+			destroy_great_project = {
+				type = atlantis_castle_ceuta
+			}
+			destroy_great_project = {
+				type = atlantis_castle_marrakech
+			}
+			destroy_great_project = {
+				type = atlantis_castle_talaimsan
+			}
+			destroy_great_project = {
+				type = atlantis_castle_tunis
+			}
+			destroy_great_project = {
+				type = atlantis_castle_tripoli
+			}
+			destroy_great_project = {
+				type = atlantis_castle_iskandryia
+			}
+			destroy_great_project = {
+				type = atlantis_castle_qahirah
+			}
+			destroy_great_project = {
+				type = atlantis_castle_girga
+			}
+			destroy_great_project = {
+				type = atlantis_castle_harer
+			}
+			destroy_great_project = {
+				type = atlantis_castle_joma
+			}
+			destroy_great_project = {
+				type = atlantis_castle_timbuktu
+			}
+			destroy_great_project = {
+				type = atlantis_castle_katsina
+			}
+			destroy_great_project = {
+				type = atlantis_castle_charters
+			}
+			destroy_great_project = {
+				type = atlantis_castle_troyes
+			}
+			destroy_great_project = {
+				type = atlantis_castle_besancon
+			}
+			destroy_great_project = {
+				type = atlantis_castle_verdun
+			}
+			destroy_great_project = {
+				type = atlantis_castle_dauphine
+			}
+			destroy_great_project = {
+				type = atlantis_castle_nicea
+			}
+			destroy_great_project = {
+				type = atlantis_castle_como
+			}
+			destroy_great_project = {
+				type = atlantis_castle_trent
+			}
+			destroy_great_project = {
+				type = atlantis_castle_treviso
+			}
+			destroy_great_project = {
+				type = atlantis_castle_perugia
+			}
+			destroy_great_project = {
+				type = atlantis_castle_mesina
+			}
+			destroy_great_project = {
+				type = atlantis_castle_bern
+			}
+			destroy_great_project = {
+				type = atlantis_castle_northumberland
+			}
+			destroy_great_project = {
+				type = atlantis_castle_ulster
+			}
+			destroy_great_project = {
+				type = atlantis_castle_utecht
+			}
+			destroy_great_project = {
+				type = atlantis_castle_liege
+			}
+			destroy_great_project = {
+				type = atlantis_castle_maginot
+			}
+			destroy_great_project = {
+				type = atlantis_castle_heidelberg
+			}
+			destroy_great_project = {
+				type = atlantis_castle_wurzburg
+			}
+			destroy_great_project = {
+				type = atlantis_castle_brauschweig
+			}
+			destroy_great_project = {
+				type = atlantis_castle_bremen
+			}
+			destroy_great_project = {
+				type = atlantis_castle_lunenburg
+			}
+			destroy_great_project = {
+				type = atlantis_castle_lubeck
+			}
+			destroy_great_project = {
+				type = atlantis_castle_holstein
+			}
+			destroy_great_project = {
+				type = atlantis_castle_lund
+			}
+			destroy_great_project = {
+				type = atlantis_castle_stettin
+			}
+			destroy_great_project = {
+				type = atlantis_castle_berlin
+			}
+			destroy_great_project = {
+				type = atlantis_castle_dresden
+			}
+			destroy_great_project = {
+				type = atlantis_castle_praha
+			}
+			destroy_great_project = {
+				type = atlantis_castle_unterkarent
+			}
+			destroy_great_project = {
+				type = atlantis_castle_saplato
+			}
+			destroy_great_project = {
+				type = atlantis_castle_kruje
+			}
+			destroy_great_project = {
+				type = atlantis_castle_salonik
+			}
+			destroy_great_project = {
+				type = atlantis_castle_edirne
+			}
+			destroy_great_project = {
+				type = atlantis_castle_sugla
+			}
+			destroy_great_project = {
+				type = atlantis_castle_koceli
+			}
+			destroy_great_project = {
+				type = atlantis_castle_trebizond
+			}
+			destroy_great_project = {
+				type = atlantis_castle_hisnkayfa
+			}
+			destroy_great_project = {
+				type = atlantis_castle_damascus
+			}
+			destroy_great_project = {
+				type = atlantis_castle_yarbu
+			}
+			destroy_great_project = {
+				type = atlantis_castle_sana
+			}
+			destroy_great_project = {
+				type = atlantis_castle_bagdad
+			}
+			destroy_great_project = {
+				type = atlantis_castle_abhkazia
+			}
+			destroy_great_project = {
+				type = atlantis_castle_dagestan
+			}
+			destroy_great_project = {
+				type = atlantis_castle_khorannabad
+			}
+			destroy_great_project = {
+				type = atlantis_castle_Basra
+			}
+			destroy_great_project = {
+				type = atlantis_castle_hormuz
+			}
+			destroy_great_project = {
+				type = atlantis_castle_amol
+			}
+			destroy_great_project = {
+				type = atlantis_castle_crimea
+			}
+			destroy_great_project = {
+				type = atlantis_castle_giurgiu
+			}
+			destroy_great_project = {
+				type = atlantis_castle_belgrad
+			}
+			destroy_great_project = {
+				type = atlantis_castle_pest
+			}
+			destroy_great_project = {
+				type = atlantis_castle_nowezamki
+			}
+			destroy_great_project = {
+				type = atlantis_castle_krakow
+			}
+			destroy_great_project = {
+				type = atlantis_castle_warszawa
+			}
+			destroy_great_project = {
+				type = atlantis_castle_konigsberg
+			}
+			destroy_great_project = {
+				type = atlantis_castle_vilnius
+			}
+			destroy_great_project = {
+				type = atlantis_castle_riga
+			}
+			destroy_great_project = {
+				type = atlantis_castle_ostrov
+			}
+			destroy_great_project = {
+				type = atlantis_castle_smolensk
+			}
+			destroy_great_project = {
+				type = atlantis_castle_kiev
+			}
+			destroy_great_project = {
+				type = atlantis_castle_besarabia
+			}
+			destroy_great_project = {
+				type = atlantis_castle_lubnie
+			}
+			destroy_great_project = {
+				type = atlantis_castle_yaroslav
+			}
+			destroy_great_project = {
+				type = atlantis_castle_viborg
+			}
+			destroy_great_project = {
+				type = atlantis_castle_kalmar
+			}
+			destroy_great_project = {
+				type = atlantis_castle_ryazan
+			}
+			destroy_great_project = {
+				type = atlantis_castle_kazan
+			}
+			destroy_great_project = {
+				type = atlantis_castle_vladywostok
+			}
+			destroy_great_project = {
+				type = atlantis_castle_ganggye
+			}
+			destroy_great_project = {
+				type = atlantis_castle_beijing
+			}
+			destroy_great_project = {
+				type = atlantis_castle_datong
+			}
+			destroy_great_project = {
+				type = atlantis_castle_nanjing
+			}
+			destroy_great_project = {
+				type = atlantis_castle_wuchang
+			}
+			destroy_great_project = {
+				type = atlantis_castle_fuzhou
+			}
+			destroy_great_project = {
+				type = atlantis_castle_canton
+			}
+			destroy_great_project = {
+				type = atlantis_castle_dongkinh
+			}
+			destroy_great_project = {
+				type = atlantis_castle_vijaya
+			}
+			destroy_great_project = {
+				type = atlantis_castle_ayuthaya
+			}
+			destroy_great_project = {
+				type = atlantis_castle_kedah
+			}
+			destroy_great_project = {
+				type = atlantis_castle_johor
+			}
+			destroy_great_project = {
+				type = atlantis_castle_siak
+			}
+			destroy_great_project = {
+				type = atlantis_castle_pakuan
+			}
+			destroy_great_project = {
+				type = atlantis_castle_bali
+			}
+			destroy_great_project = {
+				type = atlantis_castle_mino
+			}
+			destroy_great_project = {
+				type = atlantis_castle_chikuzen
+			}
+			destroy_great_project = {
+				type = atlantis_castle_mutsu
+			}
+			destroy_great_project = {
+				type = atlantis_castle_khamammet
+			}
+			destroy_great_project = {
+				type = atlantis_castle_bidar
+			}
+			destroy_great_project = {
+				type = atlantis_castle_gingee
+			}
+			destroy_great_project = {
+				type = atlantis_castle_kalindjar
+			}
+			destroy_great_project = {
+				type = atlantis_castle_lahore
+			}
+			destroy_great_project = {
+				type = atlantis_castle_delhi
+			}
+			destroy_great_project = {
+				type = atlantis_castle_jhalavad
+			}
+			destroy_great_project = {
+				type = atlantis_castle_panama
+			}
+			destroy_great_project = {
+				type = atlantis_castle_tzotzil
+			}
+			destroy_great_project = {
+				type = atlantis_castle_mexico
+			}
+			destroy_great_project = {
+				type = atlantis_castle_newyork
+			}
+			destroy_great_project = {
+				type = atlantis_castle_stadacona
+			}
+			destroy_great_project = {
+				type = atlantis_castle_sanfrancisco
+			}
+			destroy_great_project = {
+				type = atlantis_castle_losangeles
+			}
+			destroy_great_project = {
+				type = atlantis_castle_lima
+			}
+			destroy_great_project = {
+				type = atlantis_castle_ateixo
+			}
+			destroy_great_project = {
+				type = atlantis_castle_calais
+			}
+			destroy_great_project = {
+				type = atlantis_castle_anatolikon
+			}
+			destroy_great_project = {
+				type = atlantis_castle_alexandretta
+			}
+			destroy_great_project = {
+				type = atlantis_castle_rahba
+			}
+			destroy_great_project = {
+				type = atlantis_castle_gaza
+			}
+			destroy_great_project = {
+				type = atlantis_castle_xuzhou
+			}
+			destroy_great_project = {
+				type = atlantis_castle_ningyuan
+			}
+			destroy_great_project = {
+				type = atlantis_castle_kapitolea
+			}
+			destroy_great_project = {
+				type = atlantis_castle_iskander
+			}
+			destroy_great_project = {
+				type = atlantis_castle_grosby
+			}
+			destroy_great_project = {
+				type = atlantis_castle_chester
+			}
+			destroy_great_project = {
+				type = atlantis_castle_capitanata
+			}
+			destroy_great_project = {
+				type = atlantis_castle_acquisgrana
+			}
+		}
+		country_event = { 
+			id = startevent.5
+		}
+	}
+	option = {
+		name = startevent.101.c 
+		country_event = { 
+			id = startevent.5
+		}
+	}
 }
