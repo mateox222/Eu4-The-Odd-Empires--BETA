@@ -82,11 +82,12 @@ latin_empire_western = {
 		army_size = 25
 		army_size = LAE
 		}
-		OR = {
-		owns_core_province = 151	
+
 			
 custom_trigger_tooltip = {
 	tooltip = niceazdobylakonstantynopol
+		OR = {
+		owns_core_province = 151	
 		AND = {
 		has_global_flag = war_of_emperors
 		}
@@ -100,12 +101,13 @@ custom_trigger_tooltip = {
 		icon = atlantropa_constantinople
 		required_missions = { latinempire_romanisation_war_constantinople  }
 		trigger = {
-		controls = 151
 		custom_trigger_tooltip = {
 	tooltip = niceazdobylakonstantynopol2
+		controls = 151
 		OR = {
 		has_country_flag = constantinople_captured
 		tag = BYZ
+		
 		}
 		}
 		}
