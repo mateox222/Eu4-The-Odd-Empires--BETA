@@ -46,6 +46,7 @@ hagia_sophia = {
 							secondary_religion = sunni
 							secondary_religion = shiite
 							secondary_religion = ibadi
+							secondary_religion = united_christianity
 						}
 					}
 					OR = {
@@ -87,9 +88,7 @@ hagia_sophia = {
 			OR = {
 				AND = {
 					OR = {
-						religion = orthodox
-						religion = coptic
-						religion = catholic
+						religion_group = christian
 						religion_group = muslim
 					}
 					has_owner_religion = yes
@@ -103,12 +102,14 @@ hagia_sophia = {
 							secondary_religion = sunni
 							secondary_religion = shiite
 							secondary_religion = ibadi
+							secondary_religion = united_christianity
 						}
 					}
 					OR = {
 						religion = orthodox
 						religion = coptic
 						religion = catholic
+						religion = united_christianity
 						religion_group = muslim
 						has_owner_religion = yes
 					}
@@ -124,9 +125,7 @@ hagia_sophia = {
 			OR = {
 				AND = {
 					OR = {
-						religion = orthodox
-						religion = coptic
-						religion = catholic
+						religion_group = christian
 						religion_group = muslim
 					}
 					has_owner_religion = yes
@@ -140,12 +139,14 @@ hagia_sophia = {
 							secondary_religion = sunni
 							secondary_religion = shiite
 							secondary_religion = ibadi
+							secondary_religion = united_christianity
 						}
 					}
 					OR = {
 						religion = orthodox
 						religion = coptic
 						religion = catholic
+						religion = united_christianity
 						religion_group = muslim
 						has_owner_religion = yes
 					}
@@ -14670,7 +14671,7 @@ san_antonio_missions = {
 
 	build_trigger = {
 		province_is_or_accepts_religion = {
-			religion = catholic
+			religion_group = christian
 		}
 	}
 
@@ -14682,13 +14683,13 @@ san_antonio_missions = {
 
 	can_use_modifiers_trigger = {
 		province_is_or_accepts_religion = {
-			religion = catholic
+			religion_group = christian
 		}
 	}
 
 	can_upgrade_trigger = {
 		province_is_or_accepts_religion = {
-			religion = catholic
+			religion_group = christian
 		}
 	}
 
