@@ -1,0 +1,370 @@
+namespace = libir_events
+country_event = {
+	id = libir_events.1
+	title = "libir_events.1.t"
+	desc = "libir_events.1.d"
+	picture = SIEGE_PRAGUE_CASTLE_eventPicture
+	major = yes
+	trigger = {
+		    NOT = { has_country_flag = A44_city_destroyed }
+			tag = IS8	
+			OR = {
+			4594 = { controlled_by = ROOT }
+			4594 = { owned_by = ROOT }
+
+	}}
+		fire_only_once = yes
+	mean_time_to_happen = { days = 3 }
+	
+	option = {
+		name = libir_events.1a #Sack of City
+	4594 = {
+	add_devastation = 100
+	set_base_tax = 1	
+	set_base_production = 1	
+	set_base_manpower = 1	
+	rename_capital = "Solitude"	
+	change_province_name = "Solitude"	
+	change_culture = ROOT
+	change_religion = ROOT
+	}
+
+
+	
+		add_mil_power = 150 
+		add_dip_power = 150 
+		add_adm_power = 150
+		add_treasury = 300	
+		set_country_flag = A44_city_destroyed
+		change_tag = A44
+		swap_non_generic_missions = yes
+		inherit = IS1
+		country_event = { id = ideagroups.1 }
+
+	}
+}
+
+country_event = {
+	id = libir_events.2
+	title = "libir_events.2.t"
+	desc = "libir_events.2.d"
+	picture = FREE_CITY_eventPicture
+	major = yes
+	trigger = {
+		tag = A44
+		NOT = { has_country_flag = A44_teancum }
+		mission_completed = lamanitia_second_slot3
+	}
+
+	fire_only_once = yes
+	mean_time_to_happen = { days = 3 }
+	
+	option = {
+		name = "libir_events.2a" 
+	4585 = {
+	add_devastation = 15
+	set_base_tax = 2	
+	set_base_production = 2	
+	set_base_manpower = 2	
+	rename_capital = "Teancum"	
+	change_province_name = "Teancum"	
+	change_culture = ROOT
+	change_religion = ROOT
+	}
+		add_mil_power = 50 
+		add_dip_power = 50 
+		add_adm_power = 50
+		set_country_flag = A44_teancum
+	}
+}
+country_event = {
+	id = libir_events.3
+	title = "libir_events.3.t"
+	desc = "libir_events.3.d"
+	picture = CITY_VIEW_eventPicture
+	major = yes
+	trigger = {
+		tag = A44
+		NOT = { has_country_flag = A44_libir }
+		mission_completed = lamanitia_third_slot3
+	}
+
+	fire_only_once = yes
+	mean_time_to_happen = { days = 3 }
+	
+	option = {
+		name = libir.3a 
+	5115 = {
+	add_devastation = 15
+	change_culture = ROOT
+	change_religion = ROOT
+	}
+		add_mil_power = 50 
+		add_dip_power = 50 
+		add_adm_power = 50
+		set_country_flag = A44_libir
+	}
+}
+country_event = {
+	id = libir_events.4
+	title = "libir_events.4.t"
+	desc = "libir_events.4.d"
+	picture = Bountifultemple_eventPicture
+	major = yes
+	trigger = {
+		tag = A44
+		NOT = { has_country_flag = A44_bountiful }
+		mission_completed = lamanitia_fourth_slot3
+	}
+
+	fire_only_once = yes
+	mean_time_to_happen = { days = 3 }
+	
+	option = {
+		name = "libir.4a"
+	5117 = {
+	add_devastation = 15
+	change_culture = ROOT
+	change_religion = ROOT
+	}
+		add_mil_power = 50 
+		add_dip_power = 50 
+		add_adm_power = 50
+		set_country_flag = A44_bountiful
+	}
+}
+country_event = {
+	id = libir_events.5
+	title = "libir_events.5.t"
+	desc = "libir_events.5.d"
+	picture = GREAT_BUILDING_eventPicture
+	major = yes
+	trigger = {
+		tag = A44
+		NOT = { has_country_flag = A44_moronir }
+		mission_completed = lamanitia_fifth_slot3
+	}
+
+	fire_only_once = yes
+	mean_time_to_happen = { days = 3 }
+	
+	option = {
+		name = "libir.4a"
+	4593 = {
+	add_devastation = 15
+	change_culture = ROOT
+	change_religion = ROOT
+	}
+		add_mil_power = 50 
+		add_dip_power = 50 
+		add_adm_power = 50
+		set_country_flag = A44_moronir
+	}
+}
+country_event = {
+	id = libir_events.6
+	title = "libir_events.6.t"
+	desc = "libir_events.6.d"
+	picture = TRADE_GOODS_METALS_AND_MINING_EQUIPENT_eventPicture
+	major = yes
+	trigger = {
+		tag = A44
+		NOT = { has_country_flag = A44_moron }
+		mission_completed = lamanitia_first_slot3
+	}
+
+	fire_only_once = yes
+	mean_time_to_happen = { days = 3 }
+	
+	option = {
+		name = "libir.6a" 
+	5114 = {
+	add_devastation = 15
+	change_culture = ROOT
+	change_religion = ROOT
+	}
+		add_mil_power = 50 
+		add_dip_power = 50 
+		add_adm_power = 50
+		set_country_flag = A44_moron
+	}
+}
+country_event = {
+	id = libir_events.7
+	title = "libir_events.7.t"
+	desc = "libir_events.7.d"
+	picture = Mexcio_eventPicture
+	major = yes
+	trigger = {
+		tag = A44
+		NOT = { has_country_flag = A44_sackofcity }
+		852 = { owned_by = ROOT }
+	}
+
+	fire_only_once = yes
+	mean_time_to_happen = { days = 3 }
+	
+	option = {
+		name = "libir.7a" 
+	852 = {
+	add_devastation = 100
+	set_base_tax = 1	
+	set_base_production = 1	
+	set_base_manpower = 1	
+	change_culture = ROOT
+	change_religion = ROOT
+	spawn_rebels = {
+    type = noble_rebels
+    size = 10
+}
+	}
+		add_mil_power = 300 
+		add_dip_power = 300 
+		add_adm_power = 300
+		set_country_flag = A44_sackofcity
+	}
+		option = {
+		name = "libir.7b" 
+	852 = {
+	add_devastation = 15
+	change_culture = varvarish
+	change_religion = ROOT
+	}
+		add_mil_power = 25
+		add_dip_power = 25 
+		add_adm_power = 25
+		set_country_flag = A44_sackofcity
+	}
+}
+country_event = {
+	id = libir_events.300
+	title = "libir_events.300.t"
+	desc = "libir_events.300.d"
+	picture = CONQUISTADORS_eventPicture
+	major = yes
+	trigger = {
+		tag = A44
+		5118 = { owned_by = ROOT }
+	}
+
+	fire_only_once = yes
+	mean_time_to_happen = { days = 3 }
+	
+	option = {
+		name = "libir_events.300.a" 
+	5118 = {
+	add_devastation = 75
+	change_culture = ROOT
+	change_religion = ROOT
+	}
+		add_mil_power = 50 
+		add_dip_power = 50 
+		add_adm_power = 50
+	}
+		option = {
+		name = "libir_events.300.b" 
+	5118 = {
+	add_devastation = 15
+	change_culture = elladen
+	change_religion = ROOT
+	}
+	}
+}
+
+country_event = {
+	id = libir_events.301
+	title = "libir_events.301.t"
+	desc = "libir_events.301.d"
+	picture = REVOLUTION_eventPicture
+	major = yes
+	trigger = {
+		    NOT = { has_country_flag = A44_city_destroyed }
+			tag = IS1	
+			OR = {
+			2638 = { controlled_by = ROOT }
+			2638 = { owned_by = ROOT } }
+
+
+	}
+		fire_only_once = yes
+	mean_time_to_happen = { days = 3 }
+	
+	option = {
+		name = "libir_events.301.a" #Sack of City
+	2638 = {
+	add_devastation = 75
+	set_base_tax = 1	
+	set_base_production = 1	
+	set_base_manpower = 1	
+	rename_capital = "Solitude"	
+	change_province_name = "Solitude"	
+	change_culture = ROOT
+	change_religion = ROOT
+	}
+		add_mil_power = 150 
+		add_dip_power = 150 
+		add_adm_power = 150
+		add_treasury = 300	
+		set_country_flag = A44_city_destroyed
+		change_tag = A44
+		swap_non_generic_missions = yes	
+		inherit = IS8	
+		override_country_name = LAMANITIAZARAH
+		change_country_color = { color = { 32 87 33 } }
+		country_event = { id = ideagroups.1 }
+
+	}
+}
+country_event = {
+	id = libir_events.302
+	title = "libir_events.302.t"
+	desc = "libir_events.302.d"
+	picture = cumorahhill_eventPicture
+	major = yes
+					 major_trigger = { 
+		capital_scope = { 
+			OR = {
+			region = central_america_region
+            region = mexico_region
+			 }}}
+	trigger = {
+		tag = IS1
+		has_game_started = yes
+		NOT = { has_country_flag = A44_cumorah }
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "libir.302.a"
+		set_country_flag = A44_cumorah
+		add_prestige = -5	
+	}
+}
+country_event = {
+	id = libir_events.303
+	title = "libir_events.303.t"
+	desc = "libir_events.303.d"
+	picture = cumorahhill_eventPicture
+	major = yes
+				 major_trigger = { 
+		capital_scope = { 
+			OR = {
+			region = central_america_region
+            region = mexico_region
+			 }}}
+	trigger = {
+		tag = IS8
+		has_game_started = yes
+		NOT = { has_country_flag = A44_cumorah }
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = "libir.302.a"
+		set_country_flag = A44_cumorah
+		add_prestige = 5	
+	}
+}
+

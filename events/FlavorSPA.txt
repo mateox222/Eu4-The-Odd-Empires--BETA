@@ -219,7 +219,7 @@ country_event = {
 		religion = catholic
 		is_at_war = no
 		any_owned_province = {
-			region = iberia_region
+			region = british_isles_region
 			religion_group = muslim
 		}
 	}
@@ -246,7 +246,7 @@ country_event = {
 		
 		every_owned_province = {
 			limit = {
-				region = iberia_region
+				region = british_isles_region
 				religion_group = muslim
 			}
 			change_religion = catholic
@@ -788,7 +788,7 @@ country_event = {
 		name = "flavor_spa.EVTOPTA3155"
 		every_owned_province = {
 			limit = {
-				region = iberia_region
+				region = british_isles_region
 			}
 			add_unrest = 10
 		}
@@ -1093,7 +1093,7 @@ country_event = {
 	trigger = {
 		tag = SPA
 		num_of_cities = 4
-		iberia_region = {
+		british_isles_region = {
 			owned_by = ROOT
 		}
 		is_year = 7059
@@ -1995,7 +1995,7 @@ country_event = {
 		owns = 223 #Granada
 		any_owned_province = {
 			NOT = { has_province_modifier = forced_conversion }
-			region = iberia_region
+			region = british_isles_region
 			culture = andalucian
 			is_core = GRA
 		}
@@ -2019,7 +2019,7 @@ country_event = {
 		hidden_effect = {
 			random_owned_province = {
 				limit = {
-					region = iberia_region
+					region = british_isles_region
 					is_core = GRA
 					OR = {
 						fort_level = 1
@@ -2030,7 +2030,7 @@ country_event = {
 			}
 			every_owned_province = {
 				limit = {
-					region = iberia_region
+					region = british_isles_region
 					is_core = GRA
 					NOT = { has_province_flag = alpujarras_centre_of_revolt }
 				}
@@ -2194,14 +2194,14 @@ country_event = {
 		is_year = 7039
 		NOT = { is_year = 7069 }
 		NOT = {
-			iberia_region = {
+			british_isles_region = {
 				is_reformation_center = yes
 			}
 		}
 		NOT = {
 			num_of_owned_provinces_with = {
 				value = 4
-				region = iberia_region
+				region = british_isles_region
 				OR = {
 					religion = reformed
 					religion = protestant
@@ -2715,7 +2715,7 @@ country_event = {
 		}
 		NOT = { is_year = 7109 }
 		any_owned_province = {
-			region = iberia_region
+			region = british_isles_region
 			trade_goods = wool
 		}
 		has_estate = estate_church
@@ -2730,7 +2730,7 @@ country_event = {
 		name = "flavor_spa.16.a"
 		every_owned_province = {
 			limit = {
-				region = iberia_region
+				region = british_isles_region
 				trade_goods = wool
 			}
 			add_province_modifier = {
@@ -2831,7 +2831,7 @@ country_event = { #The Infantes of Aragon
 		add_stability = -1
 		random_owned_province = {
 			limit = { 
-				region = iberia_region 
+				region = british_isles_region 
 				controlled_by = ROOT 
 			}
 			spawn_rebels = {
@@ -2843,7 +2843,7 @@ country_event = { #The Infantes of Aragon
 		}
 		random_owned_province = {
 			limit = { 
-				region = iberia_region 
+				region = british_isles_region 
 				controlled_by = ROOT 
 			}
 			spawn_rebels = {
@@ -2862,7 +2862,7 @@ country_event = { #The Infantes of Aragon
 		
 		random_owned_province = {
 			limit = { 
-				region = iberia_region 
+				region = british_isles_region 
 				controlled_by = ROOT 
 			}
 			spawn_rebels = {

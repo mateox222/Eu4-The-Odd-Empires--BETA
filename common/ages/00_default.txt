@@ -6,24 +6,15 @@ medieval_age = {
 	}
 	papacy = 1.0
 	objectives = {
-	
-	obj_state_monarchy = {
-	estate_loyalty = {
-    estate = estate_burghers
-    loyalty = 50
+			obj_state_monarchy = {
+OR = {
+NOT = { crown_land_share = 25 }
+ vassal = 5
+
 }
-	estate_loyalty = {
-    estate = estate_nobles
-    loyalty = 50
-}
-	estate_loyalty = {
-    estate = estate_church
-    loyalty = 50
-}
-NOT = { crown_land_share = 30 }
+			}
 
 
-		}
 		
 		
 		
@@ -92,10 +83,9 @@ NOT = { crown_land_share = 30 }
 	
 	
 	abilities = {
-		ab_allow_feudal_de_jure_law = {
-			effect = {
-				custom_tooltip = feudal_de_jure_law
-				set_country_flag = feudal_de_jure_law
+		medieval_loyal_estate = {
+			modifier = {
+				all_estate_loyalty_equilibrium = 0.15	
 			}
 			ai_will_do = {
 				factor = 10
@@ -114,20 +104,18 @@ NOT = { crown_land_share = 30 }
 		}
 		
 
-		ab_transfer_vassal_wargoal = 
-		{
+		medieval_stability = {
 			modifier = {
-				can_transfer_vassal_wargoal = yes
-				can_chain_claim = yes
+				stability_cost_modifier = -0.33	
 			}
 			ai_will_do = {
 				factor = 10
 			}
 		}
 		
-		ab_free_war_taxes = {
+		medieval_administration = {
 			modifier = {
-				war_taxes_cost_modifier = -1.0
+				all_power_cost = -0.05	
 			}
 			ai_will_do = {
 				factor = 10
@@ -135,9 +123,9 @@ NOT = { crown_land_share = 30 }
 		}
 		
 
-		ab_cavalry_armies = {
+		medieval_rellgion = {
 			modifier = {
-				cav_to_inf_ratio = 0.2
+				global_missionary_strength = 0.03	
 			}
 			ai_will_do = {
 				factor = 10
@@ -186,7 +174,6 @@ NOT = { crown_land_share = 30 }
 			culture_group = byzantine
 			}
 			modifier = {
-				discipline = 0.02
 				ae_impact = -0.15
 				unjustified_demands = -0.15
 				claim_duration = 0.25	
@@ -199,38 +186,34 @@ NOT = { crown_land_share = 30 }
 		ab_visigot_reduced_lib_desire = {
 		
 			allow = {
-				tag = A71
+				OR = {
+				culture_group = east_slavic
+				culture_group = south_slavic
+				}
 			}
 			modifier = {
-				reduced_liberty_desire = 30
+				ae_impact = -0.25
+				unjustified_demands = -0.1		
 			}
 			ai_will_do = {
 				factor = 100
-				modifier = {
-					factor = 0
-					NOT = {
-						any_subject_country = {
-							liberty_desire = 20
-						}
-					}
-				}
 			}
 		}
-		ab_venice_ship_trade = {
+		medieval_francia = {
 		
 			allow = {
-				tag = VEN
+				tag = FRA
 			}
 			modifier = {
-				global_ship_trade_power = 0.5
+				reduced_liberty_desire = 10	
 			}
 			ai_will_do = {
 				factor = 100
 			}
 		}
 	}
-}
 
+}
 
 age_of_discovery = {
 	start = 6959
@@ -1248,9 +1231,8 @@ age_of_industrialization = {
 		Industrial_Italy = {
 			allow = {
 				OR = {
-					tag = ITA
-					tag = HLR	
-					tag = SPI						
+				capital = 118
+				capital = 5747
 				}
 			}
 			modifier = {

@@ -1,0 +1,508 @@
+naval_tree_a28 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = A28
+	}
+	has_country_shield = yes
+
+	a_wooden_wall_a28 = {
+		icon = atlantropa_nilfheimnordfleet
+		position = 6
+		required_missions = {  }
+		trigger = {
+			navy_size_percentage = 1
+		}
+		effect = {
+			rabinsder_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	seizing_storehammer_a28 = {
+		icon = atlantropa_coldnorth
+		position = 7
+		required_missions = { a_wooden_wall_a28 }
+		provinces_to_highlight = {
+			area = rabinsder_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			rabinsder_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 10
+			define_advisor = {
+				type = diplomat6_tod
+				name = "Dagr 'Wall Breaker'"
+				skill = 2
+				discount = yes
+			}
+		}
+	}
+}
+
+vinterkeep_tree_a43 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = A43
+	}
+	has_country_shield = yes
+
+	raising_a_warhost_a43 = {
+		icon = mission_build_up_to_force_limit
+		position = 6
+		required_missions = {  }
+		trigger = {
+			army_size_percentage = 1
+		}
+		effect = {
+			stormo_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	breaking_the_cowards_a43 = {
+		icon = atlantropa_skulls
+		position = 7
+		required_missions = { raising_a_warhost_a43 }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 5066
+				province_id = 5071
+				province_id = 5109
+			}
+			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 5066
+			owns_or_non_sovereign_subject_of = 5071
+			owns_or_non_sovereign_subject_of = 5109
+		}
+		effect = {
+			add_prestige = 10
+			define_advisor = {
+				type = militarist3_tod
+				name = "Dagr 'Wall Breaker'"
+				skill = 2
+				discount = yes
+			}
+		}
+	}
+}
+
+roads_tree_thulhish = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = A28
+			tag = A43
+			has_country_flag = atlantropa_north_formed_thule
+		}
+	}
+	has_country_shield = yes
+	
+	roads_thulhish = {
+		icon = atlantropa_imperialroads
+		required_missions = {  }
+		position = 6
+		provinces_to_highlight = {
+			country_or_non_sovereign_subject_holds = ROOT
+			NOT = {
+				has_building = atlantropa_road
+			}
+		}
+		trigger = {
+			atlantropa_road = 20
+		}
+		effect = {
+			custom_tooltip = atl_one_production_every_road_tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						has_building = atlantropa_road
+					}
+					add_base_production = 1	
+				}
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+	tracks_thulhish = {
+		icon = atlantropa_steamengine
+		position = 7
+		required_missions = { roads_thulhish }
+		provinces_to_highlight = {
+			country_or_non_sovereign_subject_holds = ROOT
+			NOT = {
+				has_building = atlantropa_tracks
+			}
+		}
+		trigger = {
+			atlantropa_tracks = 20
+		}
+		effect = {
+			add_splendor = 800
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+}
+
+the_roman_threat_thulhish = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = A28
+			tag = A43
+			has_country_flag = atlantropa_north_formed_thule
+		}
+	}
+	has_country_shield = yes
+
+	seeking_protection_thulhish = {
+		icon = atlantropa_rome
+		position = 6
+		required_missions = {  }
+		trigger = {
+			OR = {
+				offensive_war_with = A34
+				owns_core_province = 5061
+				any_ally = {
+					is_rival = A34
+				}
+				ROOT = {
+					is_subject = yes
+				}
+			}
+		}
+		effect = {
+			avalon_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	rome_must_be_destroyed_thulhish = {
+		icon = atlantropa_sendgard
+		position = 7
+		required_missions = { seeking_protection_thulhish }
+		provinces_to_highlight = {
+			area = avalon_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			avalon_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			NOT = {
+				exists = A34
+			}
+		}
+		effect = {
+			add_prestige = 10
+			storebugt_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			magaranja_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			meneforaa_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+thulean_conquest_thulhish = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = A28
+			tag = A43
+			has_country_flag = atlantropa_north_formed_thule
+		}
+	}
+	has_country_shield = yes
+
+	the_soft_innards_thulhish = {
+		icon = atlantropa_army
+		position = 8
+		required_missions = { rome_must_be_destroyed_thulhish }
+		provinces_to_highlight = {
+			OR = {
+				area = magaranja_area
+				area = meneforaa_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			magaranja_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			meneforaa_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			hydroponika_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	meropis_thulhish = {
+		icon = atlantropa_fieryend
+		position = 10
+		required_missions = { the_soft_innards_thulhish }
+		provinces_to_highlight = {
+			area = hydroponika_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			hydroponika_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "greek_innovations_thulhish"
+				duration = -1
+			}
+		}
+	}
+}
+
+celtlands_thulhish = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = A28
+			tag = A43
+			has_country_flag = atlantropa_north_formed_thule
+		}
+	}
+	has_country_shield = yes
+
+	through_framond_thulhish = {
+		icon = atlantropa_borderlands
+		position = 8
+		required_missions = { rome_must_be_destroyed_thulhish }
+		provinces_to_highlight = {
+			area = storebugt_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			storebugt_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			plymouth_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	the_sleibhtean_thulhish = {
+		icon = atlantropa_slavia
+		position = 9
+		required_missions = { through_framond_thulhish }
+		provinces_to_highlight = {
+			area = plymouth_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			plymouth_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			aonnia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			tuath_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+colonization_thulhish = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = A28
+			tag = A43
+			has_country_flag = atlantropa_north_formed_thule
+		}
+	}
+	has_country_shield = yes
+
+	preparing_to_voyage_thulhish = {
+		icon = atlantropa_arthurianfleet
+		position = 8
+		required_missions = {  }
+		trigger = {
+			has_idea_group = exploration_ideas
+		}
+		effect = {
+			add_navy_tradition = 10
+			add_country_modifier = {
+				name = nor_colonial_enthusiasm
+				duration = 14600
+			}
+			frischland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	fryslan_thulhish = {
+		icon = atlantropa_arthuriancolonist
+		position = 9
+		required_missions = { preparing_to_voyage_thulhish }
+		provinces_to_highlight = {
+			area = frischland_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			frischland_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			frischland_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	the_tailteanhain_thulhish = {
+		icon = atlantropa_framond
+		position = 10
+		required_missions = { the_sleibhtean_thulhish }
+		provinces_to_highlight = {
+			OR = {
+				area = tuath_area
+				area = aonnia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			tuath_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			aonnia_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			thule_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	the_thule_thulhish = {
+		icon = atlantropa_serbianfortress
+		position = 11
+		required_missions = { the_tailteanhain_thulhish meropis_thulhish }
+		provinces_to_highlight = {
+			region = thule_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			thule_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 50
+			add_years_of_income = 2
+			add_country_modifier = {
+				name = "spread_thulhish_culture_thulhish"
+				duration = -1
+			}
+		}
+	}
+}
+

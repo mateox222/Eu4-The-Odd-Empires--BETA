@@ -1,13 +1,14 @@
 latin_empire_crisis = {
     potential = {
-		NOT = { is_year = 7000 }
+		NOT = { is_year = 6930 }
 		owns_core_province = 151
         tag = LAE
-		is_year = 6915
 	NOT = { has_global_flag = end_of_latin_empire_crisis }	
 	NOT = { has_country_flag = latindostajepodupie12}
 	}
 can_start = {
+NOT = { is_year = 6930 }
+
 OR = {
 A52 = {
 	is_neighbor_of = ROOT
@@ -31,9 +32,6 @@ BUL = {
 	total_development = 150
 }
 }
-
-
-
 }
 	can_stop = { 
 		if = {
@@ -47,7 +45,8 @@ BUL = {
 			has_country_flag = bramkarezerowadlalatin }
 		   had_country_flag = { flag = bramkarezerowadlalatin days = 3600 }
 		}
-	}
+
+}
 	
 
 	progress = {
@@ -139,8 +138,16 @@ BUL = {
 			factor = 1
 			ruler_age = 60
 		}
+		modifier = {
+			factor = -100
+		AND = {
+			NOT = { exists = BUL }
+			NOT = { exists = SER }
+			NOT = { exists = A52 } 
+			NOT = { exists = BYZ }
+		}
 
-		
+	}
 		
 		
 		

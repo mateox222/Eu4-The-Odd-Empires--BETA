@@ -94,6 +94,7 @@ country_decisions = {
 				}
 			}
 			change_tag = VRM
+			on_change_tag_effect = yes
 			2563 = {
 				change_province_name = "Vermont"
 				rename_capital = "Montpelier"
@@ -162,6 +163,122 @@ country_decisions = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
+			#CUSTOMCOLONIALNATIONS
+if = {
+	limit = { 
+	culture_group = british
+	}
+	override_country_name = VERMONTbritish
+	change_country_color = { color = { 69 94 90 } }
+	}
+	if = {
+	limit = { 
+	culture_group = gaelic
+	}
+	override_country_name = VERMONTgaelic
+	change_country_color = { color = { 89 171 90 } }
+	}
+	
+	if = {
+	limit = { 
+	culture_group = latin
+	}
+	override_country_name = VERMONTitalian
+	change_country_color = { color = { 89 169 96 } }
+	}
+	if = {
+	limit = { 
+	culture_group = iberian
+	}
+	override_country_name = VERMONTiberian
+	change_country_color = { color = { 181 199 90 } }
+	}
+	if = {
+	limit = { 
+	culture_group = french
+	}
+	override_country_name = VERMONTfrench
+	change_country_color = { color = { 68 147 182 } }
+	}
+	if = {
+	limit = { 
+	OR = {
+	culture_group = east_slavic
+	culture_group =  slavic
+	}
+	}
+	override_country_name = VERMONTrussian
+	change_country_color = { color = { 68 194 160 } }
+	}
+	if = {
+	limit = { 
+	culture_group = byzantine
+	}
+	override_country_name = VERMONTgreek
+	change_country_color = { color = { 168 94 149 } }
+	}
+	
+	if = {
+	limit = { 
+	culture_group = maghrebi
+	}
+	override_country_name = VERMONTarab
+	change_country_color = { color = { 198 188 169 } }
+	}		
+	if = {
+	limit = { 
+	culture_group = east_asian
+	}
+	override_country_name = VERMONTchinese
+	change_country_color = { color = { 180 179 178 } }
+	}			
+	
+	if = {
+	limit = { 
+	culture_group = japanese_g 
+	}
+	override_country_name = VERMONTjapanese
+	change_country_color = { color = { 209 69 87 } }
+	}			
+	
+	if = {
+	limit = { 
+	culture_group = germanic 
+	}
+	override_country_name = VERMONTgerman
+	change_country_color = { color = { 149 185 167 } }
+	}	
+	
+	if = {
+	limit = { 
+	culture_group = scandinavian
+	}
+	override_country_name = VERMONTnorge
+	change_country_color = { color = { 99 126 167 } }
+	}	
+	
+	if = {
+		limit = { 
+			culture_group = punic_culture
+		}
+		override_country_name = VERMONTPHOENICIA
+		change_country_color = { color = { 236 221 207 } }
+	}
+	if = {
+		limit = { 
+			culture_group = central_american
+		}
+		override_country_name = VERMONTAZTEC
+		change_country_color = { color = { 170 125 75 } } 
+	}
+
+	if = {
+	limit = { 
+	primary_culture = polish
+	}
+	override_country_name = VERMONTpolish
+	change_country_color = { color = { 197 37 34 } }
+	}
 		}
 		ai_will_do = {
 			factor = 1

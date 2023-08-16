@@ -54,6 +54,7 @@ country_decisions = {
 				}
 			}
 			change_tag = PRG
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -87,6 +88,121 @@ country_decisions = {
 			}
 			add_prestige = 25
 			set_country_flag = changed_from_colonial_nation
+			#CUSTOMCOLONIALNATIONS
+if = {
+	limit = { 
+	culture_group = british
+	}
+	override_country_name = PARAGbritish
+	change_country_color = { color = { 69 64 90 } }
+	}
+	if = {
+	limit = { 
+	culture_group = gaelic
+	}
+	override_country_name = PARAGgaelic
+	change_country_color = { color = { 69 161 90 } }
+	}
+	
+	if = {
+	limit = { 
+	culture_group = latin
+	}
+	override_country_name = PARAGitalian
+	change_country_color = { color = { 69 159 96 } }
+	}
+	if = {
+	limit = { 
+	culture_group = iberian
+	}
+	override_country_name = PARAGiberian
+	change_country_color = { color = { 161 169 90 } }
+	}
+	if = {
+	limit = { 
+	culture_group = french
+	}
+	override_country_name = PARAGfrench
+	change_country_color = { color = { 66 107 162 } }
+	}
+	if = {
+	limit = { 
+	OR = {
+	culture_group = east_slavic
+	culture_group =  slavic
+	}
+	}
+	override_country_name = PARAGrussian
+	change_country_color = { color = { 66 174 160 } }
+	}
+	if = {
+	limit = { 
+	culture_group = byzantine
+	}
+	override_country_name = PARAGgreek
+	change_country_color = { color = { 166 64 149 } }
+	}
+	
+	if = {
+	limit = { 
+	culture_group = maghrebi
+	}
+	override_country_name = PARAGarab
+	change_country_color = { color = { 166 166 169 } }
+	}		
+	if = {
+	limit = { 
+	culture_group = east_asian
+	}
+	override_country_name = PARAGchinese
+	change_country_color = { color = { 160 176 176 } }
+	}			
+	
+	if = {
+	limit = { 
+	culture_group = japanese_g 
+	}
+	override_country_name = PARAGjapanese
+	change_country_color = { color = { 209 66 67 } }
+	}			
+	
+	if = {
+	limit = { 
+	culture_group = germanic 
+	}
+	override_country_name = PARAGgerman
+	change_country_color = { color = { 140 165 167 } }
+	}	
+	
+	if = {
+	limit = { 
+	culture_group = scandinavian
+	}
+	override_country_name = PARAGnorge
+	change_country_color = { color = { 96 126 167 } }
+	}	
+	if = {
+		limit = { 
+			culture_group = punic_culture
+		}
+		override_country_name = PARAGPHOENICIA
+		change_country_color = { color = { 206 201 107 } }
+	}
+	if = {
+		limit = { 
+			culture_group = central_american
+		}
+		override_country_name = PARAGAZTEC
+		change_country_color = { color = { 71 124 35 } } 
+	}
+	
+	if = {
+	limit = { 
+	primary_culture = polish
+	}
+	override_country_name = PARAGpolish
+	change_country_color = { color = { 167 37 34 } }
+	}
 		}
 		ai_will_do = {
 			factor = 1

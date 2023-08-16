@@ -79,6 +79,7 @@ country_decisions = {
 				}
 			}
 			change_tag = VNZ
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -117,10 +118,126 @@ country_decisions = {
 			}
 			add_prestige = 25
 			set_country_flag = changed_from_colonial_nation
+			#CUSTOMCOLONIALNATIONS
+if = {
+	limit = { 
+	culture_group = british
+	}
+	override_country_name = WENEZUELAbritish
+	change_country_color = { color = { 99 64 94 } }
+	}
+	if = {
+	limit = { 
+	culture_group = gaelic
+	}
+	override_country_name = WENEZUELAgaelic
+	change_country_color = { color = { 39 131 90 } }
+	}
+	
+	if = {
+	limit = { 
+	culture_group = latin
+	}
+	override_country_name = WENEZUELAitalian
+	change_country_color = { color = { 79 179 96 } }
+	}
+	if = {
+	limit = { 
+	culture_group = iberian
+	}
+	override_country_name = WENEZUELAiberian
+	change_country_color = { color = { 181 179 90 } }
+	}
+	if = {
+	limit = { 
+	culture_group = french
+	}
+	override_country_name = WENEZUELAfrench
+	change_country_color = { color = { 58 107 182 } }
+	}
+	if = {
+	limit = { 
+	OR = {
+	culture_group = east_slavic
+	culture_group =  slavic
+	}
+	}
+	override_country_name = WENEZUELArussian
+	change_country_color = { color = { 78 154 160 } }
+	}
+	if = {
+	limit = { 
+	culture_group = byzantine
+	}
+	override_country_name = WENEZUELAgreek
+	change_country_color = { color = { 158 74 149 } }
+	}
+	
+	if = {
+	limit = { 
+	culture_group = maghrebi
+	}
+	override_country_name = WENEZUELAarab
+	change_country_color = { color = { 168 177 167 } }
+	}		
+	if = {
+	limit = { 
+	culture_group = east_asian
+	}
+	override_country_name = WENEZUELAchinese
+	change_country_color = { color = { 170 176 178 } }
+	}			
+	
+	if = {
+	limit = { 
+	culture_group = japanese_g 
+	}
+	override_country_name = WENEZUELAjapanese
+	change_country_color = { color = { 229 66 87 } }
+	}			
+	
+	if = {
+	limit = { 
+	culture_group = germanic 
+	}
+	override_country_name = WENEZUELAgerman
+	change_country_color = { color = { 147 185 167 } }
+	}	
+	
+	if = {
+	limit = { 
+	culture_group = scandinavian
+	}
+	override_country_name = WENEZUELAnorge
+	change_country_color = { color = { 77 126 167 } }
+	}	
+	if = {
+		limit = { 
+			culture_group = punic_culture
+		}
+		override_country_name = WENEZUELAPHOENICIA
+		change_country_color = { color = { 236 201 147 } }
+	}
+	if = {
+		limit = { 
+			culture_group = central_american
+		}
+		override_country_name = WENEZUELAAZTEC
+		change_country_color = { color = { 74 124 75 } } 
+	}
+	
+	if = {
+	limit = { 
+	primary_culture = polish
+	}
+	override_country_name = WENEZUELApolish
+	change_country_color = { color = { 177 37 74 } }
+	}
 		}
 		ai_will_do = {
 			factor = 1
 		}
+
 	}
 
 }

@@ -817,7 +817,7 @@ tr_russia_exclusive_2 = {
 	
 	rus_manchuria_coast = {
 		icon = mission_amur_acquisition
-		required_missions = { tr_russian_colony_in_east_siberia }
+		required_missions = { tr_russian_colony_in_east_siberia_region }
 		position = 7
 		provinces_to_highlight = {
 			OR = {
@@ -1164,9 +1164,9 @@ tr_russia_conquest_3 = {
 			}
 		}
 	}
-	rus_complete_west_siberia = {
+	rus_complete_west_siberia_region = {
 		icon = mission_collect_yasak
-		required_missions = { tr_russian_colony_in_west_siberia_new }
+		required_missions = { tr_russian_colony_in_west_siberia_region_new }
 		position = 6
 		completed_by =  7518.1.1
 		provinces_to_highlight = {
@@ -1211,9 +1211,9 @@ tr_russia_conquest_3 = {
 			}
 		}
 	}
-	rus_complete_east_siberia = {
+	rus_complete_east_siberia_region = {
 		icon = mission_extent_yasak_to_the_east
-		required_missions = { tr_russian_colony_in_east_siberia }
+		required_missions = { tr_russian_colony_in_east_siberia_region }
 		completed_by =  7592.1.1
 		provinces_to_highlight = {
 			region = east_siberia_region
@@ -1555,7 +1555,7 @@ tr_siberia_missions = {
 			add_dip_power = 50
 		}
 	}
-	tr_russian_colony_in_west_siberia_new = {
+	tr_russian_colony_in_west_siberia_region_new = {
 		icon = mission_colonial
 		required_missions = { rus_integrate_perm }
 		completed_by =  7518.1.1
@@ -1583,9 +1583,9 @@ tr_siberia_missions = {
 			}
 		}
 	}
-	tr_russian_colony_in_east_siberia = {
+	tr_russian_colony_in_east_siberia_region = {
 		icon = mission_trade_company_region_abroad
-		required_missions = { tr_russian_colony_in_west_siberia_new }
+		required_missions = { tr_russian_colony_in_west_siberia_region_new }
 		completed_by =  7501.1.1
 		provinces_to_highlight = {
 			region = east_siberia_region
@@ -1661,7 +1661,7 @@ tr_siberia_missions = {
 	}
 	rus_alaskan_colony = {
 		icon = mission_colonize_alaska
-		required_missions = { tr_russian_colony_in_east_siberia }
+		required_missions = { tr_russian_colony_in_east_siberia_region }
 		provinces_to_highlight = {
 			colonial_region = colonial_alaska
 			NOT = {

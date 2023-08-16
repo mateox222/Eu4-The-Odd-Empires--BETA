@@ -1,0 +1,1339 @@
+namespace = byzantine_war
+country_event = {
+	id = byzantine_war.300
+	title = byzantine_war.300.t
+	desc = byzantine_war.300.d
+	picture = Sacrificepagan_eventPicture
+	major_trigger = { 
+		is_neighbor_of = LAE
+	}
+	trigger = {
+		tag = LAE
+		NOT = { has_country_flag = latindostajepodupie1 }
+		has_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = 5
+		}
+	}
+	option = {
+		name = byzantine_war.300.a 
+		add_stability = -1
+	    set_country_flag = latindostajepodupie1
+		add_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = -10
+		}
+}
+}
+
+country_event = {
+	id = byzantine_war.301
+	title = byzantine_war.301.t
+	desc = byzantine_war.301.d
+	picture = shipconstantinople_eventPicture
+	major_trigger = { 
+		is_neighbor_of = LAE
+	}
+	trigger = {
+		tag = LAE
+		NOT = { has_country_flag = latindostajepodupie2 }
+		has_country_flag = latindostajepodupie1
+		has_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = 10
+		}
+	}
+	option = {
+		name = byzantine_war.301.a 
+		add_stability = -1
+	    set_country_flag = latindostajepodupie2
+		add_country_modifier = {
+			name = kupcyspierdalaja
+			duration = 3600
+		}
+		add_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = 10
+		}
+}
+}
+country_event = {
+	id = byzantine_war.302
+	title = byzantine_war.302.t
+	desc = byzantine_war.302.d
+	picture = latinempirecrusaders_eventPicture
+	major_trigger = { 
+		is_neighbor_of = LAE
+	}
+	trigger = {
+		tag = LAE
+		NOT = { has_country_flag = latindostajepodupie3 }
+		has_country_flag = latindostajepodupie2
+		has_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = 25
+		}
+	}
+	option = {
+		name = byzantine_war.302.a 
+		add_stability = -2
+	    set_country_flag = latindostajepodupie3
+		add_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = 30
+		}
+		add_yearly_manpower = -2.5	
+}
+option = {
+	name = byzantine_war.302.b
+	add_stability = 2
+	set_country_flag = latindostajepodupie3
+	add_yearly_manpower = 0.5	
+	add_disaster_progress = {
+		disaster = latin_empire_crisis
+		value = -30
+	}
+	4976 = {  add_core = A51
+	   cede_province = A51 }
+	147  = {  add_core = A51
+	cede_province = A51 }
+	1853  = {  add_core = A51
+	cede_province = A51 }
+	4960  = {  add_core = A51
+	cede_province = A51 }
+	148  = {  add_core = A51
+	cede_province = A51 }
+	4702  = {  add_core = A51
+	cede_province = A51 }
+	create_march = A51
+
+}
+}
+
+country_event = {
+	id = byzantine_war.303
+	title = byzantine_war.303.t
+	desc = byzantine_war.303.d
+	picture = Sacrificepagan_eventPicture
+	major_trigger = { 
+		is_neighbor_of = LAE
+	}
+	trigger = {
+		tag = LAE
+		NOT = { has_country_flag = latindostajepodupie4 }
+		has_country_flag = latindostajepodupie3
+		has_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = 50
+		}
+	}
+	option = {
+		ai_chance = { factor = 75 }
+		name = byzantine_war.303.a 
+	    set_country_flag = latindostajepodupie4
+		add_treasury = -150
+		SER = { country_event = { 
+			id = byzantine_war.304
+		}}
+}
+option = {
+	ai_chance = { factor = 15 }
+	name = byzantine_war.303.b
+	add_stability = -1
+	set_country_flag = latindostajepodupie4
+	add_disaster_progress = {
+		disaster = latin_empire_crisis
+		value = 5
+	}
+}
+
+}
+
+country_event = {
+	id = byzantine_war.304
+	title = byzantine_war.304.t
+	desc = byzantine_war.304.d
+	picture = Sacrificepagan_eventPicture
+	major_trigger = { 
+		tag = LAE
+	}
+	is_triggered_only = yes
+	option = {
+		ai_chance = { factor = 75 }
+		name = byzantine_war.304.a 
+		add_treasury = 150
+		LAE = {
+		add_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = -50
+		}
+		add_truce_with = SER
+	}
+}
+option = {
+	ai_chance = { factor = 15 }
+	name = byzantine_war.303.a 
+	LAE = {
+		add_treasury = 150
+	}
+}
+
+}
+
+country_event = {
+	id = byzantine_war.305
+	title = byzantine_war.305.t
+	desc = byzantine_war.305.d
+	picture = latinempirecrusaders_eventPicture
+	major_trigger = { 
+		is_neighbor_of = LAE
+	}
+	trigger = {
+		tag = LAE
+		NOT = { has_country_flag = latindostajepodupie5 }
+		has_country_flag = latindostajepodupie4
+		has_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = 50
+		}
+	}
+	option = {
+		name = byzantine_war.305.a 
+		add_yearly_manpower = 2
+		add_stability = 1
+	    set_country_flag = latindostajepodupie5
+		add_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = -25
+		}
+}}
+country_event = {
+	id = byzantine_war.306
+	title = "byzantine_war.306.t"
+	desc = "byzantine_war.306.d"
+	picture = ANGRY_MOB_eventPicture
+	major = yes
+	trigger = {
+		EPI = { exists = yes }
+		tag = LAE
+		has_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = 75
+		}
+		NOT = { has_country_flag = latindostajepodupie6 }
+		has_country_flag = latindostajepodupie5
+		
+	}
+	fire_only_once = yes
+	option = {
+	name = "byzantine_war.4a" 
+	set_country_flag = latindostajepodupie6
+	add_disaster_progress = {
+		disaster = latin_empire_crisis
+		value = -75
+	}
+	if = {
+	 limit = {
+		OR = {
+		1853 = { owned_by = ROOT }
+		1853 = { owned_by = A51 }
+		}
+	 }
+1853 = {
+    cede_province = EPI
+}
+	}
+	if = {
+	 limit = {
+		OR = {
+		147 = { owned_by = ROOT }
+		147 = { owned_by = A51 }
+		}
+	 }
+147 = {
+    cede_province = EPI
+}
+	}
+	if = {
+	 limit = {
+		OR = {
+		4976 = { owned_by = ROOT }
+		4976 = { owned_by = A51 }
+		}
+	 }
+4976 = {
+    cede_province = EPI
+}
+	}
+	add_stability = 1
+	add_prestige = -10	
+	add_war_exhaustion = -5	
+	add_truce_with = EPI
+}
+	option = {
+	set_country_flag = latindostajepodupie6	
+	name = "byzantine_war.4b" 
+	1853 = {
+	add_unrest = 15	
+	add_nationalism = 15	
+	}
+	147 = {
+	add_unrest = 15	
+	add_nationalism = 15	
+	}
+	4976 = {
+	add_unrest = 15	
+	add_nationalism = 15	
+	}
+	add_stability = -1
+	add_prestige = 10
+	add_war_exhaustion = 5		
+	}}
+
+	country_event = {
+		id = byzantine_war.307
+		title = byzantine_war.307.t
+		desc = byzantine_war.307.d
+		picture = CRUSADER_HORDE_eventPicture
+		major_trigger = { 
+			is_neighbor_of = LAE
+		}
+		trigger = {
+			tag = LAE
+			NOT = { has_country_flag = latindostajepodupie7 }
+			has_country_flag = latindostajepodupie6
+			has_disaster_progress = {
+				disaster = latin_empire_crisis
+				value = 55
+			}
+		}
+		option = {
+			name = byzantine_war.307.b 
+			set_government_power = {
+				mechanic_type = crusaderstates_mechanic
+				power_type = crusader_adm_power
+				value = 0
+			}
+			add_adm_power = -100
+			set_country_flag = latindostajepodupie7
+			add_disaster_progress = {
+				disaster = latin_empire_crisis
+				value = -25
+			}
+	}
+	option = {
+		name = byzantine_war.307.a
+		add_adm_power = 50
+}}
+country_event = {
+	id = byzantine_war.308
+	title = byzantine_war.308.t
+	desc = byzantine_war.308.d
+	picture = POPE_PREACHING_eventPicture
+	major_trigger = { 
+		is_neighbor_of = LAE
+	}
+	trigger = {
+		tag = LAE
+		NOT = { has_country_flag = latindostajepodupie8 }
+		has_country_flag = latindostajepodupie7
+		has_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = 75
+		}
+	}
+	option = {
+		name = byzantine_war.308.a 
+		add_stability = 1
+		add_yearly_manpower = 5
+		set_country_flag = latindostajepodupie8
+		add_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = -75
+		}
+}
+}
+country_event = {
+	id = byzantine_war.309
+	title = byzantine_war.309.t
+	desc = byzantine_war.309.d
+	picture = Sacrificepagan_eventPicture
+	major_trigger = { 
+		is_neighbor_of = LAE
+	}
+	trigger = {
+		tag = LAE
+		NOT = { has_country_flag = latindostajepodupie9 }
+		has_country_flag = latindostajepodupie8
+		has_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = 75
+		}
+	}
+	option = {
+		name = byzantine_war.309.a 
+		add_yearly_manpower = 2
+		set_country_flag = latindostajepodupie9
+		add_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = -25
+		}
+}
+}
+
+country_event = {
+	id = byzantine_war.310
+	title = byzantine_war.310.t
+	desc = byzantine_war.310.d
+	picture = Sacrificepagan_eventPicture
+	major_trigger = { 
+		is_neighbor_of = LAE
+	}
+	trigger = {
+		tag = LAE
+		NOT = { has_country_flag = latindostajepodupie10 }
+		has_country_flag = latindostajepodupie9
+		has_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = 75
+		}
+	}
+	option = {
+		name = byzantine_war.310.a 
+		add_years_of_income = 2
+		set_country_flag = latindostajepodupie10
+		add_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = -25
+		}
+}
+}
+country_event = {
+	id = byzantine_war.311
+	title = byzantine_war.311.t
+	desc = byzantine_war.311.d
+	picture = Sacrificepagan_eventPicture
+	major_trigger = { 
+		is_neighbor_of = LAE
+	}
+	trigger = {
+		NOT = { has_country_flag = latindostajepodupie11 }
+		NOT = { has_country_flag = latindostajepodupie11b }	
+		tag = LAE
+		has_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = 90
+		}
+	}
+	option = {
+		name = byzantine_war.311.a 
+		add_years_of_income = -2
+		add_stability = -3
+		set_country_flag = latindostajepodupie11
+		add_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = -50
+		}
+}
+option = {
+	name = byzantine_war.311.b
+	set_country_flag = latindostajepodupie11b
+}
+}
+country_event = {
+	id = byzantine_war.312
+	title = byzantine_war.312.t
+	desc = byzantine_war.312.d
+	picture = Sacrificepagan_eventPicture
+	major_trigger = { 
+		is_neighbor_of = LAE
+	}
+	trigger = {
+		had_country_flag = { flag = latindostajepodupie1 days = 3000 }
+		has_country_flag = latindostajepodupie11
+		NOT = { has_country_flag = latindostajepodupie12 }	
+		tag = LAE
+		NOT = { has_country_flag = bramkarezerowadlalatin }	
+	NOT = {	has_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = 85
+		} 
+	}}
+	option = {
+		name = byzantine_war.312.a 
+		add_stability = 2
+		set_country_flag = latindostajepodupie12
+		add_disaster_progress = {
+			disaster = latin_empire_crisis
+			value = -85
+		}
+		end_disaster = latin_empire_crisis
+}
+}
+country_event = {
+	id = byzantine_war.1
+	title = byzantine_war.1.t
+	desc = byzantine_war.1.d
+	picture = KING_ASSASSINATION_eventPicture
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = byzantine_war.1a 
+if = {
+	 limit = {
+		4779 = { owned_by = ROOT }
+	 }
+		4779 = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 5
+				should_take_capital = yes
+			}
+	}
+}
+if = {
+	 limit = {
+		1765 = { owned_by = ROOT }
+	 }
+		1764 = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 3
+				should_take_capital = yes
+			}
+	}
+}
+		define_ruler = {
+		name = "Eternal Regency"
+		adm = 0
+		dip = 0
+		mil = 0
+		regency = yes
+}
+		add_stability = -4	
+		add_mil_power = -50 
+		add_dip_power = -50 
+		add_adm_power = -50
+		add_legitimacy = -100
+		set_global_flag = war_of_emperors
+		set_country_flag = bramkarezerowadlalatin
+		set_country_flag = bramkarezerowadlalatindays
+		clr_country_flag = latindostajepodupie1
+		add_war_exhaustion = 5	
+		if = {
+	 limit = {
+		3003 = { owned_by = ROOT }
+	 }
+		3003 = {
+    cede_province = ATH
+}
+		}
+		if = {
+	 limit = {
+		146 = { owned_by = ROOT }
+	 }
+		146 = {
+    cede_province = ATH
+}
+		}
+
+	}
+	}
+	
+country_event = {
+	id = byzantine_war.2
+	title = "byzantine_war.2.t"
+	desc = "byzantine_war.2.d"
+	picture = CHURCH_ESTATE_1_eventPicture
+	major = yes
+	trigger = {
+		tag = LAE
+		has_global_flag = war_of_emperors
+	}
+
+	fire_only_once = yes
+	mean_time_to_happen = { days = 180 }
+	
+	option = {
+	name = "byzantine_war.2a" 
+	define_ruler = {
+    name = "Baldwin VII"
+    dynasty = "Canatamor"
+    adm = 1
+    dip = 1
+    mil = 1
+    age = 50
+    claim = 15
+}	
+change_estate_land_share = {
+    estate = estate_church
+    share = 10
+}
+change_estate_land_share = {
+    estate = estate_nobles
+    share = -10
+}
+add_treasury = 350	
+if = {
+	 limit = {
+		4779 = { owned_by = ROOT }
+	 }
+4779 = {
+spawn_rebels = {
+    type = noble_rebels
+    size = 5
+}}
+}
+		add_corruption = -1	
+		add_mil_power = 50 
+		add_dip_power = 50 
+		add_adm_power = 50
+		add_stability = 2
+		add_legitimacy = -35
+		add_war_exhaustion = -2	
+		set_country_flag = A50_coup
+	}
+	option = {
+	name = "byzantine_war.2b" 
+	add_stability = -2
+	add_corruption = 3	
+	set_country_flag = A50_coup
+	add_war_exhaustion = 5	
+}}
+
+country_event = {
+	id = byzantine_war.3
+	title = "byzantine_war.3.t"
+	desc = "byzantine_war.3.d"
+	picture = latinempiresiege_eventPicture
+	major = yes
+	trigger = {
+		tag = LAE
+		has_country_flag = A50_coup
+		has_global_flag = war_of_emperors
+		151 = { sieged_by = REB}
+
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }
+	
+	option = {
+	name = "byzantine_war.3a" 
+	define_ruler = {
+    name = "Robert II"
+    dynasty = "de Courtenay"
+    adm = 5
+    dip = 5
+    mil = 6
+    age = 65
+    claim = 45
+	}
+	add_treasury = 150	
+	add_stability = -1	
+	add_manpower = 15
+	add_war_exhaustion = 2	
+	disband_rebels = pretender_rebels
+}}
+
+	
+	country_event = {
+	id = byzantine_war.5
+	title = "byzantine_war.5.t"
+	desc = "byzantine_war.5.d"
+	picture = BATTLE_eventPicture
+	major = yes
+	trigger = {
+		tag = LAE
+		has_country_flag = A50_coup
+		has_global_flag = war_of_emperors
+		
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 480 }	
+	option = {
+	name = "byzantine_war.5a" 
+	define_ruler = {
+    name = "Charles"
+    dynasty = "de Courtenay"
+    adm = 3
+    dip = 4
+    mil = 4
+    age = 64
+    claim = 0
+	}
+	set_global_flag = A50_anothercoup
+	add_stability = 1	
+	add_manpower = 15
+	add_treasury = 150	
+	add_war_exhaustion = 2	
+}
+	option = {
+	name = "byzantine_war.5b" 
+	set_global_flag = A50_anothercoup
+	if = {
+	 limit = {
+		149 = { owned_by = ROOT }
+	 }
+	149 = {
+	spawn_rebels = {
+    type = pretender_rebels
+    size = 4
+    leader = rebel_preacher
+	should_take_capital = yes
+}}}}}
+
+country_event = {
+	id = byzantine_war.313
+	title = "byzantine_war.313.t"
+	desc = "byzantine_war.313.d"
+	picture = latinempirecrusaders_eventPicture
+	major = yes
+	fire_only_once = yes
+	immediate = {
+		set_global_flag = BIZANCJUMRUSZANALATINIKA
+	}
+	trigger = {
+		tag = A52
+		has_global_flag = war_of_emperors
+		A52 = {
+			is_neighbor_of = ROOT
+			is_subject = no
+			NOT = { truce_with = ROOT }
+			NOT = { alliance_with = ROOT }
+			total_development = 250
+		}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 480 }	
+	option = {
+		name = "byzantine_war.313.e" 
+		add_prestige = 10
+	}}
+
+	country_event = {
+		id = byzantine_war.314
+		title = "byzantine_war.314.t"
+		desc = "byzantine_war.314.d"
+		is_triggered_only = yes
+		picture = latinempirecrusaders_eventPicture
+		option = {
+			name = "byzantine_war.314.a" 
+			custom_tooltip = whenbyzantiumwara
+			set_global_flag = SAKSONIAPRZYJELA
+			ai_chance = { factor = 75 }
+		}
+		option = {
+			name = "byzantine_war.314.b" 
+			add_prestige = 10
+			ai_chance = { factor = 25 }
+		}
+	
+	}
+	country_event = {
+		id = byzantine_war.315
+		title = "byzantine_war.315.t"
+		desc = "byzantine_war.315.d"
+		is_triggered_only = yes
+		picture = latinempirecrusaders_eventPicture
+		option = {
+			name = "byzantine_war.315.a" 
+			custom_tooltip = whenbyzantiumwara
+			set_global_flag = BULGARIAPRZYJELA
+			ai_chance = { factor = 75 }
+		}
+		option = {
+			name = "byzantine_war.314.b" 
+			add_prestige = 10
+			ai_chance = { factor = 25 }
+		}
+	
+	}
+
+country_event = {
+	id = byzantine_war.7
+	title = "byzantine_war.7.t"
+	desc = "byzantine_war.7.d"
+	picture = BATTLE_eventPicture 
+	major = yes
+	trigger = {
+		tag = SER
+		has_global_flag = war_of_emperors
+	NOT = {	has_global_flag = A52_serbianintervention}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 60 }	
+	option = {
+	name = "byzantine_war.7a" 
+	set_global_flag = A52_serbianintervention
+	add_mil_power = 25
+}
+}
+
+country_event = {
+	id = byzantine_war.8
+	title = "byzantine_war.8.t"
+	desc = "byzantine_war.8.d"
+	picture = FORT_eventPicture
+	major = yes
+	is_triggered_only = yes
+	option = {
+		ai_chance = { 
+			factor = 0
+			modifier = {
+				factor = 10
+				NOT = {  army_size = 20  }
+			}
+			modifier = {
+				factor = 40
+				NOT = { army_size = SER }
+			}
+		}
+	name = "byzantine_war.8a"
+	4976 = {  add_core = A51
+	cede_province = A51 }
+ 147  = {  add_core = A51
+ cede_province = A51 }
+ 1853  = {  add_core = A51
+ cede_province = A51 }
+ 4960  = {  add_core = A51
+ cede_province = A51 }
+ 148  = {  add_core = A51
+ cede_province = A51 }
+ 4702  = {  add_core = A51
+ cede_province = A51 }
+	SER = {
+	vassalize = A51
+	}
+	add_truce_with = SER
+	add_prestige = -15
+	hidden_effect = {
+	country_event = { 
+    id = byzantine_war.9
+    days = 90
+    random = 90
+}}
+	}
+	option = {
+		ai_chance = { 
+			factor = 10
+		}
+	name = "byzantine_war.8b" 
+	148 = {  change_controller = SER }
+		
+		SER = {
+			declare_war_with_cb = {
+			who = LAE
+			casus_belli = cb_annex
+		}}
+		if = {
+			limit = {
+				has_global_flag = SAKSONIAPRZYJELA
+			}
+			anatolia_region  = {
+				limit = {
+					 owned_by = LAE
+							}
+		cede_province = A52
+		add_core = A52
+		}
+		A52 = { join_all_offensive_wars_of = SER }}
+		if = {
+			
+			limit = {
+				has_global_flag = BULGARIAPRZYJELA
+				has_global_flag = SAKSONIAPRZYJELA
+			}
+		BUL = { join_all_offensive_wars_of = SER }}
+
+
+}}
+country_event = {
+	id = byzantine_war.9
+	title = "byzantine_war.9.t"
+	desc = "byzantine_war.9.d"
+	picture = BYZ_ATHENS_eventPicture
+	major = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+	name = "byzantine_war.9a"
+	release_all_subjects = yes	
+	ATH = {
+	every_war_enemy_country = { white_peace = ATH	}}
+		hidden_effect = {
+		ATH = {
+	country_event = { 
+    id = byzantine_war.19
+    days = 90
+    random = 90
+}}}
+	
+	}
+	}
+	
+	
+
+country_event = {
+	id = byzantine_war.12
+	title = "byzantine_war.12.t"
+	desc = "byzantine_war.12.d"
+	fire_only_once = yes
+	picture = latinempiresiege_eventPicture
+	major = yes
+	trigger = {
+		capital_scope = {
+			controlled_by = REB
+			has_siege = no		
+		}
+		tag = LAE
+		has_global_flag = A52_intervention
+		has_global_flag = war_of_emperors
+		NOT = { has_country_flag = latinfreedom }
+		NOT = { has_country_flag = latinfreedomking }
+		is_at_war = no
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 10 }	
+	option = {
+	name = "byzantine_war.12a" 
+	define_ruler = {
+    name = "Joffrey I"
+    dynasty = "de Labnister"
+    adm = 4
+    dip = 3
+    mil = 4
+    age = 17
+    claim = 40
+	}
+		hidden_effect = {
+		set_country_flag = latinfreedomking
+	country_event = { 
+    id = byzantine_war.14
+    days = 3
+    random = 10
+}
+	clear_rebels = yes	
+}}}
+country_event = {
+	id = byzantine_war.13
+	title = "byzantine_war.13.t"
+	desc = "byzantine_war.13.d"
+	picture = KING_DOING_GREAT_eventPicture
+	major = yes
+	mean_time_to_happen = { days = 100 }
+	fire_only_once = yes
+	trigger = {
+		had_country_flag = { flag = bramkarezerowadlalatin days = 1800 }	
+		OR = {
+			AND = {
+	NOT = { has_country_flag = latinfreedom }
+	NOT = { has_country_flag = latinfreedomking }	
+		num_of_rebel_armies = 0
+		tag = LAE
+		has_global_flag = war_of_emperors
+		is_at_war = no
+		}
+		AND = {
+	num_of_rebel_armies = 0
+	tag = LAE
+	is_at_war = no
+		}
+	}}
+	option = {
+	name = "byzantine_war.13a" 
+	hidden_effect = {
+	set_country_flag = latinfreedom
+	country_event = { 
+    id = byzantine_war.14
+    days = 3
+    random = 10
+	}
+}
+	clear_rebels = yes	
+}}
+country_event = {
+	id = byzantine_war.14
+	title = "byzantine_war.14.t"
+	desc = "byzantine_war.14.d"
+	picture = FREE_CITY_eventPicture
+	major = yes
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+	name = "byzantine_war.14a" 
+	add_stability = 3	
+	add_war_exhaustion = -10	
+	add_legitimacy = 50
+	hidden_effect = {
+		clr_global_flag = war_of_emperors
+		clr_global_flag = A52_intervention
+		clr_country_flag = A50_coup
+		clr_global_flag = A50_anothercoup
+		clr_global_flag = A52_serbianintervention
+	set_global_flag = end_of_latin_empire_crisis
+	clear_rebels = yes	
+	}
+	end_disaster = latin_empire_crisis
+}}
+country_event = {
+	id = byzantine_war.15
+	title = "byzantine_war.15.t"
+	desc = "byzantine_war.15.d"
+	fire_only_once = yes
+	picture = constantinoplefall_eventPicture
+	major = yes
+	trigger = {
+		not = { religion_group = christian }
+		NOT = {has_global_flag = fall_of_constantinople}
+		
+			OR = {
+			151 = { controlled_by = ROOT }
+			151 = { owned_by = ROOT }
+
+	}}
+	mean_time_to_happen = { days = 2 }
+	
+	option = {
+		name = byzantine_war.15a #Sack of City
+	151 = {
+	add_devastation = 95
+	add_base_tax = -4	
+	add_base_production = -4	
+	add_base_manpower = -4	
+	}
+		add_prestige = 50	
+		add_mil_power = 250
+		add_dip_power = 250 
+		add_adm_power = 250
+		add_treasury = 500	
+		set_country_flag = constantinople_captured
+		set_global_flag = fall_of_constantinople
+			anatolia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+				
+						
+}
+
+}}
+
+	country_event = {
+	id = byzantine_war.16
+	title = "byzantine_war.16.t"
+	desc = "byzantine_war.16.d"
+	picture = war_of_fouremperors_eventPicture
+	major = yes
+	trigger = {
+		OR = {
+		tag = A52
+		tag = LAE
+		tag = SER
+		tag = EPI
+			}
+		NOT = { has_country_flag = warofemperorsfour }
+		has_global_flag = A52_intervention
+		has_global_flag = war_of_emperors
+	}
+	mean_time_to_happen = { days = 120 }	
+	option = {
+	name = "byzantine_war.16a" 
+	hidden_effect = {
+	set_country_flag = warofemperorsfour
+}
+}}
+	country_event = {
+	id = byzantine_war.17
+	title = "byzantine_war.17.t"
+	desc = "byzantine_war.17.d"
+	picture = WAR_OF_THE_ROSES_eventPicture
+	major = yes
+	is_triggered_only = yes	
+	option = {
+	name = "byzantine_war.17a" 
+	add_manpower = 5
+	add_treasury = 50	
+	add_war_exhaustion = -2	
+}}
+country_event = {
+	id = byzantine_war.18
+	title = "byzantine_war.18.t"
+	desc = "byzantine_war.18.d"
+	picture = BATTLE_eventPicture
+	major = yes
+	trigger = {
+		tag = LAE
+        had_country_flag = { flag = war_of_emperors days = 720 }
+		has_country_flag = A50_coup
+		has_regency = yes
+		NOT = { has_country_flag = A50_anotherdifcoup }
+		
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 350 }
+	
+	option = {
+	name = "byzantine_war.4a" 
+	set_country_flag = A50_anotherdifcoup
+	add_stability = 1
+	add_war_exhaustion = -5	
+	define_ruler = {
+    name = "Louis II"
+    dynasty = "de Constantinople"
+    adm = 2
+    dip = 3
+    mil = 2
+    age = 42
+    claim = 23
+}	}}
+
+	
+country_event = {
+	id = byzantine_war.19
+	title = "byzantine_war.19.t"
+	desc = "byzantine_war.19.d"
+	picture = BYZ_ATHENS_eventPicture
+	major = yes
+	is_triggered_only = yes
+	option = {
+	name = "byzantine_war.19.a"
+	release_all_subjects = yes	
+	ATH = {
+	every_war_enemy_country = { white_peace = ATH	}}
+	change_tag = GRE
+	change_primary_culture = greek
+					if = {
+					limit = {
+						has_global_flag = popevictorybecausebyzantiumfall
+					}
+					change_religion = catholic
+				}
+				if = {
+					limit = {
+						has_global_flag = byzantinevictoryoverpope
+					}
+					change_religion = orthodox
+				}
+				if = {
+					limit = {
+						NOT = { has_global_flag = chrzescijanstwosierozpadlo }
+					}
+					change_religion = united_christianity
+				}
+	set_government_rank = 2	
+	ACH = { switch_tag = GRE }
+	MOE = { switch_tag = GRE }
+	inherit = ACH
+	inherit = MOE
+	}}
+	
+	
+
+country_event = {
+	id = byzantine_war.316
+	title = "byzantine_war.316.t"
+	desc = "byzantine_war.316.d"
+	picture = constantinoplefall_eventPicture
+	major = yes
+	fire_only_once = yes
+	trigger = {
+		tag = BUL
+		    NOT = { has_global_flag = constantinople_captured }
+						exists = LAE
+						OR = {
+			LAE = { NOT = { army_size = 5 } }
+			war_score_against = { who = LAE value = 75 }
+						}
+			OR = {
+			151 = { controlled_by = ROOT }
+			151 = { owned_by = ROOT }
+
+	}}
+	mean_time_to_happen = { days = 2 }
+	
+	option = {
+		name = byzantine_war.10a #Sack of City
+	151 = {
+	add_devastation = 50
+	}
+		add_mil_power = 145
+		add_dip_power = 150 
+		add_adm_power = 150
+		add_treasury = 500	
+		set_global_flag = constantinople_captured
+	balkan_region  = {
+				limit = {
+					 owned_by = LAE
+				}
+    cede_province = ROOT
+	add_core = ROOT
+	}	
+	anatolia_region  = {
+				limit = {
+					 owned_by = LAE
+							}
+    cede_province = A52
+	add_core = A52
+}}}
+
+
+country_event = {
+	id = byzantine_war.317
+	title = "byzantine_war.317.t"
+	desc = "byzantine_war.317.d"
+	picture = constantinoplefall_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = A52
+			151 = { owned_by = BUL }
+		NOT = { has_global_flag = BIZANTYJSKOBULGARSKADYSPUCJA }
+	}
+	mean_time_to_happen = { days = 30 }
+	option = {
+		name = byzantine_war.317.a 
+		set_global_flag = BIZANCJUMNIEPLACIBIEDAK
+BUL = {
+	country_event = { 
+		id = byzantine_war.318
+	}
+}
+	}
+	option = {
+		name = byzantine_war.317.b #Sack of City
+		add_treasury = -250	
+		set_global_flag = BIZANCJUMNIEPLACIBIEDAK2
+BUL = {
+	country_event = { 
+		id = byzantine_war.318
+	}
+}
+	}}
+
+
+	country_event = {
+		id = byzantine_war.318
+		title = "byzantine_war.318.t"
+		desc = "byzantine_war.318.d"
+		picture = constantinoplecity_eventPicture
+		major = yes
+		fire_only_once = yes
+		is_triggered_only = yes
+		option = {
+			trigger = {
+				has_global_flag = BIZANCJUMNIEPLACIBIEDAK
+			}
+			ai_chance = { factor = 1 }
+			name = byzantine_war.318.a #Sack of City
+			151 = {
+				cede_province = A52
+			}
+			4779 = {
+				cede_province = A52
+			}
+	}
+		option = {
+			trigger = {
+				has_global_flag = BIZANCJUMNIEPLACIBIEDAK2
+			}
+			ai_chance = { factor = 4 }
+			name = byzantine_war.318.a #Sack of City
+			add_treasury = 250	
+			151 = {
+				cede_province = A52
+			}
+			4779 = {
+				cede_province = A52
+			}
+		}
+		option = {
+			name = byzantine_war.318.b
+			set_capital = 151
+			ai_chance = { factor = 5 }
+			A52 = {
+				country_event = { 
+					id = byzantine_war.319
+				}
+	}
+	
+	}}
+
+
+	country_event = {
+		id = byzantine_war.319
+		title = "byzantine_war.319.t"
+		desc = "byzantine_war.319.d"
+		picture = constantinoplecity_eventPicture
+		major = yes
+		fire_only_once = yes
+		is_triggered_only = yes
+		option = {
+			add_treasury = 250
+			ai_chance = { factor = 75 }
+			name = byzantine_war.319.a #Sack of City
+			add_historical_rival = A52
+			A52 = { add_historical_rival = BUL }
+			add_prestige = -10
+
+	}
+		option = {
+			name = byzantine_war.319.b
+			add_treasury = 250
+			ai_chance = { factor = 25 }
+			declare_war_with_cb = {
+				who = BUL
+				casus_belli = cb_annex
+			}
+			add_historical_rival = A52
+			A52 = { add_historical_rival = BUL }
+			add_prestige = 10
+		}
+		}
+
+
+
+
+		country_event = {
+			id = byzantine_war.320
+			title = "byzantine_war.320.t"
+			desc = "byzantine_war.320.d"
+			fire_only_once = yes
+			picture = constantinoplefall_eventPicture
+			major = yes
+			trigger = {
+				NOT = {has_global_flag = fall_of_constantinople_armenia}
+				tag = ARM
+					OR = {
+					151 = { controlled_by = ROOT }
+					151 = { owned_by = ROOT }
+		
+			}}
+			mean_time_to_happen = { days = 2 }
+			
+			option = {
+				name = byzantine_war.320.a #Sack of City
+			151 = {
+			add_devastation = 95
+			add_base_tax = -4	
+			add_base_production = -4	
+			add_base_manpower = -4	
+			}
+				add_prestige = 50	
+				add_mil_power = 250
+				add_dip_power = 250 
+				add_adm_power = 250
+				add_treasury = 500	
+				set_country_flag = constantinople_captured
+				set_global_flag = fall_of_constantinople_armenia
+					anatolia_region = {
+						limit = {
+							NOT = { is_permanent_claim = ROOT }
+							NOT = { is_core = ROOT	}
+						}
+						add_permanent_claim = ROOT
+						
+								
+		}
+		
+		}}

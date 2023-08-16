@@ -386,16 +386,6 @@ type={
 		}
 	}
 	object={
-		name="Seagulls_Cyperus"
-		hidden_on_start=no
-		position={
-			3348.000 11.000 1204.000 
-		}
-		rotation={
-			0.000 45.000 0.000 
-		}
-	}
-	object={
 		name="INFANTRY"
 		hidden_on_start=no
 		position={
@@ -2684,8 +2674,8 @@ type={
 	time_duration=300.000000
 	always_visible=yes
 	visible_in_all_map_modes=yes
-	object = {
-		name = "kiel_canal"
+	object={
+		name="kiel_canal"
 		hidden_on_start=yes
 		position={
 			3051.000 0.000 1286.000 
@@ -2698,10 +2688,20 @@ type={
 type={
 	type="suez_canal"
 	use_animation=yes
-	scale=0.750000
+	scale=0.300000
 	time_duration=300.000000
 	always_visible=yes
 	visible_in_all_map_modes=yes
+	object={
+		name="suez_canal"
+		hidden_on_start=no
+		position={
+			3370.000 0.500 1253.000 
+		}
+		rotation={
+			0.000 130.000 0.000 
+		}
+	}
 	object={
 		name="Constantinople channel"
 		hidden_on_start=no
@@ -2712,16 +2712,7 @@ type={
 			0.000 110.000 0.000 
 		}
 	}
-	object={
-		name="suez_canal"
-		hidden_on_start=yes
-		position={
-			3315.000 0.100 1149.000 
-		}
-		rotation={
-			0.000 2.000 0.000 
-		}
-	}
+
 }
 type={
 	type="panama_canal"
@@ -2756,5 +2747,4 @@ type={
 			0.000 45.000 0.000 
 		}
 	}
-
 }

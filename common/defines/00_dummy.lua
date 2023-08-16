@@ -12,7 +12,7 @@ NDefines = {
 		AGE_USHER_IN_TIME = 120,				-- how many months progress for a new age needs.
 	
 		MAX_COLONIAL_NATIONS = 75,				-- Max is 100
-		MAX_CLIENT_STATES = 75,				-- Max is 100 -- TODO: Lower this to 75 after 1.18 (used to start at K75 for some reason)
+		MAX_CLIENT_STATES = 100,				-- Max is 100 -- TODO: Lower this to 75 after 1.18 (used to start at K75 for some reason)
 		MAX_ESTATE_COUNTRIES = 50,				-- Max is 100
 		MAX_FEDERATION_COUNTRIES = 20,			-- Max is 100
 		MAX_TRADING_CITIES = 75,				-- Max is 100
@@ -95,7 +95,7 @@ NDefines = {
 		TRUST_PENALTY_FOR_SEPARATE_PEACE = 10,			-- Trust penalty for signing a separate peace
 	
 		OFFENSIVE_WAR_COOLDOWN = 10,					-- Years between when you can call a country into an offensive war on your behalf
-		MAX_CLIENT_STATES = 20,							-- Max client states for one country
+	MAX_CLIENT_STATES = 10,							-- Max client states for one country
 	
 		ALLOW_LEADER_DEMAND_TOGGLE = 0,					-- Whether or not player is allowed to set if warleader can negotiate for them
 		VASSALIZE_BASE_DEVELOPMENT_CAP = 100, 			-- Countries with more total development than this cannot be vassalized
@@ -502,7 +502,7 @@ NDefines = {
 		SPLENDOR_ABILITY_COST = 800,
 		PROSPERITY_MONTHLY_DECLINE = -2,				-- monthly tick
 		PROSPERITY_INCREASE_SIZE= 1,				-- if diceroll of d20< monarch stat, while possible ot increase
-		CORRUPTION_FROM_BANNERS = 5,
+	CORRUPTION_FROM_BANNERS = 0.1,
 		FORCE_CONVERT_COOLDOWN_DURATION = 10,				-- Years
 	
 	
@@ -845,8 +845,8 @@ NDefines = {
 		POPULATION_GROWTH = 0.03, 						-- _CDEF_POPULATION_GROWTH_; Base population growth.
 		COLONIAL_GROWTH_PENALTY = 100, 					-- growth penalty for low colonial maintenance
 		BANKRUPTCY_COLONIAL_GROWTH_PENALTY = -200, 		-- growth penalty for bankruptcy
-		MAX_NATIONALISM = 10,
-		MIN_NATIONALISM = -30,
+	MAX_NATIONALISM = 30,							-- how much extra nationalism can there be in a province, added with the effect, not by conquering
+	MIN_NATIONALISM = -30,							-- how much extra negative nationalism can there be in a province, added with the effect, not by conquering
 		YEARS_OF_NATIONALISM = 30, 						-- _CDEF_YEARS_OF_NATIONALISM_; Years of Nationalism
 		YEARS_UNTIL_BROKEN = 2, 						-- _CDEF_YEARS_UNTIL_BROKEN_; Years until rebel held capital results in broken country.
 		BASE_HEIR_BIRTH = 120, 							-- _CDEF_BASE_HEIR_BIRTH_
@@ -916,6 +916,12 @@ NDefines = {
 		LIBERTY_DESIRE_SCUTAGE_OFF = 25,				-- Liberty desire from turning off scutage
 		LOST_INDEPENDANCE_WAR_LIBERTY_DESIRE = -50,		-- How much liberty desire is decreased when an independance war ends
 	
+	REQUEST_EXTRA_LEVIES_MAX_LIBERTY_DESIRE = 25,
+	REQUEST_EXTRA_LEVIES_COOLDOWN_MONTHS = 60,
+
+	SEIZE_COURT_RESOURCES_MAX_LIBERTY_DESIRE = 25,
+	SEIZE_COURT_RESOURCES_COOLDOWN_MONTHS = 60,
+
 		MIN_LIBERTY_DESIRE = 0,							-- Min total (effective) liberty desire
 		MAX_LIBERTY_DESIRE = 100,						-- Max total (effective) liberty desire
 		MIN_LIBERTY_DESIRE_INFLUENCE = -100,			-- Min influence of a single modifier (e.g. paid of debt)
@@ -1289,7 +1295,7 @@ NDefines = {
 		GARRISON_SIZE = 1000, 							-- GARRISON_SIZE
 		SIEGE_FORCE_NEEDED_MULTIPLIER = 3,				-- x times garrison to be able to siege.
 		MAX_BREACH = 3,
-		SIEGE_GARRISON_SURRENDER = 300,					-- A siege ends when there is less than 100 defenders left.
+		SIEGE_GARRISON_SURRENDER = 200,					-- A siege ends when there is less than 100 defenders left.
 		ASSAULT_WIDTH_LIMIT = 5,						-- how many times the garrison size that can effectively assault at the same time.
 		ASSAULT_ATTACKER_LOSS = 1.0, 					-- MDEF_ASSAULT_ATTACKER_LOSS = 10,
 		ASSAULT_DEFENDER_LOSS = 0.05, 					-- _MDEF_ASSAULT_DEFENDER_LOSS = 10,
@@ -1320,7 +1326,7 @@ NDefines = {
 		INFANTRY_COST = 10.0, 							-- _MDEF_INFANTRY_COST = 10,
 		CAVALRY_COST = 25.0, 							-- _MDEF_CAVALRY_COST = 10,
 		ARTILLERY_COST = 30.0, 							-- _MDEF_ARTILLERY_COST = 10,
-		FORTRESS_COST = 0.5,							-- base fort cost
+		FORTRESS_COST = 0.4,							-- base fort cost
 		HEAVY_SHIP_COST = 50, 							-- _MDEF_HEAVY_SHIP_COST = 10,
 		LIGHT_SHIP_COST = 20, 							-- _MDEF_LIGHT_SHIP_COST = 10,
 		GALLEY_COST = 10, 								-- _MDEF_GALLEY_COST = 10,

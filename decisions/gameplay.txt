@@ -1,0 +1,45 @@
+
+	country_decisions = {
+
+    atlantropa_disable_colonies = {
+		potential = {
+			always = no
+			ai = no
+            NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		}
+		allow = {
+			always = yes
+		}
+		effect = {
+	set_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA
+}
+		
+		ai_will_do = {
+			factor = 0
+		}
+    }
+    }
+	country_decisions = {
+
+		atlantropa_color_colonies = {
+			potential = {
+				ai = no
+				any_subject_country = { 
+					is_colonial_nation = yes
+				}	
+			}
+			allow = {
+				always = yes
+			}
+			effect = {
+				every_subject_country = {
+					limit = {
+						is_colonial_nation = yes
+					}
+					change_country_color = { country = ROOT }
+			  }
+	}
+			
+
+	}
+}

@@ -259,4 +259,143 @@ venice_merchants_reform = {
 	}
 	has_term_election = no
 }
+celestial_empire = {
+	icon = "celestial_empire"
+	allow_normal_conversion = no
+	potential = {
+		if = {
+			limit = {
+				has_dlc = "Mandate of Heaven"
+			}
+			is_emperor_of_china = yes
+		}
+		else = {
+			OR = {
+				has_reform = celestial_empire
+				AND = {
+					culture_group = east_asian
+					num_of_cities = 50
+				}
+			}
+		}
+		NOT = { has_global_flag = empire_of_china_dismantled }
+	}
+	legacy_equivalent = celestial_empire_legacy
+	maintain_dynasty = yes
+	allow_force_tributary = no
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	lock_level_when_selected = yes
+	nation_designer_trigger = {
+		culture_group = east_asian
+		technology_group = chinese
+		capital_scope = {
+			OR = {
+				region = north_china_region
+				region = xinan_region
+				region = south_china_region
+			}
+		}
+	}
+	factions = {
+		temples
+		enuchs
+		bureaucrats
+	}
 
+	fixed_rank = 3
+	start_territory_to_estates = 0.9
+
+	modifiers = {
+		prestige = 0.5
+		church_influence_modifier = -0.1
+		nobles_influence_modifier = -0.1
+		burghers_influence_modifier = -0.1
+		governing_capacity = 500
+	}
+	
+	ai = {
+		factor = 1000 # should always be picked if available
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+		has_unify_china_cb = yes
+	}
+
+	conditional = {
+		allow = { has_dlc = "Mandate of Heaven" }
+		has_meritocracy = yes
+		factions = {}
+	}
+	government_abilities = {
+		chinesestable_mechanic
+	}
+
+}
+
+
+
+feudal_france_reform = {
+	icon = "feudal_france_reform"
+	allow_normal_conversion = no
+	potential = {
+		OR = {
+			tag = FRA
+		}
+	}
+	fixed_rank = 2
+	lock_level_when_selected = yes
+
+	modifiers = {
+		nobles_influence_modifier = 0.1
+		vassal_income = 0.2
+		max_absolutism = -50
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+		has_appanages = yes
+		#need_crownland_to_annex = yes
+		nobility_loyalty_hit_on_integration = yes
+		
+	}
+		government_abilities = {
+		frenchannexapanage_mechanic
+	}
+}
+
+ absolutist_france_reform = {
+	icon = "absolutist_france_reform"
+	allow_normal_conversion = no
+	potential = {
+			culture_group = french
+			capital_scope = {
+				region = iberia_region
+			}
+		}
+
+	trigger = {
+					crown_land_share = 50
+					is_year = 7150
+					culture_group = french
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 50
+	nation_designer_trigger = {
+		culture_group = french
+		technology_group = western
+		capital_scope = { region = france_region }
+	}
+	lock_level_when_selected = yes
+
+	modifiers = {
+		all_estate_influence_modifier = -0.1
+		max_absolutism = 10
+		
+	}
+
+	custom_attributes = {
+		centralize_state_development = yes 
+	}
+}

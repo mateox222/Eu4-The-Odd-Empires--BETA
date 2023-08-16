@@ -9,13 +9,11 @@ country_decisions = {
 				tag = ALA
 				tag = QUE
 			}
-
 			was_never_end_game_tag_trigger = yes
 			is_nomad = no
 			is_random_new_world = no
 			NOT = { tag = HLR }
 			NOT = { tag = PAP }
-			NOT = { tag = A48 }
 			OR = {
 				is_former_colonial_nation = yes
 				is_colonial_nation = yes
@@ -86,6 +84,7 @@ country_decisions = {
 				change_primary_culture = quebecois
 			}
 			change_tag = CAN
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -123,6 +122,121 @@ country_decisions = {
 				add_government_reform = feudalism_reform
 			}
 			set_country_flag = changed_from_colonial_nation
+						#CUSTOMCOLONIALNATIONS
+						if = {
+				limit = { 
+					culture_group = british
+				}
+				override_country_name = KANADAbritish
+				change_country_color = { color = { 188 64 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = gaelic
+				}
+				override_country_name = KANADAgaelic
+				change_country_color = { color = { 89 111 98 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = latin
+				}
+				override_country_name = KANADAitalian
+				change_country_color = { color = { 69 159 98 } }
+			}
+			if = {
+				limit = { 
+					culture_group = iberian
+				}
+				override_country_name = KANADAiberian
+				change_country_color = { color = { 151 189 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = french
+				}
+				override_country_name = KANADAfrench
+				change_country_color = { color = { 88 107 182 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+					culture_group = east_slavic
+					culture_group =  slavic
+					}
+				}
+				override_country_name = KANADArussian
+				change_country_color = { color = { 88 124 180 } }
+			}
+			if = {
+				limit = { 
+					culture_group = byzantine
+				}
+				override_country_name = KANADAgreek
+				change_country_color = { color = { 168 84 189 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = maghrebi
+				}
+				override_country_name = KANADAarab
+				change_country_color = { color = { 188 158 189 } }
+			}		
+			if = {
+				limit = { 
+					culture_group = east_asian
+				}
+				override_country_name = KANADAchinese
+				change_country_color = { color = { 188 189 178 } }
+			}			
+			
+			if = {
+				limit = { 
+					culture_group = japanese_g 
+				}
+				override_country_name = KANADAjapanese
+				change_country_color = { color = { 209 86 67 } }
+			}			
+
+			if = {
+				limit = { 
+					culture_group = germanic 
+				}
+				override_country_name = KANADAgerman
+				change_country_color = { color = { 180 135 157 } }
+			}	
+			
+			if = {
+				limit = { 
+					culture_group = scandinavian
+				}
+				override_country_name = KANADAnorge
+				change_country_color = { color = { 81 106 167 } }
+			}	
+			if = {
+				limit = { 
+					culture_group = punic_culture
+				}
+				override_country_name = KANADAPHOENICIA
+				change_country_color = { color = { 206 221 237 } }
+			}
+			if = {
+				limit = { 
+					culture_group = central_american
+				}
+				override_country_name = KANADAAZTEC
+				change_country_color = { color = { 72 125 75 } } 
+			}
+			
+			if = {
+				limit = { 
+					primary_culture = polish
+				}
+				override_country_name = KANADApolish
+				change_country_color = { color = { 187 30 34 } }
+			}
 		}
 		ai_will_do = {
 			factor = 1

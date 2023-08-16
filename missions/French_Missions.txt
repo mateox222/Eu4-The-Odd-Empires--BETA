@@ -1008,7 +1008,7 @@ emp_france_missions_2 = {
 		trigger = {
 			OR = {
 				SWI = {
-					is_subject_of = FRA
+					is_subject_of = ROOT
 				}
 				AND = {
 					switzerland_area = {
@@ -1149,12 +1149,12 @@ emp_france_missions_2 = {
 	}
 	
 		fra_conquer_spain = {
-		icon = atlantropa_conquestnorth
+		icon = atlantropa_barge
 		required_missions = { emp_fra_reconquer_gascony  }
 		provinces_to_highlight = {
 			OR = {
 				area = asturias_area
-				area = basque_country
+				area = atlantropa_sexland
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -1165,13 +1165,13 @@ emp_france_missions_2 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			basque_country = {
+			atlantropa_sexland = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
-			iberia_region = {
+			british_isles_region = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -1188,13 +1188,13 @@ emp_france_missions_2 = {
 		icon = atlantropa_frenchspain
 		required_missions = { fra_conquer_spain  }
 		provinces_to_highlight = {
-				region = iberia_region
+				region = british_isles_region
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		trigger = {	
-			iberia_region = {
+			british_isles_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -1315,7 +1315,7 @@ emp_france_missions_2 = {
 			india_superregion = {
 				type = all
 				OR = {
-					owned_by = FRA
+					owned_by = ROOT
 					owner = {
 						NOT = {
 							technology_group = western
@@ -1443,7 +1443,11 @@ emp_france_missions_2 = {
 		position = 2
 		trigger = {
 		OR = {
+				
+custom_trigger_tooltip = {
+	tooltip = questionofmaine2
 			has_global_flag = questionofmaine
+}
 			owns_core_province = 184
 			OR = {
 			war_with = POL
@@ -1454,9 +1458,9 @@ emp_france_missions_2 = {
 				}
 				AND = {
 					OR = {
-					POL = { is_subject_of = FRA				}
-					X10 = { is_subject_of = FRA				}				
-					PLC = { is_subject_of = FRA				}
+					POL = { is_subject_of = ROOT			}
+					X10 = { is_subject_of = ROOT			}				
+					PLC = { is_subject_of = ROOT				}
 					}
 				}
 
@@ -1621,7 +1625,7 @@ emp_france_missions_2 = {
 		GUY = { exists = no }
 		owns_core_province = 174
 		}
-		GUY = { is_subject_of = FRA }
+		GUY = { is_subject_of = ROOT	 }
 		}
 		}
 		effect = {
@@ -1996,7 +2000,7 @@ emp_france_missions_2 = {
 		CAS = { exists = no }
 		owns_core_province = 217
 		}
-		CAS = { is_subject_of = FRA }
+		CAS = { is_subject_of = ROOT }
 		}
 		}
 		effect = {
@@ -2012,12 +2016,12 @@ emp_france_missions_2 = {
 		# free mission
 
 		provinces_to_highlight = {
-			region = british_isles_region
+			region = iberia_region
 			NOT = { religion_group = ROOT }
 		}
 
 		trigger = {
-			british_isles_region = {
+			iberia_region = {
 				type = all
 				religion_group = ROOT
 			}
@@ -2422,7 +2426,7 @@ emp_france_missions_2 = {
 			owner = {
 				is_subject_of = ROOT
 				capital_scope = {
-					region = british_isles_region
+					region = iberia_region
 				}
 			}
 		}
@@ -2433,7 +2437,7 @@ emp_france_missions_2 = {
 				NOT = {
 					any_subject_country = {
 						capital_scope = {
-							region = british_isles_region
+							region = iberia_region
 						}
 					}
 				}
@@ -2505,6 +2509,8 @@ emp_france_missions_2 = {
 			crown_land_share = 70
 		}
 		effect = {
+			add_government_reform =  absolutist_france_reform
+
 			add_country_modifier = {
 				name = "the_state_is_me"
 				duration = -1
@@ -2539,93 +2545,11 @@ emp_france_missions_2 = {
 		}
 	}
 
-		fra_conquer_ireland = {
-		icon = atlantropa_irelandia
-		required_missions = { france_spain_campaign }
-		
-		provinces_to_highlight = {
-			OR = {
-				area = munster_area
-				area = connacht_area
-				area = ulster_area
-				area = leinster_area
-			}
-			NOT = { owned_by = ROOT }
-		}
-		
-		trigger = {
-			munster_area = {
-				type = all
-				owned_by = ROOT
-			}
-			connacht_area = {
-				type = all
-				owned_by = ROOT
-			}
-			ulster_area = {
-				type = all
-				owned_by = ROOT
-			}
-			leinster_area = {
-				type = all
-				owned_by = ROOT
-			}
-		}
-		
-		effect = {
-						custom_tooltip = francheceltic
-			hidden_effect = {
-				every_owned_province = {
-				limit = {
-					culture_group = gaelic
-				}
-					change_culture = frenchcceltic
-			
-		}
-			}
-			munster_area = { 
-				add_province_modifier = {
-					name = "eng_irish_revolts"
-					duration = 5475
-				}
-			}
-			connacht_area = { 
-				add_province_modifier = {
-					name = "eng_irish_revolts"
-					duration = 5475
-				}
-			}
-			ulster_area = { 
-				add_province_modifier = {
-					name = "eng_irish_revolts"
-					duration = 5475
-				}
-			}
-			leinster_area = { 
-				add_province_modifier = {
-					name = "eng_irish_revolts"
-					duration = 5475
-				}
-			}
-			
-			
-						lyonesse_region = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-		}
-		ai_weight = {
-			factor = 500
-		}
-	}
 	
 			 	france_arhurian_lyonesse = { 
 		position = 5
 		icon = atlantropa_lyonesse
-		required_missions = { fra_conquer_ireland }
+		required_missions = { france_spain_campaign }
 			
 			provinces_to_highlight = {
 			region = lyonesse_region
@@ -2640,12 +2564,22 @@ emp_france_missions_2 = {
 		}
 		
 		effect = {
+					custom_tooltip = francheceltic
+			hidden_effect = {
+				every_owned_province = {
+				limit = {
+					culture_group = gaelic
+				}
+					change_culture = frenchcceltic
+			
+		}
 							country_event = { 
     id = legionhispanian_events.37
 }
 		
 		}
 	}
+				}
 		emp_fra_revolution = {
 		icon = french_revolution
 		required_missions = {  }

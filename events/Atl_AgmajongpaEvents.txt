@@ -1,0 +1,975 @@
+namespace = agmajongpa
+country_event = { #Intro
+	id = agmajongpa.1
+	title = agmajongpa.1.t 
+	desc = agmajongpa.1.d 
+	picture = thousandsword_eventPicture
+	
+	trigger = {
+		tag = KO1	
+		has_game_started = yes
+		NOT = { has_country_flag = agmajongpa_events_start}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	major = yes 
+	major_trigger = { 
+		OR = {
+			capital_scope = { region = korea_region }
+			capital_scope = { region = manchuria_region }
+		}
+	}
+	option = { 
+		name = agmajongpa.1.a
+		add_prestige = 20
+		set_country_flag = agmajongpa_events_start
+		2694 = {
+			add_devastation = 8
+		}
+		732 = {
+			add_devastation = 5
+		}
+		736 = {
+			add_devastation = 5
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+country_event = { #Fate of Jianzhou
+	id = agmajongpa.2
+	title = agmajongpa.2.t 
+	desc = agmajongpa.2.d 
+	picture = jianzhou_eventPicture
+	is_triggered_only = yes 
+	option = { 
+		name = agmajongpa.2.a
+		trigger = {
+			2111 = {
+				is_core = ROOT
+			}
+			4201 = {
+				is_core = ROOT
+			}
+		}
+		2112 = {
+			add_permanent_claim = KO1
+		}
+		add_prestige = 10
+		ai_chance = { factor = 2 } 
+	}
+	
+	option = {
+		name = agmajongpa.2.b
+		trigger = {
+			dip_power = 100
+			exists = MJZ
+		}
+		dip_power_cost = 100
+		custom_tooltip = ko1vassalizemjz
+		hidden_effect = {
+			add_trust = {
+				who = MJZ
+				value = 75
+				mutual = yes
+			}
+			vassalize = MJZ
+			2111 = {
+				cede_province = MJZ
+			}
+			4201 = {
+				change_religion = demonic
+				cede_province = MJZ
+			}
+			add_historical_friend = MJZ
+			MJZ = {
+				add_historical_friend = ROOT
+				set_capital = 4201
+			}
+		}
+	}
+}
+country_event = { #The Highest Order
+	id = agmajongpa.3
+	title = agmajongpa.3.t 
+	desc = agmajongpa.3.d 
+	picture = cheonmathrone_eventPicture
+	is_triggered_only = yes 
+	
+	major = yes 
+	major_trigger = { 
+		capital_scope = { continent = asia }
+	}
+	option = { 
+		name = agmajongpa.3.a
+		add_prestige = 50
+		add_country_modifier = {
+			name = the_highest_order
+			duration = -1
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #A Meeting of Demons
+	id = agmajongpa.4
+	title = agmajongpa.4.t 
+	desc = agmajongpa.4.d 
+	picture = demonmeeting_eventPicture
+	is_triggered_only = yes 
+	
+	option = { 
+		name = agmajongpa.4.a
+		custom_tooltip = permclaimonallmurimunionprovinces
+		hidden_effect = {
+			korea_region = {
+				limit = {
+					is_core = KO3
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #The End of Mount Hwa
+	id = agmajongpa.5
+	title = agmajongpa.5.t 
+	desc = agmajongpa.5.d 
+	picture = endofhwa_eventPicture
+	is_triggered_only = yes 
+	
+	major = yes 
+	major_trigger = { 
+		capital_scope = { region = korea_region }
+	}
+	option = { 
+		name = agmajongpa.5.a
+		add_prestige = 10
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #The Secrets of Mount Hwa
+	id = agmajongpa.6
+	title = agmajongpa.6.t 
+	desc = agmajongpa.6.d 
+	picture = mounthwa_eventPicture
+	is_triggered_only = yes 
+	
+	option = { 
+		name = agmajongpa.6.a
+		custom_tooltip = secretsunlocked
+		set_country_flag = secrets_of_hwasan_flag
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = agmajongpa.6.b
+		custom_tooltip = secretsunlocked
+		set_country_flag = secrets_of_hwasan_flag
+		change_personal_deity = secrets_of_hwasan
+		ai_chance = { factor = 0 } 
+	}
+}
+
+country_event = { #The Burning of Hanseong
+	id = agmajongpa.7
+	title = agmajongpa.7.t 
+	desc = agmajongpa.7.d 
+	picture = fierytemple_eventPicture
+	is_triggered_only = yes 
+	
+	major = yes 
+	major_trigger = { 
+		capital_scope = { region = korea_region }
+	}
+	option = {
+		name = agmajongpa.7.a
+		735 = {
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+			add_devastation = 50
+			cede_province = KO1
+		}
+		KO3 = {
+			kill_ruler = yes
+		}
+		add_treasury = 200
+		ai_chance = { factor = 0 } 
+	}
+	option = {
+		name = agmajongpa.7.b
+		trigger = {
+			ai = yes
+		}
+		735 = {
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+			add_devastation = 50
+		}
+		KO3 = {
+			kill_ruler = yes
+		}
+		add_treasury = 200
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #A New Order
+	id = agmajongpa.8
+	title = agmajongpa.8.t 
+	desc = agmajongpa.8.d 
+	picture = endofhwa_eventPicture
+	is_triggered_only = yes 
+	
+	major = yes 
+	major_trigger = { 
+		capital_scope = { continent = asia }
+	}
+	option = {
+		name = agmajongpa.8.a
+		732 = {
+			change_culture = demonkorean
+		}
+		733 = {
+			change_culture = demonkorean
+		}
+		pyongan_area = {
+			change_culture = demonkorean
+		}
+		2108 = {
+			center_of_trade = 1
+		}
+		korea_region = {
+			add_province_modifier = { 
+				name = adjustingtodemons
+				duration = 3650
+			}
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #The Finno-Korean Hyperwar
+	id = agmajongpa.80
+	title = agmajongpa.80.t 
+	desc = agmajongpa.80.d 
+	picture = frozendoor_eventPicture
+	is_triggered_only = yes 
+	
+	major = yes 
+	major_trigger = { 
+		culture_group = ugrofinic
+	}
+	option = {
+		name = agmajongpa.80.a
+		KO1 = {
+			every_country = {
+				limit = {
+					culture_group = ugrofinic
+					NOT = {
+						tag = KO1
+					}
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = "finno_korean_hyperwar"
+				}
+			}
+		}
+		set_country_flag = learned_of_hwan_empire_flag
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #The Demon Overseas
+	id = agmajongpa.9
+	title = agmajongpa.9.t 
+	desc = agmajongpa.9.d 
+	picture = islandbrafil_eventPicture
+	is_triggered_only = yes 
+	
+	option = {
+		name = agmajongpa.9.a
+		add_country_modifier = {
+			name = ko1_clemancy
+			duration = -1
+		}
+		ai_chance = { factor = 2 } 
+	}
+	option = {
+		name = agmajongpa.9.b
+		add_country_modifier = {
+			name = ko1_death
+			duration = -1
+		}
+		ai_chance = { factor = 0 } 
+	}
+}
+
+country_event = { #The Northern Dominion
+	id = agmajongpa.10
+	title = agmajongpa.10.t 
+	desc = agmajongpa.10.d 
+	picture = islandbrafil_eventPicture
+	is_triggered_only = yes 
+	
+	option = {
+		name = agmajongpa.10.a
+		add_country_modifier = {
+			name = ko1_northern_dominion
+			duration = -1
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #The Secrets of Ilin Hala
+	id = agmajongpa.11
+	title = agmajongpa.11.t 
+	desc = agmajongpa.11.d 
+	picture = ilinhala_eventPicture
+	is_triggered_only = yes 
+	
+	option = { 
+		name = agmajongpa.11.a
+		custom_tooltip = secretsunlocked
+		set_country_flag = secrets_of_ilin_hala_flag
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = agmajongpa.11.b
+		custom_tooltip = secretsunlocked
+		set_country_flag = secrets_of_ilin_hala_flag
+		change_personal_deity = secrets_of_ilin_hala
+		ai_chance = { factor = 0 } 
+	}
+}
+
+country_event = { #The Blood Sect
+	id = agmajongpa.12
+	title = agmajongpa.12.t 
+	desc = agmajongpa.12.d 
+	picture = bloodsect_eventPicture
+	is_triggered_only = yes 
+	
+	option = { 
+		name = agmajongpa.12.a
+		add_yearly_manpower = 0.5
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #The Poison Sect
+	id = agmajongpa.13
+	title = agmajongpa.13.t 
+	desc = agmajongpa.13.d 
+	picture = poisonsect_eventPicture
+	is_triggered_only = yes 
+	
+	option = { 
+		name = agmajongpa.13.a
+		add_years_of_income = 0.5
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #The Jongpa Reorganization
+	id = agmajongpa.14
+	title = agmajongpa.14.t 
+	desc = agmajongpa.14.d 
+	picture = reorganization_eventPicture
+	is_triggered_only = yes 
+	
+	major = yes 
+	major_trigger = { 
+		capital_scope = { continent = asia }
+	}
+	option = { 
+		name = agmajongpa.14.a
+		add_prestige = 25
+		add_government_reform = agmajongpa2_reform
+		2108 = {
+			change_trade_goods = atl_books
+		}
+		add_adm_power = 25
+		add_mil_power = 25
+		add_dip_power = 25
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #The Secrets of Genghis
+	id = agmajongpa.15
+	title = agmajongpa.15.t 
+	desc = agmajongpa.15.d 
+	picture = coffin_eventPicture
+	is_triggered_only = yes 
+	
+	option = { 
+		name = agmajongpa.15.a
+		add_prestige = 10
+		add_years_of_income = 2
+		custom_tooltip = secretsunlocked
+		set_country_flag = secrets_of_genghis_flag
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = agmajongpa.15.b
+		add_prestige = 10
+		add_years_of_income = 2
+		custom_tooltip = secretsunlocked
+		set_country_flag = secrets_of_genghis_flag
+		change_personal_deity = secrets_of_genghis
+		ai_chance = { factor = 0 } 
+	}
+}
+
+country_event = { #The Borjigin Scion
+	id = agmajongpa.150
+	title = agmajongpa.150.t 
+	desc = agmajongpa.150.d 
+	picture = genghis_eventPicture
+	is_triggered_only = yes 
+	
+	#Pay them off
+	option = { 
+		name = agmajongpa.150.a
+		add_years_of_income = -1
+		country_event = {
+			id = agmajongpa.151
+			days = 28
+		}
+		ai_chance = { factor = 1 }
+	}
+	#Torture them
+	option = {
+		name = agmajongpa.150.b
+		mil_power_cost = 25
+		country_event = {
+			id = agmajongpa.151
+			days = 14
+		}
+		ai_chance = { factor = 0 } 
+	}
+}
+
+country_event = { #The Tomb
+	id = agmajongpa.151
+	title = agmajongpa.151.t 
+	desc = agmajongpa.151.d 
+	picture = tombdoor_eventPicture
+	is_triggered_only = yes 
+	
+	#Continue onwards
+	option = { 
+		name = agmajongpa.151.a
+		country_event = { id = agmajongpa.152 }
+		ai_chance = { factor = 1 } 
+	}
+	#Bury the bodies and continue onwards
+	option = { 
+		name = agmajongpa.151.b
+		add_manpower = -0.100
+		hidden_effect = {
+			set_country_flag = nice_to_genghis
+		}
+		country_event = { id = agmajongpa.152 }
+		ai_chance = { factor = 1 } 
+	}
+}
+
+country_event = { #The Chamber
+	id = agmajongpa.152
+	title = agmajongpa.152.t 
+	desc = agmajongpa.152.d 
+	picture = innertomb_eventPicture
+	is_triggered_only = yes 
+	
+	#Break through the wall
+	option = { 
+		name = agmajongpa.152.a
+		trigger = {
+			NOT = {
+				has_country_flag = nice_to_genghis
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				50 = {
+					country_event = { id = agmajongpa.15 }
+				}
+				20 = {
+					country_event = { id = agmajongpa.153 }
+				}
+			}
+		}
+		ai_chance = { factor = 2 } 
+	}
+	#Break through the wall
+	option = { 
+		name = agmajongpa.152.a
+		trigger = {
+			has_country_flag = nice_to_genghis
+		}
+		hidden_effect = {
+			country_event = { id = agmajongpa.15 }
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #The Collapse...
+	id = agmajongpa.153
+	title = agmajongpa.153.t
+	desc = agmajongpa.153.d
+	picture = greatdying_eventPicture
+	is_triggered_only = yes 
+	
+	#Damnation!
+	option = { 
+		name = agmajongpa.153.a
+		add_prestige = -10
+		add_manpower = -0.250
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #Port Hizen
+	id = agmajongpa.16
+	title = agmajongpa.16.t
+	desc = agmajongpa.16.d
+	picture = porthizen_eventPicture
+	is_triggered_only = yes 
+	
+	option = { 
+		name = agmajongpa.16.a
+		4182 = {
+			change_culture = yogoe
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #No Palaces. No Gods.
+	id = agmajongpa.17
+	title = agmajongpa.17.t 
+	desc = agmajongpa.17.d 
+	picture = fierytemple_eventPicture
+	is_triggered_only = yes 
+	
+	major = yes 
+	major_trigger = { 
+		capital_scope = { continent = asia }
+	}
+	option = {
+		name = agmajongpa.17.a
+		1816 = {
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+			add_devastation = 50
+			change_culture = koreosino
+		}
+		1821 = {
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+			add_devastation = 50
+			change_culture = koreosino
+		}
+		add_treasury = 400
+		ai_chance = { factor = 1 } 
+	}
+}
+
+country_event = { #Amaterasu's End
+	id = agmajongpa.18
+	title = agmajongpa.18.t
+	desc = agmajongpa.18.d
+	picture = fierytemple_eventPicture
+	is_triggered_only = yes
+	
+	major = yes
+	major_trigger = {
+		capital_scope = { region = japan_region }
+	}
+	#Oh deer
+	option = {
+		name = agmajongpa.18.a
+		swap_non_generic_missions = yes
+		1020 = {
+			add_base_tax = -3
+			add_base_production = -3
+			add_base_manpower = -3
+			add_devastation = 50
+			change_culture = yogoe
+		}
+		add_prestige = 50
+		add_years_of_income = 1
+		capital_scope = {
+			add_province_modifier = {
+				name = kor_japanese_loot
+				duration = -1
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+}
+
+country_event = { #Yokai Subjugation
+	id = agmajongpa.19
+	title = agmajongpa.19.t
+	desc = agmajongpa.19.d
+	picture = yokai_eventPicture
+	is_triggered_only = yes
+	
+	#record
+	option = {
+		name = agmajongpa.19.a
+		add_prestige = 10
+		1029 = {
+			add_base_manpower = -1
+			add_devastation = 25
+		}
+		custom_tooltip = secretsunlocked
+		set_country_flag = secrets_of_yamato_flag
+		custom_tooltip = japanconvertcult3
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						region = japan_region
+					}
+					OR = {
+						culture = japanese
+						culture = togoku
+						culture = kyushuan
+					}
+				}
+				change_culture = yogoe
+			}
+		}
+		ai_chance = { factor = 2 } 
+	}
+	#establish
+	option = { 
+		name = agmajongpa.19.b
+		add_prestige = 10
+		1020 = {
+			add_base_manpower = -1
+			add_devastation = 10
+		}
+		swap_non_generic_missions = yes
+		custom_tooltip = secretsunlocked
+		set_country_flag = secrets_of_yamato_flag
+		change_personal_deity = secrets_of_yamato
+		custom_tooltip = japanconvertcult3
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						region = japan_region
+					}
+					OR = {
+						culture = japanese
+						culture = togoku
+						culture = kyushuan
+					}
+				}
+				change_culture = yogoe
+			}
+		}
+		ai_chance = { factor = 0 } 
+	}
+}
+
+country_event = { #The Potion Complete
+	id = agmajongpa.20
+	title = agmajongpa.20.t
+	desc = agmajongpa.20.d
+	picture = poisonsect_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = agmajongpa.20.a
+		add_country_modifier = {
+			name = ko1_potion
+			duration = -1
+		}
+		hidden_effect = {
+			country_event = { 
+				id = agmajongpa.201
+				days = 365
+				random = 182625
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+}
+
+country_event = { #oh fuck
+	id = agmajongpa.201
+	title = agmajongpa.201.t
+	desc = agmajongpa.201.d
+	picture = poisonsect_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = agmajongpa.201.a
+		remove_country_modifier = ko1_potion
+		kill_ruler = yes
+		add_prestige = -40
+		add_legitimacy = -25
+		add_stability = -1
+		ai_chance = { factor = 1 }
+	}
+}
+
+country_event = { #The Demon in the East
+	id = agmajongpa.21
+	title = agmajongpa.21.t
+	desc = agmajongpa.21.d
+	picture = cityburned_eventPicture
+	is_triggered_only = yes
+	major = yes 
+	
+	option = {
+		name = agmajongpa.21.a
+		2108 = {
+			add_province_modifier = { 
+				name = ko1_demonseat
+				duration = -1
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+}
+
+country_event = { #The End
+	id = agmajongpa.22
+	title = agmajongpa.22.t
+	desc = agmajongpa.22.d
+	picture = endtimes_eventPicture
+	is_triggered_only = yes
+	major = yes 
+	
+	option = {
+		name = agmajongpa.22.a
+		custom_tooltip = thustidesdecidedko1
+		ai_chance = { factor = 1 }
+	}
+}
+
+country_event = { #Sunset Dominion
+	id = agmajongpa.23
+	title = agmajongpa.23.t
+	desc = agmajongpa.23.d
+	picture = deademperor_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = agmajongpa.23.a
+		custom_tooltip = japanconvertcult1
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						region = japan_region
+					}
+					OR = {
+						culture = japanese
+						culture = togoku
+						culture = kyushuan
+					}
+					development = 10
+				}
+				change_culture = yogoe
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+}
+
+country_event = { #Serfs No Longer
+	id = agmajongpa.24
+	title = agmajongpa.24.t
+	desc = agmajongpa.24.d
+	picture = chinesehellscape_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = agmajongpa.24.a
+		add_adm_power = 50
+		add_dip_power = 50
+		add_mil_power = 50
+		add_country_modifier = {
+			name = ko1_no_longer_serfs
+			duration = -1
+		}
+		ai_chance = { factor = 1 }
+	}
+}
+
+country_event = { #The New Way of Life
+	id = agmajongpa.25
+	title = agmajongpa.25.t
+	desc = agmajongpa.25.d
+	picture = lifegoeson_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = agmajongpa.25.a
+		custom_tooltip = chinaconvertcult1
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					region = north_china_region
+					culture_group = east_asian
+				}
+				change_culture = koreosino
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+}
+
+country_event = { #Secrets of China
+	id = agmajongpa.26
+	title = agmajongpa.26.t
+	desc = agmajongpa.26.d
+	picture = secretchina_eventPicture
+	is_triggered_only = yes
+	
+	option = { 
+		name = agmajongpa.26.a
+		custom_tooltip = secretsunlocked
+		set_country_flag = secrets_of_china_flag
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = agmajongpa.26.b
+		custom_tooltip = secretsunlocked
+		set_country_flag = secrets_of_china_flag
+		change_personal_deity = secrets_of_china
+		ai_chance = { factor = 0 } 
+	}
+}
+
+country_event = { #Inding.
+	id = agmajongpa.27
+	title = agmajongpa.27.t
+	desc = agmajongpa.27.d
+	picture = indiancityscape_eventPicture
+	is_triggered_only = yes
+	
+	#Continue as we have.
+	option = {
+		name = agmajongpa.27.a
+		ai_chance = { factor = 10 }
+	}
+	#Thousand pieces.
+	option = {
+		name = agmajongpa.27.b
+		custom_tooltip = indiamorelikegone
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						region = bengal_region
+						region = coromandel_region
+						region = deccan_region
+						region = hindusthan_region
+						region = west_india_region
+					}
+				}
+				decolonize = THIS
+			}
+			bengal_region = {
+				add_province_modifier = {
+					name = ko1_anarchy
+					duration = -1
+				}
+			}
+			coromandel_region = {
+				add_province_modifier = {
+					name = ko1_anarchy
+					duration = -1
+				}
+			}
+			deccan_region = {
+				add_province_modifier = {
+					name = ko1_anarchy
+					duration = -1
+				}
+			}
+			hindusthan_region = {
+				add_province_modifier = {
+					name = ko1_anarchy
+					duration = -1
+				}
+			}
+			west_india_region = {
+				add_province_modifier = {
+					name = ko1_anarchy
+					duration = -1
+				}
+			}
+		}
+		add_country_modifier = {
+			name = ko1_indian_tribute
+			duration = -1
+		}
+		ai_chance = { factor = 0 }
+	}
+}
+
+country_event = { #Indochina
+	id = agmajongpa.28
+	title = agmajongpa.28.t
+	desc = agmajongpa.28.d
+	picture = sunshine_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = agmajongpa.28.a
+		add_country_modifier = {
+			name = ko1_indochina_nexus
+			duration = -1
+		}
+		ai_chance = { factor = 100 }
+	}
+}
+
+country_event = { #Deadlands
+	id = agmajongpa.29
+	title = agmajongpa.29.t
+	desc = agmajongpa.29.d
+	picture = deadlands_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = agmajongpa.29.a
+		custom_tooltip = no_more_siberians_ko1
+		custom_tooltip = ko1_fur_hat
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						region = west_siberia_region
+						region = east_siberia_region
+					}
+				}
+				change_culture = farnorthkorean
+				add_province_modifier = {
+					name = ko1_northern_prosperity
+					duration = -1
+				}
+			}
+		}
+		ai_chance = { factor = 1 }
+	}
+}

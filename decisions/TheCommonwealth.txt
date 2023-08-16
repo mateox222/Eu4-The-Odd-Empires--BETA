@@ -219,11 +219,12 @@ country_decisions = {
 			if = { 
 				limit = { 
 					OR = { 
-						tag = GUY
+						was_tag = GUY
 						primary_culture = gascon 
 					}
 				}
-				override_country_name = LPC
+				change_country_color = { color = { 82 75 230 } }
+				override_country_name = GUYPLC
 				set_country_flag = is_LPC_flag
 			}
 			else = { restore_country_name = yes }
@@ -385,7 +386,8 @@ country_decisions = {
 						primary_culture = gascon 
 					}
 				}
-				override_country_name = LPC
+				change_country_color = { color = { 82 75 230 } }
+				override_country_name = GUYPLC
 				set_country_flag = is_LPC_flag
 			}
 			else = { restore_country_name = yes }

@@ -103,6 +103,7 @@ roman_legio_monarchy = {
 	potential = {
 			OR = {
         tag = A38
+        tag = A56		
 		tag = A37
 		tag = A34	
 		tag = ROM
@@ -110,7 +111,7 @@ roman_legio_monarchy = {
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 150
-
+	is_elective = yes	
 	modifiers = {
 		war_exhaustion = -0.03
 		global_unrest = -1
@@ -185,6 +186,7 @@ roman_byzantine_monarchy = {
 	potential = {
 			OR = {
 		tag = BYZ
+		has_country_flag = GREKOREICH
     }
 	}
 	valid_for_nation_designer = yes
@@ -488,6 +490,7 @@ atlantropaniflheim = {
 	allow_normal_conversion = no
 	potential = {
 		culture = nilfhish
+		has_country_flag = szwartkartenpodpisanen
 	}
 	fixed_rank = 3
 	legacy_equivalent = feudal_monarchy
@@ -719,7 +722,6 @@ norse_viking_republic_reform = {
 	duration = 4
 	
 	custom_attributes = {
-		locked_government_type = yes
 		force_admiral_leader = yes
 		elections_increase_factions_influence = yes
 		cannot_become_dictatorship = yes
@@ -776,7 +778,6 @@ chivalric_monarchy = {
     conditional = {
     }
     custom_attributes = {
-        locked_government_type = yes
     }
     ai = {
         factor = 100
@@ -933,6 +934,298 @@ bulgarian_monarchy = {
 		reduced_liberty_desire = 10
 	}
 	ai = {
+		factor = 100
+	}
+}
+mount_hwa_reform = {
+	icon = "hwa_sect"
+	allow_normal_conversion = yes
+	legacy_equivalent = theocratic_government
+	potential = {
+		tag = KO2
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 150
+
+	modifiers = {
+		global_unrest = -1
+		monarch_military_power = 1
+		discipline = 0.015
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+		rulers_can_be_generals = yes
+		heirs_can_be_generals = yes
+	}
+	#conditional = {
+	#	factions = {
+	#		raumaria_wiarapokojowa
+	#		raumaria_wiarawalczaca
+	#	}
+	#}
+	
+	ai = {
+		factor = 100
+	}
+}
+
+agmajongpa_reform = {
+    icon = "agma_jongpa"
+    allow_normal_conversion = yes
+    lock_level_when_selected = yes
+    legacy_equivalent = feudal_monarchy
+    potential = {
+        tag = KO1
+    }
+    valid_for_nation_designer = yes
+    nation_designer_cost = 200
+
+    modifiers = {
+		manpower_in_true_faith_provinces = 0.10
+		max_absolutism = 20
+		global_autonomy = -0.05
+    }
+    conditional = {
+    }
+    custom_attributes = {
+        locked_government_type = yes
+        maintain_dynasty = yes
+    }
+    ai = {
+        factor = 100
+    }
+}
+
+murim_union_reform = {
+	icon = "murim_union"
+	allow_normal_conversion = yes
+	legacy_equivalent = theocratic_government
+	potential = {
+		OR = {
+			tag = KO3
+			tag = KOR
+		}
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 150
+
+	modifiers = {
+		global_unrest = -1
+		monarch_military_power = 1
+		land_morale = 0.15
+		max_absolutism = -20
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+		rulers_can_be_generals = yes
+		heirs_can_be_generals = yes
+	}
+	#conditional = {
+	#	factions = {
+	#		raumaria_wiarapokojowa
+	#		raumaria_wiarawalczaca
+	#	}
+	#}
+	
+	ai = {
+		factor = 100
+	}
+}
+
+agmajongpa2_reform = {
+    icon = "agma_two"
+    allow_normal_conversion = yes
+    lock_level_when_selected = yes
+    legacy_equivalent = feudal_monarchy
+    potential = {
+        tag = KO1
+		has_country_flag = reorganized_agmajongpa_flag
+    }
+    valid_for_nation_designer = yes
+    nation_designer_cost = 400
+
+    modifiers = {
+		manpower_in_true_faith_provinces = 0.10
+		core_creation = -0.10
+		max_absolutism = 20
+		global_autonomy = -0.05
+    }
+    conditional = {
+    }
+    custom_attributes = {
+        locked_government_type = yes
+        maintain_dynasty = yes
+    }
+    ai = {
+        factor = 100
+    }
+}
+
+hypersoumikaganate = {
+    icon = "hypersuomi"
+	allow_normal_conversion = yes
+	lock_level_when_selected = yes
+	legacy_equivalent = feudal_monarchy
+	maintain_dynasty = yes
+	monarchy = yes	
+    potential = {
+        religion = hypersuomi_pagan_reformed 
+    }
+    modifiers = {
+        max_absolutism = 25
+		global_autonomy = -0.075
+		state_maintenance_modifier = -0.50
+		governing_capacity_modifier = 0.5
+		tolerance_heretic = -5
+		tolerance_heathen = -10	
+		prestige = 1		
+		land_morale_constant = 0.25	
+		reinforce_speed = 0.10	
+    }
+		custom_attributes = {
+		locked_government_type = yes
+	}
+	government_abilities = {
+		crusaderstates_mechanic
+	}
+		ai = {
+		factor = 100
+	}
+    
+}
+
+armenian_monarchy = {
+    icon = "armeniakingdom"
+	allow_normal_conversion = yes
+	lock_level_when_selected = yes
+	maintain_dynasty = yes
+	legacy_equivalent = feudal_monarchy	
+	monarchy = yes	
+    potential = {
+		OR = {
+        tag = ARM
+    }
+	}
+    modifiers = {
+        max_absolutism = 15
+		tolerance_heretic = -1
+		tolerance_heathen = -2	
+		state_maintenance_modifier = -0.05
+		governing_capacity_modifier = 0.1
+		harsh_treatment_cost = -0.15
+		defensiveness = 0.10
+		promote_culture_cost = 2
+		num_accepted_cultures = -1
+		relation_with_other_culture = -10			
+    }
+		custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
+		factor = 100
+	}
+    
+}
+
+epirus_monarchy = {
+    icon = "greckaflaga"
+	allow_normal_conversion = yes
+	lock_level_when_selected = yes
+	legacy_equivalent = feudal_monarchy	
+	monarchy = yes	
+    potential = {
+        tag = EPI
+	}
+    modifiers = {
+		local_culture_conversion_cost = -0.25	
+		local_culture_conversion_time = -0.25	
+		state_maintenance_modifier = -0.25
+		governing_capacity_modifier = -0.3
+		promote_culture_cost = 2
+		num_accepted_cultures = -2
+		administrative_efficiency = 0.05
+		relation_with_other_culture = -10			
+    }
+		custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
+		factor = 100
+	}
+
+    
+}
+
+Daqin_monarchy = {
+	icon = "daqinmonarchy"
+	allow_normal_conversion = yes
+	legacy_equivalent = feudal_monarchy	
+	potential = {
+     tag = A56
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 100
+
+	modifiers = {
+		war_exhaustion = -0.02
+		global_unrest = -2
+		global_autonomy = -0.075
+		max_absolutism = -10
+		monarch_military_power = 1
+		nobles_loyalty_modifier = 0.1
+		governing_capacity_modifier = -0.25
+	}
+
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+		government_abilities = {
+			militarization_mechanic
+		}
+	}
+			custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
+		factor = 100
+	}
+}
+
+
+Phoenix_monarchy = {
+	icon = "phoenixmonarchy"
+	allow_normal_conversion = no
+	legacy_equivalent = feudal_monarchy	
+	potential = {
+     tag = A79
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 100
+
+	modifiers = {
+		war_exhaustion = -0.02
+		global_autonomy = -0.075
+		num_accepted_cultures = -5
+		promote_culture_cost = 2		
+		max_absolutism = -10
+		nobles_loyalty_modifier = 0.1
+		governing_capacity_modifier = 0.25
+	}
+
+	conditional = {
+		allow = { has_dlc = "Rights of Man" }
+			government_abilities = {
+			phoenix_mechanic
+		}
+				government_abilities = {
+			pho_naval_professionalism_mechanic
+		}
+	}
+			custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
 		factor = 100
 	}
 }

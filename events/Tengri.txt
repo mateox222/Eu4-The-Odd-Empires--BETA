@@ -1520,7 +1520,7 @@ country_event = {
 	}
 	
 	option = {
-		name = tengri_events.27.a #Amitābhāya
+		name = tengri_events.27.a #Amitĝbhĝya
 		random_owned_province = {
 			limit = {
 				NOT = { religion = secondary }
@@ -2780,14 +2780,48 @@ province_event = {
 		name = tengri_events.59.a #
 		random_empty_neighbor_province = {
 			create_colony = 100
-			change_religion = orthodox
+							if = {
+					limit = {
+						has_global_flag = popevictorybecausebyzantiumfall
+					}
+					change_religion = catholic
+				}
+				if = {
+					limit = {
+						has_global_flag = byzantinevictoryoverpope
+					}
+					change_religion = orthodox
+				}
+				if = {
+					limit = {
+						NOT = { has_global_flag = chrzescijanstwosierozpadlo }
+					}
+					change_religion = united_christianity
+				}
 		}
 	}
 	option = {
 		name = tengri_events.59.b #
 		random_empty_neighbor_province = {
 			add_base_tax = 1
-			change_religion = orthodox
+							if = {
+					limit = {
+						has_global_flag = popevictorybecausebyzantiumfall
+					}
+					change_religion = catholic
+				}
+				if = {
+					limit = {
+						has_global_flag = byzantinevictoryoverpope
+					}
+					change_religion = orthodox
+				}
+				if = {
+					limit = {
+						NOT = { has_global_flag = chrzescijanstwosierozpadlo }
+					}
+					change_religion = united_christianity
+				}
 		}
 	}
 }

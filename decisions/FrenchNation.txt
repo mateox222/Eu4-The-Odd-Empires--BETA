@@ -3,6 +3,9 @@ country_decisions = {
 	french_nation = {
 		major = yes
 		potential = {
+			capital_scope = {
+				continent = europe
+			}
 			normal_or_historical_nations = yes
 			was_never_end_game_tag_trigger = yes
 			NOT = { has_country_flag = formed_france_flag }
@@ -24,8 +27,6 @@ country_decisions = {
 			}
 			OR = {
 				culture_group = french
-				primary_culture = basque
-				primary_culture = breton
 			}
 			is_colonial_nation = no
 			OR = {
@@ -37,50 +38,22 @@ country_decisions = {
 			}
 		}
 		provinces_to_highlight = {
-			OR = {
-				AND = {
-					region = france_region
-					root = {
-						NOT = {
-							num_of_owned_provinces_with = {
-								value = 15
-								region = france_region
-								is_core = root
-							}
-						}
-						owns_core_province = 183
-						owns_core_province = 184
-						owns_core_province = 186
-					}
-				}
-				province_id = 183	# �le-de-France
-				province_id = 184	# Orl�annais
-				province_id = 186	# Champagne
-			}
-			OR = {
-				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
-			}
+
 		}
 		allow = {
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 			is_nomad = no			
 			NOT = { exists = FRA }
-			owns_core_province = 184	# Orl�annais
-			owns_core_province = 186	# Champagne
-			owns_core_province = 183	# �le-de-France
-			183 = { 					# �le-de-France / Paris
-				is_state = yes
-			}
+			owns_core_province = 236
 			num_of_owned_provinces_with = {
-				value = 15
-				region = france_region
+				value = 3
+				region = iberia_region
 				is_core = root
 			}
 		}
 		effect = {
-			183 = { #Paris
+			236 = { #Paris
 				move_capital_effect = yes
 			}
 			change_tag = FRA

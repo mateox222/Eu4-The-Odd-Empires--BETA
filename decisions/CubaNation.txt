@@ -80,6 +80,7 @@ country_decisions = {
 				}
 			}
 			change_tag = CUB
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -119,7 +120,124 @@ country_decisions = {
 			}
 			add_prestige = 25
 			set_country_flag = changed_from_colonial_nation
+						#CUSTOMCOLONIALNATIONS
+						if = {
+				limit = { 
+					culture_group = british
+				}
+				override_country_name = CUBAbritish
+				change_country_color = { color = { 66 64 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = gaelic
+				}
+				override_country_name = CUBAgaelic
+				change_country_color = { color = { 69 161 90 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = latin
+				}
+				override_country_name = CUBAitalian
+				change_country_color = { color = { 69 159 96 } }
+			}
+			if = {
+				limit = { 
+					culture_group = iberian
+				}
+				override_country_name = CUBAiberian
+				change_country_color = { color = { 151 169 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = french
+				}
+				override_country_name = CUBAfrench
+				change_country_color = { color = { 64 107 162 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+					culture_group = east_slavic
+					culture_group =  slavic
+					}
+				}
+				override_country_name = CUBArussian
+				change_country_color = { color = { 68 124 160 } }
+			}
+			if = {
+				limit = { 
+					culture_group = byzantine
+				}
+				override_country_name = CUBAgreek
+				change_country_color = { color = { 168 64 149 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = maghrebi
+				}
+				override_country_name = CUBAarab
+				change_country_color = { color = { 168 158 169 } }
+			}		
+			if = {
+				limit = { 
+					culture_group = east_asian
+				}
+				override_country_name = CUBAchinese
+				change_country_color = { color = { 180 176 176 } }
+			}			
+			
+			if = {
+				limit = { 
+					culture_group = japanese_g 
+				}
+				override_country_name = CUBAjapanese
+				change_country_color = { color = { 209 66 67 } }
+			}			
+
+			if = {
+				limit = { 
+					culture_group = germanic 
+				}
+				override_country_name = CUBAgerman
+				change_country_color = { color = { 140 135 167 } }
+			}	
+			
+			if = {
+				limit = { 
+					culture_group = scandinavian
+				}
+				override_country_name = CUBAnorge
+				change_country_color = { color = { 96 106 167 } }
+			}	
+
+			
+			if = {
+				limit = { 
+					primary_culture = polish
+				}
+				override_country_name = CUBApolish
+				change_country_color = { color = { 167 30 34 } }
+			}
+			if = {
+				limit = { 
+					culture_group = punic_culture
+				}
+				override_country_name = CUBAPHOENICIA
+				change_country_color = { color = { 236 201 237 } }
+			}
+			if = {
+				limit = { 
+					culture_group = central_american
+				}
+				override_country_name = CUBAAZTEC
+				change_country_color = { color = { 70 105 70 } } 
+			}
 		}
+
 		ai_will_do = {
 			factor = 1
 		}

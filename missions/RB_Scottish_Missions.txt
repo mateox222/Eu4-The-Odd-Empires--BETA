@@ -326,7 +326,7 @@ sco_rb_conquest_missions = {
 		}
 		effect = {
 			country_event = { id = flavor_sco.11 }
-			iberia_region = {
+			british_isles_region = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -340,13 +340,13 @@ sco_rb_conquest_missions = {
 		icon = atlantropa_greatpower
 		required_missions = { sco_conquer_london sco_conquer_ireland }
 		provinces_to_highlight = {
-			region = iberia_region
+			region = british_isles_region
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		trigger = {
-			iberia_region = {
+			british_isles_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}

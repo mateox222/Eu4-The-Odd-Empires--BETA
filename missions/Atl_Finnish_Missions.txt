@@ -1,0 +1,73 @@
+hypersuomi_firstr_missions = { #Series name is displayed over the slot?
+	slot = 3 #ie, second upper left column
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes #Can exist under the series itself or within individual missions.
+	potential = {
+		ai = no
+		TAG = FI1
+	}
+	has_country_shield = yes
+	
+
+	FI1_the_mystery_temple = {
+		icon = atlantropa_finskatemple
+		trigger = {
+			devotion = 100
+           adm_power = 200
+		}
+		effect = {
+            			country_event = { 
+				id = hyper_war.2
+			}
+			add_adm_power = -200	
+		}
+	}
+
+	FI1_the_mystery_temple2 = {
+		required_missions = { FI1_the_mystery_temple }
+		icon = atlantropa_elderscroll
+		trigger = {
+			devotion = 100
+             mil_power = 200
+			dip_power = 200
+			 adm_power = 200
+		}
+		effect = {
+            			country_event = { 
+				id = hyper_war.3
+			}
+			 add_mil_power = -200
+			 add_dip_power = -200
+			 add_adm_power = -200	
+		}
+	}
+	FI1_the_mystery_temple3 = {
+		required_missions = { FI1_the_mystery_temple2 }
+		icon = atlantropa_openthedoors
+		trigger = {
+			has_advisor = yes
+			devotion = 100
+		}
+		effect = {
+            			country_event = { 
+				id = hyper_war.4
+			}
+		}
+	}
+	FIN_legacy_of_hyperwar = {
+		required_missions = { FI1_the_mystery_temple3 }
+		icon = atlantropa_lineupplanets
+		trigger = {
+			has_country_flag = FINOWIEPOWSTALI
+		}
+		effect = {
+            			country_event = { 
+				id = hyper_war.1
+			}
+			add_adm_power = 100	
+            add_dip_power = 100	
+            add_mil_power = 100	
+		}
+	}
+
+}

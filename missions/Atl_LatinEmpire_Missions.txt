@@ -1,0 +1,1509 @@
+latin_empire_western222 = {
+	slot = 1 #upper left column
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+		tag = LAE
+	}
+	has_country_shield = yes
+	
+	latin_empire_greek = {
+		icon = atlantropa_focusgreek
+		trigger = {
+				
+	custom_trigger_tooltip = {
+	tooltip = latintroubles
+			OR = {
+				has_global_flag = end_of_latin_empire_crisis
+				has_country_flag = latindostajepodupie12	
+				is_year = 6930
+				}
+	}
+				owns_core_province = 151
+			stability = 3
+			accepted_culture = greek
+		}
+		effect = {
+		add_stability = 1
+				country_event = { 
+    id = latin_empire.2
+    days = 1
+}
+
+	}}
+	latin_empire_catholic_byzantium = {
+		icon = atlantropa_justinian
+				required_missions = { 
+			latin_empire_greek
+		}
+		trigger = {
+			accepted_culture = greek
+		}
+		effect = {
+		add_stability = 2 
+			add_country_modifier = {
+					name = "byzantine_influx"
+					duration = -1
+				}
+	}}
+		reestablish_the_theme_system_lat = {
+		icon = mission_pf_map_table
+		required_missions = { 
+			latin_empire_catholic_byzantium
+		}
+
+		trigger = {
+			dulkadir_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			erzurum_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_global_flag = constantinople_restored }
+				}
+				151 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				set_global_flag = constantinople_restored
+			}	
+			add_country_modifier = {
+				name = "the_theme_system"
+				duration = -1
+			}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	
+	
+	
+	
+		latin_empire_recover_the_balkans = {
+		icon = push_on_to_bulgaria
+		required_missions = { latin_empire_recover_albania }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = bulgaria_area
+				area = silistria_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			bulgaria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			silistria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+add_prestige = 10
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+		latin_empire_destroy_venice_pp = { #New
+		icon = mission_control_venice
+		position = 5
+		required_missions = { latin_empire_recover_western_balkans }
+		provinces_to_highlight = {
+			area = venetia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			venetia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			country_event = { id = flavor_byz.1 }
+			add_country_modifier = {
+				name = "venetian_revenge"
+				duration = 7300
+			}
+						118 = {
+				    add_core = ROOT
+			}
+						apulia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			calabria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			naples_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+		latin_empire_recover_rome = {
+		icon = atlantropa_roma
+		required_missions = {
+			latin_empire_destroy_venice_pp
+		}
+		provinces_to_highlight = {
+			province_id = 118
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns = 118
+		}
+		effect = {
+			add_country_modifier = {
+				name = "roman_italy"
+				duration = 5475
+			}
+			tuscany_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			emilia_romagna_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			central_italy_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			atlantis_abruzzo = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	
+	latin_empire_recover_north_italy = {
+		icon = mission_rule_italy
+		required_missions = {
+			latin_empire_recover_rome
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = tuscany_area
+				area = emilia_romagna_area
+				area = central_italy_area
+				area = atlantis_abruzzo
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			tuscany_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			emilia_romagna_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			central_italy_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			atlantis_abruzzo = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			tuscany_area = {
+				limit = { owned_by = ROOT }
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			central_italy_area = {
+				limit = { owned_by = ROOT }
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			emilia_romagna_area = {
+				limit = { owned_by = ROOT }
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			lombardy_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			po_valley_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			piedmont_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			liguria_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	
+	latin_empire_recover_lombardia = {
+		icon = atlantropa_conquestnorth
+		required_missions = {
+			latin_empire_recover_north_italy
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = lombardy_area
+				area = po_valley_area
+				area = piedmont_area
+				area = liguria_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			lombardy_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			po_valley_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			piedmont_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			liguria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "byzantine_unification_of_italy"
+				duration = 7300
+			}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+		latin_empire_endless = {
+		icon = a_roman_empire
+		required_missions = {
+			latin_empire_recover_lombardia
+			latinempire_makkah
+		}
+		trigger = {
+		great_power_rank = 1
+		total_development = 1000
+		}
+		effect = {
+			add_country_modifier = {
+				name = "atlantropa_endless_empire_mod"
+				duration = -1
+			}
+		}
+	}
+}
+latin_empire_pp_balkans_north_italy2 = {
+	slot = 2 
+	generic = no
+	ai = yes
+	potential = {
+		tag = LAE
+	}
+	has_country_shield = yes
+		latin_empire_recover_greece = {
+		icon = foothold_in_greece
+		position = 2
+		required_missions = { latina_end_of_trouble } #None
+		provinces_to_highlight = {
+			OR = {
+				province_id = 144
+				province_id = 145
+				province_id = 146
+				province_id = 147
+				province_id = 148
+				province_id = 4779
+				province_id = 1773
+				province_id = 1853
+				province_id = 4699
+				province_id = 4701
+				province_id = 4705
+				province_id = 4702
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 144
+			owns_or_non_sovereign_subject_of = 145
+			owns_or_non_sovereign_subject_of = 146
+			owns_or_non_sovereign_subject_of = 147
+			owns_or_non_sovereign_subject_of = 148
+			owns_or_non_sovereign_subject_of = 4779
+			owns_or_non_sovereign_subject_of = 1773
+			owns_or_non_sovereign_subject_of = 1853
+			owns_or_non_sovereign_subject_of = 4699
+			owns_or_non_sovereign_subject_of = 4701
+			owns_or_non_sovereign_subject_of = 4705
+			owns_or_non_sovereign_subject_of = 4702
+		}
+		effect = {
+			add_country_modifier = {
+				name = "byzantium_resurgent"
+				duration = 5475
+			}
+			bulgaria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			silistria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			thrace_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			hudavendigar_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}	
+			aydin_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	
+	latin_empire_recover_albania = {
+		icon = pacify_the_albanian_lands
+		required_missions = { latin_empire_recover_greece }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				area = albania_area
+				area = macedonia_area
+			area = 	atlantis_adriaticcoast
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+		atlantis_adriaticcoast = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			albania_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			macedonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			venetia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			east_adriatic_coast_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			rascia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			serbia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			bosnia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	
+	latin_empire_recover_western_balkans = {
+		icon = mission_pf_cross
+		required_missions = { latin_empire_recover_albania } #None
+		provinces_to_highlight = {
+			OR = {
+				area = east_adriatic_coast_area
+				area = rascia_area
+				area = serbia_area
+				area = bosnia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			east_adriatic_coast_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			rascia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			serbia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			bosnia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			
+		}
+		effect = {
+			carinthia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			croatia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "balkan_empire"
+				duration = 5475
+			}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	
+	latin_empire_recover_northern_balkans = { #Replaces Istria
+		icon = mission_conquer_5_states
+		required_missions = { latin_empire_recover_western_balkans }
+		provinces_to_highlight = {
+			OR = {
+				area = carinthia_area
+				area = croatia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			carinthia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			croatia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+add_prestige = 15
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+		latin_empire_recover_south_italy = {
+		icon = mission_italian_condottiere
+		required_missions = { latin_empire_destroy_venice_pp }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				area = apulia_area
+				area = calabria_area
+				area = naples_area
+				area = atlantis_napoli_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			naples_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			atlantis_napoli_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			apulia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			calabria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			capital_scope = {
+				add_base_manpower = 2
+				add_base_tax = 2
+				add_base_production = 2
+			}
+			lazio_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			western_sicily_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			atlantis_roma = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_permanent_claim = 124
+			add_permanent_claim = 2982
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	latin_empire_recover_sicily = {
+		icon = mission_sea_battles
+		required_missions = { latin_empire_recover_south_italy }
+		provinces_to_highlight = {
+			OR = {
+				area = western_sicily_area
+				province_id = 124
+				province_id = 2982
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			western_sicily_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			owns_or_non_sovereign_subject_of = 124
+			owns_or_non_sovereign_subject_of = 2982
+		}
+		effect = {
+			add_country_modifier = {
+				name = "theme_of_sicily"
+				duration = 5475
+			}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+		latinempire_makkah = {
+   icon = the_latin_empire
+      required_missions = { latinempire_sahara }
+
+	trigger = {
+			owns_core_province = 385
+}
+		effect = {
+	add_adm_power = 100	
+	add_dip_power = 100	
+	add_mil_power = 100	
+	add_country_modifier = {
+					name = "atlantropa_coring"
+					duration = 3475
+				}
+}}
+
+	LAT_crusader_ark_of_the_covenant = {
+		icon = ark_of_the_covenant
+		required_missions = { latinempire_makkah  }
+		provinces_to_highlight = {
+			province_id = 1227
+			NOT = { controlled_by = ROOT }
+		}
+		trigger = {
+			1227 = { controlled_by = ROOT }
+		}
+		effect = {
+			country_event = { id = knights_missions.4 }
+		}
+		ai_weight = {
+			factor = 500	#Natural conquest
+		}
+	}	
+
+}
+
+
+lamanitia_latinamission = {
+    slot = 3                    # Which column the missions will appear in. 1 to 5.
+    generic = no            # Whether missions within this series are considered generic.
+    ai = yes                  # Whether the AI will claim missions in this series.
+    has_country_shield = yes  # Whether to display the country shield on the icon.    
+    # Determines when a series appears for a country. Country scope.
+    potential = {
+			  tag = LAE
+    }
+	has_country_shield = yes
+	
+		latina_end_of_trouble = {
+		icon = atlantropa_latin_empire
+
+		trigger = {
+			has_any_disaster = no
+	custom_trigger_tooltip = {
+	tooltip = latintroubles
+			OR = {
+				has_global_flag = end_of_latin_empire_crisis
+				has_country_flag = latindostajepodupie12	
+				is_year = 6930
+				}
+	}
+			owns_core_province = 151
+		}
+		effect = {
+						country_event = { 
+    id = latin_empire.3
+    days = 1
+}
+	}}
+		recover_east_islandsa = {
+		icon = atlantropa_constantinople
+				required_missions = {
+			latina_end_of_trouble
+		}
+		provinces_to_highlight = {
+			area = aegean_archipelago_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			aegean_archipelago_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+		anatolia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT	
+		}
+			corsica_sardinia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+						corsica_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			baleares_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			add_permanent_claim = 126
+		}
+	}
+		latin_empire_recover_crimea = {
+		icon = atlantropa_crimea
+		required_missions = {
+			recover_east_islandsa
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 285
+				province_id = 2410
+				province_id = 5319
+			}
+			NOT = { owned_by = ROOT }
+		}
+		trigger = {
+			owns = 285
+			owns = 2410
+			owns = 5319
+		}
+		effect = {
+			285 = {
+				add_trade_modifier = {
+					who = root
+					duration = 7300
+					power = 35
+					key = byzantine_kaffa
+				}
+			}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}}
+	latin_empire_recover_west_islands = {
+		icon = mission_invade_island
+		required_missions = {
+			latin_empire_recover_crimea
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = corsica_sardinia_area
+					area = corsica_area			
+				province_id = 126
+				province_id = 333
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			corsica_sardinia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+						corsica_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			baleares_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			126 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+add_prestige = 15
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+
+	
+
+		latin_empire_jerusalem_integrate = {
+		icon = mission_livonian_knights
+		required_missions = { latin_empire_jerusalem }
+		position = 5
+		trigger = {
+		owns_core_province = 379
+		owns_core_province = 1854
+		owns_core_province = 364
+		owns_core_province = 365
+		}
+		effect = {
+		add_prestige = 25	
+			add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 400
+					target = A4R
+				}
+			add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 400
+					target = A5R
+				}
+		}
+
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+		latin_empire_pannonia = {
+		icon = atlantropa_pannonialake
+		required_missions = { latin_empire_recover_northern_balkans }
+		trigger = {
+						153 = {
+				is_strongest_trade_power = ROOT
+			}
+			any_owned_province = {
+				province_has_center_of_trade_of_level = 2
+			} 
+			}
+		effect = {
+		add_prestige = 15
+		add_country_modifier = { 
+    name = "pannonian_trade_mod"
+    duration = -1  
+}
+		}
+	}
+	latinempire_sahara = {
+	position = 7
+   icon = mission_lit_harness_steppes
+      required_missions = { latin_empire_recover_tripoli }
+
+	trigger = {
+			north_saharan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+}
+		effect = {
+	add_adm_power = 100	
+	add_dip_power = 100	
+	add_mil_power = 100	
+	add_country_modifier = {
+					name = "atlantropa_coring"
+					duration = 3475
+				}
+							fezzan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			north_saharan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+				hubas_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+}}
+	latinempire_punitia = {
+	icon = atlantropa_sackcity
+      required_missions = { latinempire_sahara }
+
+	trigger = {
+			hubas_area = { 
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+}
+		effect = {
+	add_adm_power = 100	
+	add_dip_power = 100	
+	add_mil_power = 100	
+	add_country_modifier = {
+					name = "atlantropa_coring"
+					duration = 3475
+				}
+							southlibya_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			nezzan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+				carthago_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+}}
+
+	latinempire_carthago = {
+   icon = atlantropa_carthago
+      required_missions = { latinempire_punitia }
+
+	trigger = {
+owns_core_province = 5223
+		}
+		effect = {
+	add_adm_power = 150	
+	add_dip_power = 150	
+	add_mil_power = 150	
+	add_country_modifier = {
+					name = "atlantropa_coring"
+					duration = 3475
+				}
+							libyasuperior_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+}}
+
+
+}
+
+	
+latin_empire_pp_balkans_north_italy = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = LAE
+	}
+	has_country_shield = yes
+			latin_empire_christianity = {
+		icon = atlantropa_pope
+
+		trigger = {
+	custom_trigger_tooltip = {
+	tooltip = latintroubles
+			OR = {
+				has_global_flag = end_of_latin_empire_crisis
+				has_country_flag = latindostajepodupie12	
+				is_year = 6930
+				}
+	}
+				owns_core_province = 151	
+		}
+		effect = {
+		add_stability = 1
+		country_event = { 
+    id = latin_empire.1
+    days = 1
+}
+	}}
+	
+	latin_empire_rechristianity = {
+		icon = atlantropa_catholfocus
+      required_missions = { latin_empire_christianity }
+				provinces_to_highlight = {
+			OR = {
+				region = egypt_region
+				region = anatolia_region
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+num_of_owned_provinces_with = {
+	value = 30
+	religion = ROOT
+	region = egypt_region
+}
+num_of_owned_provinces_with = {
+	value = 30
+	religion = ROOT
+	region = anatolia_region
+}
+	}
+		effect = {
+		add_stability = 2
+		add_country_modifier = { 
+    name = "atlantropa_christianity_latina"
+    duration = -1  
+
+}
+		
+		
+	}}
+
+	
+	
+		latin_empire_destroynicea = {
+		icon = atlantropa_nicean_empire
+		required_missions = { recover_east_islandsa }
+		position = 3
+		trigger = {
+		NOT = { exists = A52 }
+		owns_core_province = 322
+		}
+		effect = {
+		add_prestige = 15	
+			add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 400
+					target = KOJ
+				}}
+
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	latin_empire_jerusalem = {
+		icon = jerusalem
+		required_missions = { latin_empire_destroynicea }
+		position = 3
+		trigger = {
+		OR = {
+		owns_core_province = 379
+		senior_union_with = KOJ
+		}}
+		effect = {
+		add_prestige = 15	
+		egypt_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT		
+}
+
+	country_event = { 
+    id = knights_missions.2
+    days = 1
+}
+	}}
+		latinempire_egypt = {
+   icon = atlantropa_egypt
+      required_missions = { latin_empire_jerusalem }
+
+	trigger = {
+		
+	num_of_provinces_owned_or_owned_by_subjects_with = {
+	value = 40
+	region = egypt_region
+}}
+		effect = {
+	add_adm_power = 100	
+	add_dip_power = 100	
+	add_mil_power = 100	
+	add_country_modifier = {
+					name = "atlantropa_coring"
+					duration = 3475
+				}
+							tripolitania_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			djerba_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+}}
+		latin_empire_recover_tripoli = {
+		icon = mission_conquer_algiers
+		required_missions = {
+			latinempire_egypt
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = tripolitania_area
+				area = djerba_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			tripolitania_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			djerba_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			tunisia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			kabylia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	
+	latin_empire_recover_tunis = {
+		icon = atlantropa_africamap
+		required_missions = {
+			latin_empire_recover_tripoli
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = tunisia_area
+				area = kabylia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			tunisia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			kabylia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			maghreb_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+		latin_empire_recover_morocco = {
+		icon = atlantropa_mauretania
+		required_missions = {
+			latin_empire_recover_tunis
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = barbary_coast_area
+				area = algiers_area
+				area = northern_morocco_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			barbary_coast_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			algiers_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			northern_morocco_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			lower_andalucia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			upper_andalucia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+
+	latin_empire_recover_south_spain = {
+		icon = mission_new_kingdom_of_granada
+		required_missions = { latin_empire_recover_morocco }
+		provinces_to_highlight = {
+			OR = {
+				area = baleares_area
+				area = galicia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			baleares_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			galicia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			iberia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			upper_andalucia_area = {
+				limit = { owned_by = ROOT }
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+			lower_andalucia_area = {
+				limit = { owned_by = ROOT }
+				add_province_modifier = {
+					name = "faster_integration"
+					duration = 5475
+				}
+			}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+
+	
+	
+	}
+	
+	latinempireanatolia = {
+	slot = 5
+	generic = yes
+	ai = yes
+	potential = {
+		tag = LAE
+	}
+	has_country_shield = yes
+		latin_empire_destroyturkey = {
+		icon = atlantropa_turkish_empire
+		required_missions = { recover_east_islandsa }
+		position = 3
+		trigger = {
+		NOT = { exists = ERE }
+		owns_core_province = 4315
+		}
+		effect = {
+		add_prestige = 15	}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+
+	latinempire_romanisation = {
+   icon = anatolian_frontier
+      required_missions = { latin_empire_destroyturkey }
+
+	trigger = {
+		
+num_of_owned_provinces_with = {
+	value = 40
+	owned_by = ROOT
+	region = anatolia_region
+}
+}
+		effect = {
+	add_adm_power = 100	
+	add_dip_power = 100	
+	add_mil_power = 100	
+	add_country_modifier = {
+					name = "atlantropa_romanisation"
+					duration = 3475
+				}
+		caucasia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT	
+		}
+	151 = {
+	add_building = university}	
+}}
+	latinempire_caucasia = {
+   icon = atlantropa_caucasia
+     required_missions = { latinempire_romanisation }
+
+	trigger = {
+		
+num_of_owned_provinces_with = {
+	value = 15
+	owned_by = ROOT
+	region = caucasia_region
+}
+}
+		effect = {
+	add_adm_power = 100	
+	add_dip_power = 100	
+	add_mil_power = 100	
+	add_country_modifier = {
+					name = "atlantropa_romanisation"
+					duration = 3475
+				}
+
+				add_prestige = 10
+				
+	
+				
+}}
+	latinempire_preparecrusade = {
+   icon = kingdom_of_heaven
+     required_missions = { latinempire_caucasia }
+
+	trigger = {
+army_size = 125
+army_size_percentage = 0.75
+}
+		effect = {
+	add_mil_power = 100	
+	add_country_modifier = {
+					name = "crusade_for_persia"
+					duration = 9000
+				}
+			persia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT	
+		}
+				add_prestige = 15
+			
+}}
+	latinempire_crusade = {
+   icon = shield_of_christendom
+     required_missions = { latinempire_preparecrusade }
+
+	trigger = {
+num_of_owned_provinces_with = {
+	value = 25
+	owned_by = ROOT
+	region = persia_region
+}
+}
+		effect = {
+	add_mil_power = 100	
+	add_country_modifier = {
+					name = "atlantropa_christianisation"
+					duration = -1
+				}
+				add_prestige = 15
+			
+}}
+	latinempire_india = {
+   icon = mission_indian_empire
+     required_missions = { latinempire_crusade }
+
+	trigger = {
+num_of_owned_provinces_with = {
+	value = 1
+	owned_by = ROOT
+	superregion = india_superregion
+}
+}
+		effect = {
+	add_dip_power = 100	
+	add_country_modifier = {
+					name = "atlantropa_african_charter"
+					duration = -1
+				}
+				add_prestige = 25
+			
+}}
+	
+	}

@@ -1,0 +1,350 @@
+namespace = murimunion
+country_event = { #Intro
+	id = murimunion.1
+	title = murimunion.1.t 
+	desc = murimunion.1.d 
+	picture = thousandsword_eventPicture
+	
+	trigger = {
+		tag = KO3	
+		has_game_started = yes
+		NOT = { has_country_flag = murimunion_events_start}
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	#major = yes 
+	#major_trigger = { 
+	#	OR = {
+	#		capital_scope = { region = korea_region }
+	#		capital_scope = { region = manchuria_region }
+	#	}
+	#}
+	option = { 
+		name = murimunion.1.a
+		add_prestige = 10
+		set_country_flag = murimunion_events_start
+		734 = {
+			add_devastation = 5
+		}
+		4231 = {
+			add_devastation = 5
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #Korea Or The Union
+	id = murimunion.2
+	title = murimunion.2.t 
+	desc = murimunion.2.d 
+	picture = secretchina_eventPicture
+	is_triggered_only = yes 
+	major = yes 
+	major_trigger = { 
+		OR = {
+			capital_scope = { region = korea_region }
+			capital_scope = { region = manchuria_region }
+		}
+	}
+	option = { 
+		name = murimunion.2.a
+		trigger = {
+			exists = KOR
+		}
+		hidden_effect = {
+			every_subject_country = {
+				KO3 = {
+					free_vassal = KOR
+				}
+			}
+			country_event = {
+				id = murimunion.3
+				days = 2
+			}
+		}
+		custom_tooltip = aftertwodaysko3
+		switch_tag = KOR
+		ai_chance = { factor = 200 } 
+	}
+	option = { 
+		name = murimunion.2.a
+		trigger = {
+			NOT = {
+				exists = KOR
+			}
+		}
+		hidden_effect = {
+			set_dynasty = "Yi"
+			define_heir = {
+				dynasty = "Yi"
+				claim = 100
+			}
+		}
+		change_government = monarchy
+		add_government_reform = korean_monarchy
+		change_tag = KOR
+		swap_non_generic_missions = yes
+		ai_chance = { factor = 200 } 
+	}
+	option = { 
+		name = murimunion.2.b
+		set_country_flag = keep_to_murim_countryflag
+		custom_tooltip = beta_ko3
+		#swap_non_generic_missions = yes
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #annex dummy event
+	id = murimunion.3
+	title = murimunion.3.t 
+	desc = murimunion.3.d 
+	picture = secretchina_eventPicture
+	is_triggered_only = yes 
+	major = yes 
+	major_trigger = { 
+		capital_scope = { region = korea_region }
+	}
+	option = { 
+		name = murimunion.3.a
+		KOR = {
+			inherit = KO3
+		}
+		ai_chance = { factor = 200 } 
+	}
+}
+
+country_event = { #Purging Demons
+	id = murimunion.4
+	title = murimunion.4.t 
+	desc = murimunion.4.d 
+	picture = endofhwa_eventPicture
+	is_triggered_only = yes 
+	option = { 
+		name = murimunion.4.a
+		every_owned_province = {
+			limit = {
+				religion = demonic
+			}
+			change_religion = confucianism
+		}
+		2108 = {
+			change_culture = northkorean
+		}
+		4654 = {
+			change_culture = northkorean
+		}
+		2106 = {
+			change_culture = northkorean
+		}
+		4653 = {
+			change_culture = northkorean
+		}
+		2743 = {
+			change_culture = korean
+		}
+		2742 = {
+			change_culture = korean
+		}
+		732 = {
+			change_culture = korean
+		}
+		ai_chance = { factor = 200 } 
+	}
+}
+
+country_event = { #Hwasan Reunification
+	id = murimunion.5
+	title = murimunion.5.t 
+	desc = murimunion.5.d 
+	picture = mounthwa_eventPicture
+	is_triggered_only = yes 
+	option = { 
+		name = murimunion.5.a
+		add_country_modifier = {
+			name = ko3_hwasan_modifier
+			duration = -1
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = KOR
+				}
+				KOR = {
+					add_country_modifier = {
+						name = ko3_hwasan_modifier
+						duration = -1
+					}
+				}
+			}
+		}
+		733 = {
+			change_culture = korean
+		}
+		pyongan_area = {
+			change_culture = korean
+		}
+		ai_chance = { factor = 200 } 
+	}
+}
+
+country_event = { #The Execution of the Cheonma
+	id = murimunion.6
+	title = murimunion.6.t 
+	desc = murimunion.6.d 
+	picture = deademperor_eventPicture
+	is_triggered_only = yes
+	major = yes 
+	major_trigger = { 
+		OR = {
+			capital_scope = { region = korea_region }
+			capital_scope = { region = manchuria_region }
+		}
+	}
+	option = { 
+		name = murimunion.6.a
+		add_country_modifier = {
+			name = ko3_cheonma_modifier
+			duration = 18250
+		}
+		if = {
+			limit = {
+				exists = KO1
+			}
+			KO1 = {
+				kill_ruler = yes
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = KOR
+				}
+				KOR = {
+					add_country_modifier = {
+						name = ko3_cheonma_modifier
+						duration = 18250
+					}
+				}
+			}
+		}
+		ai_chance = { factor = 200 } 
+	}
+}
+
+country_event = { #Namgung Negotiations
+	id = murimunion.7
+	title = murimunion.7.t 
+	desc = murimunion.7.d 
+	picture = reorganization_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = murimunion.7.a
+		trigger = {
+			NOT = {
+				exists = KO4
+			}
+		}
+		add_prestige = 10
+		ai_chance = { factor = 200 } 
+	}
+	option = { 
+		name = murimunion.7.b
+		trigger = {
+			exists = KO4
+		}
+		KO4 = {
+			country_event = { id = murimunion.8 }
+		}
+		ai_chance = { factor = 200 } 
+	}
+}
+
+country_event = { #Murim Envoys
+	id = murimunion.8
+	title = murimunion.8.t 
+	desc = murimunion.8.d 
+	picture = demonmeeting_eventPicture
+	is_triggered_only = yes
+	major = yes 
+	major_trigger = { 
+		capital_scope = { region = korea_region }
+	}
+	option = { 
+		name = murimunion.8.a
+		KO3 = {
+			vassalize = KO4
+		}
+		ai_chance = { factor = 200 } 
+	}
+	option = { 
+		name = murimunion.8.b
+		ai_chance = { factor = 0 } 
+	}
+}
+
+country_event = { #Hwasan Seized
+	id = murimunion.9
+	title = murimunion.9.t 
+	desc = murimunion.9.d 
+	picture = fierytemple_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = murimunion.9.a
+		add_stability = 1
+		1845 = {
+			add_base_manpower = 2
+			add_base_tax = 2
+		}
+		4232 = {
+			add_base_manpower = -2
+			add_base_tax = -2
+		}
+		ai_chance = { factor = 200 } 
+	}
+}
+
+country_event = { #Court the Yi
+	id = murimunion.10
+	title = murimunion.10.t 
+	desc = murimunion.10.d 
+	picture = demonmeeting_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = murimunion.10.a
+		KOR = {
+			country_event = { id = murimunion.11 }
+		}
+		dip_power_cost = 50
+		ai_chance = { factor = 200 } 
+	}
+}
+
+country_event = { #Murim Envoys 2
+	id = murimunion.11
+	title = murimunion.11.t 
+	desc = murimunion.11.d 
+	picture = demonmeeting_eventPicture
+	is_triggered_only = yes
+	major = yes 
+	major_trigger = { 
+		capital_scope = { region = korea_region }
+	}
+	option = { 
+		name = murimunion.11.a
+		KO3 = {
+			vassalize = KOR
+		}
+		ai_chance = { factor = 10 } 
+	}
+	option = { 
+		name = murimunion.11.b
+		remove_historical_friend = KO3
+		add_historical_rival = KO3
+		KO3 = {
+			remove_historical_friend = KOR
+			add_historical_rival = KOR
+		}
+		ai_chance = { factor = 10 } 
+	}
+}

@@ -1,0 +1,35 @@
+namespace = ruskakultura_event
+
+province_event = {
+	id = ruskakultura_event.1
+	title = "ruskakultura_event.1.t"
+	desc = "ruskakultura_event.1.d"
+	picture = russianempire2_eventPicture
+	
+		trigger = {
+			has_owner_accepted_culture = no
+			has_owner_culture = no
+
+				
+				NOT = { has_province_flag = RUSKAZMIANAKULTURY }
+ 
+			owner = { TAG = X11 }
+		}
+		
+			
+	
+	mean_time_to_happen = {
+		months = 620
+		
+		modifier = {
+		factor = 0.8
+		NOT = { development = 20 }
+	}		
+	}
+	option = {
+		name = "ruskakultura_event.1.a"
+		ai_chance = { factor = 60 }
+		set_province_flag = RUSKAZMIANAKULTURY
+		change_culture = novgorodian
+	}
+}

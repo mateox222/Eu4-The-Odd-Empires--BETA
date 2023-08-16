@@ -39,6 +39,19 @@ country_decisions = {
 			owns_core_province = 5057
 		}
 		effect = {
+			hidden_effect = {
+				if = {
+					limit = {
+						OR = {
+							tag = A28
+							was_tag = A28
+							tag = A43
+							was_tag = A43
+						}
+					}
+					set_country_flag = atlantropa_north_formed_thule
+				}
+			}
 			change_tag = X17
 			add_prestige = 100
 			set_government_rank = 3

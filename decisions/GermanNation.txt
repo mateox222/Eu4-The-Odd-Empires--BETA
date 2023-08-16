@@ -45,7 +45,7 @@ country_decisions = {
 						region = south_german_region
 		}
 		allow = {
-			adm_tech = 20
+			adm_tech = 10
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 			is_at_war = no
@@ -81,7 +81,6 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = GER
-			restore_country_name_effect = yes
 			GER = { set_government_rank = 3 }
 			north_german_region = {
 				limit = {
@@ -108,6 +107,86 @@ country_decisions = {
 				country_event = { id = ideagroups.1 } #Swap Ideas
 			}
 			swap_non_generic_missions = yes
+
+			if = {
+				limit = { 
+					OR = {
+						was_tag = HAB
+						tag = HAB
+					}
+				}
+				set_country_flag = has_overriden_color_flag
+				override_country_name = GERMANEATLAND
+				change_country_color = { color = { 25 31 31 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = BAV
+						tag = BAV
+					}
+				}
+				set_country_flag = has_overriden_color_flag
+				override_country_name = GERMANBAVA
+				change_country_color = { color = { 47 195 212 } }
+			}
+
+			if = {
+				limit = { 
+					OR = {
+						was_tag = SWA
+						tag = SWA
+					}
+				}
+				set_country_flag = has_overriden_color_flag
+				override_country_name = GERMANSZWA
+				change_country_color = { color = { 129 89 73 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = FKN
+						tag = FKN
+					}
+				}
+				set_country_flag = has_overriden_color_flag
+				override_country_name = GERMANFKN
+				change_country_color = { color = { 77 89 145 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = SWI
+						tag = SWI
+					}
+				}
+				set_country_flag = has_overriden_color_flag
+				override_country_name = GERMANSWI
+				change_country_color = { color = { 136 105 67 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = TIR
+						tag = TIR
+					}
+				}
+				set_country_flag = has_overriden_color_flag
+				override_country_name = GERMANTIR
+				change_country_color = { color = { 56 105 67 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = CLI
+						tag = CLI
+					}
+				}
+				set_country_flag = has_overriden_color_flag
+				override_country_name = GERMANCLI
+				change_country_color = { color = { 124 144 67 } }
+			}
+
 		}
 		ai_will_do = {
 			factor = 100

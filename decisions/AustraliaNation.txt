@@ -72,6 +72,7 @@ country_decisions = {
 				}
 			}
 			change_tag = AUS
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -108,6 +109,121 @@ country_decisions = {
 			if = {
 				limit = { has_custom_ideas = no }
 				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+						#CUSTOMCOLONIALNATIONS
+						if = {
+				limit = { 
+					culture_group = british
+				}
+				override_country_name = AUSTRALIAbritish
+				change_country_color = { color = { 173 64 95 } }
+			}
+			if = {
+				limit = { 
+					culture_group = gaelic
+				}
+				override_country_name = AUSTRALIAgaelic
+				change_country_color = { color = { 69 51 91 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = latin
+				}
+				override_country_name = AUSTRALIAitalian
+				change_country_color = { color = { 69 129 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = iberian
+				}
+				override_country_name = AUSTRALIAiberian
+				change_country_color = { color = { 151 139 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = french
+				}
+				override_country_name = AUSTRALIAfrench
+				change_country_color = { color = { 84 147 162 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+					culture_group = east_slavic
+					culture_group =  slavic
+					}
+				}
+				override_country_name = AUSTRALIArussian
+				change_country_color = { color = { 68 134 100 } }
+			}
+			if = {
+				limit = { 
+					culture_group = byzantine
+				}
+				override_country_name = AUSTRALIAgreek
+				change_country_color = { color = { 118 74 149 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = maghrebi
+				}
+				override_country_name = AUSTRALIAarab
+				change_country_color = { color = { 168 118 149 } }
+			}		
+			if = {
+				limit = { 
+					culture_group = east_asian
+				}
+				override_country_name = AUSTRALIAchinese
+				change_country_color = { color = { 110 179 176 } }
+			}			
+			
+			if = {
+				limit = { 
+					culture_group = japanese_g 
+				}
+				override_country_name = AUSTRALIAjapanese
+				change_country_color = { color = { 209 16 67 } }
+			}			
+
+			if = {
+				limit = { 
+					culture_group = germanic 
+				}
+				override_country_name = AUSTRALIAgerman
+				change_country_color = { color = { 140 115 157 } }
+			}	
+			
+			if = {
+				limit = { 
+					culture_group = scandinavian
+				}
+				override_country_name = AUSTRALIAnorge
+				change_country_color = { color = { 91 116 167 } }
+			}	
+			if = {
+				limit = { 
+					culture_group = punic_culture
+				}
+				override_country_name = AUSTRALIAPHOENICIA
+				change_country_color = { color = { 186 201 147 } }
+			}
+			if = {
+				limit = { 
+					culture_group = central_american
+				}
+				override_country_name = AUSTRALIAAZTEC
+				change_country_color = { color = { 74 84 75 } } 
+			}
+			
+			if = {
+				limit = { 
+					primary_culture = polish
+				}
+				override_country_name = AUSTRALIApolish
+				change_country_color = { color = { 217 30 34 } }
 			}
 		}
 		ai_will_do = {

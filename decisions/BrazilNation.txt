@@ -72,6 +72,7 @@ country_decisions = {
 				}
 			}
 			change_tag = BRZ
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -116,6 +117,128 @@ country_decisions = {
 				add_government_reform = feudalism_reform
 			}
 			set_country_flag = changed_from_colonial_nation
+			if = {
+                limit = { has_custom_ideas = no }
+                country_event = { id = ideagroups.1 } #Swap Ideas
+            }
+			set_country_flag = changed_from_colonial_nation
+			set_country_flag = fled_to_brazil
+
+						#CUSTOMCOLONIALNATIONS
+						if = {
+				limit = { 
+					culture_group = british
+				}
+				override_country_name = BRAZILbritish
+				change_country_color = { color = { 120 64 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = gaelic
+				}
+				override_country_name = BRAZILgaelic
+				change_country_color = { color = { 69 101 90 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = latin
+				}
+				override_country_name = BRAZILitalian
+				change_country_color = { color = { 89 159 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = iberian
+				}
+				override_country_name = BRAZILiberian
+				change_country_color = { color = { 131 159 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = french
+				}
+				override_country_name = BRAZILfrench
+				change_country_color = { color = { 84 127 162 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+					culture_group = east_slavic
+					culture_group =  slavic
+					}
+				}
+				override_country_name = BRAZILrussian
+				change_country_color = { color = { 99 124 100 } }
+			}
+			if = {
+				limit = { 
+					culture_group = byzantine
+				}
+				override_country_name = BRAZILgreek
+				change_country_color = { color = { 158 74 149 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = maghrebi
+				}
+				override_country_name = BRAZILarab
+				change_country_color = { color = { 128 158 149 } }
+			}		
+			if = {
+				limit = { 
+					culture_group = east_asian
+				}
+				override_country_name = BRAZILchinese
+				change_country_color = { color = { 140 179 176 } }
+			}			
+			
+			if = {
+				limit = { 
+					culture_group = japanese_g 
+				}
+				override_country_name = BRAZILjapanese
+				change_country_color = { color = { 229 76 67 } }
+			}			
+
+			if = {
+				limit = { 
+					culture_group = germanic 
+				}
+				override_country_name = BRAZILgerman
+				change_country_color = { color = { 150 135 157 } }
+			}	
+			
+			if = {
+				limit = { 
+					culture_group = scandinavian
+				}
+				override_country_name = BRAZILnorge
+				change_country_color = { color = { 31 106 167 } }
+			}	
+			if = {
+				limit = { 
+					culture_group = punic_culture
+				}
+				override_country_name = BRAZILPHOENICIA
+				change_country_color = { color = { 236 221 137 } }
+			}
+			if = {
+				limit = { 
+					culture_group = central_american
+				}
+				override_country_name = BRAZILAZTEC
+				change_country_color = { color = { 40 105 75 } } 
+			}
+			
+			if = {
+				limit = { 
+					primary_culture = polish
+				}
+				override_country_name = BRAZILpolish
+				change_country_color = { color = { 207 40 34 } }
+			}
 		}
 		ai_will_do = {
 			factor = 1
@@ -161,6 +284,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = BRZ
+			on_change_tag_effect = yes
 			every_subject_country = {
 				limit = {
 					is_colonial_nation = yes
@@ -225,12 +349,7 @@ country_decisions = {
 			}
 			add_stability = -2
 			add_prestige = -25
-			if = {
-                limit = { has_custom_ideas = no }
-                country_event = { id = ideagroups.1 } #Swap Ideas
-            }
-			set_country_flag = changed_from_colonial_nation
-			set_country_flag = fled_to_brazil
+
 		}
 		ai_will_do = {
 			factor = 1

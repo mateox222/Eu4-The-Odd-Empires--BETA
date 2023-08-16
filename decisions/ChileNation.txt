@@ -67,6 +67,7 @@ country_decisions = {
 			}
 		}
 		effect = {
+			
 			hidden_effect = {
 				if = {
 					limit = {
@@ -77,6 +78,8 @@ country_decisions = {
 				}
 			}
 			change_tag = CHL
+			on_change_tag_effect = yes
+			set_country_flag = changed_from_colonial_nation
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -108,8 +111,122 @@ country_decisions = {
 				change_government = monarchy
 				add_government_reform = feudalism_reform
 			}
+						#CUSTOMCOLONIALNATIONS
+						if = {
+				limit = { 
+					culture_group = british
+				}
+				override_country_name = CHILEbritish
+				change_country_color = { color = { 17 164 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = gaelic
+				}
+				override_country_name = CHILEgaelic
+				change_country_color = { color = { 169 111 90 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = latin
+				}
+				override_country_name = CHILEitalian
+				change_country_color = { color = { 69 159 190 } }
+			}
+			if = {
+				limit = { 
+					culture_group = iberian
+				}
+				override_country_name = CHILEiberian
+				change_country_color = { color = { 151 119 190 } }
+			}
+			if = {
+				limit = { 
+					culture_group = french
+				}
+				override_country_name = CHILEfrench
+				change_country_color = { color = { 84 117 112 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+					culture_group = east_slavic
+					culture_group =  slavic
+					}
+				}
+				override_country_name = CHILErussian
+				change_country_color = { color = { 168 124 100 } }
+			}
+			if = {
+				limit = { 
+					culture_group = byzantine
+				}
+				override_country_name = CHILEgreek
+				change_country_color = { color = { 168 74 119 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = maghrebi
+				}
+				override_country_name = CHILEarab
+				change_country_color = { color = { 118 158 149 } }
+			}		
+			if = {
+				limit = { 
+					culture_group = east_asian
+				}
+				override_country_name = CHILEchinese
+				change_country_color = { color = { 180 119 176 } }
+			}			
+			
+			if = {
+				limit = { 
+					culture_group = japanese_g 
+				}
+				override_country_name = CHILEjapanese
+				change_country_color = { color = { 209 176 67 } }
+			}			
+
+			if = {
+				limit = { 
+					culture_group = germanic 
+				}
+				override_country_name = CHILEgerman
+				change_country_color = { color = { 140 115 157 } }
+			}	
+			
+			if = {
+				limit = { 
+					culture_group = scandinavian
+				}
+				override_country_name = CHILEnorge
+				change_country_color = { color = { 191 106 167 } }
+			}	
+			if = {
+				limit = { 
+					culture_group = punic_culture
+				}
+				override_country_name = CHILEPHOENICIA
+				change_country_color = { color = { 236 201 187 } }
+			}
+			if = {
+				limit = { 
+					culture_group = central_american
+				}
+				override_country_name = CHILEAZTEC
+				change_country_color = { color = { 84 124 75 } } 
+			}
+			
+			if = {
+				limit = { 
+					primary_culture = polish
+				}
+				override_country_name = CHILEpolish
+				change_country_color = { color = { 217 30 34 } }
+			}
 			add_prestige = 25
-			set_country_flag = changed_from_colonial_nation
 		}
 		ai_will_do = {
 			factor = 1

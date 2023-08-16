@@ -102,12 +102,15 @@ city = {
 	local_sailors_modifier = 0.25
 	garrison_growth = 0.05
 	allowed_num_of_manufactories = 1
+	local_friendly_movement_speed = -0.05
+	local_hostile_movement_speed = -0.05
 }
 
 port = {
 	local_institution_spread = 0.10
 	local_has_geobukseon = yes
 	local_has_voc_indiamen = yes
+
 }
 
 in_state = {
@@ -118,11 +121,14 @@ in_capital_state = {
 	local_institution_spread = 0.05
 	local_state_maintenance_modifier = -0.5
 	local_governing_cost = -1.0
+	local_friendly_movement_speed = 0.1
+	min_local_autonomy = -10	
 }
 
 coastal = {
 	supply_limit_modifier = 0.5
 	province_trade_power_modifier = 0.25
+	local_colonial_growth = 75	
 }
 
 seat_in_parliament = {
@@ -133,6 +139,7 @@ seat_in_parliament = {
 }
 
 non_coastal = {
+		local_colonial_growth = -25
 }
 
 coastal_sea = {
@@ -144,7 +151,7 @@ tropical = {
 	supply_limit_modifier = -0.3
 	local_hostile_attrition = 2
 
-	local_development_cost = 0.05
+	local_development_cost = 0.3
 
 	picture = "climate_tropical"
 }
@@ -155,7 +162,7 @@ arctic = {
 	local_hostile_attrition = 1
 
 	allowed_num_of_buildings = -1
-	local_development_cost = 0.5
+	local_development_cost = 0.55
 
 	picture = "climate_arctic"
 }
@@ -165,7 +172,7 @@ arid = {
 	supply_limit_modifier = -0.2
 	local_hostile_attrition = 1
 
-	local_development_cost = 0.1
+	local_development_cost = 0.15
 
 	picture = "climate_arid"
 }
@@ -184,6 +191,7 @@ land_province = {
 mild_winter = {
 	local_hostile_attrition = 1
 	supply_limit_modifier = -0.1
+	local_development_cost = 0.05
 
 	picture = "winter_mild"
 }
@@ -192,6 +200,7 @@ normal_winter = {
 	local_hostile_attrition = 2
 	supply_limit_modifier = -0.2
 	migration_cost = 0.1
+	local_development_cost = 0.1
 
 	picture = "winter_normal"
 }
@@ -200,6 +209,7 @@ severe_winter = {
 	local_hostile_attrition = 3
 	supply_limit_modifier = -0.3
 	migration_cost = 0.2
+	local_development_cost = 0.15
 
 	picture = "winter_severe"
 }
@@ -233,6 +243,8 @@ blockaded = {
 	ship_recruit_speed = 0.2
 	local_monthly_devastation = 0.25
 	province_trade_power_modifier = -1
+	local_colonial_growth = -25
+	local_institution_spread = -0.10
 }
 
 no_adjacent_controlled = {
@@ -270,7 +282,7 @@ province_razed = {
 
 development = {
 	allowed_num_of_buildings = 0.1
-	supply_limit_modifier = 0.02
+	supply_limit_modifier = 0.01
 	local_missionary_strength = -0.001
 	land_forcelimit	= 0.1			# special case, affected by autonomy
 	naval_forcelimit = 0.1			# special case, affected by autonomy & set to 0 by code if not port
@@ -283,13 +295,16 @@ development = {
 }
 
 development_scaled = {
-	local_development_cost = 0.03
+	local_development_cost = 0.05
 }
 
 capital_city = {
 	fort_level = 1
 	garrison_growth = 0.05	
 	local_regiment_cost = -0.25	
+	local_warscore_cost_modifier = 0.1	
+	local_governing_cost = -0.25	
+	
 }
 
 
@@ -436,8 +451,8 @@ occupied = {
 	local_manpower_modifier = -0.95
 	local_sailors_modifier = -0.95
 	local_institution_spread = -0.1
-	local_defensiveness = -0.25
-	local_garrison_size = -0.10		
+	local_defensiveness = -0.5
+	local_garrison_size = -0.25		
 	local_monthly_devastation = 0.2
 	local_build_time = 0.75	
 }
@@ -445,13 +460,16 @@ occupied = {
 under_siege = {
 	trade_goods_size_modifier = -0.75
 	local_institution_spread = -1
-	local_build_time = 1
+	local_build_time = 2
 	local_monthly_devastation = 0.1
 	province_trade_power_modifier = -1	
+	local_unrest = 5	
+	local_governing_cost = -0.75	
 }
 
 
 devastation = {
+	local_build_time = 1
 	trade_goods_size_modifier = -2
 	supply_limit_modifier = -0.5
 	local_institution_spread = -2.0
@@ -577,7 +595,8 @@ scorched_earth = {
 ##########################################################################
 
 base_values = {
-
+	defensiveness = -0.50	
+	development_cost = 0.05
 	global_tax_modifier = 0.14
 	global_missionary_strength = -0.03
 	global_manpower_modifier = -0.075
@@ -840,7 +859,7 @@ unconditional_surrender = {
 
 call_for_peace = {
 	war_exhaustion = 0.0025
-	monthly_byz_adm_power  = 0.25 	
+	monthly_byz_adm_power  = 0.05 	
 }
 
 war_exhaustion = {
@@ -1388,6 +1407,7 @@ in_golden_era = {
 absolutism = {
 	administrative_efficiency = 0.3
 	discipline = 0.05
+	monthly_phoenix_power = 0.025
 	core_decay_on_your_own = -0.5
 	monthly_ottoman_decadence = -0.5
 	monthly_niflheim_ruler_authority = 0.025

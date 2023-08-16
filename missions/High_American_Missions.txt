@@ -34,7 +34,7 @@ ha_sunset_group = {
 		trigger = {
 			custom_trigger_tooltip = {
 				tooltip = gain_foothold_in_ireland.tooltip
-				british_isles_region = {
+				iberia_region = {
 					has_discovered = ROOT
 				}
 				OR = {
@@ -60,7 +60,7 @@ ha_sunset_group = {
 		
 		effect = {
 			add_prestige = 15
-			british_isles_region = {
+			iberia_region = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
@@ -76,13 +76,13 @@ ha_sunset_group = {
 		position = 7
 		
 		provinces_to_highlight = {
-			region = british_isles_region
+			region = iberia_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			has_discovered = ROOT
 		}
 		
 		trigger = {
-			british_isles_region = {
+			iberia_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -200,7 +200,7 @@ ha_sunset_group_three = {
 		position = 6
 		
 		provinces_to_highlight = {
-			region = iberia_region
+			region = british_isles_region
 			NOT = { owned_by = ROOT }
 			has_discovered = ROOT
 		}
@@ -208,10 +208,10 @@ ha_sunset_group_three = {
 		trigger = {
 			custom_trigger_tooltip = {
 				tooltip = gain_foothold_in_spain.tooltip
-				iberia_region = {
+				british_isles_region = {
 					has_discovered = ROOT
 				}
-				iberia_region = {
+				british_isles_region = {
 					owned_by = ROOT
 					#has_port = yes
 				}
@@ -220,7 +220,7 @@ ha_sunset_group_three = {
 		
 		effect = {
 			add_prestige = 15
-			iberia_region = {
+			british_isles_region = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
@@ -236,13 +236,13 @@ ha_sunset_group_three = {
 		position = 7
 		
 		provinces_to_highlight = {
-			region = iberia_region
+			region = british_isles_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			has_discovered = ROOT
 		}
 		
 		trigger = {
-			iberia_region = {
+			british_isles_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}

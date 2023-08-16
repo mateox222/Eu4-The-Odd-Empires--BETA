@@ -80,6 +80,7 @@ country_decisions = {
 				}
 			}
 			change_tag = NZL
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -188,6 +189,7 @@ country_decisions = {
 		}
 		effect = {
 			change_tag = AOT
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { government_rank = 2 }
@@ -224,6 +226,121 @@ country_decisions = {
 				duration = 7300
 			}
 			add_prestige = 25
+			#CUSTOMCOLONIALNATIONS
+if = {
+	limit = { 
+	culture_group = british
+	}
+	override_country_name = ZELANDIAbritish
+	change_country_color = { color = { 66 66 96 } }
+	}
+	if = {
+	limit = { 
+	culture_group = gaelic
+	}
+	override_country_name = ZELANDIAgaelic
+	change_country_color = { color = { 69 161 60 } }
+	}
+	
+	if = {
+	limit = { 
+	culture_group = latin
+	}
+	override_country_name = ZELANDIAitalian
+	change_country_color = { color = { 69 169 96 } }
+	}
+	if = {
+	limit = { 
+	culture_group = iberian
+	}
+	override_country_name = ZELANDIAiberian
+	change_country_color = { color = { 161 169 90 } }
+	}
+	if = {
+	limit = { 
+	culture_group = french
+	}
+	override_country_name = ZELANDIAfrench
+	change_country_color = { color = { 68 167 182 } }
+	}
+	if = {
+	limit = { 
+	OR = {
+	culture_group = east_slavic
+	culture_group =  slavic
+	}
+	}
+	override_country_name = ZELANDIArussian
+	change_country_color = { color = { 68 164 166 } }
+	}
+	if = {
+	limit = { 
+	culture_group = byzantine
+	}
+	override_country_name = ZELANDIAgreek
+	change_country_color = { color = { 168 64 169 } }
+	}
+	
+	if = {
+	limit = { 
+	culture_group = maghrebi
+	}
+	override_country_name = ZELANDIAarab
+	change_country_color = { color = { 166 168 169 } }
+	}		
+	if = {
+	limit = { 
+	culture_group = east_asian
+	}
+	override_country_name = ZELANDIAchinese
+	change_country_color = { color = { 160 176 168 } }
+	}			
+	
+	if = {
+	limit = { 
+	culture_group = japanese_g 
+	}
+	override_country_name = ZELANDIAjapanese
+	change_country_color = { color = { 269 66 67 } }
+	}			
+	
+	if = {
+	limit = { 
+	culture_group = germanic 
+	}
+	override_country_name = ZELANDIAgerman
+	change_country_color = { color = { 160 165 167 } }
+	}	
+	
+	if = {
+	limit = { 
+	culture_group = scandinavian
+	}
+	override_country_name = ZELANDIAnorge
+	change_country_color = { color = { 66 126 167 } }
+	}	
+	if = {
+		limit = { 
+			culture_group = punic_culture
+		}
+		override_country_name = ZELANDIAPHOENICIA
+		change_country_color = { color = { 206 201 247 } }
+	}
+	if = {
+		limit = { 
+			culture_group = central_american
+		}
+		override_country_name = ZELANDIAAZTEC
+		change_country_color = { color = { 70 145 45 } } 
+	}
+	
+	if = {
+	limit = { 
+	primary_culture = polish
+	}
+	override_country_name = ZELANDIApolish
+	change_country_color = { color = { 166 36 64 } }
+	}
 		}
 		ai_will_do = {
 			factor = 1

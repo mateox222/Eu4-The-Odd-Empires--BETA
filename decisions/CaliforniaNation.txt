@@ -1,3 +1,4 @@
+
 country_decisions = {
 
 	california_nation = {
@@ -71,6 +72,7 @@ country_decisions = {
 				}
 			}
 			change_tag = CAL
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -122,6 +124,121 @@ country_decisions = {
 			add_country_modifier = {
 				name = "centralization_modifier"
 				duration = 7300
+			}
+						#CUSTOMCOLONIALNATIONS
+						if = {
+				limit = { 
+					culture_group = british
+				}
+				override_country_name = KALIFORNIAbritish
+				change_country_color = { color = { 15 64 190 } }
+			}
+			if = {
+				limit = { 
+					culture_group = gaelic
+				}
+				override_country_name = KALIFORNIAgaelic
+				change_country_color = { color = { 69 131 90 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = latin
+				}
+				override_country_name = KALIFORNIAitalian
+				change_country_color = { color = { 69 129 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = iberian
+				}
+				override_country_name = KALIFORNIAiberian
+				change_country_color = { color = { 151 159 92 } }
+			}
+			if = {
+				limit = { 
+					culture_group = french
+				}
+				override_country_name = KALIFORNIAfrench
+				change_country_color = { color = { 84 127 162 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+					culture_group = east_slavic
+					culture_group =  slavic
+					}
+				}
+				override_country_name = KALIFORNIArussian
+				change_country_color = { color = { 68 124 120 } }
+			}
+			if = {
+				limit = { 
+					culture_group = byzantine
+				}
+				override_country_name = KALIFORNIAgreek
+				change_country_color = { color = { 128 74 149 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = maghrebi
+				}
+				override_country_name = KALIFORNIAarab
+				change_country_color = { color = { 168 158 129 } }
+			}		
+			if = {
+				limit = { 
+					culture_group = east_asian
+				}
+				override_country_name = KALIFORNIAchinese
+				change_country_color = { color = { 180 129 176 } }
+			}			
+			
+			if = {
+				limit = { 
+					culture_group = japanese_g 
+				}
+				override_country_name = KALIFORNIAjapanese
+				change_country_color = { color = { 209 26 67 } }
+			}			
+
+			if = {
+				limit = { 
+					culture_group = germanic 
+				}
+				override_country_name = KALIFORNIAgerman
+				change_country_color = { color = { 140 135 127 } }
+			}	
+			
+			if = {
+				limit = { 
+					culture_group = scandinavian
+				}
+				override_country_name = KALIFORNIAnorge
+				change_country_color = { color = { 92 126 167 } }
+			}	
+			if = {
+				limit = { 
+					culture_group = punic_culture
+				}
+				override_country_name = KALIFORNIAPHOENICIA
+				change_country_color = { color = { 146 201 147 } }
+			}
+			if = {
+				limit = { 
+					culture_group = central_american
+				}
+				override_country_name = KALIFORNIAAZTEC
+				change_country_color = { color = { 44 84 74 } } 
+			}
+			
+			if = {
+				limit = { 
+					primary_culture = polish
+				}
+				override_country_name = KALIFORNIApolish
+				change_country_color = { color = { 227 30 34 } }
 			}
 			add_prestige = 25
 			set_country_flag = changed_from_colonial_nation

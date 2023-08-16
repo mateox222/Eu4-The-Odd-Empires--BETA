@@ -1,0 +1,429 @@
+
+namespace = atlantropa_venedia_colonialevent
+country_event = {
+	id = atlantropa_venedia_colonialevent.1
+	title = "atlantropa_venedia_colonialevent.1.t"
+	desc = "atlantropa_venedia_colonialevent.1.d"
+	picture = COLONIZATION_eventPicture
+		is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_hudson
+			is_core = ROOT
+		}
+		NOT = { exists = CE1 }
+        OR = {
+		is_colonial_nation_of = POL
+    	is_colonial_nation_of = PLC   
+        }
+	}
+	immediate = {
+swap_non_generic_missions = yes
+		change_tag = CE1
+
+	}
+	option = {
+		name = "atlantropa_venedia_colonialevent.1.a"
+	}
+}
+
+
+
+
+country_event = {
+	id = atlantropa_venedia_colonialevent.2
+	title = "atlantropa_venedia_colonialevent.2.t"
+	desc = "atlantropa_venedia_colonialevent.2.d"
+	picture = COLONIZATION_eventPicture
+		is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_louisiana
+			is_core = ROOT
+		}
+		NOT = { exists = CE3 }
+        OR = {
+		is_colonial_nation_of = POL
+    	is_colonial_nation_of = PLC   
+        }
+	}
+	immediate = {
+swap_non_generic_missions = yes
+		change_tag = CE3
+
+	}
+	option = {
+		name = "atlantropa_venedia_colonialevent.1.a"
+	}
+}
+
+country_event = {
+	id = atlantropa_venedia_colonialevent.3
+	title = "atlantropa_venedia_colonialevent.2.t"
+	desc = "atlantropa_venedia_colonialevent.2.d"
+	picture = COLONIZATION_eventPicture
+		is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_eastern_america 
+			is_core = ROOT
+		}
+		NOT = { exists = CE2 }
+        OR = {
+		is_colonial_nation_of = POL
+    	is_colonial_nation_of = PLC   
+        }
+	}
+	immediate = {
+swap_non_generic_missions = yes
+		change_tag = CE2
+
+	}
+	option = {
+		name = "atlantropa_venedia_colonialevent.1.a"
+	}
+}
+
+country_event = {
+	id = atlantropa_venedia_colonialevent.4
+	title = "atlantropa_venedia_colonialevent.2.t"
+	desc = "atlantropa_venedia_colonialevent.2.d"
+	picture = COLONIZATION_eventPicture
+		is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_canada
+			is_core = ROOT
+		}
+		NOT = { exists = CE4 }
+        OR = {
+		is_colonial_nation_of = POL
+    	is_colonial_nation_of = PLC   
+        }
+	}
+	immediate = {
+swap_non_generic_missions = yes
+		change_tag = CE4
+
+	}
+	option = {
+		name = "atlantropa_venedia_colonialevent.1.a"
+	}
+}
+
+
+
+country_event = {
+	id = atlantropa_venedia_colonialevent.5
+	title = "atlantropa_venedia_colonialevent.2.t"
+	desc = "atlantropa_venedia_colonialevent.2.d"
+	picture = COLONIZATION_eventPicture
+		is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_australia
+			is_core = ROOT
+		}
+		NOT = { exists = CE6 }
+        OR = {
+		is_colonial_nation_of = POL
+    	is_colonial_nation_of = PLC   
+        }
+	}
+	immediate = {
+swap_non_generic_missions = yes
+		change_tag = CE6
+
+	}
+	option = {
+		name = "atlantropa_venedia_colonialevent.1.a"
+	}
+}
+
+
+country_event = {
+	id = atlantropa_venedia_colonialevent.6
+	title = "atlantropa_venedia_colonialevent.2.t"
+	desc = "atlantropa_venedia_colonialevent.2.d"
+	picture = COLONIZATION_eventPicture
+		is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_australia
+			is_core = ROOT
+		}
+		NOT = { exists = CE6 }
+        OR = {
+		is_colonial_nation_of = POL
+    	is_colonial_nation_of = PLC   
+        }
+	}
+	immediate = {
+swap_non_generic_missions = yes
+		change_tag = CE6
+
+	}
+	option = {
+		name = "atlantropa_venedia_colonialevent.1.a"
+	}
+}
+
+country_event = {
+	id = atlantropa_venedia_colonialevent.7
+	title = "atlantropa_venedia_colonialevent.2.t"
+	desc = "atlantropa_venedia_colonialevent.2.d"
+	picture = COLONIZATION_eventPicture
+		is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_california
+			is_core = ROOT
+		}
+		NOT = { exists = CE7 }
+        OR = {
+		is_colonial_nation_of = POL
+    	is_colonial_nation_of = PLC   
+        }
+	}
+	immediate = {
+swap_non_generic_missions = yes
+		change_tag = CE7
+
+	}
+	option = {
+		name = "atlantropa_venedia_colonialevent.1.a"
+	}
+}
+
+country_event = {
+	id = atlantropa_venedia_colonialevent.8
+	title = "atlantropa_venedia_colonialevent.2.t"
+	desc = "atlantropa_venedia_colonialevent.2.d"
+	picture = COLONIZATION_eventPicture
+		is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_ohio
+			is_core = ROOT
+		}
+		NOT = { exists = CE8 }
+        OR = {
+		is_colonial_nation_of = POL
+    	is_colonial_nation_of = PLC   
+        }
+	}
+	immediate = {
+swap_non_generic_missions = yes
+		change_tag = CE8
+
+	}
+	option = {
+		name = "atlantropa_venedia_colonialevent.1.a"
+	}
+}
+
+country_event = {
+	id = atlantropa_venedia_colonialevent.9
+	title = "atlantropa_venedia_colonialevent.2.t"
+	desc = "atlantropa_venedia_colonialevent.2.d"
+	picture = COLONIZATION_eventPicture
+		is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_alaska
+			is_core = ROOT
+		}
+		NOT = { exists = CE9 }
+        OR = {
+		is_colonial_nation_of = POL
+    	is_colonial_nation_of = PLC   
+        }
+	}
+	immediate = {
+swap_non_generic_missions = yes
+		change_tag = CE9
+
+	}
+	option = {
+		name = "atlantropa_venedia_colonialevent.1.a"
+	}
+}
+
+country_event = {
+	id = atlantropa_venedia_colonialevent.10
+	title = "atlantropa_venedia_colonialevent.2.t"
+	desc = "atlantropa_venedia_colonialevent.2.d"
+	picture = COLONIZATION_eventPicture
+		is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_mexico
+			is_core = ROOT
+		}
+		NOT = { exists = C1E }
+        OR = {
+		is_colonial_nation_of = POL
+    	is_colonial_nation_of = PLC   
+        }
+	}
+	immediate = {
+swap_non_generic_missions = yes
+		change_tag = C1E 
+
+	}
+	option = {
+		name = "atlantropa_venedia_colonialevent.1.a"
+	}
+}
+
+country_event = {
+	id = atlantropa_venedia_colonialevent.11
+	title = "atlantropa_venedia_colonialevent.2.t"
+	desc = "atlantropa_venedia_colonialevent.2.d"
+	picture = COLONIZATION_eventPicture
+		is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_texas
+			is_core = ROOT
+		}
+		NOT = { exists = C2E }
+        OR = {
+		is_colonial_nation_of = POL
+    	is_colonial_nation_of = PLC   
+        }
+	}
+	immediate = {
+swap_non_generic_missions = yes
+		change_tag = C2E 
+
+	}
+	option = {
+		name = "atlantropa_venedia_colonialevent.1.a"
+	}
+}
+
+country_event = {
+	id = atlantropa_venedia_colonialevent.12
+	title = "atlantropa_venedia_colonialevent.2.t"
+	desc = "atlantropa_venedia_colonialevent.2.d"
+	picture = COLONIZATION_eventPicture
+		is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_the_carribean
+			is_core = ROOT
+		}
+		NOT = { exists = CE5 }
+        OR = {
+		is_colonial_nation_of = POL
+    	is_colonial_nation_of = PLC   
+        }
+	}
+	immediate = {
+swap_non_generic_missions = yes
+		change_tag = CE5
+
+	}
+	option = {
+		name = "atlantropa_venedia_colonialevent.1.a"
+	}
+}
+
+country_event = {
+	id = atlantropa_venedia_colonialevent.13
+	title = "atlantropa_venedia_colonialevent.2.t"
+	desc = "atlantropa_venedia_colonialevent.2.d"
+	picture = COLONIZATION_eventPicture
+		is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			OR = {
+				continent = north_america
+				continent = south_america
+			}
+		}
+		NOT = { exists = C1G }
+        OR = {
+		is_colonial_nation_of = A58
+    	is_colonial_nation_of = A56 
+        }
+	}
+	immediate = {
+swap_non_generic_missions = yes
+		change_tag = C1G
+
+	}
+	option = {
+		name = "atlantropa_venedia_colonialevent.1.a"
+	}
+}
+
+country_event = {
+	id = atlantropa_venedia_colonialevent.14
+	title = "atlantropa_venedia_colonialevent.2.t"
+	desc = "atlantropa_venedia_colonialevent.2.d"
+	picture = COLONIZATION_eventPicture
+		is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_australia
+			is_core = ROOT
+		}
+		NOT = { exists = C2G }
+        OR = {
+		is_colonial_nation_of = A58
+    	is_colonial_nation_of = A56 
+        }
+	}
+	immediate = {
+swap_non_generic_missions = yes
+		change_tag = C2G
+
+	}
+	option = {
+		name = "atlantropa_venedia_colonialevent.1.a"
+	}
+}

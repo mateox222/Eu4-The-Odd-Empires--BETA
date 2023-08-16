@@ -1,0 +1,823 @@
+Atl_Armenia_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = ARM
+		}
+	}
+
+	Armeniaincome = {
+		icon = mission_zambezi_gold
+		position = 2
+		required_missions = { armenia_stabilise }
+		trigger = {
+			owns_core_province = 2306
+			2306 = {
+				base_production = 10
+			}
+			culture = ROOT
+		}
+		effect = {
+			2306 = {
+				change_trade_goods = silver
+			}
+		}
+	}
+	Armeniamanufactures = {
+		icon = saxon_manufacturing
+		position = 3
+		required_missions = { armenianprosperity }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					has_building = wharf
+					has_building = weapons
+					has_building = textile
+					has_building = plantations
+					has_building = tradecompany
+					has_building = mills
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = fjordland_manufacturing
+				duration = 3650
+			}
+			2205 = {
+				change_trade_goods = atl_clothes
+			}
+		}
+	}
+	Armeniaconqueranatola = {
+		icon = mission_pol_breadbasket_europe
+		position = 5
+		required_missions = { armena_george_2 }
+		provinces_to_highlight = {
+			region = caucasia_region
+		}
+		trigger = {
+			caucasia_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			add_prestige = 25
+			add_country_modifier = {
+				name = armenia_seventh_mission
+				duration = -1
+			}
+		}
+	}
+	Armeniaantioch = {
+		icon = convert_the_holy_lands
+		position = 6
+		required_missions = { Armeniaunitedhayasta }
+		provinces_to_highlight = {
+			province_id = 2313
+		}
+		trigger = {
+			owns_core_province = 2313
+		}
+		effect = {
+			add_prestige = 15
+			2313 = {
+				change_culture = ROOT
+				change_religion = coptic
+				change_province_name = "Antiok"
+				rename_capital = "Antiok"
+			}
+			add_stability = 1
+		}
+	}
+	Armeniapalestina = {
+		icon = mission_holy_horde
+		position = 8
+		required_missions = { Armeniaantioch }
+		provinces_to_highlight = {
+			OR = {
+				area = aleppo_area
+				area = syria_area
+				area = syrian_desert_area
+				area = palestine_area
+				area = trans_jordan_area
+			}
+		}
+		trigger = {
+			aleppo_area  = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			syria_area  = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			syrian_desert_area  = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			palestine_area  = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			trans_jordan_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			add_prestige = 15
+			add_legitimacy = 10
+			add_country_modifier = {
+				name = armenia_nine_mission
+				duration = -1
+			}
+			add_dip_power = 50
+			add_mil_power =  50
+			add_adm_power =  50
+		}
+	}
+	Armeniaconquerarabia = {
+		icon = dom_ara_remensa_war
+		position = 10
+		required_missions = { Armeniaprepareconquest }
+		provinces_to_highlight = {
+			region = arabia_region
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 25
+				region = arabia_region
+			}
+		}
+		effect = {
+			add_prestige = 15
+			add_dip_power = 250
+			add_mil_power = 250
+			add_adm_power = 250
+		}
+	}
+	Armeniaconquerqasibr = {
+		icon = befriend_ethiopia
+		position = 12
+		required_missions = { Armeniaconqueregypt }
+		provinces_to_highlight = {
+			province_id = 1234
+		}
+		trigger = {
+			owns_core_province = 1234
+		}
+		effect = {
+			add_prestige = 15
+			1234 = {
+				change_culture = ROOT
+				change_religion = coptic
+				change_province_name = "Kasr Ibrim"
+				rename_capital = "Kasr Ibrim"
+			}
+		}
+	}
+}
+
+Atl_Armenia_12 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = ARM
+		}
+	}
+
+	armenianprosperity = {
+		icon = prosper_in_piedmont
+		position = 2
+		required_missions = { armenia_stabilise }
+		provinces_to_highlight = {
+			OR = {
+				area = samtskhe_area
+				area = armenia_area
+				area = erzurum_area
+			}
+			NOT = {
+				is_prosperous = yes
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = fjordlandProsperity
+				samtskhe_area = {
+					type = all
+					is_prosperous = yes
+				}
+				armenia_area = {
+					type = all
+					is_prosperous = yes
+				}
+				erzurum_area = {
+					type = all
+					is_prosperous = yes
+				}
+			}
+		}
+		effect = {
+			4302 = {
+				change_trade_goods = glass
+			}
+			2305 = {
+				change_trade_goods = ammunition
+			}
+			420 = {
+				change_trade_goods = atl_tools
+			}
+		}
+	}
+	Armenia_conquer_georgia = {
+		icon = mission_ottoman_early_army
+		position = 3
+		required_missions = { Armenia_Establish_Army }
+		provinces_to_highlight = {
+			OR = {
+				area = samtskhe_area
+			}
+		}
+		trigger = {
+			samtskhe_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			add_prestige = 15
+			imereti_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			kartli_kakheti_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	armena_george_2 = {
+		icon = mission_the_caucasus_rus
+		position = 4
+		required_missions = { Armenia_conquer_georgia }
+		provinces_to_highlight = {
+			OR = {
+				area = imereti_area
+				area = kartli_kakheti_area
+			}
+		}
+		trigger = {
+			imereti_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			kartli_kakheti_area  = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			add_country_modifier = {
+				name = armenia_second_mission
+				duration = -1
+			}
+			add_prestige = 10
+			caucasia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	Armeniantradeship = {
+		icon = atlantropa_barge
+		position = 9
+		required_missions = { Armeniapalestina }
+		trigger = {
+			navy_size = 50
+			num_of_galley = 40
+		}
+		effect = {
+			add_prestige = 10
+			add_stability = 1
+			add_dip_power = 50
+			add_mil_power = 50
+			add_adm_power = 50
+		}
+	}
+}
+
+Atl_Armenia_13 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = ARM
+		}
+	}
+
+	armenia_stabilise = {
+		icon = atlantropa_armeniaflag
+		position = 1
+		required_missions = {  }
+		trigger = {
+			stability = 3
+			num_of_loans = 0
+		}
+		effect = {
+			add_years_of_income = 1
+			add_manpower = 5
+		}
+	}
+	Armenia_Establish_Army = {
+		icon = atlantropa_armenianking
+		position = 2
+		required_missions = { armenia_stabilise }
+		trigger = {
+			army_size = 15
+			mil_power = 100
+		}
+		effect = {
+			add_mil_power = -100
+			add_country_modifier = {
+				name = armenia_first_mission
+				duration = -1
+			}
+			add_prestige = 10
+			samtskhe_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			dulkadir_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	fortify_armenia = {
+		icon = mission_fortify_mandu
+		position = 3
+		required_missions = { Armenia_Establish_Army }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				has_building = fort_15th
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = armenia_fifth_mission
+				duration = -1
+			}
+			add_prestige = 5
+		}
+	}
+	Armeniasuperfortress = {
+		icon = mission_fortify_rajputana
+		position = 4
+		required_missions = { fortify_armenia }
+		trigger = {
+			any_owned_province = {
+				has_building = atlantropa_superfortress
+			}
+		}
+		effect = {
+			add_stability = 1
+			capital_scope = {
+				add_base_manpower = 3
+			}
+			add_yearly_manpower = 2
+		}
+	}
+	Armeniaunitedhayasta = {
+		icon = atlantropa_WIELKAARMENIA
+		position = 5
+		required_missions = { armena_george_2 Armeniaunitedhayastan }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 20
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			country_event = {
+				id = armenian_events.2
+			}
+		}
+	}
+	Armeniajerusalem = {
+		icon = jerusalem
+		position = 6
+		required_missions = { Armeniaunitedhayasta }
+		provinces_to_highlight = {
+			province_id = 379
+		}
+		trigger = {
+			owns_core_province = 379
+		}
+		effect = {
+			add_prestige = 15
+			379 = {
+				change_culture = ROOT
+				change_religion = coptic
+				change_province_name = "Yerusaghem"
+				rename_capital = "Yerusaghem"
+			}
+			add_stability = 1
+		}
+	}
+	Armeniachurches = {
+		icon = mission_catholic_heddal_church
+		position = 7
+		required_missions = { Armeniaantioch Armeniajerusalem Armeniarakka }
+		trigger = {
+			temple = 10
+		}
+		effect = {
+			add_years_of_income = 2.5
+			define_advisor = {
+				type = administrator8_tod
+				name = "Nazar Avagyan"
+				skill = 3
+				discount = yes
+			}
+			add_adm_power =  100
+		}
+	}
+	Armeniaexpandreligion = {
+		icon = mission_devastate_christianity
+		position = 8
+		required_missions = { Armeniachurches }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 50
+				religion = ROOT
+			}
+		}
+		effect = {
+			country_event = {
+				id = armenian_events.1
+			}
+		}
+	}
+	Armeniaprepareconquest = {
+		icon = mission_mansure_army
+		position = 9
+		required_missions = { Armeniapalestina Armeniabasra }
+		trigger = {
+			army_size = 100
+			mashriq_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			stability = 3
+		}
+		effect = {
+			egypt_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT    }
+				}
+				add_permanent_claim = ROOT
+			}
+			persia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT    }
+				}
+				add_permanent_claim = ROOT
+			}
+			arabia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT    }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = armenia_ten_mission
+				duration = 10950
+			}
+			add_dip_power = -100
+			add_mil_power =  -100
+			add_adm_power =  -100
+		}
+	}
+	Armeniaconqueralexandria = {
+		icon = mission_conquer_alexandria
+		position = 10
+		required_missions = { Armeniaprepareconquest }
+		provinces_to_highlight = {
+			province_id = 358
+		}
+		trigger = {
+			owns_core_province = 358
+		}
+		effect = {
+			add_prestige = 10
+			407 = {
+				change_culture = ROOT
+				change_religion = coptic
+				change_province_name = "Alek’sandria"
+				rename_capital = "Alek’sandria"
+			}
+		}
+	}
+	Armeniaconqueregypt = {
+		icon = mission_occupy_alexandria
+		position = 11
+		required_missions = { Armeniaconqueralexandria }
+		provinces_to_highlight = {
+			region = egypt_region
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 25
+				region = egypt_region
+			}
+		}
+		effect = {
+			add_prestige = 15
+			add_dip_power = 250
+			add_mil_power = 250
+			add_adm_power = 250
+			horn_of_africa_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT    }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+Atl_Armenia_14 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = ARM
+		}
+	}
+
+	armenianwiness = {
+		icon = mission_vodka_monopoly
+		position = 2
+		required_missions = { armenia_stabilise }
+		provinces_to_highlight = {
+			province_id = 419
+		}
+		trigger = {
+			419 = {
+				base_production = 10
+			}
+		}
+		effect = {
+			419 = {
+				add_province_modifier = {
+					name = armenia_wines
+					duration = -1
+				}
+			}
+		}
+	}
+	Armenia_Conquer_Tao = {
+		icon = mission_conquer_maharashtra
+		position = 3
+		required_missions = { Armenia_Establish_Army }
+		provinces_to_highlight = {
+			OR = {
+				area = dulkadir_area
+			}
+		}
+		trigger = {
+			dulkadir_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			add_prestige = 15
+			cukurova_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			north_kurdistan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	Armeniaunitedhayastan = {
+		icon = mission_conquer_air
+		position = 4
+		required_missions = { Armenia_Conquer_Tao }
+		provinces_to_highlight = {
+			OR = {
+				area = cukurova_area
+				area = north_kurdistan_area
+			}
+		}
+		trigger = {
+			north_kurdistan_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			cukurova_area  = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			add_country_modifier = {
+				name = armenia_third_mission
+				duration = -1
+			}
+			add_prestige = 10
+			anatolia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT    }
+				}
+				add_permanent_claim = ROOT
+			}
+			151 = {      add_permanent_claim = ROOT }
+			5150 = {      add_permanent_claim = ROOT }
+		}
+	}
+	Armmenianshiddd = {
+		icon = mission_establish_high_seas_navy
+		position = 9
+		required_missions = { Armeniabasra }
+		trigger = {
+			navy_size = 50
+			num_of_heavy_ship = 15
+		}
+		effect = {
+			add_prestige = 10
+			add_stability = 1
+			add_dip_power = 50
+			add_mil_power = 50
+			add_adm_power = 50
+			saurashtra_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+Atl_Armenia_15 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = ARM
+		}
+	}
+
+	Armeniaroads = {
+		icon = atlantropa_imperialroads
+		position = 2
+		required_missions = { armenia_stabilise }
+		trigger = {
+			atlantropa_road = 20
+		}
+		effect = {
+			every_owned_province = {
+				limit = {
+					has_building = atlantropa_road
+				}
+				add_base_production = 1
+			}
+		}
+	}
+	armeniantracks = {
+		icon = atlantropa_steamengine
+		position = 3
+		required_missions = { Armeniaroads }
+		trigger = {
+			atlantropa_tracks = 20
+		}
+		effect = {
+			every_owned_province = {
+				limit = {
+					has_building = atlantropa_tracks
+				}
+				add_base_production = 3
+			}
+		}
+	}
+	Armeniaconstant = {
+		icon = take_constantinople
+		position = 5
+		required_missions = { Armeniaunitedhayastan }
+		provinces_to_highlight = {
+			region = anatolia_region
+		}
+		trigger = {
+			anatolia_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			owns_core_province = 151
+		}
+		effect = {
+			add_prestige = 25
+			add_country_modifier = {
+				name = armenia_eight_mission
+				duration = -1
+			}
+			151 = {
+				change_culture = ROOT
+				change_religion = coptic
+				change_province_name = "Kaysreri Kaghak"
+				rename_capital = "Kaysreri Kaghak"
+			}
+		}
+	}
+	Armeniarakka = {
+		icon = mission_battle_of_varna
+		position = 6
+		required_missions = { Armeniaunitedhayasta }
+		provinces_to_highlight = {
+			province_id = 407
+		}
+		trigger = {
+			owns_core_province = 407
+		}
+		effect = {
+			add_prestige = 15
+			407 = {
+				change_culture = ROOT
+				change_religion = coptic
+				change_province_name = "Nikeforion"
+				rename_capital = "Nikeforion"
+			}
+			add_stability = 1
+		}
+	}
+	Armeniabasra = {
+		icon = atlantropa_babylon
+		position = 8
+		required_missions = { Armeniarakka }
+		provinces_to_highlight = {
+			area = basra_area
+		}
+		trigger = {
+			owns_core_province = 408
+			num_of_owned_provinces_with = {
+				area = basra_area
+				value = 3
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_prestige = 15
+			408 = {
+				change_culture = ROOT
+				change_religion = coptic
+				change_province_name = "Basra"
+				rename_capital = "Basra"
+			}
+			add_country_modifier = {
+				name = armenia_sixth_mission
+				duration = -1
+			}
+			add_dip_power = 50
+			add_mil_power =  50
+			add_adm_power =  50
+		}
+	}
+	ArmeniaconquerPersia = {
+		icon = mission_conquer_persia
+		position = 10
+		required_missions = { Armeniaprepareconquest }
+		provinces_to_highlight = {
+			region = persia_region
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 25
+				region = persia_region
+			}
+		}
+		effect = {
+			add_prestige = 15
+			add_dip_power = 250
+			add_mil_power = 250
+			add_adm_power = 250
+		}
+	}
+	Armeniaaksum = {
+		icon = mission_envoy_to_ethiopia
+		position = 12
+		required_missions = { Armeniaconqueregypt }
+		provinces_to_highlight = {
+			province_id = 1227
+		}
+		trigger = {
+			owns_core_province = 1227
+		}
+		effect = {
+			add_prestige = 15
+			1227 = {
+				change_culture = ROOT
+				change_religion = coptic
+			}
+		}
+	}
+}
+

@@ -1,0 +1,1628 @@
+namespace = legionhispanian_events
+
+country_event = {
+	id = legionhispanian_events.2
+	title = "legionhispanian_events.2.t"
+	desc = "legionhispanian_events.2.d"
+	picture = NAVAL_MILITARY_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+			name = "legionhispanian_events.2.a"
+		  stormo_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+		add_permanent_claim = ROOT								
+						
+}
+	}
+}
+
+country_event = {
+	id = legionhispanian_events.3
+	title = "legionhispanian_events.3.t"
+	desc = "legionhispanian_events.3.d"
+	picture = romanarmytest_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+			name = "legionhispanian_events.3.a"
+				storebugt_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+	}
+}
+country_event = {
+	id = legionhispanian_events.4
+	title = "legionhispanian_events.4.t"
+	desc = "legionhispanian_events.4.d"
+	picture = spainiberiacum_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+			name = "legionhispanian_events.4.a"
+  				plymouth_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+	}
+}
+country_event = {
+	id = legionhispanian_events.5
+	title = "legionhispanian_events.5.t"
+	desc = "legionhispanian_events.5.d"
+	picture = fortaleza_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+			name = "legionhispanian_events.5.a"
+		add_trust = {
+    who = AT7
+    value = 25
+    mutual = yes
+}
+  vassalize = AT7
+tuath_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+aonnia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}	
+	add_country_modifier = {
+				name = "atlantropa_order_caltavara"
+				duration = -1
+			}						
+
+	}
+}
+
+country_event = {
+	id = legionhispanian_events.6
+	title = "legionhispanian_events.6.t"
+	desc = "legionhispanian_events.6.d"
+	picture = NATIVES_HIGH_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+			name = "legionhispanian_events.6.a"
+  							magaranja_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+}
+	}
+}
+country_event = {
+	id = legionhispanian_events.7
+	title = "legionhispanian_events.7.t"
+	desc = "legionhispanian_events.7.d"
+	picture = CONQUEST_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+			name = "legionhispanian_events.7.a"
+  							meneforaa_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+						
+}
+	}
+}
+country_event = {
+	id = legionhispanian_events.8
+	title = "legionhispanian_events.8.t"
+	desc = "legionhispanian_events.8.d"
+	picture = Meropiscity_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+			name = "legionhispanian_events.8.a"
+  							hydroponika_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT					
+						
+}
+add_prestige = 5	
+	}
+		option = {
+			name = "legionhispanian_events.8.b"
+  							hydroponika_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT					
+						
+}
+A30 = {
+declare_war_with_cb = {
+    who = A34
+    casus_belli = cb_annex
+}
+add_prestige = 15	
+	}}
+}
+country_event = {
+	id = legionhispanian_events.9
+	title = "legionhispanian_events.9.t"
+	desc = "legionhispanian_events.9.d"
+	picture = CONQUEST_eventPicture 
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+			name = "legionhispanian_events.9.a"
+  							southhyberborea_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT					
+						
+}
+add_country_modifier = {
+				name = "atlantropa_greek_knowledge"
+				duration = -1
+			}
+	}
+}
+
+country_event = {
+	id = legionhispanian_events.10
+	title = "legionhispanian_events.10.t"
+	desc = "legionhispanian_events.10.d"
+	picture = citysiegea_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+			name = "legionhispanian_events.10.a"
+		
+  							easthyberborea_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT					
+						
+}
+  							westhyberborea_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT					
+						
+}
+  							rabinsder_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT					
+						
+}
+
+}}
+
+country_event = {
+	id = legionhispanian_events.11
+	title = legionhispanian_events.11.t
+	desc = legionhispanian_events.11.d
+	picture = citysiegesalgrada_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+			name = "legionhispanian_events.11.a"
+
+		5110 = {
+				change_culture = avalonian
+				change_religion = ROOT
+				rename_capital = "Princeps Castellum"
+				add_devastation = 40
+				set_base_tax = 2	
+				set_base_production = 2	
+				set_base_manpower = 2	
+				change_province_name = "Princeps Castellum"	
+				
+
+			}
+		5061 = {
+	add_base_tax = 2
+	add_base_production = 2	
+	add_base_manpower = 2	
+			}
+						add_country_modifier = {
+				name = "atlantropa_sendgard_defence"
+				duration = -1
+			}
+	
+	}
+}
+
+country_event = {
+	id = legionhispanian_events.12
+	title = "legionhispanian_events.12.t"
+	desc = "legionhispanian_events.12.d"
+	picture = romanshipbattle_eventPicture 
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.12.a
+		5109 = {
+				change_culture = avalonian
+				change_religion = ROOT
+				rename_capital = "Hiberna Portum"
+				add_devastation = 40
+				set_base_tax = 2	
+				set_base_production = 2	
+				set_base_manpower = 2	
+				change_province_name = "Hiberna Portum"	
+				
+
+			}
+					5061 = {
+	add_base_tax = 2
+	add_base_production = 2	
+	add_base_manpower = 2	
+			}
+	}
+}
+country_event = {
+	id = legionhispanian_events.13
+	title = "legionhispanian_events.13.t"
+	desc = "legionhispanian_events.13.d"
+	picture = islandbrafil_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.13.a
+			country_event = { 
+    id = legionhispanian_events.14
+}
+	}
+}
+country_event = {
+	id = legionhispanian_events.14
+	title = "legionhispanian_events.14.t"
+	desc = "legionhispanian_events.14.d"
+	picture = islandbrafil_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.14.a
+		hidden_effect = {
+				5013 = {
+				cede_province = ROOT
+				add_territorial_core = ROOT
+				change_religion = ROOT
+				rename_capital = "Hy-Brasil"
+				change_province_name = "Hy-Brasil"	
+				
+
+			} }
+	}
+}
+country_event = {
+	id = legionhispanian_events.15
+	title = "legionhispanian_events.15.t"
+	desc = "legionhispanian_events.15.d"
+	picture = islandbrafil_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.15.a
+								hyperborea_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT	
+				
+						
+}
+
+}
+	}
+	country_event = {
+	id = legionhispanian_events.16
+	title = "legionhispanian_events.16.t"
+	desc = "legionhispanian_events.16.d"
+	picture = islandbrafil_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.16.a
+	add_prestige = 10
+				add_mil_power = 100	
+				add_country_modifier = {
+				name = "atlantropa_coring"
+				duration = -1
+			}
+
+}
+	}
+
+	country_event = {
+	id = legionhispanian_events.17
+	title = legionhispanian_events.17.t
+	desc = legionhispanian_events.17.d
+	picture = NAVAL_MILITARY_eventPicture
+	major = yes
+	fire_only_once = yes
+	mean_time_to_happen = {
+	months = 3
+}
+	trigger = {
+	OR = {
+	tag = A34
+	tag = A37
+	tag = A38
+}
+	war_with = A27
+
+}
+	option = {
+	name = legionhispanian_events.17a 
+	add_prestige = 10	
+}
+}
+	country_event = {
+	id = legionhispanian_events.18
+	title = "legionhispanian_events.18.t"
+	desc = "legionhispanian_events.18.d"
+	picture = sackniflport_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.18.a
+					add_prestige = 10
+		5098 = {
+				change_culture = avalonian
+				change_religion = ROOT
+				rename_capital = "Finis Mundi"
+				add_devastation = 40
+				set_base_tax = 2	
+				set_base_production = 2	
+				set_base_manpower = 2	
+				change_province_name = "Finis Mundi"	
+				
+
+			}
+
+}
+	}
+		country_event = {
+	id = legionhispanian_events.19
+	title = "legionhispanian_events.19.t"
+	desc = "legionhispanian_events.19.d"
+	picture = iceland_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.19.a
+				add_prestige = 10
+				add_adm_power = 100	
+				add_country_modifier = {
+				name = "atlantropa_northway"
+				duration = -1
+			}
+
+			
+				
+	
+
+}
+	}
+			country_event = {
+	id = legionhispanian_events.20
+	title = "legionhispanian_events.20.t"
+	desc = "legionhispanian_events.20.d"
+	picture = roman_legion_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.20.a
+					add_country_modifier = {
+					name = "atlantropa_avalon_legio"
+					duration = -1
+				}
+
+}
+	}
+				country_event = {
+	id = legionhispanian_events.21
+	title = "legionhispanian_events.21.t"
+	desc = "legionhispanian_events.21.d"
+	picture = romanisation_eventPicture
+	is_triggered_only = yes
+	major = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.21.a
+					change_tag = A37
+			add_prestige = 50
+			set_government_rank = 2
+			swap_non_generic_missions = yes
+			
+			  					thule_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT	}
+
+}
+	}
+	
+				country_event = {
+	id = legionhispanian_events.22
+	title = "legionhispanian_events.22.t"
+	desc = "legionhispanian_events.22.d"
+	picture = SHIP_SAILING_eventPicture
+	is_triggered_only = yes
+	major = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.22.a
+		add_country_modifier = {
+				name = "atlantropa_naval_invasion"
+				duration = -1
+			}
+							add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 400
+					target = SCO
+				}
+											add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 400
+					target = HSC
+				}
+}
+	}
+
+
+
+				country_event = {
+	id = legionhispanian_events.23
+	title = "legionhispanian_events.23.t"
+	desc = "legionhispanian_events.23.d"
+	picture = scottishcastle_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.23.a
+						british_isles_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT	
+}
+				add_prestige = 20
+				add_mil_power = 150					
+
+	
+}
+	}
+	
+	country_event = {
+	id = legionhispanian_events.24
+	title = legionhispanian_events.24.t
+	desc = legionhispanian_events.24.d
+	picture = londonburn_eventPicture
+	major = yes
+	fire_only_once = yes
+	trigger = {
+	culture_group = roman_group
+	OR = {
+	owns = 4361
+	controls = 4361
+}
+}
+	option = {
+	name = legionhispanian_events.24a 
+	4361 = {
+	add_devastation = 45
+	add_base_tax = -2
+	add_base_production = -2
+    add_base_manpower = -2		
+	}
+	add_treasury = 250	
+	add_mil_power = 100
+}
+}
+				country_event = {
+	id = legionhispanian_events.25
+	title = "legionhispanian_events.25.t"
+	desc = "legionhispanian_events.25.d"
+	picture = hellenistic_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.25.a
+						4361 = {
+				rename_capital = "Rosburgium"
+				change_province_name = "Rosburgium"	
+				change_culture = avalonian
+				change_religion = ROOT
+
+			}
+			guyenne_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT					
+}
+pyrenees_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT					
+}
+languedoc_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT					
+}
+poitou_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT					
+}
+massif_central_area = {
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT					
+}
+
+
+
+}
+	}
+					country_event = {
+	id = legionhispanian_events.26
+	title = "legionhispanian_events.26.t"
+	desc = "legionhispanian_events.26.d"
+	picture = irelandhdmap_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.26.a
+		munster_area = { 
+				add_province_modifier = {
+					name = "eng_irish_revolts"
+					duration = 5475
+				}
+			}
+			connacht_area = { 
+				add_province_modifier = {
+					name = "eng_irish_revolts"
+					duration = 5475
+				}
+			}
+			ulster_area = { 
+				add_province_modifier = {
+					name = "eng_irish_revolts"
+					duration = 5475
+				}
+			}
+			leinster_area = { 
+				add_province_modifier = {
+					name = "eng_irish_revolts"
+					duration = 5475
+				}
+			}
+}
+	}
+	country_event = {
+	id = legionhispanian_events.27
+	title = "legionhispanian_events.27.t"
+	desc = "legionhispanian_events.27.d"
+	picture = irelandhdmap_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.27.a
+			munster_area = { 
+			change_culture = hibernian
+			}
+			connacht_area = { 
+			change_culture = hibernian
+			}
+			ulster_area = { 
+			change_culture = hibernian
+			}
+			leinster_area = { 
+			change_culture = hibernian
+			}
+			add_accepted_culture = hibernian
+			add_dip_power = 250
+			add_splendor = 200
+			define_advisor = {
+    type = commandant
+    name = "Gaius Pontus"
+	discount = yes
+    skill = 3
+    culture = hibernian
+    religion = catholic
+}
+}
+	}
+		country_event = {
+	id = legionhispanian_events.28
+	title = "legionhispanian_events.28.t"
+	desc = "legionhispanian_events.28.d"
+	picture = roman_legion_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.28.a
+									doggerland_area = { add_unrest = 5	}
+	
+			low_countries_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT					
+}
+
+}
+	}
+			country_event = {
+	id = legionhispanian_events.29
+	title = "legionhispanian_events.29.t"
+	desc = "legionhispanian_events.29.d"
+	picture = albionempire_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.29.a
+			change_tag = A38
+			add_prestige = 100
+			set_government_rank = 3
+			country_event = { id = ideagroups.1 }
+			4361 = {
+				move_capital_effect = yes
+				change_culture = avalonian
+				change_religion = ROOT
+				rename_capital = Rosburinium
+			}
+			swap_non_generic_missions = yes
+
+
+}
+	}
+		country_event = {
+	id = legionhispanian_events.30
+	title = legionhispanian_events.30.t
+	desc = legionhispanian_events.30.d
+	picture = dutchnavalbattle_eventPicture
+	major = yes
+	fire_only_once = yes
+	trigger = {
+	culture_group = roman_group
+	OR = {
+	owns = 97
+	controls = 97
+}
+}
+	option = {
+	name = legionhispanian_events.30.a 
+	97 = {
+	add_devastation = 45
+	add_base_tax = -2
+	add_base_production = -2
+    add_base_manpower = -2		
+	}
+	add_treasury = 250	
+	add_mil_power = 100
+}
+}
+			country_event = {
+	id = legionhispanian_events.31
+	title = "legionhispanian_events.31.t"
+	desc = "legionhispanian_events.31.d"
+	picture = Meropiscity_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.31.a
+			
+		5795 = {
+				change_culture	= batavian
+				change_religion = ROOT
+				rename_capital = "Amstelodami"
+				change_province_name = "Amstelodami"	
+
+
+			}
+					add_adm_power = 50	
+					add_dip_power = 50	
+					add_mil_power = 50	
+
+}
+	}
+				country_event = {
+	id = legionhispanian_events.32
+	title = "legionhispanian_events.32.t"
+	desc = "legionhispanian_events.32.d"
+	picture = romanarmytest_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.32.a
+		add_prestige = 20
+				add_dip_power = 50	
+				normandy_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				ile_de_france_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			
+
+}
+	}
+					country_event = {
+	id = legionhispanian_events.33
+	title = "legionhispanian_events.33.t"
+	desc = "legionhispanian_events.33.d"
+	picture = rzeczpospolitahusarz_eventPicture
+	major = yes
+	trigger = { 
+	OR = {
+	tag = POL
+	tag = PLC 
+	}
+	has_global_flag = rzymianie_maszeruja_na_polske 
+	}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.33.a
+				add_country_modifier = {
+				name = "gwalt_sila_zadany_musi_byc_sila_odparty"
+				duration = 5475
+			}
+			hidden_effect = {
+			
+			A34 = { add_historical_rival = POL add_historical_rival = PLC }		
+			A37 = { add_historical_rival = POL add_historical_rival = PLC }	
+			A38 = { add_historical_rival = POL add_historical_rival = PLC }	
+			
+			add_historical_rival = A34	
+			add_historical_rival = A37	
+			add_historical_rival = A38
+			}
+}
+	}
+	
+			country_event = {
+	id = legionhispanian_events.34
+	title = legionhispanian_events.34.t
+	desc = legionhispanian_events.34.d
+	picture = zlotowilleupada_eventPicture
+	major = yes
+	fire_only_once = yes
+	trigger = {
+	culture_group = roman_group
+	OR = {
+	owns = 184
+	controls = 184
+}
+}
+	option = {
+	name = legionhispanian_events.34.a 
+	184 = {
+	rename_capital = "Civitas Aureliani"
+	change_province_name = "Aureliani"
+	add_devastation = 80
+	add_base_tax = -3
+	add_base_production = -3
+    add_base_manpower = -3		
+	}
+	add_treasury = 250	
+	add_mil_power = 100
+}
+}	
+
+							country_event = {
+	id = legionhispanian_events.35
+	title = "legionhispanian_events.35.t"
+	desc = "legionhispanian_events.35.d"
+	picture = venedia_in_siege_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.35.a 
+		add_prestige = 25
+			add_country_modifier = {
+				name = "eng_french_recovery"
+				duration = 5475
+			}
+			set_global_flag = LEGIOWANTTOCONQUESTHRE
+}
+	}
+								country_event = {
+	id = legionhispanian_events.36
+	title = "legionhispanian_events.36.t"
+	desc = "legionhispanian_events.36.d"
+	picture = roman_legion_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.36.a 
+		1276 = {
+				add_trade_modifier = {
+					who = root
+					duration = 5475
+					power = 25
+					key = bordeaux_ambition
+				}
+			}
+			pyrenees_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			lyonesse_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			
+			poitou_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			loire_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			orleans_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			199 = {
+				add_permanent_claim = ROOT
+			}
+			194 = {
+				add_permanent_claim = ROOT
+			}
+			195 = {
+				add_permanent_claim = ROOT
+			}
+			4697 = {
+				add_permanent_claim = ROOT
+			}
+}
+	}
+	
+					country_event = {
+	id = legionhispanian_events.37
+	title = "legionhispanian_events.37.t"
+	desc = "legionhispanian_events.37.d"
+	picture = romanshipbattle_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+		name = legionhispanian_events.37.a
+			add_country_modifier = {
+				name = "atlantropa_african_charter"
+				duration = -1
+			}
+}
+	}
+	country_event = {
+	id = legionhispanian_events.38
+	title = "legionhispanian_events.38.t"
+	desc = "legionhispanian_events.38.d"
+	picture = romanarmytest_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+			name = "legionhispanian_events.38.a"
+			add_prestige = 15
+					declare_war_with_cb = {
+    who = emperor
+    casus_belli = cb_annex
+}
+			
+				
+	}
+}
+	country_event = {
+	id = legionhispanian_events.39
+	title = "legionhispanian_events.39.t"
+	desc = "legionhispanian_events.39.d"
+	picture = roman_legion_eventPicture
+		trigger = {
+	NOT = { has_global_flag = romanieniemaszerujenarzym }
+	culture_group = roman_group
+	OR = {
+	owns = 118
+	controls = 118
+}
+NOT = { tag = A79 }
+}
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+			name = "legionhispanian_events.39.a"
+	118 = {
+	add_devastation = 45
+	add_base_tax = -2
+	add_base_production = -2
+    add_base_manpower = -2		
+	}
+	add_treasury = 250	
+	add_mil_power = 100
+}
+			
+				
+	}
+	country_event = {
+	id = legionhispanian_events.40
+	title = "legionhispanian_events.40.t"
+	desc = "legionhispanian_events.40.d"
+	picture = romanempire_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+			name = "legionhispanian_events.40.a"
+				118 = {
+				change_culture = roman
+				change_religion = ROOT
+				rename_capital = "Roma"
+				add_devastation = 20
+				change_province_name = "Roma"	
+				}
+				change_primary_culture = roman
+				add_accepted_culture = avalonian
+				add_country_modifier = {
+				name = "roma_albion"
+				duration = 14750
+			}
+			override_country_name = "WESTROMAN"
+			add_prestige = 50	
+			set_country_flag = announce_western_roman
+}
+			
+				
+	}
+	country_event = {
+	id = legionhispanian_events.41
+	title = "legionhispanian_events.41.t"
+	desc = "legionhispanian_events.41.d"
+	picture = avaloncity_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+			name = "legionhispanian_events.41.a"
+				add_country_modifier = {
+					name = "atlantropa_taxes_legio"
+					duration = 2475
+				}
+}
+	
+	}
+	country_event = {
+	id = legionhispanian_events.42
+	title = "legionhispanian_events.42.t"
+	desc = "legionhispanian_events.42.d"
+	picture = minecelticum_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+			name = "legionhispanian_events.42.a"
+				add_dip_power = -150
+								5055 = {
+				add_base_tax = 2	
+				add_base_production = 5
+				add_base_manpower = 2	
+				change_trade_goods = silver
+		}
+				}
+}
+	
+	country_event = {
+	id = legionhispanian_events.43
+	title = "legionhispanian_events.43.t"
+	desc = "legionhispanian_events.43.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+			name = "legionhispanian_events.43.a"
+	add_adm_power = 100	
+	add_dip_power = 100	
+	add_mil_power = 100	
+	add_absolutism = 15	
+		}
+				}
+
+	country_event = {
+	id = legionhispanian_events.44
+	title = "legionhispanian_events.44.t"
+	desc = "legionhispanian_events.44.d"
+	picture = Meropiscity_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+	name = "legionhispanian_events.44.a"
+		add_adm_power = 50	
+	add_dip_power = 50	
+	add_mil_power = 50	
+	add_treasury = 500	
+					add_country_modifier = {
+					name = "atlantropa_economy_legio"
+					duration = -1
+				}
+		}
+				}
+					country_event = {
+	id = legionhispanian_events.45
+	title = "legionhispanian_events.45.t"
+	desc = "legionhispanian_events.45.d"
+	picture = POPE_PREACHING_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+	name = "legionhispanian_events.45.a"
+		5061 = {
+		add_cardinal = yes	
+			}
+		storebugt_area = {
+			change_culture = ROOT
+			}
+		plymouth_area = {
+			change_culture = ROOT
+			}	
+			5048 = {
+			add_building = temple	}
+			5047 = {
+			add_building = temple	}
+		
+		}
+				}
+									country_event = {
+	id = legionhispanian_events.46
+	title = "legionhispanian_events.46.t"
+	desc = "legionhispanian_events.46.d"
+	picture = PARLIAMENT_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+	name = "legionhispanian_events.46.a"
+	add_stability = 2	
+	add_adm_power = 100	
+	add_dip_power = 100	
+	add_mil_power = 100	
+	add_treasury = 1000	
+	add_prestige = 30	
+	5061 = {
+	add_building = university
+	}	
+		
+		}
+				}
+	country_event = {
+	id = legionhispanian_events.47
+	title = "legionhispanian_events.47.t"
+	desc = "legionhispanian_events.47.d"
+	picture = triumfluk_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+	name = "legionhispanian_events.47.a"
+	set_global_flag	= triumfalnyavalonski
+			add_treasury = -2000
+	5061 = {
+	add_great_project_tier = {
+    type = atlantis_goldenarch 
+    tier = 1
+}}
+	
+	}	
+		
+		}
+	country_event = {
+	id = legionhispanian_events.48
+	title = "legionhispanian_events.48.t"
+	desc = "legionhispanian_events.48.d"
+	picture = POPE_PREACHING_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+	name = "legionhispanian_events.48.a"
+			5049 = {
+		add_cardinal = yes	
+		}
+		
+		}
+				}
+					country_event = {
+	id = legionhispanian_events.49
+	title = "legionhispanian_events.49.t"
+	desc = "legionhispanian_events.49.d"
+	picture = avaloncity_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+	name = "legionhispanian_events.49.a"
+				add_stability = 1	
+	add_adm_power = 200	
+	add_dip_power = 200	
+	add_mil_power = 200	
+									add_country_modifier = {
+					name = "atlantropa_romanisation"
+					duration = 3475
+				}
+	118 = {
+	add_building = university}	
+				}
+				}
+				country_event = {
+	id = legionhispanian_events.50
+	title = "legionhispanian_events.50.t"
+	desc = "legionhispanian_events.50.d"
+	picture = avaloncity_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+	name = "legionhispanian_events.50.a"
+				add_prestige = 100
+				add_dip_power = 350	
+				add_splendor = 1000
+				}
+				}
+								country_event = {
+	id = legionhispanian_events.51
+	title = "legionhispanian_events.51.t"
+	desc = "legionhispanian_events.51.d"
+	picture = avaloncity_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+	name = "legionhispanian_events.51.a"
+				balkan_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT	}
+								british_isles_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT	}
+				}
+				}
+	country_event = {
+	id = legionhispanian_events.52
+	title = "legionhispanian_events.52.t"
+	desc = "legionhispanian_events.52.d"
+	picture = rzejpobielkapolska_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+	name = "legionhispanian_events.52.a"
+	add_stability = -3
+			every_province = {
+			limit = {
+				is_part_of_hre = yes
+				OR = {
+					owned_by = ROOT
+					owner = { is_neighbor_of = ROOT }
+				}
+				NOT = { is_core = ROOT }
+			}
+			add_core = emperor
+		}
+		every_country = {
+			limit = {
+				is_part_of_hre = yes
+				is_emperor = no
+				num_of_cities = 1
+			}
+			country_event = { id = legionhispanian_events.53 }
+		}
+				dismantle_hre = yes
+				}
+				}
+				country_event = {
+	id = legionhispanian_events.53
+	title = "EVTNAME9076"
+	desc = "EVTDESC9076"
+	picture = HRE_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA9076"
+		A38 = {
+			inherit = ROOT
+		}
+	}
+}
+
+								country_event = {
+	id = legionhispanian_events.54
+	title = "legionhispanian_events.54.t"
+	desc = "legionhispanian_events.54.d"
+	picture = romanarmytest_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+	name = "legionhispanian_events.54.a"
+	add_adm_power = 200	
+	add_dip_power = 200	
+	add_mil_power = 200	
+						
+				}
+				}
+										country_event = {
+	id = legionhispanian_events.55
+	title = "legionhispanian_events.55.t"
+	desc = "legionhispanian_events.55.d"
+	picture = romanarmytest_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = { days = 1 }
+	option = {
+	name = "legionhispanian_events.55.a"
+			anatolia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT	}
+			
+								mashriq_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT	}
+	
+				
+						
+				}
+				}		
+				
+						country_event = {
+	id = legionhispanian_events.56
+	title = byzantine_war.11.t
+	desc = byzantine_war.11.d
+	picture = constantinoplefall_eventPicture
+	major = yes
+	fire_only_once = yes
+		trigger = {
+	culture_group = roman_group
+	OR = {
+	owns = 151
+	controls = 151
+}
+}
+	option = {
+	name = byzantine_war.11.a 
+	151 = {
+	add_devastation = 45
+	add_base_tax = -2
+	add_base_production = -2
+    add_base_manpower = -2	
+	change_culture = grecoroman
+	}
+	add_treasury = 250	
+	add_mil_power = 100
+}
+}
+ 						country_event = {
+	id = legionhispanian_events.57
+	title = legionhispanian_events.57.t
+	desc = legionhispanian_events.57.d
+	picture = romanhagiasophia_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	name = legionhispanian_events.57.a 
+	
+			add_accepted_culture = grecoroman
+		151 = {
+				change_culture = grecoroman
+				change_religion = ROOT
+				rename_capital = "Nova Roma"
+				change_province_name = "Nova Roma"	
+
+			}
+}
+}
+						country_event = {
+	id = legionhispanian_events.58
+	title = legionhispanian_events.58.t
+	desc = legionhispanian_events.58.d
+	picture = roman_legion_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	name = legionhispanian_events.58.a 
+					crimea_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT	}
+			
+	
+				
+}
+}
+						country_event = {
+	id = legionhispanian_events.59
+	title = legionhispanian_events.59.t
+	desc = legionhispanian_events.59.d
+	picture = romanshipbattle_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	name = legionhispanian_events.58.a 
+	add_adm_power = 100	
+	add_dip_power = 100	
+	add_mil_power = 100	
+	add_treasury = 1000			
+}
+}
+						country_event = {
+	id = legionhispanian_events.60
+	title = legionhispanian_events.60.t
+	desc = legionhispanian_events.60.d
+	picture = citysiegesalgrada_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	name = legionhispanian_events.58.a 
+			egypt_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT	}
+					
+}
+}
+						country_event = {
+	id = legionhispanian_events.61
+	title = legionhispanian_events.61.t
+	desc = legionhispanian_events.61.d
+	picture = seljukjerusalem_eventPicture
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	name = legionhispanian_events.61.a 
+		379 = {
+	add_devastation = 30
+	add_base_tax = -2
+	add_base_production = -2
+    add_base_manpower = -2	
+	change_culture = ROOT
+	change_religion = ROOT
+	}
+	add_adm_power = 100	
+	add_dip_power = 100	
+	add_mil_power = 100	
+	add_treasury = 1000			
+}
+}
+						country_event = {
+	id = legionhispanian_events.63
+	title = legionhispanian_events.63.t
+	desc = legionhispanian_events.63.d
+	picture = citysiegesalgrada_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	name = legionhispanian_events.58.a 
+			egypt_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT	}
+					
+}
+}
+	country_event = {
+	id = legionhispanian_events.62
+	title = legionhispanian_events.62.t
+	desc = legionhispanian_events.62.d
+	picture = seljuksstart_eventPicture
+	fire_only_once = yes
+	major = yes
+		trigger = {
+	culture_group = roman_group
+	OR = {
+	owns = 358
+	controls = 358
+}
+}
+	option = {
+	name = legionhispanian_events.62.a 
+	358 = {
+	add_devastation = 45
+	add_base_tax = -2
+	add_base_production = -2
+    add_base_manpower = -2	
+	change_culture = ROOT
+	}
+	add_treasury = 250	
+	add_mil_power = 100
+}
+}	
+				
+						country_event = {
+	id = legionhispanian_events.64
+	title = legionhispanian_events.64.t
+	desc = legionhispanian_events.64.d
+	picture = Meropiscity_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	name = legionhispanian_events.64.a 
+			341 = {
+				change_culture	= punitian
+				change_religion = ROOT
+				rename_capital = "Carthago"
+				change_province_name = "Carthago"	
+			add_devastation = 70
+			add_base_tax = -2
+			add_base_production = -2
+			add_base_manpower = -2	
+			}
+			add_mil_power = 250	
+				maghreb_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT	}
+					
+}
+}
+						country_event = {
+	id = legionhispanian_events.65
+	title = legionhispanian_events.65.t
+	desc = legionhispanian_events.65.d
+	picture = roman_legion_eventPicture
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+	name = legionhispanian_events.65.a 
+				scandinavia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT	}
+			
+								poland_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT	}
+	
+					
+}
+}
+
+	
+	
+	

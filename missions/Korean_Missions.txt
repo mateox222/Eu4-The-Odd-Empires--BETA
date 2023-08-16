@@ -8,9 +8,36 @@ korea_nomad_group = {
 	}
 	has_country_shield = yes
 
-	kor_conquer_changbai = {
+	kor_restore_order_to_korea = {
 		icon = mission_unite_home_region
 		required_missions = { }
+		position = 1
+		
+		ai_weight = {
+			factor = 0.75
+		}
+		
+		provinces_to_highlight = {
+			region = korea_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		trigger = {
+			korea_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			add_prestige = 50
+			add_legitimacy = 100
+		}
+	}
+
+	kor_conquer_changbai = {
+		icon = mission_unite_home_region
+		required_missions = { kor_restore_order_to_korea }
 		position = 1
 		
 		ai_weight = {
@@ -1172,7 +1199,7 @@ kor_settle_land = {
 		
 		provinces_to_highlight = {
 			owned_by = root
-			NOT = { culture = korean }
+			NOT = { culture_group = korean_g }
 			NOT = { culture = korean_new }
 		}
 
@@ -1180,7 +1207,7 @@ kor_settle_land = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				value = 30
 				OR = {
-					culture = korean
+					culture_group = korean_g
 					culture = korean_new
 				}
 			}

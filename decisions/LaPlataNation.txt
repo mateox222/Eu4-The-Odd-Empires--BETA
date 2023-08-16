@@ -73,6 +73,7 @@ country_decisions = {
 				}
 			}
 			change_tag = LAP
+			on_change_tag_effect = yes
 			if = {
 				limit = {
 					NOT = { is_former_colonial_nation = yes }
@@ -120,6 +121,123 @@ country_decisions = {
 			}
 			add_prestige = 25
 			set_country_flag = changed_from_colonial_nation
+
+						#CUSTOMCOLONIALNATIONS
+						if = {
+				limit = { 
+					culture_group = british
+				}
+				override_country_name = LAPLATAbritish
+				change_country_color = { color = { 150 64 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = gaelic
+				}
+				override_country_name = LAPLATAgaelic
+				change_country_color = { color = { 69 191 90 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = latin
+				}
+				override_country_name = LAPLATAitalian
+				change_country_color = { color = { 69 159 99 } }
+			}
+			if = {
+				limit = { 
+					culture_group = iberian
+				}
+				override_country_name = LAPLATAiberian
+				change_country_color = { color = { 159 159 90 } }
+			}
+			if = {
+				limit = { 
+					culture_group = french
+				}
+				override_country_name = LAPLATAfrench
+				change_country_color = { color = { 84 107 192 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+					culture_group = east_slavic
+					culture_group =  slavic
+					}
+				}
+				override_country_name = LAPLATArussian
+				change_country_color = { color = { 68 194 100 } }
+			}
+			if = {
+				limit = { 
+					culture_group = byzantine
+				}
+				override_country_name = LAPLATAgreek
+				change_country_color = { color = { 168 74 199 } }
+			}
+
+			if = {
+				limit = { 
+					culture_group = maghrebi
+				}
+				override_country_name = LAPLATAarab
+				change_country_color = { color = { 168 198 149 } }
+			}		
+			if = {
+				limit = { 
+					culture_group = east_asian
+				}
+				override_country_name = LAPLATAchinese
+				change_country_color = { color = { 180 179 196 } }
+			}			
+			
+			if = {
+				limit = { 
+					culture_group = japanese_g 
+				}
+				override_country_name = LAPLATAjapanese
+				change_country_color = { color = { 299 76 67 } }
+			}			
+
+			if = {
+				limit = { 
+					culture_group = germanic 
+				}
+				override_country_name = LAPLATAgerman
+				change_country_color = { color = { 140 195 157 } }
+			}	
+			if = {
+				limit = { 
+					culture_group = punic_culture
+				}
+				override_country_name = LAPLATAPHOENICIA
+				change_country_color = { color = { 106 231 147 } }
+			}
+			if = {
+				limit = { 
+					culture_group = central_american
+				}
+				override_country_name = LAPLATAAZTEC
+				change_country_color = { color = { 40 184 54 } } 
+			}
+			
+			if = {
+				limit = { 
+					culture_group = scandinavian
+				}
+				override_country_name = LAPLATAnorge
+				change_country_color = { color = { 91 106 197 } }
+			}	
+
+			
+			if = {
+				limit = { 
+					primary_culture = polish
+				}
+				override_country_name = LAPLATApolish
+				change_country_color = { color = { 207 39 34 } }
+			}
 		}
 		ai_will_do = {
 			factor = 1

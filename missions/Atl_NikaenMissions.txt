@@ -1,0 +1,2180 @@
+latin_empire_western = {
+	slot = 3 #upper left column
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+	OR = {
+		tag = A52
+		tag = BYZ		
+		was_tag = BYZ
+	}}
+	has_country_shield = yes
+	
+		nikean_stabilise_greek = {
+		icon = atlantropa_nicean_empire
+		trigger = {
+		stability = 1
+		}
+		effect = {
+				country_event = { 
+    id = nikean_empire.1
+}
+}
+}
+	
+	
+	nikean_empire_greek = {
+		icon = atlantropa_capathracs
+		required_missions = { nikean_stabilise_greek }
+		trigger = {
+		OR = {
+			army_size = 20
+			num_of_cavalry = 7
+}
+		}
+		effect = {
+				country_event = { 
+    id = nikean_empire.2
+}
+}
+}
+	nikean_destroy_germiyan = {
+		icon = atlantropa_germiyan
+		required_missions = { nikean_empire_greek  }
+								provinces_to_highlight = {
+				owned_by = GRM
+		}
+		trigger = {
+		GRM = { exists = no }
+		owns_core_province = 5323
+		owns_core_province = 326
+		owns_core_province = 5324
+		}
+		effect = {
+				country_event = { 
+    id = nikean_empire.7
+}}}
+
+	destroy_eretna_byz = {
+		icon = atlantropa_eretna
+										provinces_to_highlight = {
+				owned_by = ERE
+		}
+		required_missions = { nikean_destroy_germiyan  nikean_destroy_karaman nikean_empire_paphla } 		
+		trigger = {
+		NOT = { exists = ERE }
+		owns_core_province = 329
+		}
+		effect = {
+						country_event = { 
+    id = nikean_empire.11
+}
+		}
+		
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	latinempire_romanisation_war_constantinople = {
+		icon = atlantropa_latin_empire
+		trigger = {
+		OR = {	
+		army_size = 25
+		army_size = LAE
+		}
+
+			
+custom_trigger_tooltip = {
+	tooltip = niceazdobylakonstantynopol
+		OR = {
+		owns_core_province = 151	
+		AND = {
+		has_global_flag = war_of_emperors
+		}
+		}}
+		}
+		effect = {
+				country_event = { 
+    id = nikean_empire.12
+}}}
+	anatolia_constantinople = {
+		icon = atlantropa_constantinople
+		required_missions = { latinempire_romanisation_war_constantinople  }
+		trigger = {
+		custom_trigger_tooltip = {
+	tooltip = niceazdobylakonstantynopol2
+		controls = 151
+		OR = {
+		has_country_flag = constantinople_captured
+		tag = BYZ
+		
+		}
+		}
+		}
+		effect = {
+				country_event = { 
+    id = nikean_empire.14
+}}}
+
+		recover_greece = {
+		icon = foothold_in_greece
+		position = 2
+		required_missions = { anatolia_constantinople } #None
+		provinces_to_highlight = {
+			OR = {
+				province_id = 144
+				province_id = 145
+				province_id = 146
+				province_id = 147
+				province_id = 148
+				province_id = 4779
+				province_id = 1773
+				province_id = 1853
+				province_id = 4699
+				province_id = 4701
+				province_id = 4705
+				province_id = 4702
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 144
+			owns_or_non_sovereign_subject_of = 145
+			owns_or_non_sovereign_subject_of = 146
+			owns_or_non_sovereign_subject_of = 147
+			owns_or_non_sovereign_subject_of = 148
+			owns_or_non_sovereign_subject_of = 4779
+			owns_or_non_sovereign_subject_of = 1773
+			owns_or_non_sovereign_subject_of = 1853
+			owns_or_non_sovereign_subject_of = 4699
+			owns_or_non_sovereign_subject_of = 4701
+			owns_or_non_sovereign_subject_of = 4705
+			owns_or_non_sovereign_subject_of = 4702
+		}
+		effect = {
+						country_event = { 
+    id = nikean_empire.42
+}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	
+	recover_albania = {
+		icon = pacify_the_albanian_lands
+		required_missions = { recover_greece }
+		position = 2
+		provinces_to_highlight = {
+			OR = {
+				area = albania_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			albania_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+									country_event = { 
+    id = nikean_empire.43
+}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	
+	recover_western_balkans = {
+		icon = mission_pf_cross
+		required_missions = { recover_albania } #None
+		provinces_to_highlight = {
+			OR = {
+				area = rascia_area
+				area = serbia_area
+				area = bosnia_area
+				area = atlantis_adriaticcoast
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			rascia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			atlantis_adriaticcoast = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			serbia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			bosnia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			
+		}
+		effect = {
+											country_event = { 
+    id = nikean_empire.46
+}
+			
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	
+
+		destroy_venice = { #New
+		icon = mission_control_venice
+		position = 10
+		required_missions = { recover_western_balkans }
+		provinces_to_highlight = {
+			area = venetia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			venetia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			country_event = { id = flavor_byz.1 }
+			add_country_modifier = {
+				name = "venetian_revenge"
+				duration = 7300
+			}
+						118 = {
+				    add_core = ROOT
+			}
+						apulia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			calabria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			naples_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			atlantis_napoli_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+
+		recover_rome = {
+		icon = atlantropa_italia
+		position = 11
+		required_missions = {
+			destroy_venice
+		}
+		provinces_to_highlight = {
+			region = italy_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+		num_of_owned_provinces_with = {
+	value = 20
+	owned_by = ROOT
+	region = italy_region
+}
+		}
+		effect = {
+													country_event = { 
+    id = nikean_empire.47
+}
+		
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+		convert_rome = { 
+		icon = atlantropa_roma
+		position = 12
+		required_missions = {
+			recover_rome
+		}
+		provinces_to_highlight = {
+			province_id = 118
+			OR = {
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				NOT = { religion = orthodox }
+			}
+		}
+		trigger = {
+			owns = 118
+		OR = {
+			AND = {
+		is_emperor = yes
+		imperial_influence = 100
+			}
+			AND = {
+				army_size = emperor
+				num_of_owned_provinces_with = {
+	value = 40
+	owned_by = ROOT
+	region = italy_region
+}
+			}			
+			
+		}}
+		effect = {
+																				country_event = { 
+    id = nikean_empire.67
+}
+			
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+
+		the_pentarchy = {
+		icon = atlantropa_catholfocus
+		required_missions = { convert_rome
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 118
+				province_id = 151
+				province_id = 358
+				province_id = 379
+				province_id = 2313
+			}
+		}
+		trigger = {
+			owns = 118 #Rome
+			owns = 151 #Constantinople
+			owns = 358 #Alexandria
+			owns = 379 #Jerusalem
+			owns = 2313 #Antioch
+		}
+		effect = {
+																							country_event = { 
+    id = nikean_empire.68
+}
+		}
+	
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	
+
+
+					nikean_annex_southfrance = {
+		icon = atlantropa_Franceaisearmy
+		position = 5
+		required_missions = { recover_lombardia }
+				provinces_to_highlight = {
+				OR = {
+				region = low_countries_region
+		
+				}
+				}
+		trigger = {
+			low_countries_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+
+		}
+		effect = {
+			country_event = { 
+    id = nikean_empire.50
+}
+}
+}
+							nikean_annex_northfrance = {
+		icon = atlantropa_francefallkamap
+		position = 15
+		required_missions = { nikean_annex_southfrance }
+				provinces_to_highlight = {
+				region = iberia_region
+				OR = {
+				owned_by = FRA
+				owned_by = A59				
+				}
+				
+				}
+		trigger = {
+
+			
+			wessex_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			home_counties_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+				east_anglia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+
+				east_midlands_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			west_midlands_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+
+			
+		}
+		effect = {
+							country_event = { 
+    id = nikean_empire.53
+}
+}
+}
+
+	recover_south_spain = {
+		icon = mission_lusitanian_empire
+		required_missions = { nikean_annex_northfrance }
+		position = 16
+		provinces_to_highlight = {
+				owned_by = POR			
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+		OR = {
+		POR = { is_subject_of = ROOT }
+		AND = {
+						alentejo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+						beieras_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		}
+		}
+		effect = {
+										country_event = { 
+    id = nikean_empire.54
+}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+				nikean_annex_northspain = {
+		icon = atlantropa_dawn
+		position = 5
+		required_missions = { recover_south_spain nikean_maurrethaln}
+				provinces_to_highlight = {
+			region = iberia_region
+			NOT = { religion_group = ROOT }
+		}
+
+		trigger = {
+			iberia_region = {
+				type = all
+				religion_group = ROOT
+			}
+		}
+
+		effect = {
+				country_event = { 
+    id = nikean_empire.55
+}
+		
+		}
+}
+	
+		greek_empire_endless = {
+		icon = atlantropa_justinian
+		required_missions = {
+			destroy_punitia
+			nikean_annex_northspain
+			nikean_annex_england
+			south_recover_morocco
+			byzantine_destroynorthgermany
+		}
+		trigger = {
+		great_power_rank = 1
+		total_development = 1000
+		}
+		effect = {
+							country_event = { 
+    id = nikean_empire.82
+}
+	
+		}
+	}
+
+
+
+}
+latin_empire_another2 = {
+	slot = 2 #upper left column
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+	OR = {
+		tag = A52
+		tag = BYZ		
+		was_tag = BYZ	
+	}}
+	has_country_shield = yes
+	
+
+
+	byzan_varna_aftermath = {
+		icon = atlantropa_weight
+		required_missions = { nikean_stabilise_greek }
+		position = 2 
+		trigger = {
+			num_of_allies = 1 
+			army_size_percentage = 0.7 
+			LAE = { 
+				OR = { 
+					war_with = ROOT 
+					is_rival = ROOT 
+					has_opinion_modifier = {
+						who = ROOT
+						modifier = insulted
+					}
+					has_opinion_modifier = {
+						who = ROOT
+						modifier = scornfully_insulted
+					}
+					exists = no 
+				}
+			}
+			LAE = {
+				has_opinion_modifier = {
+						who = ROOT
+						modifier = insulted
+					}
+					has_opinion_modifier = {
+						who = ROOT
+						modifier = scornfully_insulted
+					}
+			}
+			HRZ = {  
+				OR = { 
+					alliance_with = ROOT 
+					exists = no 
+					has_opinion = {
+	who = ROOT
+	value = 150
+}
+				
+				}
+			}
+		}
+		effect = {
+							country_event = { 
+        id = nikean_empire.29
+}
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+		nikean_empire_paphla = {
+		icon = atlantropa_paflagonia
+		required_missions = { nikean_empire_greek byzan_varna_aftermath }
+						provinces_to_highlight = {
+				owned_by = A61
+		}
+		trigger = {
+		owns_core_province = 2299
+		owns_core_province = 325
+		}
+		effect = {
+				country_event = { 
+    id = nikean_empire.5
+}
+}
+}
+		nikean_empire_trebizond = {
+		icon = atlantropa_trebizond
+										provinces_to_highlight = {
+				owned_by = TRE
+		}
+		required_missions = { nikean_empire_paphla }
+		trigger = {
+		OR = {
+		AND = {
+		owns_core_province = 2304
+		owns_core_province = 330
+		}
+		AND = {
+			army_size = 40
+		TRE = { NOT = { total_development = 100 }} 
+		}}}
+		
+		effect = {
+				country_event = { 
+        id = nikean_empire.27
+}
+}
+}
+		nikean_empire_cyprus = {
+													provinces_to_highlight = {
+				OR = {
+					province_id =  4971
+					province_id = 321
+				}
+		}
+		icon = atlantropa_arthurianfleet
+		required_missions = { nikean_annex_armenia }
+		trigger = {
+		owns_core_province = 4971
+		owns_core_province = 321
+		}
+		effect = {
+				country_event = { 
+    id = nikean_empire.28
+}
+}
+}
+
+	destroy_seljuk_byz = {
+		icon = atlantropa_turkeystan
+		position = 5
+		required_missions = { nikean_annex_aleppo }
+												provinces_to_highlight = {
+				owned_by = TUR
+		}
+		trigger = {
+		
+		OR = {
+		owns_core_province = 407
+		AND = {
+		controls = 407
+		at_war_with_religious_enemy = yes
+		}
+		}
+		}
+		effect = {
+						country_event = { 
+    id = nikean_empire.30
+}
+		}
+		
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	
+					nikean_annex_iraq = {
+		icon = atlantropa_capathracs
+		position = 5
+		required_missions = { destroy_seljuk_byz }
+				provinces_to_highlight = {
+				OR = {
+				area = al_jazira_area
+				area = iraq_arabi_area			
+				area = basra_area		
+				area = khuzestan_area				
+				}
+				}
+		trigger = {
+			al_jazira_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+				iraq_arabi_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+				basra_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+				khuzestan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+										country_event = { 
+    id = nikean_empire.31
+}
+}
+}
+
+	nikean_preparecrusade = {
+   icon = atlantropa_iranba
+     required_missions = { nikean_annex_iraq }
+
+	trigger = {
+army_size = 125
+army_size_percentage = 0.75
+}
+		effect = {
+						country_event = { 
+    id = nikean_empire.32
+}
+
+}}
+	byzantineiran_crusade = {
+   icon = atlantropa_hellenism
+     required_missions = { nikean_preparecrusade }
+
+	trigger = {
+num_of_owned_provinces_with = {
+	value = 30
+	owned_by = ROOT
+	region = persia_region
+}
+}
+		effect = {
+								country_event = { 
+    id = nikean_empire.33
+}
+}}
+	
+	byzantineiran_india = {
+   icon = atlantropa_eastcompanygreek
+     required_missions = { byzantineiran_crusade }
+
+	trigger = {
+num_of_owned_provinces_with = {
+	value = 1
+	owned_by = ROOT
+	superregion = india_superregion
+}
+}
+		effect = {
+										country_event = { 
+    id = nikean_empire.34
+}
+}}
+		nikean_makkah = {
+   icon = the_latin_empire
+      required_missions = { recover_jerusalem }
+
+	trigger = {
+			owns_core_province = 385
+}
+		effect = {
+												country_event = { 
+    id = nikean_empire.35
+}
+	}
+	}
+	
+						nikean_annex_ethiopia = {
+		icon = atlantropa_ethiopia
+		position = 13
+		required_missions = { 	nikean_makkah nikean_egypt    }
+		
+				provinces_to_highlight = {
+				area = central_ethiopia_area
+				}
+		trigger = {
+			central_ethiopia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+	
+		}
+		effect = {
+																country_event = { 
+    id = nikean_empire.36
+}
+}
+}
+
+	recover_tunis = {
+		position = 15
+		icon = atlantropa_africamap
+		required_missions = {
+			recover_tripoli
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = tunisia_area
+				area = kabylia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			tunisia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			kabylia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+																		country_event = { 
+    id = nikean_empire.37
+}
+
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+		nikean_maurrethaln = {
+		icon = atlantropa_fallmexico
+		required_missions = {
+			recover_tunis
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = barbary_coast_area
+				area = algiers_area
+				area = northern_morocco_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			barbary_coast_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			algiers_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			northern_morocco_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+																					country_event = { 
+    id = nikean_empire.40
+}
+			
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+
+		south_recover_morocco = {
+		icon = atlantropa_mauretania
+		position = 17
+		required_missions = {
+			nikean_maurrethaln
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = marrekesh_area
+				area = western_morocco_area
+				area = southern_morocco_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			marrekesh_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			western_morocco_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			southern_morocco_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+																							country_event = { 
+    id = nikean_empire.41
+}
+		
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+
+	
+
+
+	
+	}
+	
+	latin_empire_another3 = {
+	slot = 4 #upper left column
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+	OR = {
+		tag = A52
+		tag = BYZ		
+		was_tag = BYZ	
+	}}
+	has_country_shield = yes
+
+	byzantine_imperial_roads = {
+		icon = atlantropa_imperialroads
+		required_missions = {  }
+		trigger = {
+			atlantropa_road = 20
+		}
+		effect = {
+			add_prestige = 10
+			every_owned_province = {
+				limit = {
+					has_building = atlantropa_road
+				}
+				add_base_production = 1	
+			}
+		}
+		ai_weight = {
+			factor = 1
+		}
+	
+	}
+		nikea_agra_mission = {
+		icon = atlantropa_devlegio
+		required_missions = { nikean_stabilise_greek }
+		position = 2
+		provinces_to_highlight = {
+			province_id = 322
+		}
+		trigger = {
+			owns_core_province = 322
+			322 = {
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+				OR = {
+					has_building = marketplace
+					has_building = trade_depot
+					has_building = stock_exchange
+				}
+				development = 25
+			}
+		}
+		effect = {
+			country_event = { id = nikean_empire.3 }
+		}
+		ai_weight = {
+			factor = 500	#Tall + resaonble conquest
+		}
+	}
+		nikean_destroy_karaman = {
+		icon = atlantropa_karaman
+								provinces_to_highlight = {
+				owned_by = KAR
+		}
+		required_missions = { nikean_empire_greek  }
+		trigger = {
+		KAR = { exists = no }
+		owns_core_province = 323
+		owns_core_province = 4307
+		owns_core_province = 324
+		owns_core_province = 2301		
+		}
+		effect = {
+				country_event = { 
+    id = nikean_empire.9
+}}
+}
+		nikean_destroy_dulkadir = {
+		icon = atlantropa_dulkadir
+											provinces_to_highlight = {
+												OR = {
+				owned_by = RAM
+				owned_by = DUL
+												}
+		}
+		required_missions = { nikean_destroy_karaman  }
+		trigger = {
+		KAR = { exists = no }
+		owns_core_province = 327
+		owns_core_province = 332
+		owns_core_province = 4310
+		owns_core_province = 2305		
+		}
+		effect = {
+				country_event = { 
+    id = nikean_empire.75
+}}
+
+}
+
+		byzantineepire_romanisation = {
+		icon = atlantropa_nikeaconquest
+		required_missions = { destroy_eretna_byz  }
+		trigger = {
+		
+num_of_owned_provinces_with = {
+	value = 30
+	owned_by = ROOT
+	region = anatolia_region
+}
+}
+		effect = {
+				country_event = { 
+    id = nikean_empire.57
+}}}
+	
+	
+		anatolia_empire = {
+   icon = atlantropa_greatpower
+      required_missions = { byzantineepire_romanisation }
+		trigger = {
+		total_development = 300
+		TAG = A52
+		}
+		effect = {
+			    custom_tooltip = atlantisanatoliaempire
+				country_event = { 
+    id = nikean_empire.10
+}}}
+
+
+
+
+		recover_the_balkans = {
+		icon = mission_eastern_european_city
+		required_missions = { anatolia_constantinople }
+		position = 7
+		provinces_to_highlight = {
+			OR = {
+				area = bulgaria_area
+				area = silistria_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			bulgaria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			silistria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+							country_event = { 
+    id = nikean_empire.58
+}}
+		
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	
+					nikean_annex_dacia = {
+		icon = atlantropa_tutajkiedysbedzierumunia
+		position = 7
+		required_missions = { 	recover_the_balkans }
+				provinces_to_highlight = {
+				OR = {
+				region = carpathia_region
+
+				}
+				}
+		trigger = {
+			carpathia_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+	
+		}
+		effect = {
+											country_event = { 
+    id = nikean_empire.59
+}
+}
+}
+					recover_crimea  = {
+		icon = atlantropa_Krimeabattle
+		position = 7
+		required_missions = { 	nikean_annex_dacia  latinempire_romanisation_war_pythia }
+				provinces_to_highlight = {
+				area = crimea_area
+				}
+		trigger = {
+			crimea_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+	
+		}
+		effect = {
+															country_event = { 
+    id = nikean_empire.60
+}
+}
+}
+
+	
+	
+	
+		recover_northern_balkans = { #Replaces Istria
+		icon = mission_conquer_5_states
+		position = 10
+		required_missions = { recover_western_balkans }
+		provinces_to_highlight = {
+			OR = {
+				area = carinthia_area
+				area = croatia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			carinthia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			croatia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+															country_event = { 
+    id = nikean_empire.61
+}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+
+				recover_south_italy = {
+		icon = mission_italian_condottiere
+		required_missions = { destroy_venice }
+		position = 11
+		provinces_to_highlight = {
+			OR = {
+				area = apulia_area
+				area = calabria_area
+				area = naples_area
+				area = atlantis_napoli_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			naples_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			apulia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			calabria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+																	country_event = { 
+    id = nikean_empire.64
+}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	recover_north_italy = {
+		icon = mission_rule_italy
+		required_missions = {
+			recover_rome
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = tuscany_area
+				area = emilia_romagna_area
+				area = central_italy_area
+				area = atlantis_abruzzo
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+		OR = {
+		AND = {
+			tuscany_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			emilia_romagna_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			atlantis_abruzzo = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			central_italy_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			}
+			is_emperor = yes
+}
+		}
+		effect = {
+																country_event = { 
+    id = nikean_empire.48
+}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	
+	recover_lombardia = {
+		icon = atlantropa_conquestnorth
+		required_missions = {
+			recover_north_italy
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = lombardy_area
+				area = po_valley_area
+				area = piedmont_area
+				area = liguria_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+		OR = {
+		AND = {
+			lombardy_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			po_valley_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			piedmont_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			liguria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		is_emperor = yes
+}}
+		effect = {
+																		country_event = { 
+    id = nikean_empire.49
+}
+
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+
+	conquer_switzerland = {
+		icon = atlantropa_nilfgaard
+		required_missions = {
+			recover_lombardia
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = switzerland_area
+
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			switzerland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		
+
+}
+		effect = {
+				country_event = { 
+    id = nikean_empire.69
+}
+
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+
+
+					nikean_annex_polandfrance = {
+		icon = atlantropa_rzejpybielkamap
+		position = 15
+		required_missions = { nikean_annex_southfrance }
+				provinces_to_highlight = {
+				OR = {
+				owned_by = POL
+					owned_by = PLC			
+				}
+				}
+				trigger = {
+			OR = {
+				POL = { is_subject_of = ROOT }
+				PLC = { is_subject_of = ROOT }				
+				AND = {
+					ile_de_france_area = {
+						type = all
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					186 = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					4390 = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+		effect = {
+			country_event = { 
+    id = nikean_empire.51
+}
+}
+}
+
+							nikean_annex_calais = {
+		icon = atlantropa_burningkazan
+		position = 15
+		required_missions = { nikean_annex_polandfrance }
+				provinces_to_highlight = {
+								OR = {
+			area = 	poitou_area
+			area = 	guyenne_area
+			area = 	pyrenees_area 
+			area = 	massif_central_area
+
+			}
+
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+				poitou_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+				guyenne_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+				pyrenees_area  = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+				massif_central_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+						country_event = { 
+    id = nikean_empire.72
+}
+		}
+		ai_weight = {
+			factor = 500
+		}
+	}
+	
+		nikean_annex_england = {
+		icon = atlantropa_frenchspain
+		required_missions = { nikean_annex_calais }
+				provinces_to_highlight = {
+				OR = {
+				region = british_isles_region
+				}
+				}
+		trigger = {
+						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 20 # how many provinces should be owned in the areas below
+				region = british_isles_region
+			}
+
+		}
+		effect = {
+										country_event = { 
+    id = nikean_empire.73
+}
+}
+}
+	
+	
+	}
+	
+		latin_empire_another4 = {
+	slot = 1 #upper left column
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+	OR = {
+		tag = A52
+		tag = BYZ		
+		was_tag = BYZ	
+	}}
+	has_country_shield = yes
+
+
+		nikean_form_eyalets = {
+		icon = atlantropa_aryanmoney
+		trigger = {
+atlantis_coempire = 5
+		}
+		effect = {
+						add_country_modifier = {
+				name = "byz_imperial_provinces"
+				duration = -1
+			}
+	 add_prestige = 10
+}
+}	
+
+	
+	
+				nikean_annex_kibyrr = {
+		icon = atlantropa_kibyrria
+		position = 3
+		required_missions = { 	byzan_varna_aftermath }
+						provinces_to_highlight = {
+				owned_by = MEN
+		}
+		trigger = {
+		OR = {
+		AND = {
+		MEN = {
+		has_opinion = {
+	who = ROOT
+	value = 150
+}
+}
+		MEN = { NOT = { liberty_desire = 50 } }
+		}
+		MEN = { exists = no }
+		
+		}}
+		effect = {
+				country_event = { 
+    id = nikean_empire.4
+}
+}
+}
+				nikean_annex_armenia = {
+		icon = atlantropa_cilicia
+		position = 4
+		required_missions = { 	nikean_annex_kibyrr }
+				provinces_to_highlight = {
+				area = cukurova_area
+				}
+		trigger = {
+			cukurova_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+	
+		}
+		effect = {
+								country_event = { 
+    id = nikean_empire.15
+}
+}
+}
+				nikean_annex_aleppo = {
+		icon = atlantropa_edesia
+		position = 5
+		required_missions = { 	nikean_annex_armenia }
+				provinces_to_highlight = {
+				area = aleppo_area
+				}
+		trigger = {
+			aleppo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+	
+		}
+		effect = {
+												country_event = { 
+    id = nikean_empire.16
+}
+}
+}
+
+	recover_antioch = {
+		icon = atlantropa_antioch
+		required_missions = {
+			nikean_annex_aleppo
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = aleppo_area
+				area = syria_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			aleppo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			syria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+														country_event = { 
+    id = nikean_empire.17
+}
+			
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+
+
+				nikean_annex_syria = {
+		icon = atlantropa_tripoli
+		position = 8
+		required_missions = { 	recover_antioch  }
+				provinces_to_highlight = {
+				area = syria_area
+				}
+		trigger = {
+			syria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+	
+		}
+		effect = {
+																		country_event = { 
+    id = nikean_empire.18
+}
+}
+}
+	recover_jerusalem = {
+		icon = jerusalem
+		required_missions = { nikean_annex_syria }
+												provinces_to_highlight = {
+				province_id = 379
+		}
+		position = 10
+		trigger = {
+		OR = {
+		owns_core_province = 379
+		senior_union_with = KOJ
+		}}
+		effect = {
+
+
+														country_event = { 
+    id = nikean_empire.19
+}
+	}}
+
+
+	recover_alexandria = {
+		icon = atlantropa_focusgreek
+		provinces_to_highlight = {
+			OR = {
+				area = delta_area
+				area = bahari_area
+				area = vostani_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		required_missions = {
+			recover_jerusalem
+		}
+		trigger = {
+			delta_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			bahari_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			vostani_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+	country_event = { 
+    id = nikean_empire.20
+}
+			
+			}
+	
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+
+
+	
+			nikean_egypt = {
+   icon = atlantropa_egypt
+      required_missions = { recover_alexandria }
+
+	trigger = {
+		
+	num_of_provinces_owned_or_owned_by_subjects_with = {
+	value = 40
+	region = egypt_region
+}}
+		effect = {
+	country_event = { 
+    id = nikean_empire.21
+}
+	
+}}
+		recover_tripoli = {
+		icon = mission_conquer_algiers
+		position = 14
+		required_missions = {
+			nikean_egypt
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = tripolitania_area
+				area = djerba_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			tripolitania_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			djerba_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+				effect = {
+	country_event = { 
+    id = nikean_empire.22
+}
+}
+		
+	
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	
+byzantineempire_sahara = {
+	position = 15
+   icon = mission_lit_harness_steppes
+      required_missions = { recover_tripoli }
+
+	trigger = {
+			north_saharan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+}
+		effect = {
+	country_event = { 
+    id = nikean_empire.23
+}
+	
+}}
+	destroy_punitia = {
+			position = 17
+	icon = atlantropa_carthgago
+      required_missions = { byzantineempire_sahara }
+
+	trigger = {
+			hubas_area = { 
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+}
+		effect = {
+			country_event = { 
+    id = nikean_empire.24
+}
+	
+}}
+
+
+}
+
+
+
+		latin_empire_another14 = {
+	slot = 5 #upper left column
+	generic = no #if a mission without generic = yes wants this slot then it overrides this.
+	ai = yes
+	potential = {
+	OR = {
+		tag = A52
+		tag = BYZ		
+		was_tag = BYZ	
+	}}
+	has_country_shield = yes
+	
+		recover_the_coast_of_asia_minor = {
+		icon = atlantropa_coastline
+		position = 3
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = {
+				area = hudavendigar_area
+				area = aydin_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			hudavendigar_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			aydin_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			country_event = { 
+    id = nikean_empire.74
+}
+			
+			}
+		
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+			convert_asia_minor = {
+		icon = atlantropa_nikeangalleys
+		required_missions = {   recover_the_coast_of_asia_minor }
+		position = 4
+
+		trigger = {
+			owns_core_province = 317
+			num_of_ports = 10
+			num_of_galley = 20
+		}
+		effect = {
+			country_event = { 
+    id = nikean_empire.25
+}
+			
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+				byzantine_atlantic_fleet = {
+		icon = atlantropa_preparenavy
+		required_missions = {  convert_asia_minor }
+		trigger = {
+			num_of_ports = 50
+			num_of_heavy_ship = 30
+		}
+		effect = {
+			country_event = { 
+    id = nikean_empire.26
+}
+			
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	
+		reestablish_the_theme_system = {
+		icon = mission_non-western_cavalry_raid
+		required_missions = { byzantineepire_romanisation }
+		position = 6
+		provinces_to_highlight = {
+			OR = {
+				area = hudavendigar_area
+				area = germiyan_area
+				area = aydin_area
+				area = ankara_area
+				area = karaman_area
+				area = kastamonu_area
+				area = rum_area
+				area = thrace_area
+				area = erzurum_area
+				province_id = 327 # Adana
+				province_id = 2302 # Icel
+				province_id = 4310 # Divrigi
+				province_id = 2750 # Plovdiv
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			hudavendigar_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			germiyan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			aydin_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			ankara_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			karaman_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			kastamonu_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			rum_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			thrace_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			erzurum_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			owns = 327 # Adana
+			owns = 2302 # Icel
+			owns = 4310 # Divrigi
+			owns = 2750 # Plovdiv
+				
+		}
+		effect = {
+									country_event = { 
+    id = nikean_empire.76
+}
+			
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	
+
+	
+	
+		nlatinempire_caucasia = {
+   icon = atlantropa_caucasia
+     required_missions = { reestablish_the_theme_system }
+	position = 7
+			provinces_to_highlight = {
+				region = caucasia_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+	trigger = {
+		
+num_of_owned_provinces_with = {
+	value = 15
+	owned_by = ROOT
+	region = caucasia_region
+}
+}
+		effect = {
+						country_event = { 
+    id = nikean_empire.63
+}
+	
+}}
+	latinempire_romanisation_war_pythia = {
+	     required_missions = { nlatinempire_caucasia }
+		icon = atlantropa_frenchanvy
+			provinces_to_highlight = {
+			province_id = 2195
+		}
+				
+
+		trigger = {
+		owns_core_province = 2195
+
+		}
+		effect = {
+								country_event = { 
+    id = nikean_empire.77
+}
+}}
+
+					nikean_annex_pontus = {
+		icon = atlantropa_alsace
+		position = 10
+		required_missions = { 	recover_crimea  }
+				provinces_to_highlight = {
+				region = crimea_region
+				}
+		trigger = {
+			crimea_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+	
+		}
+		effect = {
+												country_event = { 
+    id = nikean_empire.78
+}
+}
+}
+
+					
+		nikean_annex_ruthenia = {
+		icon = atlantropa_panamacanal
+		position = 10
+		required_missions = { nikean_annex_pontus  }
+				provinces_to_highlight = {
+				region = ruthenia_region
+				}
+		trigger = {
+			num_of_owned_provinces_with = {
+	value = 20
+	owned_by = ROOT
+	region = ruthenia_region
+			}
+	
+		}
+		effect = {
+												country_event = { 
+    id = nikean_empire.79
+}
+}
+}
+
+	recover_sicily = {
+		icon = mission_sea_battles
+		required_missions = { recover_south_italy }
+		position = 12
+		provinces_to_highlight = {
+			OR = {
+				area = western_sicily_area
+				province_id = 124
+				province_id = 2982
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			western_sicily_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			owns_or_non_sovereign_subject_of = 124
+			owns_or_non_sovereign_subject_of = 2982
+		}
+		effect = {
+									country_event = { 
+    id = nikean_empire.65
+}
+
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+	
+		recover_west_islands = {
+		icon = mission_invade_island
+		required_missions = {
+			recover_sicily
+		}
+		provinces_to_highlight = {
+		OR = {
+				area = corsica_sardinia_area
+				area = corsica_area				
+				}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			corsica_sardinia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+						corsica_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+									country_event = { 
+    id = nikean_empire.66
+}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+
+			doggerland_conquer_byzant = {
+		icon = atlantropa_doggerland
+		required_missions = {
+			recover_west_islands
+			recover_lombardia
+		}
+		provinces_to_highlight = {
+						OR = {
+			area = doggerland_area
+			area = westdoggerland_area
+	}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+		westdoggerland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		
+			doggerland_area  = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+	
+		effect = {
+									country_event = { 
+    id = nikean_empire.71
+}
+		}
+		ai_weight = {
+			factor = 100	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+
+			byzantine_destroybavaria = {
+		icon = atlantropa_bavariaconquest
+				position = 15
+		required_missions = {
+			conquer_switzerland
+		}
+		provinces_to_highlight = {
+			owned_by = 	BAV
+		}
+		trigger = {
+			upper_bavaria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			east_bavaria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+				lower_bavaria_area  = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+
+		}
+		effect = {
+									country_event = { 
+    id = nikean_empire.70
+}
+		}
+		ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+
+				byzantine_destroysouthgermany = {
+		icon = atlantropa_greekarmy
+				position = 15
+		required_missions = {
+			byzantine_destroybavaria
+		}
+		provinces_to_highlight = {
+			region = south_german_region
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+	value = 30
+	owned_by = ROOT
+	region = south_german_region
+}
+		}
+		effect = {
+									country_event = { 
+    id = nikean_empire.80
+}
+		}
+		ai_weight = {
+			factor = 100	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	
+
+}
+				byzantine_destroynorthgermany = {
+		icon = atlantropa_slavia
+				position = 15
+		required_missions = {
+			byzantine_destroysouthgermany
+		}
+		provinces_to_highlight = {
+			region = north_german_region
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+	value = 30
+	owned_by = ROOT
+	region = north_german_region
+}
+owns_core_province = 98
+		}
+		effect = {
+									country_event = { 
+    id = nikean_empire.81
+}
+		}
+		ai_weight = {
+			factor = 100	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+
+}
+		
+
+		
+

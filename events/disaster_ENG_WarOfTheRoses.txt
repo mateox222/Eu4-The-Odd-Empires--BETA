@@ -17,6 +17,29 @@ country_event = {
 	}
 		
 	immediate = {
+		FRA = {
+			set_country_flag = FRANCUSKAWOJNADOMOWA
+		}
+		hidden_effect = {
+					random_country = { 
+				limit = {
+		is_subject_of_type_with_overlord = { 
+		who = FRA
+		type = appanage }
+		government = monarchy
+
+	}
+	change_country_color = {   color = { 143 19 0 }}
+	set_global_flag = WOJNAROZPOMOCNICZY
+		set_country_flag = has_overriden_color_flag
+set_country_flag = ZBUNTOWANYAPPANAGEFRANCJAFLAGA
+set_country_flag = FRANCUSKAWOJNADOMOWA		
+ save_global_event_target_as = ZBUNTOWANYAPPANAGE
+ grant_independence = yes	
+
+				}
+
+		}
 		set_country_flag = had_war_of_the_roses
 		hidden_effect = {
 			add_country_modifier = {
@@ -31,12 +54,17 @@ country_event = {
 		name = war_of_the_roses.1.a
 
 		add_stability = -2
+		set_global_flag = FRANCJAWOJNADOMOWAROZA
 		set_country_flag = war_of_the_roses
 		set_country_flag = supports_house_of_lancaster
+		add_yearly_manpower = -5	
+
 
 		define_ruler = {
+			name = "Isabella I"
 			dynasty = Chatou
 			age = 31
+			female = yes
 		}
 		if = {
 			limit = {
@@ -51,56 +79,37 @@ country_event = {
 			hidden_effect = { add_ruler_personality_ancestor = { key = well_connected } }
 		}
 		add_yearly_manpower = -2.5
-
-		if = {
-			limit = {
-				owns = 4374		# Yorkshire
-				4374 = {
-					NOT = { units_in_province = 1 }
-				}
-			}
-			4374 = {
-				add_province_modifier = {
-					name = wotr_local_support_for_york
-					duration = 3650
-				}
-				spawn_rebels = {
-					type = pretender_rebels
-					size = 3
-					leader = "Richard"
-					leader_dynasty = "Puteaux"
-					win = yes
-				}
-			}
-		}
-		else = {
-			random_owned_province = {
+		hidden_effect = {
+					every_country = { 
 				limit = {
-					region = british_isles_region
-					OR = {
-						NOT = {
-							root = {
-								any_owned_province = {
-									region = british_isles_region
-									NOT = { units_in_province = 1 }
-								}
-							}
-						}
-						NOT = { units_in_province = 1 }
-					}
+					has_country_flag = ZBUNTOWANYAPPANAGEFRANCJAFLAGA
+	}
+		override_country_name = ZBUNTOWANYAPPANAGEFRANCJA1	
+		define_ruler = {
+			dynasty = Puteaux
+			name = "Reynard IV"
+			age = 31
+			female = yes
+		}
+		add_manpower = 15
+
 				}
-				add_province_modifier = {
-					name = wotr_local_support_for_york
-					duration = 3650
+	declare_war_with_cb = {
+    who = event_target:ZBUNTOWANYAPPANAGE
+    casus_belli = cb_super_badboy
+}
+					every_country = { 
+				limit = {
+		is_subject_of_type_with_overlord = { 
+		who = FRA
+		type = appanage }
+	}
+		country_event = { 
+    id = french_empire.7
+}
 				}
-				spawn_rebels = {
-					type = pretender_rebels
-					size = 3
-					leader = "Richard"
-					leader_dynasty = "Puteaux"
-					win = yes
-				}
-			}
+
+
 		}
 	}
 
@@ -109,9 +118,12 @@ country_event = {
 
 		add_stability = -2
 		set_country_flag = supports_house_of_york
+		add_yearly_manpower = -5	
 		define_ruler = {
 			dynasty = Puteaux
+			name = "Reynard IV"
 			age = 31
+			female = yes
 		}
 		if = {
 			limit = {
@@ -126,56 +138,38 @@ country_event = {
 			hidden_effect = { add_ruler_personality_ancestor = { key = tactical_genius } }
 		}
 		add_yearly_manpower = -2.5
-		if = {
-			limit = {
-				owns = 243		# Lancashire
-				243 = {
-					NOT = { units_in_province = 1 }
-				}
-			}
-			243 = {
-				add_province_modifier = {
-					name = wotr_local_support_for_lancaster
-					duration = 3650
-				}
-				spawn_rebels = {
-					type = pretender_rebels
-					size = 3
-					leader = "Edward"
-					leader_dynasty = "Chatou"
-					win = yes
-				}
-			}
-		}
-		else = {
-			random_owned_province = {
+			hidden_effect = {
+					every_country = { 
 				limit = {
-					region = british_isles_region
-					OR = {
-						NOT = {
-							root = {
-								any_owned_province = {
-									region = british_isles_region
-									NOT = { units_in_province = 1 }
-								}
-							}
-						}
-						NOT = { units_in_province = 1 }
-					}
-				}
-				add_province_modifier = {
-					name = wotr_local_support_for_lancaster
-					duration = 3650
-				}
-				spawn_rebels = {
-					type = pretender_rebels
-					size = 3
-					leader = "Edward"
-					leader_dynasty = "Chatou"
-					win = yes
-				}
-			}
+					has_country_flag = ZBUNTOWANYAPPANAGEFRANCJAFLAGA
+	}
+		override_country_name = ZBUNTOWANYAPPANAGEFRANCJA2	
+		define_ruler = {
+			name = "Isabella I"
+			dynasty = Chatou
+			age = 31
+			female = yes
 		}
+				add_manpower = 15
+				}
+	declare_war_with_cb = {
+    who = event_target:ZBUNTOWANYAPPANAGE
+    casus_belli = cb_annex
+}
+					every_country = { 
+				limit = {
+		is_subject_of_type_with_overlord = { 
+		who = FRA
+		type = appanage }
+	}
+		country_event = { 
+    id = french_empire.7
+}
+				}
+
+
+		}
+
 	}
 }
 
@@ -212,6 +206,7 @@ country_event = {
 	
 	option = {		# This is most welcomed
 		name = war_of_the_roses.2.a
+		add_stability = 1
 		random_owned_province = {
 			limit = {
 				is_overseas = no
@@ -435,7 +430,7 @@ province_event = {
 	trigger = {
 		FROM = { tag = REB }
 		OR = { #so that is isn't unrelated rebels
-			region = british_isles_region
+			region = iberia_region
 			NOT = { nationalism = 1 }
 		}
 		owner = {
@@ -558,7 +553,7 @@ country_event = {
 	
 	trigger = {
 		any_owned_province = {
-			NOT = { region = british_isles_region }
+			NOT = { region = iberia_region }
 			unrest = 3
 			OR = {
 				has_province_modifier = wotr_local_support_for_lancaster
@@ -586,7 +581,7 @@ country_event = {
 		ai_chance = { factor = 75 }
 		random_owned_province = {
 			limit = {
-				NOT = { region = british_isles_region }
+				NOT = { region = iberia_region }
 				unrest = 3
 				OR = {
 					has_province_modifier = wotr_local_support_for_lancaster
@@ -682,7 +677,7 @@ country_event = {
 			AND = {
 				num_of_cities = 2
 				capital_scope = {
-					region = british_isles_region
+					region = iberia_region
 				}
 			}
 			AND = {
@@ -719,11 +714,11 @@ country_event = {
 					limit = {
 						ROOT = {
 							capital_scope = {
-								region = british_isles_region
+								region = iberia_region
 							}
 						}
 					}
-					region = british_isles_region
+					region = iberia_region
 				}
 				unit_in_siege = no
 			}
@@ -855,7 +850,7 @@ country_event = {
 			AND = {
 				num_of_cities = 2
 				capital_scope = {
-					region = british_isles_region
+					region = iberia_region
 				}
 			}
 			AND = {
@@ -892,11 +887,11 @@ country_event = {
 					limit = {
 						ROOT = {
 							capital_scope = {
-								region = british_isles_region
+								region = iberia_region
 							}
 						}
 					}
-					region = british_isles_region
+					region = iberia_region
 				}
 				unit_in_siege = no
 			}
@@ -1062,11 +1057,11 @@ country_event = {
 							limit = {
 								ROOT = {
 									capital_scope = {
-										region = british_isles_region
+										region = iberia_region
 									}
 								}
 							}
-							region = british_isles_region
+							region = iberia_region
 						}
 					}
 				}
@@ -1078,11 +1073,11 @@ country_event = {
 							limit = {
 								ROOT = {
 									capital_scope = {
-										region = british_isles_region
+										region = iberia_region
 									}
 								}
 							}
-							region = british_isles_region
+							region = iberia_region
 						}
 					}
 					save_event_target_as = the_province
@@ -1130,7 +1125,21 @@ country_event = {
 		hidden_effect = {
 			
 			# Clear Flags
-			
+			every_country = {
+				limit = {
+					has_country_flag = FRANCUSKAWOJNADOMOWA
+				}
+			clr_country_flag = FRANCUSKAWOJNADOMOWA
+			}
+						every_country = {
+				limit = {
+					has_country_flag = kolejnyzbuntowanyappanage
+				}
+			clr_country_flag = kolejnyzbuntowanyappanage
+			}
+			clr_country_flag = ZBUNTOWANYAPPANAGEFRANCJAFLAGA	
+ 			clear_global_event_target = ZBUNTOWANYAPPANAGE
+			clr_global_flag = FRANCJAWOJNADOMOWAROZA
 			# Clear Country Modifiers
 			remove_country_modifier = low_fertility
 			remove_country_modifier = importing_food
@@ -1676,7 +1685,7 @@ country_event = {
 				limit = {
 					any_owned_province = {
 						controlled_by = root
-						region = british_isles_region
+						region = iberia_region
 						NOT = { units_in_province = 1 }
 						NOT = { has_province_modifier = wotr_local_support }
 					}
@@ -1684,7 +1693,7 @@ country_event = {
 				random_owned_province = {
 					limit = {
 						controlled_by = root
-						region = british_isles_region
+						region = iberia_region
 						NOT = { units_in_province = 1 }
 						NOT = { has_province_modifier = wotr_local_support }
 					}

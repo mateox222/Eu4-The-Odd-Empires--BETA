@@ -1,0 +1,329 @@
+namespace = phoenice_events
+country_event = {
+	id = phoenice_events.1
+	title = "phoenice_events.1.t"
+	desc = "phoenice_events.1.d"
+	picture = rahbaship_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = "phoenice_events.1.a"
+		add_mil_power = 50
+		add_treasury = -100
+		create_explorer = { tradition = 50 }	
+		add_country_modifier = { 
+			name = phoenicanrahba
+			duration = -1  
+		}
+		capital_scope = {
+			create_flagship = {	
+				name = "Rebha"
+				type = heavy_ship
+			}
+		}
+		add_government_power = {
+			mechanic_type = pho_naval_professionalism_mechanic
+			power_type = phoenican_naval_professionalism
+			value = 10
+		}
+	}
+}
+
+country_event = {
+	id = phoenice_events.2
+	title = "phoenice_events.2.t"
+	desc = "phoenice_events.2.d"
+	picture = aztecbattleofpyramids_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+		name = "phoenice_events.1.a"
+		add_mil_power = 50
+		add_prestige = 10
+		5287 = {
+			change_province_name = "Shauthard" 
+			rename_capital = "Shauthard" 
+			change_religion = ROOT
+			change_culture = ROOT
+			add_base_manpower = 2
+			add_base_production = 2
+			add_base_tax = 2
+		}
+	}
+}
+
+
+
+country_event = {
+	id = phoenice_events.3
+	title =  phoenice_events.3.t
+	desc = phoenice_events.3.d
+	picture = MERCHANTS_ARGUING_eventPicture
+	is_triggered_only = yes
+	
+	#Establish this East India Company
+	option = {
+		name = phoenice_events.3.a
+		custom_tooltip = phoenice_events.3.a.tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					region = lemuria_region
+				}
+				add_core = X1M
+				if = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+			release = X1M
+			create_subject = {
+				subject_type = commercial_enterprise
+				who = X1M
+			}
+			X1M = {
+				change_government = republic
+				add_government_reform = trade_company_government
+				change_religion = ROOT
+				change_primary_culture = ROOT
+				define_ruler = {
+					name = "Tho'dryk"
+					dynasty = "Smy'th"
+					change_adm = 3
+					change_dip = 3
+					change_mil = 3
+					max_age = 50
+					min_age = 30
+				}
+				add_adm_power = 100
+				add_dip_power = 100
+				add_mil_power = 100
+				add_treasury = 200
+				set_prestige_to_zero = yes
+				add_republican_tradition = 100
+			}
+		}
+
+		lemuria_region = {
+			limit = {
+				NOT = { is_core = X1M }
+				NOT = { is_permanent_claim = X1M }
+			}
+			add_permanent_claim = X1M
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	#We do not need such enterprise on foreign ground
+	option = {
+		name = phoenice_events.3.b
+		
+		lemuria_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	#Play as the East India Company
+	option = {
+		name = phoenice_events.3.c
+		trigger = {
+			ai = no
+		}
+		custom_tooltip = phoenice_events.3.a.tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					region = lemuria_region
+				}
+				add_core = X1M
+				if = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+			release = X1M
+			create_subject = {
+				subject_type = commercial_enterprise
+				who = X1M
+			}
+			X1M = {
+				change_government = republic
+				add_government_reform = trade_company_government
+				change_religion = ROOT
+				change_primary_culture = ROOT
+				define_ruler = {
+					name = "Thomas"
+					dynasty = "Smythe"
+					change_adm = 3
+					change_dip = 3
+					change_mil = 3
+					max_age = 50
+					min_age = 30
+				}
+				add_adm_power = 100
+				add_dip_power = 100
+				add_mil_power = 100
+				add_treasury = 200
+				set_prestige_to_zero = yes
+				add_republican_tradition = 100
+			}
+			lemuria_region = {
+				limit = {
+					NOT = { is_core = X1M }
+					NOT = { is_permanent_claim = X1M }
+				}
+				add_permanent_claim = X1M
+			}
+		}
+		switch_tag = X1M
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+
+country_event = {
+	id = phoenice_events.4
+	title =  phoenice_events.4.t
+	desc = phoenice_events.4.d
+	picture = shipconstantinople_eventPicture
+	is_triggered_only = yes
+	
+	#Establish this East India Company
+	option = {
+		name = phoenice_events.4.a
+		custom_tooltip = phoenice_events.4.a.tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					region =  iberia_region
+				}
+				add_core = X1O
+				if = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+			release = X1O
+			create_subject = {
+				subject_type = commercial_enterprise
+				who = X1O
+			}
+			X1O = {
+				change_government = republic
+				add_government_reform = trade_company_government
+				change_religion = ROOT
+				change_primary_culture = ROOT
+				define_ruler = {
+					name = "'Dryk"
+					dynasty = "Sa'th"
+					change_adm = 3
+					change_dip = 3
+					change_mil = 3
+					max_age = 50
+					min_age = 30
+				}
+				add_adm_power = 100
+				add_dip_power = 100
+				add_mil_power = 100
+				add_treasury = 200
+				set_prestige_to_zero = yes
+				add_republican_tradition = 100
+			}
+		}
+
+		iberia_region = {
+			limit = {
+				NOT = { is_core = X1O }
+				NOT = { is_permanent_claim = X1O }
+			}
+			add_permanent_claim = X1O
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	#We do not need such enterprise on foreign ground
+	option = {
+		name = phoenice_events.3.b
+		
+		iberia_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	
+	#Play as the East India Company
+	option = {
+		name = phoenice_events.3.c
+		trigger = {
+			ai = no
+		}
+		custom_tooltip = phoenice_events.4.a.tt
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					region = lemuria_region
+				}
+				add_core = X1O
+				if = {
+					limit = { is_core = ROOT }
+					remove_core = ROOT
+				}
+			}
+			release = X1O
+			create_subject = {
+				subject_type = commercial_enterprise
+				who = X1O
+			}
+			X1O = {
+				change_government = republic
+				add_government_reform = trade_company_government
+				change_religion = ROOT
+				change_primary_culture = ROOT
+				define_ruler = {
+					name = "Thomas"
+					dynasty = "Smythe"
+					change_adm = 3
+					change_dip = 3
+					change_mil = 3
+					max_age = 50
+					min_age = 30
+				}
+				add_adm_power = 100
+				add_dip_power = 100
+				add_mil_power = 100
+				add_treasury = 200
+				set_prestige_to_zero = yes
+				add_republican_tradition = 100
+			}
+			iberia_region = {
+				limit = {
+					NOT = { is_core = X1O }
+					NOT = { is_permanent_claim = X1O }
+				}
+				add_permanent_claim = X1O
+		}}
+		switch_tag = X1O
+		ai_chance = {
+			factor = 0
+		}
+	}
+}

@@ -17,6 +17,10 @@ country_decisions = {
 			OR = {
 				primary_culture = neapolitan
 				primary_culture = sicilian
+				tag = A73
+				tag = KOL
+				tag = XA8
+				tag = RVA									
 			}
 			is_colonial_nation = no
 			OR = {
@@ -96,6 +100,9 @@ country_decisions = {
 				}
 				set_government_rank = 2
 			}
+
+
+			
 			set_country_flag = formed_two_sicilies_flag
 			add_prestige = 10
 			if = {
@@ -104,6 +111,52 @@ country_decisions = {
 					NOT = { has_idea_group = SIC_ideas }
 				}
 				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+
+
+			if = {
+				limit = { 
+					OR = {
+						was_tag = RVA
+						tag = RVA
+					}
+				}
+				set_country_flag = has_overriden_color_flag
+				override_country_name = SICILYLATIN
+				change_country_color = { color = { 192 106 123 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = A73
+						tag = A73
+					}
+				}
+				set_country_flag = has_overriden_color_flag
+				override_country_name = SICILYGREEK
+				change_country_color = { color = { 75 106 172 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = KOL
+						tag = KOL
+					}
+				}
+				set_country_flag = has_overriden_color_flag
+				override_country_name = SICILYGERMAN
+				change_country_color = { color = { 154 156 153 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = XA8
+						tag = XA8
+					}
+				}
+				set_country_flag = has_overriden_color_flag
+				override_country_name = SICILYSALINEA
+				change_country_color = { color = { 124 106 172 } }
 			}
 		}
 		ai_will_do = {
