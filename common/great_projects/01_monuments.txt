@@ -32,9 +32,7 @@ hagia_sophia = {
 			OR = {
 				AND = {
 					OR = {
-						religion = orthodox
-						religion = coptic
-						religion = catholic
+						religion_group = christian
 						religion_group = muslim
 					}
 					has_owner_religion = yes
@@ -48,12 +46,14 @@ hagia_sophia = {
 							secondary_religion = sunni
 							secondary_religion = shiite
 							secondary_religion = ibadi
+							secondary_religion = united_christianity
 						}
 					}
 					OR = {
 						religion = orthodox
 						religion = coptic
 						religion = catholic
+						religion = united_christianity
 						religion_group = muslim
 						has_owner_religion = yes
 					}
@@ -88,9 +88,7 @@ hagia_sophia = {
 			OR = {
 				AND = {
 					OR = {
-						religion = orthodox
-						religion = coptic
-						religion = catholic
+						religion_group = christian
 						religion_group = muslim
 					}
 					has_owner_religion = yes
@@ -104,12 +102,14 @@ hagia_sophia = {
 							secondary_religion = sunni
 							secondary_religion = shiite
 							secondary_religion = ibadi
+							secondary_religion = united_christianity
 						}
 					}
 					OR = {
 						religion = orthodox
 						religion = coptic
 						religion = catholic
+						religion = united_christianity
 						religion_group = muslim
 						has_owner_religion = yes
 					}
@@ -125,9 +125,7 @@ hagia_sophia = {
 			OR = {
 				AND = {
 					OR = {
-						religion = orthodox
-						religion = coptic
-						religion = catholic
+						religion_group = christian
 						religion_group = muslim
 					}
 					has_owner_religion = yes
@@ -141,12 +139,14 @@ hagia_sophia = {
 							secondary_religion = sunni
 							secondary_religion = shiite
 							secondary_religion = ibadi
+							secondary_religion = united_christianity
 						}
 					}
 					OR = {
 						religion = orthodox
 						religion = coptic
 						religion = catholic
+						religion = united_christianity
 						religion_group = muslim
 						has_owner_religion = yes
 					}
@@ -1902,10 +1902,6 @@ kremlin = {
 
 	#can we build it?
 	build_trigger = {
-		OR = {
-		culture_group = east_slavic
-			culture_group = slavic
-		}
 		province_is_or_accepts_culture = yes
 	}
 
@@ -1921,19 +1917,11 @@ kremlin = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		OR = {
-		culture_group = east_slavic
-			culture_group = slavic
-		}
 		province_is_or_accepts_culture = yes
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		OR = {
-		culture_group = east_slavic
-			culture_group = slavic
-		}
 		province_is_or_accepts_culture = yes
 	}
 
@@ -2848,8 +2836,8 @@ stpeters_cathedral = {
 
 	#can we build it?
 	build_trigger = {
-		province_is_or_accepts_religion = {
-			religion = catholic
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
 		}
 	}
 
@@ -2865,15 +2853,15 @@ stpeters_cathedral = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		province_is_or_accepts_religion = {
-			religion = catholic
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
 		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		province_is_or_accepts_religion = {
-			religion = catholic
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
 		}
 	}
 
@@ -7829,8 +7817,8 @@ kiev_pechersk_lavra = {
 
 	#can we build it?
 	build_trigger = {
-		province_is_or_accepts_religion = {
-			religion = orthodox
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
 		}
 	}
 
@@ -7846,15 +7834,15 @@ kiev_pechersk_lavra = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		province_is_or_accepts_religion = {
-			religion = orthodox
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
 		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		province_is_or_accepts_religion = {
-			religion = orthodox
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
 		}
 	}
 
@@ -11975,8 +11963,8 @@ etchimiadzin_cathedral = {
 	type = monument
 
 	build_trigger = {
-		province_is_or_accepts_religion = {
-			religion = coptic
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
 		}
 	}
 
@@ -11987,14 +11975,14 @@ etchimiadzin_cathedral = {
 	}
 
 	can_use_modifiers_trigger = {
-		province_is_or_accepts_religion = {
-			religion = coptic
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
 		}
 	}
 
 	can_upgrade_trigger = {
-		province_is_or_accepts_religion = {
-			religion = coptic
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
 		}
 	}
 
@@ -14336,8 +14324,8 @@ rila_monasteries = {
 	type = monument
 
 	build_trigger = {
-		province_is_or_accepts_religion = {
-			religion = orthodox
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
 		}
 	}
 
@@ -14348,14 +14336,14 @@ rila_monasteries = {
 	}
 
 	can_use_modifiers_trigger = {
-		province_is_or_accepts_religion = {
-			religion = orthodox
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
 		}
 	}
 
 	can_upgrade_trigger = {
-		province_is_or_accepts_religion = {
-			religion = orthodox
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
 		}
 	}
 
@@ -14451,8 +14439,8 @@ churches_lalibela = {
 	type = monument
 
 	build_trigger = {
-		province_is_or_accepts_religion = {
-			religion = coptic
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
 		}
 	}
 
@@ -14463,14 +14451,14 @@ churches_lalibela = {
 	}
 
 	can_use_modifiers_trigger = {
-		province_is_or_accepts_religion = {
-			religion = coptic
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
 		}
 	}
 
 	can_upgrade_trigger = {
-		province_is_or_accepts_religion = {
-			religion = coptic
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
 		}
 	}
 
@@ -14670,8 +14658,8 @@ san_antonio_missions = {
 	type = monument
 
 	build_trigger = {
-		province_is_or_accepts_religion = {
-			religion = catholic
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
 		}
 	}
 
@@ -14682,14 +14670,14 @@ san_antonio_missions = {
 	}
 
 	can_use_modifiers_trigger = {
-		province_is_or_accepts_religion = {
-			religion = catholic
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
 		}
 	}
 
 	can_upgrade_trigger = {
-		province_is_or_accepts_religion = {
-			religion = catholic
+		province_is_or_accepts_religion_group = {
+			religion_group = christian
 		}
 	}
 
@@ -16158,10 +16146,6 @@ winter_palace = {
 	type = monument
 
 	build_trigger = {
-		OR = {
-		culture_group = east_slavic
-			culture_group = slavic
-		}
 		province_is_or_accepts_culture = yes
 	}
 
@@ -16172,18 +16156,10 @@ winter_palace = {
 	}
 
 	can_use_modifiers_trigger = {
-		OR = {
-		culture_group = east_slavic
-			culture_group = slavic
-		}
 		province_is_or_accepts_culture = yes
 	}
 
 	can_upgrade_trigger = {
-		OR = {
-		culture_group = east_slavic
-			culture_group = slavic
-		}
 		province_is_or_accepts_culture = yes
 	}
 
