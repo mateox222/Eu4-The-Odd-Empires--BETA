@@ -374,9 +374,9 @@ french_missions_north = {
 					}
 					add_permanent_claim = ROOT
 				}
-				basque_area = {
+				basque_country = {
 					limit = {
-						NOT = { is_apermanent_claim = ROOT }
+						NOT = { is_permanent_claim = ROOT }
 						NOT = { is_core = ROOT	}
 					}
 					add_permanent_claim = ROOT
@@ -1443,7 +1443,11 @@ emp_france_missions_2 = {
 		position = 2
 		trigger = {
 		OR = {
+				
+custom_trigger_tooltip = {
+	tooltip = questionofmaine2
 			has_global_flag = questionofmaine
+}
 			owns_core_province = 184
 			OR = {
 			war_with = POL
@@ -2575,6 +2579,7 @@ emp_france_missions_2 = {
 		
 		}
 	}
+				}
 		emp_fra_revolution = {
 		icon = french_revolution
 		required_missions = {  }

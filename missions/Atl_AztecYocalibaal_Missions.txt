@@ -717,7 +717,7 @@ AA46_azt_minors_1 = {
 					power_type = azt_adm_power
 					value = 60
 				}	
-						iberia_region = {
+						british_isles_region = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -859,7 +859,7 @@ AZT_normandia1 = {
 			name = "aztecwar20"
 			duration = -1
 		}
-		british_isles_region = {
+		iberia_region = {
 			limit = {
 				NOT = { is_core = ROOT }
 				NOT = { is_permanent_claim = ROOT }
@@ -1399,7 +1399,39 @@ A4N6_azt_minors_5 = {
 	has_country_shield = yes
 
 
-
+	aztec_yao_roads = {
+		icon = atlantropa_imperialroads
+		position = 1
+		required_missions = {  }
+		trigger = {
+			atlantropa_road = 20
+		}
+		effect = {
+			every_owned_province = {
+							limit = {
+								has_building = atlantropa_road
+							}
+							add_base_production = 1
+						}
+		}
+	}
+	azt_yao_train = {
+		icon = atlantropa_steamengine
+		position = 2
+		required_missions = { aztec_yao_roads }
+		trigger = {
+			atlantropa_tracks = 20
+		}
+		effect = {
+			every_owned_province = {
+							limit = {
+								has_building = atlantropa_tracks
+							}
+							add_base_production = 3
+						}
+		}
+	}
+	
 		azt_rb_caribbean_discovery = {
 		icon = atlantropa_aztecship
 		required_missions = { aztec_flagship2 }

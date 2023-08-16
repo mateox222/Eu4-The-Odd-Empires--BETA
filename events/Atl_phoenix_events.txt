@@ -809,3 +809,48 @@ id = phoenixempire_events.204
 	}
 }
 
+country_event = {
+id = phoenixempire_events.205
+	title = "phoenixempire_events.205.t"
+	desc = "phoenixempire_events.205.d"
+	picture = Volcanophoenix_eventPicture
+	goto = 124
+	mean_time_to_happen = {
+				months = 32
+	}
+	immediate = {
+		hidden_effect = {
+			set_country_flag = PHOENIXISREAL
+		}
+	}
+	trigger = {
+		owns = 124
+		is_religion_enabled = protestant
+		tag = XA8
+	}
+	option = {
+		name = "phoenixempire_events.205.a"
+		add_stability = -1
+			124 = {
+		add_devastation = 10
+		add_base_manpower = -1
+	}
+			124 = {
+				change_religion = protestant
+	}
+	}
+	option = {
+		highlight = yes
+		name = "phoenixempire_events.205.b"
+		add_stability = 1
+			124 = {
+		add_devastation = 10
+		add_base_manpower = -1
+	}
+					124 = {
+				change_religion = protestant
+	}
+		change_religion = protestant
+	}
+
+}

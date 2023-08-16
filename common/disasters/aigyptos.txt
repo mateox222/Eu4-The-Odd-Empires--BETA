@@ -6,12 +6,10 @@ potential = {
 			tag = BYZ
 		}
 can_start = {
-hidden_trigger = {
 num_of_owned_provinces_with = {
 	value = 10
 	owned_by = ROOT
 	region = egypt_region
-}
 }
 		
 }
@@ -65,8 +63,9 @@ num_of_owned_provinces_with = {
 
 
 can_end = {
-hidden_trigger = {
-        had_country_flag = { flag = egyptian_control days = 3600 }
+custom_trigger_tooltip = {
+	tooltip = egyptian_control2
+        had_country_flag = { flag = egyptian_control days = 1800 }
 		}
 }
 modifier = {

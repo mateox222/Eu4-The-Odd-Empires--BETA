@@ -10,10 +10,15 @@ latin_empire_western222 = {
 	latin_empire_greek = {
 		icon = atlantropa_focusgreek
 		trigger = {
+				
+	custom_trigger_tooltip = {
+	tooltip = latintroubles
 			OR = {
 				has_global_flag = end_of_latin_empire_crisis
 				has_country_flag = latindostajepodupie12	
+				is_year = 6930
 				}
+	}
 				owns_core_province = 151
 			stability = 3
 			accepted_culture = greek
@@ -745,10 +750,14 @@ lamanitia_latinamission = {
 
 		trigger = {
 			has_any_disaster = no
+	custom_trigger_tooltip = {
+	tooltip = latintroubles
 			OR = {
-			has_global_flag = end_of_latin_empire_crisis
-			has_country_flag = latindostajepodupie12	
-			}
+				has_global_flag = end_of_latin_empire_crisis
+				has_country_flag = latindostajepodupie12	
+				is_year = 6930
+				}
+	}
 			owns_core_province = 151
 		}
 		effect = {
@@ -1045,10 +1054,14 @@ latin_empire_pp_balkans_north_italy = {
 		icon = atlantropa_pope
 
 		trigger = {
-					OR = {
+	custom_trigger_tooltip = {
+	tooltip = latintroubles
+			OR = {
 				has_global_flag = end_of_latin_empire_crisis
 				has_country_flag = latindostajepodupie12	
+				is_year = 6930
 				}
+	}
 				owns_core_province = 151	
 		}
 		effect = {
