@@ -535,7 +535,7 @@ country_event = {
 		has_dlc = "Art of War"
 		religion = shamanism
 		any_neighbor_country = {
-			religion = sunni
+			religion = monophysite
 		}
 		NOT = { has_country_modifier = animist_syncretism }
 	}
@@ -548,7 +548,7 @@ country_event = {
 	option = {
 		name = "west_african.12.a"
 		random_neighbor_country = {
-			limit = { religion = sunni }
+			limit = { religion = monophysite }
 			add_opinion = {
 				who = ROOT
 				modifier = renounced_our_faith
@@ -566,13 +566,13 @@ country_event = {
 		random_owned_province = {
 			limit = {
 				any_neighbor_province = {
-					owner = { religion = sunni }
+					owner = { religion = monophysite }
 				}
 				religion = shamanism
 				NOT = { is_religious_center_province = yes }
 				NOT = { has_province_modifier = religious_center }
 			}
-			change_religion = sunni
+			change_religion = monophysite
 		}
 	}
 }

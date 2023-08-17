@@ -19,10 +19,7 @@ country_event = {
 	trigger = {
 		owns = 1148 #Gobir
 		is_year = 7279
-		OR = {
-			NOT = { religion = sunni }
-			NOT = { piety = -0.3 }
-		}
+		always = no
 		NOT = { exists = SOK }
 		any_known_country = {
 			has_country_flag = fulani_jihad_state
