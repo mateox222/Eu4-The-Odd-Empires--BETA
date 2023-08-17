@@ -1,0 +1,1583 @@
+
+hanseatic_expansion_tree = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+
+			tag = SB2
+
+		NOT = { map_setup = map_setup_random }
+
+	}
+
+	has_country_shield = yes
+
+	hsa_hanseatic_army_mission = {
+		icon = atlantropa_imperialcompany
+		required_missions = { }
+		position = 1
+
+		trigger = {
+			army_size = 12
+			army_size_percentage = 1
+		}
+
+		effect = {
+			
+			leon_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			baleares_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+
+
+			if =  {
+				limit = { 
+					has_dlc = "Rights of Man"
+					NOT = { num_of_ruler_traits = { amount = 3 } }
+				}
+				add_ruler_personality = inspiring_leader_personality
+			} 
+			else = { add_army_tradition = 10 } 
+		}
+        
+        				ai_weight = {
+			factor = 500
+		}
+	}
+	
+	hsa_hanseatic_mecklenburg_mission = {
+		icon = mission_rb_hanseatic_east
+		required_missions = { hsa_hanseatic_army_mission }
+		position = 2
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 5560
+				province_id = 5559
+			}
+		}
+		
+		trigger = {
+			5560 = {
+				owned_by = ROOT
+			}
+			5559 = {
+				owned_by = ROOT
+			}
+		}
+
+		effect = {
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 10
+			}
+			add_adm_power = 50
+			235 = { # Gotland
+				if = {
+					limit = {
+						NOT = { is_core = root }
+						NOT = { is_permanent_claim = root }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			capital_scope = {
+				add_trade_modifier = {
+					who = root
+					duration = 7300
+					power = 20
+					key = hsa_lubeck_ascendant
+				}
+			}
+			define_advisor = { 
+				type = trader 
+				skill = 1 
+				cost_multiplier = 0.25 
+			}
+		}
+        				ai_weight = {
+			factor = 500
+		}
+	}
+}
+
+hanseatic_return_visby_tree = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+
+			tag = SB2
+
+		NOT = { map_setup = map_setup_random }
+
+	}
+
+	has_country_shield = yes
+	
+	hsa_return_visby_mission = {
+		icon = return_visby_to_the_league
+		required_missions = { hsa_hanseatic_mecklenburg_mission  hsa_baltic_trade_mission }
+		position = 3
+		provinces_to_highlight = {
+			province_id = 235 # Gotland
+		}
+
+		trigger = {
+			if = {
+				limit = {
+					has_dlc = "Res Publica"
+				}
+				235 = {
+					OR = {
+						num_of_times_improved = 4 
+						has_province_modifier = trade_post_modifier 
+					}
+				}
+			}
+			else = {
+				235 = { country_or_non_sovereign_subject_holds = ROOT }
+				235 = { development = 20 }
+			}
+			if = {
+				limit = {
+					has_dlc = "Mare Nostrum"
+				}
+				OR = { 
+					235 = {
+						owner = {
+							is_in_trade_league_with = ROOT 
+						}
+					}
+					235 = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+			}
+			else = {
+				235 = {
+					country_or_non_sovereign_subject_holds = root
+				}
+			}
+		}
+
+		effect = {
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 10
+			}
+				235 = { add_base_tax = 2 add_base_production = 2 add_base_manpower = 2 }
+			add_mercantilism = 5
+			169 = { # Novgorod
+				if = {
+					limit = {
+						NOT = { is_core = root }
+						NOT = { is_permanent_claim = root }
+					}
+					add_permanent_claim = root
+				}
+			}
+			170 = { #Danzig
+				if = {
+					limit = {
+						NOT = { is_core = root }
+						NOT = { is_permanent_claim = root }
+					}
+					add_permanent_claim = root
+				}
+			}
+						171 = { #Danzig
+				if = {
+					limit = {
+						NOT = { is_core = root }
+						NOT = { is_permanent_claim = root }
+					}
+					add_permanent_claim = root
+				}
+			}
+		}
+        				ai_weight = {
+			factor = 500
+		}
+	}
+	hsa_return_novgorod_mission = {
+		icon = atlantropa_britanny
+		required_missions = { hsa_return_visby_mission }
+
+		provinces_to_highlight = {
+			OR = {
+			province_id = 170
+
+		}}
+
+		trigger = {
+			if = {
+				limit = {
+					has_dlc = "Res Publica"
+					has_dlc = "Mare Nostrum"
+				}
+				170 = { 
+					if = {
+						limit = { country_or_non_sovereign_subject_holds = ROOT }
+						num_of_times_improved = 4 
+					}
+					OR = {
+						has_province_modifier = trade_post_modifier 
+						country_or_non_sovereign_subject_holds = ROOT
+						owner = { is_in_trade_league_with = ROOT }
+					}
+				}
+			}
+			else = {
+				170 = { 
+					OR = {
+						owner = { is_in_trade_league_with = ROOT }
+						AND = {
+							num_of_times_improved = 4
+							country_or_non_sovereign_subject_holds = ROOT 
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 10
+			}
+			add_mercantilism = 5
+			170 = {
+				add_trade_modifier = {
+					who = root
+					duration = 7300
+					power = 50
+					key = hsa_hansa_in_novgorod
+				}
+			}
+			add_legitimacy = 10 
+			add_republican_tradition = 5 
+			add_devotion = 10 
+			add_horde_unity = 10 
+		}
+	}
+}
+
+lubeck_misc_tree = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+
+			tag = SB2
+
+		NOT = { map_setup = map_setup_random }
+
+	}
+
+	has_country_shield = yes
+
+		imperial_por_flagship = {
+		icon = atlantropa_arthurianfleet
+		required_missions = {  }
+		
+		trigger = {
+			has_flagship = yes
+		}
+		effect = {
+			add_navy_tradition = 20
+			add_dip_power = 100
+		}
+		        				ai_weight = {
+			factor = 500
+		}
+	}
+
+	hsa_hanseatic_bookkeeping_mission = {
+		icon = mission_rb_monopolize_the_channel
+		required_missions = { imperial_por_flagship }
+		position = 2
+
+		trigger = {
+			trader = 2
+			treasurer = 2
+			total_base_tax = 50
+			NOT = { corruption = 0.1 }
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = hanseatic_bookkeeping_modifier
+				duration = 7300
+			}
+			if = { 
+				limit = { has_estate = estate_burghers }
+				add_estate_loyalty = {
+					estate = estate_burghers 
+					loyalty = 20 
+				}
+			}
+			else = { add_dip_power = 50 } 
+		}
+		        				ai_weight = {
+			factor = 500
+		}
+	}
+}
+	
+
+hanseatic_united_tree = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+
+			tag = SB2
+
+		NOT = { map_setup = map_setup_random }
+
+	}
+
+	has_country_shield = yes
+
+	hsa_build_lubeck_krantor_mission = {
+		icon = mission_danzig_or_war
+		required_missions = { hsa_hanseatic_bookkeeping_mission hsa_hanseatic_shipwrights_mission }
+		position = 3
+		
+		trigger = {
+			num_of_merchants = 4
+			years_of_income = 3
+		}
+
+		effect = {
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 10
+			}
+			capital_scope = {
+				add_province_triggered_modifier = krantor_crane
+				add_province_modifier = { 
+					name = capital_expansion_modifier
+					duration = 3650 
+				}
+			}
+		}
+	}
+
+	hsa_queen_of_the_league_mission = {
+		icon = mission_heart_of_the_hansa
+		required_missions = { hsa_build_lubeck_krantor_mission hsa_adler_von_lubeck_mission }
+		position = 4
+		provinces_to_highlight = { is_capital_of = ROOT } 
+		trigger = {
+			capital_scope = {
+				development = 30
+				if = {
+					limit = { has_dlc = "Dharma" }
+					OR = { 
+						province_has_center_of_trade_of_level = 3
+						AND = { 
+							has_manufactory_trigger = yes 
+							has_trade_building_trigger = yes
+							province_trade_power = 35 
+						}
+					}
+				}
+				else = {
+					num_of_buildings_in_province = 5
+					has_manufactory_trigger = yes 
+					has_trade_building_trigger = yes
+					province_trade_power = 25
+				}
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = hanseatic_queen_modifier
+				duration = -1
+			}
+		}
+	}
+
+	hsa_dominate_commerce_mission = {
+		icon = mission_african_gold
+		required_missions = { hsa_queen_of_the_league_mission hsa_return_novgorod_mission }
+		position = 5
+		provinces_to_highlight = { 
+			province_id = 1293
+		}
+		trigger = {
+			1293 = {
+				trade_share = {
+					country = ROOT
+					share = 70
+				}
+			}
+			if = {
+				limit = {
+					has_dlc = "Mare Nostrum"
+					is_trade_league_leader = yes
+				}
+				calc_true_if = {
+					desc = advance_our_interests.tooltip
+					all_known_country = { is_in_trade_league_with = ROOT }
+					amount = 7 # 8 members include Lubeck
+				}
+			}
+			else = {
+				total_development = 100
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "hsa_advance_our_interests_modifier"
+				duration = 10950
+			}
+		}
+	}
+}
+
+hanseatic_london_tree = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+
+			tag = SB2
+
+		NOT = { map_setup = map_setup_random }
+
+	}
+
+	has_country_shield = yes
+
+	hsa_london_steelyard_mission = {
+		icon = the_london_steelyard
+		position = 6
+		required_missions = { hsa_london_channel_mission }
+
+		provinces_to_highlight = {
+			province_id = 236
+		}
+
+		trigger = {
+			if = {
+				limit = { has_dlc = "Mare Nostrum" }
+				236 = {
+					OR = {
+						country_or_non_sovereign_subject_holds = root
+						owner = { is_in_trade_league_with = root }
+					}
+				}
+			}
+			else = {
+				236 = {
+					country_or_non_sovereign_subject_holds = root
+				}
+			}
+		}
+
+		effect = {
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 10
+			}
+			add_dip_power = 50
+			236 = {
+				add_trade_modifier = {
+					who = root
+					duration = -1
+					power = 30
+					key = hsa_london_steelyard
+				}
+			}
+		}
+	}	
+}
+
+hanseatic_sound_toll_tree = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+
+			tag = SB2
+
+		NOT = { map_setup = map_setup_random }
+
+	}
+
+	has_country_shield = yes
+
+
+	hsa_baltic_trade_mission = {
+		icon = mission_develop_nevas_port
+		required_missions = { hsa_hanseatic_army_mission }
+		position = 2
+	
+		provinces_to_highlight = {
+			province_id = 1295 # Baltic Sea
+		}
+	
+		trigger = {
+			1295 = {
+				trade_share = {
+					country = ROOT
+					share = 25
+				}
+			}
+		}
+	
+		effect = {
+			doggerland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			westdoggerland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "hsa_baltic_trade_modifier"
+				duration = 7300
+			}
+		}
+        				ai_weight = {
+			factor = 500
+		}
+	}
+
+	hsa_seize_jutland_mission = {
+		icon = mission_scandinavian_port_authority
+		required_missions = { hsa_baltic_trade_mission }
+		position = 4
+
+		provinces_to_highlight = {
+			OR = {
+				area = westdoggerland_area
+				area = doggerland_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 4
+				OR = {
+					area = doggerland_area
+					area = westdoggerland_area
+				}
+			}
+		}
+
+		effect = {
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 10
+			}
+			if = {
+				limit = {
+					exists = HOL
+					NOT = { NOR = { is_subject = yes } }
+				}
+				add_casus_belli = {
+					target = HOL
+					type = cb_vassalize_mission
+					months = 120
+				}
+			}
+			else = {
+				holland_area = {
+					limit = {
+						NOT = { is_core = root }
+						NOT = { is_permanent_claim = root }
+					}
+					add_permanent_claim = ROOT
+				}
+				brabant_area = {
+					limit = {
+						NOT = { is_core = root }
+						NOT = { is_permanent_claim = root }
+					}
+					add_permanent_claim = ROOT
+				}
+				flanders_area = {
+					limit = {
+						NOT = { is_core = root }
+						NOT = { is_permanent_claim = root }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			if = {
+				limit = {
+					exists = SAV
+					NOT = { SAV = { is_subject = yes } }
+				}
+				add_casus_belli = {
+					target = SAV
+					type = cb_vassalize_mission
+					months = 120
+				}
+			}
+			add_mil_power = 50 
+		}
+        				ai_weight = {
+			factor = 500
+		}
+	}
+
+	hsa_subjugate_norway_mission = {
+		icon = mission_seize_north_sea_trade
+		required_missions = { hsa_seize_jutland_mission }
+		position = 6
+
+		provinces_to_highlight = {
+			OR = {
+				province_id = 97
+				province_id = 4383
+				province_id = 1871
+			}
+			NOT = { country_or_non_sovereign_subject_holds = root }
+			NOT = {
+				owner = {
+					is_in_trade_league_with = root
+				}
+			}
+		}
+		
+		trigger = {
+			if = {
+				limit = { has_dlc = "Mare Nostrum" }
+				97 = {
+					OR = {
+						country_or_non_sovereign_subject_holds = ROOT
+						owner = {
+							is_in_trade_league_with = root
+						}
+					}
+				}
+				4383 = {
+					OR = {
+						country_or_non_sovereign_subject_holds = ROOT
+						owner = {
+							is_in_trade_league_with = root
+						}
+					}
+				}
+				1871 = {
+					OR = {
+						country_or_non_sovereign_subject_holds = ROOT
+						owner = {
+							is_in_trade_league_with = root
+						}
+					}
+				}
+			}
+			else = {
+				1871 = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				4383 = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				1871 = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+		}
+
+		effect = {
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 10
+			}
+			add_prestige = 20
+			if = {
+				limit = {
+					NOR = { is_subject_of = root }
+				}
+				add_mil_power = 100
+			}
+			else = {
+				custom_tooltip = bre_ham_nat_prod_nor_prov_tt
+				hidden_effect = { 
+					every_owned_province = {
+						limit = { culture = dutch }
+						add_nationalism = -5
+						add_base_production = 1 
+					}
+				}
+			}
+
+			barbary_coast_area = {
+				limit = {
+					NOT = { is_core = root }
+					NOT = { is_permanent_claim = root }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+                				ai_weight = {
+			factor = 500
+		}
+	}
+
+}
+
+hanseatic_britain_tree = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+
+			tag = SB2
+
+		NOT = { map_setup = map_setup_random }
+
+	}
+
+	has_country_shield = yes
+
+	hsa_london_channel_mission = {
+		icon = atlantropa_Franceaise
+		required_missions = {  }
+		position = 5
+
+		provinces_to_highlight = {
+			province_id = 1295
+		}
+
+		trigger = {
+			if = {
+				limit = {
+					NOT = { exists = A59 }
+					SCO = {
+						is_subject = no
+						owns = 248
+						owns = 249
+					}
+					exists = FRA
+				}
+				OR = {
+					FRA = {
+						alliance_with = root
+						has_opinion = {
+							who = root
+							value = 125
+						}
+					}
+					1295 = {
+						trade_share = {
+							country = root
+							share = 25
+						}
+					}
+					1295 = {
+						privateer_power = {
+							country = root
+							share = 25
+						}
+					}
+				}
+			}
+			else = {
+				1295 = {
+					OR = {
+						trade_share = {
+							country = root
+							share = 25
+						}
+						privateer_power = {
+							country = root
+							share = 25
+						}
+					}
+				}
+			}
+		}
+
+		effect = {
+			1295 = {
+				add_trade_modifier = {
+					who = root
+					duration = 7300
+					power = 25
+					key = hsa_hanseatic_channel
+				}
+			}
+			
+			4785 = { #London
+				if = {
+					limit = {
+						NOT = { is_core = root }
+						NOT = { is_permanent_claim = root }
+					}
+					add_permanent_claim = root
+				}
+			}
+			1860 = { #Lothian
+				if = {
+					limit = {
+						NOT = { is_core = root }
+						NOT = { is_permanent_claim = root }
+					}
+					add_permanent_claim = root
+				}
+			}
+			4785 = { #Ayr
+				if = {
+					limit = {
+						NOT = { is_core = root }
+						NOT = { is_permanent_claim = root }
+					}
+					add_permanent_claim = root
+				}
+			}
+			add_navy_tradition = 15
+		}
+	}
+
+		 hsa_edinburgh_mission = {
+		icon = mission_rb_the_bank_of_scotland
+		required_missions = { hsa_london_channel_mission }
+
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1860
+				province_id = 4367
+				province_id = 4785			
+			}
+			NOT = { country_or_non_sovereign_subject_holds = root }
+			NOT = {
+				owner = {
+					is_in_trade_league_with = root
+				}
+			}
+		}
+
+		trigger = {
+			if = {
+				limit = { has_dlc = "Mare Nostrum" }
+				1860 = {
+					OR = {
+						country_or_non_sovereign_subject_holds = root
+						owner = { is_in_trade_league_with = root }
+					}
+				}
+				4367 = {
+					OR = {
+						country_or_non_sovereign_subject_holds = root
+						owner = { is_in_trade_league_with = root }
+					}
+				}
+				4785 = {
+					OR = {
+						country_or_non_sovereign_subject_holds = root
+						owner = { is_in_trade_league_with = root }
+					}
+				}	 	
+			}
+			else = {
+				1860 = { country_or_non_sovereign_subject_holds = root }
+				4367 = { country_or_non_sovereign_subject_holds = root }
+				4785 = { country_or_non_sovereign_subject_holds = root }
+			}
+		}
+
+		effect = {
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 10
+			}
+			add_prestige = 20
+			if = {
+				limit = {
+					exists = ALE
+					ALE = {
+						is_subject = no
+						NOT = { is_in_trade_league_with = root }
+					}
+				}
+				add_casus_belli = {
+					target = ALE
+					type = cb_vassalize_mission
+					months = 120
+				}
+			}
+			custom_tooltip = bre_ham_sep_prod_scot_tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = { 
+						OR = {
+							culture = welsh
+							culture = cornish
+						}
+					}
+					add_nationalism = -5
+					add_base_production = 1 
+				}
+			}
+		}
+	}
+	hsa_north_sea_trade_mission = {
+		icon = mission_look_west
+		required_missions = { hsa_edinburgh_mission hsa_subjugate_norway_mission }
+
+		provinces_to_highlight = {
+			province_id = 5255
+		}
+
+		trigger = {
+			5255 = {
+				is_strongest_trade_power = root
+			}
+		}
+
+		effect = {
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 10
+			}
+			add_country_modifier = {
+				name = hsa_north_sea_trading
+				duration = 7300
+			}
+			create_explorer = {
+				tradition = 60
+			}
+		}
+	}
+}
+
+hanseatic_colonisation_tree = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+
+			tag = SB2
+
+		NOT = { map_setup = map_setup_random }
+
+		is_random_new_world = no
+	}
+
+	has_country_shield = yes
+
+	hsa_newfoundland_trading_ports_mission = {
+		icon = mission_rb_scottish_the_darien_scheme
+		required_missions = { hsa_north_sea_trade_mission }
+		position = 8
+			
+		provinces_to_highlight = {
+			area = newfoundland_area
+			has_discovered = root
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		
+		trigger = {
+			newfoundland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		
+		effect = {
+			newfoundland_area = { add_base_production = 2 }
+			add_mercantilism = 5
+		}
+	}
+
+	hsa_new_lubeck_mission = {
+		icon = mission_rb_the_thirteen_colonies
+		required_missions = { hsa_newfoundland_trading_ports_mission }
+
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					province_id = 965 # Manhattan
+					NOT = {
+						owner = {
+							is_colonial_nation_of = root
+						}
+					}
+				}
+				AND = {
+					colonial_region = colonial_eastern_america
+					NOT = {
+						ROOT = {
+							any_subject_country = {
+								is_colonial_nation = yes
+								num_of_cities = 10
+								any_owned_province = {
+									colonial_region = colonial_eastern_america
+								}
+							}
+						}
+					}
+					OR = {
+						has_port = yes
+						any_neighbor_province = {
+							country_or_non_sovereign_subject_holds = root
+						}
+					}
+				}
+			}
+			has_discovered = root
+		}
+	
+		trigger = {
+			965 = {
+				owner = {
+					is_colonial_nation_of = root
+					num_of_cities = 10
+				}
+			}
+		}
+
+		effect = {
+			
+			add_country_modifier = {
+				name = new_lubeck_modifier
+				duration = 7300	
+			}
+			965 = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+			}
+		}
+	}
+}
+
+hanseatic_shipwright_tree = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+
+			tag = SB2
+
+		NOT = { map_setup = map_setup_random }
+
+	}
+
+	has_country_shield = yes
+
+	hsa_merchant_navy_mission = {
+		icon = mission_corsairs_of_the_north_sea
+		required_missions = {  }
+		position = 1
+
+		trigger = {
+			num_of_galley = 40
+		}
+
+		effect = {
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 5
+			}
+			add_country_modifier = {
+				name = hanseatic_merchant_navy_modifier
+				duration = 9125			
+			}
+			if =  {
+				limit = { 
+					has_dlc = "Rights of Man"
+					NOT = { num_of_ruler_traits = { amount = 3 } }
+				}
+				add_ruler_personality = entrepreneur_personality
+			} 
+			else = { add_navy_tradition = 10 } 
+		}
+        
+        				ai_weight = {
+			factor = 500
+		}
+	}
+
+	hsa_hanseatic_shipwrights_mission = {
+		icon = mission_aragonese_navy
+		required_missions = { hsa_merchant_navy_mission imperial_por_flagship }
+		position = 2
+
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					is_capital_of = ROOT
+					OR = {
+						NOT = { owned_by = root }
+						has_shipyard_building_trigger = no
+					}
+				}
+				AND = {
+					owned_by = root
+					has_port = yes
+					has_shipyard_building_trigger = no
+					root = {
+						NOT = {
+							num_of_owned_provinces_with = {
+								value = 5
+								OR = {
+									has_building = shipyard
+									has_building = grand_shipyard
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		trigger = {
+			capital_scope = { 
+				OR = {
+					has_building = shipyard
+					has_building = grand_shipyard
+				}
+			}
+			num_of_owned_provinces_with = {
+				value = 5
+				OR = {
+					has_building = shipyard
+					has_building = grand_shipyard
+				}
+			}
+		}
+
+		effect = {
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 10
+			}
+			capital_scope = { 
+				add_province_modifier = {
+					name = "hanseatic_shipwrights_modifier"
+					duration = -1
+				}
+			}
+		}
+        				ai_weight = {
+			factor = 500
+		}
+	}
+	
+	hsa_adler_von_lubeck_mission = {
+		icon = mission_launch_a_flagship
+		required_missions = { hsa_hanseatic_shipwrights_mission }
+		position = 3
+
+		provinces_to_highlight = {
+			is_capital = yes
+			owner = {
+				NOT = { tag = root }
+				any_owned_province = {
+					sea_zone = {
+						OR = {
+							region = mediterrenean_region
+							area = bay_of_biscay_area
+						}
+					}
+				}
+				num_of_heavy_ship = root
+			}
+		}
+
+		trigger = {
+			if = { 
+				limit = { has_dlc = "Golden Century" } 
+				OR = { 
+					has_flagship = yes 
+					custom_trigger_tooltip = {
+						tooltip = adler_von_lubeck.tooltip
+						has_country_flag = adler_built
+					}
+				}
+				num_of_heavy_ship = 10 
+			}
+			else = { num_of_heavy_ship = 10 }
+			custom_trigger_tooltip = {
+				tooltip = adler_von_lubeck_supreme.tooltip
+				NOT = {
+					any_country = {
+						any_owned_province = {
+							sea_zone = {
+								OR = {
+									region = mediterrenean_region
+									area = bay_of_biscay_area
+								}
+							}
+						}
+						num_of_heavy_ship = root
+					}
+				}
+			}
+			navy_size_percentage = 0.95
+		}
+
+		effect = {
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 10
+			}
+            	corsica_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			corsica_sardinia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = adler_von_lubeck_modifier
+				duration = 7300
+			}
+		}
+        				ai_weight = {
+			factor = 100
+		}
+	}
+    				hns_conquer_aztec6 = {
+		icon = atlantropa_flotaoceaniczna
+		required_missions = { hsa_adler_von_lubeck_mission }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = corsica_sardinia_area
+ 				area = corsica_area      			
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+						corsica_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}	
+						corsica_sardinia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}	
+
+            
+		}
+		effect = {
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 10
+			}
+                    add_prestige = 20
+                    add_years_of_income = 2
+
+						western_sicily_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+						sicily_area	 = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			
+		}
+
+}
+    				hns_conquer_sicily_atlantis = {
+		icon = atlantropa_italysicility
+		required_missions = { hns_conquer_aztec6 }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				area = western_sicily_area
+ 				area = sicily_area			
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+						sicily_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}	
+						western_sicily_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}	
+
+            
+		}
+		effect = {
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 10
+			}
+                    add_prestige = 25
+                    add_years_of_income = 5
+
+						atlantis_sicily_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+
+			
+		}
+
+}
+}
+
+hanseatic_united_tree_2 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+
+			tag = SB2
+
+		NOT = { map_setup = map_setup_random }
+
+	}
+
+	has_country_shield = yes
+
+	hsa_unite_hanseatic_league_mission = {
+		icon = unite_the_league
+		position = 6
+		required_missions = { hsa_dominate_commerce_mission }
+
+		trigger = {
+			num_of_merchants = 6
+			trade_income_percentage = 0.50
+			is_great_power = yes
+		}
+
+		effect = {
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 10
+			}
+				every_country = {
+					limit = { is_in_trade_league_with = root }
+					ROOT = { vassalize = PREV }
+					add_historical_friend = ROOT
+					hidden_effect = { country_event = { id = emp_mission_events.14 } }
+				}
+			
+					
+					custom_tooltip = hsa_united_league_no_valid_targets.tooltip
+				
+            
+			
+			add_country_modifier = { 
+				name = "hsa_united_league_modifier"
+				duration = -1
+			}
+			set_country_flag = is_hanseatic_league_flag
+        }
+		
+	}
+    
+        	hns_conquer_sicily_aztec = {
+		icon = mission_rb_take_gibraltar
+		provinces_to_highlight = {
+			OR = {
+				area = baleares_area
+ 				area = leon_area	
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+					leon_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}	
+						baleares_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}	
+
+            
+		}
+		effect = {
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 25
+			}
+            226 = {
+				set_in_empire = yes	
+                add_base_tax = 2 
+                add_base_manpower = 2 
+                add_base_production = 2 
+                change_culture  = ROOT
+                change_religion = ROOT
+            }
+                    add_prestige = 25
+                    add_years_of_income = 2
+       northern_morocco_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+						galicia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+
+						barbary_coast_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+
+						algiers_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+
+			
+		}
+				ai_weight = {
+			factor = 500
+		}
+}
+    
+           	hns_conquer_sicily_aztec211 = {
+                		required_missions = { 	hns_conquer_sicily_aztec }
+		icon = atlantropa_nikeangalleys
+		provinces_to_highlight = {
+			OR = {
+				area = northern_morocco_area
+ 				area = barbary_coast_area
+     				area = algiers_area            
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+					algiers_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}	
+				barbary_coast_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}	
+			northern_morocco_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}	
+            
+		}
+		effect = {
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 25
+			}
+                    add_prestige = 25
+                    add_years_of_income = 2
+      western_morocco_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+						southern_morocco_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+					kabylia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+
+				tunisia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+            
+		}
+				ai_weight = {
+			factor = 500
+		}
+} 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }
