@@ -1361,7 +1361,7 @@ muslim = {
 		
 	}
 	
-	sunni = {
+	islam_religion = = {
 		color = { 101 114 178 }
 		icon = 5
 		country = {
@@ -1377,26 +1377,6 @@ muslim = {
 		}
 		
 		heretic = { BEKTASHI AHMADI ZIKRI YAZIDI }
-		
-		uses_piety = yes				# Uses piety mechanics
-	}
-
-	shiite = {
-		color = { 183 132 178 }
-		icon = 6
-		country = {
-			heir_chance = 1.0
-			land_morale = 0.05
-		}
-		country_as_secondary = {
-			land_morale = 0.05
-			advisor_cost = -0.1
-		}
-		province = {
-			local_missionary_strength = -0.02
-		}
-		
-		heretic = { DRUZE HURUFI ZAIDI }
 		
 		uses_piety = yes				# Uses piety mechanics
 	}
@@ -2507,6 +2487,45 @@ jewish_group = {
 
 
 zoroastrian_group = {
+		sunni = {
+		color = { 101 114 178 }
+		icon = 5
+		country = {
+			cav_to_inf_ratio = 0.10
+			heir_chance = 1.0
+		}
+		country_as_secondary = {
+			trade_efficiency = 0.1
+			heir_chance = 1.0
+		}
+		province = {
+			local_missionary_strength = -0.02
+		}
+		
+		heretic = { BEKTASHI AHMADI ZIKRI YAZIDI }
+		
+		uses_piety = yes				# Uses piety mechanics
+	}
+
+	shiite = {
+		color = { 183 132 178 }
+		icon = 6
+		country = {
+			heir_chance = 1.0
+			land_morale = 0.05
+		}
+		country_as_secondary = {
+			land_morale = 0.05
+			advisor_cost = -0.1
+		}
+		province = {
+			local_missionary_strength = -0.02
+		}
+		
+		heretic = { DRUZE HURUFI ZAIDI }
+		
+		uses_piety = yes				# Uses piety mechanics
+	}
 	flag_emblem_index_range = { 110 110 }
 		ibadi = {
 		color = { 183 132 76 }
