@@ -825,7 +825,10 @@ id = phoenixempire_events.205
 	}
 	trigger = {
 		owns = 124
+		OR = {
 		is_religion_enabled = protestant
+		is_year = 6950
+		}
 		tag = XA8
 	}
 	option = {
@@ -835,22 +838,35 @@ id = phoenixempire_events.205
 		add_devastation = 10
 		add_base_manpower = -1
 	}
-			124 = {
+	if = {
+		limit = { is_religion_enabled = protestant }
+					124 = {
 				change_religion = protestant
 	}
+	}
+
 	}
 	option = {
 		highlight = yes
 		name = "phoenixempire_events.205.b"
-		add_stability = 1
 			124 = {
 		add_devastation = 10
 		add_base_manpower = -1
 	}
+	if = {
+		limit = { is_religion_enabled = protestant }
+				change_religion = protestant
 					124 = {
 				change_religion = protestant
 	}
-		change_religion = protestant
+	}
+		if = {
+		limit = { NOT = { is_religion_enabled = protestant }}
+					124 = {
+				change_religion = hellenic_pagan
+	}
+	}
+
 	}
 
 }
