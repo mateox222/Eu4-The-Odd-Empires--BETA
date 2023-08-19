@@ -299,12 +299,43 @@ custom_trigger_tooltip = {
 						}
 			add_prestige = 10
 							add_mil_power = 100
+							custom_tooltip = koreanaszakultura
+							hidden_effect = {
+							IF = {
+								limit = {
+									culture_group = east_asian
+								}
+							
 			every_owned_province = {
 			limit = {
+				OR = {
 			culture = korean
+			culture = demonkorean
+			culture = northkorean 
+			culture = farnorthkorean
+				}
 			}
 			change_culture = korean_new 
 			}
+		}
+									IF = {
+								limit = {
+									NOT = { culture_group = east_asian }
+								}
+							
+			every_owned_province = {
+			limit = {
+				OR = {
+			culture = korean
+			culture = demonkorean
+			culture = northkorean 
+			culture = farnorthkorean
+				}
+			}
+			change_culture = ROOT
+			}
+		}
+		}
 		}
 	}
 }
