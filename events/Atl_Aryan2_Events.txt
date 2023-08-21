@@ -27,7 +27,7 @@ province_event = {
 		name = "aryan_culture_event.1.a"
 		ai_chance = { factor = 60 }
 		set_province_flag = aryanslaves
-		change_trade_goods = slaves_raumaria
+		change_trade_goods = slaves
 		owner = {
 			add_faction_influence = {
 				faction = raumaria_wiarawalczaca
@@ -44,7 +44,7 @@ province_event = {
 	picture = RIOTING_workers_eventPicture
 	
 		trigger = {
-			trade_goods = slaves_raumaria
+			trade_goods = slaves
 			owner = {  has_reform = raumaria_theocracy }		
 			has_owner_religion = yes
  
@@ -119,7 +119,7 @@ province_event = {
 	hidden = yes
 	
 		trigger = {
-			trade_goods = slaves_raumaria
+			trade_goods = slaves
 			owner = {  NOT = { has_reform = raumaria_theocracy }	}	
 		}
 		
