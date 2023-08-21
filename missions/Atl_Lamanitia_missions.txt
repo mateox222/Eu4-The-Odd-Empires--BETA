@@ -1306,7 +1306,14 @@ position = 6
 				effect = {
 				add_treasury = -2500	
 			capital_scope = {
+							hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+	 }
 	change_trade_goods = paper
+					add_permanent_province_modifier = { 
+					name = trade_good_books
+					 duration = -1 
+				 }
 	add_institution_embracement = {
     which = printing_press
     value = 100

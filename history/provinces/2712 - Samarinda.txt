@@ -1,13 +1,15 @@
 #2712 - Samarinda
-
 owner = KUT
 controller = KUT
 culture = bornean
 religion = hinduism
 capital = "Samarinda"
-trade_goods = spices
-hre = no
-base_tax = 3 
+	trade_goods = spices 
+ add_permanent_province_modifier = { 
+	name = trade_good_pepper  
+ 	duration = -1 
+ }
+base_tax = 3
 base_production = 3
 base_manpower = 2
 is_city = yes

@@ -1,20 +1,19 @@
 #1024 - Echigo
-
 owner = UES
 controller = UES
 culture = togoku
 religion = shinto
 capital = "Naoetsu"
-trade_goods = grain
-hre = no
-base_tax = 4 
+	trade_goods = grain 
+ add_permanent_province_modifier = { 
+	name = trade_good_rice  
+ 	duration = -1 
+ }
+base_tax = 4
 base_production = 4
 base_manpower = 3
 is_city = yes
 add_core = UES
-
-
-
 discovered_by = chinese
 discovered_by = MCH
 discovered_by = KHA

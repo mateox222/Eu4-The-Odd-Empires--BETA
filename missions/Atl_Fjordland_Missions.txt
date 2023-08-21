@@ -1371,13 +1371,34 @@ a13_5 = {
 		}
 		effect = {
 			4997 = {
-				change_trade_goods = glass
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+	 }
+	change_trade_goods = glass
+	 add_permanent_province_modifier = { 
+	name = trade_good_glass
+ 	duration = -1 
+ }
 			}
 			4996 = {
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+		 }
 				change_trade_goods = cloth
+							 add_permanent_province_modifier = { 
+	name = trade_good_clothes
+ 	duration = -1 
+ }
 			}
 			4991 = {
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+	 }
 				change_trade_goods = naval_supplies
+				add_permanent_province_modifier = { 
+					name = trade_good_sails
+					 duration = -1 
+				 }
 			}
 		}
 		ai_weight = {

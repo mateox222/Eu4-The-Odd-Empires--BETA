@@ -4,7 +4,15 @@ controller = GDW
 culture = gondi
 religion = hinduism
 capital = "Ballarsah"
-trade_goods = atl_saffron
+	trade_goods = spices 
+ add_permanent_province_modifier = { 
+	name = trade_good_pepper  
+ 	duration = -1 
+ }
+add_permanent_province_modifier = { 
+	name = trade_good_saffron
+	duration = -1
+}
 base_tax = 2
 base_production = 1
 base_manpower = 2
