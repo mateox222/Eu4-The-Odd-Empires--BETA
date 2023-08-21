@@ -393,7 +393,14 @@ country_event = { #The Jongpa Reorganization
 		add_prestige = 25
 		add_government_reform = agmajongpa2_reform
 		2108 = {
-			change_trade_goods = atl_books
+			hidden_effect = {
+				clear_trade_good_modifiers_effect = yes
+			 }
+		change_trade_goods = paper
+	add_permanent_province_modifier = { 
+name = trade_good_books
+ duration = -1 
+}
 		}
 		add_adm_power = 25
 		add_mil_power = 25
