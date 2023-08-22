@@ -234,6 +234,10 @@ clear_trade_good_modifiers_effect = {
 the_odd_empires_enable_special_resources = {
 	if = {
 		limit = {
+			NOT = { has_global_flag = specialresourcesdisabled }
+		}
+	if = {
+		limit = {
 			has_special_toe_resources = no
 			trade_goods = potato
 		}
@@ -638,4 +642,4 @@ if = {
 			 }
 	}
 
-}
+}}
