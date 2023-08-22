@@ -1,0 +1,213 @@
+kyrinaika_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = A6F
+	}
+
+	kyr_seize_kemet = {
+		icon = atlantropa_sungod
+		position = 4
+		required_missions = { kyr_atl_war }
+		provinces_to_highlight = {
+			province_id = 5244
+		}
+		trigger = {
+			owns = 5244
+		}
+		effect = {
+			add_stability = 1
+		}
+	}
+}
+
+kyrinaika_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = A6F
+	}
+
+	atl_kyr_manpower = {
+		icon = atlantropa_army
+		position = 2
+		required_missions = { kyr_fall_of_kyrnaika }
+		trigger = {
+			mil_power = 200
+		}
+		effect = {
+			add_mil_power = -200
+			custom_tooltip = Kyrinaikanreinforces
+			hidden_effect = {
+			capital_scope = {
+			    ROOT = {
+			        infantry = PREV
+			    }
+				ROOT = {
+			        infantry = PREV
+			    }
+				ROOT = {
+			        infantry = PREV
+			    }
+				ROOT = {
+			        infantry = PREV
+			    }
+				ROOT = {
+			        infantry = PREV
+			    }
+			}
+			}
+		}
+	}
+	kyr_deal_kemet = {
+		icon = mission_egyptian_mamluk_soldier
+		position = 4
+		required_missions = { kyr_atl_war }
+		provinces_to_highlight = {
+			province_id = 2315
+		}
+		trigger = {
+			owns = 2315
+		}
+		effect = {
+			add_mil_power = 100
+		}
+	}
+}
+
+kyrinaika_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = A6F
+	}
+
+	kyr_fall_of_kyrnaika = {
+		icon = atlantropa_byzantineflag
+		position = 1
+		required_missions = {  }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = themepirehasfallen
+			always = yes
+			}
+		}
+		effect = {
+			country_event = { 
+				id = kyrinaikan_events.1
+			}
+		}
+	}
+	kyr_atl_war = {
+		icon = atlantropa_sackcity
+		position = 3
+		required_missions = { atl_kyr_soldiers atl_kyr_manpower }
+		trigger = {
+				custom_trigger_tooltip = {
+					tooltip = themepirehasfallen2
+					is_at_war = yes
+				}
+			}
+			
+		effect = {
+			add_mil_power = 100
+		}
+	}
+	kyr_seize_latins = {
+		icon = kingdom_of_cyprus
+		position = 4
+		required_missions = { kyr_atl_war }
+		provinces_to_highlight = {
+			province_id = 358
+		}
+		trigger = {
+			owns = 358
+		}
+		effect = {
+			add_prestige = 10
+		}
+	}
+	kyr_unte_egypt = {
+		icon = atlantropa_phoenixempire
+		position = 5
+		required_missions = { kyr_seize_kemet kyr_seize_latins kyr_deal_kemet Kyr_destroy_makuria kyr_destroy_aswan }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = themepirehasfallen3
+				is_at_war = no
+			}
+		}
+		effect = {
+			country_event = { 
+				id = kyrinaikan_events.2
+			}
+		}
+	}
+}
+
+kyrinaika_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = A6F
+	}
+
+	atl_kyr_soldiers = {
+		icon = atlantropa_ukrainskarosjaarmia
+		position = 2
+		required_missions = { kyr_fall_of_kyrnaika }
+		trigger = {
+			adm_power = 100
+			dip_power = 100
+		}
+		effect = {
+			add_stability = -1
+			add_adm_power = -50
+			add_dip_power = -50
+			add_yearly_manpower = 4
+		}
+	}
+	Kyr_destroy_makuria = {
+		icon = atlantropa_nativethule
+		position = 4
+		required_missions = { kyr_atl_war }
+		provinces_to_highlight = {
+			province_id = 1231
+		}
+		trigger = {
+			owns = 1231
+		}
+		effect = {
+			add_dip_power = 100
+		}
+	}
+}
+
+kyrinaika_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = A6F
+	}
+
+	kyr_destroy_aswan = {
+		icon = atlantropa_thulehorseman
+		position = 4
+		required_missions = { kyr_atl_war }
+		provinces_to_highlight = {
+			province_id = 1234
+		}
+		trigger = {
+			owns = 1234
+		}
+		effect = {
+			add_adm_power = 100
+		}
+	}
+}
+
