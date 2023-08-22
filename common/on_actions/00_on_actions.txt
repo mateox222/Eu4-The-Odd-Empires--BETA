@@ -2,7 +2,12 @@
 
 # country
 on_startup = {
-
+	every_province = {
+		limit = {
+			has_special_toe_resources = no
+		}
+	the_odd_empires_enable_special_resources = yes
+	}
 	add_reform_desire = -200
 	initialize_atlantis_schools_effect = yes
 		random_country = {
@@ -5345,7 +5350,15 @@ on_country_released = {
 
 # ROOT = province, FROM = country
 on_trade_good_changed = {
+	ROOT = {
 	clear_trade_good_modifiers_effect = yes
+	if = {
+		limit = {
+			has_special_toe_resources = no
+		}
+	the_odd_empires_enable_special_resources = yes
+	}
+}
 	on_trade_good_changed_estate_privileges_effect = yes
 	on_trade_good_changed_government_effect = yes
 	ROOT = {

@@ -1,5 +1,9 @@
 #GOLD
-
+trade_good_gold = {
+	local_gold_depletion_chance_modifier = 0.05
+	trade_value_modifier = 0.025
+	picture = "atlantropa_gold"
+}
 trade_good_silver = {
 	local_gold_depletion_chance_modifier = -0.1	
 	local_production_efficiency = -0.1	
@@ -50,7 +54,6 @@ trade_good_amber = {
 trade_good_diamond = {
 	local_tax_modifier = 0.25
 	trade_value_modifier = 0.025
-	trade_goods_size_modifier = -0.75
 	picture = "atlantropa_diamond"
 }
 trade_good_jadeit = {
@@ -58,6 +61,31 @@ trade_good_jadeit = {
 	trade_value_modifier = 0.025
 	local_unrest = -1	
 	picture = "atlantropa_jadeit"
+}
+trade_good_pearls = {
+	trade_value_modifier = 0.025
+	local_unrest = -1	
+	trade_goods_size_modifier = -0.25
+	picture = "atlantropa_pearls"
+}
+trade_good_gems = {
+	trade_value_modifier = 0.025
+	trade_goods_size_modifier = -0.33
+	local_unrest = -1	
+	picture = "atlantropa_gems"
+}
+
+
+#SALT
+trade_good_rock_salt = {
+	local_production_efficiency = 0.05	
+	trade_value_modifier = 0.025
+	picture = "atlantropa_rock_salt"
+}
+trade_good_sea_salt = {
+	local_development_cost = -0.05	
+	trade_value_modifier = 0.025
+	picture = "atlantropa_sea_salt"
 }
 
 #FISH
@@ -71,9 +99,19 @@ trade_good_sea_food = {
 	trade_value_modifier = 0.025
 	picture = "atlantropa_sea_food"
 }
+trade_good_sea_fish = {
+	local_sailors_modifier = 0.10
+	trade_value_modifier = 0.025
+	trade_goods_size_modifier = -0.25
+	picture = "atlantropa_fish"
+}
 
 #ANIMALS
-
+trade_good_cows = {
+	local_development_cost = -0.1	
+	trade_value_modifier = 0.025
+	picture = "atlantropa_cows"
+}
 trade_good_cheese = {
 	local_governing_cost = -0.1	
 	trade_value_modifier = 0.025
@@ -127,6 +165,13 @@ trade_good_potato = {
 	picture = "atlantropa_potato"
 }
 
+trade_good_simple_vegetables = {
+	local_manpower_modifier = 0.15	
+	trade_value_modifier = 0.025
+	trade_goods_size_modifier = -0.5	
+	picture = "atlantropa_vegetables"
+}
+
 #PAPER
 
 
@@ -136,11 +181,56 @@ trade_good_books = {
 	trade_value_modifier = 0.025	
 	picture = "atlantropa_books"
 }
+trade_good_papirus = {
+	local_unrest = -1
+	trade_goods_size_modifier = -0.1	
+	trade_value_modifier = 0.025
+	picture = "atlantropa_papirus"
+}
+trade_good_paper = {
+	local_unrest = -1
+	trade_value_modifier = 0.025
+	picture = "trade_good_paper"
+}
 
 #IRON
 
+trade_good_copper = {
+	local_state_maintenance_modifier = -0.1	
+	trade_goods_size_modifier = -0.25	
+	trade_value_modifier = 0.025
+	picture = "trade_good_copper"
+}
+trade_good_bronze = {
+	allowed_num_of_buildings = 1		
+	trade_value_modifier = 0.025
+	picture = "trade_good_bronze"
+}
+trade_good_tin = {
+	local_governing_cost = -0.1	
+	trade_goods_size_modifier = -0.25	
+	trade_value_modifier = 0.025
+	picture = "trade_good_tin"
+}
+trade_good_iron = {
+	local_regiment_cost = -0.1	
+	trade_goods_size_modifier = 0.1
+	trade_value_modifier = 0.025
+	picture = "trade_good_iron"
+}
 
 #WHEAT
+trade_good_wheat = {
+	local_regiment_cost = -0.15	
+	trade_value_modifier = 0.025		
+	picture = "atlantropa_wheat"
+}
+trade_good_corn = {
+	local_prosperity_growth = 0.05
+	local_regiment_cost = -0.1	
+	trade_value_modifier = 0.025		
+	picture = "atlantropa_corn"
+}
 trade_good_rice = {
 	local_prosperity_growth = 0.1
 	trade_value_modifier = 0.025		
@@ -185,10 +275,20 @@ trade_good_swords = {
 	trade_value_modifier = 0.025
 	picture = "atlantropa_sword"
 }
-
+trade_good_tools = {
+	local_regiment_cost = -0.15	
+	local_development_cost = -0.1	
+	trade_value_modifier = 0.025
+	picture = "atlantropa_tools"
+}
 
 
 #SHIPTOOLS
+trade_good_anchors = {
+	local_ship_cost = -0.05
+	trade_value_modifier = 0.025
+	picture = "atlantropa_anchors"
+}
 trade_good_sails = {
 	local_production_efficiency = 0.1	
 	local_ship_cost = -0.1	
@@ -204,12 +304,40 @@ trade_good_ship = {
 	picture = "atlantropa_ship"
 }
 
-#CLOTH
-trade_good_clothes = {
-	local_build_time = -0.25		
+#Fruits
+trade_good_orange = {	
+	min_local_autonomy = -10	
+	trade_value_modifier = 0.025
+	picture = "trade_good_orange"
+}
+trade_good_apple = {		
+	local_manpower_modifier = 0.1		
+	trade_value_modifier = 0.025
+	picture = "trade_good_apple"
+}
+
+#TEA
+trade_good_black_tea = {	
 	local_development_cost = -0.1
 	trade_value_modifier = 0.025
+	picture = "trade_good_black_tea"
+}
+trade_good_green_tea = {		
+	local_manpower_modifier = 0.1		
+	trade_value_modifier = 0.025
+	picture = "trade_good_green_tea"
+}
+
+#CLOTH
+trade_good_clothes = {	
+	local_development_cost = -0.15
+	trade_value_modifier = 0.025
 	picture = "atlantropa_clothes"
+}
+trade_good_cloth = {		
+	local_production_efficiency = 0.1	
+	trade_value_modifier = 0.025
+	picture = "trade_good_cloth"
 }
 
 #GlASS
@@ -277,5 +405,10 @@ trade_good_pepper  = {
 	trade_value_modifier = 0.025
 	picture = "trade_good_pepper"
 	trade_goods_size_modifier = 0.25	
+}
+trade_good_sugarcane  = {
+	local_production_efficiency = 0.05		
+	trade_value_modifier = 0.025
+	picture = "trade_good_sugarcane"
 }
 

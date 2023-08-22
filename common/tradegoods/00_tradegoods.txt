@@ -460,6 +460,10 @@ naval_supplies = {
 		}
 		modifier = {
 			factor = 0
+			has_port = no
+		}
+		modifier = {
+			factor = 0
 			area = newfoundland_area
 		}
 		modifier = {
@@ -1526,7 +1530,7 @@ dyes = {
 }
 
 tropical_wood = {
-	color = { 0.45 0.47 0.09 }
+	color = { 116 74 10  }
 	modifier = {
 		development_cost = -0.05
 	}
@@ -1535,30 +1539,6 @@ tropical_wood = {
 	}
 	chance = {
 		factor = 25
-		modifier = {
-			factor = 2
-			area = newfoundland_area
-		}
-		modifier = {
-			factor = 1
-			NOT = { province_id = 1240 }
-		}
-		modifier = {
-			factor = 1.5
-			area = amazon_area
-		}
-		modifier = {
-			factor = 0.5
-			region = malaya_region
-			region = moluccas_region
-			region = indonesia_region
-		}
-		modifier = {
-			factor = 2.0
-			FROM = {
-				has_country_flag = encourage_cash_crops_flag
-			}
-		}
 	}
 }
 
