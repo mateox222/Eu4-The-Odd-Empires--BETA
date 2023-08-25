@@ -1558,32 +1558,11 @@ livestock = {
 		}
 		modifier = {
 			factor = 0
-			OR = {
-				has_terrain = glacier
-				has_terrain = marsh
-				has_terrain = jungle
-				AND = {
-					has_terrain = coastline
-					NOT = { province_id = 2002 }
-				}
-				has_terrain = hills
-				has_terrain = forest
-				has_terrain = woods
-				AND = {
-					has_climate = tropical
-					NOT = { area = paraguay_area }
-					NOT = { area = chaco_area }
-					NOT = { region = central_africa_region }
-					NOT = { region = east_africa_region }
-					NOT = { region = colombia_region }
-					NOT = { region = brazil_region }
-				}
 				AND = {
 					has_climate = arctic
 					NOT = { region = tibet_region }
 				}
 			}
-		}
 		modifier = {
 			factor = 0
 			OR = {
