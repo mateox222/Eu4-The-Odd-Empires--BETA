@@ -1,0 +1,61 @@
+
+namespace = britannia_events
+
+
+country_event = {
+	id = britannia_events.1
+	title = "britannia_events.1.t"
+	desc = "britannia_events.1.d"
+	picture = basqueempire_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "britannia_events.1.a"
+		add_legitimacy = 10
+		add_stability = 1
+
+	}
+}
+
+
+country_event = {
+	id = britannia_events.2
+	title = "britannia_events.2.t"
+	desc = "britannia_events.2.d"
+	picture = basqueempire_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "britannia_events.2.a"
+		set_government_rank = 2	
+		change_tag = A80
+		override_country_name = BRITANNIA_EMPIRE
+		add_stability = 1
+		add_dip_power = 100
+		add_mil_power = 100
+		add_adm_power = 100
+
+
+
+	}
+}
+country_event = {
+	id = britannia_events.3
+	title = "britannia_events.3.t"
+	desc = "britannia_events.3.d"
+	picture = basqueempire_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "britannia_events.2.a"
+		set_government_rank = 2	
+		override_country_name = BRITANNIA_EMPIRE2
+		change_country_color = { 
+    color = { 89 135 201 }
+}
+		add_stability = 1
+		add_dip_power = 100
+		add_mil_power = 100
+		add_adm_power = 100
+
+
+
+	}
+}

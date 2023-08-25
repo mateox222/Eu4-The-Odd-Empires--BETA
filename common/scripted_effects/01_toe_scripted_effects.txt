@@ -210,9 +210,9 @@ clear_trade_good_modifiers_effect = {
 	remove_province_modifier = trade_good_black_tea
 	remove_province_modifier = trade_good_brass
 	remove_province_modifier = trade_good_steel
-	remove_province_modifier = lowqualitywood
-	remove_province_modifier = mediumqualitywood
-	remove_province_modifier = goodqualitywood
+	remove_province_modifier = trade_good_lowqualitywood
+	remove_province_modifier = trade_good_mediumqualitywood
+	remove_province_modifier = trade_good_goodqualitywood
 	remove_province_modifier = trade_good_lamawool
 	remove_province_modifier = trade_good_goatwool
 	remove_province_modifier = trade_good_shepwool
@@ -275,6 +275,7 @@ the_odd_empires_enable_special_resources = {
 						factor = 0
 						OR = { 
 							continent = asia
+							continent = lemuria
 							continent = europe
 							continent = africa					
 						}
@@ -296,6 +297,10 @@ the_odd_empires_enable_special_resources = {
 					modifier = {
 						factor = 100
 						continent = asia
+					}
+					modifier = {
+						factor = 100
+						continent = lemuria
 					}
 					modifier = {
 						factor = 10
@@ -322,6 +327,10 @@ the_odd_empires_enable_special_resources = {
 					modifier = {
 						factor = 5
 						continent = asia
+					}
+					modifier = {
+						factor = 5
+						continent = lemuria
 					}
 					add_permanent_province_modifier = { 
 						name = trade_good_wheat 
