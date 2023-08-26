@@ -369,16 +369,25 @@ feudal_france_reform = {
 	icon = "absolutist_france_reform"
 	allow_normal_conversion = no
 	potential = {
+		OR = {
+			culture_group = dasconculturegroup
 			culture_group = french
+		}
 			capital_scope = {
+				OR = {
 				region = iberia_region
+				region = british_isles
+				}
 			}
 		}
 
 	trigger = {
 					crown_land_share = 50
 					is_year = 7150
-					culture_group = french
+					OR = {
+						culture_group = dasconculturegroup
+						culture_group = french
+					}
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 50
