@@ -454,7 +454,41 @@ trade_good_conopia  = {
 	picture = "trade_good_conopia"
 	trade_goods_size_modifier = -0.25	
 }
+#Silk
+trade_good_goodsilk  = {
+	trade_goods_size = 0.25		
+	trade_value_modifier = 0.025
+	picture = "trade_good_goodsilk"
+}
+trade_good_badsilk  = {
+	local_unrest = -1
+	trade_goods_size = -0.25		
+	trade_value_modifier = 0.025
+	picture = "trade_good_badsilk"
+}
 
+
+#Ivory
+trade_good_incense  = {
+	local_unrest = -1
+	trade_value_modifier = 0.025
+	picture = "trade_good_incense"
+}
+trade_good_goodivory  = {
+	local_center_of_trade_upgrade_cost = -0.33	
+	province_trade_power_value = 0.5	
+	trade_goods_size = 0.25		
+	trade_value_modifier = 0.025
+	picture = "trade_good_goodivory"
+}
+trade_good_poorivory  = {
+	local_center_of_trade_upgrade_cost = 0.33	
+	province_trade_power_value = -0.25	
+	trade_goods_size = -0.25		
+	trade_value_modifier = 0.025
+	picture = "trade_good_poorivory"
+	trade_goods_size_modifier = -0.25	
+}
 
 
 #SUGAR

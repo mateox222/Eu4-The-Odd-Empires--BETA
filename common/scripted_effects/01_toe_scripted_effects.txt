@@ -219,6 +219,11 @@ clear_trade_good_modifiers_effect = {
 	remove_province_modifier = trade_good_conopia
     remove_province_modifier = trade_good_tobacco 
 	remove_province_modifier = atlantropa_cotton
+	remove_province_modifier = trade_good_poorivory
+	remove_province_modifier = trade_good_goodivory
+	remove_province_modifier = trade_good_goodsilk
+	remove_province_modifier = trade_good_badsilk
+
 
 
 
@@ -236,6 +241,7 @@ clear_trade_good_modifiers_effect = {
 	remove_province_modifier = trade_good_sugarcane
 	remove_province_modifier = trade_good_orange
 	remove_province_modifier = trade_good_apple
+	remove_province_modifier = trade_good_incense
 	
 }
 
@@ -248,7 +254,68 @@ the_odd_empires_enable_special_resources = {
 		limit = {
 			NOT = { has_global_flag = specialresourcesdisabled }
 		}
+		
 
+
+		
+		if = {
+			limit = {
+				has_special_toe_resources = no
+				trade_goods = silk
+			}
+			random_list = {
+				25 = {
+					add_permanent_province_modifier = { 
+						name = trade_good_badsilk
+						 duration = -1 
+					 }
+				}
+				25 = {
+					add_permanent_province_modifier = { 
+						name = trade_good_goodsilk
+						 duration = -1 
+					 }
+				}
+
+				
+			}
+		}
+
+		if = {
+			limit = {
+				has_special_toe_resources = no
+				trade_goods = incense
+			}
+			add_permanent_province_modifier = { 
+				name = trade_good_incense
+				 duration = -1 
+			 }
+
+		}
+		if = {
+			limit = {
+				has_special_toe_resources = no
+				trade_goods = ivory
+			}
+			random_list = {
+				25 = {
+					add_permanent_province_modifier = { 
+						name = trade_good_goodivory
+						 duration = -1 
+					 }
+				}
+				25 = {
+					add_permanent_province_modifier = { 
+						name = trade_good_poorivory
+						 duration = -1 
+					 }
+				}
+
+				
+			}
+		}
+
+		
 
 		if = {
 			limit = {
