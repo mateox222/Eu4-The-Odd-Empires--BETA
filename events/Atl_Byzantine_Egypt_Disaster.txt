@@ -37,9 +37,13 @@ country_event = {
 			cede_province = SB3
 		}
 			egypt_region = {
+				limit = { culture_group = byzantine }
 			add_core =  SB3
 			}
-
+			egypt_region = {
+				limit = { NOT = { culture_group = byzantine }}
+			add_permanent_claim =  SB3
+			}
 
 			create_subject = {
     subject_type = atlantis_coempire

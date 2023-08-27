@@ -1214,7 +1214,6 @@ Phoenix_monarchy = {
 	}
 
 	conditional = {
-		allow = { has_dlc = "Rights of Man" }
 			government_abilities = {
 			phoenix_mechanic
 		}
@@ -1228,4 +1227,45 @@ Phoenix_monarchy = {
 		ai = {
 		factor = 100
 	}
+}
+
+perpignan_monarchy = {
+    icon = "bretagnemonarchy"
+	allow_normal_conversion = yes
+	lock_level_when_selected = yes
+	legacy_equivalent = feudal_monarchy	
+	monarchy = yes	
+    potential = {
+		or = {
+        tag = X1H
+        tag = A80
+		}
+	}
+    modifiers = {
+		global_missionary_strength = 0.03	
+		local_culture_conversion_time = -0.1
+		state_maintenance_modifier = -0.1
+		global_ship_trade_power = 0.1	
+		promote_culture_cost = 2
+		naval_morale = 0.1	
+		administrative_efficiency = 0.05	
+    }
+		custom_attributes = {
+		locked_government_type = yes
+	}
+	conditional = {
+			government_abilities = {
+		pho_naval_professionalism_mechanic
+	}
+	government_abilities = {
+		bretagne_mechanic
+	}
+
+	
+}
+		ai = {
+		factor = 100
+	}
+
+    
 }
