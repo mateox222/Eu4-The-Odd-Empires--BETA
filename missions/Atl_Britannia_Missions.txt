@@ -347,7 +347,7 @@ britannia_missions_2 = {
 			brittany_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
 		}
 		effect = {
-			add_presitge = 10
+			add_prestige = 10
 			add_mil_power = 100
 		}
 	}
@@ -412,7 +412,7 @@ britannia_missions_2 = {
 			2989 = {
 				add_base_production = 1
 				add_base_tax = 1
-				add_base_manpoer = 1
+				add_base_manpower = 1
 				rename_capital = "Aurelia"
 				change_province_name = "Aurelia"
 				change_culture = ROOT
@@ -1295,7 +1295,7 @@ britannia_missions_5 = {
 		position = 7
 		required_missions = { bri_inade_mountains britanish_cities }
 		trigger = {
-			all_owned_province = {
+			num_of_owned_provinces_with	 = {
 								OR = {
 									has_building = mills
 									has_building = farm_estate
@@ -1306,8 +1306,8 @@ britannia_missions_5 = {
 									has_building = wharf
 									has_building = furnace
 								}
-							}
-							amount = 20
+							
+								value = 15
 						}
 						249 = {
 							owned_by = ROOT
@@ -1315,6 +1315,7 @@ britannia_missions_5 = {
 						246 = {
 							owned_by = ROOT
 						}
+					} 
 		effect = {
 			add_years_of_income = 2.5
 						249 = {

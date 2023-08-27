@@ -226,12 +226,13 @@ atl_nav_missions_1_b = {
 			province_id = 5676
 		}
 		trigger = {
+			owns_core_province = 5676
 			5676 = {
 				base_production = 10
 			}
 		}
 		effect = {
-			owns_core_province = 5676
+			
 			5676 = {
 				add_province_modifier = {
 					name = nafaroa_huangjiu
@@ -441,7 +442,7 @@ atl_nav_missions_2 = {
 		position = 6
 		required_missions = { atl-navarra_ruler_france atl_navarra_dead_french atl_naffaroa_economy }
 		trigger = {
-			stbility = 3
+			stability = 3
 		}
 		effect = {
 			add_adm_power = 100
@@ -481,7 +482,7 @@ atl_nav_missions_2 = {
 			iberia_region  = { type = all	country_or_non_sovereign_subject_holds = ROOT }
 		}
 		effect = {
-			add_presitge = 15
+			add_prestige = 15
 			add_country_modifier = {
 				name = "conquest_of_espainiako"
 				duration = -1
@@ -848,7 +849,7 @@ atl_navslot6 = {
 			}
 		}
 	}
-	nav_newfoundland_labrador = {
+	nav_newfoundland_labradora = {
 		icon = mission_iberian_conquistador
 		position = 10
 		required_missions = { nav_terranova }
