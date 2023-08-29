@@ -407,3 +407,45 @@ feudal_france_reform = {
 		centralize_state_development = yes 
 	}
 }
+
+negusa_nagast = {
+	icon = "negusa_nagast"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			have_had_reform = negusa_nagast
+			tag = ETH
+		}
+	}
+	trigger = {
+		OR = {
+			have_had_reform = negusa_nagast
+			tag = ETH
+		}
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+	legacy_equivalent = negusa_nagast_legacy
+
+	modifiers = {
+		move_capital_cost_modifier = -0.75
+		global_unrest = -1
+		stability_cost_modifier = -0.1
+	}
+
+	conditional = {
+		allow = {
+			has_dlc = "Origins"
+		}
+		custom_attributes = {
+			has_itinerant_capital = yes
+		}
+	}
+
+	conditional = {
+		allow = {
+			has_dlc = "Origins"
+		}
+		allow_cawa = yes
+	}
+}
