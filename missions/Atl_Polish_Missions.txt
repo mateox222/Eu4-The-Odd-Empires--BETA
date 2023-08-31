@@ -859,34 +859,12 @@ atlantropa_venediabonus_sca_slot_3_a = {
 							estate = estate_nobles 
 							value = 5
 						}
-						custom_trigger_tooltip = {
-							tooltip = accepted_nieszawa_privileges
-							has_estate_privilege = estate_nobles_nieszawa_privileges
-						}
 						
 					}
-					AND = { 
-						custom_trigger_tooltip = {
-							tooltip = declined_nieszawa_privileges
-							NOT = { has_estate_privilege = estate_nobles_nieszawa_privileges } 
-							has_country_flag = pol_had_nieszawa_privileges_country_flag
-						}
-						NOT = { 
-							num_of_estate_privileges = {
-								estate = estate_nobles 
-								value = 2
-							}
-						}
 						crown_land_share = 50
-					}
 				}
 			}
 			else = {
-				custom_trigger_tooltip = {
-					tooltip = declined_nieszawa_privileges
-					NOT = { has_estate_privilege = estate_nobles_nieszawa_privileges } 
-					has_country_flag = pol_had_nieszawa_privileges_country_flag
-				}
 				NOT = { 
 					num_of_estate_privileges = {
 						estate = estate_nobles 
@@ -895,19 +873,8 @@ atlantropa_venediabonus_sca_slot_3_a = {
 				}
 				crown_land_share = 50
 			}
-			if = { 
-				limit = { 
-					NOT = { 
-						current_age = age_of_reformation 
-						current_age = age_of_discovery 
-					}
-				}
-				absolutism = 75 
-				crown_land_share = 80 
-			}
 		}
 		effect = {
-			custom_tooltip = pol_if_noble_cooperation_tt
 			tooltip = {
 				add_country_modifier = { 
 					name = pol_crimson_privileges_modifier
@@ -985,25 +952,6 @@ atlantropa_venediabonus_sca_slot_3_a = {
 				adm = 5 
 				dip = 5 
 			}
-			if = { 
-				limit = { has_government_attribute = is_elective } 
-				OR = { 
-					custom_trigger_tooltip = {
-						tooltip = pol_had_pacta_conventa_event_tt 
-						has_estate_privilege = estate_nobles_pacta_conventa
-					}
-					custom_trigger_tooltip = {
-						tooltip = pol_chose_to_undo_nobles_tt
-						has_country_flag = pol_killed_rebel_flag 
-					}
-					NOT = { 
-						estate_influence = {
-							estate = estate_nobles 
-							influence = 25 
-						}
-					}
-				}
-			}
 			OR = {
 				crown_land_share = 55 
 				army_size = 100 
@@ -1068,21 +1016,9 @@ atlantropa_venediabonus_sca_slot_3_a = {
 		position = 5 
 		required_missions = { vnd_articles_agreement }
 		trigger = {
-			OR = { 
-				custom_trigger_tooltip = {
-					tooltip = pol_has_had_struggle_for_royal_power_disater_tt
-					OR = {
-						has_country_flag = pol_royal_power_non_monarchy_won_flag
-						has_country_flag = pol_royal_power_monarchy_won_flag
-					}
-				}
-				NOT = { has_estate_privilege = estate_nobles_golden_liberty }
-			}
-			OR = { 
 				absolutism = 60 
 				republican_tradition = 85 
 				devotion = 95 
-			}
 			stability = 3 
 		}
 		effect = {
