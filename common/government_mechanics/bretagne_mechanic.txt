@@ -1,0 +1,98 @@
+bretagne_mechanic = {
+   alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 10
+
+	powers = {
+		bretagne_ruler_authority = {
+			max = 100
+			base_monthly_growth = 0.5
+			scaled_modifier = {
+				modifier = {
+					legitimacy = 1	
+					monthly_reform_progress_modifier = 0.25
+					governing_cost = -0.05	
+				}
+			}
+		}
+	}
+	
+	interactions = {
+		bretagne_boost_ruler_army = {
+			cooldown_years = 2
+			
+			icon = GFX_bretagnearmy
+			trigger = {
+				has_government_power = {
+					mechanic_type = bretagne_mechanic
+					power_type = bretagne_ruler_authority
+					value = 75
+				}
+			}
+			effect = { 
+				add_mil_power = 50
+				add_yearly_manpower = 2	
+				create_general = { tradition = 50 }	
+				add_government_power = {
+					mechanic_type = bretagne_mechanic
+					power_type = bretagne_ruler_authority
+					value = -75
+				}
+			}
+			ai_chance = {
+				factor = 1
+			}
+		}
+		bretagne_boost_ruler_authority = {
+			cooldown_years = 2
+			
+			icon = GFX_bretagneemperor 
+			trigger = {
+				has_government_power = {
+					mechanic_type = bretagne_mechanic
+					power_type = bretagne_ruler_authority
+					value = 75
+				}
+			}
+			effect = { 
+				add_adm_power = 50
+				add_years_of_income = 2	
+				add_stability = 1	
+				add_government_power = {
+					mechanic_type = bretagne_mechanic
+					power_type = bretagne_ruler_authority
+					value = -75
+				}
+			}
+			ai_chance = {
+				factor = 1
+			}
+		}
+		bretagne_boost_ruler_navy = {
+			cooldown_years = 2
+			
+			icon = GFX_bretagneship
+			trigger = {
+				has_government_power = {
+					mechanic_type = bretagne_mechanic
+					power_type = bretagne_ruler_authority
+					value = 75
+				}
+			}
+			effect = { 
+				add_dip_power = 50
+				add_yearly_sailors = 2	
+				create_admiral = { tradition = 50 }	
+				add_government_power = {
+					mechanic_type = bretagne_mechanic
+					power_type = bretagne_ruler_authority
+					value = -75
+				}
+			}
+			ai_chance = {
+				factor = 1
+			}
+		}
+
+
+}
+}

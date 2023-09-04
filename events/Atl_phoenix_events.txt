@@ -249,8 +249,8 @@ country_event = {
 			limit = {
 				religion = catholic
 			}
-			add_devastation = 75
-			add_base_manpower = -2
+			add_devastation = 25
+			add_base_manpower = -1
 			add_base_tax = -1
 			add_base_production = -1
 			remove_building = temple	
@@ -323,7 +323,7 @@ country_event = {
 				NOT = { culture = ROOT }
 			}
 			add_devastation = 75
-			add_base_manpower = -3
+			add_base_manpower = -1
 			add_base_tax = -1
 			add_base_production = -1
 			change_culture = ROOT
@@ -825,7 +825,10 @@ id = phoenixempire_events.205
 	}
 	trigger = {
 		owns = 124
+		OR = {
 		is_religion_enabled = protestant
+		is_year = 6950
+		}
 		tag = XA8
 	}
 	option = {
@@ -835,22 +838,35 @@ id = phoenixempire_events.205
 		add_devastation = 10
 		add_base_manpower = -1
 	}
-			124 = {
+	if = {
+		limit = { is_religion_enabled = protestant }
+					124 = {
 				change_religion = protestant
 	}
+	}
+
 	}
 	option = {
 		highlight = yes
 		name = "phoenixempire_events.205.b"
-		add_stability = 1
 			124 = {
 		add_devastation = 10
 		add_base_manpower = -1
 	}
+	if = {
+		limit = { is_religion_enabled = protestant }
+				change_religion = protestant
 					124 = {
 				change_religion = protestant
 	}
-		change_religion = protestant
+	}
+		if = {
+		limit = { NOT = { is_religion_enabled = protestant }}
+					124 = {
+				change_religion = hellenic_pagan
+	}
+	}
+
 	}
 
 }

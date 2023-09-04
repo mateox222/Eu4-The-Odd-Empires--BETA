@@ -196,7 +196,14 @@ custom_trigger_tooltip = {
 				duration = 3650
 			}
 			672 = {
-				change_trade_goods = atl_clothes
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+		 }
+				change_trade_goods = cloth
+							 add_permanent_province_modifier = { 
+	name = trade_good_clothes
+ 	duration = -1 
+ }
 			}
 		}
 	}
@@ -213,7 +220,14 @@ custom_trigger_tooltip = {
 				duration = -1
 			}
 			690 = {
-				change_trade_goods = atl_steam_engine
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+				 }
+			change_trade_goods = coal
+		add_permanent_province_modifier = { 
+	name = trade_good_steam_engine
+ 	duration = -1 
+ }
 			}
 			add_yearly_manpower = 5
 		}
@@ -299,12 +313,43 @@ custom_trigger_tooltip = {
 						}
 			add_prestige = 10
 							add_mil_power = 100
+							custom_tooltip = koreanaszakultura
+							hidden_effect = {
+							IF = {
+								limit = {
+									culture_group = east_asian
+								}
+							
 			every_owned_province = {
 			limit = {
+				OR = {
 			culture = korean
+			culture = demonkorean
+			culture = northkorean 
+			culture = farnorthkorean
+				}
 			}
 			change_culture = korean_new 
 			}
+		}
+									IF = {
+								limit = {
+									NOT = { culture_group = east_asian }
+								}
+							
+			every_owned_province = {
+			limit = {
+				OR = {
+			culture = korean
+			culture = demonkorean
+			culture = northkorean 
+			culture = farnorthkorean
+				}
+			}
+			change_culture = ROOT
+			}
+		}
+		}
 		}
 	}
 }
@@ -742,25 +787,74 @@ add_adm_power = 100
 		}
 		effect = {
 			2142 = {
-				change_trade_goods = atl_ship
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+	 }
+				change_trade_goods = naval_supplies
+				add_permanent_province_modifier = { 
+					name = trade_good_sails
+					 duration = -1 
+				 }
 			}
 			4196 = {
-				change_trade_goods = glass
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+	 }
+	change_trade_goods = glass
+	 add_permanent_province_modifier = { 
+	name = trade_good_marble
+ 	duration = -1 
+ }
 			}
 			691 = {
-				change_trade_goods = glass
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+	 }
+	change_trade_goods = glass
+	 add_permanent_province_modifier = { 
+	name = trade_good_jewelery
+ 	duration = -1 
+ }
 			}
 			668 = {
-				change_trade_goods = atl_sails
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+	 }
+				change_trade_goods = naval_supplies
+				add_permanent_province_modifier = { 
+					name = trade_good_sails
+					 duration = -1 
+				 }
 			}
 			2159 = {
-				change_trade_goods = atl_sails
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+	 }
+				change_trade_goods = naval_supplies
+				add_permanent_province_modifier = { 
+					name = trade_good_sails
+					 duration = -1 
+				 }
 			}
 			692 = {
-				change_trade_goods = atl_tools
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+				 }
+			change_trade_goods = atl_tools
+		add_permanent_province_modifier = { 
+	name = trade_good_ammunition
+	 duration = -1 
+	}
 			}
 			683 = {
-				change_trade_goods = atl_tools
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+				 }
+			change_trade_goods = atl_tools
+		add_permanent_province_modifier = { 
+	name = trade_good_ammunition
+	 duration = -1 
+	}
 			}
 		}
 	}
@@ -922,7 +1016,14 @@ Romanchina_4 = {
 		}
 		effect = {
 			2178 = {
-				change_trade_goods = atl_artillery
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+				 }
+			change_trade_goods = atl_tools
+		add_permanent_province_modifier = { 
+	name = trade_good_artillery
+	 duration = -1 
+	}
 			}
 		}
 	}

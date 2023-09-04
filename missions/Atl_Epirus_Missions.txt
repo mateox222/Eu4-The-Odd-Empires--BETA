@@ -187,7 +187,14 @@ effect = {
 				duration = 3650
 			}
 			5724 = {
-				change_trade_goods = atl_clothes
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+		 }
+				change_trade_goods = cloth
+							 add_permanent_province_modifier = { 
+	name = trade_good_clothes
+ 	duration = -1 
+ }
 			}
 		}
 	}
@@ -227,7 +234,14 @@ effect = {
 				duration = -1
 			}
 			146 = {
-				change_trade_goods = atl_steam_engine
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+				 }
+			change_trade_goods = coal
+		add_permanent_province_modifier = { 
+	name = trade_good_steam_engine
+ 	duration = -1 
+ }
 			}
 			add_yearly_manpower = 5
 		}
@@ -309,13 +323,35 @@ effect = {
 		}
 effect = {
 			144 = {
-				change_trade_goods = glass
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+	 }
+	change_trade_goods = glass
+	 add_permanent_province_modifier = { 
+	name = trade_good_glass
+ 	duration = -1 
+ }
 			}
 			4975 = {
-				change_trade_goods = ammunition
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+				 }
+			change_trade_goods = atl_tools
+		add_permanent_province_modifier = { 
+	name = trade_good_ammunition
+ 	duration = -1 
+ }
+
 			}
 			4699 = {
-				change_trade_goods = atl_tools
+				change_trade_goods = glass
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+	 }
+	 add_permanent_province_modifier = { 
+	name = trade_good_furnitures
+ 	duration = -1 
+ }
 			}
 		}
 	}

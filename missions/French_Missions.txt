@@ -115,7 +115,7 @@ french_missions_north = {
 			else = {
 				add_prestige = 15
 			}
-			brittany_area = {
+			holland_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -141,17 +141,17 @@ french_missions_north = {
 
 
 	emp_fra_subjugate_brittany = {
-		icon = atlantropa_britanny
+		icon = atlantropa_burnwindmill
 		required_missions = { atlantropa_france_conquest }
 
 		provinces_to_highlight = {
-			area = brittany_area
+			area = holland_area
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		trigger = {
-			brittany_area = {
+			holland_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -168,7 +168,7 @@ french_missions_north = {
 		icon = brest_dockyards
 		required_missions = { emp_fra_subjugate_brittany }
 		provinces_to_highlight = {
-			province_id = 170
+			province_id = 4383
 			OR = {
 				has_dock_building_trigger = no
 				NOT = { owned_by = ROOT }
@@ -176,7 +176,7 @@ french_missions_north = {
 			}
 		}
 		trigger = {
-			170 = {
+			4383 = {
 				owned_by = ROOT
 				controlled_by = ROOT
 				has_dock_building_trigger = yes
@@ -185,17 +185,17 @@ french_missions_north = {
 		effect = {
 			if = {
 				limit = {
-					170 = {
+					4383 = {
 						NOT = {
 							has_building = drydock
 						}
 					}
 				}
-				170 = {
+				4383 = {
 					add_building = drydock
 				}
 			}
-			170 = {
+			4383 = {
 				add_unit_construction = {
 					type = heavy_ship
 					amount = 5
@@ -663,7 +663,7 @@ emp_france_missions_2 = {
 		}
 		
 		effect = {
-			brittany_area = {
+			holland_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -1562,7 +1562,7 @@ custom_trigger_tooltip = {
 				limit = {
 					has_dlc = "Rule Britannia"
 				}
-				brittany_area = {
+				holland_area = {
 					limit = {
 						NOT = { is_core = ROOT }
 						NOT = { is_permanent_claim = ROOT }
@@ -1654,7 +1654,7 @@ custom_trigger_tooltip = {
 	}
 
 	emp_fra_reconquer_gascony = {
-		icon = atlantropa_gascony
+		icon = atlantropa_bloodyriver
 		required_missions = { emp_fra_subjugate_aquitania }
 		provinces_to_highlight = {
 			OR = {
@@ -1753,21 +1753,21 @@ custom_trigger_tooltip = {
 		icon = toulon_dockyards
 		required_missions = { emp_fra_conquer_provence }
 		provinces_to_highlight = {
-			province_id = 4696
+			province_id = 44
 			OR = {
 				has_shipyard_building_trigger = no
 				NOT = { owned_by = ROOT }
 			}
 		}
 		trigger = {
-			4696 = {
+			44 = {
 				has_shipyard_building_trigger = yes
 				owned_by = ROOT
 			}
 			navy_size_percentage = 1
 		}
 		effect = {
-			4696 = {
+			44 = {
 				add_province_modifier = {
 					name = "toulon_dockyards"
 					duration = -1

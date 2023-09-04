@@ -95,7 +95,7 @@ NDefines = {
 		TRUST_PENALTY_FOR_SEPARATE_PEACE = 10,			-- Trust penalty for signing a separate peace
 	
 		OFFENSIVE_WAR_COOLDOWN = 10,					-- Years between when you can call a country into an offensive war on your behalf
-	MAX_CLIENT_STATES = 10,							-- Max client states for one country
+	MAX_CLIENT_STATES = 20,							-- Max client states for one country
 	
 		ALLOW_LEADER_DEMAND_TOGGLE = 0,					-- Whether or not player is allowed to set if warleader can negotiate for them
 		VASSALIZE_BASE_DEVELOPMENT_CAP = 100, 			-- Countries with more total development than this cannot be vassalized
@@ -151,7 +151,7 @@ NDefines = {
 		REQUEST_HEIR_AE = 20,
 		WARNING_YEARS = 20,								-- Years before warning expire
 		ANNUL_TREATIES_YEARS = 10,						-- Years before annul treaties expire
-		COALITION_YEARS = 20,							-- Years before coalition expire
+		COALITION_YEARS = 5,							-- Years before coalition expire
 		REVANCHISM_MONTHLY_DECAY = 0.833,			-- about 20 years to decay all of it.
 		MONARCH_GOV_CHANGE_LEGITIMACY_PENALTY = 0.0,	-- Penalty(%) on the legitimacy when changing gov type to the monarchy
 		EXTEND_REGENCY_LEGITIMACY_PENALTY = 10,  		-- Penalty for extending a regency
@@ -220,7 +220,7 @@ NDefines = {
 		SABOTAGE_RECRUITMENT_DURATION = 60,
 		SLANDER_MERCHANTS_DURATION = 60,
 	
-		AE_OTHER_CONTINENT = 10,
+		AE_OTHER_CONTINENT = 1,
 		AE_SAME_CULTURE = 0.5,
 		AE_SAME_CULTURE_GROUP = 0.25,
 		AE_INFIDEL_CONQUEST = 0.25, 		-- different religion group conquered same religion province
@@ -230,18 +230,18 @@ NDefines = {
 		AE_HRE_INTERNAL = 0.5,
 		AE_ATTACKER_DEVELOPMENT = 0.01,	-- +50% cap (at 1000 development)
 		AE_DEFENDER_DEVELOPMENT = 0.01,	-- -50% cap (at 1000 development)
-		AE_DISTANCE_BASE = 0.75, --0.75 per 100 distance
+		AE_DISTANCE_BASE = 0.55, --0.75 per 100 distance
 		AE_SAME_OVERLORD = 0.5,
 		AE_PROVINCE_CAP = 30,				-- Province development above this will not count for AE (also used for warscore cost cap)
-		AE_THREATEN_WAR = 1.0,
+		AE_THREATEN_WAR = 0.50,
 		AE_PRIMITIVES = -0.75, -- less AE from primitives
 	
 		-- Peace Option Effects, base values for the winner. The loser gets the inverse.
-		PO_DEMAND_PROVINCES_AE = 0.6, 				-- _DDEF_PO_DEMAND_PROVINCES_AE = 10, (Per development)
-		PO_RETURN_CORES_AE = 0.4, 					-- (Per core, only applied if returning cores to vassals of winner)
+		PO_DEMAND_PROVINCES_AE = 0.4, 				-- _DDEF_PO_DEMAND_PROVINCES_AE = 10, (Per development)
+		PO_RETURN_CORES_AE = 0.2, 					-- (Per core, only applied if returning cores to vassals of winner)
 		PO_FORM_PU_AE = 0.20, 							-- _DDEF_PO_FORM_PU_AE = 10, (Per development)
-		PO_CONCEDE_COLONIAL_AE = 0.2,
-		PO_BECOME_VASSAL_AE = 0.5, 					-- _DDEF_PO_BECOME_VASSAL_AE = 10, (Per development)
+		PO_CONCEDE_COLONIAL_AE = 0.1,
+		PO_BECOME_VASSAL_AE = 0.4, 					-- _DDEF_PO_BECOME_VASSAL_AE = 10, (Per development)
 		PO_FORCE_JOIN_EMPIRE_AE = 0.2, 					-- _DDEF_PO_BECOME_VASSAL_AE = 10, (Per development)
 		PO_TRANSFER_VASSAL_AE = 0.3,
 		PO_ANNEX_PRESTIGE = 0.25, 						-- _DDEF_PO_ANNEX_PRESTIGE = 10, (No effect on loser :)
@@ -739,8 +739,8 @@ NDefines = {
 		PS_BOOST_STABILITY = 100,
 		PS_BUY_GENERAL = 50,
 		PS_BUY_ADMIRAL = 50,
-		PS_BUY_CONQUISTADOR = 50,
-		PS_BUY_EXPLORER = 50,
+		PS_BUY_CONQUISTADOR = 75,
+		PS_BUY_EXPLORER = 75,
 		PS_ASSAULT = 5,
 		PS_ARTILLERY_BARRAGE = 50,
 		PS_NAVAL_BARRAGE = 50,
@@ -760,9 +760,9 @@ NDefines = {
 		PS_MOVE_TRADE_PORT = 200,
 		PS_REPLACE_RIVAL = 100,
 		PS_SEIZE_COLONY = 25,
-		PS_BURN_COLONY = 5,
+		PS_BURN_COLONY = 1,
 		PS_ATTACK_NATIVES = 5,
-		PS_SCORCH_EARTH = 5,
+		PS_SCORCH_EARTH = 1,
 		PS_CHANGE_GOVERNMENT = 100,
 		PS_CHANGE_CULTURE = 10,
 		PS_CHANGE_CULTURE_OVERSEAS_RELIGION_MOD = -0.8,	-- Modifier how much cheaper it is to change culture in overseas province if same religion
@@ -1679,13 +1679,13 @@ NDefines = {
 		HRE_DESIRE_MIN_THREAT_LEVEL = 100,
 		HRE_DESIRE_THREATENED_BY_MULTIPLIER = 1.0,
 		
-		ONLY_INFANTRY_MERCS = 1, --Set to 0 to let AI hire artillery and cavalry mercenaries.
+		ONLY_INFANTRY_MERCS = 0, --Set to 0 to let AI hire artillery and cavalry mercenaries.
 		AI_FORT_PER_DEV_RATIO = 75, -- How much development the AI wants per fort (approximately)
 		FORT_ON_BORDER_MULT = 0.75, -- 
 		FORT_NEXT_TO_FORT_MULT = 0.75, -- 
-		FORT_MAINTENANCE_CHEAT = 0, -- Set to 1 to enable AI fort maintenance cheating. Was once active in vanilla, but no longer
+		FORT_MAINTENANCE_CHEAT = 1, -- Set to 1 to enable AI fort maintenance cheating. Was once active in vanilla, but no longer
 		FORT_MOTHBALL_SAFETY_DISTANCE = 5, -- How far from the border AI will mothball forts
-		FORT_CAPITAL_DESIRE = 0.5, -- How much does the AI want a fort in its capital? (adds to regular reasons)
+		FORT_CAPITAL_DESIRE = 0.75, -- How much does the AI want a fort in its capital? (adds to regular reasons)
 		AI_USES_HISTORICAL_IDEA_GROUPS = 0, -- If set to 0, ai will use ai_will_do instead of historical ideagroups when picking ideagroups (ai never uses historical ideagroups in custom/random setup)
 		AI_CONVERT_CULTURES = 1, -- If set to 0, AI will not convert cultures
 		VASSAL_FABRICATE_CLAIMS = 1, -- If set to 1, subjects will use fabricate claims on foreign powers
@@ -1695,14 +1695,14 @@ NDefines = {
 		SUBSIDY_YEARS = 20, -- Years AI will give subsidies for
 		MIN_INCOME_FOR_SUBSIDIES = 20, -- Minimum monthly income for AI to want to spend some on subsidies
 		PS_SHORT_TERM_POOL = 100, -- Max power AI will store in its short-term spending pool
-		AGGRESSIVENESS = 200, -- Base chance (out of 10000) of AI being willing to start a war each diplomatic tick (~1.5 times a month)
-		AGGRESSIVENESS_BONUS_EASY_WAR = 300, -- Added to aggressiveness if the war is against a weak or particularily hated enemy
-		MISSION_PICK_CHANCE = 33, -- Monthly chance of AI picking a mission if it lacks one (of 100)
+		AGGRESSIVENESS = 400, -- Base chance (out of 10000) of AI being willing to start a war each diplomatic tick (~1.5 times a month)
+		AGGRESSIVENESS_BONUS_EASY_WAR = 600, -- Added to aggressiveness if the war is against a weak or particularily hated enemy
+		MISSION_PICK_CHANCE = 99, -- Monthly chance of AI picking a mission if it lacks one (of 100)
 		TRADE_INTEREST_THRESHOLD = 3, -- Number of merchants required to be a nation with trade interest
 		DEFICIT_SPENDING_MIN_MONTHS = 6, -- AI must have at least this many monthly deficits of savings to be willing to deficit spend
 		DEFICIT_SPENDING_MIN_MONTHS_PEACETIME = 48, -- Same as DEFICIT_SPENDING_MIN_MONTHS, but during peacetime, no rebels and no war exhaustion
 		BIGSHIP_FRACTION = 0.4,	-- The proportion of big ships in an AI navy of light ships and big ships (for coastal sea countries, this fraction is mostly galleys)
-		ARTILLERY_FRACTION = 0.25, 	-- Ratio of artillery to infantry AI will build (doubles after FORCE_COMPOSITION_CHANGE_TECH_LEVEL) (reduced when on tight budget)
+		ARTILLERY_FRACTION = 0.3, 	-- Ratio of artillery to infantry AI will build (doubles after FORCE_COMPOSITION_CHANGE_TECH_LEVEL) (reduced when on tight budget)
 		FORCE_COMPOSITION_CHANGE_TECH_LEVEL = 11, -- Tech level at which AI will double its artillery fraction
 		TRANSPORT_FRACTION = 0.5, -- Max fraction of naval forcelimit that should be transports
 		INCOME_SAVINGS_FRACTION = 0.25, -- AI will reserve this amount of their surplus for long-term savings
@@ -1760,8 +1760,8 @@ NDefines = {
 		PEACE_BATTLE_RELUCTANCE = 60, -- Reluctance multiplied by fraction of support limit currently in an ongoing battle in this war (to encourage battle resolution before peacing).
 		PEACE_EXCESSIVE_DEMANDS_FACTOR = 0.005, -- AI unwillingness to peace based on demanding more stuff than you have warscore
 		PEACE_EXCESSIVE_DEMANDS_THRESHOLD = 20, -- If you have less warscore than this, excessive demands will be factored in more highly
-		PEACE_TIME_MONTHS = 60, -- Months of additional AI stubbornness in a war
-		PEACE_TIME_MAX_MONTHS = 600, -- Max months applied to time factor in a war
+		PEACE_TIME_MONTHS = 30, -- Months of additional AI stubbornness in a war
+		PEACE_TIME_MAX_MONTHS = 300, -- Max months applied to time factor in a war
 		PEACE_TIME_EARLY_FACTOR = 0.75, -- During months of stubbornness the effect of time passed is multiplied by this
 		PEACE_TIME_LATE_FACTOR = 1.0, -- After months of stubbornness the effect of time passed is multiplied by this (only applied to positive war enthusiasm)
 		PEACE_STALLED_WAR_TIME_FACTOR = 0.34, -- Applied to number of years war has been stalled to determine how much positive war enthusiasm is reduced
@@ -2675,7 +2675,7 @@ NDefines = {
 		MAX_DISTANCE_TO_OWNER_AREA = 400,
 		MAX_DISCOVERED_PROVINCE_DISTANCE = 500,
 		DEFAULT_MALE_CHANCE = 75,				-- Default chance for males if ruler and heir start genders aren't the same.
-		ALL_FEMALE_MALE_CHANCE = 0,				-- Chance for males if starting ruler and heir were both female.
+		ALL_FEMALE_MALE_CHANCE = 1,				-- Chance for males if starting ruler and heir were both female.
 		ALL_MALE_MALE_CHANCE = 100,				-- Chance for females if starting ruler and heir were both male.
 		MAX_GOVERNMENT_RANK = 3,
 		GOVERNMENT_RANK_COST_1 = -10,

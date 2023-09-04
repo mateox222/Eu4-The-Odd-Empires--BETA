@@ -52,28 +52,15 @@ add_province_modifier = {
 
 	
 }}}
-	option = {
-		name = startevent.1.a 
-	}
+
 	
 	option = {
-		name = startevent.1.b
+		name = startevent.1.a
 		country_event = { 
 			id = startevent.5
 		}
 	}
-	option = {
-		name = startevent.101.a
-		country_event = { 
-			id = startevent.100
-		}
-	}
-	option = {
-		name = startevent.101.b
-		country_event = { 
-			id = startevent.101
-		}
-	}
+	
 }
 
 country_event = {
@@ -141,14 +128,34 @@ country_event = {
 	desc = startevent.5.d
 	picture = BLACKSUN_eventPicture
 	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+		every_province = {
+			limit = {
+				has_special_toe_resources = no
+			}
+		the_odd_empires_enable_special_resources = yes
+		}
+	}
+}
 	option = {
+		highlight = yes
 	name = startevent.5.a 
 	}
-
+	
 	option = {
 		name = startevent.101.a
 		country_event = { 
 			id = startevent.100
+		}
+	}
+	option = {
+		name = startevent.101.disablee
+		trigger = {
+			NOT = { has_global_flag = specialresourcesdisabled }
+		}
+		country_event = { 
+			id = startevent.102
 		}
 	}
 	option = {
@@ -172,6 +179,13 @@ country_event = {
 	desc = startevent.100.d
 	picture = BLACKSUN_eventPicture
 	is_triggered_only = yes
+	option = {
+		highlight = yes
+	name = startevent.5.a 
+	country_event = { 
+		id = startevent.5
+	}
+}
 	option = {
 	trigger = { NOT = { has_global_flag = DEKOLONIZACJAAFRYKI }}
 	name = startevent.100.a 
@@ -288,9 +302,7 @@ country_event = {
 
 
 
-	option = {
-	name = startevent.1.a 
-}
+
 
 	}
 
@@ -365,6 +377,32 @@ country_event = {
 	}
 }
 }
+
+country_event = {
+	id = startevent.102
+	title = startevent.102.t
+	desc = startevent.102.d
+	picture = BLACKSUN_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = startevent.102.a 
+		set_global_flag = specialresourcesdisabled
+		every_province = { clear_trade_good_modifiers_effect = yes }
+		country_event = { 
+			id = startevent.5
+		}
+	}
+	option = {
+		name = startevent.102.b 
+		country_event = { 
+			id = startevent.5
+		}
+	}
+}
+
+
+
+
 
 country_event = {
 	id = startevent.101

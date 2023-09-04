@@ -613,7 +613,14 @@ emp_ser_west_balkan_branch = {
 		}
 		effect = {
 			4754 = {
-				change_trade_goods = atl_ship
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+	 }
+				change_trade_goods = naval_supplies
+				add_permanent_province_modifier = { 
+					name = trade_good_sails
+					 duration = -1 
+				 }
 				change_culture = ROOT
 				change_religion = ROOT
 				rename_capital = "Sachsenhafen"
@@ -1038,13 +1045,34 @@ emp_ser_religious = {
 		}
 		effect = {
 			141 = {
-				change_trade_goods = glass
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+	 }
+	change_trade_goods = glass
+	 add_permanent_province_modifier = { 
+	name = trade_good_marble
+ 	duration = -1 
+ }
 			}
 			1954 = {
-				change_trade_goods = atl_sails
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+	 }
+				change_trade_goods = naval_supplies
+				add_permanent_province_modifier = { 
+					name = trade_good_sails
+					 duration = -1 
+				 }
 			}
 			1827 = {
-				change_trade_goods = atl_tools
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+				 }
+			change_trade_goods = atl_tools
+		add_permanent_province_modifier = { 
+	name = trade_good_ammunition
+	 duration = -1 
+	}
 			}
 		}
 		ai_weight = {
@@ -1067,7 +1095,15 @@ emp_ser_religious = {
 		}
 		effect = {
 			4176 = {
-				change_trade_goods = vodka_drink
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+				 }
+			change_trade_goods = wine
+		add_permanent_province_modifier = { 
+	name = trade_good_beer 
+	 duration = -1 
+	}
+
 				add_province_modifier = {
 					name = fjordland_naerhav
 					duration = -1

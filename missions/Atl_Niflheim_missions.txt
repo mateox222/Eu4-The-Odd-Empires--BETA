@@ -1406,13 +1406,34 @@ niflheim_prosperity = {
 	}
 	effect = {
 		5095 = {
-			change_trade_goods = glass
+			hidden_effect = {
+				clear_trade_good_modifiers_effect = yes
+ }
+change_trade_goods = glass
+ add_permanent_province_modifier = { 
+name = trade_good_jewelery
+ duration = -1 
+}
 		}
 		5102 = {
-			change_trade_goods = atl_sails
+			hidden_effect = {
+				clear_trade_good_modifiers_effect = yes
+ }
+			change_trade_goods = naval_supplies
+			add_permanent_province_modifier = { 
+				name = trade_good_sails
+				 duration = -1 
+			 }
 		}
 		5104 = {
-			change_trade_goods = atl_tools
+			hidden_effect = {
+				clear_trade_good_modifiers_effect = yes
+			 }
+		change_trade_goods = atl_tools
+	add_permanent_province_modifier = { 
+name = trade_good_ammunition
+ duration = -1 
+}
 		}
 	}
 	ai_weight = {
@@ -1446,7 +1467,14 @@ niflheim_manufacturing = {
 			duration = 3650
 		}
 		5095 = {
-			change_trade_goods = atl_clothes
+			hidden_effect = {
+				clear_trade_good_modifiers_effect = yes
+	 }
+			change_trade_goods = cloth
+						 add_permanent_province_modifier = { 
+name = trade_good_clothes
+ duration = -1 
+}
 		}
 	}
 	ai_weight = {
@@ -1470,7 +1498,14 @@ niflheim_industrial = {
 			duration = -1
 		}
 		5090 = {
-			change_trade_goods = atl_steam_engine
+			hidden_effect = {
+				clear_trade_good_modifiers_effect = yes
+			 }
+		change_trade_goods = coal
+	add_permanent_province_modifier = { 
+name = trade_good_steam_engine
+ duration = -1 
+}
 		}
 		add_yearly_manpower = 5
 	}
@@ -1490,10 +1525,24 @@ niflheim_industrial_factory = {
 	}
 	effect = {
 		5090 = {
-			change_trade_goods = atl_steam_engine
+			hidden_effect = {
+				clear_trade_good_modifiers_effect = yes
+			 }
+		change_trade_goods = coal
+	add_permanent_province_modifier = { 
+name = trade_good_steam_engine
+ duration = -1 
+}
 		}
 		5107 = {
-			change_trade_goods = atl_steam_engine
+			hidden_effect = {
+				clear_trade_good_modifiers_effect = yes
+			 }
+		change_trade_goods = coal
+	add_permanent_province_modifier = { 
+name = trade_good_steam_engine
+ duration = -1 
+}
 		}
 		add_yearly_manpower = 5
 	}
@@ -1586,7 +1635,14 @@ nilfheim_port_expand = {
 			}
 		}
 		5101 = {
-			change_trade_goods = atl_ship
+			hidden_effect = {
+				clear_trade_good_modifiers_effect = yes
+ }
+			change_trade_goods = naval_supplies
+			add_permanent_province_modifier = { 
+				name = trade_good_sails
+				 duration = -1 
+			 }
 		}
 		5098 = {
 			center_of_trade = 1

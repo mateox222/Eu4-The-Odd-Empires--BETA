@@ -1,6 +1,62 @@
 
 
 pagan = {
+	than_indochina = {
+		color = { 117 135 159 }
+		icon = 50
+		country = {
+			tolerance_own = 1
+			global_unrest = -1
+		}
+		country_as_secondary = {
+			loot_amount = 0.25
+		}
+		heretic = { SNAKE_CLAN }
+	}
+	benzhuist = {
+		color = { 89 108 10 }
+		icon = 49
+		country = {
+			tolerance_own = 1
+			global_unrest = -1
+		}
+		country_as_secondary = {
+			loot_amount = 0.25
+		}
+		heretic = { SNAKE_CLAN }
+	}
+		vainakh_religion = {
+		icon = 51
+		color = { 122 147 87 }
+		country = {
+			rival_change_cost = -0.2	
+			global_tax_modifier = 0.05	
+		}
+		province = {
+			local_tax_modifier = 0.1	
+		}
+		country_as_secondary = {
+			shock_damage_received = -0.1
+		}
+		fetishist_cult = yes
+		heretic = { GOAT_SKULL }	
+	} 
+		taltoism_religion = {
+		icon = 48
+		color = { 122 77 87 }
+		country = {
+			cavalry_power = 0.15	
+		}
+		province = {
+			local_monthly_devastation = -0.1	
+		}
+		country_as_secondary = {
+			cavalry_power = 0.1	
+		}
+		can_have_secondary_religion = yes
+		heretic = { GOAT_SKULL }	
+	} 
+
 		christian_change_religion_for_debug = {
 		icon = 44
 		color = { 164 185 0 }
@@ -726,6 +782,7 @@ zoroastrian_group = {
 			tolerance_own = 2
 			trade_efficiency = 0.1
 		}
+		can_have_secondary_religion = yes
 		country_as_secondary = {
 			merchants = 1
 			tolerance_own = 1

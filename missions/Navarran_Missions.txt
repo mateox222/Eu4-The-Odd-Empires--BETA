@@ -4,7 +4,7 @@ nav_missions_1 = {
 	ai = yes
 	potential = {
 		tag = NAV
-		NOT = { map_setup = map_setup_random }
+		always = no
 	}
 	has_country_shield = yes
 	
@@ -111,54 +111,12 @@ nav_missions_1_b = {
 	ai = yes
 	potential = {
 		tag = NAV
-		NOT = { map_setup = map_setup_random }
+		always = no
 		is_random_new_world = no
 	}
 	has_country_shield = yes
 	
-	nav_terranova = {
-		icon = mission_settlers_north_america
-		required_missions = { nav_north_sea_whaling }
-		provinces_to_highlight = {
-			province_id = 2573
-			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
-				is_city = yes
-			}
-			has_discovered = ROOT
-		}
-		position = 4
-		trigger = {
-			2573 = {
-				country_or_non_sovereign_subject_holds = ROOT
-				is_city = yes
-			}
-		}
-		effect = {
-			country_event = { id = flavor_nav.1 }
-			newfoundland_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			labrador_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			cote_nord_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-		}
-	}
+
 	nav_newfoundland_labrador = {
 		icon = mission_iberian_conquistador
 		required_missions = { nav_terranova }
@@ -213,7 +171,7 @@ nav_missions_2 = {
 	ai = yes
 	potential = {
 		tag = NAV
-		NOT = { map_setup = map_setup_random }
+		always = no
 	}
 	has_country_shield = yes
 	nav_reclaim_coast = {
@@ -391,7 +349,7 @@ nav_missions_5 = {
 	ai = yes
 	potential = {
 		tag = NAV
-		NOT = { map_setup = map_setup_random }
+		always = no
 	}
 	has_country_shield = yes
 	nav_aragonese_inheritance = {
