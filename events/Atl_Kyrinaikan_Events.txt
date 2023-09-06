@@ -28,6 +28,435 @@ country_event = {
 		add_stability = 1
 		add_legitimacy = 10
 		change_tag = A4R
+		clr_country_flag = warunekegipskiejwojnywybuchu
+		set_global_flag = atlantropa_egypt_united
 	}
 }
 
+
+
+country_event = {
+	id = kyrinaikan_events.3
+	title = "kyrinaikan_events.3.t"
+	desc = "kyrinaikan_events.3.d"
+	picture = ptolemaicegypt_eventPicture
+		fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		tag = A4R
+	}
+	option = {
+		change_country_color = {  color = { 73 73 173 } }
+		name = "kyrinaikan_events.3.a"
+		add_prestige = -10
+		add_stability = -1
+		add_legitimacy = -10
+		add_adm_power = -100
+		add_dip_power = -100
+		add_mil_power = -100
+		custom_tooltip = kyrinajkajedenrok
+		set_country_flag = rewoltaantygonidazarok
+	}
+}
+country_event = {
+	id = kyrinaikan_events.4
+	title = "kyrinaikan_events.4.t"
+	desc = "kyrinaikan_events.4.d"
+		fire_only_once = yes
+	picture = ptolemaicegypt_eventPicture
+	major = yes	
+		mean_time_to_happen = {
+		months = 6
+		}
+	trigger = {
+		tag = A4R
+		has_country_flag = rewoltaantygonidazarok
+	}
+	option = {
+		set_country_flag = rewoltaantygonidazarok2
+		white_peace	= A76
+		name = "kyrinaikan_events.4.a"
+		add_prestige = -10
+		add_stability = -1
+		add_legitimacy = -10
+		add_adm_power = -100
+		add_dip_power = -100
+		add_mil_power = -100
+		custom_tooltip = kyrinajkajedenrok2
+
+		hidden_effect = {
+			set_capital = 356	
+			every_province = {
+				kill_units = {
+    who = ROOT
+}
+			}
+						capital_scope = {
+			    ROOT = {
+			        infantry = PREV
+			    }
+				ROOT = {
+			        infantry = PREV
+			    }
+				ROOT = {
+			        infantry = PREV
+			    }
+				ROOT = {
+			        infantry = PREV
+			    }
+				ROOT = {
+			        infantry = PREV
+			    }
+			}
+			change_tag = A6F
+			swap_free_idea_group = yes	
+		every_owned_province = {
+			limit = {
+				OR = {
+		area = lower_nubia_area
+		area = al_wahat_area
+		area = said_area
+		area = medina_area	
+		area = dongola_area
+		area = kabir_area
+				}
+			}
+			add_core = DI1
+			cede_province = DI1
+		}
+		DI1 = {
+			change_country_color = {  color = { 73 73 173 } }
+			define_ruler = {
+    name = "Konstantinos IV"
+    dynasty = "Derna"
+}
+		}
+		}
+
+	}
+}
+
+country_event = {
+	id = kyrinaikan_events.5
+	title = "kyrinaikan_events.5.t"
+	desc = "kyrinaikan_events.5.d"
+		fire_only_once = yes
+	picture = ptolemaicegypt_eventPicture
+	major = yes	
+		mean_time_to_happen = {
+		months = 1
+		}
+	trigger = {
+		tag = A6F
+		has_country_flag = rewoltaantygonidazarok2
+	}
+	option = {
+		set_global_flag = egiptzaczynasie
+		set_country_flag = rewoltaantygonidazarok3
+		white_peace	= A76
+		name = "kyrinaikan_events.5.a"
+		add_prestige = -10
+		add_stability = -1
+		add_legitimacy = -10
+		add_adm_power = -100
+		add_dip_power = -100
+		add_mil_power = -100
+		custom_tooltip = kyrinajkajedenrok3
+
+		hidden_effect = {
+		every_owned_province = {
+			limit = {
+				OR = {
+		area = tabuk_area
+		area = bahari_area
+		area = vostani_area
+		area = medina_area	
+		area = delta_area
+				}
+			}
+			add_core = DI2
+			cede_province = DI2
+		}
+		DI2  = {
+					change_country_color = {  color = { 73 73 173 } }
+			define_ruler = {
+    name = "Nikephor III"
+    dynasty = "Derna"
+    adm = 2
+    dip = 4
+    mil = 4
+    age = 35
+    claim = 95
+}
+		}
+		}
+
+	}
+}
+
+country_event = {
+	id = kyrinaikan_events.6
+	title = "kyrinaikan_events.6.t"
+	desc = "kyrinaikan_events.6.d"
+		fire_only_once = yes
+	picture = ptolemaicegypt_eventPicture
+	major = yes	
+		mean_time_to_happen = {
+		months = 2
+		}
+	trigger = {
+		tag = A76
+	has_global_flag = egiptzaczynasie
+	}
+	option = {
+				name = "kyrinaikan_events.6.a"
+		custom_tooltip = kyrinajkajedenrok4
+
+		hidden_effect = {
+		every_owned_province = {
+			limit = {
+				OR = {
+		area = trans_jordan_area
+		area = syrian_desert_area
+				}
+			}
+			add_core = SYR
+			cede_province = SYR
+		}
+		}
+
+	}
+}
+
+country_event = { #collapseofconstantinia
+	id = kyrinaikan_events.7
+	title = "kyrinaikan_events.7.t"
+	desc = "kyrinaikan_events.7.d"
+		fire_only_once = yes
+	picture = ptolemaicegypt_eventPicture
+	major = yes	
+		mean_time_to_happen = {
+		months = 2
+		}
+	trigger = {
+		tag = DI1
+	has_global_flag = egiptzaczynasie
+	}
+	option = {
+				name = "kyrinaikan_events.7.a"
+		set_global_flag = egiptwarunekjeden1
+		custom_tooltip = kyrinajkajedenrok5
+		restore_country_color = yes	
+		hidden_effect = {
+		every_owned_province = {
+			limit = {
+				OR = {
+		area = al_wahat_area
+				area = kabir_area
+				}
+			}
+			add_core = A2R
+			cede_province = A2R
+		}
+		A2R = {
+						define_ruler = {
+    name = "Nektanebo III"
+    dynasty = "Kemet"
+}
+		}
+		}
+
+				hidden_effect = {
+		every_owned_province = {
+			limit = {
+				OR = {
+		area = lower_nubia_area
+				}
+			}
+			add_core = MAK
+			cede_province = MAK
+		}
+		}
+						hidden_effect = {
+		every_owned_province = {
+			limit = {
+				OR = {
+		area = medina_area
+				}
+			}
+			add_core = A3R
+			cede_province = A3R
+		}
+		}
+
+	}
+}
+
+country_event = { #collapseofnikephoria
+	id = kyrinaikan_events.8
+	title = "kyrinaikan_events.8.t"
+	desc = "kyrinaikan_events.8.d"
+		fire_only_once = yes
+	picture = ptolemaicegypt_eventPicture
+	major = yes	
+		mean_time_to_happen = {
+		months = 2
+		}
+	trigger = {
+		tag = DI2
+	has_global_flag = egiptzaczynasie
+	}
+	option = {
+				name = "kyrinaikan_events.8.a"
+			set_global_flag = egiptwarunekjeden2
+		custom_tooltip = kyrinajkajedenrok6
+		restore_country_color = yes	
+		hidden_effect = {
+		every_owned_province = {
+			limit = {
+				OR = {
+		area = vostani_area
+				}
+			}
+			add_core = DI3
+			cede_province = DI3
+		}
+		DI3 = {
+						define_ruler = {
+    name = "Antigon II"
+    dynasty = "Doukas"
+}
+		}
+		}
+		hidden_effect = {
+		every_owned_province = {
+			limit = {
+				OR = {
+		province_id = 358
+				}
+			}
+			add_core = CYP
+			cede_province = CYP
+		}
+		}
+				hidden_effect = {
+		every_owned_province = {
+			limit = {
+				OR = {
+		area = tabuk_area
+				}
+			}
+			add_core = HSN
+			cede_province = HSN
+		}
+		}
+		hidden_effect = {
+		every_owned_province = {
+			limit = {
+				OR = {
+		area = bahari_area
+				}
+			}
+			add_core = DI5
+			cede_province = DI5
+		}
+	DI5 = {		
+					define_ruler = {
+    name = "Lamendon I"
+    dynasty = "Doukas"
+}
+	}
+		}
+
+	}
+}
+
+
+
+country_event = {
+	id = kyrinaikan_events.9
+	title = "kyrinaikan_events.9.t"
+	desc = "kyrinaikan_events.9.d"
+		fire_only_once = yes
+	picture = ptolemaicegypt_eventPicture
+	major = yes	
+		mean_time_to_happen = {
+		months = 1
+		}
+	trigger = {
+		tag = A6F
+			has_global_flag = egiptwarunekjeden1
+			has_global_flag = egiptwarunekjeden2		
+	}
+	immediate = {
+			add_stability = 3
+				hidden_effect = {
+		every_country = {
+			limit = {
+		OR = {
+        tag = CYP
+	    tag = A6F
+        tag = A2R
+	    tag = MAK
+        tag = HSN
+	    tag = A3R	
+		tag = DI1
+		tag = DI2
+		tag = DI3
+		tag = DI4
+		tag = DI5						
+}		
+			}
+		set_country_flag = warunekegipskiejwojnywybuchu
+				set_global_flag = egiptwarunekjeden3	
+		swap_non_generic_missions = yes	
+		}
+		}
+
+
+	}
+	option = {
+				name = "kyrinaikan_events.9.a1"
+				add_prestige = 6
+	}
+		option = {
+				name = "kyrinaikan_events.9.a2"
+				switch_tag = CYP
+	}
+			option = {
+				name = "kyrinaikan_events.9.a3"
+				switch_tag = A2R
+	}
+				option = {
+				name = "kyrinaikan_events.9.a4"
+				switch_tag = MAK
+	}
+					option = {
+				name = "kyrinaikan_events.9.a5"
+				switch_tag = HSN
+	}
+						option = {
+				name = "kyrinaikan_events.9.a6"
+				switch_tag = A3R	
+	}
+							option = {
+				name = "kyrinaikan_events.9.a7"
+				switch_tag = DI1
+	}
+								option = {
+				name = "kyrinaikan_events.9.a8"
+				switch_tag = DI2
+	}
+								option = {
+				name = "kyrinaikan_events.9.a9"
+				switch_tag = DI3
+	}
+								option = {
+				name = "kyrinaikan_events.9.a10"
+				switch_tag = DI4
+	}
+								option = {
+				name = "kyrinaikan_events.9.a11"
+				switch_tag = DI5
+	}
+}

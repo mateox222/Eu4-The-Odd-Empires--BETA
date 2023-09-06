@@ -3,7 +3,15 @@ kyrinaika_1 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = A6F
+		OR = {
+			TAG = A6F
+			TAG = DI1
+			TAG = DI2		
+			TAG = DI3
+			TAG = DI4	
+			TAG = DI5				
+		}
+
 	}
 
 	kyr_seize_kemet = {
@@ -27,7 +35,7 @@ kyrinaika_2 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = A6F
+has_country_flag = warunekegipskiejwojnywybuchu
 	}
 
 	atl_kyr_manpower = {
@@ -82,7 +90,7 @@ kyrinaika_3 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = A6F
+has_country_flag = warunekegipskiejwojnywybuchu
 	}
 
 	kyr_fall_of_kyrnaika = {
@@ -133,11 +141,26 @@ kyrinaika_3 = {
 	kyr_unte_egypt = {
 		icon = atlantropa_phoenixempire
 		position = 5
-		required_missions = { kyr_seize_kemet kyr_seize_latins kyr_deal_kemet Kyr_destroy_makuria kyr_destroy_aswan }
 		trigger = {
 			custom_trigger_tooltip = {
 				tooltip = themepirehasfallen3
 				is_at_war = no
+			NOT = {	
+				any_country = {
+						AND = {
+							OR = {
+			TAG = A6F
+			TAG = DI1
+			TAG = DI2		
+			TAG = DI3
+			TAG = DI4	
+			TAG = DI5				
+		}
+							NOT = { tag = ROOT }
+						
+					}
+				}
+			}
 			}
 		}
 		effect = {
@@ -153,7 +176,7 @@ kyrinaika_4 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = A6F
+has_country_flag = warunekegipskiejwojnywybuchu
 	}
 
 	atl_kyr_soldiers = {
@@ -192,7 +215,7 @@ kyrinaika_5 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = A6F
+has_country_flag = warunekegipskiejwojnywybuchu
 	}
 
 	kyr_destroy_aswan = {

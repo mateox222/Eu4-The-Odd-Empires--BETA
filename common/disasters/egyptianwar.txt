@@ -1,18 +1,23 @@
 egyptian_civilwar = {
     potential = {
 	OR = {
-        tag = CYP
+          tag = CYP
 	    tag = A6F
         tag = A2R
 	    tag = MAK
         tag = HSN
 	    tag = A3R	
+		tag = DI1
+		tag = DI2
+		tag = DI3
+		tag = DI4
+		tag = DI5		
 }		
 	NOT = { has_global_flag = atlantropa_egypt_united }	
 	}
 can_start = {
 hidden_trigger = {
- has_game_started = yes
+ has_country_flag = warunekegipskiejwojnywybuchu	
 }
 		
 }
@@ -25,12 +30,17 @@ hidden_trigger = {
 				modifier = {
 			factor = 100
 	OR = {
-        tag = CYP
+          tag = CYP
 	    tag = A6F
         tag = A2R
 	    tag = MAK
         tag = HSN
 	    tag = A3R	
+		tag = DI1
+		tag = DI2
+		tag = DI3
+		tag = DI4
+		tag = DI5		
 }
 	}
 	}
@@ -39,6 +49,7 @@ hidden_trigger = {
 		OR = {
         had_country_flag = { flag = egyptian_civilwar days = 7300 }
 		has_global_flag = atlantropa_egypt_united
+		NOT = {  has_country_flag = warunekegipskiejwojnywybuchu}
 		}
 		
 }}
