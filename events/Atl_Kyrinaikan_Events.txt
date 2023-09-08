@@ -39,7 +39,7 @@ country_event = {
 	id = kyrinaikan_events.3
 	title = "kyrinaikan_events.3.t"
 	desc = "kyrinaikan_events.3.d"
-	picture = ptolemaicegypt_eventPicture
+	picture = praetoriaguards_eventPicture
 		fire_only_once = yes
 	is_triggered_only = yes
 	trigger = {
@@ -63,7 +63,7 @@ country_event = {
 	title = "kyrinaikan_events.4.t"
 	desc = "kyrinaikan_events.4.d"
 		fire_only_once = yes
-	picture = ptolemaicegypt_eventPicture
+	picture = seljukjerusalem_eventPicture
 	major = yes	
 		mean_time_to_happen = {
 		months = 6
@@ -86,28 +86,6 @@ country_event = {
 
 		hidden_effect = {
 			set_capital = 356	
-			every_province = {
-				kill_units = {
-    who = ROOT
-}
-			}
-						capital_scope = {
-			    ROOT = {
-			        infantry = PREV
-			    }
-				ROOT = {
-			        infantry = PREV
-			    }
-				ROOT = {
-			        infantry = PREV
-			    }
-				ROOT = {
-			        infantry = PREV
-			    }
-				ROOT = {
-			        infantry = PREV
-			    }
-			}
 			change_tag = A6F
 			swap_free_idea_group = yes	
 		every_owned_province = {
@@ -125,6 +103,7 @@ country_event = {
 			cede_province = DI1
 		}
 		DI1 = {
+			add_truce_with = A6F	
 			change_country_color = {  color = { 73 73 173 } }
 			define_ruler = {
     name = "Konstantinos IV"
@@ -141,7 +120,7 @@ country_event = {
 	title = "kyrinaikan_events.5.t"
 	desc = "kyrinaikan_events.5.d"
 		fire_only_once = yes
-	picture = ptolemaicegypt_eventPicture
+	picture = seljuksstart_eventPicture
 	major = yes	
 		mean_time_to_happen = {
 		months = 1
@@ -153,7 +132,6 @@ country_event = {
 	option = {
 		set_global_flag = egiptzaczynasie
 		set_country_flag = rewoltaantygonidazarok3
-		white_peace	= A76
 		name = "kyrinaikan_events.5.a"
 		add_prestige = -10
 		add_stability = -1
@@ -177,11 +155,38 @@ country_event = {
 			add_core = DI2
 			cede_province = DI2
 		}
+		A6F = {
+			every_enemy_country = {
+				white_peace = ROOT
+			 }	
+		}
+		DI1 = {
+			every_enemy_country = {
+				white_peace = ROOT
+			 }	
+		}
+
+			
+	
+		
 		DI2  = {
-					change_country_color = {  color = { 73 73 173 } }
+					declare_war_with_cb = {
+    who = A6F
+    casus_belli = cb_annex
+}
+		}
+	DI1 = { join_all_defensive_wars_of = A6F }
+
+		DI2  = {
+			country_event = { 
+    id = kyrinaikan_events.8
+    days = 90
+    random = 90
+}
+		add_yearly_manpower = 2
 			define_ruler = {
     name = "Nikephor III"
-    dynasty = "Derna"
+    dynasty = "Doukas"
     adm = 2
     dip = 4
     mil = 4
@@ -200,9 +205,9 @@ country_event = {
 	desc = "kyrinaikan_events.6.d"
 		fire_only_once = yes
 	picture = ptolemaicegypt_eventPicture
-	major = yes	
+	hidden = yes
 		mean_time_to_happen = {
-		months = 2
+		months = 10
 		}
 	trigger = {
 		tag = A76
@@ -233,16 +238,19 @@ country_event = { #collapseofconstantinia
 	title = "kyrinaikan_events.7.t"
 	desc = "kyrinaikan_events.7.d"
 		fire_only_once = yes
-	picture = ptolemaicegypt_eventPicture
+	picture = saccoroma_eventPicture
 	major = yes	
 		mean_time_to_happen = {
-		months = 2
+		months = 6
 		}
 	trigger = {
 		tag = DI1
 	has_global_flag = egiptzaczynasie
 	}
 	option = {
+					every_enemy_country = {
+				white_peace = ROOT
+			 }	
 				name = "kyrinaikan_events.7.a"
 		set_global_flag = egiptwarunekjeden1
 		custom_tooltip = kyrinajkajedenrok5
@@ -297,16 +305,16 @@ country_event = { #collapseofnikephoria
 	title = "kyrinaikan_events.8.t"
 	desc = "kyrinaikan_events.8.d"
 		fire_only_once = yes
-	picture = ptolemaicegypt_eventPicture
+	picture = russianempire2_eventPicture
 	major = yes	
 		mean_time_to_happen = {
 		months = 2
 		}
-	trigger = {
-		tag = DI2
-	has_global_flag = egiptzaczynasie
-	}
+	is_triggered_only = yes
 	option = {
+					every_enemy_country = {
+				white_peace = ROOT
+			 }	
 				name = "kyrinaikan_events.8.a"
 			set_global_flag = egiptwarunekjeden2
 		custom_tooltip = kyrinajkajedenrok6
@@ -324,7 +332,7 @@ country_event = { #collapseofnikephoria
 		DI3 = {
 						define_ruler = {
     name = "Antigon II"
-    dynasty = "Doukas"
+    dynasty = "Plantagos"
 }
 		}
 		}
@@ -363,7 +371,7 @@ country_event = { #collapseofnikephoria
 	DI5 = {		
 					define_ruler = {
     name = "Lamendon I"
-    dynasty = "Doukas"
+    dynasty = "Medos"
 }
 	}
 		}
@@ -378,7 +386,7 @@ country_event = {
 	title = "kyrinaikan_events.9.t"
 	desc = "kyrinaikan_events.9.d"
 		fire_only_once = yes
-	picture = ptolemaicegypt_eventPicture
+	picture = vandals_eventPicture
 	major = yes	
 		mean_time_to_happen = {
 		months = 1
@@ -390,6 +398,28 @@ country_event = {
 	}
 	immediate = {
 		hidden_effect = {
+						every_province = {
+				kill_units = {
+    who = ROOT
+}
+			}
+						capital_scope = {
+			    ROOT = {
+			        infantry = PREV
+			    }
+				ROOT = {
+			        infantry = PREV
+			    }
+				ROOT = {
+			        infantry = PREV
+			    }
+				ROOT = {
+			        infantry = PREV
+			    }
+				ROOT = {
+			        infantry = PREV
+			    }
+			}
 			357 = {
 				add_core = DI4
 				cede_province = DI4
@@ -405,6 +435,7 @@ country_event = {
 			DI4 = {		
 					define_ruler = {
     name = "Ptolemaios XVI"
+	dynasty = "Ptolemaic"
 }
 	}
 		}
