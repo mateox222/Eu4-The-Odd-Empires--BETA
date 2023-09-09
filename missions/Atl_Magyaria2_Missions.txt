@@ -6,39 +6,8 @@ magyaria_1 = {
 		tag = RUM
 	}
 
-	pax_magyaria = {
-		icon = mission_build_up_to_force_limit
-		position = 1
-		required_missions = {  }
-		trigger = {
-			has_any_disaster = no
-			is_bankrupt = no
-			stability = 3
-			prestige = 75
-			total_own_and_non_tributary_subject_development = 4000
-			if = {
-				limit = {
-					OR = {
-						has_dlc = "Rights of Man"
-						has_dlc = "Emperor"
-					}
-				}
-				NOT = { great_power_rank = 2 }
-			}
-			if = {
-				limit = { has_dlc = "Emperor" }
-				is_hegemon = yes
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = tur_pax_ottomana
-				duration = -1
-			}
-		}
-	}
 	stabilise_magyaria_miss = {
-		icon = mission_build_up_to_force_limit
+		icon = mission_city_of_the_world's_desire
 		position = 2
 		required_missions = { magyaria_aftermatch }
 		trigger = {
@@ -51,7 +20,7 @@ magyaria_1 = {
 		}
 	}
 	question_magyaria_hagiasophia = {
-		icon = mission_build_up_to_force_limit
+		icon = mission_hagia_sophia
 		position = 3
 		required_missions = { stabilise_magyaria_miss }
 		provinces_to_highlight = {
@@ -136,7 +105,7 @@ magyaria_1 = {
 		}
 	}
 	magyaria_question_of_city = {
-		icon = mission_build_up_to_force_limit
+		icon = renaissance_city
 		position = 4
 		required_missions = { question_magyaria_hagiasophia }
 		trigger = {
@@ -157,8 +126,8 @@ magyaria_1 = {
 		}
 	}
 	magyaria_constantinople_builk = {
-		icon = mission_build_up_to_force_limit
-		position = 5
+		icon = atlantropa_constantinople
+		position = 6
 		required_missions = { magyaria_question_of_city }
 		provinces_to_highlight = {
 			province_id = 151
@@ -200,193 +169,9 @@ magyaria_1 = {
 			}
 		}
 	}
-	MAGYARIA_greece = {
-		icon = mission_build_up_to_force_limit
-		position = 6
-		required_missions = { magyaria_anatolia_conquest }
-		provinces_to_highlight = {
-			OR = {
-				province_id = 145
-				province_id = 146
-				province_id = 1773
-				province_id = 4701
-				province_id = 4699
-				province_id = 4698
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			owns_or_non_sovereign_subject_of = 145
-			owns_or_non_sovereign_subject_of = 146
-			owns_or_non_sovereign_subject_of = 1773
-			owns_or_non_sovereign_subject_of = 4701
-			owns_or_non_sovereign_subject_of = 4699
-			owns_or_non_sovereign_subject_of = 4698
-		}
-		effect = {
-			add_prestige = 5
-			custom_tooltip = tur_conquer_greece_ct
-			hidden_effect = {
-				every_owned_province = {
-					limit = {
-						culture = greek
-					}
-					add_local_autonomy = -100
-					add_nationalism = -20
-				}
-			}
-			balkan_region = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-		}
-	}
-	Magyar_Balkan_Campaign = {
-		icon = mission_build_up_to_force_limit
-		position = 7
-		required_missions = { MAGYARIA_greece }
-		provinces_to_highlight = {
-			OR = {
-				area = serbia_area
-				area = rascia_area
-				area = albania_area
-				area = croatia_area
-				area = east_adriatic_coast_area
-				area = bosnia_area
-				area = slavonia_area
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				OR = {
-					area = serbia_area
-					area = rascia_area
-					area = albania_area
-					area = croatia_area
-					area = east_adriatic_coast_area
-					area = bosnia_area
-					area = slavonia_area
-				}
-				value = 20
-			}
-		}
-		effect = {
-			custom_tooltip = tur_push_into_the_balkans_ct
-			tooltip = {
-				add_province_modifier = {
-					name = tur_local_millet_rule
-					duration = 7300
-				}
-			}
-			hidden_effect = {
-				balkan_region = {
-					limit = {
-						country_or_non_sovereign_subject_holds = ROOT
-					}
-					add_province_modifier = {
-						name = tur_local_millet_rule
-						duration = 7300
-					}
-				}
-			}
-			carpathia_region = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			if = {
-				limit = {
-					WAL = {
-						exists = yes
-						is_subject = no
-					}
-				}
-				add_casus_belli = {
-					type = cb_ottoman_subjugation_war
-					target = WAL
-					months = 240
-				}
-			}
-			if = {
-				limit = {
-					HUN = {
-						exists = yes
-						is_subject = no
-					}
-				}
-				add_casus_belli = {
-					type = cb_ottoman_subjugation_war
-					target = HUN
-					months = 240
-				}
-			}
-			if = {
-				limit = {
-					MOL = {
-						exists = yes
-						is_subject = no
-					}
-				}
-				add_casus_belli = {
-					type = cb_ottoman_subjugation_war
-					target = MOL
-					months = 240
-				}
-			}
-		}
-	}
-}
-
-magyaria2 = {
-	slot = 2
-	generic = no
-	ai = yes
-	potential = {
-		tag = RUM
-	}
-
-	magyaria_question_of_greek = {
-		icon = mission_build_up_to_force_limit
-		position = 2
-		required_missions = { magyaria_aftermatch }
-		trigger = {
-			adm_power = 100
-			dip_power = 100
-		}
-		effect = {
-			country_event = {
-				id = magyar_events.9
-			}
-			add_adm_power = -100
-			add_dip_power = -100
-		}
-	}
-	magyarisation_mis = {
-		icon = mission_build_up_to_force_limit
-		position = 3
-		required_missions = { magyaria_question_of_greek }
-		trigger = {
-			num_of_owned_provinces_with = {
-				value = 30
-			culture = root
-				is_overseas = no
-			}
-		}
-		effect = {
-			add_adm_power = 200
-			add_dip_power = 200
-			add_mil_power = 200
-		}
-	}
 	magyaria_egypt = {
-		icon = mission_build_up_to_force_limit
-		position = 6
+		icon = jerusalem
+		position = 7
 		required_missions = { magyaria_anatolia_conquest }
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
@@ -467,8 +252,8 @@ magyaria2 = {
 		}
 	}
 	MAGYARRIA_zlomuje_egipt = {
-		icon = mission_build_up_to_force_limit
-		position = 7
+		icon = mission_egyptian_mamluk_soldier
+		position = 8
 		required_missions = { magyaria_egypt }
 		provinces_to_highlight = {
 			region = egypt_region
@@ -517,43 +302,259 @@ magyaria2 = {
 				}
 				add_permanent_claim = ROOT
 			}
+			horn_of_africa_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	magyaria_cartagine_invasion = {
+		icon = africa_proconsulare
+		position = 9
+		required_missions = { MAGYARRIA_zlomuje_egipt }
+		provinces_to_highlight = {
+			OR = {
+				area = tunisia_area
+				area = kabylia_area
+				area = djerba_area
+				area = tripolitania_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				OR = {
+					area = tunisia_area
+					area = kabylia_area
+					area = djerba_area
+					area = tripolitania_area
+				}
+				value = 10
+			}
+		}
+		effect = {
+			add_mil_power = 100
+			barbary_coast_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			hautes_plaines_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			algiers_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	magyaria_numidia = {
+		icon = mission_conquer_algiers
+		position = 11
+		required_missions = { magyaria_cartagine_invasion }
+		provinces_to_highlight = {
+			OR = {
+				area = barbary_coast_area
+				area = hautes_plaines_area
+				area = algiers_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				OR = {
+					area = barbary_coast_area
+					area = hautes_plaines_area
+					area = algiers_area
+				}
+				value = 6
+			}
+		}
+		effect = {
+			add_navy_tradition = 25
+			if = {
+				limit = { exists = MOR }
+				add_casus_belli = {
+					type = cb_ottoman_subjugation_war
+					target = MOR
+					months = 240
+				}
+			}
+			western_morocco_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			northern_morocco_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			tafilalt_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			marrekesh_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			upper_andalucia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			lower_andalucia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			alentejo_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			toledo_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	magyaria_eyaleaztec = {
+		icon = atlantropa_aztecship
+		position = 12
+		required_missions = { magyaria_numidia }
+		provinces_to_highlight = {
+			OR = {
+				area = western_morocco_area
+				area = northern_morocco_area
+				area = tafilalt_area
+				area = marrekesh_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				OR = {
+					area = western_morocco_area
+					area = northern_morocco_area
+					area = tafilalt_area
+					area = marrekesh_area
+				}
+				value = 10
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = tur_barbary_pirates
+				duration = -1
+			}
+			if = {
+				limit = {
+					MOR = {
+						is_subject_of = ROOT
+					}
+				}
+				if = {
+					limit = { MOR = { is_subject_of_type = eyalet } }
+					MOR = {
+						hidden_effect = {
+							grant_independence = yes
+						}
+					}
+					create_subject = {
+						who = MOR
+						subject_type = core_eyalet
+					}
+					add_dip_power = 100
+				}
+				else = {
+					country_event_with_insight = {
+						id = flavor_tur.225
+						insight_tooltip = IS_EYALET_EVENT_TT
+					}
+				}
+			}
+			else = {
+				create_explorer = {
+					tradition = 100
+				}
+			}
+			maghreb_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 }
 
-magyaria3 = {
-	slot = 3
+magyaria2 = {
+	slot = 2
 	generic = no
 	ai = yes
 	potential = {
 		tag = RUM
 	}
 
-	magyaria_aftermatch = {
-		icon = mission_build_up_to_force_limit
-		position = 1
-		required_missions = {  }
-		provinces_to_highlight = {
-			province_id = 151
-		}
-		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = magyarempire
-				always = yes
-			}
-		}
-		effect = {
-			country_event = {
-				id = magyar_events.8
-			}
-		}
-	}
-	magyarian_empire = {
-		icon = mission_build_up_to_force_limit
+	magyaria_question_of_greek = {
+		icon = atlantropa_byzantineflag
 		position = 2
 		required_missions = { magyaria_aftermatch }
 		trigger = {
-			total_development = 1000
+			adm_power = 100
+			dip_power = 100
+		}
+		effect = {
+			country_event = {
+				id = magyar_events.9
+			}
+			add_adm_power = -100
+			add_dip_power = -100
+		}
+	}
+	magyarisation_mis = {
+		icon = atlantropa_magyartribes
+		position = 3
+		required_missions = { magyaria_question_of_greek }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 30
+				culture = root
+				is_overseas = no
+			}
 		}
 		effect = {
 			add_adm_power = 200
@@ -561,30 +562,148 @@ magyaria3 = {
 			add_mil_power = 200
 		}
 	}
-	magyarartillery = {
-		icon = mission_build_up_to_force_limit
-		position = 3
-		required_missions = { question_magyaa_army }
+	MAGYARIA_Fate_of_christians = {
+		icon = mission_devastate_christianity
+		position = 4
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					province_id = 151
+					NOT = { is_capital_of = ROOT }
+				}
+				owned_by = BYZ
+			}
+		}
 		trigger = {
-			owns_core_province = 329
-			329 = { base_production = 10	}
+			custom_trigger_tooltip = {
+				tooltip = tur_fate_of_the_patriarchate_tt
+				has_country_flag = tur_had_fate_of_patriarchate_event
+			}
+			if = {
+				limit = {
+					NOT = { has_country_flag = tur_allowed_patriarchate_to_exist }
+					NOT = { has_country_flag = tur_closed_patriarchate_down }
+				}
+				custom_trigger_tooltip = {
+					tooltip = tur_fate_of_the_patriarchate_ct
+					always = no
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_flag = tur_allowed_patriarchate_to_exist
+				}
+				if = {
+					limit = {
+						has_estate = estate_dhimmi
+					}
+					num_of_estate_agendas_completed = {
+						estate = estate_dhimmi
+						value = 2
+					}
+					num_of_estate_privileges = {
+						estate = estate_dhimmi
+						value = 4
+					}
+				}
+				else = {
+					religious_unity = 1
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						has_estate = estate_church
+					}
+					num_of_estate_agendas_completed = {
+						estate = estate_church
+						value = 2
+					}
+					num_of_estate_privileges = {
+						estate = estate_church
+						value = 4
+					}
+				}
+				else = {
+					religious_unity = 1
+				}
+			}
 		}
 		effect = {
-			329 = {
-				hidden_effect = {
-					clear_trade_good_modifiers_effect = yes
+			if = {
+				limit = {
+					NOT = { has_country_flag = tur_allowed_patriarchate_to_exist }
+					NOT = { has_country_flag = tur_closed_patriarchate_down }
 				}
-				change_trade_goods = atl_tools
-				add_permanent_province_modifier = {
-					name = trade_good_artillery
-					duration = -1
+				custom_tooltip = tur_fate_of_the_patriarchate_at
+			}
+			else_if = {
+				limit = {
+					has_country_flag = tur_allowed_patriarchate_to_exist
+				}
+				if = {
+					limit = {
+						has_estate = estate_dhimmi
+					}
+					add_estate_loyalty = {
+						estate = estate_dhimmi
+						loyalty = 15
+					}
+				}
+				add_country_modifier = {
+					name = tur_respected_the_patriarchate
+					duration = 9125
+				}
+				define_advisor = {
+					name = "Gennadios II"
+					type = theologian
+					skill = 3
+					cost_multiplier = 0.25
+					culture = greek
+					religion = orthodox
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						has_estate = estate_church
+					}
+					add_estate_loyalty = {
+						estate = estate_church
+						loyalty = 15
+					}
+				}
+				add_country_modifier = {
+					name = tur_removed_the_patriarchate
+					duration = 9125
+				}
+				capital_scope = {
+					add_base_tax = 3
+					add_base_production = 2
+					add_base_manpower = 2
 				}
 			}
 		}
 	}
-	magyaria_anatolia_conquest = {
-		icon = mission_build_up_to_force_limit
+	magyaria_mithra = {
+		icon = protectors_of_christendom
 		position = 5
+		required_missions = { MAGYARIA_Fate_of_christians }
+		trigger = {
+			num_of_missionaries = 3
+		}
+		effect = {
+			add_country_modifier = {
+				name = magyaria_religion_od
+				duration = -1
+			}
+			add_adm_power = 100
+		}
+	}
+	magyaria_anatolia_conquest = {
+		icon = atlantropa_anatolia
+		position = 6
 		required_missions = {  }
 		provinces_to_highlight = {
 			region = anatolia_region
@@ -626,9 +745,9 @@ magyaria3 = {
 		}
 	}
 	MAGYARIA_SEIZE_mesopotamia = {
-		icon = mission_build_up_to_force_limit
-		position = 6
-		required_missions = { magyaria_anatolia_conquest }
+		icon = atlantropa_mesopataka
+		position = 8
+		required_missions = { magyaria_egypt magyaria_anatolia_conquest }
 		provinces_to_highlight = {
 			OR = {
 				area = basra_area
@@ -679,10 +798,227 @@ magyaria3 = {
 			}
 		}
 	}
-	magyaria_persia = {
+	magyaria_campaign_sudegypt = {
+		icon = atlantropa_ethiopia
+		position = 9
+		required_missions = { MAGYARRIA_zlomuje_egipt }
+		provinces_to_highlight = {
+			OR = {
+				area = red_sea_coast_area
+				area = tigray_area
+				area = aussa_area
+				area = ifat_area
+				area = central_ethiopia_area
+			}
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = horn_of_africa_region
+				value = 30
+			}
+		}
+		effect = {
+			add_mil_power = 200
+			add_dip_power = 200
+			add_adm_power = 200
+			arabia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			central_africa_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	magyaria_ethiopia = {
+		icon = mission_into_arabia
+		position = 12
+		required_missions = { magyaria_campaign_sudegypt }
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = arabia_region
+				value = 30
+			}
+
+		 }
+		effect = {
+			add_mil_power = 300
+			add_dip_power = 300
+			add_adm_power = 300
+		 }
+	}
+}
+
+magyaria3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = RUM
+	}
+
+	magyaria_aftermatch = {
+		icon = dom_ara_remensa_war
+		position = 1
+		required_missions = {  }
+		provinces_to_highlight = {
+			province_id = 151
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = magyarempire
+				always = yes
+			}
+		}
+		effect = {
+			country_event = {
+				id = magyar_events.8
+			}
+		}
+	}
+	magyarian_empire = {
 		icon = mission_build_up_to_force_limit
+		position = 2
+		required_missions = { magyaria_aftermatch }
+		trigger = {
+			total_development = 1000
+		}
+		effect = {
+			add_adm_power = 200
+			add_dip_power = 200
+			add_mil_power = 200
+		}
+	}
+	magyarartillery = {
+		icon = mission_cannons_firing
+		position = 3
+		required_missions = { question_magyaa_army }
+		trigger = {
+			owns_core_province = 329
+			329 = { base_production = 10	}
+		}
+		effect = {
+			329 = {
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+				}
+				change_trade_goods = atl_tools
+				add_permanent_province_modifier = {
+					name = trade_good_artillery
+					duration = -1
+				}
+			}
+		}
+	}
+	magyar_build_fortress = {
+		icon = fortress_of_belgrade
+		position = 4
+		required_missions = { magyaria_commandant }
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 5
+				has_building = atlantropa_superfortress
+			}
+		}
+		effect = {
+			add_prestige = 5
+			add_dip_power = 50
+			add_mil_power = 250
+		}
+	}
+	magyaria_army = {
+		icon = atlantropa_magyars
+		position = 5
+		required_missions = { magyaria_reformed_army magyar_build_fortress }
+		trigger = {
+			army_size = 500
+		}
+		effect = {
+			add_mil_power = 500
+			add_country_modifier = {
+				name = magyaria_military_ar
+				duration = -1
+			}
+		}
+	}
+	magyaria_religion = {
+		icon = atlantropa_mithrarel
+		position = 6
+		required_missions = { magyaria_mithra }
+		provinces_to_highlight = {
+			NOT = { religion = ROOT }
+		}
+		trigger = {
+			all_owned_province = {
+				religion = ROOT
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					has_estate = estate_church
+				}
+				add_estate_loyalty = {
+					estate = estate_church
+					loyalty = 20
+				}
+			}
+			add_country_modifier = {
+				name = tur_one_faith_empire_mod
+				duration = 10850
+			}
+		}
+	}
+	magyaria_seize_caucasia = {
+		icon = atlantropa_caucasia
 		position = 7
-		required_missions = { MAGYARIA_SEIZE_mesopotamia }
+		required_missions = { magyaria_anatolia_conquest }
+		provinces_to_highlight = {
+			region = caucasia_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = caucasia_region
+				value = 20
+			}
+		}
+		effect = {
+			country_event_with_insight = {
+				id = flavor_tur.232
+				insight_tooltip = INSIGHT_JUST_TOOLTIP
+				effect_tooltip = "
+				add_mil_power = 50
+				caucasia_region = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					add_province_modifier = {
+						name = tur_caucasian_conquest
+						duration = 9125
+					}
+				}"
+			}
+			persia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	magyaria_persia = {
+		icon = atlantropa_iranba
+		position = 9
+		required_missions = { magyaria_seize_caucasia MAGYARIA_SEIZE_mesopotamia }
 		provinces_to_highlight = {
 			region = persia_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
@@ -717,8 +1053,8 @@ magyaria3 = {
 		}
 	}
 	magyaria_persia_eyalet = {
-		icon = mission_build_up_to_force_limit
-		position = 8
+		icon = mission_crush_eyalet_rebellion
+		position = 10
 		required_missions = { magyaria_persia }
 		provinces_to_highlight = {
 			if = {
@@ -844,8 +1180,8 @@ magyaria3 = {
 		}
 	}
 	magyaria_silk_road = {
-		icon = mission_build_up_to_force_limit
-		position = 9
+		icon = mission_silk_road
+		position = 11
 		required_missions = { magyaria_persia_eyalet }
 		trigger = {
 			treasury = 1250
@@ -874,8 +1210,8 @@ magyaria3 = {
 		}
 	}
 	maggaria_fabric = {
-		icon = mission_build_up_to_force_limit
-		position = 10
+		icon = mission_steer_trade_to_bengal
+		position = 12
 		required_missions = { magyaria_silk_road }
 		trigger = {
 			trading_bonus = {
@@ -936,6 +1272,37 @@ magyaria3 = {
 			}
 		}
 	}
+	pax_magyaria = {
+		icon = atlantropa_magyaria
+		position = 13
+		required_missions = { maggaria_fabric magyaria_campaign_bolgharia magyaria_eyaleaztec magyaria_ethiopia magyaria_rome }
+		trigger = {
+			has_any_disaster = no
+			is_bankrupt = no
+			stability = 3
+			prestige = 75
+			total_own_and_non_tributary_subject_development = 4000
+			if = {
+				limit = {
+					OR = {
+						has_dlc = "Rights of Man"
+						has_dlc = "Emperor"
+					}
+				}
+				NOT = { great_power_rank = 2 }
+			}
+			if = {
+				limit = { has_dlc = "Emperor" }
+				is_hegemon = yes
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = tur_pax_ottomana
+				duration = -1
+			}
+		}
+	}
 }
 
 magyaria4 = {
@@ -947,7 +1314,7 @@ magyaria4 = {
 	}
 
 	question_magyaa_army = {
-		icon = mission_build_up_to_force_limit
+		icon = atlantropa_niflheim_army
 		position = 2
 		required_missions = { magyaria_aftermatch }
 		trigger = {
@@ -963,7 +1330,7 @@ magyaria4 = {
 		}
 	}
 	magyaria_commandant = {
-		icon = mission_build_up_to_force_limit
+		icon = mission_early_game_buildings
 		position = 3
 		required_missions = { question_magyaa_army }
 		provinces_to_highlight = {
@@ -1022,7 +1389,7 @@ magyaria4 = {
 		}
 	}
 	magyaria_reformed_army = {
-		icon = mission_build_up_to_force_limit
+		icon = atlantropa_homeregion
 		position = 4
 		required_missions = { magyaria_commandant }
 		trigger = {
@@ -1044,48 +1411,9 @@ magyaria4 = {
 			}
 		}
 	}
-	magyaria_seize_caucasia = {
-		icon = mission_build_up_to_force_limit
-		position = 6
-		required_missions = { magyaria_anatolia_conquest }
-		provinces_to_highlight = {
-			region = caucasia_region
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				region = caucasia_region
-				value = 20
-			}
-		}
-		effect = {
-			country_event_with_insight = {
-				id = flavor_tur.232
-				insight_tooltip = INSIGHT_JUST_TOOLTIP
-				effect_tooltip = "
-				add_mil_power = 50
-				caucasia_region = {
-					limit = {
-						country_or_non_sovereign_subject_holds = ROOT
-					}
-					add_province_modifier = {
-						name = tur_caucasian_conquest
-						duration = 9125
-					}
-				}"
-			}
-			persia_region = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-		}
-	}
 	magyaria_roads = {
 		icon = atlantropa_imperialroads
-		position = 7
+		position = 5
 		required_missions = {  }
 		trigger = {
 			atlantropa_road = 30
@@ -1101,8 +1429,8 @@ magyaria4 = {
 	}
 	magyaria_trains = {
 		icon = atlantropa_steamengine
-		position = 8
-		required_missions = { magyar_manufactories magyaria_roads }
+		position = 6
+		required_missions = { magyaria_roads magyar_manufactories }
 		trigger = {
 			atlantropa_tracks = 20
 		}
@@ -1116,6 +1444,183 @@ magyaria4 = {
 			}
 		}
 	}
+	MAGYARIA_greece = {
+		icon = the_great_school
+		position = 7
+		required_missions = { magyaria_anatolia_conquest }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 145
+				province_id = 146
+				province_id = 1773
+				province_id = 4701
+				province_id = 4699
+				province_id = 4698
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 145
+			owns_or_non_sovereign_subject_of = 146
+			owns_or_non_sovereign_subject_of = 1773
+			owns_or_non_sovereign_subject_of = 4701
+			owns_or_non_sovereign_subject_of = 4699
+			owns_or_non_sovereign_subject_of = 4698
+		}
+		effect = {
+			add_prestige = 5
+			custom_tooltip = tur_conquer_greece_ct
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						culture = greek
+					}
+					add_local_autonomy = -100
+					add_nationalism = -20
+				}
+			}
+			balkan_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	Magyar_Balkan_Campaign = {
+		icon = mission_balkan_conquest
+		position = 9
+		required_missions = { MAGYARIA_greece }
+		provinces_to_highlight = {
+			OR = {
+				area = serbia_area
+				area = rascia_area
+				area = albania_area
+				area = croatia_area
+				area = east_adriatic_coast_area
+				area = bosnia_area
+				area = slavonia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				OR = {
+					area = serbia_area
+					area = rascia_area
+					area = albania_area
+					area = croatia_area
+					area = east_adriatic_coast_area
+					area = bosnia_area
+					area = slavonia_area
+				}
+				value = 20
+			}
+		}
+		effect = {
+			custom_tooltip = tur_push_into_the_balkans_ct
+			tooltip = {
+				add_province_modifier = {
+					name = tur_local_millet_rule
+					duration = 7300
+				}
+			}
+			hidden_effect = {
+				balkan_region = {
+					limit = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+					add_province_modifier = {
+						name = tur_local_millet_rule
+						duration = 7300
+					}
+				}
+			}
+			carpathia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					WAL = {
+						exists = yes
+						is_subject = no
+					}
+				}
+				add_casus_belli = {
+					type = cb_ottoman_subjugation_war
+					target = WAL
+					months = 240
+				}
+			}
+			if = {
+				limit = {
+					HUN = {
+						exists = yes
+						is_subject = no
+					}
+				}
+				add_casus_belli = {
+					type = cb_ottoman_subjugation_war
+					target = HUN
+					months = 240
+				}
+			}
+			if = {
+				limit = {
+					MOL = {
+						exists = yes
+						is_subject = no
+					}
+				}
+				add_casus_belli = {
+					type = cb_ottoman_subjugation_war
+					target = MOL
+					months = 240
+				}
+			}
+		}
+	}
+	magyaria_campaign_bolgharia = {
+		icon = push_on_to_bulgaria
+		position = 12
+		required_missions = { Magyar_Balkan_Campaign }
+		provinces_to_highlight = {
+			OR = {
+				area = silistria_area
+				area = wallachia_area
+			}
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				OR = {
+					area = silistria_area
+					area = wallachia_area
+				}
+				value =  8
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					BUL = { is_subject_of = ROOT }
+				}
+				BUL = {
+					add_liberty_desire = -100
+				}
+			}
+			add_country_modifier = {
+				name = tur_romanian_tribute
+				duration = 9125
+			}
+			add_yearly_manpower = 0.25
+			add_army_tradition = 10
+		}
+	}
 }
 
 magyaria_5 = {
@@ -1126,24 +1631,8 @@ magyaria_5 = {
 		tag = RUM
 	}
 
-	magyar_build_fortress = {
-		icon = mission_build_up_to_force_limit
-		position = 1
-		required_missions = {  }
-		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 5
-				has_building = atlantropa_superfortress
-			}
-		}
-		effect = {
-			add_prestige = 15
-			add_dip_power = 50
-			add_mil_power = 150
-		}
-	}
 	magyar_establish_economy = {
-		icon = mission_build_up_to_force_limit
+		icon = dominant_economy
 		position = 2
 		required_missions = { magyaria_aftermatch }
 		trigger = {
@@ -1164,7 +1653,7 @@ magyaria_5 = {
 		}
 	}
 	magyar_workshopes = {
-		icon = mission_build_up_to_force_limit
+		icon = public_works
 		position = 3
 		required_missions = { magyar_establish_economy }
 		trigger = {
@@ -1188,8 +1677,8 @@ magyaria_5 = {
 		}
 	}
 	magyarfabrtic = {
-		icon = mission_build_up_to_force_limit
-		position = 5
+		icon = saxon_manufacturing
+		position = 4
 		required_missions = { magyar_workshopes }
 		trigger = {
 			num_of_owned_provinces_with = {
@@ -1223,8 +1712,8 @@ magyaria_5 = {
 		}
 	}
 	magyar_manufactories = {
-		icon = mission_build_up_to_force_limit
-		position = 7
+		icon = mission_rb_central_belt_coal_mining
+		position = 5
 		required_missions = { magyarfabrtic }
 		trigger = {
 			furnace = 1
@@ -1234,7 +1723,7 @@ magyaria_5 = {
 				name = fjordland_industrial_revolution
 				duration = -1
 			}
-			690 = {
+			1846 = {
 				hidden_effect = {
 					clear_trade_good_modifiers_effect = yes
 				}
@@ -1249,7 +1738,7 @@ magyaria_5 = {
 	}
 	establish_magyar_navy = {
 		icon = mission_build_up_to_force_limit
-		position = 8
+		position = 6
 		required_missions = {  }
 		trigger = {
 			dock = 10
@@ -1269,12 +1758,11 @@ magyaria_5 = {
 		}
 	}
 	magyar_Navy_better = {
-		icon = mission_build_up_to_force_limit
-		position = 9
+		icon = imperial_navy
+		position = 7
 		required_missions = { establish_magyar_navy }
 		trigger = {
 			num_of_galley = 50
-			navy_size_percentage = 0.9
 		}
 		effect = {
 			create_admiral = {
@@ -1284,10 +1772,187 @@ magyaria_5 = {
 				name = 	rochina_heavy_shippower
 				duration = -1
 			}
-			
 			add_prestige = 10
 			add_dip_power = 100
 			add_navy_tradition = 10
+		}
+	}
+	mgyaria_deal_colonies = {
+		icon = new_pilings
+		position = 8
+		required_missions = { MAGYARIA_greece magyar_Navy_better }
+		provinces_to_highlight = {
+			OR = {
+				area = crete_area
+				area = atlantropa_greekcities
+			}
+		}
+		trigger = {
+			crete_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			atlantropa_greekcities = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			add_adm_power = 100
+			add_mil_power = 100
+			add_prestige = 10
+			venetia_area = { limit = {  NOT = { is_permanent_claim = ROOT	} NOT = { is_core = ROOT	} }  add_permanent_claim = ROOT }
+		}
+	}
+	magyaria_end_venice = {
+		icon = nuova_promissione_ducale
+		position = 9
+		required_missions = { mgyaria_deal_colonies }
+		provinces_to_highlight = {
+			area = venetia_area
+		}
+		trigger = {
+			venetia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			add_mercantilism = 5
+			home_trade_node_effect_scope = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = -1
+					power = 50
+					key = TUR_GRIP_OVER_THE_BOSPBORUS
+				}
+			}
+			add_country_modifier = {
+				name = tur_economical_reforms
+				duration = -1
+			}
+		}
+	}
+	magyaria_italy = {
+		icon = mission_rule_italy
+		position = 11
+		required_missions = { magyaria_end_venice }
+		provinces_to_highlight = {
+			OR = {
+				area = venetia_area
+				area = po_valley_area
+				area = emilia_romagna_area
+				area = lombardy_area
+				area = piedmont_area
+				area = liguria_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				OR = {
+					area = venetia_area
+					area = po_valley_area
+					area = emilia_romagna_area
+					area = lombardy_area
+					area = piedmont_area
+					area = liguria_area
+				}
+				value = 10
+			}
+		}
+		effect = {
+			add_prestige_or_monarch_power = {
+				amount = 50
+			}
+			add_country_modifier = {
+				name = tur_march_for_rome
+				duration = 9125
+			}
+			tuscany_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			central_italy_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			lazio_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	magyaria_rome = {
+		icon = atlantropa_roma
+		position = 12
+		required_missions = { magyaria_italy }
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					province_id = 151
+					OR = {
+						NOT = { owned_by = ROOT }
+						NOT = { is_core = ROOT }
+						NOT = { religion = ROOT }
+					}
+				}
+				AND = {
+					province_id = 118
+					OR = {
+						NOT = { owned_by = ROOT }
+						NOT = { is_core = ROOT }
+						NOT = { religion = ROOT }
+					}
+				}
+				AND = {
+					NOT = { province_id = 118 }
+					OR = {
+						area = tuscany_area
+						area = central_italy_area
+						area = lazio_area
+					}
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+			}
+		}
+		trigger = {
+			151 = {
+				owned_by = ROOT
+				is_core = ROOT
+				religion = ROOT
+			}
+			118 = {
+				owned_by = ROOT
+				is_core = ROOT
+				religion = ROOT
+			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				OR = {
+					area = tuscany_area
+					area = central_italy_area
+					area = lazio_area
+				}
+				value = 10
+			}
+		}
+		effect = {
+			country_event_with_insight = {
+				id = flavor_tur.216
+				insight_tooltip = INSIGHT_JUST_TOOLTIP
+				effect_tooltip = "
+				add_country_modifier = {
+					name = tur_crown_of_rome_modifier
+					duration = -1
+				}"
+			}
+			italy_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 }

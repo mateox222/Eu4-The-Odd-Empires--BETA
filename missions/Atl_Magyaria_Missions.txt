@@ -180,10 +180,9 @@ magyaria_atl_3 = {
 			total_development = 80
 		}
 		effect = {
-            						country_event = {
-							id = magyar_events.4
-						}
-
+			country_event = {
+				id = magyar_events.4
+			}
 		}
 	}
 	amaszvar_unite_tribes = {
@@ -336,13 +335,13 @@ magyaria_atl_3 = {
 			add_mil_power = 100
 			add_dip_power = 100
 			add_adm_power = 100
-            		151 = {
-					owner = {
-						country_event = {
-							id = magyar_events.5
-						}
+			151 = {
+				owner = {
+					country_event = {
+						id = magyar_events.5
 					}
 				}
+			}
 		}
 	}
 	magyaria_establish_finalarmy = {
@@ -356,9 +355,7 @@ magyaria_atl_3 = {
 			owns_core_province = 151
 		}
 		effect = {
-			country_event = {
-				id = magyar_events.6
-			}
+			add_prestige = 10
 		}
 	}
 }
@@ -378,9 +375,8 @@ magyaria_atl_4 = {
 		trigger = {
 			OR = {
 				monthly_income = 5
-					advisor = treasurer
-				}
-			
+				advisor = treasurer
+			}
 		}
 		effect = {
 			add_years_of_income = 0.5
