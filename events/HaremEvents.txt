@@ -14,7 +14,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "Rights of Man"
+		has_reform = A83		OR =  {
 		has_reform = ottoman_government
+		has_reform = magyar_government
+		}
 		ruler_age = 30
 		has_heir = no
 		has_government_attribute = heir
@@ -412,7 +415,10 @@ country_event = {
 	picture = 3_SONS_eventPicture
 	
 	trigger = {
+		OR =  {
 		has_reform = ottoman_government
+		has_reform = magyar_government
+		}
 		has_dlc = "Rights of Man"
 		has_heir = yes
 		ruler_age = 30
@@ -671,7 +677,10 @@ country_event = {
 	
 	 trigger = {
 		has_dlc = "Rights of Man"
+		has_reform = A83		OR =  {
 		has_reform = ottoman_government
+		has_reform = magyar_government
+		}
 		has_regency = no
 		num_of_cities = 25
 	 }
@@ -732,7 +741,10 @@ country_event = {
 	
 	 trigger = {
 		has_dlc = "Rights of Man"
+		has_reform = A83		OR =  {
 		has_reform = ottoman_government
+		has_reform = magyar_government
+		}
 		is_female = no
 		NOT = { has_ruler_flag = death_of_valide_sultan }
 		NOT = { ruler_age = 60 } #After this it is assumed she has died but was of less notice.
@@ -791,7 +803,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "Rights of Man"
+		has_reform = A83		OR =  {
 		has_reform = ottoman_government
+		has_reform = magyar_government
+		}
 		has_heir = yes
 		heir_age = 15
 		is_heir_leader = no
@@ -867,7 +882,10 @@ country_event = {
 	
 	 trigger = {
 		has_dlc = "Rights of Man"
+		has_reform = A83		OR =  {
 		has_reform = ottoman_government
+		has_reform = magyar_government
+		}
 		has_government_attribute = queen
 		has_heir = yes
 		heir_age = 15
@@ -1127,7 +1145,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "Rights of Man"
+		has_reform = A83		OR =  {
 		has_reform = ottoman_government
+		has_reform = magyar_government
+		}
 		has_heir = yes
 		has_government_attribute = heir
 		heir_age = 15
@@ -1235,7 +1256,10 @@ country_event = {
 	picture = COURT_INTRIGUE_eventPicture
 	
 	trigger = {
+		has_reform = A83		OR =  {
 		has_reform = ottoman_government
+		has_reform = magyar_government
+		}
 		has_dlc = "Rights of Man"
 		has_heir = yes
 		NOT = { has_ruler_flag = death_of_valide_sultan }
@@ -1260,7 +1284,10 @@ country_event = {
 	picture = COURT_INTRIGUE_eventPicture
 	
 	trigger = {
+		has_reform = A83		OR =  {
 		has_reform = ottoman_government
+		has_reform = magyar_government
+		}
 		has_dlc = "Rights of Man"
 		has_heir = yes
 		has_regency = no
@@ -1315,7 +1342,10 @@ country_event = {
 	picture = QUEEN_AT_COUNCIL_TABLE_eventPicture
 	
 	trigger = {
+		has_reform = A83		OR =  {
 		has_reform = ottoman_government
+		has_reform = magyar_government
+		}
 		NOT = { has_ruler_flag = death_of_valide_sultan }
 		has_dlc = "Rights of Man"
 		NOT = {
@@ -1363,7 +1393,10 @@ province_event = {
 		is_capital = no
 		is_state = yes
 		owner = {
-			has_reform = ottoman_government
+			has_reform = A83		OR =  {
+		has_reform = ottoman_government
+		has_reform = magyar_government
+		}
 			has_heir = yes
 			has_consort = yes
 			OR = {
@@ -1407,7 +1440,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "Rights of Man"
+		has_reform = A83		OR =  {
 		has_reform = ottoman_government
+		has_reform = magyar_government
+		}
 		has_regency = no
 		has_consort = yes
 		has_government_attribute = queen
@@ -1443,7 +1479,10 @@ country_event = {
 	
 	trigger = {
 		has_dlc = "Rights of Man"
+		has_reform = A83		OR =  {
 		has_reform = ottoman_government
+		has_reform = magyar_government
+		}
 		has_regency = no
 		has_consort = no
 		has_government_attribute = queen
@@ -1487,7 +1526,10 @@ province_event = {
 		owner = {
 			has_heir = yes
 			heir_age = 15
-			has_reform = ottoman_government
+			has_reform = A83		OR =  {
+		has_reform = ottoman_government
+		has_reform = magyar_government
+		}
 		}
 		
 		has_dlc = "Rights of Man"
@@ -1535,7 +1577,10 @@ country_event = {
 	
 	 trigger = {
 		has_dlc = "Rights of Man"
+		has_reform = A83		OR =  {
 		has_reform = ottoman_government
+		has_reform = magyar_government
+		}
 		has_regency = no
 		num_of_cities = 25
 		ruler_age = 60
@@ -1586,7 +1631,10 @@ province_event = {
 			has_government_attribute = heir
 			has_heir = yes
 			heir_age = 15
-			has_reform = ottoman_government
+			has_reform = A83		OR =  {
+		has_reform = ottoman_government
+		has_reform = magyar_government
+		}
 		}
 		
 		has_dlc = "Rights of Man"

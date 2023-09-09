@@ -3,7 +3,7 @@ magyaria_1 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = RUM
+		tag = A83
 	}
 
 	stabilise_magyaria_miss = {
@@ -262,18 +262,34 @@ magyaria_1 = {
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				region = egypt_region
-				value = 25
+				value = 5
 			}
 		}
 		effect = {
-			if = {
-				limit = { exists = X55 }
-				add_casus_belli = {
-					type = cb_ottoman_subjugation_war
-					target = X55
-					months = 240
+			custom_tooltip = wegierskiegiptxd
+			hidden_effect = {
+							every_owned_province = {
+				limit = {
+					region = egypt_region
 				}
+				add_core = A84
+				cede_province = A84
 			}
+			A84 = { change_religion = sunni  }
+			create_subject = {
+    				subject_type = atlantis_magyar_eyalet
+    				subject = A84
+				}
+							every_province = {
+				limit = {
+					region = egypt_region
+				}
+				add_core = A84
+			
+			}
+			}
+
+
 			tunisia_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -336,6 +352,29 @@ magyaria_1 = {
 			}
 		}
 		effect = {
+						custom_tooltip = kartaginamadziarow
+			hidden_effect = {
+							random_province = {
+				limit = {
+					owned_by = ROOT
+					region = maghreb_region
+				}
+				add_core = MA4
+				cede_province = MA4
+			}
+				MA4 = { change_religion = sunni  }
+			create_subject = {
+    				subject_type = atlantis_magyar_eyalet
+    				subject = MA4
+				}
+							every_province = {
+				limit = {
+					region = maghreb_region
+				}
+				add_core = MA4
+			
+			}
+			}
 			add_mil_power = 100
 			barbary_coast_area = {
 				limit = {
@@ -475,41 +514,38 @@ magyaria_1 = {
 			}
 		}
 		effect = {
+						custom_tooltip = aztekowiemadziarow
+			hidden_effect = {
+							random_province = {
+				limit = {
+					owned_by = ROOT
+					region = libyasuperior_region
+				}
+				add_core = MA5
+				cede_province = MA5
+			}
+				MA5 = { change_religion = sunni  }
+			create_subject = {
+    				subject_type = atlantis_magyar_eyalet
+    				subject = MA5
+				}
+							every_province = {
+				limit = {
+					region = libyasuperior_region
+				}
+				add_core = MA5
+			
+			}
+			}
 			add_country_modifier = {
 				name = tur_barbary_pirates
 				duration = -1
 			}
-			if = {
-				limit = {
-					MOR = {
-						is_subject_of = ROOT
-					}
-				}
-				if = {
-					limit = { MOR = { is_subject_of_type = eyalet } }
-					MOR = {
-						hidden_effect = {
-							grant_independence = yes
-						}
-					}
-					create_subject = {
-						who = MOR
-						subject_type = core_eyalet
-					}
-					add_dip_power = 100
-				}
-				else = {
-					country_event_with_insight = {
-						id = flavor_tur.225
-						insight_tooltip = IS_EYALET_EVENT_TT
-					}
-				}
-			}
-			else = {
+		
 				create_explorer = {
 					tradition = 100
 				}
-			}
+			
 			maghreb_region = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -526,7 +562,7 @@ magyaria2 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = RUM
+		tag = A83
 	}
 
 	magyaria_question_of_greek = {
@@ -712,7 +748,7 @@ magyaria2 = {
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				region = anatolia_region
-				value = 40
+				value = 32
 			}
 		}
 		effect = {
@@ -736,6 +772,7 @@ magyaria2 = {
 				add_permanent_claim = ROOT
 			}
 			caucasia_region = {
+
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -861,7 +898,7 @@ magyaria3 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = RUM
+		tag = A83
 	}
 
 	magyaria_aftermatch = {
@@ -972,7 +1009,7 @@ magyaria3 = {
 			}
 			add_country_modifier = {
 				name = tur_one_faith_empire_mod
-				duration = 10850
+				duration = 36500
 			}
 		}
 	}
@@ -991,6 +1028,29 @@ magyaria3 = {
 			}
 		}
 		effect = {
+						custom_tooltip = armeniamadziarow
+			hidden_effect = {
+							random_province = {
+				limit = {
+									owned_by = ROOT
+					region = caucasia_region
+				}
+				add_core = MA1
+				cede_province = MA1
+			}
+			create_subject = {
+    				subject_type = atlantis_magyar_eyalet
+    				subject = MA1
+				}
+				MA1 = { change_religion = sunni  }
+							every_province = {
+				limit = {
+					region = caucasia_region
+				}
+				add_core = MA1
+			
+			}
+			}
 			country_event_with_insight = {
 				id = flavor_tur.232
 				insight_tooltip = INSIGHT_JUST_TOOLTIP
@@ -1030,6 +1090,29 @@ magyaria3 = {
 			}
 		}
 		effect = {
+						custom_tooltip = persiamadziarow
+			hidden_effect = {
+							random_province = {
+				limit = {
+					owned_by = ROOT
+					region = persia_region
+				}
+				add_core = MA2
+				cede_province = MA2
+			}
+				MA2 = { change_religion = sunni  }
+			create_subject = {
+    				subject_type = atlantis_magyar_eyalet
+    				subject = MA2
+				}
+							every_province = {
+				limit = {
+					region = persia_region
+				}
+				add_core = MA2
+			
+			}
+			}
 			country_event_with_insight = {
 				id = flavor_tur.237
 				insight_tooltip = INSIGHT_JUST_TOOLTIP
@@ -1310,7 +1393,7 @@ magyaria4 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = RUM
+		tag = A83
 	}
 
 	question_magyaa_army = {
@@ -1628,7 +1711,7 @@ magyaria_5 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = RUM
+		tag = A83
 	}
 
 	magyar_establish_economy = {

@@ -623,7 +623,11 @@ autonomous_byzantine_province = {
 	allow_normal_conversion = yes
 	icon = "byzantine"
 	potential = {
+		OR = {
 			is_subject_of_type = atlantis_coempire
+			is_subject_of_type = atlantis_magyar_eyalet
+		}
+
 	}
 	valid_for_nation_designer = no
 	maintain_dynasty = yes
@@ -636,7 +640,10 @@ autonomous_byzantine_province = {
 		hidden_effect = {
 			if = {
 				limit = {
+					OR = {
 					NOT = { is_subject_of_type = atlantis_coempire }
+					NOT = { is_subject_of_type = atlantis_magyar_eyalet }
+					}
 
 				}
 				country_event = {
@@ -1268,4 +1275,62 @@ perpignan_monarchy = {
 	}
 
     
+}
+
+
+magyar_government = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "kristaperioanempire"
+	potential = {
+		tag = A83
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 20
+	nation_designer_trigger = {
+	}
+	legacy_equivalent = feudal_monarchy	
+	maintain_dynasty = yes
+	modifiers = {
+		unjustified_demands = -0.1
+		legitimacy = 0.5
+		max_absolutism = 5
+		governing_capacity = 150
+	}
+
+	removed_effect = {
+		remove_country_modifier = tur_weakened_the_harem
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	conditional = {
+		allow = { has_dlc = "Domination" }
+		has_pashas = yes
+		has_janissaries = yes
+		has_harem = yes
+		custom_attributes = {
+			has_harem_events = yes
+			enables_estate_janissaries = yes
+		}
+	}
+	conditional = {
+		allow = { 
+			has_dlc = "Cradle of Civilization"
+			NOT = { has_dlc = "Domination" }
+		}
+		has_pashas = yes
+		has_janissaries = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Rights of Man" 
+			NOT = { has_dlc = "Domination" }
+		}
+		has_harem = yes
+		custom_attributes = {
+			has_harem_events = yes
+		}
+	}
 }

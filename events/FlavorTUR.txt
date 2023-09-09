@@ -17,9 +17,9 @@ country_event = {
 
 	trigger ={
 		tag = TUR
-
-		is_year = 6953
-		NOT = { is_year = 6990 }
+		NOT = { has_dlc = "Domination" }
+		is_year = 1444
+		NOT = { is_year = 1481 }
 		capital = 151
 
 		OR = {
@@ -131,8 +131,8 @@ country_event = {
 
 	trigger ={
 		tag = TUR
-		is_year = 6959
-		NOT = { is_year = 7059 }
+		is_year = 1450
+		NOT = { is_year = 1550 }
 		MIL = 3
 	}
 	
@@ -184,7 +184,7 @@ country_event = {
 		tag = TUR
 		has_idea = timariot_system
 		OR = {
-		has_country_modifier = the_devshirme_system
+			has_country_modifier = the_devshirme_system
 			has_reform = devshirme_system_reform
 		}
 	}
@@ -226,8 +226,8 @@ country_event = {
 
 	trigger = {
 		tag = TUR
-		is_year = 6959
-		NOT = { is_year = 7009 }
+		is_year = 1450
+		NOT = { is_year = 1500 }
 		religion_group = muslim
 	}
 	
@@ -369,7 +369,7 @@ country_event = {
 	
 	trigger ={
 		tag = TUR
-		is_year = 7059
+		is_year = 1550
 		any_neighbor_country = {
 			tag = PER
 			any_owned_province = {
@@ -479,8 +479,8 @@ country_event = {
 	trigger ={
 		tag = TUR
 		is_at_war = no
-		is_year = 7029
-		NOT = { is_year = 7085 }
+		is_year = 1520
+		NOT = { is_year = 1566 }
 	}
 	
 	mean_time_to_happen = {
@@ -543,8 +543,8 @@ country_event = {
 
 	trigger ={
 		tag = TUR
-		is_year = 7009
-		NOT = { is_year = 7029 }
+		is_year = 1500
+		NOT = { is_year = 1520 }
 		is_at_war = no
 		any_owned_province = {
 			has_port = yes
@@ -606,8 +606,8 @@ country_event = {
 	fire_only_once = yes
 	trigger = {
 		tag = TUR
-		is_year = 6959
-		NOT = { is_year = 7009 }
+		is_year = 1450
+		NOT = { is_year = 1500 }
 		is_at_war = no
 		NOT = { legitimacy = 50 }
     	}
@@ -658,8 +658,8 @@ country_event = {
 
 	trigger ={
 		tag = TUR
-		is_year = 7009
-		NOT = { is_year = 7059 }
+		is_year = 1500
+		NOT = { is_year = 1550 }
 		is_at_war = no
 		any_owned_province = {
 			is_capital = no
@@ -825,8 +825,8 @@ country_event = {
 	
 	trigger = {
 		tag = TUR
-		is_year = 7028
-		NOT = { is_year = 7069 }
+		is_year = 1519
+		NOT = { is_year = 1560 }
 		owns = 151
 	}
 	
@@ -868,8 +868,8 @@ country_event = {
 	
 	trigger = {
 		NOT = { has_country_flag = TUR_had_event_3375 }
-		is_year = 7009
-		NOT = { is_year = 7109 }
+		is_year = 1500
+		NOT = { is_year = 1600 }
 		tag = TUR
 		owns = 151
     }
@@ -893,8 +893,11 @@ country_event = {
 			add_reform_progress_small_effect = yes
 		}
 		add_innovativeness_small_effect = yes
-		every_owned_province = {
-			add_local_autonomy = -10
+		custom_tooltip = flavor_tur.3375.a.tt
+		hidden_effect = {
+			every_owned_province = {
+				add_local_autonomy = -10
+			}
 		}
 	}
 	option = {		# Leave it be
@@ -912,7 +915,7 @@ country_event = {
 	}
 }
 
-# Kï¿½sem Sultana
+# Kösem Sultana
 country_event = {
 	id = flavor_tur.3377
 	title = "flavor_tur.EVTNAME3377"
@@ -923,8 +926,8 @@ country_event = {
 
 	trigger = {
 		tag = TUR
-		is_year = 7109
-		NOT = { is_year = 7159 }
+		is_year = 1600
+		NOT = { is_year = 1650 }
 		is_female = no
 		has_regency = no
 		NOT = {
@@ -936,7 +939,7 @@ country_event = {
 		months = 100
 	}
 	
-	option = {		# Wed KÃ¶sem
+	option = {		# Wed Kösem
 		name = "flavor_tur.EVTOPTA3377"
 		ai_chance = { factor = 90 }
 		add_ruler_modifier = {
@@ -949,7 +952,7 @@ country_event = {
 				has_government_attribute = queen
 			}
 			define_consort = {
-				name = "Magyar Sultan"
+				name = "Kösem Sultan"
 				culture = greek
 				adm = 5
 				dip = 4
@@ -978,7 +981,7 @@ country_event = {
 	}
 }
 
-# The Murder of KÃ¶sem Sultana
+# The Murder of Kösem Sultana
 country_event = {
 	id = flavor_tur.3384
 	title = "flavor_tur.EVTNAME3384"
@@ -999,13 +1002,13 @@ country_event = {
 		months = 300
 	}
 	
-	option = {		# KÃ¶sem is murdered
+	option = {		# Kösem is murdered
 		name = "flavor_tur.EVTOPTA3384"
 		remove_country_modifier = kosem_sultana
 	}
 }
 
-# The Age of the KÃ¶prÃ¼lÃ¼s
+# The Age of the Köprülüs
 country_event = {
 	id = flavor_tur.3385
 	title = "flavor_tur.EVTNAME3385"
@@ -1016,15 +1019,15 @@ country_event = {
 
 	trigger = {
 		tag = TUR
-		is_year = 7109
-		NOT = { is_year = 7159 }
+		is_year = 1600
+		NOT = { is_year = 1650 }
 	}
 	
 	mean_time_to_happen = {
 		months = 100
 	}
 	
-	option = {		# Support the KÃ¶prÃ¼lÃ¼ Family
+	option = {		# Support the Köprülü Family
 		name = "flavor_tur.EVTOPTA3385"
 		ai_chance = { factor = 90 }
 		if = {
@@ -1072,8 +1075,8 @@ country_event = {
 
 	trigger = {
 		tag = TUR
-		is_year = 7109
-		NOT = { is_year = 7159 }
+		is_year = 1600
+		NOT = { is_year = 1650 }
     	}
 	
 	mean_time_to_happen = {
@@ -1107,7 +1110,7 @@ country_event = {
 	fire_only_once = yes
 	trigger = {
 		tag = TUR
-		is_year = 7109
+		is_year = 1600
 		exists = PER
 		PER = { is_free_or_tributary_trigger = yes }
 		NOT = { alliance_with = PER }
@@ -1305,7 +1308,7 @@ country_event = {
 	
 	trigger ={
 		tag = TUR
-		is_year = 7209
+		is_year = 1700
 		NOT = { exists = TUN }
 		any_owned_province = {
 			is_core = TUN
@@ -1380,7 +1383,7 @@ country_event = {
 	fire_only_once = yes
 	trigger ={
 		tag = TUR
-		is_year = 7209
+		is_year = 1700
 		NOT = { exists = TRI }
 		any_owned_province = {
 			is_core = TRI
@@ -1454,7 +1457,7 @@ country_event = {
 	
 	trigger ={
 		tag = TUR
-		is_year = 7209
+		is_year = 1700
 		war_with = RUS
 		
 		egypt_region = {
@@ -1527,7 +1530,7 @@ country_event = {
 
 	trigger ={
 		tag = TUR
-		is_year = 7209
+		is_year = 1700
 	}
 	
 	mean_time_to_happen = {
@@ -1600,16 +1603,16 @@ country_event = {
 		hidden_effect = {
 			set_country_flag = tur_allowed_patriarchate_to_exist
 			clr_country_flag = tur_closed_patriarchate_down
-		every_known_country = {
-			limit = {
-				religion = orthodox
-			}
-			add_opinion = {
-				who = ROOT
-				modifier = allows_the_patriarchate
+			every_known_country = {
+				limit = {
+					religion = orthodox
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = allows_the_patriarchate
+				}
 			}
 		}
-	}
 		if = {
 			limit = {
 				has_dlc = "Domination"
@@ -1659,15 +1662,15 @@ country_event = {
 		}
 		custom_tooltip = flavor_tur.3750.b.tt
 		hidden_effect = {
-		every_known_country = {
-			limit = {
-				religion = orthodox
+			every_known_country = {
+				limit = {
+					religion = orthodox
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = closed_down_the_patriarchate
+				}
 			}
-			add_opinion = {
-				who = ROOT
-				modifier = closed_down_the_patriarchate
-			}
-		}
 			set_country_flag = tur_closed_patriarchate_down
 			clr_country_flag = tur_allowed_patriarchate_to_exist
 		}
@@ -1711,8 +1714,8 @@ country_event = {
 	fire_only_once = yes
 	trigger ={
 		tag = TUR
-		is_year = 7209
-		NOT = { is_year = 7309 }
+		is_year = 1700
+		NOT = { is_year = 1800 }
 		any_owned_province = {
 			culture = algerian
 			can_spawn_rebels = nationalist_rebels
@@ -1784,9 +1787,9 @@ country_event = {
 	
 	trigger = {
 		tag = TUR
-		is_year = 7109
+		is_year = 1600
 		#has_country_modifier = the_provincial_system
-		has_reform = ottoman_provincial_government_system_reform		
+		has_reform = ottoman_provincial_government_system_reform
 		
 		any_owned_province = {
 			is_capital = no
@@ -1923,8 +1926,8 @@ country_event = {
 			}
 			has_country_modifier = tur_janissary
 		}
-			else = {
-				num_of_janissaries = 3
+		else = {
+			num_of_janissaries = 3
 			has_estate = estate_janissaries
 		}
 		has_regency = no
@@ -1938,8 +1941,8 @@ country_event = {
 			limit = { 
 				NOT = { has_dlc = "Domination" }
 			}
-		add_years_of_income = -0.5
-	}
+			add_years_of_income = -0.5
+		}
 		else = {
 			if = {
 				limit = { NOT = { has_country_flag = tur_low_salary } }
@@ -2093,8 +2096,8 @@ country_event = {
 			limit = { 
 				NOT = { has_dlc = "Domination" }
 			}
-		add_years_of_income = -0.5
-	}
+			add_years_of_income = -0.5
+		}
 		else = {
 			if = {
 				limit = { NOT = { has_country_flag = tur_low_salary } }
@@ -2374,7 +2377,7 @@ country_event = {
 		NOT = { current_age = age_of_reformation }
 		NOT = { has_disaster = janissary_decadence }
 		OR = {
-		has_country_modifier = the_devshirme_system
+			has_country_modifier = the_devshirme_system
 			has_reform = devshirme_system_reform
 		}
 		num_of_cities = 50
@@ -2759,7 +2762,7 @@ country_event = {
 	fire_only_once = yes
 	trigger = {
 		tag = TUR
-		NOT = { is_year = 6950 }
+		NOT = { is_year = 1450 }
 	}
 	
 	mean_time_to_happen = {
@@ -2788,8 +2791,9 @@ country_event = {
 	fire_only_once = yes
 	trigger = {
 		tag = TUR
-		NOT = { is_year = 6955 }
+		NOT = { is_year = 1455 }
 		NOT = { owns = 151 }
+		years_of_income = 0.3
 	}
 	
 	mean_time_to_happen = {
@@ -3431,13 +3435,27 @@ country_event = {
 					is_lesser_in_union = no
 					dynasty = "von Habsburg"
 				}
-				if = {
-					limit = {
-						has_heir = yes
+				tooltip = {
+					if = {
+						limit = {
+							has_heir = yes
+						}
+						kill_heir = { allow_new_heir = no }
 					}
-					kill_heir = { allow_new_heir = no }
+					kill_ruler = yes
 				}
-				kill_ruler = yes
+				hidden_effect = {
+					define_ruler = {
+						age = 20
+						claim = 75
+					}
+					if = {
+						limit = {
+							has_heir = yes
+						}
+						kill_heir = { allow_new_heir = no }
+					}
+				}
 			}
 			add_government_reform = eyalet_government
 			eyalet_effect = {
@@ -4053,7 +4071,7 @@ country_event = {
 	picture = DEVLET_I_RUM_eventPicture
 	is_triggered_only = yes 
 	
-	#We shall be officially recognized as the Devlet-i RÃ»m!
+	#We shall be officially recognized as the Devlet-i Rûm!
 	option = { 
 		name = flavor_tur.216.a 
 		
@@ -4138,6 +4156,9 @@ country_event = {
 					}
 				}
 				every_owned_province = {
+					limit = {
+						region = italy_region
+					}
 					remove_core = PREV
 					if = {
 						limit = { NOT = { is_core = ROOT } }
@@ -4410,7 +4431,7 @@ country_event = {
 			owns = 224
 		}
 		num_of_owned_provinces_with = {
-			region = british_isles_region
+			region = iberia_region
 			value = 4
 		}
 	}
@@ -4442,7 +4463,7 @@ country_event = {
 				remove_core = event_target:first_potential_eyalet
 			}
 		}
-		british_isles_region = {
+		iberia_region = {
 			limit = { owned_by = ROOT }
 			add_core = event_target:first_potential_eyalet
 		}
@@ -4773,8 +4794,8 @@ country_event = {
 	
 	trigger = { 
 		tag = TUR 
-		is_year = 7000
-		NOT = { is_year = 7045 }
+		is_year = 1500 
+		NOT = { is_year = 1545 }
 		navy_tradition = 25 
 		navy_size = 100
 		owns = 4700
@@ -5923,8 +5944,8 @@ country_event = {
 	
 	trigger = {
 		tag = TUR 
-		is_year = 7000
-		NOT = { is_year = 7100 } 
+		is_year = 1500
+		NOT = { is_year = 1600 } 
 		religion_group = muslim
 		OR = {
 			has_heir = no
@@ -5940,7 +5961,7 @@ country_event = {
 		name = flavor_tur.239.a
 		
 		define_heir = {
-			name = "SÃ¼leyman Kanuni" 
+			name = "Süleyman Kanuni" 
 			adm = 6 
 			dip = 5
 			mil = 6
@@ -5973,66 +5994,7 @@ country_event = {
 }
 
 # Collapse of the Mamluks - Ottoman event - written by Big Boss
-country_event = {
-	id = flavor_tur.240
-	title = flavor_tur.240.t
-	desc = flavor_tur.240.desc
-	picture = COUNTRY_COLLAPSE_eventPicture
-	fire_only_once = yes
-	major = yes
-	is_triggered_only = yes
-	trigger = {
-		has_dlc = "Domination"
-		tag = TUR
-		exists = MAM
-		FROM = {
-			is_capital = yes
-			owner = {
-				tag = MAM
-			}
-		}
-		is_in_war = {
-			casus_belli = cb_ottoman_invasion
-			attacker_leader = TUR
-			defender_leader = MAM
-		}
-	}
 
-	option = {
-		name = flavor_tur.240.a
-		custom_tooltip = flavor_tur.240.a.tt
-		set_country_flag = tur_decided_to_go_eyalet
-		add_war_exhaustion = -2
-		add_prestige = 20
-		MAM = {
-			country_event = {
-				id = flavor_tur.241
-			}
-		}
-		ai_chance = {
-			factor = 0
-		}
-	}
-
-	option = {
-		name = flavor_tur.240.b
-		custom_tooltip = flavor_tur.240.b.tt
-		add_war_exhaustion = -2
-		add_prestige = 20
-		MAM = {
-			country_event = {
-				id = flavor_tur.241
-			}
-		}
-		add_country_modifier = {
-			name = tur_egyptian_annexation
-			duration = 7300
-		}
-		ai_chance = {
-			factor = 1
-		}
-	}
-}
 
 # Collapse of the Mamluks - Mamluk event
 country_event = {
@@ -6054,100 +6016,7 @@ country_event = {
 }
 
 # Collapse of the Mamluks - Creation of the Egyptian Eyalet
-country_event = {
-	id = flavor_tur.242
-	title = flavor_tur.242.t
-	desc = flavor_tur.242.desc
-	picture = COUNTRY_COLLAPSE_eventPicture
-	major = yes
-	fire_only_once = yes
-	trigger = {
-		has_dlc = "Domination"
-		tag = TUR
-		has_country_flag = tur_decided_to_go_eyalet
-		had_country_flag = {
-			flag = tur_decided_to_go_eyalet
-			days = 1095
-		}
-		is_in_war = {
-			casus_belli = cb_ottoman_invasion
-			defender_leader = MAM
-		}
-		war_score_against = {
-			who = MAM
-			value = 90
-		}
-		MAM = {
-			capital_scope = {
-				controlled_by = ROOT
-			}
-		}
-	}
 
-	option = {
-		name = flavor_tur.242.a
-		white_peace = MAM
-		MAM = {
-			remove_historical_rival = ROOT
-			every_subject_country = {
-				overlord = {
-					inherit = PREV
-				}
-			}
-			change_tag = EGY
-			on_change_tag_effect = yes
-		}
-		create_subject = {
-			who = EGY
-			subject_type = core_eyalet
-		}
-		EGY = {
-			if = {
-				limit = { NOT = { government = monarchy } }
-				change_government = monarchy
-			}
-			add_government_reform = eyalet_government
-			eyalet_effect = {
-				tag = EY7
-			}
-			add_liberty_desire = -50
-			add_country_modifier = {
-				name = tur_mamlukian_administration
-				duration = -1
-				desc = tur_mamlukian_administration_tt
-			}
-		}
-
-		ai_chance = {
-			factor = 1
-			modifier = {
-				MAM = {
-					OR = {
-						ai = no
-						was_player = yes
-					}
-				}
-				factor = 0
-			}
-		}
-	}
-
-	option = {
-		name = flavor_tur.242.b
-		add_adm_power = 300
-
-		ai_chance = {
-			factor = 1
-			modifier = {
-				MAM = {
-					ai = yes
-					was_player = no
-				}
-				factor = 0
-			}
-		}
-	}
-}
 
 # Egyptian Eyalet breaks free!
 country_event = {
@@ -6168,6 +6037,7 @@ country_event = {
 	option = {
 		name = flavor_tur.243.a
 		restore_country_name = yes
+		restore_country_color = yes
 		clr_country_flag = has_eyalet_country_name
 		remove_country_modifier = tur_mamlukian_administration
 		add_prestige = 20
@@ -6215,8 +6085,8 @@ country_event = {
 	
 	trigger = { 
 		tag = TUR 
-		is_year = 7020 
-		NOT = { is_year = 7100 }
+		is_year = 1620 
+		NOT = { is_year = 1700 }
 	}
 	
 	mean_time_to_happen = { 
@@ -7129,7 +6999,7 @@ country_event = {
 		consort_adm = 3 
 		consort_dip = 3 
 		consort_mil = 3 
-		NOT = { is_year = 7100 }
+		NOT = { is_year = 1700 }
 	}
 	
 	mean_time_to_happen = { months = 48 } 
@@ -7279,9 +7149,16 @@ country_event = {
 		has_reform = ottoman_government 
 		has_heir = yes 
 		NOT = { has_heir_flag = tur_purged_line_flag }
+		NOT = { has_ruler_modifier = tur_secured_vali_ahad_modifier }
 	}
 	
-	mean_time_to_happen = { months = 60 } 
+	mean_time_to_happen = { 
+		months = 60
+		modifier = {
+			factor = 3
+			has_heir_flag = tur_has_had_line_event_flag
+		}
+	} 
 	
 	option = { 		
 		name = flavor_tur.265.a 
@@ -7439,9 +7316,14 @@ country_event = {
 
 	option = { 
 		name = flavor_tur.265.b 
-		add_legitimacy = -30
-		ai_chance = { factor = 5 }
+		if = { 
+			limit = { has_heir_flag = tur_has_had_line_event_flag }
+			add_legitimacy = -20
+		}
+		else = { add_legitimacy = -30 }
+ 		ai_chance = { factor = 5 }
 		custom_tooltip = tur_the_administration_will_be_damaged_somehow
+		set_heir_flag = tur_has_had_line_event_flag
 		hidden_effect = {
 			random_list = { 
 				20 = { add_stability = -1 }
@@ -7473,6 +7355,7 @@ country_event = {
 	
 	option = { 
 		name = flavor_tur.265.c
+		ai_chance = { factor = 1000 }
 		add_legitimacy = -5
 		trigger = {
 			OR = { 
@@ -7601,7 +7484,7 @@ country_event = {
 	fire_only_once = yes
 	trigger = {
 		tag = TUR
-		NOT = { is_year = 6980 }
+		NOT = { is_year = 1480 }
 		religion_group = muslim
 		exists = PAP
 		owns = 151
@@ -7786,7 +7669,7 @@ country_event = {
 	trigger = {
 		tag = TUR 
 		151 = { owned_by = TUR } 
-		NOT = { is_year = 6965 }
+		NOT = { is_year = 1465 }
 	}
 	
 	mean_time_to_happen = { months = 65 }
@@ -7893,8 +7776,8 @@ country_event = {
 	
 	trigger = {
 		tag = TUR 
-		is_year = 7010
-		NOT = { is_year = 7100 }
+		is_year = 1510
+		NOT = { is_year = 1600 }
 		NOT = { religion = shiite }
 		any_rival_country = { religion = shiite } 
 		anatolia_region = { owned_by = TUR } 
@@ -7939,7 +7822,7 @@ country_event = {
 		tag = TUR
 		is_at_war = no
 		owns_core_province = 151
-		NOT = { is_year = 6980 }
+		NOT = { is_year = 1480 }
 		NOT = { is_permanent_claim = 122 }
 		NOT = { is_core = 122 }
 	}
@@ -7977,7 +7860,8 @@ country_event = {
 		NOT = { is_rival = TUR }
 		TUR = {
 			is_rival = HAB
-			NOT = { is_rival = TUR }
+			NOT = { is_rival = FRA }
+			NOT = { war_with = FRA }
 		}
 	}
 	mean_time_to_happen = {
@@ -8128,7 +8012,7 @@ country_event = {
 	
 	trigger = { 
 		tag = TUR 
-		is_year = 7000 
+		is_year = 1600 
 		religion_group = muslim 
 		is_bankrupt = no 
 	}
@@ -8167,8 +8051,8 @@ country_event = {
 	fire_only_once = yes 
 	trigger = {
 		tag = TUR 
-		is_year = 7035
-		NOT = { is_year = 7100 } 
+		is_year = 1535
+		NOT = { is_year = 1600 } 
 		religion_group = muslim 
 		410 = { country_or_non_sovereign_subject_holds = TUR } 
 	}
@@ -8227,7 +8111,7 @@ country_event = {
 	
 	trigger = { 
 		tag = TUR 
-		NOT = { is_year = 6981 } 
+		NOT = { is_year = 1481 } 
 		151 = { is_capital_of = ROOT } 
 		is_at_war = no 
 		has_regency = no 
@@ -8258,7 +8142,7 @@ country_event = {
 	
 	trigger = {
 		tag = TUR 
-		is_year = 7100 
+		is_year = 1600 
 		OR = { 
 			NOT = { full_idea_group = economic_ideas } 
 			inflation = 5 
@@ -8958,18 +8842,7 @@ country_event = {
 	title = flavor_tur.1000.t
 	desc = flavor_tur.1000.desc
 	picture = EYALET_eventPicture
-	trigger = {
-		OR = {
-			has_country_flag = has_eyalet_country_name
-			has_country_flag = has_eyalet_color
-		}
-		NOT = { has_country_modifier = tur_mamlukian_administration }
-		NOT = { is_subject_of_type = eyalet }
-		NOT = { is_subject_of_type = core_eyalet }
-	}
-	mean_time_to_happen = {
-		months = 1
-	}
+	is_triggered_only = yes
 	
 	option = {	# We are free from the Turks!
 		name = flavor_tur.1000.a
