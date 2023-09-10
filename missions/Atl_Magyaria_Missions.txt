@@ -104,6 +104,14 @@ magyaria_atl_3 = {
 			country_event = {
 				id = magyar_events.3
 			}
+			hidden_effect = {
+				every_province = {
+					limit = {
+						culture_group = ROOT
+					}
+					add_permanent_claim = ROOT
+				}
+			}
 		}
 	}
 	amaszvar_army = {
@@ -241,7 +249,7 @@ magyaria_atl_3 = {
 	prepar_for_cofrontation_magyar = {
 		icon = mission_cannons_firing
 		position = 5
-		required_missions = { amaszvar_cilicia amaszvar_unite_tribes seize_pahlagonia_magyar }
+		required_missions = {  amaszvar_unite_tribes  }
 		trigger = {
 			AND = {
 				army_size = A52
