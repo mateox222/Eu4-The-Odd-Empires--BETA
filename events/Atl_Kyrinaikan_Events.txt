@@ -92,7 +92,6 @@ country_event = {
 			limit = {
 				OR = {
 		area = lower_nubia_area
-		area = al_wahat_area
 		area = said_area
 		area = medina_area	
 		area = dongola_area
@@ -203,8 +202,9 @@ country_event = {
 	id = kyrinaikan_events.6
 	title = "kyrinaikan_events.6.t"
 	desc = "kyrinaikan_events.6.d"
+	major = yes	
 		fire_only_once = yes
-	picture = ptolemaicegypt_eventPicture
+	picture = JERUSALEM_eventPicture
 	hidden = yes
 		mean_time_to_happen = {
 		months = 10
@@ -227,6 +227,14 @@ country_event = {
 			}
 			add_core = SYR
 			cede_province = SYR
+		}
+		5802 = {
+			add_core = A1C
+			cede_province = A1C
+		}
+			every_owned_province = {
+			add_core = ISR
+			cede_province = ISR
 		}
 		}
 
@@ -259,7 +267,6 @@ country_event = { #collapseofconstantinia
 		every_owned_province = {
 			limit = {
 				OR = {
-		area = al_wahat_area
 				area = kabir_area
 				}
 			}
@@ -398,6 +405,15 @@ country_event = {
 	}
 	immediate = {
 		hidden_effect = {
+									every_owned_province = {
+			limit = {
+				OR = {
+		area = al_wahat_area
+				}
+			}
+			add_core = A2R
+			cede_province = A2R
+		}
 						every_province = {
 				kill_units = {
     who = ROOT
