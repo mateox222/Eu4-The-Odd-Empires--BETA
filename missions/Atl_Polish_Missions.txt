@@ -1017,8 +1017,6 @@ atlantropa_venediabonus_sca_slot_3_a = {
 		required_missions = { vnd_articles_agreement }
 		trigger = {
 				absolutism = 60 
-				republican_tradition = 85 
-				devotion = 95 
 			stability = 3 
 		}
 		effect = {
@@ -1057,7 +1055,6 @@ atlantropa_venediabonus_sca_slot_3_a = {
 			has_institution = enlightenment
 			OR = {
 				absolutism = 100
-				republican_tradition = 90 
 			}
 		}
 		effect = {
@@ -1851,22 +1848,6 @@ atlantropa_venedia_sca_slot_4_plc_1 = {
 		position = 4 
 		required_missions = {  vnd_fra_end_hyw  } 
 		trigger = { 
-			if = { 
-				limit = { has_dlc = "Leviathan" } 
-				184 = { 
-					OR = { 
-						num_of_times_improved = 10 
-						has_great_project = {
-							type = krakow_cloth_hall
-							tier = 2 
-						}
-						has_great_project = {
-							type = krakow_cloth_hall
-							tier = 3 
-						}
-					}
-				}
-			}
 			else = { 
 				184 = { num_of_times_improved = 10 } 
 			}

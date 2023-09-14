@@ -27,7 +27,19 @@ country_event = {
 		add_prestige = 10
 		add_stability = 1
 		add_legitimacy = 10
+		if = { 
+			limit = {
+				NOT = { tag  = DI2 }
+		}
 		change_tag = A4R
+	}
+			if = { 
+			limit = {
+				tag  = DI2 
+		}
+		change_tag = SB3
+	}
+
 		clr_country_flag = warunekegipskiejwojnywybuchu
 		set_global_flag = atlantropa_egypt_united
 		swap_non_generic_missions = yes	
@@ -197,6 +209,78 @@ country_event = {
 		}
 		}
 
+	}
+		option = {
+			hidden_effect = {
+		set_global_flag = egiptzaczynasie
+		set_country_flag = rewoltaantygonidazarok3
+		name = "kyrinaikan_events.5.b"
+		add_prestige = -10
+		add_stability = -1
+		add_legitimacy = -10
+		add_adm_power = -100
+		add_dip_power = -100
+		add_mil_power = -100
+		custom_tooltip = kyrinajkajedenrok3
+
+		hidden_effect = {
+		every_owned_province = {
+			limit = {
+				OR = {
+		area = tabuk_area
+		area = bahari_area
+		area = vostani_area
+		area = medina_area	
+		area = delta_area
+				}
+			}
+			add_core = DI2
+			cede_province = DI2
+		}
+		A6F = {
+			every_enemy_country = {
+				white_peace = ROOT
+			 }	
+		}
+		DI1 = {
+			every_enemy_country = {
+				white_peace = ROOT
+			 }	
+		}
+
+			
+	
+		
+		DI2  = {
+					declare_war_with_cb = {
+    who = A6F
+    casus_belli = cb_annex
+}
+		}
+	DI1 = { join_all_defensive_wars_of = A6F }
+
+		DI2  = {
+			country_event = { 
+    id = kyrinaikan_events.8
+    days = 90
+    random = 90
+}
+		add_yearly_manpower = 2
+			define_ruler = {
+    name = "Nikephor III"
+    dynasty = "Doukas"
+    adm = 2
+    dip = 4
+    mil = 4
+    age = 35
+    claim = 95
+}
+		}
+		}
+
+	}
+	switch_tag = DI2
+	custom_tooltip  = playnikephor
 	}
 }
 
