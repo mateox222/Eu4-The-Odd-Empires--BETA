@@ -1,0 +1,21 @@
+# Big lizard dudes, throwing rocks and shit. According to the base game, the defense pip is useless.
+# Deals some strength and morale damage (defense pip basically useless)
+
+type = artillery
+#unit_type = agarthic_t
+
+maneuver = 2
+offensive_morale = 1
+defensive_morale = 1
+offensive_fire = 0
+defensive_fire = 0
+offensive_shock = 0
+defensive_shock = 0
+
+trigger = {
+	OR = {
+		technology_group = agarthic_t
+		technology_group = paleone_t
+		technology_group = ktonian_t
+	}
+}
