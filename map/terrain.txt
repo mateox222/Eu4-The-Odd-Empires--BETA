@@ -673,6 +673,7 @@ categories =  {
 			4815 # Mandala
 			
 			2728
+			5613 5614 5615 5642 # Mu
 		}
 	}	
 	
@@ -863,6 +864,86 @@ categories =  {
 			
 		}	
 	}	
+	
+	cave = {
+		color = { 20 20 20 }
+
+		type = mountains
+		sound_type = mountains
+		
+		movement_cost = 1.20
+		defence = 1
+		supply_limit = 6
+		local_defensiveness = 0.10
+		local_development_cost = 0.1
+		nation_designer_cost_multiplier = 0.9
+		
+		
+		terrain_override = { 
+			6005 6007 6002
+			6031 6030 6028 6024 6029 6023
+			6022 6020 6016 6015 6018 6014 6013 6012 6011
+			6010 5988 5987 5989 5990 5984 5983
+			6004 6000 6001 5995 5994 5993 6003 5999
+			5998 5982 5978 5979 5981 5992 5968
+			5967 5970 5969 5977 5972 5973 5962 5963
+			5964 5965 5975 5976 5974 
+		}                                      
+	}
+	mushroom_forest = {
+		color = { 33 0 33 }
+
+		type = forest
+		sound_type = forest
+		
+		movement_cost = 1.25
+		defence = 1
+		supply_limit = 8
+		local_defensiveness = 0.05
+		local_development_cost = 0.15
+		nation_designer_cost_multiplier = 0.85
+		
+		terrain_override = { 
+			5997 5996 6006 6008 5980 5972 5971 5966 5986 5985
+			6027 6026 6017 6019 6009 6025
+		}                                      
+	}
+	agartha_terrain = {
+		color = { 198 156 72 }
+
+		type = mountains
+		sound_type = mountains
+		
+		fort_level = 1	
+		defence = 1
+		movement_cost = 1.30
+		supply_limit = 15	
+		local_development_cost = -0.20
+		local_defensiveness = 0.25
+		allowed_num_of_buildings = 2
+		nation_designer_cost_multiplier = 1.5	
+		
+		terrain_override = { 
+			5961
+		}                                      
+	}
+	tunnel = {
+		color = { 36 26 2 }
+
+		type = mountains
+		sound_type = mountains
+		
+		movement_cost = 1.40
+		defence = 2
+		supply_limit = 4
+		local_development_cost = 0.45
+		local_defensiveness = 0.20
+		nation_designer_cost_multiplier = 0.9
+		
+		terrain_override = { 
+			5991 6032 6033 6034 6035
+		}                                      
+	}
 
 
 }
