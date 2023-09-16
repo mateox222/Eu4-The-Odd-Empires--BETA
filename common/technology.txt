@@ -259,7 +259,7 @@ groups = {
 	}
 	agarthic_t = {
 		start_level = 5
-		start_cost_modifier = 0.20
+		start_cost_modifier = 0.80
 		nation_designer_cost = {
 			trigger = {
 				capital_scope = {
@@ -273,7 +273,7 @@ groups = {
 	}
 	paleone_t = {
 		start_level = 4
-		start_cost_modifier = 0.20
+		start_cost_modifier = 0.60
 		nation_designer_cost = {
 			trigger = {
 				capital_scope = {
@@ -287,7 +287,21 @@ groups = {
 	}
 	ktonian_t = {
 		start_level = 5
-		start_cost_modifier = 0.20
+		start_cost_modifier = 0.80
+		nation_designer_cost = {
+			trigger = {
+				capital_scope = {
+					OR = {
+						continent = oceania
+					}
+				}
+			}
+			value = 75
+		}
+	}
+	firstman_t = {
+		start_level = 1
+		start_cost_modifier = 0.01
 		nation_designer_cost = {
 			trigger = {
 				capital_scope = {
