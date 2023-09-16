@@ -42,20 +42,16 @@ hidden_effect = {
 		swap_non_generic_missions = yes
 		MNG = {	every_owned_province = { 
 			limit = {
-                OR = {
-				area = south_jiangsu_area
-				area = anhui_area
-            	area = zhejiang_area
-                area = henan_area
-                area = chuanbei_area
-                area = sichuan_area
-                area = chuannan_area
-                area = north_henan_area
-                area = huguang_area
-                area = south_anhui_area
-                area = shaanxi_area       
+           NOT = {     OR = {
+				area = west_guangdong_area
+				area = guangdong_area       
                 }
 			}
+			}
+			add_core =  JIN
+			cede_province = JIN
+		}
+			QIN = {	every_owned_province = { 
 			add_core =  JIN
 			cede_province = JIN
 		}
