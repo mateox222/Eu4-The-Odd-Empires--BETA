@@ -1087,9 +1087,15 @@ on_siege_won_province = {
 				}
 			}
 		}
-			add_devastation = 2	
+				random_list = {
+			20 = { add_base_tax = -1 }
+			20 = { add_base_production = -1 }	
+			20 = { add_base_manpower = -1 }		
+			80 = { add_devastation = 2	}
+		}
+			
 			cede_province = controller
-			add_core = controller
+			add_territorial_core = controller
 	
 }
 
