@@ -78,7 +78,7 @@ country_event = {
 		add_church_power = 20
 		add_country_modifier = {
 			name = harbouring_reformer
-			duration = 7300
+			duration = 6900
 		}
 		random_known_country = {
 			limit = { has_country_flag = reformer_fleeing_from_here }
@@ -648,7 +648,7 @@ country_event = {
 		NOT = { church_power = 200 }
 		is_religion_enabled = protestant
 		NOT = { religion_years = { protestant = 80 } }
-		NOT = { had_country_flag = { flag = converted_to_protestantism days = 7300 } }
+		NOT = { had_country_flag = { flag = converted_to_protestantism days = 6900 } }
 		NOT = { has_country_flag = troublesome_theologian_1 }
 		advisor = theologian
 	}
@@ -936,7 +936,7 @@ country_event = {
 		has_heir = yes
 		heir_age = 9
 		NOT = { heir_age = 25 }
-		NOT = { is_year = 7189 }
+		NOT = { is_year = 6789 }
 		OR = {
 			employed_advisor = {
 				religion = catholic
@@ -1212,7 +1212,7 @@ country_event = {
 		is_religion_enabled = protestant
 		OR = {
 			religion_years = { protestant = 80 }
-			had_country_flag = { flag = converted_to_protestantism days = 7300 }
+			had_country_flag = { flag = converted_to_protestantism days = 6900 }
 			has_country_flag = troublesome_theologian_1
 		}
 		advisor = theologian
@@ -1786,11 +1786,11 @@ country_event = {
 		months = 600
 		modifier = {
 			factor = 0.9
-			is_year = 7159
+			is_year = 6759
 		}
 		modifier = {
 			factor = 0.9
-			is_year = 7209
+			is_year = 6809
 		}
 		modifier = {
 			factor = 0.9

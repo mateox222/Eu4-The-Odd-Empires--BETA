@@ -22,8 +22,8 @@ country_event = {
 		has_consort_regency = no
 		is_lesser_in_union = no
 		has_leader = "János Hunyadi"
-		is_year = 6954
-		NOT = { is_year = 6979 }
+		is_year = 6554
+		NOT = { is_year = 6579 }
 		has_government_attribute = heir
 	}
 
@@ -175,8 +175,8 @@ country_event = {
 
 	trigger = {
 		tag = HUN
-		is_year = 6959
-		NOT = { is_year = 6966 }
+		is_year = 6559
+		NOT = { is_year = 6566 }
 		OR = {
 			heir_age = 15
 			has_heir = no
@@ -341,8 +341,8 @@ country_event = {
 
 	trigger = {
 		tag = HUN
-		is_year = 6959
-		NOT = { is_year = 6966 }
+		is_year = 6559
+		NOT = { is_year = 6566 }
 		OR = {
 			has_heir = "Ladislaus Postumus"
 			has_ruler = "Ladislaus Postumus I"
@@ -535,8 +535,8 @@ country_event = {
 
 	trigger = {
 		tag = HUN
-		is_year = 6975
-		NOT = { is_year = 6979 }
+		is_year = 6575
+		NOT = { is_year = 6579 }
 		has_regency = no
 		dynasty = "Hunyadi"
 	}
@@ -588,7 +588,7 @@ country_event = {
 
 	trigger = {
 		tag = HUN
-		is_year = 6974
+		is_year = 6574
 		has_regency = no
 		owns = 1772 #Pressburg
 		dynasty = "Hunyadi"
@@ -626,8 +626,8 @@ country_event = {
 
 	trigger = {
 		tag = HUN
-		is_year = 6982
-		NOT = { is_year = 7009 }
+		is_year = 6582
+		NOT = { is_year = 6609 }
 	}
 
 	mean_time_to_happen = {
@@ -651,8 +651,8 @@ country_event = {
 
 	trigger = {
 		tag = HUN
-		is_year = 6999
-		NOT = { is_year = 7039 }
+		is_year = 6599
+		NOT = { is_year = 6639 }
 		is_neighbor_of = TUR
 		has_regency = no
 		NOT = { ADM = 5 }
@@ -697,8 +697,8 @@ country_event = {
 
 	trigger = {
 		tag = HUN
-		is_year = 7123
-		NOT = { is_year = 7129 }
+		is_year = 6723
+		NOT = { is_year = 6729 }
 		government = monarchy
 	}
 
@@ -748,7 +748,7 @@ country_event = {
 				previous_owner = HUN
 			}
 		}
-		NOT = { is_year = 7159 }
+		NOT = { is_year = 6759 }
 	}
 
 	mean_time_to_happen = {
@@ -862,8 +862,8 @@ country_event = {
 
 	trigger = {
 		tag = HUN
-		is_year = 6999
-		NOT = { is_year = 7029 }
+		is_year = 6599
+		NOT = { is_year = 6629 }
 	}
 
 	mean_time_to_happen = {
@@ -1150,9 +1150,9 @@ country_event = {
 		has_regency = no
 		OR = {
 			has_country_flag = hun_had_mercenaries_in_slovakia
-			is_year = 6964
+			is_year = 6564
 		}
-		NOT = { is_year = 6979 }
+		NOT = { is_year = 6579 }
 	}
 
 	mean_time_to_happen = {
@@ -1311,7 +1311,7 @@ country_event = {
 		has_country_modifier = hun_black_army
 		OR = {
 			NOT = { has_country_flag = had_black_army_mutiny }
-			had_country_flag = { flag = had_black_army_mutiny days = 7300 }
+			had_country_flag = { flag = had_black_army_mutiny days = 6900 }
 		}
 		is_at_war = yes
 		num_of_cities = 5
@@ -1375,7 +1375,7 @@ country_event = {
 		event_target:mercenary_mutiny_province = {
 			add_province_modifier = {
 				name = "mercenary_concessions"
-				duration = 7300
+				duration = 6900
 			}
 		}
 	}
@@ -1394,8 +1394,8 @@ country_event = {
 	trigger = {
 		tag = HUN
 		owns = 4239
-		is_year = 6959
-		NOT = { is_year = 7009 }
+		is_year = 6559
+		NOT = { is_year = 6609 }
 		OR = { #Big threathening power in the south, probably Ottomans
 			AND = {
 				is_neighbor_of = TUR
@@ -1565,8 +1565,8 @@ country_event = {
 			tag = TRA
 		}
 		religion = catholic
-		is_year = 7069
-		NOT = { is_year = 7079 }
+		is_year = 6669
+		NOT = { is_year = 6679 }
 		is_religion_enabled = reformed
 		owns = 1953
 	}
@@ -1688,7 +1688,7 @@ country_event = {
 		}
 		add_country_modifier = {
 			name = hun_counter_reformation
-			duration = 7300
+			duration = 6900
 		}
 		if = {
 			limit = {
@@ -1712,7 +1712,7 @@ country_event = {
 			change_religion = reformed
 			add_permanent_province_modifier = {
 				name = hun_reformed_colleges
-				duration = 7300
+				duration = 6900
 			}
 			clr_province_flag = synod_of_debrecen_flag
 			clr_province_flag = synod_of_debrecen_flag_start
@@ -1740,8 +1740,8 @@ country_event = {
 
 	trigger = {
 		tag = HUN
-		is_year = 7039
-		NOT = { is_year = 7074 }
+		is_year = 6639
+		NOT = { is_year = 6674 }
 	}
 
 
@@ -2168,7 +2168,7 @@ country_event = {
 			tag = TRA
 		}
 		NOT = { primary_culture = romanian }
-		is_year = 7259
+		is_year = 6859
 		any_owned_province = {
 			culture = transylvanian
 			is_capital = no
@@ -2222,8 +2222,8 @@ country_event = {
 
 	trigger = {
 		tag = HUN
-		is_year = 7092
-		NOT = { is_year = 7119 }
+		is_year = 6692
+		NOT = { is_year = 6719 }
 		owns = 131
 	}
 
@@ -2267,8 +2267,8 @@ country_event = {
 
 	trigger = {
 		tag = HUN
-		is_year = 7039
-		NOT = { is_year = 7049 }
+		is_year = 6639
+		NOT = { is_year = 6649 }
 		owns = 131
 		is_religion_enabled = protestant
 		any_owned_province = {
@@ -2353,8 +2353,8 @@ country_event = {
 	trigger = {
 		tag = HUN
 		is_institution_enabled = renaissance
-		is_year = 6959
-		NOT = { is_year = 6979 }
+		is_year = 6559
+		NOT = { is_year = 6579 }
 	}
 
 	mean_time_to_happen = {
@@ -2409,8 +2409,8 @@ country_event = {
 
 	trigger = {
 		tag = HUN
-		is_year = 7089
-		NOT = { is_year = 7149 }
+		is_year = 6689
+		NOT = { is_year = 6749 }
 		owns = 154
 		owns = 1318
 	}
@@ -2468,7 +2468,7 @@ country_event = {
 	trigger = {
 		tag = HUN
 		NOT = { exists = SLO }
-		is_year = 7259
+		is_year = 6859
 		slovakia_area = {
 			owned_by = ROOT
 		}
@@ -2541,8 +2541,8 @@ country_event = {
 
 	trigger = {
 		tag = HUN
-		is_year = 7109
-		NOT = { is_year = 7209 }
+		is_year = 6709
+		NOT = { is_year = 6809 }
 		any_owned_province = {
 			devastation = 25
 		}
@@ -2597,8 +2597,8 @@ country_event = {
 		is_subject = no
 		has_regency = yes
 		government = monarchy
-		is_year = 7203
-		NOT = { is_year = 7239 }
+		is_year = 6803
+		NOT = { is_year = 6839 }
 	}
 
 	mean_time_to_happen = {
@@ -2659,8 +2659,8 @@ country_event = {
 		tag = HUN
 		is_subject_other_than_tributary_trigger = yes
 		government = monarchy
-		is_year = 7203
-		NOT = { is_year = 7239 }
+		is_year = 6803
+		NOT = { is_year = 6839 }
 	}
 
 	mean_time_to_happen = {
@@ -2764,8 +2764,8 @@ country_event = {
 		any_owned_province = {
 			culture = hungarian
 		}
-		is_year = 7203
-		NOT = { is_year = 7239 }
+		is_year = 6803
+		NOT = { is_year = 6839 }
 	}
 
 	mean_time_to_happen = {

@@ -192,7 +192,7 @@ roman_byzantine_monarchy = {
 	nation_designer_cost = 150
 
 	modifiers = {
-		global_manpower = 3
+	    global_manpower_modifier = 0.20
 		war_exhaustion = -0.03
 		global_unrest = 1
 		max_absolutism = 15
@@ -1300,7 +1300,9 @@ magyar_government = {
 	removed_effect = {
 		remove_country_modifier = tur_weakened_the_harem
 	}
-
+		government_abilities = {
+			militarization_mechanic
+		}
 	custom_attributes = {
 		locked_government_type = yes
 	}
@@ -1332,4 +1334,54 @@ magyar_government = {
 			has_harem_events = yes
 		}
 	}
+}
+
+
+roman_egyptian_monarchy = {
+	icon = "ptolemaic"
+	legacy_equivalent = feudal_monarchy	
+	allow_normal_conversion = yes
+	potential = {
+			OR = {
+		tag = A4R
+    }
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 150
+
+	modifiers = {
+	
+		global_unrest = -1
+		max_absolutism = 15
+		adm_advisor_cost = -0.2		
+		no_stability_loss_on_monarch_death = yes	
+		governing_capacity_modifier = 0.15
+		naval_morale = 0.05
+		administrative_efficiency = 0.01	
+
+	}
+
+
+	conditional = {	
+	factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+	}
+			custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
+		factor = 100
+	}
+	government_abilities = {
+		egypt_mechanic
+	}
+	government_abilities = {
+		pho_naval_professionalism_mechanic
+	}
+
+
+	
 }
