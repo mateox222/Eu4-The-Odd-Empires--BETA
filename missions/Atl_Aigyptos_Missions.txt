@@ -129,13 +129,14 @@ aigyptos_missions_1 = {
 		trigger = {
 			NOT = {
 				any_known_country = {
-					capital_scope = { continent = europe }
 					navy_size = ROOT
 					num_of_galley = ROOT
 				}
 			}
 		}
 		effect = {
+			set_country_flag = navy_availible
+			custom_tooltip = enable_naval_mechanic
 			add_country_modifier = {
 				name = fra_france_rules_the_waves_modifier
 				duration = -1
@@ -212,15 +213,18 @@ aigyptos_missions_2 = {
 		position = 4
 		required_missions = { egyptian_manpower }
 		trigger = {
+			adm_power = 100
+			dip_power = 100
 			358 = {
 				has_building = university
 			}
 		}
 		effect = {
 			change_government_reform_progress = 100
-			add_adm_power = 100
-			add_dip_power = 100
-			add_mil_power = 100
+			add_adm_tech = 1	
+			add_dip_tech = 1	
+			add_adm_power = -100
+			add_dip_power = -100
 		}
 	}
 	egypt_build_docks = {
@@ -504,11 +508,24 @@ aigyptos_missions_3 = {
 			}
 		}
 	}
+		egypt_seizeconstantinople = {
+		icon = mission_city_of_the_world's_desire
+		position = 12
+		required_missions = {  }
+		trigger = {
+			controls = 151
+		}
+		effect = {
+									country_event = {
+				id = kyrinaikan_events.12
+			}
+		}
+	}
 
 	egypt_hellenic_empire = {
 		icon = atlantropa_hellenic_empire
 		position = 13
-		required_missions = { egypt_seize_anatolia egypt_seize_somalia }
+		required_missions = { egypt_seize_anatolia egypt_seize_somalia egypt_seizeconstantinople	 }
 		trigger = { }
 		effect = {
 			add_adm_power = 500
