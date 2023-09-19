@@ -1,0 +1,495 @@
+magyaria_atl_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = A82
+	}
+
+}
+
+magyaria_atl_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = A82
+	}
+
+	atl_magyaria_religion = {
+		icon = a_center_of_religion
+				ai_weight = {
+			factor = 1
+		}
+		position = 2
+		required_missions = { magyaria_aszvar }
+		provinces_to_highlight = {
+			province_id = 1846
+		}
+		trigger = {
+			1846 = { religion = ROOT }
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+		}
+	}
+	amaszvar_cilicia = {
+		icon = atlantropa_armenianking
+				ai_weight = {
+			factor = 1
+		}
+		position = 4
+		required_missions = { amaszvar_kingdom }
+		provinces_to_highlight = {
+			owned_by = A9R
+		}
+		trigger = {
+			4961 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			325 = {
+				change_culture = ROOT
+				change_religion = ROOT
+				rename_capital = "Alexandrettavar"
+				add_devastation = 40
+				set_base_tax = 2
+				set_base_production = 2
+				set_base_manpower = 2
+				change_province_name = "Alexandrettavar"
+			}
+			add_adm_power = 100
+		}
+	}
+	amaszvar_seize_trebizond = {
+		icon = fortress_switzerland
+				ai_weight = {
+			factor = 1
+		}
+		position = 6
+		required_missions = { prepar_for_cofrontation_magyar }
+		provinces_to_highlight = {
+			owned_by = TRE
+		}
+		trigger = {
+			323 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			323 = {
+				change_culture = ROOT
+				change_religion = ROOT
+				rename_capital = "Iknovar"
+				add_devastation = 40
+				set_base_tax = 2
+				set_base_production = 2
+				set_base_manpower = 2
+				change_province_name = "Iknovar"
+			}
+			add_mil_power = 100
+		}
+	}
+}
+
+magyaria_atl_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = A82
+	}
+
+	magyaria_aszvar = {
+		icon = atlantropa_magyartribes
+				ai_weight = {
+			factor = 1
+		}
+		position = 1
+		required_missions = {  }
+		trigger = {
+			stability = 1
+		}
+		effect = {
+			country_event = {
+				id = magyar_events.3
+			}
+			hidden_effect = {
+				every_province = {
+					limit = {
+						culture_group = ROOT
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+		}
+	}
+	amaszvar_army = {
+		icon = mission_marwari_horses
+				ai_weight = {
+			factor = 1
+		}
+		position = 2
+		required_missions = { magyaria_aszvar }
+		trigger = {
+			army_size_percentage = 0.85
+		}
+		effect = {
+			karaman_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					NOT = { is_core = 2302 }
+					NOT = { owns = 2302 }
+				}
+				add_permanent_claim = 2302
+			}
+			kastamonu_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			rum_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			germiyan_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			ankara_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			aydin_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			hudavendigar_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	amaszvar_kingdom = {
+		icon = mission_war_for_the_crown
+				ai_weight = {
+			factor = 1
+		}
+		position = 3
+		required_missions = { atl_magyaria_religion amaszvar_army amaszvar_enforce_taxes }
+		trigger = {
+			total_development = 80
+		}
+		effect = {
+			country_event = {
+				id = magyar_events.4
+			}
+		}
+	}
+	amaszvar_unite_tribes = {
+		icon = jageillonian_union
+				ai_weight = {
+			factor = 1
+		}
+		position = 4
+		required_missions = { amaszvar_kingdom }
+		provinces_to_highlight = {
+			OR = {
+				owned_by = RAM
+				owned_by = KAR
+				owned_by = DUL
+				owned_by = GRM
+				owned_by = ERE
+			}
+		}
+		trigger = {
+			OR = {
+				NOT = { exists = DUL }
+				DUL = { is_subject_of = ROOT }
+			}
+			OR = {
+				NOT = { exists = RAM }
+				RAM = { is_subject_of = ROOT }
+			}
+			OR = {
+				NOT = { exists = GRM }
+				GRM = { is_subject_of = ROOT }
+			}
+			OR = {
+				NOT = { exists = ERE }
+				ERE = { is_subject_of = ROOT }
+			}
+			OR = {
+				NOT = { exists = KAR }
+				KAR = { is_subject_of = ROOT }
+			}
+		}
+		effect = {
+			add_prestige = 10
+			add_country_modifier = {
+				name = kingdom_amaszvar2
+				duration = -1
+			}
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			hidden_effect = {
+				A52 = {
+					country_event = {
+						id = magyar_events.1
+					}
+				}
+			}
+		}
+	}
+	prepar_for_cofrontation_magyar = {
+		icon = mission_cannons_firing
+				ai_weight = {
+			factor = 1
+		}
+		position = 5
+		required_missions = {  amaszvar_unite_tribes  }
+		trigger = {
+			AND = {
+				army_size = A52
+				army_size = BYZ
+				army_size = LAE
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = kingdom_amaszvar3
+				duration = -1
+			}
+			add_mil_power = 100
+			if = {
+				limit = { NOT = { mil_tech = 12 } }
+				capital_scope = {
+					large_cast_bronze_mortar = ROOT
+					large_cast_bronze_mortar = ROOT
+					large_cast_bronze_mortar = ROOT
+					large_cast_bronze_mortar = ROOT
+				}
+				custom_tooltip = tur_guns_of_urban_ct
+			}
+			else = {
+				capital_scope = {
+					artillery = ROOT
+					artillery = ROOT
+					artillery = ROOT
+					artillery = ROOT
+				}
+			}
+			custom_tooltip = tur_guns_of_urban_at
+			tooltip = {
+				add_country_modifier = {
+					name = tur_early_cannons_modifier
+					duration = 3650
+				}
+			}
+		}
+	}
+	magyaria_destroy_nikaea = {
+		icon = atlantropa_nicean_empire
+				ai_weight = {
+			factor = 1
+		}
+		position = 7
+		required_missions = { prepar_for_cofrontation_magyar }
+		provinces_to_highlight = {
+			owned_by = A52
+		}
+		trigger = {
+			322 = {
+				owned_by = ROOT
+			}
+			318 = {
+				owned_by = ROOT
+			}
+			4311 = {
+				owned_by = ROOT
+			}
+			A52 = { exists = no }
+		}
+		effect = {
+			322 = {
+				change_culture = ROOT
+				change_religion = ROOT
+				rename_capital = "Nikaja"
+				add_devastation = 40
+				set_base_tax = 2
+				set_base_production = 2
+				set_base_manpower = 2
+				change_province_name = "Nikaja"
+			}
+			2297 = {
+				change_culture = ROOT
+				change_religion = ROOT
+				rename_capital = "Keleti Thrakia"
+				add_devastation = 40
+				set_base_tax = 2
+				set_base_production = 2
+				set_base_manpower = 2
+				change_province_name = "Keleti Thrakia"
+			}
+			2297 = {
+				change_culture = ROOT
+				change_religion = ROOT
+				rename_capital = "Gyovaros"
+				add_devastation = 40
+				set_base_tax = 2
+				set_base_production = 2
+				set_base_manpower = 2
+				change_province_name = "Gyovaros"
+			}
+			add_mil_power = 100
+			add_dip_power = 100
+			add_adm_power = 100
+			151 = {
+				owner = {
+					country_event = {
+						id = magyar_events.5
+					}
+				}
+			}
+		}
+	}
+	magyaria_establish_finalarmy = {
+		icon = mission_city_of_the_world's_desire
+				ai_weight = {
+			factor = 1
+		}
+		position = 8
+		required_missions = { magyaria_destroy_nikaea }
+		provinces_to_highlight = {
+			province_id = 151
+		}
+		trigger = {
+			owns_core_province = 151
+		}
+		effect = {
+			add_prestige = 10
+		}
+	}
+}
+
+magyaria_atl_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = A82
+	}
+
+	amaszvar_enforce_taxes = {
+		icon = reform_the_monte
+				ai_weight = {
+			factor = 1
+		}
+		position = 2
+		required_missions = { magyaria_aszvar }
+		trigger = {
+			OR = {
+				monthly_income = 5
+				advisor = treasurer
+			}
+		}
+		effect = {
+			add_years_of_income = 0.5
+		}
+	}
+	seize_pahlagonia_magyar = {
+		icon = atlantropa_army
+				ai_weight = {
+			factor = 1
+		}
+		position = 4
+		required_missions = { amaszvar_kingdom }
+		provinces_to_highlight = {
+			owned_by = A61
+		}
+		trigger = {
+			325 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			325 = {
+				change_culture = ROOT
+				change_religion = ROOT
+				rename_capital = "Arpadvar"
+				add_devastation = 40
+				set_base_tax = 2
+				set_base_production = 2
+				set_base_manpower = 2
+				change_province_name = "Arpadvar"
+			}
+			add_adm_power = 100
+		}
+	}
+	amaszvarseize_sinope = {
+		icon = mission_recover_konkan_ports
+				ai_weight = {
+			factor = 1
+		}
+		position = 6
+		required_missions = { prepar_for_cofrontation_magyar }
+		provinces_to_highlight = {
+			owned_by = CND
+		}
+		trigger = {
+			328 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			328 = {
+				change_culture = ROOT
+				change_religion = ROOT
+				rename_capital = "Nagykikoto"
+				add_devastation = 40
+				set_base_tax = 2
+				set_base_production = 2
+				set_base_manpower = 2
+				change_province_name = "Nagykikoto"
+			}
+			add_mil_power = 100
+		}
+	}
+}
+
+magyaria_atl_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = A82
+	}
+
+}
+

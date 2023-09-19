@@ -985,51 +985,7 @@ country_event = {
 	}
 	end_disaster = latin_empire_crisis
 }}
-country_event = {
-	id = byzantine_war.15
-	title = "byzantine_war.15.t"
-	desc = "byzantine_war.15.d"
-	fire_only_once = yes
-	picture = constantinoplefall_eventPicture
-	major = yes
-	trigger = {
-		not = { religion_group = christian }
-		not = { religion = raumarysm }	
-		NOT = {has_global_flag = fall_of_constantinople}
-		
-			OR = {
-			151 = { controlled_by = ROOT }
-			151 = { owned_by = ROOT }
 
-	}}
-	mean_time_to_happen = { days = 2 }
-	
-	option = {
-		name = byzantine_war.15a #Sack of City
-	151 = {
-	add_devastation = 95
-	add_base_tax = -4	
-	add_base_production = -4	
-	add_base_manpower = -4	
-	}
-		add_prestige = 50	
-		add_mil_power = 250
-		add_dip_power = 250 
-		add_adm_power = 250
-		add_treasury = 500	
-		set_country_flag = constantinople_captured
-		set_global_flag = fall_of_constantinople
-			anatolia_region = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-				
-						
-}
-
-}}
 
 	country_event = {
 	id = byzantine_war.16

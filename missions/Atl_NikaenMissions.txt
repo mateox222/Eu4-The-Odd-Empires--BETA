@@ -619,8 +619,10 @@ latin_empire_another2 = {
 		trigger = {
 		OR = {
 		AND = {
-		owns_core_province = 2304
-		owns_core_province = 330
+		owns_core_province = 323
+		owns_core_province = 2302
+		owns_core_province = 324
+		owns_core_province = 5808
 		}
 		AND = {
 			army_size = 40
@@ -654,7 +656,7 @@ latin_empire_another2 = {
 }
 
 	destroy_seljuk_byz = {
-		icon = atlantropa_turkeystan
+		icon = atlantropa_burningturkland
 		position = 5
 		required_missions = { nikean_annex_aleppo }
 												provinces_to_highlight = {
@@ -1121,9 +1123,19 @@ num_of_owned_provinces_with = {
 	
 		}
 		effect = {
-															country_event = { 
-    id = nikean_empire.60
-}
+	add_dip_power = 50	
+	add_country_modifier = {
+					name = "byzantine_crimea"
+					duration = -1
+				}
+		crimea_region  = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT	
+		}
+
 }
 }
 

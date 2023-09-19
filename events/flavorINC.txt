@@ -19,8 +19,8 @@ normal_or_historical_nations = yes
 #	
 #	trigger = {
 #		tag = INC
-#		is_year = 7009 
-#		NOT = { is_year = 7109 }
+#		is_year = 6609 
+#		NOT = { is_year = 6709 }
 #		has_regency = no
 #		OR = {
 #			NOT = {
@@ -109,7 +109,7 @@ country_event = {
 	trigger = {
 		tag = CSU
 		has_ruler = "Pachacuti"
-		NOT = { is_year = 6959 }
+		NOT = { is_year = 6559 }
 	}
 	
 	mean_time_to_happen = {
@@ -149,7 +149,7 @@ country_event = {
 		807 = {
 			add_province_modifier = {
 				name = "inc_cusco_construction"
-				duration = 7300	#Illustrates the length of construction
+				duration = 6900	#Illustrates the length of construction
 			}
 		}
 		add_prestige = 10
@@ -173,7 +173,7 @@ country_event = {
 	
 	trigger = {
 		tag = CSU
-		had_country_flag = { flag = inc_cusco_began days = 7300 }
+		had_country_flag = { flag = inc_cusco_began days = 6900 }
 		owns = 807
 	}
 	
@@ -206,8 +206,8 @@ country_event = {
 			tag = CSU
 			tag = INC
 		}
-		is_year = 6959
-		NOT = { is_year = 6984 }
+		is_year = 6559
+		NOT = { is_year = 6584 }
 		OR = {
 			807 = { has_province_modifier = inc_cusco_construction }
 			807 = { has_province_modifier = inc_cusco_reconstructed }
@@ -344,8 +344,8 @@ country_event = {
 	trigger = {
 		tag = INC
 		NOT =  { exists = CHM }
-		is_year = 6969
-		NOT = { is_year = 7009 }
+		is_year = 6569
+		NOT = { is_year = 6609 }
 		NOT = { has_country_flag = INC_used_to_be_CHM }
 		owns = 809 #Lima
 		owns = 812 #Chanchan
@@ -970,8 +970,8 @@ country_event = {
 	
 	trigger = {
 		tag = INC
-		is_year = 6969
-		NOT = { is_year = 7004 }
+		is_year = 6569
+		NOT = { is_year = 6604 }
 		owns = 816
 		government = monarchy
 		has_heir = yes

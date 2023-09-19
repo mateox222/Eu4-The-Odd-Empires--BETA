@@ -341,3 +341,56 @@ bulgarian_monarchy = {
 		government = monarchy
 	}
 }
+
+
+magyar_government = {
+	rank = {
+		1 = MAGYARDUCHY
+		2 = MAGYARKINGDOM
+		3 = MAGYARGRAND_KINGDOM
+	}
+
+	ruler_male = {
+		1 = MAGYARDUCHY
+		2 = MAGYARKING
+		3 = MAGYARKINGKINGS
+	}
+
+	ruler_female = {
+		1 = MAGYARDUCHY2
+		2 = MAGYARKING2
+		3 = MAGYARKINGKINGS2
+	}
+	
+	consort_male  = {
+		1 = MAGYARDUCHY
+		2 = MAGYARKING
+		3 = MAGYARKINGKINGS
+	}
+
+	consort_female = {
+		1 = MAGYARDUCHY2
+		2 = MAGYARKING2
+		3 = MAGYARKINGKINGS2
+	}
+
+	heir_male = {
+		1 = HEIRMAGYAR
+		2 = HEIRMAGYAR
+		3 = HEIRMAGYAR	
+	}
+
+	heir_female = {
+		1 = HEIRMAGYAR
+		2 = HEIRMAGYAR
+		3 = HEIRMAGYAR	
+	}
+	
+	trigger = {
+		government = monarchy
+		OR = {
+			culture = hungarian
+			culture = second_turkish
+		}
+	}
+}

@@ -36,8 +36,23 @@ po_establish_byzantineprovince = {
 				add_government_reform = autonomous_byzantine_province
 				set_country_flag = has_rhomaioi_color
 				set_country_flag = has_overriden_color_flag
+				if = {
+					limit = { 
+						FROM = { tag = A4R }}
+				change_country_color = { color = { 114 138 212 } }
+				}
+				if = {
+					limit = { 
+						FROM = { 
+							OR = {
+							tag = A52
+							tag = BYZ
+						}}
+						 }
 				change_country_color = { color = { 153 71 124 } }
-				change_religion = ROOT
+				}
+
+				change_religion = FROM
 			}
 		}
 	

@@ -99,7 +99,7 @@ country_event = {
 	fire_only_once = yes
 	picture = alexandrialighthouse_eventPicture
 	trigger = {
-		is_year = 6910
+		is_year = 6510
 		has_global_flag = chalcedonismwillfallin30years
 		owns_core_province = 358
 		358 = {
@@ -131,7 +131,7 @@ country_event = {
 	}
 	trigger = {
 				NOT = { has_global_flag = chrzescijanstwosierozpadlo }
-		is_year = 6930
+		is_year = 6530
 		owns = 118
 
 			151 = {
@@ -243,16 +243,13 @@ hidden_effect = {
 			region = egypt_region
 			
 		}
-
-			
+				change_religion = monophysitetrue
 		}
-		change_religion = monophysitetrue
+
 	every_country = {
 		limit = {
 			capital_scope = {
-			OR = {
 			region = egypt_region
-			}
 			}
 			religion = christian_change_religion_for_debug
 		}
@@ -371,8 +368,8 @@ hidden_effect = {
 	trigger = {
 		owns = 151
 		NOT = { has_global_flag = chrzescijanstwosierozpadlo }
-		is_year = 6930
-		NOT = { is_year = 7000 }
+		is_year = 6530
+		NOT = { is_year = 6600 }
 		151 = {
 			owner = {
 				NOT = { tag = LAE }

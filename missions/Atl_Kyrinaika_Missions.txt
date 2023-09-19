@@ -3,21 +3,94 @@ kyrinaika_1 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = A6F
+		OR = {
+			TAG = A6F
+			TAG = DI1
+			TAG = DI2
+			TAG = DI3
+			TAG = DI4
+			TAG = DI5
+		}
 	}
 
-	kyr_seize_kemet = {
-		icon = atlantropa_sungod
-		position = 4
-		required_missions = { kyr_atl_war }
+	kyr_seize_kyrinaika = {
+		icon = atlantropa_serbianfortress
+				ai_weight = {
+			factor = 1
+		}
+		position = 1
+		required_missions = {  }
 		provinces_to_highlight = {
-			province_id = 5244
+			owned_by = A6F
 		}
 		trigger = {
-			owns = 5244
+			owns = 356
+			NOT = { tag = A6F }
 		}
 		effect = {
-			add_stability = 1
+			add_mil_power = 50
+			add_dip_power = 50
+			add_adm_power = 50
+		}
+	}
+	kyr_seize_kemet = {
+		icon = atlantropa_sungod
+				ai_weight = {
+			factor = 1
+		}
+		position = 2
+		required_missions = {  }
+		provinces_to_highlight = {
+			owned_by = A2R
+		}
+		trigger = {
+			owns = 5229
+			NOT = { tag = A2R }
+		}
+		effect = {
+			add_mil_power = 50
+			add_dip_power = 50
+			add_adm_power = 50
+		}
+	}
+	kyr_seize_ptolemaia = {
+		icon = atlantropa_stalzemsty
+				ai_weight = {
+			factor = 1
+		}
+		position = 3
+		required_missions = {  }
+		provinces_to_highlight = {
+			owned_by = DI4
+		}
+		trigger = {
+			owns = 357
+			NOT = { tag = DI4 }
+		}
+		effect = {
+			add_mil_power = 50
+			add_dip_power = 50
+			add_adm_power = 50
+		}
+	}
+	kyr_deal_kemet = {
+		icon = mission_egyptian_mamluk_soldier
+				ai_weight = {
+			factor = 1
+		}
+		position = 4
+		required_missions = {  }
+		provinces_to_highlight = {
+			owned_by = HSN
+		}
+		trigger = {
+			owns = 365
+			NOT = { tag = HSN }
+		}
+		effect = {
+			add_mil_power = 50
+			add_dip_power = 50
+			add_adm_power = 50
 		}
 	}
 }
@@ -27,11 +100,41 @@ kyrinaika_2 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = A6F
+				OR = {
+			TAG = A6F
+			TAG = DI1
+			TAG = DI2
+			TAG = DI3
+			TAG = DI4
+			TAG = DI5
+		}
 	}
 
+	kyr_nikephoros = {
+		icon = atlantropa_homeregion
+				ai_weight = {
+			factor = 1
+		}
+		position = 1
+		required_missions = {  }
+		provinces_to_highlight = {
+			owned_by = DI2
+		}
+		trigger = {
+			owns = 363
+			NOT = { tag = DI2 }
+		}
+		effect = {
+			add_mil_power = 50
+			add_dip_power = 50
+			add_adm_power = 50
+		}
+	}
 	atl_kyr_manpower = {
 		icon = atlantropa_army
+				ai_weight = {
+			factor = 1
+		}
 		position = 2
 		required_missions = { kyr_fall_of_kyrnaika }
 		trigger = {
@@ -41,38 +144,24 @@ kyrinaika_2 = {
 			add_mil_power = -200
 			custom_tooltip = Kyrinaikanreinforces
 			hidden_effect = {
-			capital_scope = {
-			    ROOT = {
-			        infantry = PREV
-			    }
-				ROOT = {
-			        infantry = PREV
-			    }
-				ROOT = {
-			        infantry = PREV
-			    }
-				ROOT = {
-			        infantry = PREV
-			    }
-				ROOT = {
-			        infantry = PREV
-			    }
+				capital_scope = {
+					ROOT = {
+						infantry = PREV
+					}
+					ROOT = {
+						infantry = PREV
+					}
+					ROOT = {
+						infantry = PREV
+					}
+					ROOT = {
+						infantry = PREV
+					}
+					ROOT = {
+						infantry = PREV
+					}
+				}
 			}
-			}
-		}
-	}
-	kyr_deal_kemet = {
-		icon = mission_egyptian_mamluk_soldier
-		position = 4
-		required_missions = { kyr_atl_war }
-		provinces_to_highlight = {
-			province_id = 2315
-		}
-		trigger = {
-			owns = 2315
-		}
-		effect = {
-			add_mil_power = 100
 		}
 	}
 }
@@ -82,66 +171,112 @@ kyrinaika_3 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = A6F
+				OR = {
+			TAG = A6F
+			TAG = DI1
+			TAG = DI2
+			TAG = DI3
+			TAG = DI4
+			TAG = DI5
+		}
 	}
 
 	kyr_fall_of_kyrnaika = {
 		icon = atlantropa_byzantineflag
+				ai_weight = {
+			factor = 1
+		}
 		position = 1
 		required_missions = {  }
 		trigger = {
 			custom_trigger_tooltip = {
 				tooltip = themepirehasfallen
-			always = yes
+				always = yes
 			}
 		}
 		effect = {
-			country_event = { 
+			country_event = {
 				id = kyrinaikan_events.1
 			}
 		}
 	}
 	kyr_atl_war = {
 		icon = atlantropa_sackcity
+				ai_weight = {
+			factor = 1
+		}
 		position = 3
-		required_missions = { atl_kyr_soldiers atl_kyr_manpower }
+		required_missions = { atl_kyr_manpower atl_kyr_soldiers }
 		trigger = {
-				custom_trigger_tooltip = {
-					tooltip = themepirehasfallen2
-					is_at_war = yes
-				}
+			custom_trigger_tooltip = {
+				tooltip = themepirehasfallen2
+				is_at_war = yes
 			}
-			
+		}
 		effect = {
 			add_mil_power = 100
 		}
 	}
-	kyr_seize_latins = {
-		icon = kingdom_of_cyprus
-		position = 4
-		required_missions = { kyr_atl_war }
-		provinces_to_highlight = {
-			province_id = 358
-		}
-		trigger = {
-			owns = 358
-		}
-		effect = {
-			add_prestige = 10
-		}
-	}
 	kyr_unte_egypt = {
 		icon = atlantropa_phoenixempire
-		position = 5
-		required_missions = { kyr_seize_kemet kyr_seize_latins kyr_deal_kemet Kyr_destroy_makuria kyr_destroy_aswan }
+				ai_weight = {
+			factor = 1
+		}
+		position = 4
+		required_missions = { kyr_atl_war }
 		trigger = {
 			custom_trigger_tooltip = {
 				tooltip = themepirehasfallen3
 				is_at_war = no
+				AND = {
+					OR = {
+							NOT = { exists = DI1 }
+							tag = DI1
+					}
+										OR = {
+							NOT = { exists = DI2 }
+							tag = DI2
+					}
+										OR = {
+							NOT = { exists = DI3 }
+							tag = DI3
+					}
+										OR = {
+							NOT = { exists = DI4 }
+							tag = DI4
+					}
+										OR = {
+							NOT = { exists = DI5 }
+							tag = DI5
+					}
+										OR = {
+							NOT = { exists = MAK }
+							tag = MAK
+					}
+										OR = {
+							NOT = { exists = A2R }
+							tag = A2R
+					}
+										OR = {
+							NOT = { exists = HSN }
+							tag = HSN
+					}
+										OR = {
+							NOT = { exists = A6F }
+							tag = A6F
+					}
+										OR = {
+							NOT = { exists = A3R }
+							tag = A3R
+					}
+
+					}
 			}
-		}
+				
+			}
+		
 		effect = {
-			country_event = { 
+			country_event = {
 				id = kyrinaikan_events.2
 			}
 		}
@@ -153,11 +288,41 @@ kyrinaika_4 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = A6F
+				OR = {
+			TAG = A6F
+			TAG = DI1
+			TAG = DI2
+			TAG = DI3
+			TAG = DI4
+			TAG = DI5
+		}
 	}
 
+	kyr_seize_latins = {
+		icon = kingdom_of_cyprus
+				ai_weight = {
+			factor = 1
+		}
+		position = 1
+		required_missions = {  }
+		provinces_to_highlight = {
+			owned_by = CYP
+		}
+		trigger = {
+			owns = 358
+			NOT = { tag = CYP }
+		}
+		effect = {
+			add_mil_power = 50
+			add_dip_power = 50
+			add_adm_power = 50
+		}
+	}
 	atl_kyr_soldiers = {
 		icon = atlantropa_ukrainskarosjaarmia
+				ai_weight = {
+			factor = 1
+		}
 		position = 2
 		required_missions = { kyr_fall_of_kyrnaika }
 		trigger = {
@@ -171,20 +336,6 @@ kyrinaika_4 = {
 			add_yearly_manpower = 4
 		}
 	}
-	Kyr_destroy_makuria = {
-		icon = atlantropa_nativethule
-		position = 4
-		required_missions = { kyr_atl_war }
-		provinces_to_highlight = {
-			province_id = 1231
-		}
-		trigger = {
-			owns = 1231
-		}
-		effect = {
-			add_dip_power = 100
-		}
-	}
 }
 
 kyrinaika_5 = {
@@ -192,21 +343,94 @@ kyrinaika_5 = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = A6F
+				OR = {
+			TAG = A6F
+			TAG = DI1
+			TAG = DI2
+			TAG = DI3
+			TAG = DI4
+			TAG = DI5
+		}
 	}
 
+	kyr_seize_konstantinos = {
+		icon = atlantropa_mesopataka
+				ai_weight = {
+			factor = 1
+		}
+		position = 1
+		required_missions = {  }
+		provinces_to_highlight = {
+			owned_by = DI1
+		}
+		trigger = {
+			owns = 2322
+			NOT = { tag = DI1 }
+		}
+		effect = {
+			add_mil_power = 50
+			add_dip_power = 50
+			add_adm_power = 50
+		}
+	}
 	kyr_destroy_aswan = {
 		icon = atlantropa_thulehorseman
-		position = 4
-		required_missions = { kyr_atl_war }
+				ai_weight = {
+			factor = 1
+		}
+		position = 2
+		required_missions = {  }
 		provinces_to_highlight = {
-			province_id = 1234
+			owned_by = A3R
+		}
+		trigger = {
+			owns = 1231
+			NOT = { tag = A3R }
+		}
+		effect = {
+			add_mil_power = 50
+			add_dip_power = 50
+			add_adm_power = 50
+		}
+	}
+	kyr_seize_antigon = {
+		icon = atlantropa_lifegoeson
+				ai_weight = {
+			factor = 1
+		}
+		position = 3
+		required_missions = {  }
+		provinces_to_highlight = {
+			owned_by = DI3
+		}
+		trigger = {
+			owns = 359
+			NOT = { tag = DI3 }
+		}
+		effect = {
+			add_mil_power = 50
+			add_dip_power = 50
+			add_adm_power = 50
+		}
+	}
+	Kyr_destroy_makuria = {
+		icon = atlantropa_nativethule
+				ai_weight = {
+			factor = 1
+		}
+		position = 4
+		required_missions = {  }
+		provinces_to_highlight = {
+			owned_by = MAK
 		}
 		trigger = {
 			owns = 1234
+			NOT = { tag = MAK }
 		}
 		effect = {
-			add_adm_power = 100
+			add_mil_power = 50
+			add_dip_power = 50
+			add_adm_power = 50
 		}
 	}
 }

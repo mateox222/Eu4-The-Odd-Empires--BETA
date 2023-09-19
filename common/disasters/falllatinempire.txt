@@ -1,13 +1,13 @@
 latin_empire_crisis = {
     potential = {
-		NOT = { is_year = 6930 }
+		NOT = { is_year = 6530 }
 		owns_core_province = 151
         tag = LAE
 	NOT = { has_global_flag = end_of_latin_empire_crisis }	
 	NOT = { has_country_flag = latindostajepodupie12}
 	}
 can_start = {
-NOT = { is_year = 6930 }
+NOT = { is_year = 6530 }
 
 OR = {
 A52 = {
@@ -18,6 +18,13 @@ A52 = {
 	total_development = 150
 }
 SER = {
+	is_neighbor_of = ROOT
+	is_subject = no
+	NOT = { truce_with = ROOT }
+	NOT = { alliance_with = ROOT }
+	total_development = 150
+}
+A82 = {
 	is_neighbor_of = ROOT
 	is_subject = no
 	NOT = { truce_with = ROOT }
@@ -62,6 +69,15 @@ BUL = {
 		modifier = {
 			factor = 2.5
 			SER = {
+				is_subject = no
+				NOT = { truce_with = ROOT }
+				NOT = { alliance_with = ROOT }
+				total_development = 150
+			}
+		}
+		modifier = {
+			factor = 2.5
+			A82 = {
 				is_subject = no
 				NOT = { truce_with = ROOT }
 				NOT = { alliance_with = ROOT }
@@ -145,6 +161,7 @@ BUL = {
 			NOT = { exists = SER }
 			NOT = { exists = A52 } 
 			NOT = { exists = BYZ }
+			NOT = { exists = A82 }			
 		}
 
 	}

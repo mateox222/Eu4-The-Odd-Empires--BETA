@@ -1,11 +1,11 @@
 NDefines = {
 
 	NGame = {
-		START_DATE = "6899.1.1",
-		END_DATE = "7345.1.2",
-		MAX_RANDOM_NEW_WORLD = "6898.1.1",
+		START_DATE = "6499.1.1",
+		END_DATE = "7001.1.2",
+		MAX_RANDOM_NEW_WORLD = "6498.1.1",
 	
-		GREAT_POWER_FRENZY_START = "7209.1.1",	-- Latest date for the start of the Great Power Frenzy (struggle).
+		GREAT_POWER_FRENZY_START = "6809.1.1",	-- Latest date for the start of the Great Power Frenzy (struggle).
 		GREAT_POWER_FRENZY_WARMUP_MONTHS = 600,	-- How many months does it take for the Great Power Frenzy to reach full potency after starting.
 		GREAT_POWER_FRENZY_QUICKSTART = 0,		-- Can the Great Power Frenzy start early due to one alliance block becoming too powerful?
 	
@@ -122,7 +122,7 @@ NDefines = {
 		RIVAL_PEACE_COST_REDUCTION = -0.33,
 		MAX_PEACE_TREATY_COST = 200,					-- in diplo power
 		DESIRED_NUM_OF_ELECTORS = 7,
-		MAX_FREE_CITIES = 12,
+		MAX_FREE_CITIES = 20,
 		MIN_NUM_ELECTORS_FOR_REMOVE_ELECTORATE = 2,		-- Limit is inclusive.
 		HRE_PRINCE_AUTHORITY_THRESHOLD = 25,			-- Threshold below which you lose IA, and above which you gain it
 		IMPERIAL_AUTHORITY_FROM_PRINCES = 0.075,			-- Scales to threshold

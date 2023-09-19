@@ -22,7 +22,7 @@ country_event = {
 		num_of_cities = 5
 		NOT = { has_country_flag = kbo_two_branches } #After this flavor_kbo.8 is displayed instead.
 		NOT = { has_country_flag = kbo_calipha } #Will end the dispute if not done by then
-		NOT = { is_year = 7009 }
+		NOT = { is_year = 6609 }
 	}
 	
 	
@@ -111,7 +111,7 @@ country_event = {
 	trigger = {
 		tag = KBO
 		has_country_flag = kbo_two_branches
-		NOT = { is_year = 7059 }
+		NOT = { is_year = 6659 }
 		owns = 1157
 	}
 	
@@ -146,7 +146,7 @@ country_event = {
 		1157 = {
 			add_province_modifier = {
 			name = kbo_gazargamu
-			duration = 7300
+			duration = 6900
 			}
 		}
 	}
@@ -169,7 +169,7 @@ country_event = {
 	trigger = {
 		tag = KBO
 		has_country_flag = kbo_two_branches
-		NOT = { is_year = 7059 }
+		NOT = { is_year = 6659 }
 		religion = sunni
 		government = monarchy
 	}
@@ -219,7 +219,7 @@ country_event = {
 	trigger = {
 		tag = KBO
 		has_country_flag = kbo_two_branches
-		NOT = { is_year = 7059 }
+		NOT = { is_year = 6659 }
 		stability = 1
 	}
 	
@@ -271,8 +271,8 @@ country_event = {
 
 	trigger = {
 		tag = KBO
-		is_year = 6999
-		NOT = { is_year = 7039 }
+		is_year = 6599
+		NOT = { is_year = 6639 }
 	}
 	
 	mean_time_to_happen = {
@@ -299,8 +299,8 @@ country_event = {
 
 	trigger = {
 		tag = KBO
-		is_year = 7084
-		NOT = { is_year = 7119 }
+		is_year = 6684
+		NOT = { is_year = 6719 }
 		OR = {
 			adm = 4
 			dip = 4
@@ -383,7 +383,7 @@ country_event = {
 		num_of_cities = 5
 		has_country_flag = kbo_two_branches
 		NOT = { has_country_flag = kbo_calipha } #Will end the dispute if not done by then
-		NOT = { is_year = 7059 } #By this time the instability will have gone away one way or the other.
+		NOT = { is_year = 6659 } #By this time the instability will have gone away one way or the other.
 		OR = { #If all these are taken care of this stops.
 			NOT = { has_country_flag = kbo_gazargamu }
 			NOT = { has_country_modifier = kbo_religious_orthodoxy }

@@ -9,6 +9,9 @@ atl_nav_missions_1 = {
 	has_country_shield = yes
 	atl_navarra_docks = {
 		icon = toulon_dockyards
+				ai_weight = {
+			factor = 1
+		}
 		position = 1
 		required_missions = {  }
 		trigger = {
@@ -30,6 +33,9 @@ atl_nav_missions_1 = {
 	}
 	atl_navarra_navy = {
 		icon = imperial_navy
+				ai_weight = {
+			factor = 1
+		}
 		position = 2
 		required_missions = { atl_navarra_docks }
 		trigger = {
@@ -78,6 +84,9 @@ atl_nav_missions_1 = {
 	}
 	atl_navarra_conquer_isles = {
 		icon = mission_seize_the_isles
+				ai_weight = {
+			factor = 1
+		}
 		position = 4
 		required_missions = { atl_navarra_navy }
 		provinces_to_highlight = {
@@ -106,6 +115,9 @@ atl_nav_missions_1 = {
 	}
 	atl_navarra_trade = {
 		icon = mission_seize_north_sea_trade
+				ai_weight = {
+			factor = 1
+		}
 		position = 6
 		required_missions = { atl_navarra_dead_french atl_navarra_conquer_isles }
 		trigger = {
@@ -129,6 +141,9 @@ atl_nav_missions_1 = {
 	}
 	basque_colonial_1 = {
 		icon = mission_colonize_the_west
+				ai_weight = {
+			factor = 1
+		}
 		position = 7
 		required_missions = {  }
 		trigger = {
@@ -159,6 +174,9 @@ atl_nav_missions_1 = {
 	}
 	basque_discover = {
 		icon = mission_establish_high_seas_navy
+				ai_weight = {
+			factor = 1
+		}
 		position = 10
 		required_missions = { basque_colonial_1 }
 		trigger = {
@@ -206,6 +224,9 @@ atl_nav_missions_1_b = {
 
 	atl_nafaroa_universities = {
 		icon = wittenberg_university
+				ai_weight = {
+			factor = 1
+		}
 		position = 1
 		required_missions = {  }
 		trigger = {
@@ -220,6 +241,9 @@ atl_nav_missions_1_b = {
 	}
 	nafaroa_alcohol_atl = {
 		icon = mission_wine_monopolies
+				ai_weight = {
+			factor = 1
+		}
 		position = 2
 		required_missions = {  }
 		provinces_to_highlight = {
@@ -243,6 +267,9 @@ atl_nav_missions_1_b = {
 	}
 	atl_navarra_lacannet = {
 		icon = atlantropa_sendgard
+				ai_weight = {
+			factor = 1
+		}
 		position = 3
 		required_missions = { atl_navarran_gambit }
 		provinces_to_highlight = {
@@ -259,6 +286,9 @@ atl_nav_missions_1_b = {
 	}
 	atl_navarra_dead_french = {
 		icon = atlantropa_burningturkland
+				ai_weight = {
+			factor = 1
+		}
 		position = 5
 		required_missions = { atl-navarra_ruler_france }
 		trigger = {
@@ -283,6 +313,9 @@ atl_nav_missions_1_b = {
 	}
 	navarra_roads = {
 		icon = atlantropa_imperialroads
+				ai_weight = {
+			factor = 1
+		}
 		position = 6
 		required_missions = {  }
 		trigger = {
@@ -299,6 +332,9 @@ atl_nav_missions_1_b = {
 	}
 	navarra_trains_atl = {
 		icon = atlantropa_steamengine
+				ai_weight = {
+			factor = 1
+		}
 		position = 8
 		required_missions = { navarra_roads }
 		trigger = {
@@ -326,6 +362,9 @@ atl_nav_missions_2 = {
 	has_country_shield = yes
 	atl_kingdom_of_navarria = {
 		icon = mission_the_french_menace
+				ai_weight = {
+			factor = 1
+		}
 		position = 1
 		required_missions = {  }
 		trigger = {
@@ -339,6 +378,9 @@ atl_nav_missions_2 = {
 	}
 	atl_navarran_gambit = {
 		icon = atlantropa_chesziberian
+				ai_weight = {
+			factor = 1
+		}
 		position = 2
 		required_missions = { atl_kingdom_of_navarria }
 		trigger = {
@@ -398,6 +440,9 @@ atl_nav_missions_2 = {
 	}
 	atl_navarra_charlensis = {
 		icon = atlantropa_britaniqueburned
+				ai_weight = {
+			factor = 1
+		}
 		position = 3
 		required_missions = { atl_navarran_gambit }
 		provinces_to_highlight = {
@@ -414,6 +459,9 @@ atl_nav_missions_2 = {
 	}
 	atl-navarra_ruler_france = {
 		icon = mission_subjugate_navarra
+				ai_weight = {
+			factor = 1
+		}
 		position = 4
 		required_missions = { atl_navarra_teruel atl_navarra_lacannet atl_navarra_charlensis }
 		provinces_to_highlight = {
@@ -439,6 +487,9 @@ atl_nav_missions_2 = {
 	}
 	atl_basque_empire = {
 		icon = mission_crown_of_norway
+				ai_weight = {
+			factor = 1
+		}
 		position = 6
 		required_missions = { atl-navarra_ruler_france atl_navarra_dead_french atl_naffaroa_economy }
 		trigger = {
@@ -453,6 +504,9 @@ atl_nav_missions_2 = {
 	}
 	nav_cross_andorra = {
 		icon = the_alpine_wall
+				ai_weight = {
+			factor = 1
+		}
 		position = 7
 		required_missions = { atl_basque_empire }
 		provinces_to_highlight = {
@@ -473,6 +527,9 @@ atl_nav_missions_2 = {
 	}
 	atl_nav_conquer_spania = {
 		icon = mission_conquer_lithuania
+				ai_weight = {
+			factor = 1
+		}
 		position = 8
 		required_missions = { nav_cross_andorra }
 		provinces_to_highlight = {
@@ -491,6 +548,9 @@ atl_nav_missions_2 = {
 	}
 	alt_navarra_spania = {
 		icon = mission_castillian_aggression
+				ai_weight = {
+			factor = 1
+		}
 		position = 9
 		required_missions = { atl_nav_conquer_spania }
 		trigger = {
@@ -515,6 +575,9 @@ atl_nav_missions_2 = {
 	}
 	basque_super_power = {
 		icon = mission_among_the_great_powers
+				ai_weight = {
+			factor = 1
+		}
 		position = 10
 		required_missions = { alt_navarra_spania }
 		trigger = {
@@ -543,6 +606,9 @@ atl_nav_missions_2 = {
 	}
 	nafaroa_gold = {
 		icon = mission_zambezi_gold
+				ai_weight = {
+			factor = 1
+		}
 		position = 11
 		required_missions = {  }
 		provinces_to_highlight = {
@@ -580,6 +646,9 @@ atl_nav_missions_4 = {
 	has_country_shield = yes
 	nafaroa_atl_capital = {
 		icon = fra_crown_seat_capital
+				ai_weight = {
+			factor = 1
+		}
 		position = 1
 		required_missions = {  }
 		trigger = {
@@ -600,6 +669,9 @@ atl_nav_missions_4 = {
 	}
 	navarra_ammunition_atl = {
 		icon = mission_cannons_firing
+				ai_weight = {
+			factor = 1
+		}
 		position = 2
 		required_missions = {  }
 		provinces_to_highlight = {
@@ -624,6 +696,9 @@ atl_nav_missions_4 = {
 	}
 	atl_navarra_teruel = {
 		icon = atlantropa_lifegoeson
+				ai_weight = {
+			factor = 1
+		}
 		position = 3
 		required_missions = { atl_navarran_gambit }
 		provinces_to_highlight = {
@@ -640,6 +715,9 @@ atl_nav_missions_4 = {
 	}
 	atl_naffaroa_economy = {
 		icon = mission_have_manufactories
+				ai_weight = {
+			factor = 1
+		}
 		position = 5
 		required_missions = { atl-navarra_ruler_france atl_navarra_workshopes }
 		trigger = {
@@ -675,6 +753,9 @@ atl_nav_missions_4 = {
 	}
 	basque_reform_army = {
 		icon = mission_modern_knight_army
+				ai_weight = {
+			factor = 1
+		}
 		position = 6
 		required_missions = {  }
 		trigger = {
@@ -691,6 +772,9 @@ atl_nav_missions_4 = {
 	}
 	atl_basque_superrarmy = {
 		icon = professional_army
+				ai_weight = {
+			factor = 1
+		}
 		position = 8
 		required_missions = { basque_reform_army }
 		trigger = {
@@ -724,6 +808,9 @@ atl_navslot6 = {
 	has_country_shield = yes
 	navarra_economy_atl = {
 		icon = dominant_economy
+				ai_weight = {
+			factor = 1
+		}
 		position = 1
 		required_missions = {  }
 		trigger = {
@@ -745,6 +832,9 @@ atl_navslot6 = {
 	}
 	atl_navarra_cities = {
 		icon = mission_hanseatic_city
+				ai_weight = {
+			factor = 1
+		}
 		position = 2
 		required_missions = { navarra_economy_atl }
 		trigger = {
@@ -762,6 +852,9 @@ atl_navslot6 = {
 	}
 	atl_navarra_workshopes = {
 		icon = public_works
+				ai_weight = {
+			factor = 1
+		}
 		position = 4
 		required_missions = { atl_navarra_cities }
 		trigger = {
@@ -780,6 +873,9 @@ atl_navslot6 = {
 	}
 	nafaroa_prosperity_atl = {
 		icon = prosperity_for_all
+				ai_weight = {
+			factor = 1
+		}
 		position = 6
 		required_missions = { atl_naffaroa_economy atl_navarra_workshopes }
 		trigger = {
@@ -805,6 +901,9 @@ atl_navslot6 = {
 	}
 	nav_terranova = {
 		icon = mission_settlers_north_america
+				ai_weight = {
+			factor = 1
+		}
 		position = 7
 		required_missions = {  }
 		provinces_to_highlight = {
@@ -851,6 +950,9 @@ atl_navslot6 = {
 	}
 	nav_newfoundland_labradora = {
 		icon = mission_iberian_conquistador
+				ai_weight = {
+			factor = 1
+		}
 		position = 10
 		required_missions = { nav_terranova }
 		provinces_to_highlight = {

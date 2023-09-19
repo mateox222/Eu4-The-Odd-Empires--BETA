@@ -1690,6 +1690,13 @@ armenia_first_mission = {
 			free_mil_policy = 1	
 		}
 
+		magyaria_reorganized_army  = {
+			infantry_power = 0.10	
+			cavalry_power = 0.10	
+			artillery_power = 0.10	
+			drill_gain_modifier = 0.10	
+			free_mil_policy = 1	
+		}
 
 		frenchocci_reorganized_army = {
 			infantry_power = 0.10	
@@ -1701,6 +1708,13 @@ armenia_first_mission = {
 		}
 
 		basque_reorganized_army = {
+			infantry_power = 0.10	
+			cavalry_power = 0.10	
+			artillery_power = 0.10	
+			drill_gain_modifier = 0.10	
+			free_mil_policy = 1	
+		}
+		aegyptus_reorganized_army = {
 			infantry_power = 0.10	
 			cavalry_power = 0.10	
 			artillery_power = 0.10	
@@ -1788,7 +1802,18 @@ rochina_firstdayreform4 = {
 
 }
 
+magyaria_religion_od = {
+		global_missionary_strength = 0.03	
+		missionary_maintenance_cost = -0.1		
+		tolerance_heathen = -1		
+	}
 
+magyaria_military_ar = {
+		land_morale_constant = 0.1	
+		land_attrition = -0.10	
+		reinforce_cost_modifier = -0.10	
+		land_forcelimit_modifier = 0.25			
+	}
 china_huangjiu = {
 		trade_goods_size_modifier = 0.25			
 	}
@@ -1868,3 +1893,73 @@ pax_phoenixempire = {
 	unjustified_demands = -0.2	
 	province_warscore_cost = -0.2		
 }
+ 
+kingdom_amaszvar = {
+	ae_impact = -0.05	
+	unjustified_demands = -0.05	
+	province_warscore_cost = -0.05
+	prestige = 0.25		
+}
+kingdom_amaszvar2 = {
+	legitimacy = 1	
+	culture_conversion_time = -0.1	
+	vassal_manpower_bonus = 0.1	
+}
+kingdom_amaszvar3 = {
+	land_morale = 0.10	
+	cavalry_power = 0.10	
+}
+magyaria_fight_minorities = {
+	advisor_pool = -1	
+	culture_conversion_cost = -0.25	
+	num_accepted_cultures = -1	
+	global_unrest = 2	
+}
+
+ magyaria_fight_nationalarmy = {	
+	global_manpower_modifier = 0.1
+	can_recruit_janissaries = no
+}
+
+ magyaria_fight_professional = {
+	global_manpower_modifier = -0.33
+	janissary_cost_modifier = -0.33		
+	allow_janissaries_from_own_faith = yes	
+}
+
+ aigyptios_splendor = {
+	monthly_splendor = 1	
+	advisor_cost = -0.25		
+	prestige = 0.5	
+}
+
+	greek_romanisation = {
+		culture_conversion_cost = -0.15	
+		same_culture_advisor_cost = -0.15		
+	}
+	greek_road_ship = {
+	galley_power = 0.1	
+	blockade_efficiency = 0.1	
+	naval_attrition = -0.1				
+}
+
+alexandria_trade_company = {
+	merchants = 1	
+	trade_range_modifier = 0.15				
+}
+
+arabia_trade_company = {
+	merchants = 1	
+	global_trade_power = 0.15			
+}
+
+heelenii_empire = {
+	diplomats = 1	
+	diplomatic_upkeep = 1	
+	diplomatic_reputation = 1	
+	rival_change_cost = -0.2	
+	stability_cost_to_declare_war = -1		
+	global_trade_power = 0.15		
+	monthly_splendor = 1		
+}
+

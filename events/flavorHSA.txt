@@ -19,8 +19,8 @@ country_event = {
 	trigger = {
 		always = no	#Outdated event
 		tag = HSA
-		is_year = 7029
-		NOT = { is_year = 7071 }
+		is_year = 6629
+		NOT = { is_year = 6671 }
 		owns = 43 #Danzig
 	}
 	
@@ -52,7 +52,7 @@ country_event = {
 	
 	trigger = {
 		tag = HSA
-		NOT = { is_year = 7009 }
+		NOT = { is_year = 6609 }
 		owns = 43 #Danzig
 		owns = 45 #L�beck
 		NOT = { has_ruler_modifier = hsa_stop_shipbuilding_technology } 
@@ -144,8 +144,8 @@ country_event = {
 	
 	trigger = {
 		tag = HSA
-		is_year = 7065
-		NOT = { is_year = 7100 }
+		is_year = 6665
+		NOT = { is_year = 6700 }
 	}
 	
 	mean_time_to_happen = {
@@ -345,7 +345,7 @@ country_event = { #The Danzig Confederation
 		name = flavor_hsa.9.a 
 		add_country_modifier = {
 			name = hsa_danzig_merchants_in_league_modifier
-			duration = 7300 
+			duration = 6900 
 		}
 		add_mercantilism = 2 
 	}
@@ -668,7 +668,7 @@ country_event = { #The Stalhof Kontor
 		236 = {
 			owner = { is_at_war = no }
 		}
-		NOT = { is_year = 7009 }
+		NOT = { is_year = 6609 }
 	}
 
 	mean_time_to_happen = { months = 36 }
@@ -682,7 +682,7 @@ country_event = { #The Stalhof Kontor
 		
 		add_country_modifier = {
 			name = hsa_profits_from_the_london_steelyard_modifier
-			duration = 7300 
+			duration = 6900 
 		}
 		add_ruler_personality = entrepreneur_personality
 		if = {
@@ -715,7 +715,7 @@ country_event = { #Coin and Diplomacy
 			add_base_production = 1 
 			add_province_modifier = {
 				name = hsa_mercantile_stronghold_of_the_hansa_modifier
-				duration = 7300 
+				duration = 6900 
 			}
 		}
 	}
@@ -780,8 +780,8 @@ country_event = { #George Giese
 	trigger = {
 		has_country_flag = hsa_has_had_stalhof_event_flag
 		tag = HSA 
-		is_year = 7009 
-		NOT = { is_year = 7074 }
+		is_year = 6609 
+		NOT = { is_year = 6674 }
 		is_at_war = no
 		government = republic
 	}
@@ -911,7 +911,7 @@ country_event = { #
 	fire_only_once = yes 
 	
 	trigger = {
-		NOT = { is_year = 6964 }
+		NOT = { is_year = 6564 }
 		tag = HSA 
 		NOT = {
 			1269 = {
@@ -991,7 +991,7 @@ country_event = { #Hans Holbein the Younger
 	trigger = {
 		tag = HSA 
 		has_country_flag = hsa_has_had_stalhof_event_flag
-		NOT = { is_year = 7069 }
+		NOT = { is_year = 6669 }
 		is_at_war = no 
 	}
 	

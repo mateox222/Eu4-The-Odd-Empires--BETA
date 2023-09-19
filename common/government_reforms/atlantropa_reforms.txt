@@ -153,7 +153,6 @@ roman_byzantine_monarchy2 = {
 	nation_designer_cost = 150
 
 	modifiers = {
-		global_manpower = 5
 		war_exhaustion = -0.01
 		max_absolutism = 5
 		nobles_loyalty_modifier = 0.1
@@ -193,7 +192,7 @@ roman_byzantine_monarchy = {
 	nation_designer_cost = 150
 
 	modifiers = {
-		global_manpower = 3
+	    global_manpower_modifier = 0.20
 		war_exhaustion = -0.03
 		global_unrest = 1
 		max_absolutism = 15
@@ -623,7 +622,11 @@ autonomous_byzantine_province = {
 	allow_normal_conversion = yes
 	icon = "byzantine"
 	potential = {
+		OR = {
 			is_subject_of_type = atlantis_coempire
+			is_subject_of_type = atlantis_magyar_eyalet
+		}
+
 	}
 	valid_for_nation_designer = no
 	maintain_dynasty = yes
@@ -636,7 +639,10 @@ autonomous_byzantine_province = {
 		hidden_effect = {
 			if = {
 				limit = {
+					OR = {
 					NOT = { is_subject_of_type = atlantis_coempire }
+					NOT = { is_subject_of_type = atlantis_magyar_eyalet }
+					}
 
 				}
 				country_event = {
@@ -1268,4 +1274,114 @@ perpignan_monarchy = {
 	}
 
     
+}
+
+
+magyar_government = {
+	lock_level_when_selected = yes
+	allow_normal_conversion = yes
+	icon = "kristaperioanempire"
+	potential = {
+		tag = A83
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 20
+	nation_designer_trigger = {
+	}
+	legacy_equivalent = feudal_monarchy	
+	maintain_dynasty = yes
+	modifiers = {
+		unjustified_demands = -0.1
+		legitimacy = 0.5
+		max_absolutism = 5
+		governing_capacity = 150
+	}
+
+	removed_effect = {
+		remove_country_modifier = tur_weakened_the_harem
+	}
+		government_abilities = {
+			militarization_mechanic
+		}
+	custom_attributes = {
+		locked_government_type = yes
+	}
+	conditional = {
+		allow = { has_dlc = "Domination" }
+		has_pashas = yes
+		has_janissaries = yes
+		has_harem = yes
+		custom_attributes = {
+			has_harem_events = yes
+			enables_estate_janissaries = yes
+		}
+	}
+	conditional = {
+		allow = { 
+			has_dlc = "Cradle of Civilization"
+			NOT = { has_dlc = "Domination" }
+		}
+		has_pashas = yes
+		has_janissaries = yes
+	}
+	conditional = {
+		allow = {
+			has_dlc = "Rights of Man" 
+			NOT = { has_dlc = "Domination" }
+		}
+		has_harem = yes
+		custom_attributes = {
+			has_harem_events = yes
+		}
+	}
+}
+
+
+roman_egyptian_monarchy = {
+	icon = "ptolemaic"
+	legacy_equivalent = feudal_monarchy	
+	allow_normal_conversion = yes
+	potential = {
+			OR = {
+		tag = A4R
+    }
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 150
+
+	modifiers = {
+	
+		global_unrest = -1
+		max_absolutism = 15
+		adm_advisor_cost = -0.2		
+		no_stability_loss_on_monarch_death = yes	
+		governing_capacity_modifier = 0.15
+		naval_morale = 0.05
+		administrative_efficiency = 0.01	
+
+	}
+
+
+	conditional = {	
+	factions = {
+		mr_aristocrats
+		mr_traders
+		mr_guilds
+	}
+	}
+			custom_attributes = {
+		locked_government_type = yes
+	}
+		ai = {
+		factor = 100
+	}
+	government_abilities = {
+		egypt_mechanic
+	}
+	government_abilities = {
+		pho_naval_professionalism_mechanic
+	}
+
+
+	
 }

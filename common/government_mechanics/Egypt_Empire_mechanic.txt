@@ -1,0 +1,71 @@
+egypt_mechanic = {
+   alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 8
+	
+	interactions = {
+       egypt_boost_ruler_navy = { #Improvemandate
+			cooldown_years = 10
+			
+			icon = GFX_egyptnavy
+			trigger = {
+                dip_power = 100
+			}
+			effect = { 
+             add_yearly_sailors = 1
+             create_admiral = { tradition = 60 }	
+             add_dip_power = -100
+	random_owned_province = {
+    limit = { has_port = yes }
+    ROOT = {
+        galley = PREV
+    }
+	    ROOT = {
+        galley = PREV
+    }
+
+		}
+		
+			}
+			ai_chance = {
+				factor = 0
+			}
+		}
+       egypt_boost_ruler_army = { 
+			cooldown_years = 10
+			
+			icon = GFX_egyptarmy
+			trigger = {
+                mil_power = 100
+			}
+			effect = { 
+             add_yearly_manpower = 2
+             create_general = { tradition = 60 }	
+             add_mil_power = -100
+			}
+			ai_chance = {
+				factor = 0
+			}
+		}
+
+        egypt_boost_ruler_economy = { 
+			cooldown_years = 10
+			
+			icon = GFX_egyptalexandria
+			trigger = {
+                   adm_power = 100
+			}
+			effect = { 
+             add_years_of_income = 1	
+             add_adm_power = -100
+             add_inflation = -5
+
+			}
+			ai_chance = {
+				factor = 0
+			}
+		}
+		
+
+
+}
+}
