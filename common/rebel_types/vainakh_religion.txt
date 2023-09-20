@@ -171,7 +171,7 @@ vainakh_religion_rebels = {
 	# Country scope
 	can_negotiate_trigger = {
 		OR = {
-			religion_group = muslim
+
 			dominant_religion = vainakh_religion
 		}
 	}
@@ -195,7 +195,7 @@ vainakh_religion_rebels = {
 		}
 		if = {
 			limit = {
-				NOT = { religion_group = muslim }
+				
 			}
 			add_prestige = -50
 			every_owned_province = {
@@ -233,7 +233,7 @@ vainakh_religion_rebels = {
 			limit = {
 				NOT = { religion = vainakh_religion }
 				NOT = { dominant_religion = vainakh_religion }
-				religion_group = muslim
+	
 				NOT = { has_country_modifier = heretic_tolerance }
 			}
 			add_country_modifier = {
