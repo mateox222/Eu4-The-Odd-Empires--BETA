@@ -1047,7 +1047,7 @@ on_siege_won_province = {
 			controller = {
 				has_country_flag = CHINSKAWOJNADOMOWAAAAA
 			}
-			owner = {
+			from = {
 				has_country_flag = CHINSKAWOJNADOMOWAAAAA
 			}
 		}
@@ -1058,10 +1058,11 @@ on_siege_won_province = {
 }
 	if = {
 		limit = {
+			NOT = { owned_by = REB }
 			controller = {
 				has_country_flag = FRANCUSKAWOJNADOMOWA
 			}
-			owner = {
+			from = {
 				has_country_flag = FRANCUSKAWOJNADOMOWA
 			}
 		}
@@ -1072,26 +1073,21 @@ on_siege_won_province = {
 }
 	if = {
 		limit = {
-			owner = {
+			from = {
 				has_country_flag =  warunekegipskiejwojnywybuchu
 			}
 			controller = {
 				has_country_flag =  warunekegipskiejwojnywybuchu
-				OR = {
-					is_in_war = {
-						attacker_leader = this
-					}
-					is_in_war = {
-						defender_leader = this
-					}
-				}
+
 			}
 		}
-				random_list = {
+		ROOT = {	
+			random_list = {
 			20 = { add_base_tax = -1 }
 			20 = { add_base_production = -1 }	
 			20 = { add_base_manpower = -1 }		
 			80 = { add_devastation = 2	}
+		}
 		}
 			
 			cede_province = controller

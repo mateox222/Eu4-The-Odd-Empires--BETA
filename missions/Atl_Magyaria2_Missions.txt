@@ -724,7 +724,7 @@ magyaria2 = {
 	}
 	MAGYARIA_SEIZE_mesopotamia = {
 		icon = atlantropa_mesopataka
-				ai_weight = {
+		ai_weight = {
 			factor = 1
 		}
 		position = 8
@@ -759,15 +759,15 @@ magyaria2 = {
 						has_dlc = \"Cradle of Civilization\"
 					}
 					if = {
-						limit = {
-							religion_group = muslim
-						}
+						limit = { 
+							religion_group = muslim 
+						} 
 						enable_baseline_invite_scholar_no_privilege = yes
 					}
 					else = {
 						hidden_effect = { enable_baseline_invite_scholar_no_privilege = yes }
 						add_adm_power = 100
-					}
+					} 
 				}
 				else = {
 					add_adm_power = 100
