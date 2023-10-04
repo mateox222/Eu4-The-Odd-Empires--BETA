@@ -621,8 +621,8 @@ province_event = {
 			limit = {
 				owner = {
 					OR = {
-										if = {
-						limit = { has_country_flag =  alexandria_city_destroyed }
+										AND = {
+					has_country_flag =  alexandria_city_destroyed
 						tag = CYP
 										}
 					  tag = A6F
@@ -640,10 +640,10 @@ province_event = {
 				controller = {
 	
 					OR = {
-						if = {
-							limit = { has_country_flag =  alexandria_city_destroyed }
-							tag = CYP
-						}
+						AND = {
+							has_country_flag =  alexandria_city_destroyed
+								tag = CYP
+												}
 					  tag = A6F
 					  tag = A2R
 					  tag = MAK
