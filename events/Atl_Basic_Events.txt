@@ -659,7 +659,12 @@ province_event = {
 				}
 			}	
 				cede_province = controller
-				add_territorial_core = controller
+				IF = {
+					limit = {
+						NOT = { is_core = controller }
+					}
+					add_territorial_core = controller
+				}
 				ROOT = {	
 					random_list = {
 					20 = { add_base_tax = -1 }
