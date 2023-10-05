@@ -622,7 +622,7 @@ province_event = {
 				owner = {
 					OR = {
 										AND = {
-					has_country_flag =  alexandria_city_destroyed
+											NOT = { 	has_country_flag =  alexandria_city_destroyed }
 						tag = CYP
 										}
 					  tag = A6F
@@ -641,7 +641,7 @@ province_event = {
 	
 					OR = {
 						AND = {
-							has_country_flag =  alexandria_city_destroyed
+						NOT = { 	has_country_flag =  alexandria_city_destroyed }
 								tag = CYP
 												}
 					  tag = A6F
