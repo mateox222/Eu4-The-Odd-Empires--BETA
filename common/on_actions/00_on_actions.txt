@@ -1041,36 +1041,12 @@ on_siege_won_province = {
 	events = {
 		synthetic_dawn.4
 		atlantropa_basic_event.3011
+		atlantropa_basic_event.3012
+		atlantropa_basic_event.3013
 	}
 
-	if = {
-		limit = {
-			controller = {
-				has_country_flag = CHINSKAWOJNADOMOWAAAAA
-			}
-			from = {
-				has_country_flag = CHINSKAWOJNADOMOWAAAAA
-			}
-		}
-		
-			cede_province = controller
-			add_core = controller
-	
-}
-	if = {
-		limit = {
-			controller = {
-				has_country_flag = FRANCUSKAWOJNADOMOWA
-			}
-			from = {
-				has_country_flag = FRANCUSKAWOJNADOMOWA
-			}
-		}
-		
-			cede_province = controller
-			add_core = controller
-	
-}
+
+
 
 
 

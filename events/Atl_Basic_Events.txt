@@ -677,3 +677,56 @@ province_event = {
 	}
 	}
 }
+
+province_event = {
+	id = atlantropa_basic_event.3012
+	title = "atlantropa_basic_event.1.t"
+	desc = "atlantropa_basic_event.1.d"
+	picture = VILLAGE_BURNING_eventPicture
+	is_triggered_only = yes
+	hidden = yes
+	option = {
+		name = "atlantropa_basic_event.1.a"
+		if = {
+			limit = {
+				controller = {
+					has_country_flag = CHINSKAWOJNADOMOWAAAAA
+				}
+				from = {
+					has_country_flag = CHINSKAWOJNADOMOWAAAAA
+				}
+			}
+			
+				cede_province = controller
+				add_core = controller
+		
+	}
+
+	}
+}
+province_event = {
+	id = atlantropa_basic_event.3013
+	title = "atlantropa_basic_event.1.t"
+	desc = "atlantropa_basic_event.1.d"
+	picture = VILLAGE_BURNING_eventPicture
+	is_triggered_only = yes
+	hidden = yes
+	option = {
+		name = "atlantropa_basic_event.1.a"
+		if = {
+			limit = {
+				controller = {
+					has_country_flag = FRANCUSKAWOJNADOMOWA
+				}
+				from = {
+					has_country_flag = FRANCUSKAWOJNADOMOWA
+				}
+			}
+			
+				cede_province = controller
+				add_core = controller
+		
+	}
+
+	}
+}
