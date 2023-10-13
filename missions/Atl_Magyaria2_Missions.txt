@@ -1145,71 +1145,10 @@ magyaria3 = {
 			}
 		}
 		trigger = {
-			OR = {
-				custom_trigger_tooltip = {
-					tooltip = tur_creation_of_persian_eyalet_at
-					OR = {
-						has_country_flag = tur_created_persian_eyalet
-						has_country_flag = tur_keeps_persia_for_themselves
-					}
-				}
-				NOT = { has_government_attribute = has_eyalets }
-			}
-			if = {
-				limit = {
-					NOT = { has_country_flag = tur_created_persian_eyalet }
-					NOT = { has_country_flag = tur_keeps_persia_for_themselves }
-					has_government_attribute = has_eyalets
-				}
-				custom_trigger_tooltip = {
-					tooltip = tur_creation_of_persian_eyalet_bt
-					always = no
-				}
-			}
-			else_if = {
-				limit = { has_country_flag = tur_created_persian_eyalet }
-				OR = {
-					AND = {
-						has_dip_advisor_3 = yes
-						any_subject_country = {
-							NOT = { liberty_desire = 10 }
-							has_opinion = {
-								who = ROOT
-								value = 100
-							}
-							capital_scope = {
-								region = persia_region
-							}
-							OR = {
-								is_subject_of_type = eyalet
-								is_subject_of_type = core_eyalet
-							}
-						}
-					}
-					AND = {
-						NOT = { exists = EGY }
-						persia_region = {
-							country_or_non_sovereign_subject_holds = ROOT
-							type = all
-						}
-					}
-				}
-			}
-			else = {
-				egypt_region = {
+				persia_region = {
 					country_or_non_sovereign_subject_holds = ROOT
 					NOT = { local_autonomy_above_min = 10 }
 					type = all
-				}
-				bahari_area = {
-					type = all
-					country_or_non_sovereign_subject_holds = ROOT
-					num_of_times_improved = 4
-				}
-				delta_area = {
-					type = all
-					country_or_non_sovereign_subject_holds = ROOT
-					num_of_times_improved = 4
 				}
 			}
 		}
@@ -1762,12 +1701,6 @@ magyaria_5 = {
 			workshop = 15
 		}
 		effect = {
-			change_price = {
-				trade_goods = chinaware
-				key = qing_chinaware
-				value = 0.5
-				duration = 18250
-			}
 			every_owned_province = {
 				limit = {
 					has_building = workshop
