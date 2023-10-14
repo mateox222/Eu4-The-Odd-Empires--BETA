@@ -161,37 +161,7 @@ pagan = {
 		heretic = { OLD_SUOMENUSKO }	
 		personal_deity = yes
 	}
-	raumarysm = {
-		icon = 34
-		color = { 173 170 170 }
-		country = {
-			culture_conversion_cost = -0.15
-			relation_with_heathens = -100
-			tolerance_heathen = -5	
-			establish_order_cost = -0.1		
-		}
-		province = {
-			local_manpower_modifier = 0.1
-		}
-		country_as_secondary = {
-			manpower_recovery_speed = 0.1
-		}
-		declare_war_in_regency = yes	
-		heretic = { OPETANI }	
-		uses_church_power = yes		
-		
-		aspects = {
-			raumaria_mercury_aspect
-			raumaria_venus_aspect
-			raumaria_mars_aspect			
-			raumaria_saturn_aspect
-			raumaria_nibiru_aspect
-			raumaria_uran_aspect
-			raumaria_neptune_aspect
-			raumaria_pluto_aspect 
-		}
-		aspects_name = lunar_ASPECT
-	}
+	
 
 
 
@@ -786,7 +756,7 @@ deep_group = {
 		#personal_deity = yes
 		heretic = { TAOIST }
 		
-		#harmonized_modifier = harmonized_demonic
+		#harmonized_modifier = harmonized_agarthic
 	}
 	ktonian_r = {
 		color = { 30 40 30 }
@@ -794,17 +764,30 @@ deep_group = {
 		country = {
 			tolerance_heretic = -1
 			tolerance_heathen = -1
-			yearly_absolutism = 0.2
-			discipline = 0.025
+			global_unrest = 2
+			global_autonomy = -0.025
+			discipline = -0.015
+			land_forcelimit_modifier = 0.15
 		}
 		country_as_secondary = {
-			yearly_absolutism = 0.2
-			discipline = 0.025
+			global_unrest = 2
+			global_autonomy = -0.025
+			discipline = -0.015
+			land_forcelimit_modifier = 0.15
 		}
-		#personal_deity = yes
+		uses_anglican_power = yes				# Uses church power/aspect mechanics
+		aspects = {
+			call_slave_host
+			create_slave_state
+			#invoke_warrior_heritage_aspect
+			#gather_great_host_great_aspect
+			#assemble_shamans_great_aspect
+			#anoint_slave_herd_great
+		}
+		aspects_name = ANGLICAN_ASPECTS
 		heretic = { TAOIST }
 		
-		#harmonized_modifier = harmonized_demonic
+		#harmonized_modifier = harmonized_ktonian_r
 	}
 	golem_cult = {
 		color = { 235 160 35 }
@@ -820,7 +803,7 @@ deep_group = {
 		#personal_deity = yes
 		heretic = { TAOIST }
 		
-		#harmonized_modifier = harmonized_demonic
+		#harmonized_modifier = harmonized_golem_cult
 	}
 }
 
@@ -840,12 +823,42 @@ pagan = {
 		#personal_deity = yes
 		heretic = { TAOIST }
 		
-		#harmonized_modifier = harmonized_demonic
+		#harmonized_modifier = harmonized_olm_worship
 	}
 }
 
 zoroastrian_group = {
-
+	raumarysm = {
+		icon = 34
+		color = { 173 170 170 }
+		country = {
+			culture_conversion_cost = -0.15
+			relation_with_heathens = -100
+			tolerance_heathen = -5	
+			establish_order_cost = -0.1		
+		}
+		province = {
+			local_manpower_modifier = 0.1
+		}
+		country_as_secondary = {
+			manpower_recovery_speed = 0.1
+		}
+		declare_war_in_regency = yes	
+		heretic = { OPETANI }	
+		uses_church_power = yes		
+		
+		aspects = {
+			raumaria_mercury_aspect
+			raumaria_venus_aspect
+			raumaria_mars_aspect			
+			raumaria_saturn_aspect
+			raumaria_nibiru_aspect
+			raumaria_uran_aspect
+			raumaria_neptune_aspect
+			raumaria_pluto_aspect 
+		}
+		aspects_name = lunar_ASPECT
+	}
 	manichean = {
 		icon = 26
 		color = { 70 38 162  }  
