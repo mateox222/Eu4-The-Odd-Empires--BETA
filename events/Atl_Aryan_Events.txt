@@ -2684,4 +2684,267 @@ country_event = {
 					}}
 				
 							
-					}		}				
+					}		}	
+					
+					
+
+
+					country_event = {
+						id = aryan_empire.100
+						title = aryan_empire.100.t
+						desc = aryan_empire.100.d
+						picture = Daqin_City_eventPicture
+						fire_only_once = yes
+						is_triggered_only = yes
+						option = {
+						name = "aryan_empire.100.a" 
+								add_adm_power = 100
+								add_dip_power = 100
+								add_mil_power = 100
+								capital_scope = {
+									add_institution_embracement = {
+										which = feudalism
+										value = 100
+									}
+								}
+							}
+						}
+
+						country_event = {
+							id = aryan_empire.101 #miasto
+							title = aryan_empire.101.t
+							desc = aryan_empire.101.d
+							picture = raumariafanatic_eventPicture
+							fire_only_once = yes
+							is_triggered_only = yes
+							option = {
+							name = "aryan_empire.101.a" 
+									add_adm_power = -50
+									add_dip_power = -50
+									add_mil_power = -50
+								}
+								option = {
+									name = "aryan_empire.101.b" 
+										add_stability = -1
+										}
+							}
+							country_event = {
+								id = aryan_empire.102 #istnienietajnejsekty
+								title = aryan_empire.102.t
+								desc = aryan_empire.102.d
+								picture = Sacrificepagan_eventPicture
+								fire_only_once = yes
+								is_triggered_only = yes
+								option = {
+								name = "aryan_empire.102.a" 
+								add_stability = -1
+									
+									hidden_effect = {
+										country_event = { 
+											id = aryan_empire.103
+											days = 30
+											random = 1
+										}
+									}
+								}
+								}
+								country_event = {
+									id = aryan_empire.103 #sektazdobywapopularnosc
+									title = aryan_empire.103.t
+									desc = aryan_empire.103.d
+									picture = raumariafanatic_eventPicture
+									fire_only_once = yes
+									is_triggered_only = yes
+									option = {
+									name = "aryan_empire.103.a" 
+									add_stability = -1
+										
+										hidden_effect = {
+											country_event = { 
+												id = aryan_empire.104
+												days = 15
+												random = 15
+											}
+										}
+									}
+								}
+									country_event = {
+										id = aryan_empire.104 #sekta nawo?uje do obalenia republiki
+										title = aryan_empire.104.t
+										desc = aryan_empire.104.d
+										picture = sackniflport_eventPicture
+										fire_only_once = yes
+										is_triggered_only = yes
+										option = {
+										name = "aryan_empire.104.a" 
+										add_yearly_manpower = -1
+										add_adm_power = -50	
+											hidden_effect = {
+												country_event = { 
+													id = aryan_empire.105
+													days = 1
+													random = 2
+												}
+											}
+										}
+									}	
+										country_event = {
+											id = aryan_empire.105 #rozprawienie si? z sekt?
+											title = aryan_empire.105.t
+											desc = aryan_empire.105.d
+											picture = raumariafanatic_eventPicture
+											fire_only_once = yes
+											is_triggered_only = yes
+											option = {
+											name = "aryan_empire.105.b"  #masakra
+											add_mil_power = -100
+											set_country_flag = krwawamasakra
+										
+											1972 = {
+												add_base_tax = -1
+											}	
+												hidden_effect = {
+													country_event = { 
+														id = aryan_empire.106
+														days = 50
+														random = 30
+													}
+												}
+											}
+											option = {
+												name = "aryan_empire.105.a"  #bierno??
+												add_dip_power = -25
+												set_country_flag = niekrwawamasakra
+												add_yearly_manpower = -0.5	
+													hidden_effect = {
+														country_event = { 
+															id = aryan_empire.116
+															days = 50
+															random = 30
+														}
+													}
+												}
+										}
+										country_event = {
+											id = aryan_empire.116 #krwawa sobota
+											title = aryan_empire.116.t
+											desc = aryan_empire.116.d
+											picture = saccoroma_eventPicture
+											fire_only_once = yes
+											is_triggered_only = yes
+											option = {
+											name = "aryan_empire.116.a" 
+									   add_stability = -1
+									   add_yearly_manpower = -1	
+									   add_dip_power = -100
+									   1972 = {
+										add_base_tax = -2
+									}	
+											
+									hidden_effect = {
+										country_event = { 
+											id = aryan_empire.107
+											days = 10
+											random = 10
+										}
+									}
+								   }		
+										
+											}
+										
+										country_event = {
+											id = aryan_empire.106 #krwawa sobota
+											title = aryan_empire.106.t
+											desc = aryan_empire.106.d
+											picture = scottishcastle_eventPicture
+											fire_only_once = yes
+											is_triggered_only = yes
+											option = {
+											name = "aryan_empire.106.a" 
+											add_yearly_manpower = -0.1	
+											add_stability = -1
+											add_dip_power = -50
+											hidden_effect = {
+												country_event = { 
+													id = aryan_empire.107
+													days = 10
+													random = 10
+												}
+											}
+										}	
+												
+											
+											}
+										
+										country_event = { #ostateczne rozwi?zanie sekty
+											id = aryan_empire.107
+											title = aryan_empire.107.t
+											desc = aryan_empire.107.d
+											picture = notredameburn_eventPicture
+											fire_only_once = yes
+											is_triggered_only = yes
+											option = {
+											name = "aryan_empire.107.a" 
+											       add_mil_power = -100
+												   add_yearly_manpower = -0.75	
+												   
+												
+												hidden_effect = {
+													country_event = { 
+														id = aryan_empire.109
+														days = 2
+														random = 2
+													}
+												}
+											}
+											option = {	
+												name = "aryan_empire.107.b" 
+												add_dip_power = -50
+													hidden_effect = {
+														country_event = { 
+															id = aryan_empire.108
+															days = 2
+															random = 2
+														}
+													}
+												}
+										}
+										country_event = { 
+											id = aryan_empire.108 #republika wygrywa
+											title = aryan_empire.108.t
+											desc = aryan_empire.108.d
+											picture = hellenistic_eventPicture
+											fire_only_once = yes
+											major = yes
+											is_triggered_only = yes
+											option = {
+											name = "aryan_empire.108.a" 
+											       add_adm_power = 50
+												   add_stability = 2
+												   
+												   set_country_flag = republikaraumariawygrywa
+												   add_dip_power = 50
+												
+											}
+										}
+										country_event = {
+											id = aryan_empire.109 #sekta wygrywa
+											title = aryan_empire.109.t
+											desc = aryan_empire.109.d
+											picture = BLACKSUN_eventPicture
+											fire_only_once = yes
+											is_triggered_only = yes
+											major = yes
+											option = {
+											name = "aryan_empire.109.a" 
+											       add_adm_power = -50
+												   add_stability = -1
+												   
+												   set_country_flag = republikaraumariaprzegrywa
+												   add_dip_power = -50
+												   add_mil_power = -50
+												   add_yearly_manpower = -0.5	
+												   change_religion = raumarysm 
+												   capital_scope = { change_religion = raumarysm  }
+											}
+										}

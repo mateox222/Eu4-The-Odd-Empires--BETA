@@ -1,0 +1,65 @@
+call_slave_host = {
+	#sprite = "GFX_unknown"
+	cost = 50
+	
+	effect = {
+		random_owned_province = {
+			limit = {
+				base_manpower = 2
+				trade_goods = slaves
+			}
+			ROOT = {
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+			}
+			add_base_manpower = -1
+		}
+	}
+	trigger = {
+		any_owned_province = {
+			trade_goods = slaves
+			base_manpower = 2
+		}
+	}
+	
+	ai_will_do = {
+		factor = 8
+		modifier = {
+			factor = 0
+			army_size_percentage = 0.8
+		}
+	}
+}
+
+create_slave_state = {
+	#sprite = "GFX_unknown"
+	cost = 50
+	
+	effect = {
+		random_owned_province = {
+			limit = {
+				NOT = {
+					trade_goods = slaves
+				}
+			}
+			change_trade_good = slaves
+		}
+	}
+	trigger = {
+		NOT = {
+			any_owned_province = {
+				trade_goods = slaves
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 8
+		modifier = {
+			factor = 0
+			num_of_generals = 2
+		}
+	}
+}

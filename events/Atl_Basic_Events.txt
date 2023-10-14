@@ -606,3 +606,127 @@ country_event = {
 }
 
 
+
+
+province_event = {
+	id = atlantropa_basic_event.3011
+	title = "atlantropa_basic_event.1.t"
+	desc = "atlantropa_basic_event.1.d"
+	picture = VILLAGE_BURNING_eventPicture
+	is_triggered_only = yes
+	hidden = yes
+	option = {
+		name = "atlantropa_basic_event.1.a"
+		if = {
+			limit = {
+				owner = {
+					OR = {
+										AND = {
+											NOT = { 	has_country_flag =  alexandria_city_destroyed }
+						tag = CYP
+										}
+					  tag = A6F
+					  tag = A2R
+					  tag = MAK
+					  tag = HSN
+					  tag = A3R	
+					  tag = DI1
+					  tag = DI2
+					  tag = DI3
+					  tag = DI4
+					  tag = DI5		
+			  }	
+				}
+				controller = {
+	
+					OR = {
+						AND = {
+						NOT = { 	has_country_flag =  alexandria_city_destroyed }
+								tag = CYP
+												}
+					  tag = A6F
+					  tag = A2R
+					  tag = MAK
+					  tag = HSN
+					  tag = A3R	
+					  tag = DI1
+					  tag = DI2
+					  tag = DI3
+					  tag = DI4
+					  tag = DI5		
+			  }	
+	
+				}
+			}	
+				cede_province = controller
+				IF = {
+					limit = {
+						NOT = { is_core = controller }
+					}
+					add_territorial_core = controller
+				}
+				ROOT = {	
+					random_list = {
+					20 = { add_base_tax = -1 }
+					20 = { add_base_production = -1 }	
+					20 = { add_base_manpower = -1 }		
+					80 = { add_devastation = 2	}
+				}
+				}
+		
+	}
+	}
+}
+
+province_event = {
+	id = atlantropa_basic_event.3012
+	title = "atlantropa_basic_event.1.t"
+	desc = "atlantropa_basic_event.1.d"
+	picture = VILLAGE_BURNING_eventPicture
+	is_triggered_only = yes
+	hidden = yes
+	option = {
+		name = "atlantropa_basic_event.1.a"
+		if = {
+			limit = {
+				controller = {
+					has_country_flag = CHINSKAWOJNADOMOWAAAAA
+				}
+				from = {
+					has_country_flag = CHINSKAWOJNADOMOWAAAAA
+				}
+			}
+			
+				cede_province = controller
+				add_core = controller
+		
+	}
+
+	}
+}
+province_event = {
+	id = atlantropa_basic_event.3013
+	title = "atlantropa_basic_event.1.t"
+	desc = "atlantropa_basic_event.1.d"
+	picture = VILLAGE_BURNING_eventPicture
+	is_triggered_only = yes
+	hidden = yes
+	option = {
+		name = "atlantropa_basic_event.1.a"
+		if = {
+			limit = {
+				controller = {
+					has_country_flag = FRANCUSKAWOJNADOMOWA
+				}
+				from = {
+					has_country_flag = FRANCUSKAWOJNADOMOWA
+				}
+			}
+			
+				cede_province = controller
+				add_core = controller
+		
+	}
+
+	}
+}

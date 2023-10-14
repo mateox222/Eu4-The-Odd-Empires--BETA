@@ -296,7 +296,7 @@ country_event = {
 		months = 10
 		}
 	trigger = {
-		tag = A76
+	owns = 379
 	has_global_flag = egiptzaczynasie
 	}
 	option = {
@@ -319,6 +319,9 @@ country_event = {
 			cede_province = A1C
 		}
 			every_owned_province = {
+				limit = {
+					area = palestine_area
+				}
 			add_core = ISR
 			cede_province = ISR
 		}
