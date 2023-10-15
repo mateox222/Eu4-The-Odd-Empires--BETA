@@ -194,7 +194,7 @@ NOT = {  is_month = 8 }
 			add_casus_belli = {
 				type = cb_restore_personal_union
 				months = 600
-				target = A68
+				target = A69
 			}
 			change_country_color = { color = { 107 0 0 } }	
 					}
@@ -232,130 +232,7 @@ NOT = {  is_month = 8 }
 
 
 				
-country_event = {
-	id = azteceuropa.7
-	title = "azteceuropa.7.t"
-	desc = "azteceuropa.7.d"
-	picture = BLACKSUN_eventPicture
-	fire_only_once = yes
-	major = yes
-	trigger = {
-			NOT = { has_global_flag = aztec_city_destroyed }
-		    NOT = { has_global_flag = lisboa_city_destroyed }
-			NOT = { is_year = 6534 }
-						tag = A69
-						exists = POR
-						OR = {
-			POR = { NOT = { army_size = 5 } }
-			war_score_against = { who = POR value = 50 }
-						}
-			OR = {
-			227 = { controlled_by = ROOT }
-			227 = { owned_by = A46 }
-			227 = { controlled_by = A46 }
-			227 = { owned_by = ROOT }
 
-	}}
-	option = {
-		name = azteceuropa.7.a #Sack of City
-	227 = {
-	add_devastation = 100
-	}
-		add_mil_power = 150 
-		add_dip_power = 150 
-		add_adm_power = 150
-		add_treasury = 300	
-		set_global_flag = lisboa_city_destroyed
-												iberia_region = {
-				limit = {
-					 owned_by = POR
-				}
-		
-    cede_province = ROOT
-	add_core = ROOT
-
-	}
-	206 = {
-		cede_province = A46
-		add_core = A46
-		remove_core = A69
-	}
-	230 = {
-		cede_province = A46
-		add_core = A46
-		remove_core = A69
-	}
-	229 = {
-		cede_province = A46
-		add_core = A46
-		remove_core = A69
-	}
-	white_peace = ARA
-	white_peace = A57
-	A46 = {
-	white_peace = ARA
-	white_peace = A57
-
-	}
-	}
-}
-
-
-country_event = {
-	id = azteceuropa.8
-	title = "azteceuropa.8.t"
-	desc = "azteceuropa.8.d"
-	picture = wessex_eventPicture
-	fire_only_once = yes
-	major = yes
-	trigger = {
-			NOT = { has_global_flag = lisboa_city_destroyed }
-		    NOT = { has_global_flag = aztec_city_destroyed }
-			NOT = { is_year = 6534 }
-						tag = POR
-						exists = A69
-						OR = {
-							A69 = { NOT = { army_size = 5 } }
-			war_score_against = { who = A69 value = 50 }
-						}
-			OR = {
-			4555 = { controlled_by = ROOT }
-			4555 = { owned_by = ARA }
-			4555 = { controlled_by = ARA }
-			4555 = { owned_by = A57 }
-			4555 = { controlled_by = A57 }
-			4555 = { owned_by = ROOT }
-
-	}}
-	option = {
-		name = azteceuropa.8.a #Sack of City
-		4555 = {
-	add_devastation = 100
-	}
-		add_mil_power = 150 
-		add_dip_power = 150 
-		add_adm_power = 150
-		add_treasury = 300	
-		set_global_flag = aztec_city_destroyed
-												iberia_region = {
-				limit = {
-					 owned_by = A69
-				}
-		
-    cede_province = ROOT
-	add_core = ROOT
-
-	}
-	A46 = {
-		white_peace = ARA
-		white_peace = A57
-		white_peace = POR
-		}
-
-	
-
-	}
-}
 
 
 country_event = {
@@ -427,3 +304,311 @@ country_event = {
 			}
 	}
 }
+
+
+
+
+
+
+country_event = {
+	id = azteceuropa.10 #Collapse of the Empire
+	title = "azteceuropa.10.t"
+	desc = "azteceuropa.10.d"
+	picture = atltownduringsiege_eventPicture
+	fire_only_once = yes
+	major = yes
+	trigger = {
+		    NOT = { has_global_flag = aztec_city_destroyed }
+			NOT = { is_year = 6534 }
+						tag = ZT1
+						OR = {
+							AND = {
+								war_score_against = { who = ZT1 value = 30 }	
+								NOT = { controls = 342 }	
+								ZT1 = { NOT = { army_size = 15 } }
+							}
+			AND = {
+				war_score_against = { who = ZT1 value = 50 }	
+				NOT = { controls = 342 }	
+			}
+			AND = {
+				NOT = { controls = 1751 }	
+				NOT = { controls = 342 }
+				NOT = { controls = 343 }	
+				NOT = { controls = 344 }		
+				
+			}
+			ZT1 = { NOT = { army_size = 1 } }
+			war_score_against = { who = ZT1 value = 90 }
+
+						}
+}
+	option = {
+		country_event = { 
+			id = azteceuropa.11
+		}
+		change_tag = A68
+		name = azteceuropa.10.a #Sack of City
+		342 = {
+	add_devastation = 100
+	set_base_tax = 1
+	set_base_manpower = 1
+	set_base_production = 1		
+	}
+		add_mil_power = -100
+		add_dip_power = -100
+		add_adm_power = -100
+		set_global_flag = aztec_city_destroyed
+
+
+	208 = {
+		cede_province = SP3
+		add_core = SP3
+	}
+	2755 = {
+		cede_province = SP3
+		add_core = SP3
+	}	
+	337 = {
+		cede_province = TEU
+		add_core = TEU
+	}
+	2465 = {
+		cede_province = TLC
+		add_core = TLC
+	}
+	5669 = {
+		cede_province = SB2
+		add_core = SB2
+	}
+	5670 = {
+		cede_province = SB2
+		add_core = SB2
+	}
+	
+
+	galicia_area = {
+		cede_province = A57
+		add_core = A57
+	}
+	northern_morocco_area = {
+		cede_province = A57
+		add_core = A57
+	}
+	alentejo_area = {
+		cede_province = POR
+		add_core = POR
+		}
+		A57 = { override_country_name = KATOLICKIEKROLESTWOHISZPANIA }
+	every_country = {
+		limit = {
+			war_with = A68
+		}
+		white_peace = A68
+		}	
+		hidden_effect = {
+			
+			1751 = {
+			   add_core = A46
+			   cede_province = A46
+			}
+		   5681 = {
+			   add_core = AZ6
+			   cede_province = AZ6
+			}  
+		   343 = {
+			   add_core = A69
+			   cede_province = A69
+			}  
+				5689 = {
+				   add_core =  X1P
+				   cede_province =  X1P
+			   }
+			   5690 = {
+				   add_core =  X1P
+				   cede_province =  X1P
+			   }	
+			
+			   add_truce_with = X1P
+			   add_truce_with = A69
+			   add_truce_with = AZ6	
+			   add_truce_with = A46	
+		   }
+
+
+	}
+}
+country_event = {
+	id = azteceuropa.11 #Collapse of the Empire
+	title = "azteceuropa.11.t"
+	desc = "azteceuropa.11.d"
+	picture =  aztec_SACRIFICE_eventPicture	
+	major = yes
+	is_triggered_only = yes
+	option = {
+		custom_tooltip = playyaocaliball
+		name = azteceuropa.11.a #Sack of City
+		hidden_effect = {
+			leon_area = {
+				limit = {
+					owned_by = A68
+				}
+			cede_province = A46
+			add_core = A46
+			}
+			baleares_area = {
+				limit = {
+					owned_by = A68
+				}
+			cede_province = A46
+			add_core = A46
+			}
+			algiers_area = {
+				limit = {
+					owned_by = A68
+				}
+			cede_province = A69
+			add_core = A69
+			}	
+
+			atlantis_region = {
+				limit = {
+					owned_by = A68
+				}
+			cede_province = AZ6
+			add_core = AZ6
+			}	
+			libyasuperior_region = {
+				limit = {
+					owned_by = A68
+				}
+			cede_province = A68
+			add_core = A68
+			}	
+			
+ 
+	}
+	switch_tag = A46
+}
+option = {
+	name = azteceuropa.11.a #Sack of City
+	hidden_effect = {
+		leon_area = {
+			limit = {
+				owned_by = A68
+			}
+		cede_province = A46
+		add_core = A46
+		}
+		baleares_area = {
+			limit = {
+				owned_by = A68
+			}
+		cede_province = A46
+		add_core = A46
+		}
+		algiers_area = {
+			limit = {
+				owned_by = A68
+			}
+		cede_province = A69
+		add_core = A69
+		}	
+
+		atlantis_region = {
+			limit = {
+				owned_by = A68
+			}
+		cede_province = AZ6
+		add_core = AZ6
+		}	
+		libyasuperior_region = {
+			limit = {
+				owned_by = A68
+			}
+		cede_province = A68
+		add_core = A68
+		}	
+		switch_tag = AZ6	
+
+
+}
+}
+option = {
+	name = azteceuropa.11.a #Sack of City
+	hidden_effect = {
+		leon_area = {
+			limit = {
+				owned_by = A68
+			}
+		cede_province = A46
+		add_core = A46
+		}
+		baleares_area = {
+			limit = {
+				owned_by = A68
+			}
+		cede_province = A46
+		add_core = A46
+		}
+		algiers_area = {
+			limit = {
+				owned_by = A68
+			}
+		cede_province = A69
+		add_core = A69
+		}	
+
+		atlantis_region = {
+			limit = {
+				owned_by = A68
+			}
+		cede_province = AZ6
+		add_core = AZ6
+		}	
+		switch_tag = A69
+
+
+}
+}
+option = {
+	name = azteceuropa.11.a #Sack of City
+	custom_tooltip = playmaurrechetlan
+	hidden_effect = {
+
+		leon_area = {
+			limit = {
+				owned_by = A68
+			}
+		cede_province = A46
+		add_core = A46
+		}
+		baleares_area = {
+			limit = {
+				owned_by = A68
+			}
+			cede_province = A46
+		add_core = A46
+		}
+		algiers_area = {
+			limit = {
+				owned_by = A68
+			}
+		cede_province = A69
+		add_core = A69
+		}	
+
+		atlantis_region = {
+			limit = {
+				owned_by = A68
+			}
+		cede_province = AZ6
+		add_core = AZ6
+		}	
+
+}
+}
+}
+
+
+
