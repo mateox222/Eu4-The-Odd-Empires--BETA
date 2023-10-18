@@ -1,18 +1,13 @@
 aigyptos_missions_1 = {
 	slot = 1
 	generic = no
-	 ai = yes
-  has_country_shield = yes  
+	ai = yes
 	potential = {
 		tag = A4R
 	}
 
 	egypt_core_1 = {
 		icon = mission_occupy_alexandria
-
-				ai_weight = {
-			factor = 100
-		}
 		position = 2
 		required_missions = { AIGYPTOS_after_war }
 		provinces_to_highlight = {
@@ -23,8 +18,8 @@ aigyptos_missions_1 = {
 		}
 		trigger = {
 			adm_power = 100
-			 NOT = { cyrenaica_area = { devastation = 5 } }
-			 NOT = { delta_area = {devastation = 5 } }
+			NOT = { cyrenaica_area = { devastation = 5 } }
+			NOT = { delta_area = {devastation = 5 } }
 		}
 		effect = {
 			add_adm_power = -100
@@ -34,9 +29,6 @@ aigyptos_missions_1 = {
 	}
 	egyptian_orthodox_expansion = {
 		icon = protectors_of_christendom
-				ai_weight = {
-			factor = 100
-		}
 		position = 3
 		required_missions = {  }
 		trigger = {
@@ -52,9 +44,6 @@ aigyptos_missions_1 = {
 	}
 	egyptian_promote_hellenism = {
 		icon = atlantropa_hellenism
-				ai_weight = {
-			factor = 100
-		}
 		position = 4
 		required_missions = { egyptian_orthodox_expansion }
 		trigger = {
@@ -69,9 +58,6 @@ aigyptos_missions_1 = {
 	}
 	egypti_ethnostate = {
 		icon = atlantropa_alexandermac
-				ai_weight = {
-			factor = 100
-		}
 		position = 5
 		required_missions = { egyptian_promote_hellenism }
 		trigger = {
@@ -89,9 +75,6 @@ aigyptos_missions_1 = {
 	}
 	egytian_traders = {
 		icon = mission_dominate_trade_in_aden
-				ai_weight = {
-			factor = 100
-		}
 		position = 6
 		required_missions = {  }
 		trigger = {
@@ -116,9 +99,6 @@ aigyptos_missions_1 = {
 	}
 	egypt_establish_navytrade = {
 		icon = mission_russian_navy
-				ai_weight = {
-			factor = 100
-		}
 		position = 7
 		required_missions = { egypt_build_docks egytian_traders }
 		trigger = {
@@ -144,9 +124,6 @@ aigyptos_missions_1 = {
 	}
 	egypt_dominate_mediterranean = {
 		icon = mission_rb_mediterranean_authority
-				ai_weight = {
-			factor = 100
-		}
 		position = 9
 		required_missions = { egypt_establish_navytrade egypt_establish_galleys }
 		trigger = {
@@ -168,9 +145,6 @@ aigyptos_missions_1 = {
 	}
 	egypt_seize_mesopotamia = {
 		icon = atlantropa_babylon
-				ai_weight = {
-			factor = 100
-		}
 		position = 11
 		required_missions = { egypt_celesyria }
 		provinces_to_highlight = {
@@ -192,17 +166,13 @@ aigyptos_missions_1 = {
 aigyptos_missions_2 = {
 	slot = 2
 	generic = no
-	 ai = yes
-  has_country_shield = yes  
+	ai = yes
 	potential = {
 		tag = A4R
 	}
 
 	egypt_core_2 = {
 		icon = atlantropa_egypt
-				ai_weight = {
-			factor = 100
-		}
 		position = 2
 		required_missions = { AIGYPTOS_after_war }
 		provinces_to_highlight = {
@@ -224,9 +194,6 @@ aigyptos_missions_2 = {
 	}
 	build_superfortress = {
 		icon = fortify_the_passes
-				ai_weight = {
-			factor = 100
-		}
 		position = 3
 		required_missions = {  }
 		trigger = {
@@ -243,9 +210,6 @@ aigyptos_missions_2 = {
 	}
 	buildd_university = {
 		icon = pontifical_universities
-				ai_weight = {
-			factor = 100
-		}
 		position = 4
 		required_missions = { egyptian_manpower }
 		trigger = {
@@ -257,17 +221,14 @@ aigyptos_missions_2 = {
 		}
 		effect = {
 			change_government_reform_progress = 100
-			add_adm_tech = 1	
-			add_dip_tech = 1	
+			add_adm_tech = 1
+			add_dip_tech = 1
 			add_adm_power = -100
 			add_dip_power = -100
 		}
 	}
 	egypt_build_docks = {
 		icon = toulon_dockyards
-				ai_weight = {
-			factor = 100
-		}
 		position = 6
 		required_missions = {  }
 		trigger = {
@@ -282,9 +243,6 @@ aigyptos_missions_2 = {
 	}
 	egypt_establish_galleys = {
 		icon = mission_galleys_in_port
-				ai_weight = {
-			factor = 100
-		}
 		position = 8
 		required_missions = { egypt_build_docks }
 		trigger = {
@@ -308,9 +266,6 @@ aigyptos_missions_2 = {
 	}
 	egypt_jerusalem_siege = {
 		icon = convert_the_holy_lands
-				ai_weight = {
-			factor = 100
-		}
 		position = 9
 		required_missions = { egypt_establish_army }
 		provinces_to_highlight = {
@@ -329,9 +284,6 @@ aigyptos_missions_2 = {
 	}
 	egypt_celesyria = {
 		icon = atlantropa_bloodysweden
-				ai_weight = {
-			factor = 100
-		}
 		position = 10
 		required_missions = { egypt_jerusalem_siege }
 		provinces_to_highlight = {
@@ -355,9 +307,6 @@ aigyptos_missions_2 = {
 	}
 	egypt_seize_armenia = {
 		icon = atlantropa_armeniaflag
-				ai_weight = {
-			factor = 100
-		}
 		position = 11
 		required_missions = { egypt_celesyria }
 		provinces_to_highlight = {
@@ -384,9 +333,6 @@ aigyptos_missions_2 = {
 	}
 	egypt_seize_anatolia = {
 		icon = atlantropa_anatolia
-				ai_weight = {
-			factor = 100
-		}
 		position = 12
 		required_missions = { egypt_seize_armenia }
 		provinces_to_highlight = {
@@ -410,17 +356,13 @@ aigyptos_missions_2 = {
 aigyptos_missions_3 = {
 	slot = 3
 	generic = no
-	 ai = yes
-  has_country_shield = yes  
+	ai = yes
 	potential = {
 		tag = A4R
 	}
 
 	AIGYPTOS_after_war = {
 		icon = atlantropa_byzantineflag
-				ai_weight = {
-			factor = 100
-		}
 		position = 1
 		required_missions = {  }
 		trigger = {
@@ -430,17 +372,13 @@ aigyptos_missions_3 = {
 			}
 		}
 		effect = {
-						country_event = {
+			country_event = {
 				id = kyrinaikan_events.10
 			}
-			
 		}
 	}
 	egyptian_manpower = {
 		icon = mission_mansure_army
-				ai_weight = {
-			factor = 100
-		}
 		position = 3
 		required_missions = { AIGYPTOS_after_war }
 		trigger = {
@@ -452,9 +390,6 @@ aigyptos_missions_3 = {
 	}
 	egyptian_develop_alexandria = {
 		icon = mission_conquer_alexandria
-				ai_weight = {
-			factor = 100
-		}
 		position = 4
 		required_missions = { egyptian_manpower }
 		provinces_to_highlight = {
@@ -474,26 +409,19 @@ aigyptos_missions_3 = {
 	}
 	egyptian_development = {
 		icon = atlantropa_africamap
-				ai_weight = {
-			factor = 100
-		}
 		position = 5
 		required_missions = { buildd_university egyptian_develop_alexandria egyptian_expand_dev }
 		trigger = {
 			total_development = 1000
 		}
 		effect = {
-									country_event = {
+			country_event = {
 				id = kyrinaikan_events.11
 			}
-
 		}
 	}
 	egypt_great_power = {
 		icon = atlantropa_weight
-				ai_weight = {
-			factor = 100
-		}
 		position = 6
 		required_missions = { egyptian_development }
 		trigger = {
@@ -511,9 +439,6 @@ aigyptos_missions_3 = {
 	}
 	egypt_hegemony = {
 		icon = africa_proconsulare
-				ai_weight = {
-			factor = 100
-		}
 		position = 7
 		required_missions = { egypt_great_power }
 		trigger = {
@@ -542,9 +467,6 @@ aigyptos_missions_3 = {
 	}
 	egypt_establish_army = {
 		icon = mission_modern_knight_army
-				ai_weight = {
-			factor = 100
-		}
 		position = 8
 		required_missions = {  }
 		trigger = {
@@ -563,9 +485,6 @@ aigyptos_missions_3 = {
 	}
 	egypt_reform_army = {
 		icon = atlantropa_greekarmy
-				ai_weight = {
-			factor = 100
-		}
 		position = 10
 		required_missions = { egypt_establish_army }
 		trigger = {
@@ -587,30 +506,23 @@ aigyptos_missions_3 = {
 			}
 		}
 	}
-		egypt_seizeconstantinople = {
+	egypt_seizeconstantinople = {
 		icon = mission_city_of_the_world's_desire
-				ai_weight = {
-			factor = 100
-		}
 		position = 12
 		required_missions = {  }
 		trigger = {
 			controls = 151
 		}
 		effect = {
-									country_event = {
+			country_event = {
 				id = kyrinaikan_events.12
 			}
 		}
 	}
-
 	egypt_hellenic_empire = {
 		icon = atlantropa_hellenic_empire
-				ai_weight = {
-			factor = 100
-		}
 		position = 13
-		required_missions = { egypt_seize_anatolia egypt_seize_somalia egypt_seizeconstantinople	 }
+		required_missions = { egypt_seize_anatolia egypt_seize_somalia egypt_seizeconstantinople }
 		trigger = { }
 		effect = {
 			add_adm_power = 500
@@ -628,17 +540,13 @@ aigyptos_missions_3 = {
 aigyptos_missions_4 = {
 	slot = 4
 	generic = no
-	 ai = yes
-  has_country_shield = yes  
+	ai = yes
 	potential = {
 		tag = A4R
 	}
 
 	egypt_Core_3 = {
 		icon = mission_advance_to_the_arabian_sea
-				ai_weight = {
-			factor = 100
-		}
 		position = 2
 		required_missions = { AIGYPTOS_after_war }
 		provinces_to_highlight = {
@@ -650,7 +558,7 @@ aigyptos_missions_4 = {
 		trigger = {
 			adm_power = 100
 			NOT = { said_area  = {  devastation = 5 }}
-			 NOT = { bahari_area = { devastation = 5 }}
+			NOT = { bahari_area = { devastation = 5 }}
 		}
 		effect = {
 			add_adm_power = -100
@@ -660,9 +568,6 @@ aigyptos_missions_4 = {
 	}
 	egyptian_artillery = {
 		icon = mission_cannons_firing
-				ai_weight = {
-			factor = 100
-		}
 		position = 3
 		required_missions = {  }
 		provinces_to_highlight = {
@@ -686,10 +591,7 @@ aigyptos_missions_4 = {
 		}
 	}
 	egyptian_expand_dev = {
-		icon = mission_plc_cultural_flowering 
-				ai_weight = {
-			factor = 100
-		}
+		icon = mission_plc_cultural_flowering
 		position = 4
 		required_missions = { egyptian_manpower }
 		trigger = {
@@ -715,9 +617,6 @@ aigyptos_missions_4 = {
 	}
 	egypt_road = {
 		icon = mission_silk_road
-				ai_weight = {
-			factor = 100
-		}
 		position = 6
 		required_missions = {  }
 		trigger = {
@@ -734,9 +633,6 @@ aigyptos_missions_4 = {
 	}
 	egypt_trains = {
 		icon = atlantropa_steamengine
-				ai_weight = {
-			factor = 100
-		}
 		position = 8
 		required_missions = { egypt_road eyptian_industrial_rev }
 		trigger = {
@@ -753,9 +649,6 @@ aigyptos_missions_4 = {
 	}
 	egypt_seize_nubia = {
 		icon = mission_envoy_to_ethiopia
-				ai_weight = {
-			factor = 100
-		}
 		position = 9
 		required_missions = { egypt_establish_army }
 		provinces_to_highlight = {
@@ -774,9 +667,6 @@ aigyptos_missions_4 = {
 	}
 	egypt_dominate_dongola = {
 		icon = atlantropa_stalzemsty
-				ai_weight = {
-			factor = 100
-		}
 		position = 10
 		required_missions = { egypt_seize_nubia }
 		provinces_to_highlight = {
@@ -800,9 +690,6 @@ aigyptos_missions_4 = {
 	}
 	egypt_control_ethiopia = {
 		icon = befriend_ethiopia
-				ai_weight = {
-			factor = 100
-		}
 		position = 11
 		required_missions = { egypt_dominate_dongola }
 		provinces_to_highlight = {
@@ -820,9 +707,6 @@ aigyptos_missions_4 = {
 	}
 	egypt_seize_somalia = {
 		icon = mission_into_africa
-				ai_weight = {
-			factor = 100
-		}
 		position = 12
 		required_missions = { egypt_control_ethiopia }
 		provinces_to_highlight = {
@@ -846,17 +730,13 @@ aigyptos_missions_4 = {
 aigyptos_missions_5 = {
 	slot = 5
 	generic = no
-	 ai = yes
-  has_country_shield = yes  
+	ai = yes
 	potential = {
 		tag = A4R
 	}
 
 	egypt_core_4 = {
 		icon = mission_saharan_route
-				ai_weight = {
-			factor = 100
-		}
 		position = 2
 		required_missions = { AIGYPTOS_after_war }
 		provinces_to_highlight = {
@@ -881,9 +761,6 @@ aigyptos_missions_5 = {
 	}
 	egyptian_taxes = {
 		icon = mission_zambezi_gold
-				ai_weight = {
-			factor = 100
-		}
 		position = 3
 		required_missions = {  }
 		trigger = {
@@ -905,9 +782,6 @@ aigyptos_missions_5 = {
 	}
 	egyian_wheat_develop = {
 		icon = prosperity_for_all
-				ai_weight = {
-			factor = 100
-		}
 		position = 4
 		required_missions = { egyptian_taxes }
 		trigger = {
@@ -935,9 +809,6 @@ aigyptos_missions_5 = {
 	}
 	egyptian_production_building = {
 		icon = mission_early_game_buildings
-				ai_weight = {
-			factor = 100
-		}
 		position = 5
 		required_missions = { egyian_wheat_develop }
 		trigger = {
@@ -956,9 +827,6 @@ aigyptos_missions_5 = {
 	}
 	egyptian_manufactories = {
 		icon = mission_consume_the_baghels
-				ai_weight = {
-			factor = 100
-		}
 		position = 6
 		required_missions = { egyptian_production_building }
 		trigger = {
@@ -994,9 +862,6 @@ aigyptos_missions_5 = {
 	}
 	eyptian_industrial_rev = {
 		icon = industrialized_rhineland
-				ai_weight = {
-			factor = 100
-		}
 		position = 7
 		required_missions = {  }
 		trigger = {
@@ -1022,9 +887,6 @@ aigyptos_missions_5 = {
 	}
 	egypt_eparhiars = {
 		icon = atlantropa_aryanmoney
-				ai_weight = {
-			factor = 100
-		}
 		position = 9
 		required_missions = {  }
 		trigger = {
@@ -1040,9 +902,6 @@ aigyptos_missions_5 = {
 	}
 	egypt_seize_arabia = {
 		icon = mission_arabian_fort
-				ai_weight = {
-			factor = 100
-		}
 		position = 11
 		required_missions = { egypt_dominate_dongola }
 		trigger = {
