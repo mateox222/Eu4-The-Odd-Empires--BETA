@@ -449,3 +449,30 @@ negusa_nagast = {
 		allow_cawa = yes
 	}
 }
+
+portuguese_monarchy_reform = {
+	icon = "portuguese_king"
+	allow_normal_conversion = yes
+	potential = {
+		primary_culture = portugese
+	}
+	nation_designer_trigger = {
+		primary_culture = portugese
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	modifiers = {
+		naval_forcelimit_modifier = 0.2
+		global_tax_modifier = 0.1
+		sailors_recovery_speed = 0.2
+		navy_tradition = 1	
+		yearly_corruption = -0.1
+		
+	}
+			government_abilities = {
+			pho_naval_professionalism_mechanic
+		}
+	ai = {
+		factor = 1
+	}
+}
