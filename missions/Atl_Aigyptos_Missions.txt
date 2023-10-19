@@ -8,7 +8,10 @@ aigyptos_missions_1 = {
 
 	egypt_core_1 = {
 		icon = mission_occupy_alexandria
-		position = 2
+				ai_weight = {
+			factor = 1
+		}
+               position = 2
 		required_missions = { AIGYPTOS_after_war }
 		provinces_to_highlight = {
 			OR = {
@@ -29,7 +32,10 @@ aigyptos_missions_1 = {
 	}
 	egyptian_orthodox_expansion = {
 		icon = protectors_of_christendom
-		position = 3
+				ai_weight = {
+			factor = 1
+		}
+               position = 3
 		required_missions = {  }
 		trigger = {
 			religious_unity = 0.7
@@ -44,7 +50,10 @@ aigyptos_missions_1 = {
 	}
 	egyptian_promote_hellenism = {
 		icon = atlantropa_hellenism
-		position = 4
+				ai_weight = {
+			factor = 1
+		}
+               position = 4
 		required_missions = { egyptian_orthodox_expansion }
 		trigger = {
 			dominant_culture = cyrenaican
@@ -58,7 +67,10 @@ aigyptos_missions_1 = {
 	}
 	egypti_ethnostate = {
 		icon = atlantropa_alexandermac
-		position = 5
+				ai_weight = {
+			factor = 1
+		}
+               position = 5
 		required_missions = { egyptian_promote_hellenism }
 		trigger = {
 			num_of_owned_provinces_with = {
@@ -75,7 +87,10 @@ aigyptos_missions_1 = {
 	}
 	egytian_traders = {
 		icon = mission_dominate_trade_in_aden
-		position = 6
+				ai_weight = {
+			factor = 1
+		}
+               position = 6
 		required_missions = {  }
 		trigger = {
 			custom_trigger_tooltip = {
@@ -99,7 +114,10 @@ aigyptos_missions_1 = {
 	}
 	egypt_establish_navytrade = {
 		icon = mission_russian_navy
-		position = 7
+				ai_weight = {
+			factor = 1
+		}
+               position = 7
 		required_missions = { egypt_build_docks egytian_traders }
 		trigger = {
 			num_of_light_ship = 20
@@ -124,7 +142,10 @@ aigyptos_missions_1 = {
 	}
 	egypt_dominate_mediterranean = {
 		icon = mission_rb_mediterranean_authority
-		position = 9
+				ai_weight = {
+			factor = 1
+		}
+               position = 9
 		required_missions = { egypt_establish_navytrade egypt_establish_galleys }
 		trigger = {
 			NOT = {
@@ -145,7 +166,10 @@ aigyptos_missions_1 = {
 	}
 	egypt_seize_mesopotamia = {
 		icon = atlantropa_babylon
-		position = 11
+				ai_weight = {
+			factor = 1
+		}
+               position = 11
 		required_missions = { egypt_celesyria }
 		provinces_to_highlight = {
 			region = mashriq_region
@@ -173,7 +197,10 @@ aigyptos_missions_2 = {
 
 	egypt_core_2 = {
 		icon = atlantropa_egypt
-		position = 2
+				ai_weight = {
+			factor = 1
+		}
+               position = 2
 		required_missions = { AIGYPTOS_after_war }
 		provinces_to_highlight = {
 			OR = {
@@ -194,7 +221,10 @@ aigyptos_missions_2 = {
 	}
 	build_superfortress = {
 		icon = fortify_the_passes
-		position = 3
+				ai_weight = {
+			factor = 1
+		}
+               position = 3
 		required_missions = {  }
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
@@ -210,7 +240,10 @@ aigyptos_missions_2 = {
 	}
 	buildd_university = {
 		icon = pontifical_universities
-		position = 4
+				ai_weight = {
+			factor = 1
+		}
+               position = 4
 		required_missions = { egyptian_manpower }
 		trigger = {
 			adm_power = 100
@@ -229,7 +262,10 @@ aigyptos_missions_2 = {
 	}
 	egypt_build_docks = {
 		icon = toulon_dockyards
-		position = 6
+				ai_weight = {
+			factor = 1
+		}
+               position = 6
 		required_missions = {  }
 		trigger = {
 			dock = 10
@@ -243,7 +279,10 @@ aigyptos_missions_2 = {
 	}
 	egypt_establish_galleys = {
 		icon = mission_galleys_in_port
-		position = 8
+				ai_weight = {
+			factor = 1
+		}
+               position = 8
 		required_missions = { egypt_build_docks }
 		trigger = {
 			358 = { 				has_dock_building_trigger = yes }
@@ -266,7 +305,10 @@ aigyptos_missions_2 = {
 	}
 	egypt_jerusalem_siege = {
 		icon = convert_the_holy_lands
-		position = 9
+				ai_weight = {
+			factor = 1
+		}
+               position = 9
 		required_missions = { egypt_establish_army }
 		provinces_to_highlight = {
 			area = palestine_area
@@ -284,7 +326,10 @@ aigyptos_missions_2 = {
 	}
 	egypt_celesyria = {
 		icon = atlantropa_bloodysweden
-		position = 10
+				ai_weight = {
+			factor = 1
+		}
+               position = 10
 		required_missions = { egypt_jerusalem_siege }
 		provinces_to_highlight = {
 			OR = {
@@ -307,7 +352,10 @@ aigyptos_missions_2 = {
 	}
 	egypt_seize_armenia = {
 		icon = atlantropa_armeniaflag
-		position = 11
+				ai_weight = {
+			factor = 1
+		}
+               position = 11
 		required_missions = { egypt_celesyria }
 		provinces_to_highlight = {
 			area = erzurum_area
@@ -333,7 +381,10 @@ aigyptos_missions_2 = {
 	}
 	egypt_seize_anatolia = {
 		icon = atlantropa_anatolia
-		position = 12
+				ai_weight = {
+			factor = 1
+		}
+               position = 12
 		required_missions = { egypt_seize_armenia }
 		provinces_to_highlight = {
 			region = anatolia_region
@@ -363,7 +414,10 @@ aigyptos_missions_3 = {
 
 	AIGYPTOS_after_war = {
 		icon = atlantropa_byzantineflag
-		position = 1
+				ai_weight = {
+			factor = 1
+		}
+               position = 1
 		required_missions = {  }
 		trigger = {
 			custom_trigger_tooltip = {
@@ -379,7 +433,10 @@ aigyptos_missions_3 = {
 	}
 	egyptian_manpower = {
 		icon = mission_mansure_army
-		position = 3
+				ai_weight = {
+			factor = 1
+		}
+               position = 3
 		required_missions = { AIGYPTOS_after_war }
 		trigger = {
 			manpower_percentage = 0.90
@@ -390,7 +447,10 @@ aigyptos_missions_3 = {
 	}
 	egyptian_develop_alexandria = {
 		icon = mission_conquer_alexandria
-		position = 4
+				ai_weight = {
+			factor = 1
+		}
+               position = 4
 		required_missions = { egyptian_manpower }
 		provinces_to_highlight = {
 			province_id = 358
@@ -409,7 +469,10 @@ aigyptos_missions_3 = {
 	}
 	egyptian_development = {
 		icon = atlantropa_africamap
-		position = 5
+				ai_weight = {
+			factor = 1
+		}
+               position = 5
 		required_missions = { buildd_university egyptian_develop_alexandria egyptian_expand_dev }
 		trigger = {
 			total_development = 1000
@@ -422,7 +485,10 @@ aigyptos_missions_3 = {
 	}
 	egypt_great_power = {
 		icon = atlantropa_weight
-		position = 6
+				ai_weight = {
+			factor = 1
+		}
+               position = 6
 		required_missions = { egyptian_development }
 		trigger = {
 			NOT = { great_power_rank = 2 }
@@ -439,7 +505,10 @@ aigyptos_missions_3 = {
 	}
 	egypt_hegemony = {
 		icon = africa_proconsulare
-		position = 7
+				ai_weight = {
+			factor = 1
+		}
+               position = 7
 		required_missions = { egypt_great_power }
 		trigger = {
 			stability = 3
@@ -467,7 +536,10 @@ aigyptos_missions_3 = {
 	}
 	egypt_establish_army = {
 		icon = mission_modern_knight_army
-		position = 8
+				ai_weight = {
+			factor = 1
+		}
+               position = 8
 		required_missions = {  }
 		trigger = {
 			army_size = 25
@@ -485,7 +557,10 @@ aigyptos_missions_3 = {
 	}
 	egypt_reform_army = {
 		icon = atlantropa_greekarmy
-		position = 10
+				ai_weight = {
+			factor = 1
+		}
+               position = 10
 		required_missions = { egypt_establish_army }
 		trigger = {
 			army_size_percentage = 0.8
@@ -508,7 +583,10 @@ aigyptos_missions_3 = {
 	}
 	egypt_seizeconstantinople = {
 		icon = mission_city_of_the_world's_desire
-		position = 12
+				ai_weight = {
+			factor = 1
+		}
+               position = 12
 		required_missions = {  }
 		trigger = {
 			controls = 151
@@ -521,7 +599,10 @@ aigyptos_missions_3 = {
 	}
 	egypt_hellenic_empire = {
 		icon = atlantropa_hellenic_empire
-		position = 13
+				ai_weight = {
+			factor = 1
+		}
+               position = 13
 		required_missions = { egypt_seize_anatolia egypt_seize_somalia egypt_seizeconstantinople }
 		trigger = { }
 		effect = {
@@ -547,7 +628,10 @@ aigyptos_missions_4 = {
 
 	egypt_Core_3 = {
 		icon = mission_advance_to_the_arabian_sea
-		position = 2
+				ai_weight = {
+			factor = 1
+		}
+               position = 2
 		required_missions = { AIGYPTOS_after_war }
 		provinces_to_highlight = {
 			OR = {
@@ -568,7 +652,10 @@ aigyptos_missions_4 = {
 	}
 	egyptian_artillery = {
 		icon = mission_cannons_firing
-		position = 3
+				ai_weight = {
+			factor = 1
+		}
+               position = 3
 		required_missions = {  }
 		provinces_to_highlight = {
 			province_id = 5240
@@ -592,7 +679,10 @@ aigyptos_missions_4 = {
 	}
 	egyptian_expand_dev = {
 		icon = mission_plc_cultural_flowering
-		position = 4
+				ai_weight = {
+			factor = 1
+		}
+               position = 4
 		required_missions = { egyptian_manpower }
 		trigger = {
 			num_of_owned_provinces_with = {
@@ -617,7 +707,10 @@ aigyptos_missions_4 = {
 	}
 	egypt_road = {
 		icon = mission_silk_road
-		position = 6
+				ai_weight = {
+			factor = 1
+		}
+               position = 6
 		required_missions = {  }
 		trigger = {
 			atlantropa_road = 20
@@ -633,7 +726,10 @@ aigyptos_missions_4 = {
 	}
 	egypt_trains = {
 		icon = atlantropa_steamengine
-		position = 8
+				ai_weight = {
+			factor = 1
+		}
+               position = 8
 		required_missions = { egypt_road eyptian_industrial_rev }
 		trigger = {
 			atlantropa_tracks = 20
@@ -649,7 +745,10 @@ aigyptos_missions_4 = {
 	}
 	egypt_seize_nubia = {
 		icon = mission_envoy_to_ethiopia
-		position = 9
+				ai_weight = {
+			factor = 1
+		}
+               position = 9
 		required_missions = { egypt_establish_army }
 		provinces_to_highlight = {
 			area = dongola_area
@@ -667,7 +766,10 @@ aigyptos_missions_4 = {
 	}
 	egypt_dominate_dongola = {
 		icon = atlantropa_stalzemsty
-		position = 10
+				ai_weight = {
+			factor = 1
+		}
+               position = 10
 		required_missions = { egypt_seize_nubia }
 		provinces_to_highlight = {
 			OR = {
@@ -690,7 +792,10 @@ aigyptos_missions_4 = {
 	}
 	egypt_control_ethiopia = {
 		icon = befriend_ethiopia
-		position = 11
+				ai_weight = {
+			factor = 1
+		}
+               position = 11
 		required_missions = { egypt_dominate_dongola }
 		provinces_to_highlight = {
 			region = horn_of_africa_region
@@ -707,7 +812,10 @@ aigyptos_missions_4 = {
 	}
 	egypt_seize_somalia = {
 		icon = mission_into_africa
-		position = 12
+				ai_weight = {
+			factor = 1
+		}
+               position = 12
 		required_missions = { egypt_control_ethiopia }
 		provinces_to_highlight = {
 			region = central_africa_region
@@ -737,7 +845,10 @@ aigyptos_missions_5 = {
 
 	egypt_core_4 = {
 		icon = mission_saharan_route
-		position = 2
+				ai_weight = {
+			factor = 1
+		}
+               position = 2
 		required_missions = { AIGYPTOS_after_war }
 		provinces_to_highlight = {
 			OR = {
@@ -761,7 +872,10 @@ aigyptos_missions_5 = {
 	}
 	egyptian_taxes = {
 		icon = mission_zambezi_gold
-		position = 3
+				ai_weight = {
+			factor = 1
+		}
+               position = 3
 		required_missions = {  }
 		trigger = {
 			OR = {
@@ -782,7 +896,10 @@ aigyptos_missions_5 = {
 	}
 	egyian_wheat_develop = {
 		icon = prosperity_for_all
-		position = 4
+				ai_weight = {
+			factor = 1
+		}
+               position = 4
 		required_missions = { egyptian_taxes }
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
@@ -809,7 +926,10 @@ aigyptos_missions_5 = {
 	}
 	egyptian_production_building = {
 		icon = mission_early_game_buildings
-		position = 5
+				ai_weight = {
+			factor = 1
+		}
+               position = 5
 		required_missions = { egyian_wheat_develop }
 		trigger = {
 			workshop = 10
@@ -827,7 +947,10 @@ aigyptos_missions_5 = {
 	}
 	egyptian_manufactories = {
 		icon = mission_consume_the_baghels
-		position = 6
+				ai_weight = {
+			factor = 1
+		}
+               position = 6
 		required_missions = { egyptian_production_building }
 		trigger = {
 			num_of_owned_provinces_with = {
@@ -862,7 +985,10 @@ aigyptos_missions_5 = {
 	}
 	eyptian_industrial_rev = {
 		icon = industrialized_rhineland
-		position = 7
+				ai_weight = {
+			factor = 1
+		}
+               position = 7
 		required_missions = {  }
 		trigger = {
 			furnace = 1
@@ -887,7 +1013,10 @@ aigyptos_missions_5 = {
 	}
 	egypt_eparhiars = {
 		icon = atlantropa_aryanmoney
-		position = 9
+				ai_weight = {
+			factor = 1
+		}
+               position = 9
 		required_missions = {  }
 		trigger = {
 			atlantis_coempire = 5
@@ -902,7 +1031,10 @@ aigyptos_missions_5 = {
 	}
 	egypt_seize_arabia = {
 		icon = mission_arabian_fort
-		position = 11
+				ai_weight = {
+			factor = 1
+		}
+               position = 11
 		required_missions = { egypt_dominate_dongola }
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {

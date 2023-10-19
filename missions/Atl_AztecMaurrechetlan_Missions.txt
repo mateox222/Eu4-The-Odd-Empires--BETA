@@ -14,7 +14,10 @@ was_tag = A68
 
 	maurechetlan_war = {
 		icon = atlantropa_fallmexico
-		position = 1
+				ai_weight = {
+			factor = 10
+		}
+               position = 1
 		required_missions = {  }
 		trigger = {
 			custom_trigger_tooltip = {
@@ -41,7 +44,10 @@ was_tag = A68
 
 	azt_seize_lyonesse = {
 		icon = atlantropa_lyonesse
-		position = 8
+				ai_weight = {
+			factor = 10
+		}
+               position = 8
 		required_missions = { azt_empire_great }
 		provinces_to_highlight = {
 			region = lyonesse_region
@@ -87,7 +93,10 @@ was_tag = A68
 
 	maurrechetlan_army_reformed = {
 		icon = atlantropa_aztec4
-		position = 1
+				ai_weight = {
+			factor = 10
+		}
+               position = 1
 		required_missions = {  }
 		trigger = {
 			army_size_percentage = 0.8
@@ -110,7 +119,10 @@ was_tag = A68
 	}
 	azt_invite_refugees = {
 		icon = mission_cope_with_refugees
-		position = 2
+				ai_weight = {
+			factor = 10
+		}
+               position = 2
 		required_missions = { maurechetlan_war }
 		trigger = {
 			stability = 2
@@ -153,7 +165,10 @@ was_tag = A68
 	}
 	recoqnuer_yaocalibaal = {
 		icon = atlantropa_aztec6
-		position = 4
+				ai_weight = {
+			factor = 10
+		}
+               position = 4
 		required_missions = { AZT_reestablish_army }
 		provinces_to_highlight = {
 			owned_by = A46
@@ -179,7 +194,10 @@ was_tag = A68
 	}
 	azt_destroy_portogal = {
 		icon = mission_union_with_portugal
-		position = 6
+				ai_weight = {
+			factor = 10
+		}
+               position = 6
 		required_missions = { azt_maur_sunsetinvasion }
 		provinces_to_highlight = {
 			OR = {
@@ -214,7 +232,10 @@ was_tag = A68
 	}
 	mart_seize_hola = {
 		icon = atlantropa_doggerland
-		position = 8
+				ai_weight = {
+			factor = 10
+		}
+               position = 8
 		required_missions = { azt_empire_great }
 		provinces_to_highlight = {
 			OR = {
@@ -260,7 +281,10 @@ was_tag = A68
 
 	AZT_reestablish_army = {
 		icon = atlantropa_aztec4
-		position = 3
+				ai_weight = {
+			factor = 10
+		}
+               position = 3
 		required_missions = { maurechetlan_war }
 		trigger = {
 			army_size_percentage = 0.8
@@ -281,7 +305,10 @@ was_tag = A68
 	}
 	azt_deal_with_knights = {
 		icon = atlantropa_capathracs
-		position = 4
+				ai_weight = {
+			factor = 10
+		}
+               position = 4
 		required_missions = { AZT_reestablish_army }
 		provinces_to_highlight = {
 			area = galicia_area
@@ -316,7 +343,10 @@ was_tag = A68
 	}
 	azt_maur_sunsetinvasion = {
 		icon = atlantropa_aztecship
-		position = 5
+				ai_weight = {
+			factor = 10
+		}
+               position = 5
 		required_missions = { recoqnuer_yaocalibaal azt_deal_with_knights reconquer_atlahuitl }
 		trigger = {
 			army_strength = {
@@ -390,7 +420,10 @@ was_tag = A68
 	}
 	azt_desroysdpania = {
 		icon = mission_iberian_conquistador
-		position = 6
+				ai_weight = {
+			factor = 10
+		}
+               position = 6
 		required_missions = { azt_maur_sunsetinvasion }
 		provinces_to_highlight = {
 			OR = {
@@ -468,7 +501,10 @@ was_tag = A68
 	}
 	azt_empire_great = {
 		icon = atlantropa_aztecpyramid
-		position = 7
+				ai_weight = {
+			factor = 10
+		}
+               position = 7
 		required_missions = { azt_destroy_portogal azt_desroysdpania azt_destroymaure }
 		trigger = {
 			total_development = 1000
@@ -538,7 +574,10 @@ was_tag = A68
 	}
 	maurt_seize_francia = {
 		icon = atlantropa_thehighestorder
-		position = 8
+				ai_weight = {
+			factor = 10
+		}
+               position = 8
 		required_missions = { azt_empire_great }
 		provinces_to_highlight = {
 			OR = {
@@ -592,7 +631,10 @@ was_tag = A68
 	}
 	maurt_victory = {
 		icon = atlantropa_dawn
-		position = 9
+				ai_weight = {
+			factor = 10
+		}
+               position = 9
 		required_missions = { azt_seize_lyonesse maurt_seize_francia mart_seize_hola maurt_seize_afrika maurt_seize_italy }
 		trigger = {
 			stability = 3
@@ -633,7 +675,10 @@ was_tag = A68
 
 	build_fortress_azt = {
 		icon = fortify_the_passes
-		position = 1
+				ai_weight = {
+			factor = 10
+		}
+               position = 1
 		required_missions = {  }
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
@@ -649,7 +694,10 @@ was_tag = A68
 	}
 	deveo_atec_capital = {
 		icon = atlantropa_technotilian
-		position = 2
+				ai_weight = {
+			factor = 10
+		}
+               position = 2
 		required_missions = { maurechetlan_war }
 		provinces_to_highlight = {
 			province_id = 344
@@ -672,7 +720,10 @@ was_tag = A68
 	}
 	reconquer_atlahuitl = {
 		icon = atlantropa_aztec3
-		position = 4
+				ai_weight = {
+			factor = 10
+		}
+               position = 4
 		required_missions = { AZT_reestablish_army }
 		provinces_to_highlight = {
 			owned_by = A69
@@ -695,7 +746,10 @@ was_tag = A68
 	}
 	aztek_roads = {
 		icon = atlantropa_imperialroads
-		position = 5
+				ai_weight = {
+			factor = 10
+		}
+               position = 5
 		required_missions = {  }
 		trigger = {
 			atlantropa_road = 20
@@ -711,7 +765,10 @@ was_tag = A68
 	}
 	azt_destroymaure = {
 		icon = mission_moroccan_ports
-		position = 6
+				ai_weight = {
+			factor = 10
+		}
+               position = 6
 		required_missions = { azt_maur_sunsetinvasion }
 		provinces_to_highlight = {
 			OR = {
@@ -764,7 +821,10 @@ was_tag = A68
 	}
 	maurt_seize_afrika = {
 		icon = mission_conquer_algiers
-		position = 8
+				ai_weight = {
+			factor = 10
+		}
+               position = 8
 		required_missions = { azt_empire_great }
 		provinces_to_highlight = {
 			region = libyasuperior_region
@@ -803,7 +863,10 @@ was_tag = A68
 
 	azt_taxes_maur = {
 		icon = reform_the_monte
-		position = 1
+				ai_weight = {
+			factor = 10
+		}
+               position = 1
 		required_missions = {  }
 		trigger = {
 			OR = {
@@ -824,7 +887,10 @@ was_tag = A68
 	}
 	azt_product = {
 		icon = prosperity_for_all
-		position = 2
+				ai_weight = {
+			factor = 10
+		}
+               position = 2
 		required_missions = { azt_taxes_maur }
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
@@ -851,7 +917,10 @@ was_tag = A68
 	}
 	azt_production = {
 		icon = saxon_manufacturing
-		position = 3
+				ai_weight = {
+			factor = 10
+		}
+               position = 3
 		required_missions = { azt_product }
 		trigger = {
 			workshop = 10
@@ -869,7 +938,10 @@ was_tag = A68
 	}
 	AZT_manufactories_maur = {
 		icon = mission_have_manufactories
-		position = 4
+				ai_weight = {
+			factor = 10
+		}
+               position = 4
 		required_missions = { azt_production }
 		trigger = {
 			num_of_owned_provinces_with = {
@@ -904,7 +976,10 @@ was_tag = A68
 	}
 	azt_revolution_prze = {
 		icon = mission_industrialize_bengal
-		position = 5
+				ai_weight = {
+			factor = 10
+		}
+               position = 5
 		required_missions = { AZT_manufactories_maur }
 		trigger = {
 			furnace = 1
@@ -929,7 +1004,10 @@ was_tag = A68
 	}
 	aztek_track_re = {
 		icon = atlantropa_steamengine
-		position = 6
+				ai_weight = {
+			factor = 10
+		}
+               position = 6
 		required_missions = { aztek_roads azt_revolution_prze }
 		trigger = {
 			atlantropa_tracks = 20
@@ -945,7 +1023,10 @@ was_tag = A68
 	}
 	maurt_seize_italy = {
 		icon = atlantropa_italysicility
-		position = 8
+				ai_weight = {
+			factor = 10
+		}
+               position = 8
 		required_missions = { azt_empire_great }
 		provinces_to_highlight = {
 			OR = {
