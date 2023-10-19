@@ -382,19 +382,15 @@ lusitania2 = {
 		provinces_to_highlight = {
 			OR = {
 				area = zimbabwe_area
-				area = butua_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			zimbabwe_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			butua_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
+						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+								value = 5
+								region = south_africa_region
+								is_city = yes
+							}
 		}
 		effect = {
 			1188 = {
