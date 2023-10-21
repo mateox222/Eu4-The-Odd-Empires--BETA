@@ -634,8 +634,13 @@ theocracy_ideas = {
 	}
 	
 	trigger = {
-		government = theocracy
-		religion_group = christian
+		OR = {
+			AND = {
+				government = theocracy
+				religion_group = christian
+			}
+			tag = S00
+		}
 	}
 	free = yes
 	

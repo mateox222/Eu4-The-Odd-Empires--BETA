@@ -1,0 +1,184 @@
+s00_foundation = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = S00
+	}
+	
+	has_country_shield = yes
+
+	s00_establishing_a_foundation = {
+		icon = atlantropa_dnieper
+		position = 1
+		required_missions = {  }
+		trigger = {
+			grown_by_states = 2
+		}
+		effect = {
+			add_prestige = 10
+			add_years_of_income = 0.5
+			add_country_modifier = {
+				name = nor_colonial_enthusiasm
+				duration = 3650
+			}
+		}
+	}
+	s00_the_new_navy = {
+		icon = atlantropa_norserpowership
+		position = 4
+		required_missions = { s00_establishing_a_foundation }
+		trigger = {
+			naval_forcelimit = 20
+			navy_size_percentage = 1
+		}
+		effect = {
+			add_country_modifier = {
+				name = s00_old_world_connections
+				duration = 7300
+			}
+		}
+	}
+	s00_ties_with_the_papacy = {
+		icon = mission_build_up_to_force_limit
+		position = 5
+		required_missions = { s00_the_new_navy }
+		trigger = {
+			OR = {
+				AND = {
+					religion = catholic
+					papal_influence = 50
+					PAP = {
+						has_opinion = {
+							who = root
+							value = 100
+						}
+					}
+				}
+				AND = {
+					NOT = { religion = catholic }
+					OR = {
+						NOT = { exists = PAP }
+						PAP = {
+							custom_trigger_tooltip = {
+								tooltip = rivalled_or_rival_of
+								OR = {
+									is_rival = root
+									root = { is_rival = prev }
+								}
+							}
+							custom_trigger_tooltip = {
+								tooltip = has_been_insulted_by_root
+								OR = {
+									has_opinion_modifier = {
+										who = ROOT
+										modifier = insulted
+									}
+									has_opinion_modifier = {
+										who = ROOT
+										modifier = scornfully_insulted
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					religion = catholic
+				}
+				add_reform_desire = -0.02
+				add_papal_influence = 100
+			}
+			else = {
+				add_dip_power = 50
+			}
+		}
+	}
+}
+
+s00_worship_and_god = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = S00
+	}
+	
+	has_country_shield = yes
+
+	s00_converting_natives = {
+		icon = atlantropa_catholfocus
+		position = 1
+		required_missions = {  }
+		trigger = {
+			religious_unity = 1
+			grown_by_states = 2
+		}
+		effect = {
+			add_country_modifier = {
+				name = s00_new_temples
+				duration = 3650
+			}
+		}
+	}
+	s00_building_temples = {
+		icon = atlantropa_roma
+		position = 2
+		required_missions = { s00_converting_natives }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 20
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					religion = catholic
+				}
+				add_papal_influence = 50
+			}
+			else = {
+				add_dip_power = 25
+			}
+			add_devotion = 50
+			add_prestige = 50
+		}
+	}
+	s00_christ_has_risen = {
+		icon = atlantropa_dawn
+		position = 3
+		required_missions = { s00_building_temples }
+		trigger = {
+			religious_unity = 1
+			grown_by_states = 10
+		}
+		effect = {
+			add_country_modifier = {
+				name = s00_new_temples
+			}
+		}
+	}
+	s00_the_crusading_spirit = {
+		icon = atlantropa_russianempireprussia
+		position = 4
+		required_missions = {  }
+		trigger = {
+			has_country_modifier = crusadelatinempire
+		}
+		effect = {
+			create_conquistador = { tradition = 75 }
+			add_country_modifier = {
+				name = s00_new_crusade
+			}
+		}
+	}
+}
+
