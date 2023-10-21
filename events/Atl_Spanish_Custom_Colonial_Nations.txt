@@ -565,3 +565,89 @@ country_event = {
         add_stability = -2
 	}
 }
+
+
+country_event = {
+	id = atlantropa_spanish_col.20
+	title = "atlantropa_spanish_col.1.t"
+	desc = "atlantropa_spanish_col.1.d"
+	picture = COLONIZATION_eventPicture
+		is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_brazil
+			is_core = ROOT
+		}
+		NOT = { exists = C3G }
+        OR = {
+		is_colonial_nation_of = POR
+        }
+	}
+	immediate = {
+swap_non_generic_missions = yes
+		change_tag = C3G
+
+	}
+	option = {
+		name = "atlantropa_spanish_col.1.a"
+	}
+}
+country_event = {
+	id = atlantropa_spanish_col.21
+	title = "atlantropa_spanish_col.1.t"
+	desc = "atlantropa_spanish_col.1.d"
+	picture = COLONIZATION_eventPicture
+		is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_south_africa
+			is_core = ROOT
+		}
+		NOT = { exists = C4G }
+        OR = {
+		is_colonial_nation_of = POR
+        }
+	}
+	immediate = {
+swap_non_generic_missions = yes
+		change_tag = C4G
+
+	}
+	option = {
+		name = "atlantropa_spanish_col.1.a"
+	}
+}
+country_event = {
+	id = atlantropa_spanish_col.22
+	title = "atlantropa_spanish_col.1.t"
+	desc = "atlantropa_spanish_col.1.d"
+	picture = COLONIZATION_eventPicture
+		is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_global_flag = BRAKNAMKOLONIIGLOBALFLAGATLANTROPA }
+		capital_scope = {
+			colonial_region = colonial_the_carribean
+			is_core = ROOT
+		}
+		NOT = { exists = C5G }
+        OR = {
+		is_colonial_nation_of = POR
+        }
+	}
+	immediate = {
+swap_non_generic_missions = yes
+		change_tag = C5G
+
+	}
+	option = {
+		name = "atlantropa_spanish_col.1.a"
+	}
+}

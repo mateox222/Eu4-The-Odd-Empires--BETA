@@ -317,37 +317,24 @@ country_event = {
 	picture = atltownduringsiege_eventPicture
 	fire_only_once = yes
 	major = yes
+	mean_time_to_happen = {
+		months = 12
+	}
 	trigger = {
 		    NOT = { has_global_flag = aztec_city_destroyed }
 			NOT = { is_year = 6534 }
 						tag = ZT1
-						OR = {
-							AND = {
-								war_score_against = { who = ZT1 value = 30 }	
-								NOT = { controls = 342 }	
-								ZT1 = { NOT = { army_size = 15 } }
-							}
-			AND = {
-				war_score_against = { who = ZT1 value = 50 }	
-				NOT = { controls = 342 }	
-			}
-			AND = {
-				NOT = { controls = 1751 }	
-				NOT = { controls = 342 }
-				NOT = { controls = 343 }	
-				NOT = { controls = 344 }		
-				
-			}
-			ZT1 = { NOT = { army_size = 1 } }
-			war_score_against = { who = ZT1 value = 90 }
-
-						}
 }
 	option = {
+		add_stability = -2
 		country_event = { 
 			id = azteceuropa.11
+			days = 31
 		}
+		set_global_flag = atlantropa_aztec_falleeempire
 		change_tag = A68
+		swap_non_generic_missions = yes	
+		swap_free_idea_group = yes	
 		name = azteceuropa.10.a #Sack of City
 		342 = {
 	add_devastation = 100
@@ -404,6 +391,7 @@ country_event = {
 		limit = {
 			war_with = A68
 		}
+		add_years_of_income = 0.5	
 		white_peace = A68
 		}	
 		hidden_effect = {
@@ -446,6 +434,7 @@ country_event = {
 	major = yes
 	is_triggered_only = yes
 	option = {
+			highlight = yes
 		custom_tooltip = playyaocaliball
 		name = azteceuropa.11.a #Sack of City
 		hidden_effect = {
@@ -529,10 +518,9 @@ option = {
 		cede_province = A68
 		add_core = A68
 		}	
-		switch_tag = AZ6	
-
 
 }
+		switch_tag = AZ6	
 }
 option = {
 	name = azteceuropa.11.a #Sack of City
@@ -566,12 +554,15 @@ option = {
 		cede_province = AZ6
 		add_core = AZ6
 		}	
+
+
+
+}
 		switch_tag = A69
 
-
-}
 }
 option = {
+		highlight = yes
 	name = azteceuropa.11.a #Sack of City
 	custom_tooltip = playmaurrechetlan
 	hidden_effect = {
