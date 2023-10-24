@@ -2,14 +2,14 @@
 
 ATLAN_azt_missions_religion = {
 	slot = 1
-	generic = no
+	generic = yes
 	ai = yes
 	potential = {
 			OR = {
 		tag = A69
 		tag = A68
 		tag = A4C
-		tag = AZT					
+		tag = AZT			
 		tag = A46
 		was_tag = A46
 		}
@@ -262,12 +262,14 @@ add_great_project_tier = {
 		provinces_to_highlight = {
 			OR = {
 				province_id = 5561		
+				province_id = 5560						
 			}
 			NOT = { owned_by = ROOT }
 		}
 		
 		trigger = {
-			owns_core_province = 5561				
+			owns_core_province = 5561	
+			owns_core_province = 5560				
 		}
 		effect = {
 							add_country_modifier = {
@@ -275,6 +277,15 @@ add_great_project_tier = {
 				duration = -1
 			}
 			5561 = {
+				add_devastation = 100
+				change_culture = ROOT
+				change_religion = ROOT
+				add_base_tax = 1	
+				add_base_production = 1	
+				add_base_manpower = 1	
+
+			}
+						5560 = {
 				add_devastation = 100
 				change_culture = ROOT
 				change_religion = ROOT
@@ -618,6 +629,7 @@ AA46_azt_minors_1 = {
 		
 		provinces_to_highlight = {
 			OR = {
+				owned_by = POR
 				area = beieras_area
 				province_id = 227
 				province_id = 4787					
@@ -658,24 +670,65 @@ AA46_azt_minors_1 = {
 			OR = {
 				area = castille_area
 				area = catalonia_area
-				area = alentejo_area			
+				area = alentejo_area	
+				area = beieras_area
+				area = valencia_area
+				area = toledo_area
+				area = leon_area
+				area = baleares_area
+				area = galicia_area
+				area = algiers_area
+				area = northern_morocco_area
 			}
 			NOT = { owned_by = ROOT }
 		}
 		
 		trigger = {
-						castille_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-					catalonia_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-				alentejo_area	 = {
+			castille_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}			
+			catalonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}			
+			alentejo_area= {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}				 
+			beieras_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}			
+			valencia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}			
+			toledo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}			
+			leon_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}			
+			baleares_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}			
+			galicia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}			
+			algiers_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}			
+			northern_morocco_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}			
+			 
 
 		}
 		effect = {
@@ -739,7 +792,7 @@ AA46_azt_minors_1 = {
 			OR = {
 				area = east_midlands_area
 				area = west_midlands_area
-				area = wales_area			
+				area = basque_country		
 				area = wessex_area		
 				area = east_anglia_area		
 				area = home_counties_area
@@ -756,7 +809,7 @@ AA46_azt_minors_1 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}			
-				 wales_area	 = {
+				 basque_country	 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}					
@@ -1126,13 +1179,13 @@ naval_strength = {
 		position = 4
 		provinces_to_highlight = {
 			OR = {
-				area = toledo_area					
+				area = galicia_area		
 			}
 			NOT = { owned_by = ROOT }
 		}
 		
 		trigger = {
-						toledo_area	 = {
+						galicia_area	 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}	
@@ -1142,7 +1195,7 @@ naval_strength = {
 				name = "aztecwar5"
 				duration = -1
 			}
-			219 = {
+			212 = {
 				add_devastation = 100
 				change_culture = ROOT
 				change_religion = ROOT
@@ -1166,31 +1219,19 @@ AZT_uyetitlan3 = {
 		required_missions = { AZT_conquer_aztec7 }
 		position = 6
 		provinces_to_highlight = {
-			OR = {
-				area = munster_area
-				area = connacht_area
-				area = ulster_area		
+						OR = {
+				region = lyonesse_region	
 
 			}
+
 			NOT = { owned_by = ROOT }
 		}
 		
 		trigger = {
-				ulster_area = {
+	 				lyonesse_region	= {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}			
-				connacht_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}			
-				 munster_area	 = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}			
-	 
-
-			
+		}
 		}
 		effect = {
 							add_country_modifier = {
@@ -1220,21 +1261,35 @@ AZT_uyetitlan7 = {
 		position = 7
 		provinces_to_highlight = {
 			OR = {
-				region = lyonesse_region	
+							OR = {
+				area = munster_area
+				area = connacht_area
+				area = ulster_area		
+
+			}
 
 			}
 			NOT = { owned_by = ROOT }
 		}
 		
 		trigger = {
-				lyonesse_region	= {
+							ulster_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
+			}			
+				connacht_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}			
+				 munster_area	 = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}		
+
 			}			
 
 
 			
-		}
 		effect = {
 							add_country_modifier = {
 				name = "aztecwar11"
