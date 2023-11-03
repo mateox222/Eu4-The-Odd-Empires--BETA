@@ -1,0 +1,355 @@
+zion1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = ISR
+	}
+
+	contact_with_hasars = {
+		icon = mission_build_up_to_force_limit
+		position = 4
+		required_missions = { zionist_shalom }
+		trigger = { }
+		effect = { }
+	}
+	isr_settle_lands = {
+		icon = mission_build_up_to_force_limit
+		position = 5
+		required_missions = {  }
+		trigger = { }
+		effect = { }
+	}
+	jewish_end_diaspora = {
+		icon = mission_build_up_to_force_limit
+		position = 7
+		required_missions = { isr_settle_lands }
+		trigger = { }
+		effect = { }
+	}
+	jewish_establish_navy = {
+		icon = mission_build_up_to_force_limit
+		position = 8
+		required_missions = {  }
+		trigger = { }
+		effect = { }
+	}
+	jewish_galleys = {
+		icon = mission_build_up_to_force_limit
+		position = 11
+		required_missions = { jewish_establish_navy }
+		trigger = { }
+		effect = { }
+	}
+	jewish_total_army = {
+		icon = mission_build_up_to_force_limit
+		position = 13
+		required_missions = { jewish_choosen_by_god }
+		trigger = { }
+		effect = { }
+	}
+}
+
+zion2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = ISR
+	}
+
+	nowy_sion1 = {
+		icon = atlantropa_weight
+		position = 2
+		required_missions = { zio_shalom_israel }
+		trigger = {
+			adm_power = 100
+		}
+		effect = {
+			add_adm_power = -100
+			add_years_of_income = 1
+			add_stability = 1
+		}
+	}
+	israel_army_reform = {
+		icon = mission_build_up_to_force_limit
+		position = 4
+		required_missions = { zionist_shalom }
+		trigger = { }
+		effect = { }
+	}
+	israel_huge_army = {
+		icon = mission_build_up_to_force_limit
+		position = 5
+		required_missions = { israel_army_reform }
+		trigger = { }
+		effect = { }
+	}
+	israel_artillery = {
+		icon = mission_build_up_to_force_limit
+		position = 6
+		required_missions = {  }
+		trigger = { }
+		effect = { }
+	}
+	isr_fortress = {
+		icon = mission_build_up_to_force_limit
+		position = 7
+		required_missions = {  }
+		trigger = { }
+		effect = { }
+	}
+	israel_annex_antiochia = {
+		icon = mission_build_up_to_force_limit
+		position = 8
+		required_missions = { israel_annex_tripoliss }
+		trigger = { }
+		effect = { }
+	}
+	jewish_invade_anatolia = {
+		icon = mission_build_up_to_force_limit
+		position = 11
+		required_missions = { rise_of_jewish_empire }
+		trigger = { }
+		effect = { }
+	}
+	jewish_cultural_domination = {
+		icon = mission_build_up_to_force_limit
+		position = 13
+		required_missions = { jewish_choosen_by_god }
+		trigger = { }
+		effect = { }
+	}
+}
+
+zion3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = ISR
+	}
+
+	zio_shalom_israel = {
+		icon = atlantropa_judaism
+		position = 1
+		required_missions = {  }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = SHALOMISRAEL
+				always = yes
+			}
+		}
+		effect = {
+			add_stability = 1
+		}
+	}
+	nowy_sion2 = {
+		icon = atlantropa_permburn
+		position = 2
+		required_missions = { zio_shalom_israel }
+		trigger = {
+			dip_power = 100
+		}
+		effect = {
+			1854 = {
+				change_culture  = ROOT
+				change_religion = jewish
+			}
+			add_stability = 1
+			add_dip_power = -100
+		}
+	}
+	zionist_shalom = {
+		icon = atlantropa_israel
+		position = 3
+		required_missions = { nowy_sion1 nowy_sion2 nowy_sion3 }
+		trigger = {
+			stability = 3
+		}
+		effect = {
+			trans_jordan_area  = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			syrian_desert_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	israel_annex_tripoliss = {
+		icon = mission_build_up_to_force_limit
+		position = 7
+		required_missions = { zionist_shalom }
+		trigger = { }
+		effect = { }
+	}
+	revenge_to_babylon = {
+		icon = mission_build_up_to_force_limit
+		position = 9
+		required_missions = { israel_annex_antiochia israel_annex_syria }
+		trigger = { }
+		effect = { }
+	}
+	rise_of_jewish_empire = {
+		icon = mission_build_up_to_force_limit
+		position = 10
+		required_missions = { revenge_to_babylon }
+		trigger = { }
+		effect = { }
+	}
+	jewish_invade_egypt = {
+		icon = mission_build_up_to_force_limit
+		position = 11
+		required_missions = { rise_of_jewish_empire }
+		trigger = { }
+		effect = { }
+	}
+	jewish_choosen_by_god = {
+		icon = mission_build_up_to_force_limit
+		position = 12
+		required_missions = { jewish_invade_egypt jewish_invade_anatolia jewish_invae_persia jewish_galleys jewish_dominate_trade }
+		trigger = { }
+		effect = { }
+	}
+	jewish_hegemon = {
+		icon = mission_build_up_to_force_limit
+		position = 14
+		required_missions = { jewish_choosen_by_god }
+		trigger = { }
+		effect = { }
+	}
+}
+
+zion4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = ISR
+	}
+
+	nowy_sion3 = {
+		icon = atlantropa_stalzemsty
+		position = 2
+		required_missions = { zio_shalom_israel }
+		trigger = {
+			mil_power = 100
+		}
+		effect = {
+			add_core = 1855
+			add_yearly_manpower = 1
+			add_mil_power = -100
+			add_stability = 1
+		}
+	}
+	israel_economy_reform = {
+		icon = mission_build_up_to_force_limit
+		position = 4
+		required_missions = { zionist_shalom }
+		trigger = { }
+		effect = { }
+	}
+	agral_reform_jewish = {
+		icon = mission_build_up_to_force_limit
+		position = 5
+		required_missions = { israel_economy_reform }
+		trigger = { }
+		effect = { }
+	}
+	jewish_workshopes = {
+		icon = mission_build_up_to_force_limit
+		position = 6
+		required_missions = { agral_reform_jewish }
+		trigger = { }
+		effect = { }
+	}
+	jewish_manufctures = {
+		icon = mission_build_up_to_force_limit
+		position = 7
+		required_missions = { jewish_workshopes }
+		trigger = { }
+		effect = { }
+	}
+	israel_annex_syria = {
+		icon = mission_build_up_to_force_limit
+		position = 8
+		required_missions = { israel_annex_tripoliss }
+		trigger = { }
+		effect = { }
+	}
+	jewish_invae_persia = {
+		icon = mission_build_up_to_force_limit
+		position = 11
+		required_missions = { rise_of_jewish_empire }
+		trigger = { }
+		effect = { }
+	}
+	jewish_economy_mast = {
+		icon = mission_build_up_to_force_limit
+		position = 13
+		required_missions = { jewish_choosen_by_god }
+		trigger = { }
+		effect = { }
+	}
+}
+
+zion5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = ISR
+	}
+
+	rebuild_the_temple_jews = {
+		icon = mission_build_up_to_force_limit
+		position = 4
+		required_missions = { zionist_shalom }
+		trigger = { }
+		effect = { }
+	}
+	jewish_rewrite_bible = {
+		icon = mission_build_up_to_force_limit
+		position = 5
+		required_missions = { rebuild_the_temple_jews }
+		trigger = { }
+		effect = { }
+	}
+	jewish_golden_age = {
+		icon = mission_build_up_to_force_limit
+		position = 7
+		required_missions = { jewish_rewrite_bible }
+		trigger = { }
+		effect = { }
+	}
+	jewish_merchants = {
+		icon = mission_build_up_to_force_limit
+		position = 8
+		required_missions = {  }
+		trigger = { }
+		effect = { }
+	}
+	jewish_dominate_trade = {
+		icon = mission_build_up_to_force_limit
+		position = 11
+		required_missions = { jewish_merchants }
+		trigger = { }
+		effect = { }
+	}
+	jewish_religion_domination = {
+		icon = mission_build_up_to_force_limit
+		position = 13
+		required_missions = { jewish_choosen_by_god }
+		trigger = { }
+		effect = { }
+	}
+}
+

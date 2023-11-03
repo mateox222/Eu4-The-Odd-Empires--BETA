@@ -1,0 +1,85 @@
+sion1 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = A76
+	}
+
+	sion_peace_3 = {
+		icon = atlantropa_ind
+		position = 2
+		required_missions = { sion_peace }
+		trigger = {
+			manpower = 10
+			
+			is_at_war = no
+		}
+		effect = {
+			add_manpower = -10
+			add_prestige = 10
+			add_stability = 1
+		}
+	}
+}
+
+sion2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = A76
+	}
+
+	sion_peace2 = {
+		icon = atlantropa_israel
+		position = 2
+		required_missions = { sion_peace }
+		trigger = {
+			mil_power = 100
+			is_at_war = no
+		}
+		effect = {
+			add_prestige = 10
+			add_mil_power = -100
+			add_stability = 1
+		}
+	}
+}
+
+sion3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = A76
+	}
+
+	sion_peace = {
+		icon = atlantropa_dawn
+		position = 1
+		required_missions = {  }
+		trigger = {
+			is_at_war = no
+		}
+		effect = {
+			add_stability = 1
+		}
+	}
+	sion_destroy_israel = {
+		icon = atlantropa_crusadearmy
+		position = 3
+		required_missions = { sion_peace2 sion_peace_3 }
+		trigger = {
+			stabiity = 3
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power  =100
+			add_adm_power = 100
+			set_country_flag = jerozolimaprzetrwa
+			custom_tooltip = jerozolimaprzetrwa
+		}
+	}
+}
+
