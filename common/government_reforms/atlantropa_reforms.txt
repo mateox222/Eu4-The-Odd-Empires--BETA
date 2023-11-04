@@ -1385,3 +1385,50 @@ roman_egyptian_monarchy = {
 
 	
 }
+
+
+jewish_theocratic_reform = {
+    icon = "israelkingdom"
+    allow_normal_conversion = yes
+	modifiers = {
+		war_exhaustion = -0.15
+		global_unrest = -1
+		global_autonomy = -0.025
+		max_absolutism = 25
+		monarch_military_power = 2
+		governing_capacity_modifier = -0.2
+		legitimacy = 2	
+	}
+
+			custom_attributes = {
+		locked_government_type = yes
+		raze_province = yes	
+	rulers_can_be_generals = yes
+	heirs_can_be_generals = yes
+			}
+	
+    valid_for_nation_designer = yes
+    nation_designer_cost = 40
+    legacy_equivalent = merchant_republic
+    potential = {
+        religion = jewish
+		has_country_flag = jewishsuperimperium
+    }
+    trigger = {
+        has_country_flag = jewishsuperimperium
+    }
+    boost_income = yes
+    duration = 4
+    factions = {
+        jw_reform
+        jw_traditionalist
+        jw_zionist
+    }
+
+    custom_attributes = {
+        elections_increase_factions_influence = yes
+    }
+	ai = {
+        factor = 1 #generic
+}
+}

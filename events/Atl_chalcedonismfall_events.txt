@@ -156,6 +156,7 @@ country_event = {
 
 	custom_tooltip = CHRISTIANSCHISMAISCOMING
 hidden_effect = {
+
 	every_province = {
 		limit = {
 			religion = united_christianity
@@ -350,6 +351,15 @@ hidden_effect = {
 	}
 
 	
+	}
+	random_country = {
+	limit = {	religion = catholic
+		ai = yes
+		NOT = { total_development = 100 }
+}
+country_event = {
+	id = 2001
+}
 	}
 }
 	}
@@ -592,6 +602,16 @@ hidden_effect = {
 	add_reform_desire = 100
 	
 	}	
+	random_country = {
+		limit = {	religion = catholic
+			ai = yes
+			NOT = { total_development = 100 }
+	}
+	country_event = {
+		id = 2001
+	}
+		}
 }
+
 	}
 	
