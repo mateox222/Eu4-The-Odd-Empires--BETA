@@ -830,6 +830,9 @@ jewish_merchants_reform = {
         jw_traditionalist
         jw_zionist
     }
+	government_abilities = {
+		israelgov_mechanic
+	}
     conditional = {
         allow = {
             has_dlc = "Res Publica"
@@ -1400,6 +1403,7 @@ jewish_theocratic_reform = {
 		legitimacy = 2	
 	}
 
+	
 			custom_attributes = {
 		locked_government_type = yes
 		raze_province = yes	
@@ -1415,7 +1419,7 @@ jewish_theocratic_reform = {
 		has_country_flag = jewishsuperimperium
     }
     trigger = {
-        has_country_flag = jewishsuperimperium
+		religion = jewish
     }
     boost_income = yes
     duration = 4
@@ -1424,7 +1428,9 @@ jewish_theocratic_reform = {
         jw_traditionalist
         jw_zionist
     }
-
+	government_abilities = {
+		israelgov_mechanic
+	}
     custom_attributes = {
         elections_increase_factions_influence = yes
     }
