@@ -1,0 +1,1619 @@
+iconium1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = TRE
+	}
+	BYZ_reinforce_constantinople = {
+		icon = atlantropa_jewishnavy2
+		required_missions = { }
+		position = 1
+		provinces_to_highlight = {
+			province_id = 151
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { base_manpower = 7 }
+			}
+		}
+		trigger = {
+			OR = {
+				151 = {
+					base_manpower = 7
+					owned_by = ROOT
+				}
+				has_mil_advisor_2 = yes
+				fortification_expert = 1
+				if = {
+					limit = {
+						OR = {
+							has_dlc = "Common Sense"
+							has_dlc = "Res Publica"
+						}
+					}
+					national_focus = mil
+				}
+				else = { hidden_trigger = { always = no } }
+			}
+		}
+		effect = {
+			custom_tooltip = BYZ_unlock_decision_for_theodosian_walls
+			set_country_flag = BYZ_unlock_decision_to_upgrade_theodosian_wall_flag
+			
+			custom_tooltip = " "
+			
+			country_event_with_option_insight = {
+				id = MEE_Byzantine_Events.12
+				option_1 = "
+					custom_tooltip = BYZ_we_will_ask_for_serbian_help
+					SER = {
+						country_event = { id = MEE_Byzantine_Events.15 }
+					}
+				"
+				option_2 = "
+					151 = {
+						add_base_tax = -2
+						add_province_modifier = {
+							name = BYZ_theodosian_wall_1
+							duration = -1
+						}
+					}
+					
+					custom_tooltip = BYZ_if_it_is_being_upgraded
+				"
+				option_3 = "
+					add_prestige_or_monarch_power = { amount = 20 }
+				"
+			}
+		}
+	}
+	BYZ_restore_navy = {
+		icon = expand_the_arsenal
+		position = 2
+		required_missions = {  }
+		trigger = {
+			NOT = { has_estate_privilege = estate_burghers_reliance_on_republics }
+			navy_size = 40
+		}
+		effect = {
+			create_admiral = { tradition = 60 }
+			custom_tooltip = " "
+			add_country_modifier = {
+				name = BYZ_indepenence_from_the_west
+				duration = 7300
+			}
+		}
+	}
+	BYZ_greek_fire = {
+		icon = byz_greek_fire
+		position = 3
+		required_missions = { BYZ_restore_navy }
+		trigger = {
+			navy_size = 100
+		}
+		effect = {
+			add_country_modifier = {
+								name = "refromed_byzantine_greek_fire"
+								duration = -1
+							}
+							random_owned_province = {
+			    limit = { has_port = yes }
+			            create_flagship = {  
+			                name = "Vasilefs"
+			                type = galley
+			            }
+			    }
+		}
+	}
+	iconium_religion = {
+		icon = atlantropa_hellenism
+		position = 4
+		required_missions = {  }
+		trigger = {
+			has_personal_deity = Zeus
+		 }
+		effect = {
+			add_country_modifier = {
+				name = "atlantropa_paganhellenic"
+				duration = -1
+			}
+			
+
+		 }
+	}
+	religion_iconium2 = {
+		icon = atlantropa_deadmanfireland
+		position = 5
+		required_missions = { iconium_religion }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 20
+				religion = ROOT
+			}
+
+		 }
+		effect = {
+			add_adm_power = 200
+			every_owned_province = {
+				limit = {
+					religion = ROOT
+				}
+				add_base_manpower = 1
+			}
+
+		 }
+	}
+	iconium_paganism = {
+		icon = atlantropa_dawn
+		position = 6
+		required_missions = { religion_iconium2 }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 100
+				religion = ROOT
+			}
+			has_personal_deity = Ares
+
+		 }
+		effect = {
+			add_country_modifier = {
+				name = "atlantropa_paganhellenic2"
+				duration = -1
+			}
+		 }
+	}
+	byz_crimea = {
+		icon = atlantropa_crimea
+		position = 8
+		required_missions = { Iconium_Byzantine_Restored }
+		provinces_to_highlight = {
+			area = crimea_area
+		}
+		trigger = {
+			crimea_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+				type = all
+			}
+		}
+		effect = {
+			add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+			add_prestige = 10
+		 }
+	}
+}
+
+iconium2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = TRE
+	}
+
+
+	nikean_form_eyalets = {
+		icon = atlantropa_aryanmoney
+		trigger = {
+atlantis_coempire = 5
+		}
+		effect = {
+						add_country_modifier = {
+				name = "byz_imperial_provinces"
+				duration = -1
+			}
+	 add_prestige = 10
+}
+}	
+
+	iconium_deal_magyars = {
+		icon = atlantropa_burnflagma
+		position = 2
+		required_missions = { empire_of_iconium }
+		provinces_to_highlight = { 
+			OR = {
+			owned_by = A82 
+			owned_by = ERE
+			owned_by = KAR
+			owned_by = GRM
+			owned_by = DUL 
+			owned_by = RAM
+			}
+		}
+		trigger = { 
+			owns = 1846
+			owns = 4313
+		not = { exists = 	A82 }
+		not = { exists =	 ERE}
+		not = { exists =	KAR}
+		not = { exists =	GRM}
+		not = { exists =	DUL }
+		not = { exists =	RAM }
+		not = { exists =	A83 }
+		
+
+		}
+		effect = {
+
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			4313 = { change_culture = ROOT change_religion = ROOT }
+			1846 = { change_culture = ROOT change_religion = ROOT }			
+			anatolia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+
+		 }
+	}
+	BYZ_city_of_worlds_desire = {
+		icon = take_constantinople
+		required_missions = { Iconium_opporetunity }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				higher_development_than = 151
+				AND = {
+					province_id = 151
+					OR = {
+						NOT = { owned_by = ROOT }
+						NOT = { development = 40 }
+						NOT = { has_tax_building_trigger = yes }
+						NOT = { has_production_building_trigger = yes }
+						NOT = { has_manpower_building_trigger = yes }
+					}
+				}
+			}
+		}
+		trigger = {
+			151 = {
+				owned_by = ROOT
+				development = 40
+				has_tax_building_trigger = yes
+				has_production_building_trigger = yes
+				has_manpower_building_trigger = yes
+				custom_trigger_tooltip = {
+					tooltip = BYZ_most_developed_city_in_the_world
+					NOT = {
+						any_province = {
+							higher_development_than = PREV
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			151 = {
+				add_or_upgrade_tax_building = yes
+				add_or_upgrade_production_building = yes
+				add_or_upgrade_manpower_building = yes
+				
+				custom_tooltip = " "
+				
+				if = {
+					limit = {
+						has_dlc = "Leviathan"
+					}
+					add_province_modifier = {
+						name = BYZ_queen_of_cities
+						duration = -1
+					}
+				}
+				else = {
+					add_province_modifier = {
+						name = BYZ_queen_of_cities_no_dlc
+						duration = -1
+					}
+				}
+			}
+			
+			if = {
+				limit = {
+					has_dlc = "Leviathan"
+				}
+				add_country_modifier = {
+					name = BYZ_centralize_all_wealth
+					duration = -1
+				}
+			}
+			
+			custom_tooltip = BYZ_unlock_bosphorus_toll_decision
+			set_country_flag = BYZ_unlocked_bosphorus_toll
+		}
+	}
+	
+	BYZ_megalopolis = {
+		icon = a_strong_government
+		required_missions = { BYZ_city_of_worlds_desire }
+		position = 5
+		provinces_to_highlight = {
+			province_id = 151
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { development = 65 }
+				NOT = { num_of_buildings_in_province = 10 }
+				NOT = {
+					AND = {
+						has_dlc = "Leviathan"
+						NOT = {
+							has_great_project = {
+								type = hagia_sophia 
+								tier = 3
+							}
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			151 = {
+				owned_by = ROOT
+				development = 65
+				num_of_buildings_in_province = 10
+				if = {
+					limit = {
+						has_dlc = "Leviathan"
+					}
+					has_great_project = {
+						type = hagia_sophia 
+						tier = 3
+					}
+				}
+			}
+		}
+		effect = {
+			151 = {
+				add_province_modifier = {
+					name = BYZ_megalopolis_modifier_1
+					duration = -1
+				}
+				hidden_effect = {
+					add_province_triggered_modifier = BYZ_megalopolis_updater #hidden Ptm that updates the modifier
+				}
+			}
+			
+			custom_tooltip = BYZ_modifier_will_double
+			
+			custom_tooltip = " "
+			
+			add_country_modifier = {
+				name = BYZ_monarch_reigns_in_byzantium
+				duration = -1
+			}
+		}
+	}
+
+
+	BYZ_greece = {
+		icon = cross_the_pindus
+		position = 6
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = {
+				area = thrace_area
+				area = macedonia_area
+				area = northern_greece_area
+				area = atlantropa_thessalia
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				OR = {
+					area = thrace_area
+					area = macedonia_area
+					area = northern_greece_area
+					area = atlantropa_thessalia
+				}
+				value = 9
+			}
+		}
+		effect = {
+			give_claims = { area = rascia_area }
+			give_claims = { area = serbia_area }
+			give_claims = { area = aegean_archipelago_area }
+			give_claims = { id = 163 } 
+			give_claims = { id = 321 } 
+			custom_tooltip = " "
+			add_years_of_income = 0.5
+			add_yearly_manpower = 0.5
+			custom_tooltip = " "
+			country_event_with_effect_insight = {
+				id = MEE_Byzantine_Events.6
+				effect = "
+				add_country_modifier = {
+					name = BYZ_reversal_of_downfall
+					duration = 10950
+				}
+				add_power_projection_mission = {
+					amount = 25
+				}
+				"
+			}
+		}
+	}
+	BYZ_bulgaria = {
+		icon = atlantropa_britaniqueburned
+		position = 8
+		required_missions = { Iconium_Byzantine_Restored }
+		provinces_to_highlight = {
+			OR = {
+				area = bulgaria_area
+				area = silistria_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			bulgaria_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+				type = all
+			}
+			silistria_area = {
+				country_or_non_sovereign_subject_holds = ROOT
+				type = all
+			}
+		}
+		effect = {
+			hidden_effect = {
+				add_country_modifier = {
+					name = BYZ_no_slot_bulgarian
+					duration = -1
+				}
+			}
+			add_accepted_culture = bulgarian
+			custom_tooltip = BYZ_bulgarian_no_slot_taken
+			custom_tooltip = " "
+			create_general_with_pips = { tradition = 50 add_shock = 1 }
+			custom_tooltip = " "
+			give_claims = { area = wallachia_area }
+			give_claims = { area = moldavia_area }
+			custom_tooltip = " "
+			4704 = {
+				add_permanent_province_modifier = {
+					name = BYZ_new_constantinople
+					duration = -1
+				}
+			}
+		}
+	}
+}
+
+iconium3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = TRE
+	}
+
+	empire_of_iconium = {
+		icon = byz_pontic_empire
+		position = 1
+		required_missions = {  }
+		trigger = {
+			OR = {
+				num_of_allies = 2
+				army_size_percentage = 0.9
+				army_size = 10
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = BYZ_dreams_of_restoration
+				duration = 5475
+			}
+		}
+	}
+	iconium_power = {
+		icon = atlantropa_latinempireburn
+		position = 2
+		required_missions = { empire_of_iconium }
+		provinces_to_highlight = { owned_by = LAE }
+		trigger = {
+			OR = {
+				army_size = 25
+				army_size = LAE
+			}
+			custom_trigger_tooltip = {
+				tooltip = niceazdobylakonstantynopol
+				OR = {
+					owns_core_province = 151
+					AND = {
+						has_global_flag = war_of_emperors
+					}
+				}}
+				
+		}
+		effect = {
+			country_event = {
+				id = nikean_empire.12
+			}
+			every_province = {
+				limit = {
+					owned_by = LAE
+				}
+				add_core = ROOT
+			}
+			add_mil_power = 150
+				
+		 }
+	}
+
+	Iconium_opporetunity = {
+		icon = byz_reinforce_constantinople
+		position = 3
+		required_missions = {  }
+		trigger = {
+			owns_core_province = 151
+			}
+			effect = {
+				country_event = {
+					id = nikean_empire.14
+				}
+			}
+		}
+		
+		BYZ_theme_system = {
+			icon = mission_pf_soldier
+			position = 4
+			required_missions = {  Iconium_opporetunity }
+			trigger = {
+				army_size = 25
+				OR = {
+					manpower = 20
+					manpower_percentage = 0.8
+				}
+				has_mil_advisor_2 = yes
+				grown_by_states = 10
+			}
+			effect = {
+				add_mil_power = 150
+				custom_tooltip = " "
+				enable_branching_mission_review = {
+					key = BYZ
+					ai_event_id = MEE_Byzantine_Events.28
+				}
+				custom_tooltip = " "
+				country_event_with_insight = {
+					id = MEE_Byzantine_Events.27
+					insight_tooltip = BYZ_unlock_theme_system_reform
+				}
+			}
+		}
+		iconium_reformed_army = {
+			icon = atlantropa_ukrainskarosjaarmia
+			position = 5
+			required_missions = {  BYZ_theme_system }
+			trigger = {
+				army_size_percentage = 0.8
+							num_of_generals = 2
+							OR = {
+								army_tradition = 60
+								has_global_modifier_value = {
+									which = discipline
+									value = 0.2
+								}
+							}
+			}
+			effect = {
+				add_yearly_manpower = 2
+							add_country_modifier = {
+								name = byzantium_reorganized_army
+								duration = -1
+							}
+			}
+		}
+	
+
+	Iconium_Byzantine_Restored = {
+		icon = atlantropa_byzantineflag
+		position = 7
+		required_missions = { iconium_paganism iconium_reformed_army BYZ_greece BYZ_false_despots BYZ_aegean_islands }
+		trigger = { 
+			total_development = 1000
+
+		}
+		effect = {
+			add_country_modifier = {
+				name = "byzantium_resurgent"
+				duration = -1
+			}
+			add_adm_power = 200
+			add_dip_power = 200
+			add_mil_power = 200
+			anatolia_region  = { 
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT								
+				balkan_region  = { 
+					limit = {
+						NOT = { is_permanent_claim = ROOT }
+						NOT = { is_core = ROOT	}
+					}
+					add_permanent_claim = ROOT								
+							
+	}
+	mashriq_region  = { 
+		limit = {
+			NOT = { is_permanent_claim = ROOT }
+			NOT = { is_core = ROOT	}
+		}
+		add_permanent_claim = ROOT								
+				
+}
+egypt_region	  = { 
+	limit = {
+		NOT = { is_permanent_claim = ROOT }
+		NOT = { is_core = ROOT	}
+	}
+	add_permanent_claim = ROOT								
+			
+}
+}
+
+		 }
+	}
+
+	byz_anatolia = {
+		icon = byz_avenge_1071
+		position = 8
+		required_missions = { Iconium_Byzantine_Restored }
+		provinces_to_highlight = {
+			region = anatolia_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				region = anatolia_region
+				value = 35 
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = BYZ_eastern_flank_1
+				duration = -1
+			}
+			give_claims = { region = mashriq_region }
+			custom_tooltip = " "
+			if = {
+				limit = {
+					culture_group = byzantine
+				}
+				custom_tooltip = BYZ_culture_conversion_will_extend
+				custom_tooltip = " "
+			}
+			country_event_with_option_insight = {
+				id = MEE_Byzantine_Events.8
+				option_1 = "
+				add_accepted_culture_or_dip_power = { culture = turkish dip_reward = yes }
+				custom_tooltip = \" \"
+				custom_tooltip = BYZ_every_turkish_province
+				tooltip = {
+					add_nationalism = -10
+				}
+				"
+				option_2 = "
+				custom_tooltip = BYZ_culture_conversion_will_be_faster
+				"
+				option_3 = "
+				custom_tooltip = BYZ_every_turkish_province
+				tooltip = {
+					add_province_modifier = {
+						name = BYZ_janissary_recruitment
+						duration = 9125
+					}
+				}
+				custom_tooltip = BYZ_unlock_janissary_mercenary_company
+				"
+			}
+			330 = {
+					set_center_level_2_center_of_trade = yes 
+				}
+				add_country_modifier = {
+					name = BYZ_offshoots_defeated
+					duration = -1
+				}
+				add_power_projection_mission = { amount = 25 }
+		}
+	}
+	Iconium_United_Empire = {
+		icon = byz_justinians_ambition
+		position = 9
+		required_missions = { BYZ_bulgaria BYZ_bar byz_anatolia byz_crimea }
+		trigger = {
+			stability = 3
+						if = {
+							limit = { has_dlc = "Emperor" }
+							is_hegemon = yes
+						}
+						else = { total_development = 2000 }
+						has_regency = no
+		}
+		effect = {
+			if = {
+							limit = {
+								in_golden_age = no
+							}
+							reset_golden_age = yes
+						}
+						if = {
+							limit = {
+								in_golden_age = yes
+							}
+							extend_golden_age = 1800
+						}
+		}
+	}
+}
+		
+iconium4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = TRE
+	}
+
+	BYZ_hexamilion = {
+		icon = pacify_the_albanian_lands
+		position = 1
+		required_missions = {  }
+		provinces_to_highlight = {
+			province_id = 4701
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { base_manpower = 4 }
+			}
+		}
+		trigger = {
+			4701 = {
+				base_manpower = 4
+				owned_by = ROOT
+			}
+			employed_advisor = { category = mil }
+		}
+		effect = {
+			country_event_with_option_insight = {
+				id = MEE_Byzantine_Events.11
+				option_1 = "
+				if = {
+					limit = {
+						145 = { owned_by = ROOT has_building = fort_15th }
+					}
+					145 = { remove_building = fort_15th }
+				}
+				if = {
+					limit = {
+						4701 = { owned_by = ROOT NOT = { has_fort_building_trigger = yes } }
+					}
+					4701 = {
+						add_building = fort_15th
+					}
+				}
+				custom_tooltip = \" \"
+				custom_tooltip = BYZ_unlock_decision_to_upgrade_hexamilion_wall
+				"
+				option_2 = "
+				custom_tooltip = BYZ_upgrading_theodosian_walls_will_be_25_cheaper
+				"
+			}
+		}
+	}
+	iconium_deal_nicaea = {
+		icon = atlantropa_nicaeaburn
+		position = 2
+		required_missions = { empire_of_iconium }
+		provinces_to_highlight = { owned_by = A52 }
+		trigger = { 
+			NOT = { exists = A52		}
+			owns = 322
+		}
+		effect = {
+			add_mil_power = 150
+			 322 = { add_core = ROOT }	
+			 2297 = { add_core = ROOT }	
+			 5743 = { add_core = ROOT }	
+			 4312 = { add_core = ROOT }	
+			 4309 = { add_core = ROOT }	
+			318 = { add_core = ROOT }	
+			2348 = { add_core = ROOT }	
+			5161 = { add_core = ROOT }		
+			319  = { add_core = ROOT }	
+			5793 = { add_core = ROOT }		
+			give_claims = { region = anatolia_region }
+			give_claims = { id = 2410 } 
+			give_claims = { id = 2447 } 
+			give_claims = { id = 285 }
+		}
+	}
+	BYZ_promote_the_merchants = {
+		icon = mission_conquer_riga
+		required_missions = { BYZ_monemvasian_merchants }
+		position = 3
+		provinces_to_highlight = {
+			province_id = 151
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { has_trade_building_trigger = yes }
+				NOT = { development = 25 }
+				NOT = {
+					trade_share = {
+						country = ROOT
+						share = 40
+					}
+				}
+			}
+		}
+		trigger = {
+			151 = {
+				owned_by = ROOT
+				has_trade_building_trigger = yes
+				development = 25
+				trade_share = {
+					country = ROOT
+					share = 40
+				}
+			}
+		}
+		effect = {
+			151 = {
+				add_or_upgrade_trade_building = yes
+			
+				custom_tooltip = " "
+				
+				add_trade_modifier = {
+					who = ROOT
+					duration = -1
+					power = 50
+					key = BYZ_megalopolitan_trade
+				}
+				
+				custom_tooltip = " "
+				
+				add_province_modifier = {
+					name = BYZ_primary_trade_capital
+					duration = -1
+				}
+				
+				set_center_level_2_center_of_trade = yes
+			}
+		}
+	}
+
+	BYZ_economic_independence = {
+		icon = medici_bank_ledgers
+		required_missions = { Iconium_opporetunity }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					OR = {
+						owned_by = GEN
+						owned_by = VEN
+					}
+					NOT = {
+						owner = {
+							ROOT = {
+								has_won_war_against = { who = PREV max_years_since = 50 }
+							}
+						}
+					}
+				}
+				province_id = 151
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = BYZ_has_integrated_galata
+				NOT = {
+					151 = {
+						has_province_modifier = BYZ_galata 
+					}
+				}
+			}
+			NOT = { has_estate_privilege = estate_burghers_reliance_on_republics }
+			NOT = { has_estate_privilege = estate_burghers_exkousseiai_for_latins }
+			OR = {
+				151 = {
+					trade_share = {
+						country = ROOT
+						share = 80
+					}
+				}
+				AND = {
+					if = {
+						limit = {
+							exists = GEN
+						}
+						has_won_war_against = { who = GEN max_years_since = 50 }
+					}
+					else = {
+						GEN = {
+							any_core_province = {
+								country_or_non_sovereign_subject_holds = ROOT
+							}
+						}
+					}
+					if = {
+						limit = {
+							exists = VEN
+						}
+						has_won_war_against = { who = VEN max_years_since = 50 }
+					}
+					else = {
+						VEN = {
+							any_core_province = {
+								country_or_non_sovereign_subject_holds = ROOT
+							}
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = BYZ_buff_burgher_loans_no_mercantilism_loss #done via mission_completed
+			
+			custom_tooltip = " "
+			
+			complex_dynamic_effect = {
+				first_custom_tooltip = BYZ_if_done_via_war
+				first_limit = "
+					if = {
+						limit = { exists = GEN }
+						has_won_war_against = { who = GEN max_years_since = 50 }
+					}
+					else = {
+						GEN = {
+							any_core_province = { country_or_non_sovereign_subject_holds = ROOT }
+						}
+					}
+					if = {
+						limit = { exists = VEN }
+						has_won_war_against = { who = VEN max_years_since = 50 }
+					}
+					else = {
+						VEN = {
+							any_core_province = { country_or_non_sovereign_subject_holds = ROOT }
+						}
+					}
+				"
+				first_effect = "
+					add_country_modifier = {
+						name = BYZ_dominance
+						duration = 7300
+					}
+				"
+				second_custom_tooltip = BYZ_if_done_via_trade_share
+				second_limit = "
+					151 = {
+						trade_share = {
+							country = ROOT
+							share = 80
+						}
+					}
+				"
+				second_effect = "
+					add_country_modifier = {
+						name = BYZ_maintaining_relations
+						duration = 5475
+					}
+				"
+			}
+		}
+	}
+	
+	BYZ_return_to_gold = {
+		icon = dominant_economy
+		required_missions = { BYZ_economic_independence }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					province_id = 1766
+					OR = {
+						NOT = { owned_by = ROOT }
+						NOT = { base_production = 8 }
+						NOT = { development = 20 }
+					}
+				}
+				AND = {
+					OR = {
+						province_id = 148
+						province_id = 330
+					}
+					OR = {
+						NOT = { owned_by = ROOT }
+						NOT = { has_production_building_trigger = yes }
+					}
+				}
+			}
+		}
+		trigger = {
+			1766 = {
+				owned_by = ROOT
+				OR = {
+					base_production = 8
+					development = 20
+				}
+			}
+			148 = {
+				owned_by = ROOT
+				has_production_building_trigger = yes
+			}
+			330 = {
+				owned_by = ROOT
+				has_production_building_trigger = yes
+			}
+			
+			gold_income = 10
+			share_of_starting_income = 5
+		}
+		effect = {
+			define_advisor = {
+				type = master_of_mint 
+				skill = 2
+				culture = ROOT
+				religion = ROOT
+				cost_multiplier = 0.5
+			}
+			
+			custom_tooltip = " "
+			
+			add_country_modifier = {
+				name = BYZ_coin_of_pure_gold
+				duration = 10950
+			}
+			
+			add_years_of_trade_income = {
+				years = 2
+				custom_tooltip = BYZ_add_2_years_of_trade_income
+			}
+		}
+	}
+
+
+	BYZ_false_despots = {
+		icon = the_latin_empire
+		position = 6
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = {
+				owned_by = EPI
+				province_id = 4699
+			}
+		}
+		trigger = {
+			OR = {
+				AND = {
+					owns_or_non_sovereign_subject_of = 4699
+					NOT = { exists = EPI }
+				}
+				EPI = { is_subject_of = ROOT }
+			}
+		}
+		effect = {
+			simple_dynamic_effect = {
+				first_custom_tooltip = BYZ_if_done_via_conquest
+				first_limit = "
+				owns_or_non_sovereign_subject_of = 4699 
+				NOT = { exists = EPI }
+				"
+				first_effect = "
+				add_country_modifier = {
+					name = EPI_epirote_forces
+					duration = 5475
+				}
+				"
+				second_custom_tooltip = BYZ_if_done_via_vassalization
+				second_limit = "
+				EPI = { is_subject_of = ROOT }
+				"
+				second_effect = "
+				add_dip_power = 75
+				custom_tooltip = \" \"
+				add_core = 4698 
+				custom_tooltip = \" \"
+				"
+			}
+			give_claims = { area = albania_area }
+			give_claims = { area = apulia_area }
+			give_claims = { area = calabria_area }
+			give_claims = { area = sicily_area }
+			give_claims = { area = western_sicily_area }
+		}
+	}
+	BYZ_bar = {
+		icon = atlantropa_griechenreich
+		position = 8
+		required_missions = { Iconium_Byzantine_Restored }
+		provinces_to_highlight = {
+			OR = {
+				area = rascia_area
+				area = serbia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				OR = {
+					area = rascia_area
+					area = serbia_area
+				}
+				value = 7 
+			}
+		}
+		effect = {
+			give_claims = { region = balkan_region }
+			give_claims = { area = carinthia_area }
+			custom_tooltip = " "
+			add_country_modifier = {
+				name = BYZ_western_flank_1
+				duration = -1
+			}
+			country_event_with_option_insight = {
+				id = MEE_Byzantine_Events.1
+				option_1 = "
+				add_country_modifier = {
+					name = MEE_strong_example_against_the_serbian_aristocrats
+					duration = 10950
+				}
+				add_mil_power = 100
+				"
+				option_2 = "
+				add_country_modifier = {
+					name = MEE_amiable_treatment
+					duration = 9125
+				}
+				add_dip_power = 100
+				"
+			}
+		}
+	}
+}
+
+iconium5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = TRE
+	}
+
+	BYZ_peloponesian_renaissance = {
+		icon = standardize_relazioni
+		position = 1
+		required_missions = {  }
+		provinces_to_highlight = {
+			area = morea_area
+		}
+		trigger = {
+			OR = {
+				has_institution = renaissance
+				development_in_provinces = {
+					area = morea_area
+					value = 30
+				}
+			}
+		}
+		effect = {
+			define_advisor = {
+				type = philosopher
+				name = "Gemistos Plethon"
+				skill = 2
+				culture = greek
+				religion = animism
+				cost_multiplier = 0.25
+			}
+			custom_tooltip = " "
+			complex_dynamic_effect = {
+				first_custom_tooltip = BYZ_if_done_via_renaissance
+				first_limit = "has_institution = renaissance"
+				first_effect = "
+				add_country_modifier = {
+					name = BYZ_origins_of_renaissance
+					duration = 3650
+				}
+				"
+				second_custom_tooltip = BYZ_if_done_via_development
+				second_limit = "
+				development_in_provinces = {
+					area = morea_area
+					value = 30
+				}
+				"
+				second_effect = "
+				morea_area = {
+					limit = {
+						owned_by = ROOT
+					}
+					add_institution_embracement = {
+						which = renaissance
+						value = 90
+					}
+				}
+				"
+			}
+		}
+	}
+	BYZ_monemvasian_merchants = {
+		icon = aldine_press
+		position = 2
+		required_missions = { BYZ_hexamilion BYZ_peloponesian_renaissance }
+		provinces_to_highlight = {
+			province_id = 145
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { num_of_times_improved = 7 }
+				NOT = { has_trade_building_trigger = yes }
+				AND = {
+					NOT = { has_dock_building_trigger = yes }
+					NOT = { has_shipyard_building_trigger = yes }
+				}
+			}province_id = 145
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { num_of_times_improved = 7 }
+				NOT = { has_trade_building_trigger = yes }
+				AND = {
+					NOT = { has_dock_building_trigger = yes }
+					NOT = { has_shipyard_building_trigger = yes }
+				}
+			}
+		}
+		trigger = {
+			145 = {
+				owned_by = ROOT
+				num_of_times_improved = 7
+				has_trade_building_trigger = yes
+				OR = {
+					has_dock_building_trigger = yes
+					has_shipyard_building_trigger = yes
+				}
+			}
+		}
+		effect = {
+			145 = {
+				center_of_trade = 1
+				custom_tooltip = " "
+				add_province_modifier = {
+					name = BYZ_powerful_merchant_families
+					duration = -1
+				}
+			}
+			country_event_with_option_insight = {
+				id = MEE_Byzantine_Events.19
+				option_1 = "
+				define_admiral = {
+					shock = 2
+					fire = 3
+					manuever = 2
+					siege = 0
+					name = \"Loukas Notaras\"
+				}
+				custom_tooltip = \" \"
+				add_navy_tradition = 20
+				"
+				option_2 = "
+				add_years_of_trade_income = {
+					years = 2
+					custom_tooltip = BYZ_add_2_years_of_trade_income
+				}
+				custom_tooltip = \" \"
+				define_advisor = {
+					type = trader
+					name = \"Notaras\"
+					skill = 3
+					culture = ROOT
+					religion = ROOT
+					cost_multiplier = 0.4 
+				}
+				"
+			}
+		}
+	}
+
+	BYZ_wealth_from_the_east = {
+		icon = mission_pol_breadbasket_europe
+		required_missions = { BYZ_monemvasian_merchants }
+		position = 3
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1320
+				province_id = 377
+				province_id = 358
+			}
+			NOT = {
+				trade_share = {
+					country = ROOT
+					share = 80
+				}
+			}
+		}
+		trigger = {
+			1320 = { #constantinople
+				trade_share = {
+					country = ROOT
+					share = 80
+				}
+			}
+			377 = { #aleppo
+				trade_share = {
+					country = ROOT
+					share = 80
+				}
+			}
+			358 = { #Alexandria
+				trade_share = {
+					country = ROOT
+					share = 80
+				}
+			}
+			
+			num_of_centers_of_trade = 20
+		}
+		effect = {
+			hidden_effect = {
+				unlock_estate_privilege = {
+					estate_privilege = estate_burghers_BYZ_single_market
+				}
+			}
+			custom_tooltip = BYZ_unlock_mercantilism_privilege
+			
+			custom_tooltip = " "
+			
+			add_mercantilism = 3 
+			
+			custom_tooltip = " "
+
+			
+			custom_tooltip = BYZ_distribute_0_10_0_dev_in_manufactories
+			hidden_effect = {
+				random_owned_province = {
+					limit = {
+						has_manufactory_no_custom_tooltip_trigger = yes
+					}
+					add_base_production = 1
+					type = random
+					amount = 10
+				}
+			}
+		}
+	}
+
+
+	BYZ_warehouse_of_the_east = {
+		icon = saxon_manufacturing
+		required_missions = { BYZ_wealth_from_the_east }
+		position = 4
+		provinces_to_highlight = {
+			owned_by = ROOT 
+			NOT = { has_manufactory_trigger = yes }
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				has_manufactory_trigger = yes
+				value = 50
+			}
+			home_trade_node = {
+				trade_node_value = 100
+				highest_value_trade_node = yes
+			}
+			
+			monthly_income = 400 
+		}
+		effect = {
+			add_country_modifier_for_age = {
+				name = BYZ_economic_intimidation
+				age = age_of_reformation
+				else = "
+					add_dip_power = 100
+					add_years_of_income = 1
+				"
+			}
+			
+			# custom_tooltip = " "
+			
+			custom_tooltip = BYZ_naval_commander_advisor_buff #bound to mission_completed
+			
+			custom_tooltip = " "
+			
+			complex_dynamic_effect = {
+				first_custom_tooltip = BYZ_if_we_have_taken_laesio_enormis
+				first_limit = " has_reform = laesio_enormis_reform "
+				first_effect = "
+					change_government_reform_progress = 200
+				"
+			}
+		}
+	}
+
+	BYZ_glass_ware = {
+		icon = bohemian_crystal
+		required_missions = { BYZ_economic_independence }
+		position = 5
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					province_id = 164
+					OR = {
+						NOT = { owned_by = ROOT }
+						NOT = { has_production_building_trigger = yes }
+						NOT = { has_shipyard_building_trigger = yes }
+					}
+				}
+				AND = {
+					province_id = 151
+					OR = {
+						NOT = { owned_by = ROOT }
+						NOT = { has_production_building_trigger = yes }
+					}
+				}
+			}
+		}
+		trigger = {
+			164 = {
+				owned_by = ROOT
+				has_production_building_trigger = yes
+				has_shipyard_building_trigger = yes
+			}
+			151 = {
+				owned_by = ROOT 
+				has_production_building_trigger = yes
+			}
+		}
+		effect = {
+			164 = {
+				set_province_flag = BYZ_may_convert_to_glass
+				province_event = { id = MEE_Byzantine_Events.23 }
+			}
+			
+			custom_tooltip = " "
+			
+			custom_tooltip = BYZ_export_mosaicists
+			tooltip = {
+				if = {
+					limit = {
+						has_dlc = "Leviathan"
+					}
+					add_country_modifier = {
+						name = BYZ_mosaicists_Leviathan
+						duration = 3650
+					}
+				}
+				else = {
+					add_country_modifier = {
+						name = BYZ_mosaicists
+						duration = 3650
+					}
+				}
+			}
+			
+			custom_tooltip = " "
+			
+			if = {
+				limit = {
+					has_dlc = "Emperor"
+				}
+				custom_tooltip = BYZ_buff_glass_privilege
+			}
+			else = {
+				custom_tooltip = BYZ_buff_patronage_of_the_arts
+			}
+		}
+	}
+
+	BYZ_aegean_islands = {
+		icon = byz_aegean_islands
+		position = 6
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = {
+				area = aegean_archipelago_area
+				province_id = 163 
+			}
+		}
+		trigger = {
+			aegean_archipelago_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			163 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			151 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = -1
+					power = 50
+					key = BYZ_latin_delusions
+				}
+			}
+			custom_tooltip = " "
+			custom_tooltip = BYZ_distribute_5_base_tax_among_greek_provinces
+			hidden_effect = {
+				for = {
+					amount = 5
+					effect = "
+					random_owned_province = {
+						limit = {
+							culture = greek
+						}
+						add_base_tax = 1
+					}
+					"
+				}
+			}
+		}
+	}
+
+
+	   BYZ_magna_graecia = {
+		icon = dalmatian_conquest
+		position = 8
+		required_missions = { Iconium_Byzantine_Restored }
+		provinces_to_highlight = {
+			OR = {
+				area = apulia_area
+				area = calabria_area
+				area = sicily_area
+				area = western_sicily_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				OR = {
+					area = apulia_area
+					area = calabria_area
+					area = sicily_area
+					area = western_sicily_area
+				}
+				value = 7
+			}
+			owns = 123 
+			owns = 122
+		}
+		effect = {
+			create_admiral = { tradition = 60 }
+			custom_tooltip = " "
+			give_claims = { area = lazio_area }
+			give_claims = { area = central_italy_area }
+			give_claims = { area = naples_area }
+			give_claims = { area = corsica_sardinia_area }
+			give_claims = { area = barbary_coast_area }
+			give_claims = { area = kabylia_area }
+			give_claims = { area = tunisia_area }
+			give_claims = { area = djerba_area }
+			give_claims = { area = tripolitania_area }
+			custom_tooltip = " "
+			country_event_with_effect_insight = {
+				id = MEE_Byzantine_Events.2
+				effect = "
+				123 = {
+					change_culture = griko
+					add_base_tax = 1
+					add_base_production = 1
+				}
+				122 = {
+					change_culture = griko
+					add_base_tax = 1
+					add_base_production = 1
+				}
+				custom_tooltip = BYZ_3_other_provs
+				add_years_of_trade_income = {
+					years = 1
+					custom_tooltip = BYZ_add_1_years_of_trade_income
+				}
+				"
+			}
+		}
+	}
+}
+
