@@ -941,10 +941,8 @@ teu_pru_dummy_hre_mission_slot_1 = {
 					add_fervor = 50
 				}
 				add_war_exhaustion = -2
-				change_ruler_stat = {
-					stat = mil
-					amount = 2
-				}
+				
+				add_dip_power = 200
 				if = {
 					limit = {
 						has_dlc = "Art of War"
@@ -993,10 +991,8 @@ teu_pru_dummy_hre_mission_slot_1 = {
 					custom_tooltip = teu_pru_30_years_war_at
 				}
 				else = {
-					change_ruler_stat = {
-						stat = dip
-						amount = 1
-					}
+				
+				add_dip_power = 100
 				}
 			}
 			custom_tooltip = teu_conquest_hre_path_effects_tt
@@ -4028,18 +4024,9 @@ teu_pru_prussia_mission_slot = {
 			}
 		}
 		effect = {
-			change_ruler_stat = {
-				stat = adm
-				amount = 1
-			}
-			change_ruler_stat = {
-				stat = dip
-				amount = 1
-			}
-			change_ruler_stat = {
-				stat = mil
-				amount = 1
-			}
+						add_adm_power = 100
+				add_dip_power = 100
+				add_mil_power = 100
 		}
 	}
 	
@@ -6748,18 +6735,9 @@ teu_dummy_mission_slot_3 = {
 		}
 		effect = {
 			custom_tooltip = teu_prussian_path_effects_tt
-			change_ruler_stat = {
-				stat = adm
-				amount = 1
-			}
-			change_ruler_stat = {
-				stat = dip
-				amount = 1
-			}
-			change_ruler_stat = {
-				stat = mil
-				amount = 1
-			}
+				add_adm_power = 100
+				add_dip_power = 100
+				add_mil_power = 100
 			custom_tooltip = teu_crsuader_path_effects_tt
 			add_army_professionalism = 0.05
 			add_papal_influence = 50
