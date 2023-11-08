@@ -59,7 +59,7 @@ zion1 = {
 	}
 	jewish_end_diaspora = {
 		icon = atlantropa_jewishempire
-		position = 7
+		position = 8
 		required_missions = { isr_settle_lands }
 		trigger = {
 			num_of_owned_provinces_with = {
@@ -74,7 +74,7 @@ zion1 = {
 	}
 	jewish_establish_navy = {
 		icon = atlantropa_jewishnavy
-		position = 8
+		position = 9
 		required_missions = {  }
 		trigger = {
 			num_of_galley = 20
@@ -229,7 +229,7 @@ zion2 = {
 	}
 	israel_annex_antiochia = {
 		icon = mission_janissaries
-		position = 8
+		position = 9
 		required_missions = { israel_annex_tripoliss }
 		provinces_to_highlight = {
 			province_id = 2313
@@ -254,7 +254,7 @@ zion2 = {
 	jewish_cultural_domination = {
 		icon = anatolian_frontier
 		position = 11
-		required_missions = { rise_of_jewish_empire }
+		required_missions = { revenge_to_babylon }
 		provinces_to_highlight = {
 			region = anatolia_region
 		}
@@ -355,10 +355,23 @@ zion3 = {
 			}
 		}
 	}
+	rise_of_jewish_empire = {
+		icon = atlantropa_israelcuture
+		position = 5
+		required_missions = { zionist_shalom }
+		trigger = {
+			total_development = 500
+		}
+		effect = {
+			country_event = {
+				id = jewish_atlantropa.2
+			}
+		}
+	}
 	israel_annex_tripoliss = {
 		icon = mission_arabian_fort
-		position = 7
-		required_missions = { zionist_shalom }
+		position = 8
+		required_missions = { rise_of_jewish_empire }
 		provinces_to_highlight = {
 			area = palestine_area
 		}
@@ -376,7 +389,7 @@ zion3 = {
 	}
 	isr_fortress = {
 		icon = mission_the_sultan_of_morocco
-		position = 8
+		position = 9
 		required_missions = { israel_annex_tripoliss }
 		trigger = {
 			total_development = 200
@@ -391,7 +404,7 @@ zion3 = {
 	}
 	revenge_to_babylon = {
 		icon = atlantropa_burningkazan
-		position = 9
+		position = 10
 		required_missions = { israel_annex_antiochia isr_fortress israel_annex_syria }
 		provinces_to_highlight = {
 			province_id = 410
@@ -415,23 +428,10 @@ zion3 = {
 			add_dip_power = 100
 		}
 	}
-	rise_of_jewish_empire = {
-		icon = atlantropa_israelcuture
-		position = 10
-		required_missions = { revenge_to_babylon }
-		trigger = {
-			total_development = 500
-		}
-		effect = {
-			country_event = {
-				id = jewish_atlantropa.2
-			}
-		}
-	}
 	jewish_invade_egypt = {
 		icon = mission_egyptian_mamluk_soldier
 		position = 11
-		required_missions = { rise_of_jewish_empire }
+		required_missions = { revenge_to_babylon }
 		trigger = {
 			num_of_owned_provinces_with = {
 				value = 20
@@ -627,7 +627,7 @@ zion4 = {
 	}
 	israel_annex_syria = {
 		icon = atlantropa_damascus
-		position = 8
+		position = 9
 		required_missions = { israel_annex_tripoliss }
 		provinces_to_highlight = {
 			province_id = 382
@@ -652,7 +652,7 @@ zion4 = {
 	jewish_invae_persia = {
 		icon = atlantropa_iranba
 		position = 11
-		required_missions = { rise_of_jewish_empire }
+		required_missions = { revenge_to_babylon }
 		provinces_to_highlight = {
 			region = persia_region
 		}
@@ -725,6 +725,9 @@ zion5 = {
 			}
 		}
 		effect = {
+			capital_scope = {
+				add_building = university
+			}
 			add_adm_power = 250
 			add_dip_power = 250
 			add_mil_power = 250
@@ -733,7 +736,7 @@ zion5 = {
 	}
 	jewish_golden_age = {
 		icon = mission_golden_century
-		position = 7
+		position = 8
 		required_missions = { jewish_rewrite_bible }
 		trigger = {
 			stability = 3
@@ -756,7 +759,7 @@ zion5 = {
 	}
 	jewish_merchants = {
 		icon = atlantropa_jewishtrader
-		position = 8
+		position = 9
 		required_missions = {  }
 		trigger = {
 			2313 = {

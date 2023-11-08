@@ -130,7 +130,7 @@ always = no
 		}
 	}
 	
-	arm_national_awakening = {
+	arm_national_awakening2 = {
 		icon = mission_handle_the_streltsy
 		required_missions = { }
 		position = 5
@@ -553,7 +553,7 @@ always = no
 		}
 	}
 	
-	arm_caspian_riches = {
+	arm_caspian_riches2 = {
 		icon = mission_arabian_sea_trade
 		required_missions = { arm_breaking_the_chains }
 		position = 2
@@ -666,7 +666,7 @@ always = no
 		}
 	}
 	
-	arm_etchmiadzin_cathedral = {
+	arm_etchmiadzin_cathedral2 = {
 		icon = arm_etchmiadzin_cathedral
 		required_missions = { arm_ecclesiastical_revival }
 		position = 4
@@ -749,7 +749,7 @@ always = no
 		}
 	}
 	
-	arm_holy_sites = {
+	arm_holy_sites2 = {
 		icon = arm_holy_sites
 		required_missions = { arm_etchmiadzin_cathedral }
 		position = 5
@@ -1360,10 +1360,7 @@ always = no
 		}
 		
 		effect = {
-			change_ruler_stat = {
-				type = mil
-				amount = 2
-			}
+			add_mil_power = 200
 			add_ruler_modifier = {
 				name = "arm_liberator"
 				duration = -1

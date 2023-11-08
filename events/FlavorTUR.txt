@@ -5991,6 +5991,51 @@ country_event = {
 
 # Collapse of the Mamluks - Ottoman event - written by Big Boss
 
+country_event = {
+	id = flavor_tur.240
+	title = flavor_tur.240.t
+	desc = flavor_tur.240.desc
+	picture = COUNTRY_COLLAPSE_eventPicture
+	fire_only_once = yes
+	major = yes
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_tur.240.a
+		custom_tooltip = flavor_tur.240.a.tt
+		set_country_flag = tur_decided_to_go_eyalet
+		add_war_exhaustion = -2
+		add_prestige = 20
+		MAM = {
+			country_event = {
+				id = flavor_tur.241
+			}
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+
+	option = {
+		name = flavor_tur.240.b
+		custom_tooltip = flavor_tur.240.b.tt
+		add_war_exhaustion = -2
+		add_prestige = 20
+		MAM = {
+			country_event = {
+				id = flavor_tur.241
+			}
+		}
+		add_country_modifier = {
+			name = tur_egyptian_annexation
+			duration = 7300
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
 
 # Collapse of the Mamluks - Mamluk event
 country_event = {
