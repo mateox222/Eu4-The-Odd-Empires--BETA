@@ -503,6 +503,17 @@ iconium3 = {
 			}
 		}
 		effect = {
+			custom_tooltip  = iconiumempiret
+			hidden_effect = {
+			every_province = {
+				limit = {
+					culture_group = ROOT
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
 			add_country_modifier = {
 				name = BYZ_dreams_of_restoration
 				duration = 5475
@@ -519,26 +530,32 @@ iconium3 = {
 				army_size = 25
 				army_size = LAE
 			}
+			OR = {
+				owns_core_province = 151
 			custom_trigger_tooltip = {
 				tooltip = niceazdobylakonstantynopol
 				OR = {
-					owns_core_province = 151
+				
 					AND = {
 						has_global_flag = war_of_emperors
 					}
 				}}
 				
 		}
+	}
 		effect = {
 			country_event = {
 				id = nikean_empire.12
 			}
+			custom_tooltip = iconiumempiret3
+			hidden_effect = {
 			every_province = {
 				limit = {
 					owned_by = LAE
 				}
 				add_core = ROOT
 			}
+		}
 			add_mil_power = 150
 				
 		 }
@@ -817,6 +834,8 @@ iconium4 = {
 		}
 		effect = {
 			add_mil_power = 150
+			custom_tooltip = iconiumempiret2
+			hidden_effect = {
 			 322 = { add_core = ROOT }	
 			 2297 = { add_core = ROOT }	
 			 5743 = { add_core = ROOT }	
@@ -831,6 +850,7 @@ iconium4 = {
 			give_claims = { id = 2410 } 
 			give_claims = { id = 2447 } 
 			give_claims = { id = 285 }
+			}
 		}
 	}
 	BYZ_promote_the_merchants = {
