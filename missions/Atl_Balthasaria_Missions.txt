@@ -1,0 +1,118 @@
+
+
+balth1 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = LOT
+	}
+
+	balthasaria_deal_slavs = {
+		icon = atlantropa_magyars
+		position = 2
+		required_missions = { balthasaria_disaster }
+		trigger = {
+			has_disaster_progress = {
+				disaster = balthasar_empire_crisis
+				value = 10
+			}
+			stability = 0
+		}
+		effect = {
+			country_event = { 
+			            id = thuringia_events.101
+			}
+		}
+	}
+
+}
+
+balth2 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = LOT
+	}
+
+	balthasaria_disaster = {
+		icon = atlantropa_germiyan
+		position = 1
+		required_missions = {  }
+		trigger = {
+			has_disaster_progress = {
+				disaster = balthasar_empire_crisis
+				value = 10
+			}
+		}
+		effect = {
+			add_stability = -1
+			add_disaster_progress = {
+			    disaster = balthasar_empire_crisis
+			    value = -25
+			}
+		}
+	}
+	balthasaria_deal_occitanians = {
+		icon = mission_the_french_menace
+		position = 2
+		required_missions = { balthasaria_disaster }
+		trigger = {
+			has_disaster_progress = {
+				disaster = balthasar_empire_crisis
+				value = 10
+			}
+			stability =0
+		}
+		effect = {
+			country_event = { 
+			            id = thuringia_events.102
+			}
+		}
+	}
+	empire_is_saved = {
+		icon = atlantropa_paflagonia
+		position = 3
+		required_missions = { balthasaria_deal_slavs balthasaria_deal_occitanians balthasaria_deal_germans }
+		trigger = {
+			stability = 1
+		}
+		effect = {
+			add_stability = 3
+			set_country_flag = balthasariaendured
+		}
+	}
+	
+}
+
+balth3 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = LOT
+	}
+
+	balthasaria_deal_germans = {
+		icon = scramble_for_africa
+		position = 2
+		required_missions = { balthasaria_disaster }
+		trigger = {
+			has_disaster_progress = {
+				disaster = balthasar_empire_crisis
+				value = 10
+			}
+			stability = 0
+		}
+		effect = {
+			country_event = { 
+			            id = thuringia_events.103
+			}
+		}
+	}
+
+}
+
+
+
