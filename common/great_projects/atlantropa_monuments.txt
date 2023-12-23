@@ -4597,7 +4597,6 @@ atlantis_phoenix_temple = {
 		on_upgraded = {
 		}
 	}
-
 }
 
 
@@ -5053,6 +5052,228 @@ atlantis_jerusalemtemple = {
 			stability_cost_modifier = -0.25
 			global_missionary_strength = 0.05	
 			war_exhaustion = -0.02
+		}
+		on_upgraded = {
+		}
+	}
+}
+a47_heart_of_the_republic_gp = {
+	#start = 5223
+	date = 8000.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 1
+	type = monument
+	build_trigger = {
+		always = no
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		province_is_or_accepts_culture = yes
+	}
+
+	can_upgrade_trigger = {
+		province_is_or_accepts_culture = yes
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {	
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			local_garrison_size	 = 0.25	
+			local_development_cost = -0.10
+			province_trade_power_modifier = 0.10
+		}
+		country_modifiers = {
+			monthly_splendor = 1
+			republican_tradition = 0.5
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+			local_garrison_size	 = 0.33
+			local_development_cost = -0.25
+			province_trade_power_modifier = 0.25
+		}
+		country_modifiers = {
+			monthly_splendor = 2
+			advisor_pool = 1
+			republican_tradition = 1
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+			local_garrison_size	 = 0.50
+			local_development_cost = -0.33
+			province_trade_power_modifier = 0.33
+		}
+		country_modifiers = {
+			monthly_splendor = 3
+			advisor_pool = 1
+			republican_tradition = 1.5
+			candidate_random_bonus = 1
+		}
+		on_upgraded = {
+		}
+	}
+}
+a47_palace_of_kings_gp = {
+	#start = 341
+	date = 8000.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 1
+	type = monument
+	build_trigger = {
+		always = no
+	}
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		province_is_or_accepts_culture = yes
+	}
+
+	can_upgrade_trigger = {
+		province_is_or_accepts_culture = yes
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {	
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+			local_garrison_size	 = 0.25	
+			local_development_cost = -0.10
+			province_trade_power_modifier = 0.10
+			block_slave_raid = yes
+		}
+		country_modifiers = {
+			monthly_splendor = 1
+			legitimacy = 0.5
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+			local_garrison_size	 = 0.33
+			local_development_cost = -0.25
+			province_trade_power_modifier = 0.25
+			block_slave_raid = yes
+		}
+		country_modifiers = {
+			monthly_splendor = 2
+			advisor_pool = 1
+			legitimacy = 1
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+			local_garrison_size	 = 0.50
+			local_development_cost = -0.33
+			province_trade_power_modifier = 0.33
+			block_slave_raid = yes
+		}
+		country_modifiers = {
+			monthly_splendor = 3
+			advisor_pool = 1
+			legitimacy = 1.5
+			monarch_military_power = 1
 		}
 		on_upgraded = {
 		}
