@@ -12,6 +12,6 @@ tags={
 	"Loading Screen"
 }
 name="The Odd Empires"
-supported_version="1.35.6"
+supported_version="1.36.0"
 path="C:/Users/matpo/Documents/Paradox Interactive/Europa Universalis IV/mod/TheOddEmpires"
 remote_file_id="2935918398"

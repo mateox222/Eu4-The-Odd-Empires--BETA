@@ -31,13 +31,18 @@ atl_Epirus1 = {
 			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
 		}
 effect = {
+	if = {
+		limit = { NOT = {owns = 5724 }}
+		add_treasury = -300
+	}
 			5724 = {
 				add_core = ROOT
 				cede_province = ROOT
 				change_culture = ROOT
 				remove_core = VEN
 			}
-			add_treasury = -300
+
+			
 		}
 	}
 	epirus_portes = {

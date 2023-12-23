@@ -76,7 +76,7 @@ latin_empire_western = {
 		}
 	}
 	latinempire_romanisation_war_constantinople = {
-		icon = atlantropa_latin_empire
+		icon = byz_reinforce_constantinople
 		trigger = {
 		OR = {	
 		army_size = 25
@@ -188,7 +188,7 @@ custom_trigger_tooltip = {
 	}
 	
 	recover_western_balkans = {
-		icon = mission_pf_cross
+		icon = atlantropa_latinempireburn
 		required_missions = { recover_albania } #None
 		provinces_to_highlight = {
 			OR = {
@@ -988,10 +988,10 @@ num_of_owned_provinces_with = {
 		required_missions = { nikean_empire_greek  }
 		trigger = {
 		KAR = { exists = no }
-		owns_core_province = 323
-		owns_core_province = 4307
-		owns_core_province = 324
-		owns_core_province = 2301		
+		owns  = 323
+		owns  = 4307
+		owns  = 324
+		owns  = 2301		
 		}
 		effect = {
 				country_event = { 

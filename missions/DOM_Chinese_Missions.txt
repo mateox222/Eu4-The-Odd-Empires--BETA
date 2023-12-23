@@ -557,18 +557,9 @@ chinese_kingdoms_1 = {
 				}
 				add_ruler_personality = conqueror_personality
 			}
-			change_ruler_stat = {
-				stat = adm
-				amount = 3
-			}
-			change_ruler_stat = {
-				stat = dip
-				amount = 3
-			}
-			change_ruler_stat = {
-				stat = mil
-				amount = 3
-			}
+				add_adm_power = 300
+				add_dip_power = 300
+				add_mil_power = 300
 			custom_tooltip = chi_warscore_reward_tt
 			tooltip = {
 				if = {
@@ -781,10 +772,7 @@ ming_missions_1_b = {
 			else = {
 				add_corruption = -2
 				change_government_reform_progress = 100
-				change_ruler_stat = {
-					stat = adm
-					amount = 1
-				}
+				add_adm_power = 100
 			}
 		}
 	}
@@ -2453,18 +2441,9 @@ DOM_Qing_Missions_2_b = {
 					add_core = ROOT
 				}
 			}
-			change_ruler_stat = {
-				stat = adm
-				amount = 1
-			}
-			change_ruler_stat = {
-				stat = dip
-				amount = 1
-			}
-			change_ruler_stat = {
-				stat = mil
-				amount = 1
-			}
+				add_adm_power = 100
+				add_dip_power = 100
+				add_mil_power = 100
 		}
 	}
 	qng_ten_grand_campaigns = {
@@ -3764,10 +3743,7 @@ DOM_Qing_Missions_3 = {
 					change_innovativeness = 5
 				}
 				else = {
-					change_ruler_stat = {
-						stat = adm
-						amount = 2
-					}
+					add_adm_power = 200
 				}
 			}
 		}
@@ -4169,18 +4145,9 @@ ming_missions_3_b = {
 				name = mng_well_governed_era_modifier
 				duration = 9125
 			}
-			change_ruler_stat = {
-				stat = adm
-				amount = 1
-			}
-			change_ruler_stat = {
-				stat = dip
-				amount = 1
-			}
-			change_ruler_stat = {
-				stat = mil
-				amount = 1
-			}
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
 		}
 	}
 }
@@ -5511,10 +5478,7 @@ DOM_Qing_Missions_4_b = {
 				}
 			}
 			else = {
-				change_ruler_stat = {
-					stat = adm
-					amount = 2
-				}
+				add_adm_power = 200
 			}
 			add_prestige_or_monarch_power = { amount = 25 }
 		}

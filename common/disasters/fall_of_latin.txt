@@ -24,6 +24,13 @@ SER = {
 	NOT = { alliance_with = ROOT }
 	total_development = 150
 }
+TRE = {
+	is_neighbor_of = ROOT
+	is_subject = no
+	NOT = { truce_with = ROOT }
+	NOT = { alliance_with = ROOT }
+	total_development = 150
+}
 A82 = {
 	is_neighbor_of = ROOT
 	is_subject = no
@@ -68,12 +75,23 @@ BUL = {
 		}
 		modifier = {
 			factor = 2.5
+			TRE = {
+				is_subject = no
+				NOT = { truce_with = ROOT }
+				NOT = { alliance_with = ROOT }
+				total_development = 150
+			}
+			
+		}
+		modifier = {
+			factor = 2.5
 			SER = {
 				is_subject = no
 				NOT = { truce_with = ROOT }
 				NOT = { alliance_with = ROOT }
 				total_development = 150
 			}
+
 		}
 		modifier = {
 			factor = 2.5
@@ -142,6 +160,10 @@ BUL = {
 			truce_with = SER
 		}
 		modifier = {
+			factor = -1
+			truce_with = TRE
+		}
+		modifier = {
 			factor = 5
 			is_at_war = yes
 		}	
@@ -161,7 +183,8 @@ BUL = {
 			NOT = { exists = SER }
 			NOT = { exists = A52 } 
 			NOT = { exists = BYZ }
-			NOT = { exists = A82 }			
+			NOT = { exists = A82 }	
+			NOT = { exists = TRE }					
 		}
 
 	}

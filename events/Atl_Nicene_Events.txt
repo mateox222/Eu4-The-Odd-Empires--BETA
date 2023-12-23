@@ -236,10 +236,10 @@ country_event = {
 	major = yes
 		option = {
 	name = "nikean_empire.14.a" 
-	hidden_effect = { add_faction = rr_praetorians	}
-	custom_tooltip = redfaction
-	151 = {  cede_province = A52 }
-	4779  = {  cede_province = A52 }
+		hidden_effect = { add_faction = rr_praetorians	}
+		custom_tooltip = redfaction
+		151 = {  cede_province = ROOT }
+		4779  = {  cede_province = ROOT }
 	change_tag = BYZ
 	add_government_reform = roman_byzantine_monarchy
 	change_primary_culture = greekilium
@@ -267,7 +267,18 @@ country_event = {
 			country_event = { id = ideagroups.1 } #Swap Ideas
 			LAE = {  override_country_name = CRUSADESTATE_EMPIRE }
 			custom_tooltip = byzantineyalets
+			if = {
+				limit = {
+					OR = {
+						tag = TRE
+						was_tag = TRE
+					}
+					
+				}
+				country_event = { id = nikean_empire.1112 }
+			}
 	}
+
 	}
 	
 	country_event = {
@@ -694,8 +705,14 @@ every_country = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.27.a" 
+	if = {
+		limit = {
+			TRE = { ai = yes }
+		}
 		TRE = { kill_ruler = yes }
 		ROOT = { create_union = TRE }
+	}
+
 		add_core = 323
 		add_core = 2302
 		add_core = 324
@@ -3777,3 +3794,28 @@ country_event = {
 
 	}
 }
+country_event = {
+	id = nikean_empire.1112
+	title = flavor_tur.1112.t
+	desc = flavor_tur.1112.desc
+	picture = EYALET_eventPicture
+	is_triggered_only = yes
+	
+	option = {	# We are free from the Turks!
+		name = flavor_tur.1112.a
+		override_country_name = ICONIUM1
+		change_country_color = { 
+			color = { 92 134 178 }
+		}
+	}
+		option = {	# We are free from the Turks!
+		name = flavor_tur.1112.b
+		override_country_name = ICONIUM2
+		change_country_color = { 
+			color = { 92 134 178 }
+		}
+		}
+		option = {	# We are free from the Turks!
+		name = flavor_tur.1112.c
+		}
+	}

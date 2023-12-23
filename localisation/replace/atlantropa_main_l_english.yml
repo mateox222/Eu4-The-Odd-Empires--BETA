@@ -186,7 +186,8 @@
  ruthenian:0 "Albutanian"
  ukrainian:0 "Higher Ruthenian"
  spartan:0 "Prasinidian"
- old_egyptian:0 "Egyptian"
+ old_egyptian:0 "Lower Egyptian"
+ old_egyptiandwa:0 "Upper Egyptian"
  southern_african:0 "Southern Libyan"
  novgorodian:0 "Lower Ruthenian"
  ryazanian:0 "Pereyeslavian"
@@ -794,6 +795,7 @@
  atlantis_castle_unterkarent:"Klagenfurt"
  atlantis_castle_saplato:"Fortezza di Spalato"
  atlantis_castle_kruje:"Kruje Kala"
+ atlantis_jerusalemtemple:"Holy Temple"
  atlantis_castle_salonik:"Frourio Thessalonikis"
  atlantis_castle_edirne:"Edirne Kalesi"
  atlantis_castle_sugla:"Sugla Kalesi"
@@ -1828,7 +1830,7 @@
  improvepopularityruler:0 "Organize Prayers"
  improvepopularityruler_desc:0 "Organize Prayers in Temples"
  improvepopularityruler2:0 "Organize a Horse Races"
- improvepopularityruler2:0 "Organize a Horse Races"
+ improvepopularityruler2_desc:0 "Organize a Horse Races"
  improvepopularityruler3:0 "Conscript Cataphracts"
  improvepopularityruler3_desc:0 "Conscript Cataphracts to our army"
  byz_adm_power:0 "§RInfamy§!" 
@@ -1844,6 +1846,18 @@
  egypt_boost_ruler_navy_desc:"The expansion of the Polemikó Naftikó signifies a strategic initiative aimed at bolstering Egypt's naval capabilities. This expansion encompasses the construction of additional ships, naval bases, and the development of advanced naval technologies to enhance Egypt's maritime influence in the Mediterranean and beyond."
  egypt_boost_ruler_army_desc:"The expansion of the Chersaiou Stratou represents a comprehensive effort to strengthen Egypt's armed forces. This expansion includes increasing troop numbers, upgrading military infrastructure, and modernizing weaponry, all with the aim of enhancing Egypt's military prowess and national security."
  egypt_boost_ruler_economy_desc:"The expansion of taxes is a multifaceted fiscal strategy aimed at increasing revenue for Egypt's government. This approach involves broadening the tax base, adjusting tax rates, and implementing more efficient tax collection mechanisms to support the nation's economic growth, public services, and developmental projects."
+
+
+
+ israel_boost_ruler_navy:"Reform the Society"
+ israel_boost_ruler_army:"Enforce the Tradition"
+ israel_boost_ruler_economy_desc:"Expand the Army"
+ israel_boost_ruler_navy_desc:"Reform the Society"
+ israel_boost_ruler_army_desc:"Enforce the Tradition"
+ israel_boost_ruler_economy:"Expand the Army"
+ israelgov_mechanicc:0 "§MJewish Mechanic§!"
+ ability_israelgov_mechanic:0 "§MJewish Mechanic§!"
+
 
  bretagne_mechanic:0 "§JBretagne Mechanic§!"
  ability_bretagne_mechanic:0 "§JBretagne Mechanic§!"
@@ -1983,6 +1997,11 @@
  war_atlantropa_empire_desc: "The so-called Emperor in the West has held power too long. We will subjugate them, and restore rightful rule to the West."
  cb_byzantine_war_on_empire: "Demand Emperor Title"
  cb_byzantine_war_on_empire_desc: "Demand Emperor Title"
+ cb_israel_invasion:"Milchemet Kodesh"
+ cb_byzantine_war_on_empire_desc: "Holy war against Goys"
+ israel_invasio_wg: "Show Superiority"
+ israel_invasio_wg_desc: "Show Superiority"
+
  war_atlantropa_empire: "Demand Emperor Title"
  war_atlantropa_empire_desc: "Demand Emperor Title"
  CB_ALLOWED_atlantropa_claim_empire: "Demand Emperor Title"
@@ -2062,7 +2081,8 @@
  emperor_imperial_estates_emperor:0 "Imperial Estates Curtailed"
  emperor_reichstag_collegia_title:0 "Establish the Parlamento Imperiale Colleges"
  emperor_reichstag_collegia_desc:0 "Divide the Parlamento Imperiale between into separate colleges for the Emperor, the Princes and the Imperial Cities to improve its functioning for all."
- 
+ MAM_ideas:"Jerusalem Ideas"
+ TRE_ideas:"Iconium Ideas"
 
 
 
@@ -2091,6 +2111,7 @@
  byzantineyalets: "Now you can Establish an §MEparchia§!, a specially subejct type for Byzantine Vassals"
  dlugazimadis: "From month to month the sky clears up, giving hope that one day the catastrophe will end"
  herezjarozmowypokojowe4: "Heresy has ended" 
+ ISRAEL_WAR_NAME: "$ORDER$$FIRST$ Milchemet Kodesh against $SECOND_NAME$"
 
 
  atlantropa_legio_roma: "Legionaries"
@@ -2172,8 +2193,9 @@ ATLANTROPA_Tigernorth: "1.4 - §JThe Tiger of the North§!"
 ATLANTROPA_Citydesirre: "1.5 - §JThe Cities of World's Desire§!"
 ATLANTROPA_BattleAlbion: "1.6 - §JThe Battle For Albion§!"
 ATLANTROPA_FATEOFEGYPT: "1.7 - §JThe Fate of Aegyptus§!"
+ATLANTROPA_PAGANREVENGE: "1.8 - §JThe Reconquista§!"
 
-
+ATLANTROPA_PAGANREVENGE_DESC:"The Aztec Empire of Ueyitlan dominated Western Europe for almost 200 years, but in the last decades it weakened significantly, the final blow was the Third Crusade recently announced by the bishop of Rome, whose appeal to the European knighthood was much greater than expected, the largest wave of soldiers since the fall of the Roman Empire sweeps through the Iberian Peninsula in Europe, and the fate of the peninsula is uncertain."
 ATLANTROPA_FATEOFEGYPT_DESC: "The fate of Egypt hangs in the balance as it teeters on the brink of a looming civil war, a precipice that leaves all uncertain of what lies ahead. With tensions escalating and divisions deepening, the outcome remains shrouded in ambiguity, casting a cloud of apprehension over the nation's future. In this volatile climate, Egypt's destiny is an enigma, awaiting resolution in the turbulent chapters yet to be written."
 ATLANTROPA_BattleAlbion_DESC: "Albion has become the battleground where native kingdoms, the Black Empire of Niflheim, and the Principality of Perpignan clash in epic confrontations. The island witnesses the convergence of diverse powers, each vying for supremacy and control over its lands. Amidst the turmoil, alliances shift, strategies evolve, and the fate of Albion hangs in the balance as these formidable forces clash in their pursuit of dominion."
 ATLANTROPA_Oblitus_DESC: "Oblitus Terras is a mesmerizing realm where the continents diverge from our own, offering a tapestry of alternate geographies. Within this world, legendary lands like Atlantis, Mu, and Lemuria rise from obscurity, captivating the imagination with their enigmatic histories and mystic allure. As continents dance to a different cartographic rhythm, Oblitus Terraz weaves a tale of undiscovered wonders and forgotten civilizations, inviting exploration into the untamed realms of the unknown."
