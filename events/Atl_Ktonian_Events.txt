@@ -11,6 +11,24 @@ country_event = { #Carrion
 			name = carrion_reanimation_mod
 			duration = 1460
 		}
+		add_country_modifier = { 
+			name = darkmagics_mod_car
+			duration = 1460
+		}
+		dd_years_of_income = -0.15
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_ktonian.1.b
+		add_country_modifier = { 
+			name = carrion_reanimation_mod
+			duration = 3650
+		}
+		add_country_modifier = { 
+			name = darkmagics_mod_car
+			duration = 3650
+		}
+		add_years_of_income = -0.5
 		ai_chance = { factor = 2 } 
 	}
 }
@@ -22,8 +40,45 @@ country_event = { #Reanimation
 	is_triggered_only = yes
 	option = { 
 		name = atl_ktonian.2.a
-		add_yearly_manpower = 3
-		ai_chance = { factor = 2 } 
+		add_yearly_manpower = 2.5
+		add_country_modifier = { 
+			name = darkmagics_mod_rean
+			duration = 1825
+		}
+		add_country_modifier = { 
+			name = minor_reanimations_mod
+			duration = 1825
+		}
+		add_years_of_income = -1
+		ai_chance = { factor = 1 } 
+	}
+	option = { 
+		name = atl_ktonian.2.b
+		add_yearly_manpower = 5
+		add_country_modifier = { 
+			name = darkmagics_mod_rean
+			duration = 3650
+		}
+		add_country_modifier = { 
+			name = minor_reanimations_mod
+			duration = 3650
+		}
+		add_years_of_income = -2
+		ai_chance = { factor = 4 } 
+	}
+	option = { 
+		name = atl_ktonian.2.c
+		add_yearly_manpower = 10
+		add_country_modifier = { 
+			name = moderate_darkmagics_mod_rean
+			duration = 3650
+		}
+		add_country_modifier = { 
+			name = minor_reanimations_mod
+			duration = 3650
+		}
+		add_years_of_income = -4
+		ai_chance = { factor = 1 } 
 	}
 }
 country_event = { #Dust to Dust
@@ -37,6 +92,10 @@ country_event = { #Dust to Dust
 		add_country_modifier = { 
 			name = dust_to_dust_mod
 			duration = 90
+		}
+		add_country_modifier = { 
+			name = darkmagics_mod_dust
+			duration = 365
 		}
 		ai_chance = { factor = 2 } 
 	}
@@ -53,6 +112,10 @@ country_event = { #Necronomics
 			name = necronomics_mod
 			duration = 3650
 		}
+		add_country_modifier = { 
+			name = moderate_darkmagics_mod_economics
+			duration = 365
+		}
 		ai_chance = { factor = 2 } 
 	}
 }
@@ -65,6 +128,10 @@ country_event = { #The Dead Walk
 	option = { 
 		name = atl_ktonian.5.a
 		change_technology_group = ktonian_dead_t
+		add_country_modifier = { 
+			name = horrible_darkmagics_mod_deadwalk
+			duration = 3650
+		}
 		ai_chance = { factor = 2 } 
 	}
 }
@@ -89,6 +156,10 @@ country_event = { #Lichdom
 	option = { 
 		name = atl_ktonian.7.a
 		add_ruler_personality = immortal_personality
+		add_ruler_modifier = { 
+			name = darkmagics_mod_lich
+			duration = -1
+		}
 		ai_chance = { factor = 2 } 
 	}
 }
@@ -101,6 +172,10 @@ country_event = { #Banelord
 	option = { 
 		name = atl_ktonian.8.a
 		create_general = { tradition = 80 }
+		add_country_modifier = { 
+			name = darkmagics_mod_bane
+			duration = 365
+		}
 		ai_chance = { factor = 2 } 
 	}
 }
