@@ -1,0 +1,106 @@
+namespace = atl_ktonian
+country_event = { #Carrion
+	id = atl_ktonian.1
+	title = atl_ktonian.1.t 
+	desc = atl_ktonian.1.d 
+	picture = greatdying_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = atl_ktonian.1.a
+		add_country_modifier = { 
+			name = carrion_reanimation_mod
+			duration = 1460
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+country_event = { #Reanimation
+	id = atl_ktonian.2
+	title = atl_ktonian.2.t 
+	desc = atl_ktonian.2.d 
+	picture = greatdying_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = atl_ktonian.2.a
+		add_yearly_manpower = 3
+		ai_chance = { factor = 2 } 
+	}
+}
+country_event = { #Dust to Dust
+	id = atl_ktonian.3
+	title = atl_ktonian.3.t 
+	desc = atl_ktonian.3.d 
+	picture = greatdying_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = atl_ktonian.1.a
+		add_country_modifier = { 
+			name = dust_to_dust_mod
+			duration = 90
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+country_event = { #Necronomics
+	id = atl_ktonian.4
+	title = atl_ktonian.4.t 
+	desc = atl_ktonian.4.d 
+	picture = greatdying_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = atl_ktonian.4.a
+		add_country_modifier = { 
+			name = necronomics_mod
+			duration = 3650
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+country_event = { #The Dead Walk
+	id = atl_ktonian.5
+	title = atl_ktonian.5.t 
+	desc = atl_ktonian.5.d 
+	picture = greatdying_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = atl_ktonian.5.a
+		change_technology_group = ktonian_dead_t
+		ai_chance = { factor = 2 } 
+	}
+}
+country_event = { #The Dead Rest
+	id = atl_ktonian.6
+	title = atl_ktonian.6.t 
+	desc = atl_ktonian.6.d 
+	picture = greatdying_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = atl_ktonian.6.a
+		change_technology_group = ktonian_t
+		ai_chance = { factor = 2 } 
+	}
+}
+country_event = { #Lichdom
+	id = atl_ktonian.7
+	title = atl_ktonian.7.t 
+	desc = atl_ktonian.7.d 
+	picture = greatdying_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = atl_ktonian.7.a
+		add_ruler_personality = immortal_personality
+		ai_chance = { factor = 2 } 
+	}
+}
+country_event = { #Banelord
+	id = atl_ktonian.8
+	title = atl_ktonian.8.t 
+	desc = atl_ktonian.8.d 
+	picture = greatdying_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = atl_ktonian.8.a
+		create_general = { tradition = 80 }
+		ai_chance = { factor = 2 } 
+	}
+}

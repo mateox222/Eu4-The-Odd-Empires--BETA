@@ -1,59 +1,115 @@
-call_slave_host = {
-	#sprite = "GFX_unknown"
+carrion_reanimation_aspect = { #Adds small modifier
+	sprite = "GFX_carrion_birds"
 	cost = 50
 	
 	effect = {
-		random_owned_province = {
-			limit = {
-				base_manpower = 2
-				trade_goods = slaves
-			}
-			ROOT = {
-				infantry = PREV
-				infantry = PREV
-				infantry = PREV
-				infantry = PREV
-				infantry = PREV
-			}
-			add_base_manpower = -1
-		}
+		country_event = { id = atl_ktonian.1 }
 	}
 	trigger = {
-		any_owned_province = {
-			trade_goods = slaves
-			base_manpower = 2
+		NOT = {
+			has_country_modifier = carrion_reanimation_mod
 		}
+	}
+	ai_will_do = {
+		factor = 4
+		modifier = {
+			factor = 0
+			is_at_war = no
+		}
+	}
+}
+
+reanimation_aspect = { #Gives Manpower(maybe troops?)
+	sprite = "GFX_reanimation"
+	cost = 75
+	
+	effect = {
+		country_event = { id = atl_ktonian.2 }
 	}
 	
 	ai_will_do = {
 		factor = 8
 		modifier = {
 			factor = 0
-			army_size_percentage = 0.8
+			manpower_percentage = 0.8
 		}
 	}
 }
 
-create_slave_state = {
-	#sprite = "GFX_unknown"
-	cost = 50
+dust_to_dust_aspect = { #Siege Fast
+	sprite = "GFX_dust_to_dust"
+	cost = 75
 	
 	effect = {
-		random_owned_province = {
-			limit = {
-				NOT = {
-					trade_goods = slaves
-				}
-			}
-			change_trade_good = slaves
+		country_event = { id = atl_ktonian.3 }
+	}
+}
+
+necronomics_aspect = { #the dead plow!
+	sprite = "GFX_necronomics"
+	cost = 100
+	
+	effect = {
+		country_event = { id = atl_ktonian.4 }
+	}
+	
+	ai_will_do = {
+		factor = 8
+		modifier = {
+			factor = 0
+			is_at_war = yes
 		}
+	}
+}
+
+the_dead_walk_great_aspect = { #Changes Unit type!!!
+	sprite = "GFX_the_dead_walk"
+	cost = 200
+	
+	effect = {
+		country_event = { id = atl_ktonian.5 }
 	}
 	trigger = {
 		NOT = {
-			any_owned_province = {
-				trade_goods = slaves
-			}
+			technology_group = ktonian_dead_t
 		}
+	}
+}
+
+the_dead_rest_great_aspect = { #Changes Unit type...back
+	sprite = "GFX_the_dead_rest"
+	cost = 10
+	
+	effect = {
+		country_event = { id = atl_ktonian.6 }
+	}
+	trigger = {
+		NOT = {
+			technology_group = ktonian_t
+		}
+	}
+}
+
+lichdom_great_aspect = { #Immortal Leader
+	sprite = "GFX_lichdom"
+	cost = 200
+	
+	effect = {
+		country_event = { id = atl_ktonian.7 }
+	}
+	trigger = {
+		NOT = {
+			ruler_has_personality = immortal_personality
+		}
+	}
+}
+
+revive_bane_lord_great_aspect = { #Powerful Leader
+	sprite = "GFX_banelord"
+	cost = 150
+	
+	effect = {
+		country_event = { id = atl_ktonian.8 }
 	}
 	ai_will_do = {
 		factor = 8
