@@ -40,7 +40,7 @@ country_event = { #Reanimation
 	is_triggered_only = yes
 	option = { 
 		name = atl_ktonian.2.a
-		add_yearly_manpower = 2.5
+		add_yearly_manpower = 2
 		add_country_modifier = { 
 			name = darkmagics_mod_rean
 			duration = 1825
@@ -50,11 +50,14 @@ country_event = { #Reanimation
 			duration = 1825
 		}
 		add_years_of_income = -1
+		trigger = {
+			technology_group = ktonian_t
+		}
 		ai_chance = { factor = 1 } 
 	}
 	option = { 
 		name = atl_ktonian.2.b
-		add_yearly_manpower = 5
+		add_yearly_manpower = 4
 		add_country_modifier = { 
 			name = darkmagics_mod_rean
 			duration = 3650
@@ -64,11 +67,14 @@ country_event = { #Reanimation
 			duration = 3650
 		}
 		add_years_of_income = -2
+		trigger = {
+			technology_group = ktonian_t
+		}
 		ai_chance = { factor = 4 } 
 	}
 	option = { 
 		name = atl_ktonian.2.c
-		add_yearly_manpower = 10
+		add_yearly_manpower = 6
 		add_country_modifier = { 
 			name = moderate_darkmagics_mod_rean
 			duration = 3650
@@ -78,6 +84,70 @@ country_event = { #Reanimation
 			duration = 3650
 		}
 		add_years_of_income = -4
+		trigger = {
+			technology_group = ktonian_t
+		}
+		ai_chance = { factor = 1 } 
+	}
+	option = { 
+		name = atl_ktonian.2.a1
+		add_yearly_manpower = 1
+		add_country_modifier = { 
+			name = darkmagics_mod_disappearances
+			duration = 3650
+		}
+		add_country_modifier = { 
+			name = minor_reanimations_mod
+			duration = 3650
+		}
+		add_years_of_income = -2
+		trigger = {
+			technology_group = ktonian_dead_t
+		}
+		ai_chance = { factor = 1 } 
+	}
+	option = { 
+		name = atl_ktonian.2.b1
+		add_manpower = -10
+		add_country_modifier = { 
+			name = darkmagics_mod_disappearances
+			duration = 3650
+		}
+		capital_scope = {
+			ROOT = {
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+			}
+		}
+		add_treasury = -25
+		trigger = {
+			technology_group = ktonian_dead_t
+		}
+		ai_chance = { factor = 1 } 
+	}
+	option = { 
+		name = atl_ktonian.2.c1
+		add_yearly_manpower = -2
+		add_country_modifier = { 
+			name = darkmagics_mod_disappearances
+			duration = 3650
+		}
+		add_country_modifier = { 
+			name = undead_horrors
+			duration = 3650
+		}
+		add_years_of_income = -2
+		trigger = {
+			technology_group = ktonian_dead_t
+		}
 		ai_chance = { factor = 1 } 
 	}
 }
@@ -88,7 +158,7 @@ country_event = { #Dust to Dust
 	picture = greatdying_eventPicture
 	is_triggered_only = yes
 	option = { 
-		name = atl_ktonian.1.a
+		name = atl_ktonian.3.a
 		add_country_modifier = { 
 			name = dust_to_dust_mod
 			duration = 90
@@ -114,7 +184,7 @@ country_event = { #Necronomics
 		}
 		add_country_modifier = { 
 			name = moderate_darkmagics_mod_economics
-			duration = 365
+			duration = 3650
 		}
 		ai_chance = { factor = 2 } 
 	}
@@ -128,9 +198,14 @@ country_event = { #The Dead Walk
 	option = { 
 		name = atl_ktonian.5.a
 		change_technology_group = ktonian_dead_t
+		change_unit_type = ktonian_dead_t
 		add_country_modifier = { 
 			name = horrible_darkmagics_mod_deadwalk
 			duration = 3650
+		}
+		add_country_modifier = { 
+			name = undead_military
+			duration = -1
 		}
 		ai_chance = { factor = 2 } 
 	}
@@ -174,7 +249,7 @@ country_event = { #Banelord
 		create_general = { tradition = 80 }
 		add_country_modifier = { 
 			name = darkmagics_mod_bane
-			duration = 365
+			duration = 730
 		}
 		ai_chance = { factor = 2 } 
 	}
