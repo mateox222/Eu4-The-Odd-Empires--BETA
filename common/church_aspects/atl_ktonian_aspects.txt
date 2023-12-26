@@ -26,7 +26,15 @@ reanimation_aspect = { #Gives Manpower(maybe troops?)
 	effect = {
 		country_event = { id = atl_ktonian.2 }
 	}
-	
+	trigger = {
+		NOT = {
+			OR = {
+				has_country_modifier = darkmagics_mod_disappearances
+				has_country_modifier = moderate_darkmagics_mod_rean
+				has_country_modifier = darkmagics_mod_rean
+			}
+		}
+	}
 	ai_will_do = {
 		factor = 8
 		modifier = {
@@ -39,7 +47,11 @@ reanimation_aspect = { #Gives Manpower(maybe troops?)
 dust_to_dust_aspect = { #Siege Fast
 	sprite = "GFX_dust_to_dust"
 	cost = 100
-	
+	trigger = {
+		NOT = {
+			has_country_modifier = darkmagics_mod_dust
+		}
+	}
 	effect = {
 		country_event = { id = atl_ktonian.3 }
 	}
@@ -48,11 +60,14 @@ dust_to_dust_aspect = { #Siege Fast
 necronomics_aspect = { #the dead plow!
 	sprite = "GFX_necronomics"
 	cost = 100
-	
+	trigger = {
+		NOT = {
+			has_country_modifier = moderate_darkmagics_mod_economics
+		}
+	}
 	effect = {
 		country_event = { id = atl_ktonian.4 }
 	}
-	
 	ai_will_do = {
 		factor = 8
 		modifier = {
@@ -107,7 +122,11 @@ lichdom_great_aspect = { #Immortal Leader
 revive_bane_lord_great_aspect = { #Powerful Leader
 	sprite = "GFX_banelord"
 	cost = 200
-	
+	trigger = {
+		NOT = {
+			has_country_modifier = darkmagics_mod_bane
+		}
+	}
 	effect = {
 		country_event = { id = atl_ktonian.8 }
 	}
