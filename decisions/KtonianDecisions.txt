@@ -1,0 +1,42 @@
+country_decisions = {
+	ktonian_transition_to_dead_ai = {
+		major = yes
+		potential = {
+			ai = yes
+		}
+		allow = {
+			OR = {
+				mil_tech = 18
+				total_development = 100
+				AND = {
+					mil_tech = 8
+					tag = K2A
+				}
+				AND = {
+					total_development = 60
+					mil_tech = 8
+				}
+			}
+			NOT = {
+				technology_group = ktonian_dead_t
+			}
+		}
+		effect = {
+			change_technology_group = ktonian_dead_t
+			change_unit_type = ktonian_dead_t
+			add_country_modifier = { 
+				name = horrible_darkmagics_mod_deadwalk
+				duration = 365
+			}
+			add_country_modifier = { 
+				name = undead_military
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		ai_importance = 400 #
+	}
+	
+}
