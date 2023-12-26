@@ -34,34 +34,14 @@ birth_of_frischland_EFR = {
 		icon = atlantropa_slavia
 		position = 7
 		required_missions = { spread_thin_efr the_faith_of_the_people_EFR }
-		provinces_to_highlight = {
-			OR = {
-				province_id = 5550
-				province_id = 5552
-				province_id = 5553
-				province_id = 5555
-			}
-			NOT = {
-				num_of_times_improved = 1
-			}
-		}
 		trigger = {
-			5550 = {
-				num_of_times_improved = 1
-			}
-			5552 = {
-				num_of_times_improved = 1
-			}
-			5553 = {
-				num_of_times_improved = 1
-			}
-			5555 = {
-				num_of_times_improved = 1
-			}
+			total_development = 24
 		}
 		effect = {
 			frischland_area = {
 				remove_province_modifier = efr_spread_thin_modifier
+			}
+			frischland_area = {
 				add_province_modifier = {
 					name = efr_population_boom_modifier
 					duration = 3650
