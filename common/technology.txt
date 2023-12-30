@@ -211,6 +211,7 @@ groups = {
 			value = 50
 		}
 	}
+
 	polynesian_tech = {
 		start_level = 3
 		start_cost_modifier = 2
@@ -326,6 +327,20 @@ groups = {
 
 	
 }
+	mu_tech = {
+		start_level = 6
+		start_cost_modifier = 0
+		nation_designer_cost = {
+			trigger = {
+				capital_scope = {
+					OR = {
+						continent = oceania
+					}
+				}
+			}
+			value = 75
+		}
+	}
 
 tables = {
 	adm_tech = "technologies/adm.txt"
