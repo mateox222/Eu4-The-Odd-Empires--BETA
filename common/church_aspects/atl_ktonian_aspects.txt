@@ -138,3 +138,23 @@ revive_bane_lord_great_aspect = { #Powerful Leader
 		}
 	}
 }
+
+commune_olms_great_aspect = { #olms
+	sprite = "GFX_olm"
+	cost = 200
+	trigger = {
+		NOT = {
+			has_country_modifier = darkmagics_mod_bane
+		}
+	}
+	effect = {
+		country_event = { id = atl_ktonian.9 }
+	}
+	ai_will_do = {
+		factor = 8
+		modifier = {
+			factor = 0
+			num_of_generals = 2
+		}
+	}
+}

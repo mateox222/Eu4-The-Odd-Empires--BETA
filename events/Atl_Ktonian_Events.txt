@@ -258,3 +258,78 @@ country_event = { #Banelord
 		ai_chance = { factor = 2 } 
 	}
 }
+country_event = { #Olms
+	id = atl_ktonian.9
+	title = atl_ktonian.9.t 
+	desc = atl_ktonian.9.d 
+	picture = darkritual_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = atl_ktonian.9.a
+		create_general = { tradition = 15 }
+		add_years_of_income = 0.5
+		add_yearly_manpower = 1
+		capital_scope = {
+			ROOT = {
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+			}
+		}
+		trigger = {
+			NOT = {
+				total_development = 200
+			}
+		}
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_ktonian.9.b
+		create_general = { tradition = 35 }
+		add_years_of_income = 1
+		add_yearly_manpower = 2
+		capital_scope = {
+			ROOT = {
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+			}
+		}
+		trigger = {
+			total_development = 200
+			NOT = {
+				total_development = 500
+			}
+		}
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_ktonian.9.b
+		create_general = { tradition = 60 }
+		add_years_of_income = 2
+		add_yearly_manpower = 4
+		capital_scope = {
+			ROOT = {
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+			}
+		}
+		trigger = {
+			total_development = 500
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
