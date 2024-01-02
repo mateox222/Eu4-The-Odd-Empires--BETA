@@ -195,13 +195,28 @@ country_event = { #The Dead Walk
 	desc = atl_ktonian.5.d 
 	picture = darkritual_eventPicture
 	is_triggered_only = yes
+	major = yes
 	option = { 
 		name = atl_ktonian.5.a
 		change_technology_group = ktonian_dead_t
 		change_unit_type = ktonian_dead_t
-		add_country_modifier = { 
-			name = horrible_darkmagics_mod_deadwalk
-			duration = 3650
+		if = {
+			limit = {
+				ai = yes
+			}
+			add_country_modifier = { 
+				name = horrible_darkmagics_mod_deadwalk
+				duration = 365
+			}
+		}
+		if = {
+			limit = {
+				ai = no
+			}
+			add_country_modifier = { 
+				name = horrible_darkmagics_mod_deadwalk
+				duration = 3650
+			}
 		}
 		add_country_modifier = { 
 			name = undead_military

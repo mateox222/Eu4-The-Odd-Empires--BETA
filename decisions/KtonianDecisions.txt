@@ -21,19 +21,22 @@ country_decisions = {
 			technology_group = ktonian_t
 		}
 		effect = {
-			change_technology_group = ktonian_dead_t
-			change_unit_type = ktonian_dead_t
-			add_country_modifier = { 
-				name = horrible_darkmagics_mod_deadwalk
-				duration = 365
-			}
-			add_country_modifier = { 
-				name = undead_military
-				duration = -1
-			}
-			kill_units = {
-				who = owner
-				type = cavalry
+		#	change_technology_group = ktonian_dead_t
+		#	change_unit_type = ktonian_dead_t
+		#	add_country_modifier = { 
+		#		name = horrible_darkmagics_mod_deadwalk
+		#		duration = 365
+		#	}
+		#	add_country_modifier = { 
+		#		name = undead_military
+		#		duration = -1
+		#	}
+		#	kill_units = {
+		#		who = owner
+		#		type = cavalry
+		#	}
+			country_event = {
+				id = atl_ktonian.5
 			}
 		}
 		ai_will_do = {
