@@ -169,6 +169,17 @@ country_event = {
 			id = startevent.101
 		}
 	}
+	option = {
+		name = startevent.101.ne
+		trigger = {
+			NOT = {
+				has_global_flag = fuck_it_necromancer_world
+			}
+		}
+		country_event = { 
+			id = startevent.109
+		}
+	}
 	
 }
 
@@ -400,6 +411,26 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = startevent.109
+	title = startevent.109.t
+	desc = startevent.109.d
+	picture = BLACKSUN_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = startevent.109.a 
+		set_global_flag = fuck_it_necromancer_world
+		country_event = { 
+			id = startevent.5
+		}
+	}
+	option = {
+		name = startevent.109.b 
+		country_event = { 
+			id = startevent.5
+		}
+	}
+}
 
 
 

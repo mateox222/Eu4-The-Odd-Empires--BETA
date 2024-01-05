@@ -2,23 +2,36 @@ country_decisions = {
 	ktonian_transition_to_dead_ai = {
 		major = yes
 		potential = {
-			ai = yes
-			technology_group = ktonian_t
+			OR = {
+				AND = {
+					ai = yes
+					technology_group = ktonian_t
+				}
+				has_global_flag = fuck_it_necromancer_world
+			}
 		}
 		allow = {
 			OR = {
-				mil_tech = 18
-				total_development = 100
 				AND = {
-					mil_tech = 8
-					tag = K2A
+					OR = {
+						mil_tech = 18
+						total_development = 100
+						AND = {
+							mil_tech = 8
+							tag = K2A
+						}
+						AND = {
+							total_development = 60
+							mil_tech = 14
+						}
+					}
+					technology_group = ktonian_t
 				}
-				AND = {
-					total_development = 60
-					mil_tech = 14
-				}
+				has_global_flag = fuck_it_necromancer_world
 			}
-			technology_group = ktonian_t
+			NOT = {
+				technology_group = ktonian_dead_t
+			}
 		}
 		effect = {
 		#	change_technology_group = ktonian_dead_t
