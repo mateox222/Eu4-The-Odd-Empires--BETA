@@ -3,7 +3,10 @@ country_decisions = {
 		major = yes
 		potential = {
 			was_never_end_game_tag_trigger = yes
-			primary_culture = germanrussian
+			OR = {
+				primary_culture = germanrussian
+				primary_culture = singrish
+			}
 			NOT = { exists = F00 }
 			NOT = { tag = SCA }
 		}
