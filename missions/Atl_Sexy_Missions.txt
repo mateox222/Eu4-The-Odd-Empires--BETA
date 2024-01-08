@@ -1,0 +1,379 @@
+conquest_of_lochness_south_sex = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = X38
+			tag = X39
+		}
+	}
+	has_country_shield = yes
+
+	fondle_sharnwick_sex = {
+		icon = atlantropa_vinland_unite
+		position = 6
+		required_missions = {  }
+		trigger = {
+			yorkshire_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			pyrenees_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			wales_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			
+		}
+	}
+	grasp_the_south_sex = {
+		icon = atlantropa_slavia
+		position = 7
+		required_missions = { fondle_sharnwick_sex }
+		trigger = {
+			pyrenees_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			wales_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			brittany_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_splendor = 250
+		}
+	}
+	unification_of_sexland_sex = {
+		icon = atlantropa_armenianking
+		position = 8
+		required_missions = { grasp_the_south_sex northern_coast_of_lochness_sex conquer_sexland_sex }
+		trigger = {
+		}
+		effect = {
+			hidden_effect = {
+				4695 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				4694 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				2753 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				200 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				5630 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				5633 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				44 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				98 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				4997 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				54 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				15 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				174 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				4111 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				5152 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			british_isles_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			custom_tooltip = claim_coast_lochness_tt
+			add_adm_power = 50
+			add_dip_power = 50
+			add_mil_power = 50
+			add_prestige = 10
+			add_stability = 1
+		}
+	}
+}
+
+conquest_of_lochness_north_sex = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = X38
+			tag = X39
+		}
+	}
+	has_country_shield = yes
+
+	the_highlands_of_sharnwick_sex = {
+		icon = atlantropa_northern_dominion
+		position = 6
+		required_missions = { }
+		trigger = {
+			highlands_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			kingdom_of_the_isles_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			aragon_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	northern_coast_of_lochness_sex = {
+		icon = atlantropa_odinstatuemission
+		position = 7
+		required_missions = { the_highlands_of_sharnwick_sex }
+		trigger = {
+			aragon_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			kingdom_of_the_isles_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			asturias_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			atlantropa_sexland = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+
+sexland_conquest_sex = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = X38
+			tag = X39
+		}
+	}
+	has_country_shield = yes
+
+	conquer_sexland_sex = {
+		icon = atlantropa_dawn
+		position = 7
+		required_missions = {  }
+		trigger = {
+			asturias_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			atlantropa_sexland = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			highlands_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			doggerland_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_yearly_manpower = 2
+		}
+	}
+}
+
+naval_sex = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = A39
+			tag = X40
+			tag = X39
+			tag = X38
+			tag = X00
+			tag = SB5
+			tag = PSK
+			tag = ICE
+			tag = V02
+			tag = V01
+			tag = V00
+			tag = V03
+			tag = AT6
+			tag = A64
+			tag = NI1
+			tag = A48
+			tag = PKS
+			tag = X17
+		}
+	}
+	has_country_shield = yes
+
+	the_navy_sex = {
+		icon = atlantropa_niflheim_navy
+		position = 4
+		required_missions = { }
+		trigger = {
+			navy_size_percentage = 0.90
+		}
+		effect = {
+			add_navy_tradition = 50
+		}
+	}
+	charting_the_north_sex = {
+		icon = atlantropa_coldnorth
+		position = 5
+		required_missions = { the_navy_sex }
+		trigger = {
+			has_idea = quest_for_the_new_world
+		}
+		effect = {
+			create_explorer = { tradition = 65 }
+		}
+	}
+	brothers_in_vinland_sex = {
+		icon = atlantropa_norsearmy
+		position = 6
+		required_missions = { charting_the_north_sex }
+		trigger = {
+			has_discovered = 980
+		}
+		effect = {
+			frischland_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = nor_colonial_enthusiasm
+				duration = 14600
+			}
+		}
+	}
+}
