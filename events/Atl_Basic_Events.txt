@@ -732,3 +732,26 @@ province_event = {
 
 	}
 }
+
+country_event = {
+	id = atlantropa_basic_event.3014
+	title = "atlantropa_basic_eventt.1.t"
+	desc = "atlantropa_basic_event.1.d"
+	picture = sackniflport_eventPicture
+	trigger = {
+		capital_scope = {
+			superregion = china_superregion
+		}
+		is_emperor_of_china = no
+		any_country = {
+			NOT = { total_development =	ROOT }
+			is_emperor_of_china = YES
+		 }	
+		
+	}
+	hidden = yes
+option = {
+	set_emperor_of_china = ROOT
+		name = "atlantropa_basic_event.1.a"
+}
+}
