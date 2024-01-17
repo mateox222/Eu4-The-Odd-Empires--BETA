@@ -3,6 +3,7 @@
                 limit = {
             is_female = No
             has_regency = no
+            government = monarchy
             OR = {
             culture_group = west_slavic
             culture_group = germanic
@@ -10,11 +11,15 @@
             culture_group = british
            culture_group =  gaelic	
           culture_group =   latin
+          culture_group =   french
+          religion = catholic
+          religion = protestant
 
             }
                 }
            random_list = {
-            #Europe man
+            #Europe
+            #Kings
     100 = {
        set_ruler_flag = ruleuropean1
     }
@@ -87,10 +92,143 @@
                 100 = {
        set_ruler_flag = ruleuropean23
     }
+                    100 = {
+       set_ruler_flag = ruleuropean24
+    }
+                    100 = {
+       set_ruler_flag = ruleuropean25
+    }
+                    100 = {
+       set_ruler_flag = ruleuropean26
+    }
+                    100 = {
+       set_ruler_flag = ruleuropean27
+    }
+                    100 = {
+       set_ruler_flag = ruleuropean28
+    }
+                    100 = {
+       set_ruler_flag = ruleuropean29
+    }
+                       100 = {
+       set_ruler_flag = ruleuropean30
+    }
+
 
 }
 }
+ if = {
+                limit = {
+            is_female = No
+            has_regency = no
+            government = republic
+            OR = {
+            culture_group = west_slavic
+            culture_group = germanic
+            culture_group = scandinavian
+            culture_group = british
+           culture_group =  gaelic	
+          culture_group =   latin
+          culture_group =   french
+                    religion = catholic
+          religion = protestant
+
             }
+                }
+           random_list = {
+            #Europe
+            #Merchants
+
+                           100 = {
+       set_ruler_flag = ruleuropean31
+    }
+                           100 = {
+       set_ruler_flag = ruleuropean32
+    }
+                               100 = {
+       set_ruler_flag = ruleuropean33
+    }
+                               100 = {
+       set_ruler_flag = ruleuropean34
+    }
+                                   100 = {
+       set_ruler_flag = ruleuropean35
+    }
+                                   100 = {
+       set_ruler_flag = ruleuropean36
+    }
+           }
+
+            }
+
+   if = {
+                limit = {
+            is_female = No
+            has_regency = no
+            culture_group = byzantine
+                }
+                       random_list = {
+            #Europe
+            #Byzantine
+                               100 = {
+       set_ruler_flag = ruleuropean37
+    }
+                                   100 = {
+       set_ruler_flag = ruleuropean38
+    }
+                                   100 = {
+       set_ruler_flag = ruleuropean39
+    }
+                                   100 = {
+       set_ruler_flag = ruleuropean40
+    }
+                                   100 = {
+       set_ruler_flag = ruleuropean41
+    }
+                                   100 = {
+       set_ruler_flag = ruleuropean42
+    }
+                                   100 = {
+       set_ruler_flag = ruleuropean43
+    }
+                               100 = {
+       set_ruler_flag = ruleuropean44
+    }
+                                   100 = {
+       set_ruler_flag = ruleuropean45
+    }
+
+
+
+            }
+                }
+
+                        if = {
+                limit = {
+            is_female = No
+            has_regency = no
+            OR = {
+            tag = LAE
+            tag = CYP
+            religion = catholic
+            religion = united_christianity
+            }
+                }
+                                    100 = {
+       set_ruler_flag = ruleuropean46
+    }
+         100 = {
+       set_ruler_flag = ruleuropean47
+    }
+
+
+
+            }
+                }
+
+            
+        
+
 
 
         
