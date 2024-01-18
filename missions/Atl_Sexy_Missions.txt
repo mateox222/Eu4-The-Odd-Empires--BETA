@@ -14,6 +14,10 @@ conquest_of_lochness_south_sex = {
 		icon = atlantropa_vinland_unite
 		position = 6
 		required_missions = {  }
+		provinces_to_highlight = {
+			area = yorkshire_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
 			yorkshire_area = {
 				type = all	
@@ -42,6 +46,13 @@ conquest_of_lochness_south_sex = {
 		icon = atlantropa_slavia
 		position = 7
 		required_missions = { fondle_sharnwick_sex }
+		provinces_to_highlight = {
+			OR = {
+				area = pyrenees_area
+				area = wales_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
 			pyrenees_area = {
 				type = all	
@@ -203,6 +214,10 @@ conquest_of_lochness_north_sex = {
 		icon = atlantropa_northern_dominion
 		position = 6
 		required_missions = { }
+		provinces_to_highlight = {
+			area = highlands_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
 			highlands_area = {
 				type = all	
@@ -230,6 +245,13 @@ conquest_of_lochness_north_sex = {
 		icon = atlantropa_odinstatuemission
 		position = 7
 		required_missions = { the_highlands_of_sharnwick_sex }
+		provinces_to_highlight = {
+			OR = {
+				area = aragon_area
+				area = kingdom_of_the_isles_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
 			aragon_area = {
 				type = all	
@@ -276,6 +298,13 @@ sexland_conquest_sex = {
 		icon = atlantropa_dawn
 		position = 7
 		required_missions = {  }
+		provinces_to_highlight = {
+			OR = {
+				area = asturias_area
+				area = atlantropa_sexland
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
 			asturias_area = {
 				type = all	
@@ -345,6 +374,9 @@ naval_sex = {
 		icon = atlantropa_norsearmy
 		position = 5
 		required_missions = { charting_the_north_sex }
+		provinces_to_highlight = {
+			province_id = 980
+		}
 		trigger = {
 			has_discovered = 980
 		}
