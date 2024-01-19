@@ -718,14 +718,24 @@ the_south_2 = {
 			NOT = {
 				has_country_modifier = in4_archaeology_research
 			}
-			treasury = 500
+			treasury = 1000
 		}
 		effect = {
 			add_country_modifier = {
 				name = in4_railway_researched
 				duration = -1
 			}
-			add_treasury = -500
+			5642 = {
+				add_great_project = {
+					type = atlantropa_in4_railnetwork
+					instant = yes
+				}
+				add_great_project_tier = {
+					type = atlantropa_in4_railnetwork
+					tier = 1
+				}
+			}
+			add_treasury = -1000
 		}
 	}
 }
