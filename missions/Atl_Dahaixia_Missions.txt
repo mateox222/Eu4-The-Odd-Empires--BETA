@@ -171,7 +171,7 @@ Xingang_3 = {
 	IN4_settling_the_interior = {
 		icon = mission_ne_agriculture
 		position = 4
-		required_missions = { IN4_the_city_grows }
+		required_missions = {  }
 		trigger = {
 			OR = {
 				num_of_colonists = 1
@@ -443,6 +443,20 @@ the_north_4 = {
 			}
 		}
 	}
+	IN4_delving_into_ruins = {
+		icon = atlantropa_ancientcity
+		position = 7
+		required_missions = { IN4_the_old_world }
+		trigger = {
+			treasury = 500
+		}
+		effect = {
+			add_treasury = -500
+			country_event = {
+				id = atl_bonusevent.14
+			}
+		}
+	}
 }
 
 the_south_2 = {
@@ -613,8 +627,8 @@ the_south_2 = {
 	}
 	In4_the_jungles_of_mu = {
 		icon = atlantropa_tiger
-		position = 4
-		required_missions = { IN4_pacifying_the_malay }
+		position = 5
+		required_missions = { IN4_pacifying_the_malay IN4_settling_the_interior }
 		provinces_to_highlight = {
 			region = atlantis_muland_region
 			has_terrain = jungle
@@ -662,6 +676,58 @@ the_south_2 = {
 			}
 		}
 	}
+	IN4_department_of_archaeology = {
+		icon = atlantropa_chinesearchaeology
+		position = 7
+		required_missions = { IN4_the_old_world }
+		trigger = {
+			treasury = 1000
+		}
+		effect = {
+			add_prestige = 25
+			add_treasury = -1000
+			add_country_modifier = {
+				name = in4_department_of_archaeology
+				duration = 7300
+			}
+		}
+	}
+	IN4_studying_the_rail = {
+		icon = atlantropa_jungletrain
+		position = 8
+		required_missions = { IN4_department_of_archaeology }
+		trigger = {
+			NOT = {
+				has_country_modifier = in4_archaeology_research
+			}
+			treasury = 500
+		}
+		effect = {
+			add_country_modifier = {
+				name = in4_archaeology_research
+				duration = 7300
+			}
+			add_treasury = -500
+		}
+	}
+	IN4_implementing_rails = {
+		icon = atlantropa_jungletrain2
+		position = 9
+		required_missions = { IN4_studying_the_rail }
+		trigger = {
+			NOT = {
+				has_country_modifier = in4_archaeology_research
+			}
+			treasury = 500
+		}
+		effect = {
+			add_country_modifier = {
+				name = in4_railway_researched
+				duration = -1
+			}
+			add_treasury = -500
+		}
+	}
 }
 
 the_south_1 = {
@@ -707,6 +773,42 @@ the_south_1 = {
 				name = in4_buddhas_peace
 				duration = -1
 			}
+		}
+	}
+	IN4_studying_the_field = {
+		icon = atlantropa_forcefield
+		position = 8
+		required_missions = { IN4_department_of_archaeology }
+		trigger = {
+			NOT = {
+				has_country_modifier = in4_archaeology_research
+			}
+			treasury = 500
+		}
+		effect = {
+			add_country_modifier = {
+				name = in4_archaeology_research
+				duration = 7300
+			}
+			add_treasury = -500
+		}
+	}
+	IN4_applied_forcefield_dynamics = {
+		icon = atlantropa_appliedforcefield
+		position = 9
+		required_missions = { IN4_studying_the_field }
+		trigger = {
+			NOT = {
+				has_country_modifier = in4_archaeology_research
+			}
+			treasury = 750
+		}
+		effect = {
+			add_country_modifier = {
+				name = in4_forcefield_researched
+				duration = -1
+			}
+			add_treasury = -750
 		}
 	}
 }
