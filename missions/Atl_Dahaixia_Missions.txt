@@ -190,11 +190,17 @@ Xingang_3 = {
 		position = 5
 		required_missions = { IN4_settling_the_interior }
 		provinces_to_highlight = {
-			province_id = 5139
+			OR = {
+				province_id = 5987
+				province_id = 5215
+			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			owns_core_province = 5139
+			OR = {
+				owns_core_province = 5987
+				owns_core_province = 5215
+			}
 		}
 		effect = {
 			country_event = {
