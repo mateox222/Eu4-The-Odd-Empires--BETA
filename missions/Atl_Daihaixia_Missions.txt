@@ -206,6 +206,10 @@ Xingang_3 = {
 		icon = atlantropa_steamengine
 		position = 6
 		required_missions = { IN4_the_strange_gate }
+		provinces_to_highlight = {
+			has_terrain = urbanistic_railway
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
 			num_of_owned_provinces_with = {
 				value = 2
@@ -227,6 +231,10 @@ Xingang_3 = {
 		icon = mission_colonial
 		position = 7
 		required_missions = { IN4_the_old_world }
+		provinces_to_highlight = {
+			region = the_great_railroad
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
 		trigger = {
 			num_of_owned_provinces_with = {
 				value = 10
@@ -286,6 +294,12 @@ the_north_4 = {
 		icon = atlantropa_handelsbolag
 		position = 1
 		required_missions = {  }
+		provinces_to_highlight = {
+			OR = {
+				owned_by = JP1
+				owned_by = JP2
+			}
+		}
 		trigger = {
 			navy_size_percentage = 1
 			OR = {
@@ -440,26 +454,79 @@ the_south_2 = {
 		required_missions = { IN4_the_benzhu IN4_the_mahayana }
 		trigger = { }
 		effect = {
-			atlantis_muland2 = {
+			if = {
 				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+					NOT = {
+						atlantis_muland2 = {
+							type = all	
+							OR = {
+								country_or_non_sovereign_subject_holds = ROOT
+								is_city = no
+							}
+						}
+						atlantis_muland3 = {
+							type = all	
+							OR = {
+								country_or_non_sovereign_subject_holds = ROOT
+								is_city = no
+							}
+						}
+						atlantis_muland4 = {
+							type = all	
+							OR = {
+								country_or_non_sovereign_subject_holds = ROOT
+								is_city = no
+							}
+						}
+					}
 				}
-				add_permanent_claim = ROOT
+				atlantis_muland2 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				atlantis_muland3 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				atlantis_muland4 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
 			}
-			atlantis_muland3 = {
+			if = {
 				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+					atlantis_muland2 = {
+						type = all	
+						OR = {
+							country_or_non_sovereign_subject_holds = ROOT
+							is_city = no
+						}
+					}
+					atlantis_muland3 = {
+						type = all	
+						OR = {
+							country_or_non_sovereign_subject_holds = ROOT
+							is_city = no
+						}
+					}
+					atlantis_muland4 = {
+						type = all	
+						OR = {
+							country_or_non_sovereign_subject_holds = ROOT
+							is_city = no
+						}
+					}
 				}
-				add_permanent_claim = ROOT
-			}
-			atlantis_muland4 = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
+				add_adm_power = 100
 			}
 		}
 	}
@@ -499,7 +566,20 @@ the_south_2 = {
 			}
 		}
 		effect = {
-			add_stability = 1
+			if = {
+				limit = {
+					stability = 3
+				}
+				add_adm_power = 50
+			}
+			if = {
+				limit = {
+					NOT = {
+						stability = 3
+					}
+				}
+				add_stability = 1
+			}
 		}
 	}
 	In4_the_jungles_of_mu = {
