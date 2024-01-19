@@ -491,4 +491,89 @@ country_event = {
 			}
 		}
 	}
+} #Anb. Stealing ends
+
+country_event = { #The Great Gate
+	id = atl_bonusevent.11
+	title = atl_bonusevent.11.t 
+	desc = atl_bonusevent.11.d 
+	picture = easternchurches_eventPicture
+	is_triggered_only = yes 
+	option = { 
+		name = atl_bonusevent.11.a
+		add_prestige = 25
+		add_dip_power = 100
+		add_mil_power = 100
+		add_adm_power = 100
+		ai_chance = { factor = 2 } 
+	}
+}
+
+country_event = { #The Great Caverns
+	id = atl_bonusevent.12
+	title = atl_bonusevent.12.t 
+	desc = atl_bonusevent.12.d 
+	picture = easternchurches_eventPicture
+	is_triggered_only = yes 
+	option = { 
+		name = atl_bonusevent.12.a
+		add_prestige = 25
+		add_stability = 1
+		add_dip_power = 100
+		add_mil_power = 100
+		add_adm_power = 100
+		ai_chance = { factor = 4 } 
+	}
+	option = { 
+		name = atl_bonusevent.12.b
+		add_prestige = 50
+		add_dip_power = 100
+		add_mil_power = 100
+		add_adm_power = 200
+		change_religion = golem_cult
+		add_country_modifier = { 
+			name = in4_agartha_revealed
+			duration = 9125
+		}
+		ai_chance = { factor = 1 } 
+	}
+	option = { 
+		name = atl_bonusevent.12.c
+		add_prestige = 50
+		add_dip_power = 100
+		add_mil_power = 100
+		add_adm_power = 200
+		change_religion = mu_cult_of_prophets
+		add_country_modifier = { 
+			name = in4_agartha_revealed
+			duration = 9125
+		}
+		ai_chance = { factor = 1 } 
+	}
+}
+
+country_event = { #The Gilded City
+	id = atl_bonusevent.13
+	title = atl_bonusevent.13.t 
+	desc = atl_bonusevent.13.d 
+	picture = easternchurches_eventPicture
+	is_triggered_only = yes 
+	option = { 
+		name = atl_bonusevent.11.a
+		add_prestige = 25
+		add_dip_power = 100
+		add_mil_power = 100
+		add_adm_power = 100
+		5141 = {
+			add_base_tax = -3
+			add_base_production = -3
+			add_base_manpower = -3
+		}
+		5642 = {
+			add_base_tax = 3
+			add_base_production = 3
+			add_base_manpower = 3
+		}
+		ai_chance = { factor = 2 } 
+	}
 }
