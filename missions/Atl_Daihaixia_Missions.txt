@@ -312,19 +312,44 @@ the_north_4 = {
 			}
 		}
 		effect = {
-			atlantis_muland7 = {
+			if = {
 				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+					NOT = {
+						atlantis_muland7 = {
+							type = all	
+							OR = {
+								country_or_non_sovereign_subject_holds = ROOT
+								is_city = no
+							}
+						}
+					}
 				}
-				add_permanent_claim = ROOT
+				atlantis_muland7 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				1145 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
 			}
-			1145 = {
+			if = {
 				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
+					atlantis_muland7 = {
+						type = all	
+						OR = {
+							country_or_non_sovereign_subject_holds = ROOT
+							is_city = no
+						}
+					}
 				}
-				add_permanent_claim = ROOT
+				add_adm_power = 50
 			}
 		}
 	}
