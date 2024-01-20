@@ -9961,15 +9961,31 @@ great_mosque_djenne = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		province_is_or_accepts_religion_group = {
-			religion_group = muslim
+		OR = {
+			province_is_or_accepts_religion_group = {
+				religion_group = deep_group
+			}
+			province_is_or_accepts_religion_group = {
+				religion_group = eastern
+			}
+			province_is_or_accepts_religion_group = {
+				religion_group = pagan
+			}
 		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		province_is_or_accepts_religion_group = {
-			religion_group = muslim
+		OR = {
+			province_is_or_accepts_religion_group = {
+				religion_group = deep_group
+			}
+			province_is_or_accepts_religion_group = {
+				religion_group = eastern
+			}
+			province_is_or_accepts_religion_group = {
+				religion_group = pagan
+			}
 		}
 	}
 
@@ -10028,7 +10044,6 @@ great_mosque_djenne = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			monthly_piety_accelerator = 0.001
 			global_heathen_missionary_strength = 0.01
 		}
 
@@ -10058,7 +10073,6 @@ great_mosque_djenne = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			monthly_piety_accelerator = 0.002
 			global_heathen_missionary_strength = 0.02
 			missionaries = 1
 		}
@@ -10089,7 +10103,6 @@ great_mosque_djenne = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			monthly_piety_accelerator = 0.003
 			global_heathen_missionary_strength = 0.03
 			missionaries = 1
 		}
@@ -13964,7 +13977,7 @@ mehrangarh_fort = {
 }
 
 nan_madoll = {
-	start = 1995 #Micronesia
+	start = 6066 #Micronesia
 	date = 500.01.01	#Date is a little bit iffy here
 	time = { months = 0	}
 	build_cost = 0
