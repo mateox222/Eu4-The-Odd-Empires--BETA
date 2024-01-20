@@ -233,3 +233,53 @@ mu_hexamon = {
 	seize_territory = no
 	siphon_income = yes
 }
+
+aztec_tlacotli = {
+	copy_from = default
+	
+	# Graphics:
+    sprite = GFX_icon_eyalet
+	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_eyalet
+	diplomacy_subject_sprite = GFX_icon_diplomacy_am_eyalet 
+
+	# Properties:
+	transfer_trade_power = yes
+	joins_overlords_wars = no
+	can_be_annexed = yes
+	has_power_projection = no
+	gets_help_with_rebels = no
+	forms_trade_companies = no
+	takes_diplo_slot = no
+	can_be_co_belligerented = yes
+	extend_trading_range = yes
+	opinion_cost_instead_of_favors_cost = yes
+	opinion_cost_to_join_offensive_wars = 40
+	opinion_cost_to_join_defensive_wars = 20
+	opinion_on_subject_integration = 0
+	counts_for_borders = yes
+	max_government_rank = 1
+	base_liberty_desire = -10
+	liberty_desire_development_ratio = 0.1
+	liberty_desire_same_dynasty = -5.0
+	pays_overlord = 0.25
+	forcelimit_to_overlord = 0.2						# Percent of subject FL to use as base for modifiers
+	naval_forcelimit_to_overlord = 0.2					# Percent of subject FL to use as base for modifiers
+	manpower_to_overlord = 0.15							# Percent of subject FL to use as base for modifiers
+	sailors_to_overlord = 0.1		
+	military_focus = 1.2					# Percent of subject FL to use as base for modifiers
+
+	relative_power_class = 1
+	should_quit_wars_on_activation = yes
+
+	# Subject Interactions:
+	support_loyalists = yes
+	seize_court_resources = yes
+	request_extra_levies = yes
+	place_relative_on_throne = yes
+	sacrifice_ruler = yes
+	sacrifice_heir = yes
+	divert_trade = yes
+	seize_territory = no
+	siphon_income = yes
+	conscript_general = yes
+}
