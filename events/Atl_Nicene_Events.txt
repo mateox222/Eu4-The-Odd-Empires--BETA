@@ -264,6 +264,14 @@ country_event = {
 				name = "centralization_modifier"
 				duration = 6900
 			}
+			hidden_effect = {
+				every_province = {
+					limit = {
+						culture_group = byzantine
+					}
+					add_permanent_claim = ROOT
+				}
+			}
 			country_event = { id = ideagroups.1 } #Swap Ideas
 			LAE = {  override_country_name = CRUSADESTATE_EMPIRE }
 			custom_tooltip = byzantineyalets
@@ -729,8 +737,7 @@ every_country = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.28.a" 
-		add_core = 4971
-		add_core = 321
+		add_mil_power = 100
 		KOJ = { add_historical_rival = ROOT }
 		add_historical_rival = KOJ
 				add_country_modifier = {

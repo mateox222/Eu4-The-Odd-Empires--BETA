@@ -755,3 +755,48 @@ option = {
 		name = "atlantropa_basic_event.1.a"
 }
 }
+
+
+
+		country_event = {
+	id = atlantropa_basic_event.4000
+	title = atlantropa_basic_event.6.t
+	desc = atlantropa_basic_event.6.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	hidden = yes
+	trigger = {
+		NOT = { has_country_flag = azteckiwasal }	
+		OR = {
+		is_subject_of = AZT
+		}
+		is_colonial_nation = no
+	}
+
+	option = {
+	name = "atlantropa_basic_event.6.a" 
+	 set_country_flag = azteckiwasal
+	 change_country_color = { color = { 47 46 44  }	}
+	set_country_flag = has_overriden_color 
+		}		
+
+		}
+
+		country_event = {
+	id = atlantropa_basic_event.4001
+	title = atlantropa_basic_event.6.t
+	desc = atlantropa_basic_event.6.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	hidden = yes
+	trigger = {
+		has_country_flag = azteckiwasal
+	NOT = {	is_subject_of = AZT }
+
+	}
+
+	option = {
+	name = "atlantropa_basic_event.6.a" 
+	clr_country_flag = azteckiwasal
+	 restore_country_color = yes	
+		}		
+
+		}

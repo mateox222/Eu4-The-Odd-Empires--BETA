@@ -1,0 +1,96 @@
+uc_missionaries = {
+	is_blessing = yes
+
+	modifier = {
+		global_missionary_strength = 0.01	
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 3
+			NOT = {
+				OR = {
+					legitimacy = 70
+					republican_tradition = 70
+					devotion = 70
+				}
+			}
+		}
+	}
+}
+
+uc_christian_faith = {
+	is_blessing = yes
+
+	modifier = {
+		monarch_lifespan = 0.1	
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 3
+			NOT = {
+				manpower = 4
+			}
+		}
+	}
+}
+
+uc_pomazaniec = {
+	is_blessing = yes
+
+	modifier = {
+		global_unrest = -2	
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 2
+			NOT = {
+				religious_unity = 0.9
+			}
+		}
+		modifier = {
+			factor = 2
+			NOT = {
+				religious_unity = 0.7
+			}
+		}
+		modifier = {
+			factor = 2
+			NOT = {
+				religious_unity = 0.5
+			}
+		}
+	}
+}
+
+uc_euroauniversalis = {
+	is_blessing = yes
+
+	modifier = {
+		prestige = 0.5	
+	}
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 2
+			overextension_percentage = 0.7
+		}
+		modifier = {
+			factor = 3
+			overextension_percentage = 0.5
+		}
+	}
+}
+
+uc_holy_warriors = {
+	is_blessing = yes
+
+	modifier = {
+		discipline = 0.025
+	}
+	ai_will_do = {
+		factor = 15
+	}
+}
