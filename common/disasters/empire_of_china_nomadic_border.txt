@@ -13,9 +13,9 @@ empire_of_china_nomadic_border = {
 			custom_trigger_tooltip = {
 				tooltip = empire_of_china_nomadic_border_tt
 				OR = {
-					tag = A56
 					has_reform = steppe_horde
 					has_reform = great_mongol_state_reform
+tag = A56
 				}
 				total_own_and_non_tributary_subject_development = 300
 			}
@@ -26,7 +26,6 @@ empire_of_china_nomadic_border = {
 	can_stop = { 
 		OR = {
 			has_any_disaster = yes
-			is_at_war = no
 			NOT = {
 				any_neighbor_country = {
 					NOT = { truce_with = ROOT }
@@ -35,9 +34,9 @@ empire_of_china_nomadic_border = {
 					custom_trigger_tooltip = {
 						tooltip = empire_of_china_nomadic_border_tt
 						OR = {
-							tag = A56
 							has_reform = steppe_horde
 							has_reform = great_mongol_state_reform
+tag = A56
 							hidden_trigger = {
 								has_global_flag = is_forming_the_mongol_empire
 							}
@@ -62,7 +61,7 @@ empire_of_china_nomadic_border = {
 					OR = {
 						has_reform = steppe_horde
 						has_reform = great_mongol_state_reform
-						tag = A56
+tag = A56
 					}
 					total_own_and_non_tributary_subject_development = 300
 				}
@@ -80,7 +79,7 @@ empire_of_china_nomadic_border = {
 					OR = {
 						has_reform = steppe_horde
 						has_reform = great_mongol_state_reform
-						tag = A56
+tag = A56
 					}
 					total_own_and_non_tributary_subject_development = 300
 				}
@@ -99,7 +98,7 @@ empire_of_china_nomadic_border = {
 					OR = {
 						has_reform = steppe_horde
 						has_reform = great_mongol_state_reform
-						tag = A56
+tag = A56
 					}
 					total_own_and_non_tributary_subject_development = 300
 				}
@@ -118,14 +117,17 @@ empire_of_china_nomadic_border = {
 					OR = {
 						has_reform = steppe_horde
 						has_reform = great_mongol_state_reform
-						tag = A56
+tag = A56
 					}
 					total_own_and_non_tributary_subject_development = 300
 				}
-				ROOT = {
-					war_score_against = {
-						who = PREV
-						value = 25
+				custom_trigger_tooltip = {
+					tooltip = warscore_v_horde_25_tt
+					ROOT = {
+						war_score_against = {
+							who = PREV
+							value = 25
+						}
 					}
 				}
 			}
@@ -146,7 +148,7 @@ empire_of_china_nomadic_border = {
 						OR = {
 							has_reform = steppe_horde
 							has_reform = great_mongol_state_reform
-							tag = A56
+tag = A56
 							hidden_trigger = {
 								has_global_flag = is_forming_the_mongol_empire
 							}
@@ -214,7 +216,7 @@ empire_of_china_nomadic_border = {
 					OR = {
 						has_reform = steppe_horde
 						has_reform = great_mongol_state_reform
-						tag = A56
+tag = A56
 					}
 					total_own_and_non_tributary_subject_development = 300
 					NOT = { alliance_with = ROOT }
@@ -238,7 +240,7 @@ empire_of_china_nomadic_border = {
 					OR = {
 						has_reform = steppe_horde
 						has_reform = great_mongol_state_reform
-						tag = A56
+tag = A56
 					}
 					total_own_and_non_tributary_subject_development = 300
 					NOT = { alliance_with = ROOT }

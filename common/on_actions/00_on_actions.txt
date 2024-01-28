@@ -5,6 +5,7 @@ on_startup = {
 	#THEODDEMPIRES
 	add_reform_desire = -200
 	initialize_atlantis_schools_effect = yes
+	toe_random_ruler_effect = yes
 		random_country = {
 		limit = { ai = no }
 		country_event = { id = startevent.1 }
@@ -919,6 +920,7 @@ on_great_project_constructed = {
 # OBS: Consider that the following on_actions can be called for Personal Union juniors as well.
 # country
 on_new_monarch = {
+	toe_random_ruler_effect = yes
 	on_new_monarch_effect = yes
 	crimean_succession_effect = yes #Scripted effect
 	slesvig_question_effect = yes #Scripted effect
@@ -1000,6 +1002,8 @@ on_new_consort = {
 
 # country
 on_monarch_death = {
+
+
 
 	if = {
 		limit = {
@@ -5667,6 +5671,23 @@ on_colonial_nation_established = {
 	country_event = { id = atlantropa_english_colonialevent.16	days = 21 }
 	country_event = { id = atlantropa_english_colonialevent.17	days = 21 }
 	country_event = { id = atlantropa_english_colonialevent.18	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.1 	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.2 	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.3 	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.4 	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.5 	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.6 	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.7 	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.8 	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.9 	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.10 days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.11 days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.13	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.14	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.15	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.16	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.17	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.18	days = 21 }
 	country_event = { id = atlantropa_phoenicaevent.1 	days = 21 }
 	country_event = { id = atlantropa_phoenicaevent.2 	days = 21 }
 	country_event = { id = atlantropa_phoenicaevent.3 	days = 21 }

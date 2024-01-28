@@ -302,7 +302,7 @@ hagia_sophia = {
 
 stonehenge = {
 	# province it starts in
-	start = 234
+	start = 5464
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = -2500.01.01
@@ -3509,7 +3509,7 @@ tenochtitlan = {
 
 notre_dame_cathedral = {
 	# province it starts in
-	start = 183
+	start = 236
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1163.01.01
@@ -4653,7 +4653,7 @@ taj_mahal = {
 
 alhambra = {
 	# province it starts in
-	start = 223
+	start = 5146
 	
 	# date built in real life (so anything built during game time will be there if you start a game after that date)
 	date = 1333.01.01 #Yusuf I
@@ -9961,15 +9961,31 @@ great_mosque_djenne = {
 
 	#can our country use it?
 	can_use_modifiers_trigger = {
-		province_is_or_accepts_religion_group = {
-			religion_group = muslim
+		OR = {
+			province_is_or_accepts_religion_group = {
+				religion_group = deep_group
+			}
+			province_is_or_accepts_religion_group = {
+				religion_group = eastern
+			}
+			province_is_or_accepts_religion_group = {
+				religion_group = pagan
+			}
 		}
 	}
 
 	#can our country upgrade it?
 	can_upgrade_trigger = {
-		province_is_or_accepts_religion_group = {
-			religion_group = muslim
+		OR = {
+			province_is_or_accepts_religion_group = {
+				religion_group = deep_group
+			}
+			province_is_or_accepts_religion_group = {
+				religion_group = eastern
+			}
+			province_is_or_accepts_religion_group = {
+				religion_group = pagan
+			}
 		}
 	}
 
@@ -10028,7 +10044,6 @@ great_mosque_djenne = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			monthly_piety_accelerator = 0.001
 			global_heathen_missionary_strength = 0.01
 		}
 
@@ -10058,7 +10073,6 @@ great_mosque_djenne = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			monthly_piety_accelerator = 0.002
 			global_heathen_missionary_strength = 0.02
 			missionaries = 1
 		}
@@ -10089,7 +10103,6 @@ great_mosque_djenne = {
 
 		#what modifiers are added to the country when we have this project here on this tier
 		country_modifiers = {
-			monthly_piety_accelerator = 0.003
 			global_heathen_missionary_strength = 0.03
 			missionaries = 1
 		}
@@ -13964,7 +13977,7 @@ mehrangarh_fort = {
 }
 
 nan_madoll = {
-	start = 1995 #Micronesia
+	start = 6066 #Micronesia
 	date = 500.01.01	#Date is a little bit iffy here
 	time = { months = 0	}
 	build_cost = 0
@@ -16133,7 +16146,7 @@ walls_benin = {
 }
 
 winter_palace = {
-	start = 33 #Neva
+	start = 38 #Neva
 	date = 6408.01.01	#1711.01.01
 	time = { months = 0	}
 	build_cost = 0
@@ -17589,7 +17602,7 @@ edinburgh_castle = {
 }
 
 aljaferia_palace = {
-	start = 214 #Zaragosa
+	start = 232 #Zaragosa
 	date = 1035.11.04
 	time = { months = 0	}
 	build_cost = 0
@@ -17853,7 +17866,7 @@ divrigi_hospital_mosque = {
 }
 
 st_basil_cathedral = {
-	start = 295 #Moskva
+	start = 4525 #Moskva
 	date = 1444.06.01
 	time = { months = 0	}
 	build_cost = 0

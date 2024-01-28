@@ -1,0 +1,354 @@
+namespace = atl_ktonian
+country_event = { #Carrion
+	id = atl_ktonian.1
+	title = atl_ktonian.1.t 
+	desc = atl_ktonian.1.d 
+	picture = darkritual_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = atl_ktonian.1.a
+		add_country_modifier = { 
+			name = carrion_reanimation_mod
+			duration = 1460
+		}
+		add_country_modifier = { 
+			name = darkmagics_mod_car
+			duration = 1460
+		}
+		dd_years_of_income = -0.15
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_ktonian.1.b
+		add_country_modifier = { 
+			name = carrion_reanimation_mod
+			duration = 3650
+		}
+		add_country_modifier = { 
+			name = darkmagics_mod_car
+			duration = 3650
+		}
+		add_years_of_income = -0.5
+		ai_chance = { factor = 2 } 
+	}
+}
+country_event = { #Reanimation
+	id = atl_ktonian.2
+	title = atl_ktonian.2.t 
+	desc = atl_ktonian.2.d 
+	picture = darkritual_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = atl_ktonian.2.a
+		add_yearly_manpower = 2
+		add_country_modifier = { 
+			name = darkmagics_mod_rean
+			duration = 1825
+		}
+		add_country_modifier = { 
+			name = minor_reanimations_mod
+			duration = 1825
+		}
+		add_years_of_income = -1
+		trigger = {
+			technology_group = ktonian_t
+		}
+		ai_chance = { factor = 1 } 
+	}
+	option = { 
+		name = atl_ktonian.2.b
+		add_yearly_manpower = 4
+		add_country_modifier = { 
+			name = darkmagics_mod_rean
+			duration = 3650
+		}
+		add_country_modifier = { 
+			name = minor_reanimations_mod
+			duration = 3650
+		}
+		add_years_of_income = -2
+		trigger = {
+			technology_group = ktonian_t
+		}
+		ai_chance = { factor = 4 } 
+	}
+	option = { 
+		name = atl_ktonian.2.c
+		add_yearly_manpower = 6
+		add_country_modifier = { 
+			name = moderate_darkmagics_mod_rean
+			duration = 3650
+		}
+		add_country_modifier = { 
+			name = minor_reanimations_mod
+			duration = 3650
+		}
+		add_years_of_income = -4
+		trigger = {
+			technology_group = ktonian_t
+		}
+		ai_chance = { factor = 1 } 
+	}
+	option = { 
+		name = atl_ktonian.2.a1
+		add_yearly_manpower = 2
+		add_country_modifier = { 
+			name = darkmagics_mod_disappearances
+			duration = 3650
+		}
+		add_country_modifier = { 
+			name = minor_reanimations_mod
+			duration = 3650
+		}
+		add_years_of_income = -2
+		trigger = {
+			technology_group = ktonian_dead_t
+		}
+		ai_chance = { factor = 1 } 
+	}
+	option = { 
+		name = atl_ktonian.2.b1
+		add_manpower = -10
+		add_country_modifier = { 
+			name = darkmagics_mod_disappearances
+			duration = 3650
+		}
+		capital_scope = {
+			ROOT = {
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+			}
+		}
+		add_treasury = -25
+		trigger = {
+			technology_group = ktonian_dead_t
+		}
+		ai_chance = { factor = 1 } 
+	}
+	option = { 
+		name = atl_ktonian.2.c1
+		add_yearly_manpower = -2
+		add_country_modifier = { 
+			name = darkmagics_mod_disappearances
+			duration = 3650
+		}
+		add_country_modifier = { 
+			name = undead_horrors
+			duration = 3650
+		}
+		add_years_of_income = -1
+		trigger = {
+			technology_group = ktonian_dead_t
+		}
+		ai_chance = { factor = 1 } 
+	}
+}
+country_event = { #Dust to Dust
+	id = atl_ktonian.3
+	title = atl_ktonian.3.t 
+	desc = atl_ktonian.3.d 
+	picture = darkritual_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = atl_ktonian.3.a
+		add_country_modifier = { 
+			name = dust_to_dust_mod
+			duration = 90
+		}
+		add_country_modifier = { 
+			name = darkmagics_mod_dust
+			duration = 365
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+country_event = { #Necronomics
+	id = atl_ktonian.4
+	title = atl_ktonian.4.t 
+	desc = atl_ktonian.4.d 
+	picture = darkritual_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = atl_ktonian.4.a
+		add_country_modifier = { 
+			name = necronomics_mod
+			duration = 3650
+		}
+		add_country_modifier = { 
+			name = moderate_darkmagics_mod_economics
+			duration = 3650
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+country_event = { #The Dead Walk
+	id = atl_ktonian.5
+	title = atl_ktonian.5.t 
+	desc = atl_ktonian.5.d 
+	picture = darkritual_eventPicture
+	is_triggered_only = yes
+	major = yes
+	option = { 
+		name = atl_ktonian.5.a
+		change_technology_group = ktonian_dead_t
+		change_unit_type = ktonian_dead_t
+		if = {
+			limit = {
+				ai = yes
+			}
+			add_country_modifier = { 
+				name = horrible_darkmagics_mod_deadwalk
+				duration = 365
+			}
+		}
+		if = {
+			limit = {
+				ai = no
+			}
+			add_country_modifier = { 
+				name = horrible_darkmagics_mod_deadwalk
+				duration = 3650
+			}
+		}
+		add_country_modifier = { 
+			name = undead_military
+			duration = -1
+		}
+		all_owned_province = {
+			kill_units = {
+				who = owner
+				type = cavalry
+			}
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+country_event = { #The Dead Rest
+	id = atl_ktonian.6
+	title = atl_ktonian.6.t 
+	desc = atl_ktonian.6.d 
+	picture = darkritual_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = atl_ktonian.6.a
+		change_technology_group = ktonian_t
+		ai_chance = { factor = 2 } 
+	}
+}
+country_event = { #Lichdom
+	id = atl_ktonian.7
+	title = atl_ktonian.7.t 
+	desc = atl_ktonian.7.d 
+	picture = darkritual_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = atl_ktonian.7.a
+		add_ruler_personality = immortal_personality
+		add_ruler_modifier = { 
+			name = darkmagics_mod_lich
+			duration = -1
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+country_event = { #Banelord
+	id = atl_ktonian.8
+	title = atl_ktonian.8.t 
+	desc = atl_ktonian.8.d 
+	picture = darkritual_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = atl_ktonian.8.a
+		create_general = { tradition = 80 }
+		add_country_modifier = { 
+			name = darkmagics_mod_bane
+			duration = 730
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+country_event = { #Olms
+	id = atl_ktonian.9
+	title = atl_ktonian.9.t 
+	desc = atl_ktonian.9.d 
+	picture = darkritual_eventPicture
+	is_triggered_only = yes
+	option = { 
+		name = atl_ktonian.9.a
+		create_general = { tradition = 15 }
+		add_years_of_income = 0.5
+		add_yearly_manpower = 1
+		capital_scope = {
+			ROOT = {
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+			}
+		}
+		custom_tooltip = getsbetterwhenlargertt
+		trigger = {
+			NOT = {
+				total_development = 200
+			}
+		}
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_ktonian.9.b
+		create_general = { tradition = 35 }
+		add_years_of_income = 1
+		add_yearly_manpower = 2
+		capital_scope = {
+			ROOT = {
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+			}
+		}
+		custom_tooltip = getsbetterwhenlargertt
+		trigger = {
+			total_development = 200
+			NOT = {
+				total_development = 500
+			}
+		}
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_ktonian.9.b
+		create_general = { tradition = 60 }
+		add_years_of_income = 2
+		add_yearly_manpower = 4
+		capital_scope = {
+			ROOT = {
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+				infantry = PREV
+			}
+		}
+		trigger = {
+			total_development = 500
+		}
+		ai_chance = { factor = 2 } 
+	}
+}

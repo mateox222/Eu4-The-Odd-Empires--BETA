@@ -1555,7 +1555,10 @@ bul_5a = {
 			
 		}
 		trigger = {
-			has_matching_religion = orthodox
+			OR = {
+				has_matching_religion = orthodox
+				has_matching_religion = united_christianity
+			}
 			NOT = {
 				has_ruler = "Katrag IV"
 			}

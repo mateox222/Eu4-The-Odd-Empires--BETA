@@ -32,21 +32,6 @@ atlantropa_venediabonus_sca_slot_3_a = {
 					exists = no 
 				}
 			}
-			VOL = { 
-				OR = { 
-					alliance_with = ROOT 
-					is_rival = ROOT 
-					has_opinion_modifier = {
-						who = ROOT
-						modifier = insulted
-					}
-					has_opinion_modifier = {
-						who = ROOT
-						modifier = scornfully_insulted
-					}
-					exists = no 
-				}
-			}
 		}
 		effect = {
 				add_favors = {
@@ -77,7 +62,7 @@ atlantropa_venediabonus_sca_slot_3_a = {
 			}
 		}
 		effect = {
-			brittany_area = {
+			holland_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -438,17 +423,13 @@ atlantropa_venediabonus_sca_slot_3_a = {
 		}
 		trigger = {
 			OR = { 
-				owns_core_province = 94
+				owns_core_province = 183
 				VOL = { is_subject_of = ROOT } 
 				VOL = { 
 					alliance_with = ROOT 
 					has_opinion = {
 						who = ROOT 
-						value = 190 
-					}
-					trust = { 	
-						who = ROOT 
-						value = 100 
+						value = 170 
 					}
 					is_at_war = no 
 					NOT = { total_development = ROOT } 
@@ -457,7 +438,8 @@ atlantropa_venediabonus_sca_slot_3_a = {
 			}
 		}
 		effect = { 
-				country_event = { id = venediaevent.8 }
+				vassalize = VOL
+				add_adm_power = 100
 				if = { 
 					limit = { 
 						VOL = { is_subject_of = ROOT } 

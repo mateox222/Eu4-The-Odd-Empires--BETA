@@ -1112,6 +1112,23 @@ exploration_ideas = {
 				tag = KUR
 			}
 		}
+		#Odd Empires Modifiers below
+		modifier = {
+			factor = 2.5
+			OR = {
+				culture_group = nilfhishgroup
+				culture_group = scandinavian
+			}
+		}
+		modifier = {
+			factor = 1000
+			tag = A3C
+			num_of_provinces_in_states = 6
+		}
+		modifier = {
+			factor = 2
+			tag = A5C
+		}
 	}
 }
 
@@ -1462,6 +1479,29 @@ expansion_ideas = {
 				technology_group = western
 				technology_group = eastern
 				technology_group = muslim
+			}
+		}
+		#Odd Empires Modifiers below
+		modifier = {
+			factor = 10
+			capital_scope = {
+				OR = {
+					region = atlantis_muland_region
+					region = agartha_region
+				}
+			}
+		}
+		modifier = {
+			factor = 1000
+			tag = IN4
+		}
+		modifier = {
+			factor = 1000
+			capital_scope = {
+				region = agartha_region
+			}
+			any_owned_province = {
+				has_empty_adjacent_province = yes
 			}
 		}
 	}

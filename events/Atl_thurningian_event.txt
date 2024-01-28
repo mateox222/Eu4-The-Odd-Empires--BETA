@@ -8,7 +8,7 @@ country_event = {
     major = yes
     fire_only_once = yes
     trigger = {
-        tag = THU
+        tag = X58
 			NOT = { 
 				has_global_flag = treatyofasbach
 			}
@@ -214,13 +214,15 @@ country_event = {
         LOT = {
             change_religion = hussite
             set_capital = 1876
-            change_culture = THU
+            change_culture = X58
             define_ruler = {
                 dynasty = "Thuringer"
                 culture = ROOT
                 religion = ROOT
                 name = "Balthasar"
             }
+            add_government_reform = elective_monarchy_reform
+            
         }
         SAX = {
             every_owned_province = {
@@ -230,8 +232,62 @@ country_event = {
                 dynasty = "Thuringer"
                 culture = ROOT
                 religion = ROOT
-                name = "Chlodwig"
+                name = "Chlodwar"
             }
+        }
+        change_tag = THU
+        swap_non_generic_missions = yes	
+        hidden_effect = {
+            4942 = {
+                add_core = AQU
+                cede_province = AQU
+            }
+            111 = {
+                add_core = AQU
+                cede_province = AQU
+            }
+           4771 = {
+                add_core = AQU
+                cede_province = AQU
+            }
+            4738 = {
+                add_core = AQU
+                cede_province = AQU
+            }
+            1769 = {
+                add_core = CLI
+                cede_province = CLI
+            }
+            129 = {
+                add_core = CLI
+                cede_province = CLI
+            }
+           4751 = {
+                add_core = CLI
+                cede_province = CLI
+            }
+
+            1774 = {
+                add_core = PDV
+                cede_province = PDV
+            }
+            4758 = {
+                add_core = BAV
+                cede_province = BAV
+            }
+           1768 = {
+                add_core = BAV
+                cede_province = BAV
+            }
+            4759 = {
+                add_core = BAV
+                cede_province = BAV
+            }
+           128 = {
+                add_core = BAV
+                cede_province = BAV
+            }
+
         }
         
         country_event = { 
@@ -255,7 +311,7 @@ country_event = {
     fire_only_once = yes
 	option = { #Slavia
     name = "thuringia_events.2.a"
-		switch_tag = SER
+		switch_tag = SAX
     }
 	option = { #lotharingia
     name = "thuringia_events.2.b"
@@ -276,10 +332,10 @@ country_event = {
     fire_only_once = yes
 	option = { #Slavia
     name = "thuringia_events.101.a"
-		add_stability = -2
+		add_stability = -1
         add_disaster_progress = {
             disaster = balthasar_empire_crisis
-            value = -50
+            value = -30
         }
         set_country_flag = baltasarslavsdestroyed
         custom_tooltip = balthasarslavharsh
@@ -307,9 +363,9 @@ country_event = {
 		add_stability = 1
         add_disaster_progress = {
             disaster = balthasar_empire_crisis
-            value = -50
+            value = -40
         }
-        add_years_of_income = 2
+        add_years_of_income = -2
         custom_tooltip = balthasarslavcompromise
         hidden_effect = {
         set_country_flag = baltasarslavsdestroyed
@@ -363,10 +419,10 @@ country_event = {
     fire_only_once = yes
 	option = { #Slavia
     name = "thuringia_events.102.a"
-		add_stability = -2
+		add_stability = -1
         add_disaster_progress = {
             disaster = balthasar_empire_crisis
-            value = -50
+            value = -30
         }
         set_country_flag = baltasargascondestroyed
         custom_tooltip = balthasarslavharsh
@@ -394,7 +450,7 @@ country_event = {
 		add_stability = 1
         add_disaster_progress = {
             disaster = balthasar_empire_crisis
-            value = -50
+            value = -40
         }
         custom_tooltip = balthasaroccitanompromise
         hidden_effect = {
@@ -449,10 +505,10 @@ country_event = {
     fire_only_once = yes
 	option = { #Slavia
     name = "thuringia_events.103.a"
-		add_stability = -2
+		add_stability = -1
         add_disaster_progress = {
             disaster = balthasar_empire_crisis
-            value = -50
+            value = -30
         }
         set_country_flag = baltasargermansdestroyed
         custom_tooltip = balthasargermanharsh
@@ -480,7 +536,7 @@ country_event = {
 		add_stability = 1
         add_disaster_progress = {
             disaster = balthasar_empire_crisis
-            value = -50
+            value = -40
         }
         custom_tooltip = balthasargerman
         hidden_effect = {
@@ -517,10 +573,10 @@ country_event = {
             limit = {
                 culture_group = germanic
             }
-            add_core = BAV
-            cede_province = BAV
+            add_core = SWA
+            cede_province = SWA
         }
-        vassalize = BAV
+        vassalize = SWA
     
 }
 
@@ -671,7 +727,7 @@ country_event = {
         add_core = TTL
         remove_core = ROOT
     }
-    change_tag = BAV
+    change_tag = SWA
     swap_non_generic_missions = yes	
     swap_free_idea_group = yes	
     }

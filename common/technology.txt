@@ -211,6 +211,7 @@ groups = {
 			value = 50
 		}
 	}
+
 	polynesian_tech = {
 		start_level = 3
 		start_cost_modifier = 2
@@ -257,9 +258,89 @@ groups = {
 		start_level = 5
 		start_cost_modifier = 1.5
 	}
+	ktonian_t = {
+		start_level = 5
+		start_cost_modifier = 0.80
+		nation_designer_cost = {
+			trigger = {
+				capital_scope = {
+					OR = {
+						continent = oceania
+					}
+				}
+			}
+			value = 75
+		}
+	}
+	agarthic_t = {
+		start_level = 5
+		start_cost_modifier = 0.80
+		nation_designer_cost = {
+			trigger = {
+				capital_scope = {
+					OR = {
+						continent = oceania
+					}
+				}
+			}
+			value = 100
+		}
+	}
+	paleone_t = {
+		start_level = 4
+		start_cost_modifier = 0.60
+		nation_designer_cost = {
+			trigger = {
+				capital_scope = {
+					OR = {
+						continent = oceania
+					}
+				}
+			}
+			value = 50
+		}
+	}
+	ktonian_dead_t = {
+		start_level = 5
+		start_cost_modifier = 0.80
+		nation_designer_cost = {
+			trigger = {
+				always = no
+			}
+			value = 800
+		}
+	}
+	firstman_t = {
+		start_level = 1
+		start_cost_modifier = 0.01
+		nation_designer_cost = {
+			trigger = {
+				capital_scope = {
+					OR = {
+						continent = oceania
+					}
+				}
+			}
+			value = 75
+		}
+	}
 
-	
+		mu_tech = {
+		start_level = 6
+		start_cost_modifier = 0
+		nation_designer_cost = {
+			trigger = {
+				capital_scope = {
+					OR = {
+						continent = oceania
+					}
+				}
+			}
+			value = 75
+		}
+	}
 }
+
 
 tables = {
 	adm_tech = "technologies/adm.txt"

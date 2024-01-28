@@ -1,0 +1,18 @@
+#When adding effects directly in on_actions always consider if it would be best to do so through a scripted effect. on_actions with a lot of script in them are harder to get an overview of.
+
+# country
+on_startup = {
+	toe_random_ruler_effect = yes
+}
+on_new_monarch = {
+	toe_random_ruler_effect = yes
+}
+on_monarch_death = {
+	if = {
+		limit = {
+			has_consort_regency = yes
+		}
+		toe_random_ruler_effect = yes
+	}
+	
+}

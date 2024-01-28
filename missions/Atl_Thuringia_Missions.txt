@@ -286,9 +286,8 @@ balthasaria13 = {
 		position = 1
 		required_missions = {  }
 		trigger = {
-			stability = 3
+			stability = 1
 			has_any_disaster = no
-			total_development = 200
 			manpower_percentage = 0.90
 			custom_trigger_tooltip = {
 				tooltip = treatyofasbachs
@@ -313,10 +312,24 @@ balthasaria13 = {
 			}
 		}
 	}
+	Balthasar_empire_language = {
+		icon = atlantropa_medievalbook
+		position = 2
+		required_missions = { balthasar_empire_awake }
+		trigger = {
+			accepted_culture = thuringian
+		}
+		effect = {
+			add_stability = 2
+			change_primary_culture = thuringian
+			add_accepted_culture = austrian
+			set_capital = 134
+		}
+	}
 	Balthasar_empire_growth = {
 		icon = lead_the_empire
 		position = 3
-		required_missions = { balthasar_empire_awake }
+		required_missions = { Balthasar_empire_language }
 		trigger = {
 			total_development = 1000
 		}

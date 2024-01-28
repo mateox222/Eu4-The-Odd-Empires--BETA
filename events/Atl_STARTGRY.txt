@@ -21,6 +21,7 @@ immediate = {
 
 		}
 		set_hre_religion = united_christianity
+		toe_random_ruler_effect = yes
 	151 = { 
 		add_province_modifier = { 
     name = atlantropa_genoese_port
@@ -51,7 +52,17 @@ add_province_modifier = {
 	}
 
 	
-}}}
+}
+	every_country = {
+		limit = { is_subject_of = AZT }
+		country_event = { 
+    id = atlantropa_basic_event.4000
+	}
+
+	
+}
+
+}}
 
 	
 	option = {
@@ -143,12 +154,14 @@ country_event = {
 	name = startevent.5.a 
 	}
 	
+	#Change Nothing
 	option = {
 		name = startevent.101.a
 		country_event = { 
 			id = startevent.100
 		}
 	}
+	#No special resources
 	option = {
 		name = startevent.101.disablee
 		trigger = {
@@ -158,6 +171,7 @@ country_event = {
 			id = startevent.102
 		}
 	}
+	#Destroy all forts
 	option = {
 		name = startevent.101.b
 		trigger = {
@@ -167,6 +181,18 @@ country_event = {
 		}
 		country_event = { 
 			id = startevent.101
+		}
+	}
+	#All undead
+	option = {
+		name = startevent.101.ne
+		trigger = {
+			NOT = {
+				has_global_flag = fuck_it_necromancer_world
+			}
+		}
+		country_event = { 
+			id = startevent.109
 		}
 	}
 	
@@ -400,6 +426,27 @@ country_event = {
 	}
 }
 
+#Undead
+country_event = {
+	id = startevent.109
+	title = startevent.109.t
+	desc = startevent.109.d
+	picture = BLACKSUN_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = startevent.109.a 
+		set_global_flag = fuck_it_necromancer_world
+		country_event = { 
+			id = startevent.5
+		}
+	}
+	option = {
+		name = startevent.109.b 
+		country_event = { 
+			id = startevent.5
+		}
+	}
+}
 
 
 
