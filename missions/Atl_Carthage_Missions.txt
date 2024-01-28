@@ -454,6 +454,9 @@ a47_government_branching_mon = {
 			has_mil_advisor_2 = yes
 		}
 		effect = {
+			add_yearly_manpower = 1
+			add_years_of_income = 1
+			add_mil_power = 25
 		}
 	}
 	a47_strong_military = {
@@ -464,6 +467,10 @@ a47_government_branching_mon = {
 			army_size = 50
 		}
 		effect = {
+			add_country_modifier = {
+				name = carthage_strong_army
+				duration = -1
+			}
 		}
 	}
 	a47_palace_of_kings = {
@@ -521,71 +528,71 @@ a47_government_branching_mon = {
 	}
 }
 
-a47_industrial_branching = {
-	slot = 5
-	generic = no
-	ai = yes
-	potential = {
-		tag = A47
-		NOT = {
-			OR = {
-				has_country_flag = a47_kingdom_flag
-				has_country_flag = a47_republic_flag
-			}
-		}
-	}
-
-	has_country_shield = yes
-
-	a47_ind_branch1 = {
-		icon = mission_unknown_mission
-		position = 1
-		required_missions = {  }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_ind_branch2 = {
-		icon = mission_unknown_mission
-		position = 3
-		required_missions = { a47_ind_branch1 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_ind_branch3 = {
-		icon = mission_unknown_mission
-		position = 4
-		required_missions = {  }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_ind_branch4 = {
-		icon = mission_unknown_mission
-		position = 5
-		required_missions = { a47_ind_branch3 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-}
+#a47_industrial_branching = {
+#	slot = 5
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		NOT = {
+#			OR = {
+#				has_country_flag = a47_kingdom_flag
+#				has_country_flag = a47_republic_flag
+#			}
+#		}
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_ind_branch1 = {
+#		icon = mission_unknown_mission
+#		position = 1
+#		required_missions = {  }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_ind_branch2 = {
+#		icon = mission_unknown_mission
+#		position = 3
+#		required_missions = { a47_ind_branch1 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_ind_branch3 = {
+#		icon = mission_unknown_mission
+#		position = 4
+#		required_missions = {  }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_ind_branch4 = {
+#		icon = mission_unknown_mission
+#		position = 5
+#		required_missions = { a47_ind_branch3 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
 
 a47_industrial = {
 	slot = 5
@@ -851,95 +858,95 @@ a47_punitia_branch_republic = {
 	}
 }
 
-a47_conquests_branch = {
-	slot = 4
-	generic = no
-	ai = yes
-	potential = {
-		tag = A47
-		NOT = {
-			OR = {
-				has_country_flag = a47_punic_flag
-				has_country_flag = a47_christ_flag
-			}
-		}
-	}
-
-	has_country_shield = yes
-
-	a47_conquests_branch1 = {
-		icon = mission_unknown_mission
-		position = 6
-		required_missions = { a47_the_porta_discovery }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_conquests_branch2 = {
-		icon = mission_unknown_mission
-		position = 7
-		required_missions = { a47_conquests_branch1 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_conquests_branch3 = {
-		icon = mission_unknown_mission
-		position = 8
-		required_missions = { a47_conquests_branch2 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_conquests_branch4 = {
-		icon = mission_unknown_mission
-		position = 9
-		required_missions = { a47_conquests_branch3 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_conquests_branch5 = {
-		icon = mission_unknown_mission
-		position = 10
-		required_missions = { a47_conquests_branch4 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_conquests_branch6 = {
-		icon = mission_unknown_mission
-		position = 11
-		required_missions = { a47_conquests_branch5 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-}
+#a47_conquests_branch = {
+#	slot = 4
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		NOT = {
+#			OR = {
+#				has_country_flag = a47_punic_flag
+#				has_country_flag = a47_christ_flag
+#			}
+#		}
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_conquests_branch1 = {
+#		icon = mission_unknown_mission
+#		position = 6
+#		required_missions = { a47_the_porta_discovery }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch2 = {
+#		icon = mission_unknown_mission
+#		position = 7
+#		required_missions = { a47_conquests_branch1 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch3 = {
+#		icon = mission_unknown_mission
+#		position = 8
+#		required_missions = { a47_conquests_branch2 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch4 = {
+#		icon = mission_unknown_mission
+#		position = 9
+#		required_missions = { a47_conquests_branch3 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch5 = {
+#		icon = mission_unknown_mission
+#		position = 10
+#		required_missions = { a47_conquests_branch4 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch6 = {
+#		icon = mission_unknown_mission
+#		position = 11
+#		required_missions = { a47_conquests_branch5 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
 
 a47_conquests_branch_punic = {
 	slot = 4
@@ -995,6 +1002,27 @@ a47_conquests_branch_punic = {
 				add_permanent_claim = ROOT
 			}
 			sus_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			north_saharan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			ouled_nail_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			hautes_plaines_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -1208,42 +1236,42 @@ a47_conquests_branch_punic = {
 				add_casus_belli = {
 					target = IS6
 					type = cb_restore_personal_union
-					months = 120
+					months = -1
 				}
 			}
 		}
 	}
 }
 
-a47_conquests_branch_left2 = {
-	slot = 3
-	generic = no
-	ai = yes
-	potential = {
-		tag = A47
-		NOT = {
-			OR = {
-				has_country_flag = a47_punic_flag
-				has_country_flag = a47_christ_flag
-			}
-		}
-	}
-
-	has_country_shield = yes
-
-	a47_conquests_branch_left1 = {
-		icon = mission_unknown_mission
-		position = 7
-		required_missions = { a47_conquests_branch1 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-}
+#a47_conquests_branch_left2 = {
+#	slot = 3
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		NOT = {
+#			OR = {
+#				has_country_flag = a47_punic_flag
+#				has_country_flag = a47_christ_flag
+#			}
+#		}
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_conquests_branch_left1 = {
+#		icon = mission_unknown_mission
+#		position = 7
+#		required_missions = { a47_conquests_branch1 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
 
 a47_conquests_branch_left2_punic = {
 	slot = 3
@@ -1309,47 +1337,47 @@ a47_conquests_branch_left2_punic = {
 	}
 }
 
-a47_punitia_branch2 = {
-	slot = 3
-	generic = no
-	ai = yes
-	potential = {
-		tag = A47
-		NOT = {
-			OR = {
-				has_country_flag = a47_kingdom_flag
-				has_country_flag = a47_republic_flag
-			}
-		}
-	}
-
-	has_country_shield = yes
-
-	a47_tree_branch2 = {
-		icon = mission_unknown_mission
-		position = 8
-		required_missions = { a47_government_branching22 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_tree_branch3 = {
-		icon = mission_unknown_mission
-		position = 9
-		required_missions = { a47_tree_branch2 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-}
+#a47_punitia_branch2 = {
+#	slot = 3
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		NOT = {
+#			OR = {
+#				has_country_flag = a47_kingdom_flag
+#				has_country_flag = a47_republic_flag
+#			}
+#		}
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_tree_branch2 = {
+#		icon = mission_unknown_mission
+#		position = 8
+#		required_missions = { a47_government_branching22 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_tree_branch3 = {
+#		icon = mission_unknown_mission
+#		position = 9
+#		required_missions = { a47_tree_branch2 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
 
 a47_punitia_branch2_republic = {
 	slot = 3
@@ -1388,71 +1416,71 @@ a47_punitia_branch2_republic = {
 	}
 }
 
-a47_conquests_branch_left = {
-	slot = 3
-	generic = no
-	ai = yes
-	potential = {
-		tag = A47
-		NOT = {
-			OR = {
-				has_country_flag = a47_punic_flag
-				has_country_flag = a47_christ_flag
-			}
-		}
-	}
-
-	has_country_shield = yes
-
-	a47_conquests_branch_left2 = {
-		icon = mission_unknown_mission
-		position = 10
-		required_missions = { a47_conquests_branch4 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_conquests_branch_left3 = {
-		icon = mission_unknown_mission
-		position = 11
-		required_missions = { a47_conquests_branch_left2 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_conquests_branch7 = {
-		icon = mission_unknown_mission
-		position = 12
-		required_missions = { a47_conquests_branch6 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_conquests_branch8 = {
-		icon = mission_unknown_mission
-		position = 13
-		required_missions = { a47_conquests_branch7 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-}
+#a47_conquests_branch_left = {
+#	slot = 3
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		NOT = {
+#			OR = {
+#				has_country_flag = a47_punic_flag
+#				has_country_flag = a47_christ_flag
+#			}
+#		}
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_conquests_branch_left2 = {
+#		icon = mission_unknown_mission
+#		position = 10
+#		required_missions = { a47_conquests_branch4 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch_left3 = {
+#		icon = mission_unknown_mission
+#		position = 11
+#		required_missions = { a47_conquests_branch_left2 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch7 = {
+#		icon = mission_unknown_mission
+#		position = 12
+#		required_missions = { a47_conquests_branch6 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch8 = {
+#		icon = mission_unknown_mission
+#		position = 13
+#		required_missions = { a47_conquests_branch7 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
 
 a47_conquests_branch_left_punic = {
 	slot = 3
@@ -1690,95 +1718,95 @@ a47_conquests_branch_left_punic = {
 	}
 }
 
-a47_conquests_branch_right = {
-	slot = 5
-	generic = no
-	ai = yes
-	potential = {
-		tag = A47
-		NOT = {
-			OR = {
-				has_country_flag = a47_punic_flag
-				has_country_flag = a47_christ_flag
-			}
-		}
-	}
-
-	has_country_shield = yes
-
-	a47_conquests_branch_right1 = {
-		icon = mission_unknown_mission
-		position = 7
-		required_missions = { a47_conquests_branch1 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_conquests_branch_right2 = {
-		icon = mission_unknown_mission
-		position = 11
-		required_missions = { a47_conquests_branch_right1 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_conquests_branch_right3 = {
-		icon = mission_unknown_mission
-		position = 13
-		required_missions = { a47_conquests_branch_right2 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_conquests_branch_right4 = {
-		icon = mission_unknown_mission
-		position = 14
-		required_missions = { a47_conquests_branch_right3 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_conquests_branch_right5 = {
-		icon = mission_unknown_mission
-		position = 15
-		required_missions = { a47_conquests_branch_right4 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_conquests_branch_right6 = {
-		icon = mission_unknown_mission
-		position = 16
-		required_missions = { a47_conquests_branch_right5 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-}
+#a47_conquests_branch_right = {
+#	slot = 5
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		NOT = {
+#			OR = {
+#				has_country_flag = a47_punic_flag
+#				has_country_flag = a47_christ_flag
+#			}
+#		}
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_conquests_branch_right1 = {
+#		icon = mission_unknown_mission
+#		position = 7
+#		required_missions = { a47_conquests_branch1 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch_right2 = {
+#		icon = mission_unknown_mission
+#		position = 11
+#		required_missions = { a47_conquests_branch_right1 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch_right3 = {
+#		icon = mission_unknown_mission
+#		position = 13
+#		required_missions = { a47_conquests_branch_right2 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch_right4 = {
+#		icon = mission_unknown_mission
+#		position = 14
+#		required_missions = { a47_conquests_branch_right3 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch_right5 = {
+#		icon = mission_unknown_mission
+#		position = 15
+#		required_missions = { a47_conquests_branch_right4 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch_right6 = {
+#		icon = mission_unknown_mission
+#		position = 16
+#		required_missions = { a47_conquests_branch_right5 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
 
 a47_conquests_branch_right_punic = {
 	slot = 5
@@ -1980,83 +2008,83 @@ a47_conquests_branch_right_punic = {
 	}
 }
 
-a47_conquests_branchunder = {
-	slot = 4
-	generic = no
-	ai = yes
-	potential = {
-		tag = A47
-		NOT = {
-			OR = {
-				has_country_flag = a47_punic_flag
-				has_country_flag = a47_christ_flag
-			}
-		}
-	}
-
-	has_country_shield = yes
-
-	a47_conquests_branchunder1 = {
-		icon = mission_unknown_mission
-		position = 12
-		required_missions = { a47_conquests_branch_right2 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_conquests_branchunder2 = {
-		icon = mission_unknown_mission
-		position = 13
-		required_missions = { a47_conquests_branchunder1 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_conquests_branchunder3 = {
-		icon = mission_unknown_mission
-		position = 14
-		required_missions = { a47_conquests_branchunder2 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_conquests_branchunder4 = {
-		icon = mission_unknown_mission
-		position = 15
-		required_missions = { a47_conquests_branch_right4 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_conquests_branchunder5 = {
-		icon = mission_unknown_mission
-		position = 16
-		required_missions = { a47_conquests_branchunder4 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-}
+#a47_conquests_branchunder = {
+#	slot = 4
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		NOT = {
+#			OR = {
+#				has_country_flag = a47_punic_flag
+#				has_country_flag = a47_christ_flag
+#			}
+#		}
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_conquests_branchunder1 = {
+#		icon = mission_unknown_mission
+#		position = 12
+#		required_missions = { a47_conquests_branch_right2 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branchunder2 = {
+#		icon = mission_unknown_mission
+#		position = 13
+#		required_missions = { a47_conquests_branchunder1 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branchunder3 = {
+#		icon = mission_unknown_mission
+#		position = 14
+#		required_missions = { a47_conquests_branchunder2 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branchunder4 = {
+#		icon = mission_unknown_mission
+#		position = 15
+#		required_missions = { a47_conquests_branch_right4 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branchunder5 = {
+#		icon = mission_unknown_mission
+#		position = 16
+#		required_missions = { a47_conquests_branchunder4 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
 
 a47_conquests_branchunder_punic = {
 	slot = 4
@@ -2187,35 +2215,35 @@ a47_conquests_branchunder_punic = {
 	}
 }
 
-a47_conquests_branch_left2 = {
-	slot = 3
-	generic = no
-	ai = yes
-	potential = {
-		tag = A47
-		NOT = {
-			OR = {
-				has_country_flag = a47_punic_flag
-				has_country_flag = a47_christ_flag
-			}
-		}
-	}
-
-	has_country_shield = yes
-
-	a47_conquests_branch10 = {
-		icon = mission_unknown_mission
-		position = 16
-		required_missions = { a47_conquests_branchunder4 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-}
+#a47_conquests_branch_left2 = {
+#	slot = 3
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		NOT = {
+#			OR = {
+#				has_country_flag = a47_punic_flag
+#				has_country_flag = a47_christ_flag
+#			}
+#		}
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_conquests_branch10 = {
+#		icon = mission_unknown_mission
+#		position = 16
+#		required_missions = { a47_conquests_branchunder4 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
 
 a47_conquests_branch_left2_punic = {
 	slot = 3
