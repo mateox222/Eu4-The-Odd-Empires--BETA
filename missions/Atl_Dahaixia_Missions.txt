@@ -179,9 +179,23 @@ Xingang_3 = {
 			}
 		}
 		effect = {
-			add_country_modifier = {
-				name = outermu_settling_interior
-				duration = 36500
+			if = {
+				limit = {
+					ai = yes
+				}
+				add_country_modifier = {
+					name = outermu_settling_interior
+					duration = -1
+				}
+			}
+			if = {
+				limit = {
+					ai = no
+				}
+				add_country_modifier = {
+					name = outermu_settling_interior
+					duration = 36500
+				}
 			}
 		}
 	}
@@ -849,9 +863,23 @@ generic_outer_mu_missions_5 = {
 			}
 		}
 		effect = {
-			add_country_modifier = {
-				name = outermu_settling_interior
-				duration = 36500
+			if = {
+				limit = {
+					ai = yes
+				}
+				add_country_modifier = {
+					name = outermu_settling_interior
+					duration = -1
+				}
+			}
+			if = {
+				limit = {
+					ai = no
+				}
+				add_country_modifier = {
+					name = outermu_settling_interior
+					duration = 36500
+				}
 			}
 		}
 	}
