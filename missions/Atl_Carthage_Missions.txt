@@ -390,6 +390,10 @@ a47_government_branching_rep = {
 			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = carthage_strong_administration
+				duration = -1
+			}
 		}
 	}
 	a47_heart_of_the_republic = {
@@ -1908,6 +1912,41 @@ a47_conquests_branch_right_punic = {
 			owns_or_non_sovereign_subject_of = 341
 		}
 		effect = {
+			atlantis_balearislanda_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			western_sicily_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			sicily_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			atlantropa_egyptiancities = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kabir_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	a47_conquests_branch_right5_punic = {
@@ -2121,6 +2160,27 @@ a47_conquests_branchunder_punic = {
 			}
 		}
 		effect = {	
+			algiers_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			leon_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			baleares_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	a47_conquests_branchunder2_punic = {
@@ -2150,6 +2210,20 @@ a47_conquests_branchunder_punic = {
 			}
 		}
 		effect = {
+			galicia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			northern_morocco_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	a47_conquests_branchunder3_punic = {
@@ -2203,6 +2277,13 @@ a47_conquests_branchunder_punic = {
 			}
 		}
 		effect = {
+			atlantis_roma = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	a47_conquests_branchunder5_punic = {
@@ -2220,6 +2301,31 @@ a47_conquests_branchunder_punic = {
 			}
 		}
 		effect = {
+			5747 = {
+				add_base_tax = -6
+				add_base_production = -6
+				add_base_manpower = -6
+			}
+			atlantis_roma = {
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1
+			}
+			341 = {
+				add_base_tax = 4
+				add_base_production = 5
+				add_base_manpower = 4
+			}
+			5223 = {
+				add_base_tax = 2
+				add_base_production = 3
+				add_base_manpower = 2
+			}
+			tunisia_area = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+			}
 		}
 	}
 }
