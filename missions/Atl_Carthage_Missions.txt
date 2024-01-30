@@ -258,8 +258,8 @@ a47_middle_diplomacy_punic = {
 		position = 5
 		required_missions = { a47_manage_aggression }
 		trigger = {
-			hidden_trigger = {
-				always = no
+			5304 = {
+				has_discovered = ROOT
 			}
 		}
 		effect = {
@@ -1687,8 +1687,8 @@ a47_conquests_branch_left_punic = {
 		required_missions = { a47_conquests_branchunder2_punic }
 		provinces_to_highlight = {
 			OR = {
-				continent = africa
-				continent = europe
+				region = iberia_region
+				region = libyasuperior_region
 			}
 			culture_group = central_american
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
@@ -1697,8 +1697,8 @@ a47_conquests_branch_left_punic = {
 			dip_power = 50
 			owns_all_provinces = {
 				OR = {
-					continent = africa
-					continent = europe
+					region = iberia_region
+					region = libyasuperior_region
 				}
 				culture_group = central_american
 			}
@@ -1960,6 +1960,15 @@ a47_conquests_branch_right_punic = {
 				}
 				add_permanent_claim = ROOT
 			}
+			custom_tooltip = gaecultureconvert
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						culture = tunisian
+					}
+					change_culture = punic_gae
+				}
+			}
 		}
 	}
 	a47_conquests_branch_right6_punic = {
@@ -2111,7 +2120,7 @@ a47_conquests_branchunder_punic = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		effect = {
+		effect = {	
 		}
 	}
 	a47_conquests_branchunder2_punic = {
@@ -2315,11 +2324,9 @@ a47_government_branching2_left = {
 	ai = yes
 	potential = {
 		tag = A47
-		NOT = {
-			OR = {
-				has_country_flag = a47_kingdom_flag
-				has_country_flag = a47_republic_flag
-			}
+		OR = {
+			has_country_flag = a47_kingdom_flag
+			has_country_flag = a47_republic_flag
 		}
 	}
 
@@ -2330,11 +2337,10 @@ a47_government_branching2_left = {
 		position = 6
 		required_missions = {  }
 		trigger = {
-			hidden_trigger = {
-				always = no
-			}
+			has_idea = quest_for_the_new_world
 		}
 		effect = {
+			create_explorer = { tradition = 65 }
 		}
 	}
 	a47_government_branching2_left2 = {
@@ -2342,11 +2348,41 @@ a47_government_branching2_left = {
 		position = 7
 		required_missions = { a47_government_branching2_left1 }
 		trigger = {
-			hidden_trigger = {
-				always = no
+			if = {
+				limit = {
+					is_random_new_world = yes
+				}
+				custom_trigger_tooltip = {
+					tooltip = cas_carib_rnw
+					any_owned_province = {
+						continent = new_world
+					}
+				}
+			}
+			else = {
+				trigger = {
+					custom_trigger_tooltip = {
+						tooltip = miss_discover_brazil
+						colonial_brazil = {
+							has_discovered = ROOT
+						}
+					}
+					custom_trigger_tooltip = {
+						tooltip = miss_colonize_brazil
+						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+							value = 1
+							colonial_region = colonial_brazil
+							is_city = yes
+						}
+					}
+				}
 			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = nor_colonial_enthusiasm
+				duration = 14600
+			}
 		}
 	}
 	a47_government_branching2_left3 = {
@@ -2375,66 +2411,66 @@ a47_government_branching2_left = {
 	}
 }
 
-a47_government_branching2_left_republic = {
-	slot = 1
-	generic = no
-	ai = yes
-	potential = {
-		tag = A47
-		has_country_flag = a47_republic_flag
-	}
-
-	has_country_shield = yes
-
-	a47_government_branching2_left1_republic = {
-		icon = mission_unknown_mission
-		position = 6
-		required_missions = {  }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_government_branching2_left2_republic = {
-		icon = mission_unknown_mission
-		position = 7
-		required_missions = { a47_government_branching2_left1_republic }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_government_branching2_left3_republic = {
-		icon = mission_unknown_mission
-		position = 8
-		required_missions = { a47_government_branching22_republic }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_government_branching2_left4_republic = {
-		icon = mission_unknown_mission
-		position = 9
-		required_missions = { a47_government_branching2_left3_republic }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-}
+#a47_government_branching2_left_republic = {
+#	slot = 1
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		has_country_flag = a47_republic_flag
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_government_branching2_left1_republic = {
+#		icon = mission_unknown_mission
+#		position = 6
+#		required_missions = {  }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching2_left2_republic = {
+#		icon = mission_unknown_mission
+#		position = 7
+#		required_missions = { a47_government_branching2_left1_republic }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching2_left3_republic = {
+#		icon = mission_unknown_mission
+#		position = 8
+#		required_missions = { a47_government_branching22_republic }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching2_left4_republic = {
+#		icon = mission_unknown_mission
+#		position = 9
+#		required_missions = { a47_government_branching2_left3_republic }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
 
 a47_government_branching2 = {
 	slot = 2
@@ -2442,11 +2478,9 @@ a47_government_branching2 = {
 	ai = yes
 	potential = {
 		tag = A47
-		NOT = {
-			OR = {
-				has_country_flag = a47_kingdom_flag
-				has_country_flag = a47_republic_flag
-			}
+		OR = {
+			has_country_flag = a47_kingdom_flag
+			has_country_flag = a47_republic_flag
 		}
 	}
 
@@ -2514,75 +2548,75 @@ a47_government_branching2 = {
 	}
 }
 
-a47_government_branching2_republic = {
-	slot = 2
-	generic = no
-	ai = yes
-	potential = {
-		tag = A47
-		has_country_flag = a47_republic_flag
-	}
-
-	has_country_shield = yes
-
-	a47_government_branching21_republic = {
-		icon = mission_unknown_mission
-		position = 6
-		required_missions = {  }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_government_branching22_republic = {
-		icon = mission_unknown_mission
-		position = 7
-		required_missions = { a47_government_branching21_republic }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_government_branching23_republic = {
-		icon = mission_unknown_mission
-		position = 8
-		required_missions = { a47_government_branching22_republic }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_government_branching24_republic = {
-		icon = mission_unknown_mission
-		position = 9
-		required_missions = { a47_government_branching23_republic }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_government_branching25_republic = {
-		icon = mission_unknown_mission
-		position = 10
-		required_missions = { a47_government_branching2_left4_republic a47_government_branching24_republic }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-}
+#a47_government_branching2_republic = {
+#	slot = 2
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		has_country_flag = a47_republic_flag
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_government_branching21_republic = {
+#		icon = mission_unknown_mission
+#		position = 6
+#		required_missions = {  }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching22_republic = {
+#		icon = mission_unknown_mission
+#		position = 7
+#		required_missions = { a47_government_branching21_republic }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching23_republic = {
+#		icon = mission_unknown_mission
+#		position = 8
+#		required_missions = { a47_government_branching22_republic }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching24_republic = {
+#		icon = mission_unknown_mission
+#		position = 9
+#		required_missions = { a47_government_branching23_republic }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching25_republic = {
+#		icon = mission_unknown_mission
+#		position = 10
+#		required_missions = { a47_government_branching2_left4_republic a47_government_branching24_republic }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
