@@ -1387,42 +1387,42 @@ a47_conquests_branch_left2_punic = {
 #	}
 #}
 
-a47_punitia_branch2_republic = {
-	slot = 3
-	generic = no
-	ai = yes
-	potential = {
-		tag = A47
-		has_country_flag = a47_republic_flag
-	}
-
-	has_country_shield = yes
-
-	a47_tree_branch2_republic = {
-		icon = mission_unknown_mission
-		position = 8
-		required_missions = { a47_government_branching22_republic }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_tree_branch3_republic = {
-		icon = mission_unknown_mission
-		position = 9
-		required_missions = { a47_tree_branch2_republic }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-}
+#a47_punitia_branch2_republic = {
+#	slot = 3
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		has_country_flag = a47_republic_flag
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_tree_branch2_republic = {
+#		icon = mission_unknown_mission
+#		position = 8
+#		required_missions = { a47_government_branching22_republic }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_tree_branch3_republic = {
+#		icon = mission_unknown_mission
+#		position = 9
+#		required_missions = { a47_tree_branch2_republic }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
 
 #a47_conquests_branch_left = {
 #	slot = 3
@@ -2458,33 +2458,18 @@ a47_government_branching2_left = {
 		position = 7
 		required_missions = { a47_government_branching2_left1 }
 		trigger = {
-			if = {
-				limit = {
-					is_random_new_world = yes
-				}
-				custom_trigger_tooltip = {
-					tooltip = cas_carib_rnw
-					any_owned_province = {
-						continent = new_world
-					}
+			custom_trigger_tooltip = {
+				tooltip = miss_discover_brazil
+				colonial_brazil = {
+					has_discovered = ROOT
 				}
 			}
-			else = {
-				trigger = {
-					custom_trigger_tooltip = {
-						tooltip = miss_discover_brazil
-						colonial_brazil = {
-							has_discovered = ROOT
-						}
-					}
-					custom_trigger_tooltip = {
-						tooltip = miss_colonize_brazil
-						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-							value = 1
-							colonial_region = colonial_brazil
-							is_city = yes
-						}
-					}
+			custom_trigger_tooltip = {
+				tooltip = miss_colonize_brazil
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 1
+					colonial_region = colonial_brazil
+					is_city = yes
 				}
 			}
 		}

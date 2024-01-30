@@ -32,11 +32,17 @@ country_event = { #Carthage Mercenary Debate
 	is_triggered_only = yes 
 	option = { 
 		name = atl_carthage.2.a
-		
+		add_country_modifier = {
+			name = carthage_old_army
+			duration = -1
+		}
 	}
 	option = { 
 		name = atl_carthage.2.b
-		
+		add_country_modifier = {
+			name = carthage_new_army
+			duration = -1
+		}
 	}
 }
 country_event = { #Carthage Choice
@@ -112,7 +118,7 @@ country_event = { #Carthage Rebirth
 		define_heir = {
 			dynasty = "Hannibalid"
 			claim = 100
-			mil = 4
+			mil = 5
 		}
 		swap_non_generic_missions = yes
 	}
