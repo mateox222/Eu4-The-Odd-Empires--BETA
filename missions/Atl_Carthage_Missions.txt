@@ -267,42 +267,42 @@ a47_middle_diplomacy_punic = {
 	}
 }
 
-a47_middle_diplomacy_christ = {
-	slot = 2
-	generic = no
-	ai = yes
-	potential = {
-		tag = A47
-		has_country_flag = a47_christ_flag
-	}
-
-	has_country_shield = yes
-
-	a47_vassalize_locals = {
-		icon = mission_unknown_mission
-		position = 4
-		required_missions = { a47_mercenary_contacts }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_prepare_crusaders = {
-		icon = mission_unknown_mission
-		position = 5
-		required_missions = { a47_vassalize_locals }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-}
+#a47_middle_diplomacy_christ = {
+#	slot = 2
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		has_country_flag = a47_christ_flag
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_vassalize_locals = {
+#		icon = mission_unknown_mission
+#		position = 4
+#		required_missions = { a47_mercenary_contacts }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_prepare_crusaders = {
+#		icon = mission_unknown_mission
+#		position = 5
+#		required_missions = { a47_vassalize_locals }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
 
 a47_government_branching = {
 	slot = 1
@@ -1854,6 +1854,20 @@ a47_conquests_branch_right_punic = {
 			}
 		}
 		effect = {
+			tripolitania_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			fezzan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	a47_conquests_branch_right2_punic = {
@@ -1878,6 +1892,27 @@ a47_conquests_branch_right_punic = {
 			}
 		}
 		effect = {
+			djerba_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kabylia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			barbary_coast_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	a47_conquests_branch_right3_punic = {
@@ -1902,6 +1937,13 @@ a47_conquests_branch_right_punic = {
 			}
 		}
 		effect = {
+			tunisia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	a47_conquests_branch_right4_punic = {
@@ -1950,6 +1992,23 @@ a47_conquests_branch_right_punic = {
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
+			}
+			add_prestige = 100
+			add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+			custom_tooltip = carthcultureconvert
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						culture_group = latin_african
+					}
+					change_culture = punic_carthage
+				}
+			}
+			add_country_modifier = {
+				name = carthage_restored
+				duration = -1
 			}
 		}
 	}
@@ -2055,6 +2114,10 @@ a47_conquests_branch_right_punic = {
 					}
 					change_culture = punic_new
 				}
+			}
+			add_country_modifier = {
+				name = carthage_phoenician_resurgence
+				duration = -1
 			}
 		}
 	}
@@ -2252,6 +2315,10 @@ a47_conquests_branchunder_punic = {
 			}
 		}
 		effect = {
+			add_country_modifier = {
+				name = carthage_iberia_restored
+				duration = -1
+			}
 		}
 	}
 	a47_conquests_branchunder4_punic = {
@@ -2480,30 +2547,30 @@ a47_government_branching2_left = {
 			}
 		}
 	}
-	a47_government_branching2_left3 = {
-		icon = mission_unknown_mission
-		position = 8
-		required_missions = { a47_government_branching22 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_government_branching2_left4 = {
-		icon = mission_unknown_mission
-		position = 9
-		required_missions = { a47_government_branching2_left3 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
+	#a47_government_branching2_left3 = {
+	#	icon = mission_unknown_mission
+	#	position = 8
+	#	required_missions = { a47_government_branching22 }
+	#	trigger = {
+	#		hidden_trigger = {
+	#			always = no
+	#		}
+	#	}
+	#	effect = {
+	#	}
+	#}
+	#a47_government_branching2_left4 = {
+	#	icon = mission_unknown_mission
+	#	position = 9
+	#	required_missions = { a47_government_branching2_left3 }
+	#	trigger = {
+	#		hidden_trigger = {
+	#			always = no
+	#		}
+	#	}
+	#	effect = {
+	#	}
+	#}
 }
 
 #a47_government_branching2_left_republic = {
@@ -2567,81 +2634,81 @@ a47_government_branching2_left = {
 #	}
 #}
 
-a47_government_branching2 = {
-	slot = 2
-	generic = no
-	ai = yes
-	potential = {
-		tag = A47
-		OR = {
-			has_country_flag = a47_kingdom_flag
-			has_country_flag = a47_republic_flag
-		}
-	}
-
-	has_country_shield = yes
-
-	a47_government_branching21 = {
-		icon = mission_unknown_mission
-		position = 6
-		required_missions = {  }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_government_branching22 = {
-		icon = mission_unknown_mission
-		position = 7
-		required_missions = { a47_government_branching21 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_government_branching23 = {
-		icon = mission_unknown_mission
-		position = 8
-		required_missions = { a47_government_branching22 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_government_branching24 = {
-		icon = mission_unknown_mission
-		position = 9
-		required_missions = { a47_government_branching23 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-	a47_government_branching25 = {
-		icon = mission_unknown_mission
-		position = 10
-		required_missions = { a47_government_branching2_left4 a47_government_branching24 }
-		trigger = {
-			hidden_trigger = {
-				always = no
-			}
-		}
-		effect = {
-		}
-	}
-}
+#a47_government_branching2 = {
+#	slot = 2
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		OR = {
+#			has_country_flag = a47_kingdom_flag
+#			has_country_flag = a47_republic_flag
+#		}
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_government_branching21 = {
+#		icon = mission_unknown_mission
+#		position = 6
+#		required_missions = {  }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching22 = {
+#		icon = mission_unknown_mission
+#		position = 7
+#		required_missions = { a47_government_branching21 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching23 = {
+#		icon = mission_unknown_mission
+#		position = 8
+#		required_missions = { a47_government_branching22 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching24 = {
+#		icon = mission_unknown_mission
+#		position = 9
+#		required_missions = { a47_government_branching23 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching25 = {
+#		icon = mission_unknown_mission
+#		position = 10
+#		required_missions = { a47_government_branching2_left4 a47_government_branching24 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
 
 #a47_government_branching2_republic = {
 #	slot = 2
