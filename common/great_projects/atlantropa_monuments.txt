@@ -2661,12 +2661,20 @@ atlantis_spartaacademy = {
 	can_use_modifiers_trigger = {
 
 		province_is_or_accepts_culture = yes
+		OR = {
 				owner = { religion = mars_cult  }
+				owner = { religion = poseidon_cult  }
+			owner = { religion = hellenic_pagan  }	
+		}
 	}
 
 	can_upgrade_trigger = {
 
-		owner = { religion = mars_cult  }
+				OR = {
+				owner = { religion = mars_cult  }
+				owner = { religion = poseidon_cult  }
+			owner = { religion = hellenic_pagan  }	
+		}
 		province_is_or_accepts_culture = yes
 	}
 
