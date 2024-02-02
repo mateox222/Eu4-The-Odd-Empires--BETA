@@ -213,6 +213,7 @@ country_event = {
             name = "Friederich"
         }
         LOT = {
+            every_owned_province = { add_next_institution_embracement = 100 }
             change_religion = hussite
             set_capital = 1876
             change_culture = X58
@@ -220,7 +221,7 @@ country_event = {
                 dynasty = "Thuringer"
                 culture = ROOT
                 religion = ROOT
-                name = "Balthasar"
+                name = "Balhasar"
             }
             add_government_reform = elective_monarchy_reform
             
@@ -237,6 +238,7 @@ country_event = {
             }
         }
         change_tag = THU
+        swap_free_idea_group = yes	
         swap_non_generic_missions = yes	
         hidden_effect = {
             4942 = {
@@ -636,6 +638,27 @@ country_event = {
 	
 
 }
+
+country_event = {
+	id =  thuringia_events.105   #christianity
+	title = "thuringia_events.105.t"
+	desc = "thuringia_events.105.d"
+	picture = coronation_eventPicture
+	is_triggered_only = yes
+    fire_only_once = yes
+	option = { 
+    name = "thuringia_events.105.a"
+		add_presitge = 10
+        change_religion = hussite
+    }
+	
+
+}
+
+
+
+
+
 country_event = {
 	id =  thuringia_events.300   
 	title = "thuringia_events.300.t"
