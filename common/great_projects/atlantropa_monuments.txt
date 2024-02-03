@@ -6922,3 +6922,226 @@ atlantis_alexanderthegreat = {
 		}
 	}
 }
+
+
+a47_heart_of_the_republic_gp = {
+    start = 5223
+	date = 6408.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 0
+	type = monument
+	build_trigger = {
+	always = no
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		province_is_or_accepts_culture = yes
+
+	}
+
+	can_upgrade_trigger = {
+		province_is_or_accepts_culture = yes
+
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			monthly_splendor = 0.5
+			republican_tradition = 0.5	
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+
+		}
+		country_modifiers = {
+			monthly_splendor = 1
+			republican_tradition = 1	
+			state_governing_cost = -0.05
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			monthly_splendor = 2
+			republican_tradition = 1.5	
+			state_governing_cost = -0.1	
+			reelection_cost = -0.1	
+			candidate_random_bonus = 1	
+		}
+		on_upgraded = {
+		}
+	}
+}
+a47_palace_of_kings_gp = {
+    start = 341
+	date = 6408.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 0
+	type = monument
+	build_trigger = {
+	always = no
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		province_is_or_accepts_culture = yes
+
+	}
+
+	can_upgrade_trigger = {
+		province_is_or_accepts_culture = yes
+
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			global_unrest = -1	
+			legitimacy = 0.5	
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+
+		}
+		country_modifiers = {
+			global_unrest = -2	
+			legitimacy = 1	
+			max_absolutism = 5
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			global_unrest = -3	
+			legitimacy = 1.5	
+			max_absolutism = 10	
+				
+		}
+		on_upgraded = {
+		}
+	}
+}
