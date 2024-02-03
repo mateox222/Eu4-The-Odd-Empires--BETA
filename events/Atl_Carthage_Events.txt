@@ -1,0 +1,136 @@
+namespace = atl_carthage
+country_event = { #Carthage Lore
+	id = atl_carthage.1
+	title = atl_carthage.1.t 
+	desc = atl_carthage.1.d 
+	picture = great_mammoth_hunt_eventPicture
+	is_triggered_only = yes 
+	option = { 
+		name = atl_carthage.1.a
+		define_ruler = {
+			name = "Hiram"
+			dynasty = "Hannibalid"
+			adm = 4
+			dip = 6
+			mil = 6
+			age = 27
+		}
+		define_ruler_to_general = {
+			fire = 1
+			shock = 3
+			manuever = 5
+			siege = 3
+		}
+		add_devotion = 100
+	}
+}
+country_event = { #Carthage Mercenary Debate
+	id = atl_carthage.2
+	title = atl_carthage.2.t 
+	desc = atl_carthage.2.d 
+	picture = great_mammoth_hunt_eventPicture
+	is_triggered_only = yes 
+	option = { 
+		name = atl_carthage.2.a
+		add_country_modifier = {
+			name = carthage_old_army
+			duration = -1
+		}
+	}
+	option = { 
+		name = atl_carthage.2.b
+		add_country_modifier = {
+			name = carthage_new_army
+			duration = -1
+		}
+	}
+}
+country_event = { #Carthage Choice
+	id = atl_carthage.3
+	title = atl_carthage.3.t 
+	desc = atl_carthage.3.d 
+	picture = great_mammoth_hunt_eventPicture
+	is_triggered_only = yes 
+	#option = { #God Wills It!
+	#	name = atl_carthage.3.a
+	#	hidden_effect = {
+	#		set_country_flag = a47_christ_flag
+	#	}
+	#	add_stability = 1
+	#	swap_non_generic_missions = yes
+	#}
+	option = { #Canaan Wills It!
+		name = atl_carthage.3.b
+		hidden_effect = {
+			set_country_flag = a47_punic_flag
+		}
+		add_stability = -1
+		change_religion = punic_cult
+		carthago_area = {
+			change_religion = punic_cult
+		}
+		swap_non_generic_missions = yes
+		hubas_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		nezzan_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		tafilalt_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+	}
+}
+country_event = { #Carthage Rebirth
+	id = atl_carthage.4
+	title = atl_carthage.4.t 
+	desc = atl_carthage.4.d 
+	picture = great_mammoth_hunt_eventPicture
+	is_triggered_only = yes 
+	option = { #A Kingdom!
+		name = atl_carthage.4.a
+		trigger = {
+			has_leader_with = {
+				fire = 1
+				shock = 3
+				manuever = 5
+				siege = 3
+				total_pips = 12
+			}
+		}
+		add_splendor = 100
+		change_government = monarchy
+		hidden_effect = {
+			set_country_flag = a47_kingdom_flag
+		}
+		define_heir = {
+			dynasty = "Hannibalid"
+			claim = 100
+			mil = 6
+			adm = 5
+			dip = 4
+		}
+		swap_non_generic_missions = yes
+	}
+	option = { #Restore the Old Republic!
+		name = atl_carthage.4.b
+		add_prestige = 10
+		change_government = republic
+		hidden_effect = {
+			set_country_flag = a47_republic_flag
+		}
+		swap_non_generic_missions = yes
+	}
+}
