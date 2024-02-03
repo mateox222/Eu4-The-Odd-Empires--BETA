@@ -1,4 +1,21 @@
 
+
+tribe_mechanic = {
+	tribal = yes
+	monarchy = yes
+	basic_reform = yes # = invisible/does not take up a slot
+	valid_for_nation_designer = no
+	heir = yes
+	queen = yes
+	custom_attributes = {
+		enables_aristocratic_idea_group = yes
+	}
+	government_abilities = {
+		toe_tribal_fervor
+		}
+}
+
+
 francocracy = {
     icon = "francocracy"
 	allow_normal_conversion = yes
@@ -1440,4 +1457,40 @@ jewish_theocratic_reform = {
 	ai = {
         factor = 1 #generic
 }
+}
+
+	hunnic_empire = {
+	icon = "raumaria_government"
+	allow_normal_conversion = no
+	legacy_equivalent = feudal_tribe
+	potential = {
+			OR = {
+        tag = X59
+    }
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 150
+
+	modifiers = {
+		war_exhaustion = -0.25
+		global_unrest = -2
+		global_autonomy = -0.025
+		monarch_military_power = 1
+		governing_capacity_modifier = -0.3
+	}
+
+			custom_attributes = {
+		locked_government_type = yes
+		heir = no 
+		royal_marriage = no	
+		raze_province = yes	
+		nomad = yes	
+		allow_force_tributary = yes	
+		max_absolutism = 15
+	}
+
+	
+		ai = {
+		factor = 100
+	}
 }

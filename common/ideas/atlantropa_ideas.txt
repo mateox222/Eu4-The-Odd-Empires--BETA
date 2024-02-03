@@ -1057,3 +1057,50 @@ A80_ideas = {
 		allowed_marine_fraction = 0.50
 	}
 }
+
+
+hunnic_ideas = {
+	start = {
+		movement_speed = 0.10	
+		prestige_from_land = 0.10	
+	}
+
+	bonus = {
+		navy_tradition = 1
+	}
+	
+	trigger = {
+		OR = {
+		tag = X58
+		tag = X59		
+		}
+
+	}
+	free = yes		#will be added at load.
+
+	Hunnic_Army  = {
+		army_tradition = 1	
+	}
+	Hunnic_Administration = {
+		administrative_efficiency = 0.02	
+
+	}
+	hunnic_multiculturalism = {
+		num_accepted_cultures = 2	
+	}
+	#british_merchant_navy = {
+	#	global_tariffs = 0.15
+	#}
+	hunnic_stability = {
+		stability_cost_modifier = -0.1	
+	}
+	hunnic_invasion = {
+		unjustified_demands = -0.2	
+	}
+	hunnic_modern_warfare = {
+		siege_ability = 0.10	
+	}
+	hunnic_taxes = {
+		war_taxes_cost_modifier = -0.10	
+	}
+}

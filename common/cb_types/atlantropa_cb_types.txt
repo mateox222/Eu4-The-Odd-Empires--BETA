@@ -63,3 +63,17 @@ cb_israel_invasion = {
 
 	war_goal = israel_invasio_wg
 }
+
+cb_huns_invasion = {
+	valid_for_subject = no
+	prerequisites_self = {
+		has_country_flag = hunsempireprepare
+	}
+
+	prerequisites = {
+		NOT = { government = tribal	}
+		is_neighbor_of = FROM
+	}
+
+	war_goal = take_capital_imperial
+}

@@ -26,8 +26,8 @@ country_event = {
             limit = {
                 owned_by = ROOT
             }
-            add_core = SAX
-            cede_province = SAX
+            add_core = X59
+            cede_province = X59
             remove_core = ROOT
         }	
 
@@ -35,40 +35,40 @@ country_event = {
             limit = {
                 owned_by = ROOT
             }
-            add_core = SAX
-            cede_province = SAX
+            add_core = X59
+            cede_province = X59
             remove_core = ROOT
         }	
         thuringia_area = {
             limit = {
                 owned_by = ROOT
             }
-            add_core = SAX
-            cede_province = SAX
+            add_core = X59
+            cede_province = X59
             remove_core = ROOT
         }	
         hesse_area = {
             limit = {
                 owned_by = ROOT
             }
-            add_core = SAX
-            cede_province = SAX
+            add_core = X59
+            cede_province = X59
             remove_core = ROOT
         }	
         franconia_area = {
             limit = {
                 owned_by = ROOT
             }
-            add_core = SAX
-            cede_province = SAX
+            add_core = X59
+            cede_province = X59
             remove_core = ROOT
         }	
         upper_franconia_area = {
             limit = {
                 owned_by = ROOT
             }
-            add_core = SAX
-            cede_province = SAX
+            add_core = X59
+            cede_province = X59
             remove_core = ROOT
         }	
 
@@ -226,9 +226,9 @@ country_event = {
             add_government_reform = elective_monarchy_reform
             
         }
-        SAX = {
+        X59 = {
             every_owned_province = {
-                add_core = SAX
+                add_core = X59
             }
             define_ruler = {
                 dynasty = "Thuringer"
@@ -314,15 +314,18 @@ country_event = {
     fire_only_once = yes
 	option = { #Slavia
     name = "thuringia_events.2.a"
-		switch_tag = SAX
+		switch_tag = X59
+        set_global_flag = Hunoriahascollapsed
     }
 	option = { #lotharingia
     name = "thuringia_events.2.b"
 		switch_tag = LOT
+        set_global_flag = Hunoriahascollapsed
     }
     option = { #Thuringia
     name = "thuringia_events.2.c"
     add_prestige = 5
+    set_global_flag = Hunoriahascollapsed
 }
 
 }
@@ -685,8 +688,8 @@ country_event = {
         limit = {
             owned_by = ROOT
         }
-        add_core = SAX
-        cede_province = SAX
+        add_core = X59
+        cede_province = X59
         remove_core = ROOT
     }	
     lower_rhineland_area = {
@@ -717,16 +720,16 @@ country_event = {
         limit = {
             owned_by = ROOT
         }
-        add_core = SAX
-        cede_province = SAX
+        add_core = X59
+        cede_province = X59
         remove_core = ROOT
     }	
     frisia_area = {
         limit = {
             owned_by = ROOT
         }
-        add_core = SAX
-        cede_province = SAX
+        add_core = X59
+        cede_province = X59
         remove_core = ROOT
     }	
     braunschweig_area = {
