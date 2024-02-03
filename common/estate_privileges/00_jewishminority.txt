@@ -1,0 +1,128 @@
+ jewish_rule = {
+ icon = privilege_government
+	max_absolutism = -10
+	loyalty = 0.15
+	influence = 0.20
+	can_select = {
+	}
+	on_granted = {
+        add_years_of_income = 1	
+        add_stability = -1
+	}
+    	on_revoked = {
+	add_stability = -1
+	}
+	on_invalid = {
+	add_stability = -1
+	}
+	penalties = {
+	global_unrest = 3
+	land_morale = -0.05
+    country_military_power = -1	
+	}
+
+	benefits = {
+    inflation_action_cost = -0.15	   
+    country_admin_power = 1	   
+    stability_cost_modifier = 0.25	   
+	inflation_reduction = 0.20		
+    interest = -1	
+    global_tax_modifier = 0.05				
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}	
+ 
+ estate_jewish_land = {
+ icon = privilege_grant_autonomy
+	land_share = 2.5
+	max_absolutism = -2.5
+	loyalty = 0.05
+	influence = 0.05
+	can_select = {
+	}
+	on_granted = {
+	}
+	penalties = {
+	}
+	benefits = {
+		governing_capacity = 100
+        jewishestate_influence = 0.15				
+	}
+    		ai_will_do = {
+		factor = 0
+	}
+		
+	}						
+jewish_mone_borrow = {
+	icon = privilege_give_money
+	influence = 0.15
+	can_select = {
+		
+	}
+    cooldown_years = 10
+	on_granted = {
+		add_years_of_income = 1.8
+	}
+	penalties = {
+    global_tax_modifier = -0.2
+    interest = 1	
+	}
+	benefits = {
+       
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+jewish_bby_ship = {
+	icon = privilege_heavy_ship
+	loyalty = 0.0
+	influence = 0.1
+	is_valid = {
+		primitives = no
+	}
+	can_select = {
+		num_of_ports = 1
+	}
+	benefits = {
+		heavy_ship_cost = -0.15
+        heavy_ship_hull_size_modifier = 0.1	
+	}
+	on_granted = {
+
+	}
+	on_revoked = {
+
+	}
+	on_invalid = {
+	
+	}
+	ai_will_do = {
+		factor = 0
+	}
+}
+jewish_burghers_free_enterprise = {
+	icon = estate_burghers_foreign_expeditions
+	max_absolutism = -2.5
+	conditional_modifier = { trigger = { has_absolutism_reduction_for_estate_privileges = yes } modifier = { max_absolutism = 2 } }
+	loyalty = 0.1
+	influence = 0.05
+	penalties = {
+	}
+	benefits = {
+        trade_efficiency = 0.05
+	}
+	conditional_modifier = {
+	}
+	conditional_modifier = {
+	}
+	#conditional_modifier = {
+	#	trigger = { has_government_mechanic = ottoman_decadence_mechanic }
+	#	modifier = { monthly_ottoman_decadence = 0.02 }
+	#}
+	ai_will_do = {
+		factor = 0
+	}
+}

@@ -36,8 +36,6 @@ add_province_modifier = {
 
 	add_reform_desire = -2
 	hide_ambient_object = volcano_ash_emmiter
-		country_event = { 
-    id = 	calc_year.2 }
 	set_heir_flag = ochrzczony
 	set_ruler_flag = koronowanykrol
 	set_global_flag = atlantropa_start_flag
@@ -58,9 +56,15 @@ add_province_modifier = {
 		country_event = { 
     id = atlantropa_basic_event.4000
 	}
-
-	
 }
+	every_country = {
+		limit = { is_subject_of = LAN }
+		country_event = { 
+    id = atlantropa_basic_event.4002
+	}
+}
+
+
 
 }}
 
