@@ -47,3 +47,33 @@ cb_magyar_autonomous_province = {
 
 	war_goal = magyar_provinceindependece
 }
+
+cb_israel_invasion = {
+	valid_for_subject = no
+	prerequisites_self = {
+		tag = ISR
+		OR = {
+			has_country_flag = ISRAELCHOOSENBYGOD
+		}
+	}
+
+	prerequisites = {
+		NOT = { religion = jewish }
+	}
+
+	war_goal = israel_invasio_wg
+}
+
+cb_huns_invasion = {
+	valid_for_subject = no
+	prerequisites_self = {
+		has_country_flag = hunsempireprepare
+	}
+
+	prerequisites = {
+		NOT = { government = tribal	}
+		is_neighbor_of = FROM
+	}
+
+	war_goal = take_capital_imperial
+}

@@ -1,0 +1,497 @@
+balth1 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = LOT
+	}
+
+	balthasaria_deal_slavs = {
+		icon = atlantropa_magyars
+		position = 2
+		required_missions = { balthasaria_disaster }
+		trigger = {
+			has_disaster_progress = {
+				disaster = balthasar_empire_crisis
+				value = 10
+			}
+			stability = 0
+		}
+		effect = {
+			country_event = {
+				id = thuringia_events.101
+			}
+		}
+	}
+	balhasaria_gold = {
+		icon = mission_zambezi_gold
+		position = 3
+		required_missions = {  }
+		provinces_to_highlight = {
+			province_id = 73
+		}
+		trigger = {
+			73 = {
+				base_production = 7
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			73 = {
+				add_base_production = 1
+				add_base_tax = 1
+				add_base_manpower = 1
+				rename_capital = "Golthor"
+				change_province_name = "Golthor"
+				change_culture = ROOT
+			}
+		}
+	}
+	balhasaria_renaissance = {
+		icon = renaissance_city
+		position = 4
+		required_missions = { empire_is_saved }
+		trigger = {
+			has_institution = renaissance
+			artist = 3
+			if = {
+				limit = {
+					has_dlc = "Mandate of Heaven"
+				}
+				capital_scope = {
+					is_prosperous = yes
+				}
+			}
+			prestige = 75
+		}
+		effect = {
+			add_country_modifier = {
+				name = balthasar_globe_theatre
+				duration = -1
+			}
+		}
+	}
+	balhasaria_roads = {
+		icon = spa_spanish_road
+		position = 5
+		required_missions = { balhasariabussines }
+		trigger = {
+			atlantropa_road = 20
+		}
+		effect = {
+			every_owned_province = {
+				limit = {
+					has_building = atlantropa_road
+				}
+				add_base_production = 1
+			}
+		}
+	}
+}
+
+balth2 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = LOT
+	}
+
+	balthasaria_disaster = {
+		icon = atlantropa_germiyan
+		position = 1
+		required_missions = {  }
+		trigger = {
+			has_disaster_progress = {
+				disaster = balthasar_empire_crisis
+				value = 10
+			}
+		}
+		effect = {
+			add_stability = -1
+			add_disaster_progress = {
+				disaster = balthasar_empire_crisis
+				value = -25
+			}
+		}
+	}
+	balthasaria_deal_occitanians = {
+		icon = mission_the_french_menace
+		position = 2
+		required_missions = { balthasaria_disaster }
+		trigger = {
+			has_disaster_progress = {
+				disaster = balthasar_empire_crisis
+				value = 10
+			}
+			stability =0
+		}
+		effect = {
+			country_event = {
+				id = thuringia_events.102
+			}
+		}
+	}
+	empire_is_saved = {
+		icon = atlantropa_paflagonia
+		position = 3
+		required_missions = { balthasaria_deal_slavs balthasaria_deal_occitanians balthasaria_deal_germans }
+		trigger = {
+			stability = 1
+		}
+		effect = {
+			add_stability = 3
+			set_country_flag = balthasariaendured
+		}
+	}
+	balhasariabussines = {
+		icon = the_crown_of_lothair
+		position = 4
+		required_missions = { empire_is_saved }
+		trigger = {
+			stability = 1
+			has_any_disaster = no
+			manpower_percentage = 0.90
+			custom_trigger_tooltip = {
+				tooltip = treatyofasbachs
+				has_global_flag = treatyofasbach
+			}
+		}
+		effect = {
+			custom_tooltip  = thuringiaback
+			hidden_effect = {
+				every_province = {
+					limit = {
+						owned_by = THU
+					}
+					add_core = ROOT
+				}
+				every_province = {
+					limit = {
+						owned_by = SAX
+					}
+					add_core = ROOT
+				}
+			}
+			hidden_effect = {
+				every_province = {
+					limit = {
+						NOT = { owned_by = ROOT }
+					OR = {
+						region =  north_german_region
+						region =  south_german_region
+					}
+					
+				}
+				add_permanent_claim	= ROOT
+			}
+			}
+		}
+	}
+	balhasaria_unite_german = {
+		icon = interfere_in_germany
+		position = 6
+		required_missions = { balhasariabussines balhasaria_roads balhaaria_army }
+		provinces_to_highlight = {
+			OR = {
+				region =  north_german_region
+				region =  south_german_region
+			}
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with  = {
+				value = 40
+				OR = {
+					region =  north_german_region
+				}
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with  = {
+					value = 40
+					OR = {
+						region =  south_german_region
+					}
+				}
+			}
+		}
+		effect = {
+			add_mil_power= 200
+				override_country_name = BALHASARIAFEDERATION
+				add_country_modifier = {
+					name = 	balhasar_culture2
+					duration = -1
+				}
+			hidden_effect = {
+			every_province = {
+			limit = {
+			superregion = europe_superregion 
+			}
+			add_permanent_claim	= ROOT
+			}
+			}
+		}
+	}
+	land_of_hope_glory_balhasaria = {
+		icon = atlantropa_balhasaria
+		position = 7
+		required_missions = { balhasaria_unite_german balhasarian_industralisation balhasaria_prosper }
+		trigger = {
+			total_development = 750
+			stability = 3
+		}
+		effect = {
+			add_country_modifier = {
+			name = bur_carolingia
+							duration = -1
+						}
+			if = {
+				limit = {
+					in_golden_age = no
+				}
+				reset_golden_age = yes
+			}
+			if = {
+				limit = {
+					in_golden_age = yes
+				}
+				extend_golden_age = 1800
+			}
+		}
+	}
+}
+
+balth3 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = LOT
+	}
+
+	balthasaria_deal_germans = {
+		icon = scramble_for_africa
+		position = 2
+		required_missions = { balthasaria_disaster }
+		trigger = {
+			has_disaster_progress = {
+				disaster = balthasar_empire_crisis
+				value = 10
+			}
+			stability = 0
+		}
+		effect = {
+			country_event = {
+				id = thuringia_events.103
+			}
+		}
+	}
+	build_heideiberhg = {
+		icon = mission_castle_construction
+		position = 3
+		required_missions = {  }
+		provinces_to_highlight = {
+			province_id = 77
+		}
+		trigger = {
+			77 = {
+				base_manpower = 10
+			}
+		}
+		effect = {
+			77 = {
+				add_great_project_tier = {
+					type = atlantis_castle_heidelberg
+					tier = 1
+				}
+			}
+		}
+	}
+	balhasaria_build_barracks = {
+		icon = mission_early_game_buildings
+		position = 4
+		required_missions = { empire_is_saved }
+		trigger = {
+			OR = {
+				barracks = 10
+			}
+		}
+		effect = {
+			add_yearly_manpower = 3
+			add_mil_power = 100
+		}
+	}
+	balhaaria_army = {
+		icon = establish_a_standing_army
+		position = 5
+		required_missions = { balhasariabussines balhasaria_build_barracks }
+		trigger = {
+			army_size = 50
+		}
+		effect = {
+			add_mil_power = 100
+			add_country_modifier = {
+				name = 	balhasaria_army
+				duration = -1
+			}
+		}
+	}
+}
+
+Balthasaria_backbussines = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = LOT
+	}
+
+	balhasaria_adopt_language = {
+		icon = mission_the_governing_senate
+		position = 4
+		required_missions = { empire_is_saved }
+		trigger = {
+			num_accepted_cultures = 3
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			add_country_modifier = {
+				name = 	balhasar_culture
+				duration = -1
+			}
+		}
+	}
+	balhasaria_prosper = {
+		icon = prosperity_for_all
+		position = 6
+		required_missions = { balhasaria_adopt_language }
+		provinces_to_highlight = {
+			province_id = 1931
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 25
+				is_prosperous = yes
+			}
+			owns_core_province = 1931
+		}
+		effect = {
+			add_prestige = 10
+			add_years_of_income = 2
+			1931 = {
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+				}
+				change_trade_goods = atl_tools
+				add_permanent_province_modifier = {
+					name = trade_good_ammunition
+					duration = -1
+				}
+			}
+		}
+	}
+}
+
+balh4 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = LOT
+	}
+
+	balhasariaeconomy = {
+		icon = mission_african_gold
+		position = 4
+		required_missions = { empire_is_saved }
+		trigger = {
+			OR = {
+				monthly_income = 50
+				AND = {
+					monthly_income = 40
+					advisor = treasurer
+				}
+			}
+		}
+		effect = {
+			add_years_of_income = 0.5
+			add_country_modifier = {
+				name = 	rochina_economybonus
+				duration = -1
+			}
+		}
+	}
+	balhasarian_production = {
+		icon = fra_golden_march
+		position = 5
+		required_missions = { balhasariaeconomy }
+		trigger = {
+			workshop = 10
+		}
+		effect = {
+			every_owned_province = {
+				limit = {
+					has_building = workshop
+				}
+				add_base_production = 1
+			}
+			add_adm_power = 100
+			add_dip_power = 100
+		}
+	}
+	balhasarian_industralisation = {
+		icon = mission_industrialize_bengal
+		position = 6
+		required_missions = { balhasarian_production }
+		trigger = {
+			num_of_owned_provinces_with	 = {
+				OR = {
+					has_building = mills
+					has_building = farm_estate
+					has_building = tradecompany
+					has_building = plantations
+					has_building = textile
+					has_building = weapons
+					has_building = wharf
+					has_building = furnace
+				}
+				value = 15
+			}
+			199 = {
+				owned_by = ROOT
+			}
+			188 = {
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			add_years_of_income = 2.5
+			199 = {
+				add_base_production = 3
+				add_base_manpower = 3
+				add_province_modifier = {
+					name = "eng_rb_coal_produced_mod"
+					duration = -1
+				}
+			}
+			188 = {
+				add_base_production = 3
+				add_base_manpower = 3
+				add_province_modifier = {
+					name = "eng_rb_coal_produced_mod"
+					duration = -1
+				}
+			}
+			4382 = {
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+				}
+				change_trade_goods = cloth
+				add_permanent_province_modifier = {
+					name = trade_good_clothes
+					duration = -1
+				}
+			}
+		}
+	}
+}
+

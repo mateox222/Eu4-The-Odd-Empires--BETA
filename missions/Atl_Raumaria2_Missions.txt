@@ -1,0 +1,149 @@
+Raumara2_mission = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = DA1
+		NOT = { has_country_flag = raumariaprzebudzenieprawdziwe }
+	}
+
+	udmurtia_city = {
+		icon = mission_hanseatic_city
+		position = 1
+		required_missions = {  }
+		trigger = {
+			republican_tradition = 90
+		}
+		effect = {
+			country_event = {
+				id = aryan_empire.100
+			}
+		}
+	}
+	rise_of_raumaria = {
+		icon = atlantropa_aryanfaith
+		position = 2
+		required_missions = { udmurtia_city }
+		trigger = {
+			stability = 2
+		}
+		effect = {
+			country_event = {
+				id = aryan_empire.101
+			}
+		}
+	}
+	deal_with_raumarian_fanatics = {
+		icon = atlantropa_burningkazan
+		position = 3
+		required_missions = { rise_of_raumaria udrtia_development udmurtia_city_army }
+		trigger = {
+			adm_power = 100
+			dip_power = 100
+			mil_power = 100
+		}
+		effect = {
+			custom_tooltip = raumariafanatics
+			add_adm_power = -100
+			add_dip_power = -100
+			add_mil_power = -100
+			country_event = {
+				id = aryan_empire.102
+			}
+		}
+	}
+}
+
+raumaria_dwa_1 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = DA1
+		NOT = { has_country_flag = raumariaprzebudzenieprawdziwe }
+	}
+
+	udrtia_development = {
+		icon = mission_pol_develop_countryside
+		position = 2
+		required_missions = { udmurtia_city }
+		trigger = {
+			1972 = {
+			development = 25 }
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+			add_prestige = 10
+			add_stability = 1
+			add_mil_power = 100
+		}
+	}
+	raumaria_dawn = {
+		icon = atlantropa_blacksun
+		position = 4
+		required_missions = { deal_with_raumarian_fanatics }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = republikaraumariaprzegrywa
+			has_country_flag = republikaraumariaprzegrywa
+			}
+		}
+		effect = {
+			hidden_effect = {
+				kill_ruler = yes
+			change_country_color = {
+				color = { 31 50 67 }
+			}
+			override_country_name = RAUMARIA
+			set_country_flag = raumariaprzebudzenieprawdziwe
+			swap_non_generic_missions = yes
+			country_event = { 
+				id = aryan_empire.1
+			}
+			}
+			custom_tooltip = raumariafanatics2
+		}
+	}
+}
+
+raumaria_2_mi2 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = DA1
+		NOT = { has_country_flag = raumariaprzebudzenieprawdziwe }
+	}
+
+	udmurtia_city_army = {
+		icon = expand_the_swiss_guard
+		position = 2
+		required_missions = { udmurtia_city }
+		trigger = {
+			army_size = 10
+		}
+		effect = {
+			add_mil_power = 200
+		}
+	}
+	raumaria_twilight = {
+		icon = mission_prosperity_in_bengal
+		position = 4
+		required_missions = { deal_with_raumarian_fanatics }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = republikaraumariawygrywa
+				has_country_flag = republikaraumariawygrywa
+			}
+			
+		}
+		effect = {
+			add_stability = 3
+			add_adm_power = 250
+			add_dip_power = 250
+			add_mil_power = 250
+		}
+	}
+}
+

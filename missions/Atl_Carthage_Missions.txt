@@ -1,0 +1,2776 @@
+a47_karthagni_recovery = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = A47
+	}
+
+	has_country_shield = yes
+
+	a47_the_last_carthaginians = {
+		icon = mission_arabian_fort
+		position = 1
+		required_missions = {  }
+		trigger = {
+			always = yes
+		}
+		effect = {
+			country_event = { id = atl_carthage.1 }
+		}
+	}
+	rebuilding_an_army = {
+		icon = mission_assemble_an_army
+		position = 2
+		required_missions = { a47_the_last_carthaginians }
+		trigger = {
+			army_size_percentage = 1
+		}
+		effect = {
+			carthago_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	a47_reconquest_of_punitia = {
+		icon = atlantropa_crusadearmy
+		position = 3
+		required_missions = { rebuilding_an_army }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 5190
+				province_id = 5210
+				province_id = 5193
+				province_id = 5212
+				province_id = 5211
+				province_id = 5223
+			}
+			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 5190
+			owns_or_non_sovereign_subject_of = 5210
+			owns_or_non_sovereign_subject_of = 5193
+			owns_or_non_sovereign_subject_of = 5212
+			owns_or_non_sovereign_subject_of = 5211
+			owns_or_non_sovereign_subject_of = 5223
+		}
+		effect = {
+			add_prestige = 10
+		}
+	}
+}
+
+a47_ahnet = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = A47
+	}
+
+	has_country_shield = yes
+
+	a47_the_riches_of_ahnet = {
+		icon = mission_high_income
+		position = 2
+		required_missions = { a47_the_last_carthaginians }
+		trigger = {
+			5223 = {
+				OR = {
+					has_building = marketplace
+					has_building = trade_depot
+				}
+			}
+		}
+		effect = {
+			add_years_of_income = 1
+			add_yearly_manpower = 1
+		}
+	}
+	a47_grow_kartagni_gdida = {
+		icon = atlantropa_ind
+		position = 3
+		required_missions = { a47_the_riches_of_ahnet }
+		trigger = {
+			5223 = {
+				num_of_times_improved = 2
+			}
+		}
+		effect = {
+			5223 = {
+				add_base_tax = 1
+				add_base_manpower = 1
+				add_base_production = 1
+			}
+		}
+	}
+	a47_the_rebirth_of_carthage = {
+		icon = atlantropa_dawn
+		position = 4
+		required_missions = { a47_reconquest_of_punitia a47_grow_kartagni_gdida }
+		trigger = { }
+		effect = {
+			country_event = { id = atl_carthage.4 }
+			5217 = {
+	
+				add_permanent_claim = ROOT
+			}
+			5222 = {
+		
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	a47_the_porta_discovery = {
+		icon = atlantropa_skulls
+		position = 5
+		required_missions = { a47_the_rebirth_of_carthage }
+		provinces_to_highlight = {
+			province_id = 5222
+			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 5222
+		}
+		effect = {
+			country_event = { id = atl_carthage.3 }
+		}
+	}
+}
+
+a47_early_diplomacy = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = A47
+	}
+
+	has_country_shield = yes
+
+	a47_finding_allies = {
+		icon = mission_alliances
+		position = 2
+		required_missions = { a47_the_last_carthaginians }
+		trigger = {
+			num_of_allies = 1
+		}
+		effect = {
+			add_dip_power = 25
+		}
+	}
+	a47_mercenary_contacts = {
+		icon = swiss_mercenaries
+		position = 3
+		required_missions = { a47_finding_allies }
+		trigger = {
+			num_of_mercenaries = 1
+		}
+		effect = {
+			country_event = { id = atl_carthage.2 }
+		}
+	}
+}
+
+a47_middle_diplomacy_branching = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = A47
+		NOT = {
+			OR = {
+				has_country_flag = a47_punic_flag
+				has_country_flag = a47_christ_flag
+			}
+		}
+	}
+
+	has_country_shield = yes
+
+	a47_dip_branch1 = {
+		icon = mission_unknown_mission
+		position = 4
+		required_missions = { a47_mercenary_contacts }
+		trigger = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		effect = {
+		}
+	}
+	a47_dip_branch2 = {
+		icon = mission_unknown_mission
+		position = 5
+		required_missions = { a47_dip_branch1 }
+		trigger = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		effect = {
+		}
+	}
+}
+
+a47_middle_diplomacy_punic = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = A47
+		has_country_flag = a47_punic_flag
+	}
+
+	has_country_shield = yes
+
+	a47_manage_aggression = {
+		icon = personal_diplomacy
+		position = 4
+		required_missions = { a47_mercenary_contacts }
+		trigger = {
+			OR = {
+				advisor = diplomat6_tod
+				has_dip_advisor_3 = yes
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = a47_aggressivent
+				duration = -1
+			}
+		}
+	}
+	a47_phoenicia = {
+		icon = mission_diplomatic_relation
+		position = 5
+		required_missions = { a47_manage_aggression }
+		trigger = {
+			5304 = {
+				has_discovered = ROOT
+			}
+		}
+		effect = {
+			add_historical_friend = IS6
+			IS6 = {add_historical_friend = ROOT }
+			add_prestige = 10
+		}
+	}
+}
+
+#a47_middle_diplomacy_christ = {
+#	slot = 2
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		has_country_flag = a47_christ_flag
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_vassalize_locals = {
+#		icon = mission_unknown_mission
+#		position = 4
+#		required_missions = { a47_mercenary_contacts }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_prepare_crusaders = {
+#		icon = mission_unknown_mission
+#		position = 5
+#		required_missions = { a47_vassalize_locals }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
+
+a47_government_branching = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = A47
+		NOT = {
+			OR = {
+				has_country_flag = a47_kingdom_flag
+				has_country_flag = a47_republic_flag
+			}
+		}
+	}
+
+	has_country_shield = yes
+
+	a47_gov_branch1 = {
+		icon = mission_unknown_mission
+		position = 1
+		required_missions = {  }
+		trigger = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		effect = {
+		}
+	}
+	a47_gov_branch2 = {
+		icon = mission_unknown_mission
+		position = 3
+		required_missions = { a47_gov_branch1 }
+		trigger = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		effect = {
+		}
+	}
+	a47_gov_branch3 = {
+		icon = mission_unknown_mission
+		position = 5
+		required_missions = { a47_gov_branch2 }
+		trigger = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		effect = {
+		}
+	}
+}
+
+a47_government_branching_rep = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = A47
+		has_country_flag = a47_republic_flag
+	}
+
+	has_country_shield = yes
+
+	a47_embrace_renaissance = {
+		icon = atlantropa_medievalbook
+		position = 1
+		required_missions = {  }
+		trigger = {
+			has_institution = renaissance
+		}
+		effect = {
+			add_country_modifier = {
+				name ="a5c_norse_renaissance_modifier"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	a47_hire_adm_advisor = {
+		icon = mission_dominate_home_trade_node
+		position = 3
+		required_missions = { a47_embrace_renaissance }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = emp_ven_patronize_the_scuole_grandi_adm_advisor_tt
+				has_adm_advisor_2 = yes
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = carthage_strong_administration
+				duration = -1
+			}
+		}
+	}
+	a47_heart_of_the_republic = {
+		icon = atlantropa_tripoli
+		position = 5
+		required_missions = { a47_hire_adm_advisor }
+		trigger = {
+			treasury = 500
+		}
+		effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_dlc ="Leviathan"
+					}
+				}
+				add_prestige = 10
+				add_dip_power = 25
+				add_adm_power = 25
+				add_mil_power = 25
+				5223 = {
+					add_base_tax = 1
+					add_base_manpower = 1
+					add_base_production = 1
+				}
+			}
+			IF = {
+				limit = {
+					has_dlc ="Leviathan"
+				}
+				5223 = {
+					add_great_project = {
+						type = a47_heart_of_the_republic_gp
+						instant = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+a47_government_branching_mon = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = A47
+		has_country_flag = a47_kingdom_flag
+	}
+
+	has_country_shield = yes
+
+	a47_hire_mil_advisor = {
+		icon = atlantropa_russianempireprussia
+		position = 1
+		required_missions = {  }
+		trigger = {
+			#custom_trigger_tooltip = {
+				#tooltip = a47_mil_advisor_tt
+				#has_mil_advisor_2 = yes
+			#}
+			has_mil_advisor_2 = yes
+		}
+		effect = {
+			add_yearly_manpower = 1
+			add_years_of_income = 1
+			add_mil_power = 25
+		}
+	}
+	a47_strong_military = {
+		icon = mission_assemble_an_army
+		position = 3
+		required_missions = { a47_hire_mil_advisor }
+		trigger = {
+			army_size = 50
+		}
+		effect = {
+			add_country_modifier = {
+				name = carthage_strong_army
+				duration = -1
+			}
+		}
+	}
+	a47_palace_of_kings = {
+		icon = atlantropa_armenianking
+		position = 5
+		required_missions = { a47_strong_military }
+		provinces_to_highlight = {
+			province_id = 341
+			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 341
+			treasury = 500
+		}
+		effect = {
+			IF = {
+				limit = {
+					NOT = {
+						has_dlc ="Leviathan"
+					}
+				}
+				add_prestige = 10
+				add_dip_power = 25
+				add_adm_power = 25
+				add_mil_power = 25
+				341 = {
+					add_base_tax = 1
+					add_base_manpower = 1
+					add_base_production = 1
+				}
+			}
+			IF = {
+				limit = {
+					has_dlc ="Leviathan"
+				}
+				341 = {
+					add_great_project = {
+						type = a47_palace_of_kings_gp
+						instant = yes
+					}
+				}
+			}
+			set_capital = 341
+			341 = {
+				add_base_tax = 1
+				add_base_manpower = 1
+				add_base_production = 1
+			}
+			5223 = {
+				add_base_tax = -1
+				add_base_manpower = -1
+				add_base_production = -1
+			}
+		}
+	}
+}
+
+#a47_industrial_branching = {
+#	slot = 5
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		NOT = {
+#			OR = {
+#				has_country_flag = a47_kingdom_flag
+#				has_country_flag = a47_republic_flag
+#			}
+#		}
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_ind_branch1 = {
+#		icon = mission_unknown_mission
+#		position = 1
+#		required_missions = {  }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_ind_branch2 = {
+#		icon = mission_unknown_mission
+#		position = 3
+#		required_missions = { a47_ind_branch1 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_ind_branch3 = {
+#		icon = mission_unknown_mission
+#		position = 4
+#		required_missions = {  }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_ind_branch4 = {
+#		icon = mission_unknown_mission
+#		position = 5
+#		required_missions = { a47_ind_branch3 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
+
+a47_industrial = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = A47
+		OR = {
+			has_country_flag = a47_kingdom_flag
+			has_country_flag = a47_republic_flag
+		}
+	}
+
+	has_country_shield = yes
+
+	a47_all_roads_lead_to_carthage = {
+		icon = atlantropa_imperialroads
+		position = 1
+		required_missions = {  }
+		provinces_to_highlight = {
+			country_or_non_sovereign_subject_holds = ROOT
+			NOT = {
+				has_building = atlantropa_road
+			}
+		}
+		trigger = {
+			atlantropa_road = 20
+		}
+		effect = {
+			custom_tooltip = atl_one_production_every_road_tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						has_building = atlantropa_road
+					}
+					add_base_production = 1	
+				}
+			}
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+	a47_railway_to_carthage = {
+		icon = atlantropa_steamengine
+		position = 3
+		required_missions = { a47_all_roads_lead_to_carthage }
+		provinces_to_highlight = {
+			country_or_non_sovereign_subject_holds = ROOT
+			NOT = {
+				has_building = atlantropa_tracks
+			}
+		}
+		trigger = {
+			atlantropa_tracks = 20
+		}
+		effect = {
+			add_splendor = 800
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+		}
+		ai_weight = {
+			factor = 1
+		}
+	}
+	a47_industrialize = {
+		icon = atlantropa_norserenaissance
+		position = 4
+		required_missions = {  }
+		provinces_to_highlight = {
+			country_or_non_sovereign_subject_holds = ROOT
+			NOT = {
+				has_production_building_trigger = yes
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 20
+				OR = {
+					has_building = workshop
+					has_building = counting_house
+				}
+			}
+		}
+		effect = {
+			capital_scope = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				area = {
+					limit = { owned_by = ROOT }
+					add_province_modifier = {
+						name ="growth_of_capital"
+						duration = 9125 #25 years
+					}
+				}
+			}
+			add_years_of_income = 1
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+	a47_industrialize_2 = {
+		icon = industrialized_rhineland
+		position = 5
+		required_missions = { a47_industrialize }
+		provinces_to_highlight = {
+			country_or_non_sovereign_subject_holds = ROOT
+			NOT = {
+				OR = {
+					has_building = mills
+					has_building = farm_estate
+					has_building = tradecompany
+					has_building = plantations
+					has_building = textile
+					has_building = weapons
+					has_building = wharf
+					has_building = furnace
+				}
+			}
+		}
+		trigger = {
+			calc_true_if = {
+				desc = build_manufactories_mission_tooltip
+				all_owned_province = {
+					OR = {
+						has_building = mills
+						has_building = farm_estate
+						has_building = tradecompany
+						has_building = plantations
+						has_building = textile
+						has_building = weapons
+						has_building = wharf
+						has_building = furnace
+					}
+				}
+				amount = 15
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name ="toe_industrialization"
+				duration = -1
+			}
+			add_years_of_income = 1
+		}
+		ai_weight = {
+			factor = 10
+		}
+	}
+}
+
+a47_punitia_branch = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = A47
+		NOT = {
+			OR = {
+				has_country_flag = a47_kingdom_flag
+				has_country_flag = a47_republic_flag
+			}
+		}
+	}
+
+	has_country_shield = yes
+
+	a47_tree_branch1 = {
+		icon = mission_unknown_mission
+		position = 6
+		required_missions = { a47_the_porta_discovery }
+		trigger = {
+			hidden_trigger = {
+				always = no
+			}
+		}
+		effect = {
+		}
+	}
+}
+
+a47_punitia_branch_kingdom = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = A47
+		has_country_flag = a47_kingdom_flag
+	}
+
+	has_country_shield = yes
+
+	a47_settle_punitia = {
+		icon = atlantropa_undeabulgaria
+		position = 6
+		required_missions = { a47_the_porta_discovery }
+		trigger = {
+			mil_power = 25
+		}
+		effect = {
+			mil_power_cost = 25
+			custom_tooltip = punitiacultureconvert
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						area = carthago_area
+					}
+					change_culture = punic
+				}
+			}
+			carthago_area = {
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+			5223 = {
+				add_base_tax = -3
+				add_base_production = -2
+				add_base_manpower = -2
+			}
+		}
+	}
+}
+
+a47_punitia_branch_republic = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = A47
+		has_country_flag = a47_republic_flag
+	}
+
+	has_country_shield = yes
+
+	a47_integrate_punitia = {
+		icon = atlantropa_furthersteppes
+		position = 6
+		required_missions = { a47_the_porta_discovery }
+		trigger = {
+			adm_power = 25
+		}
+		effect = {
+			adm_power_cost = 25
+			if = {
+				limit = {
+				5193 = {
+					culture = punic_numidian
+				}
+				}
+				add_accepted_culture = punic_numidian
+			}
+			if = {
+				limit = {
+				5193 = {
+					culture = algerian
+				}
+				}
+				add_accepted_culture = algerian
+			}
+			carthago_area = {
+				add_base_tax = 1
+			}
+		}
+	}
+}
+
+#a47_conquests_branch = {
+#	slot = 4
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		NOT = {
+#			OR = {
+#				has_country_flag = a47_punic_flag
+#				has_country_flag = a47_christ_flag
+#			}
+#		}
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_conquests_branch1 = {
+#		icon = mission_unknown_mission
+#		position = 6
+#		required_missions = { a47_the_porta_discovery }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch2 = {
+#		icon = mission_unknown_mission
+#		position = 7
+#		required_missions = { a47_conquests_branch1 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch3 = {
+#		icon = mission_unknown_mission
+#		position = 8
+#		required_missions = { a47_conquests_branch2 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch4 = {
+#		icon = mission_unknown_mission
+#		position = 9
+#		required_missions = { a47_conquests_branch3 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch5 = {
+#		icon = mission_unknown_mission
+#		position = 10
+#		required_missions = { a47_conquests_branch4 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch6 = {
+#		icon = mission_unknown_mission
+#		position = 11
+#		required_missions = { a47_conquests_branch5 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
+
+a47_conquests_branch_punic = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = A47
+		has_country_flag = a47_punic_flag
+	}
+
+	has_country_shield = yes
+
+	a47_conquests_branch1_punic = { #the surrounding deserts
+		icon = byz_avenge_1071
+		position = 6
+		required_missions = { a47_the_porta_discovery }
+		provinces_to_highlight = {
+			OR = {
+				area = hubas_area
+				area = nezzan_area
+				area = tafilalt_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			hubas_area = {	type = all		country_or_non_sovereign_subject_holds = ROOT	}
+			nezzan_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			5208 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			5206 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			349 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			2460 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			midtal_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			sus_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			north_saharan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			ouled_nail_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			hautes_plaines_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	a47_conquests_branch2_punic = {
+		icon = mam_baghdad
+		position = 7
+		required_missions = { a47_conquests_branch1_punic }
+		provinces_to_highlight = {
+			OR = {
+				area = midtal_area
+				area = sus_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			midtal_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			sus_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			southern_morocco_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			marrekesh_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			western_morocco_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	a47_conquests_branch3_punic = {
+		icon = mam_highway_empire
+		position = 8
+		required_missions = { a47_conquests_branch2_punic }
+		provinces_to_highlight = {
+			OR = {
+				area = southern_morocco_area
+				area = marrekesh_area
+				area = western_morocco_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			southern_morocco_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			marrekesh_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			western_morocco_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			atlantis_maderiaone = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			atlantis_maderiatwo = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	a47_conquests_branch4_punic = {
+		icon = mission_rb_conquer_the_isles
+		position = 9
+		required_missions = { a47_conquests_branch3_punic }
+		provinces_to_highlight = {
+			OR = {
+				area = atlantis_maderiaone
+				area = atlantis_maderiatwo
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			atlantis_maderiaone = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			atlantis_maderiatwo = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			macaronesia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	a47_conquests_branch5_punic = {
+		icon = atlantropa_flotaoceaniczna
+		position = 10
+		required_missions = { a47_conquests_branch4_punic }
+		provinces_to_highlight = {
+			area = macaronesia_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			macaronesia_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			zatlantiswesternanasa_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			atlantiswesternanas_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			atlantiswesternana_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	a47_conquests_branch6_punic = {
+		icon = mission_rb_rule_britannia_irish_version
+		position = 11
+		required_missions = { a47_conquests_branch5_punic }
+		provinces_to_highlight = {
+			OR = {
+				area = zatlantiswesternanasa_area
+				area = atlantiswesternanas_area
+				area = atlantiswesternana_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			zatlantiswesternanasa_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			atlantiswesternanas_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			atlantiswesternana_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			atlantiswesternan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			atlantis_atlanticities = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			IF = {
+				limit = {
+					exists = IS6
+				}
+				add_casus_belli = {
+					target = IS6
+					type = cb_vassalize_mission
+					months = 300
+				}
+			}
+		}
+	}
+}
+
+#a47_conquests_branch_left2 = {
+#	slot = 3
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		NOT = {
+#			OR = {
+#				has_country_flag = a47_punic_flag
+#				has_country_flag = a47_christ_flag
+#			}
+#		}
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_conquests_branch_left1 = {
+#		icon = mission_unknown_mission
+#		position = 7
+#		required_missions = { a47_conquests_branch1 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
+
+a47_conquests_branch_left2_punic = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = A47
+		has_country_flag = a47_punic_flag
+	}
+
+	has_country_shield = yes
+
+	a47_conquests_branch_left1_punic = {
+		icon = assert_our_sovereignty
+		position = 7
+		required_missions = { a47_conquests_branch1_punic }
+		provinces_to_highlight = {
+			continent = africa
+			OR = {
+				culture = algerian
+				culture = moroccan
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			dip_power = 50
+			owns_all_provinces = {
+				continent = africa
+				OR = {
+					culture = algerian
+					culture = moroccan
+				}
+			}
+		}
+		effect = {
+			dip_power_cost = 50
+			custom_tooltip = numidiancultureconvert
+			if = {
+				limit = {
+					accepted_culture = algerian
+				}
+				add_accepted_culture = punic_numidian
+				remove_accepted_culture = algerian
+			}
+			if = {
+				limit = {
+					accepted_culture = moroccan
+				}
+				remove_accepted_culture = moroccan
+			}
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							culture = algerian
+							culture = moroccan
+						}
+					}
+					change_culture = punic_numidian
+				}
+			}
+		}
+	}
+}
+
+#a47_punitia_branch2 = {
+#	slot = 3
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		NOT = {
+#			OR = {
+#				has_country_flag = a47_kingdom_flag
+#				has_country_flag = a47_republic_flag
+#			}
+#		}
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_tree_branch2 = {
+#		icon = mission_unknown_mission
+#		position = 8
+#		required_missions = { a47_government_branching22 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_tree_branch3 = {
+#		icon = mission_unknown_mission
+#		position = 9
+#		required_missions = { a47_tree_branch2 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
+
+#a47_punitia_branch2_republic = {
+#	slot = 3
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		has_country_flag = a47_republic_flag
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_tree_branch2_republic = {
+#		icon = mission_unknown_mission
+#		position = 8
+#		required_missions = { a47_government_branching22_republic }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_tree_branch3_republic = {
+#		icon = mission_unknown_mission
+#		position = 9
+#		required_missions = { a47_tree_branch2_republic }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
+
+#a47_conquests_branch_left = {
+#	slot = 3
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		NOT = {
+#			OR = {
+#				has_country_flag = a47_punic_flag
+#				has_country_flag = a47_christ_flag
+#			}
+#		}
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_conquests_branch_left2 = {
+#		icon = mission_unknown_mission
+#		position = 10
+#		required_missions = { a47_conquests_branch4 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch_left3 = {
+#		icon = mission_unknown_mission
+#		position = 11
+#		required_missions = { a47_conquests_branch_left2 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch7 = {
+#		icon = mission_unknown_mission
+#		position = 12
+#		required_missions = { a47_conquests_branch6 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch8 = {
+#		icon = mission_unknown_mission
+#		position = 13
+#		required_missions = { a47_conquests_branch7 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
+
+a47_conquests_branch_left_punic = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = A47
+		has_country_flag = a47_punic_flag
+	}
+
+	has_country_shield = yes
+
+	a47_conquests_branch_left2_punic = {
+		icon = mission_african_trade_post
+		position = 10
+		required_missions = { a47_conquests_branch4_punic }
+		provinces_to_highlight = {
+			OR = {
+				area = greatpass_area
+				area = tlaniuikoameh_area
+				area = ahnet_area
+				area = cap_verde_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			greatpass_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			tlaniuikoameh_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			ahnet_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			cap_verde_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			niger_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_claim = ROOT
+			}
+		}
+	}
+	a47_conquests_branch_left3_punic = {
+		icon = scramble_for_africa
+		position = 11
+		required_missions = { a47_conquests_branch_left2_punic }
+		trigger = {
+			dip_power = 25
+		}
+		effect = {
+			dip_power_cost = 25
+			custom_tooltip = zenagacultureconvert
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						culture = berber
+					}
+					change_culture = punic_zenaga
+				}
+			}
+		}
+	}
+	a47_conquests_branch7_punic = {
+		icon = atlantropa_phoenicthalasocracy
+		position = 12
+		required_missions = { a47_conquests_branch6_punic }
+		provinces_to_highlight = {
+			OR = {
+				area = atlantiswesternan_area
+				area = atlantis_atlanticities
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			atlantiswesternan_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			atlantis_atlanticities = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			atlantiswesterna_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			atlantiswestern_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			IF = {
+				limit = {
+					exists = IS6
+					IS6 = {
+						is_subject_of = ROOT
+					}
+				}
+				add_historical_friend = IS6
+			}
+		}
+	}
+	a47_conquests_branch8_punic = {
+		icon = atlantropa_aztec6
+		position = 13
+		required_missions = { a47_conquests_branch7_punic }
+		provinces_to_highlight = {
+			OR = {
+				area = atlantiswesterna_area
+				area = atlantiswestern_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			atlantiswesterna_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			atlantiswestern_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			atlantiswesternanasa_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			atlantisarchipelago_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			atlantisislandsno_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			florida_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			north_florida_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			connecticut_valley_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			massachusetts_bay_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	a47_conquests_branch9_punic = {
+		icon = atlantropa_aztecpyramid
+		position = 14
+		required_missions = { a47_conquests_branchunder2_punic }
+		provinces_to_highlight = {
+			OR = {
+				region = iberia_region
+				region = libyasuperior_region
+			}
+			culture_group = central_american
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			dip_power = 50
+			owns_all_provinces = {
+				OR = {
+					region = iberia_region
+					region = libyasuperior_region
+				}
+				culture_group = central_american
+			}
+		}
+		effect = {
+			dip_power_cost = 50
+			custom_tooltip = punicazteccultureconvert
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						culture_group = central_american
+					}
+					change_culture = punic_aztec
+				}
+			}
+		}
+	}
+}
+
+#a47_conquests_branch_right = {
+#	slot = 5
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		NOT = {
+#			OR = {
+#				has_country_flag = a47_punic_flag
+#				has_country_flag = a47_christ_flag
+#			}
+#		}
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_conquests_branch_right1 = {
+#		icon = mission_unknown_mission
+#		position = 7
+#		required_missions = { a47_conquests_branch1 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch_right2 = {
+#		icon = mission_unknown_mission
+#		position = 11
+#		required_missions = { a47_conquests_branch_right1 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch_right3 = {
+#		icon = mission_unknown_mission
+#		position = 13
+#		required_missions = { a47_conquests_branch_right2 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch_right4 = {
+#		icon = mission_unknown_mission
+#		position = 14
+#		required_missions = { a47_conquests_branch_right3 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch_right5 = {
+#		icon = mission_unknown_mission
+#		position = 15
+#		required_missions = { a47_conquests_branch_right4 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branch_right6 = {
+#		icon = mission_unknown_mission
+#		position = 16
+#		required_missions = { a47_conquests_branch_right5 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
+
+a47_conquests_branch_right_punic = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = A47
+		has_country_flag = a47_punic_flag
+	}
+
+	has_country_shield = yes
+
+	a47_conquests_branch_right1_punic = {
+		icon = mission_saharan_route
+		position = 7
+		required_missions = { a47_conquests_branch1_punic }
+		provinces_to_highlight = {
+			OR = {
+				area = north_saharan_area
+				area = ouled_nail_area
+				area = hautes_plaines_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			north_saharan_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			ouled_nail_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			hautes_plaines_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			tripolitania_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			fezzan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	a47_conquests_branch_right2_punic = {
+		icon = mission_subjugate_saurashtra
+		position = 11
+		required_missions = { a47_conquests_branch_right1_punic }
+		provinces_to_highlight = {
+			OR = {
+				area = tripolitania_area
+				area = fezzan_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			tripolitania_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			fezzan_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			djerba_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kabylia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			barbary_coast_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	a47_conquests_branch_right3_punic = {
+		icon = mission_modern_knight_army
+		position = 13
+		required_missions = { a47_conquests_branch_right2_punic }
+		provinces_to_highlight = {
+			OR = {
+				area = djerba_area
+				area = kabylia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			djerba_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			kabylia_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			tunisia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	a47_conquests_branch_right4_punic = {
+		icon = africa_proconsulare
+		position = 14
+		required_missions = { a47_conquests_branch_right3_punic }
+		provinces_to_highlight = {
+			province_id = 341
+			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_or_non_sovereign_subject_of = 341
+		}
+		effect = {
+			atlantis_balearislanda_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			western_sicily_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			sicily_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			atlantropa_egyptiancities = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			kabir_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_prestige = 100
+			add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+			custom_tooltip = carthcultureconvert
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						culture_group = latin_african
+					}
+					change_culture = punic_carthage
+				}
+			}
+			add_country_modifier = {
+				name = carthage_restored
+				duration = -1
+			}
+		}
+	}
+	a47_conquests_branch_right5_punic = {
+		icon = mission_conquer_tunisia
+		position = 15
+		required_missions = { a47_conquests_branch_right4_punic }
+		provinces_to_highlight = {
+			OR = {
+				area = atlantropa_egyptiancities
+				area = kabir_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			atlantropa_egyptiancities = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			kabir_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			5745 = {
+		
+				add_permanent_claim = ROOT
+			}
+			cyprus_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			syria_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			palestine_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			custom_tooltip = gaecultureconvert
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						culture = tunisian
+					}
+					change_culture = punic_gae
+				}
+			}
+		}
+	}
+	a47_conquests_branch_right6_punic = {
+		icon = atlantropa_odinstatuemission
+		position = 16
+		required_missions = { a47_conquests_branch_right5_punic }
+		provinces_to_highlight = {
+			OR = {
+				area = palestine_area
+				area = syria_area
+				province_id = 5729
+				province_id = 5745
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			palestine_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			syria_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			custom_tooltip = punicnewcultureconvert
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							province_id = 5729
+							province_id = 5745
+							province_id = 1855
+							province_id = 5803
+							province_id = 378
+							province_id = 5804
+							province_id = 5802
+							area = atlantropa_egyptiancities
+						}
+					}
+					change_culture = punic_new
+				}
+			}
+			add_country_modifier = {
+				name = carthage_phoenician_resurgence
+				duration = -1
+			}
+		}
+	}
+}
+
+#a47_conquests_branchunder = {
+#	slot = 4
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		NOT = {
+#			OR = {
+#				has_country_flag = a47_punic_flag
+#				has_country_flag = a47_christ_flag
+#			}
+#		}
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_conquests_branchunder1 = {
+#		icon = mission_unknown_mission
+#		position = 12
+#		required_missions = { a47_conquests_branch_right2 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branchunder2 = {
+#		icon = mission_unknown_mission
+#		position = 13
+#		required_missions = { a47_conquests_branchunder1 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branchunder3 = {
+#		icon = mission_unknown_mission
+#		position = 14
+#		required_missions = { a47_conquests_branchunder2 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branchunder4 = {
+#		icon = mission_unknown_mission
+#		position = 15
+#		required_missions = { a47_conquests_branch_right4 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_conquests_branchunder5 = {
+#		icon = mission_unknown_mission
+#		position = 16
+#		required_missions = { a47_conquests_branchunder4 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
+
+a47_conquests_branchunder_punic = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = A47
+		has_country_flag = a47_punic_flag
+	}
+
+	has_country_shield = yes
+
+	a47_conquests_branchunder1_punic = {
+		icon = mission_teutonic_lancer
+		position = 12
+		required_missions = { a47_conquests_branch_right2_punic }
+		provinces_to_highlight = {
+			area = barbary_coast_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			barbary_coast_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {	
+			algiers_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			leon_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			baleares_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	a47_conquests_branchunder2_punic = {
+		icon = a_question_of_spain
+		position = 13
+		required_missions = { a47_conquests_branchunder1_punic }
+		provinces_to_highlight = {
+			OR = {
+				area = algiers_area
+				area = leon_area
+				area = baleares_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			algiers_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			leon_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			baleares_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			galicia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			northern_morocco_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	a47_conquests_branchunder3_punic = {
+		icon = atlantropa_jewishlargearmy
+		position = 14
+		required_missions = { a47_conquests_branchunder2_punic }
+		provinces_to_highlight = {
+			OR = {
+				area = galicia_area
+				area = northern_morocco_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			galicia_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			northern_morocco_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = carthage_iberia_restored
+				duration = -1
+			}
+		}
+	}
+	a47_conquests_branchunder4_punic = {
+		icon = atlantropa_edesia
+		position = 15
+		required_missions = { a47_conquests_branch_right4_punic }
+		provinces_to_highlight = {
+			OR = {
+				area = atlantis_balearislanda_area
+				area = western_sicily_area
+				area = sicily_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			atlantis_balearislanda_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			western_sicily_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			sicily_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			atlantis_roma = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	a47_conquests_branchunder5_punic = {
+		icon = atlantropa_sackcity
+		position = 16
+		required_missions = { a47_conquests_branchunder4_punic }
+		provinces_to_highlight = {
+			province_id = 5747
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			5747 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			5747 = {
+				add_base_tax = -6
+				add_base_production = -6
+				add_base_manpower = -6
+			}
+			5747 = {
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1
+			}
+				118 = {
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1
+			}
+			341 = {
+				add_base_tax = 4
+				add_base_production = 5
+				add_base_manpower = 4
+			}
+			5223 = {
+				add_base_tax = 2
+				add_base_production = 3
+				add_base_manpower = 2
+			}
+			tunisia_area = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+		}
+	}
+}
+
+#a47_conquests_branch_left2 = {
+#	slot = 3
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		NOT = {
+#			OR = {
+#				has_country_flag = a47_punic_flag
+#				has_country_flag = a47_christ_flag
+#			}
+#		}
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_conquests_branch10 = {
+#		icon = mission_unknown_mission
+#		position = 16
+#		required_missions = { a47_conquests_branchunder4 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
+
+a47_conquests_branch_left2_punic_branch = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = A47
+		has_country_flag = a47_punic_flag
+	}
+
+	has_country_shield = yes
+
+	a47_conquests_branch10_punic = {
+		icon = atlantropa_nikeangalleys
+		position = 16
+		required_missions = { a47_conquests_branchunder4_punic }
+		provinces_to_highlight = {
+			OR = {
+				area = corsica_sardinia_area
+				area = corsica_area
+				area = westdoggerland_area
+				area = doggerland_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			corsica_sardinia_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			corsica_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			westdoggerland_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			doggerland_area = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			custom_tooltip = punicromancultureconvert
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							area = corsica_sardinia_area
+							area = corsica_area
+							area = westdoggerland_area
+							area = doggerland_area
+							area = atlantis_balearislanda_area
+							area = western_sicily_area
+							area = sicily_area
+						}
+					}
+					change_culture = punic_roman
+				}
+			}
+		}
+	}
+}
+
+a47_government_branching2_left = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = A47
+		OR = {
+			has_country_flag = a47_kingdom_flag
+			has_country_flag = a47_republic_flag
+		}
+	}
+
+	has_country_shield = yes
+
+	a47_government_branching2_left1 = {
+		icon = mission_colonize_the_west
+		position = 6
+		required_missions = {  }
+		trigger = {
+			has_idea = quest_for_the_new_world
+		}
+		effect = {
+			create_explorer = { tradition = 65 }
+		}
+	}
+	a47_government_branching2_left2 = {
+		icon = mission_colonise_brazil
+		position = 7
+		required_missions = { a47_government_branching2_left1 }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = miss_discover_brazil
+				colonial_brazil = {
+					has_discovered = ROOT
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = miss_colonize_brazil
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 1
+					colonial_region = colonial_brazil
+					is_city = yes
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = nor_colonial_enthusiasm
+				duration = 14600
+			}
+		}
+	}
+	#a47_government_branching2_left3 = {
+	#	icon = mission_unknown_mission
+	#	position = 8
+	#	required_missions = { a47_government_branching22 }
+	#	trigger = {
+	#		hidden_trigger = {
+	#			always = no
+	#		}
+	#	}
+	#	effect = {
+	#	}
+	#}
+	#a47_government_branching2_left4 = {
+	#	icon = mission_unknown_mission
+	#	position = 9
+	#	required_missions = { a47_government_branching2_left3 }
+	#	trigger = {
+	#		hidden_trigger = {
+	#			always = no
+	#		}
+	#	}
+	#	effect = {
+	#	}
+	#}
+}
+
+#a47_government_branching2_left_republic = {
+#	slot = 1
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		has_country_flag = a47_republic_flag
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_government_branching2_left1_republic = {
+#		icon = mission_unknown_mission
+#		position = 6
+#		required_missions = {  }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching2_left2_republic = {
+#		icon = mission_unknown_mission
+#		position = 7
+#		required_missions = { a47_government_branching2_left1_republic }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching2_left3_republic = {
+#		icon = mission_unknown_mission
+#		position = 8
+#		required_missions = { a47_government_branching22_republic }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching2_left4_republic = {
+#		icon = mission_unknown_mission
+#		position = 9
+#		required_missions = { a47_government_branching2_left3_republic }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
+
+#a47_government_branching2 = {
+#	slot = 2
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		OR = {
+#			has_country_flag = a47_kingdom_flag
+#			has_country_flag = a47_republic_flag
+#		}
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_government_branching21 = {
+#		icon = mission_unknown_mission
+#		position = 6
+#		required_missions = {  }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching22 = {
+#		icon = mission_unknown_mission
+#		position = 7
+#		required_missions = { a47_government_branching21 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching23 = {
+#		icon = mission_unknown_mission
+#		position = 8
+#		required_missions = { a47_government_branching22 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching24 = {
+#		icon = mission_unknown_mission
+#		position = 9
+#		required_missions = { a47_government_branching23 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching25 = {
+#		icon = mission_unknown_mission
+#		position = 10
+#		required_missions = { a47_government_branching2_left4 a47_government_branching24 }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}
+
+#a47_government_branching2_republic = {
+#	slot = 2
+#	generic = no
+#	ai = yes
+#	potential = {
+#		tag = A47
+#		has_country_flag = a47_republic_flag
+#	}
+#
+#	has_country_shield = yes
+#
+#	a47_government_branching21_republic = {
+#		icon = mission_unknown_mission
+#		position = 6
+#		required_missions = {  }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching22_republic = {
+#		icon = mission_unknown_mission
+#		position = 7
+#		required_missions = { a47_government_branching21_republic }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching23_republic = {
+#		icon = mission_unknown_mission
+#		position = 8
+#		required_missions = { a47_government_branching22_republic }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching24_republic = {
+#		icon = mission_unknown_mission
+#		position = 9
+#		required_missions = { a47_government_branching23_republic }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#	a47_government_branching25_republic = {
+#		icon = mission_unknown_mission
+#		position = 10
+#		required_missions = { a47_government_branching2_left4_republic a47_government_branching24_republic }
+#		trigger = {
+#			hidden_trigger = {
+#				always = no
+#			}
+#		}
+#		effect = {
+#		}
+#	}
+#}

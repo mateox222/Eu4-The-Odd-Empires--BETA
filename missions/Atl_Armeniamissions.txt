@@ -7,7 +7,7 @@ Atl_Armenia_1 = {
 			tag = ARM
 		}
 	}
-	has_country_shield = yes
+
 	Armeniaincome = {
 		icon = mission_zambezi_gold
 		position = 2
@@ -24,12 +24,12 @@ Atl_Armenia_1 = {
 				change_trade_goods = gold
 			}
 			hidden_effect = {
-			clear_trade_good_modifiers_effect = yes
-			 add_permanent_province_modifier = { 
-	name = trade_good_silver
- 	duration = -1 
- }
- }
+				clear_trade_good_modifiers_effect = yes
+				add_permanent_province_modifier = {
+					name = trade_good_silver
+					duration = -1
+				}
+			}
 		}
 	}
 	Armeniamanufactures = {
@@ -57,13 +57,67 @@ Atl_Armenia_1 = {
 			2205 = {
 				hidden_effect = {
 					clear_trade_good_modifiers_effect = yes
-		 }
+				}
 				change_trade_goods = cloth
-							 add_permanent_province_modifier = { 
-	name = trade_good_clothes
- 	duration = -1 
- }
-
+				add_permanent_province_modifier = {
+					name = trade_good_clothes
+					duration = -1
+				}
+			}
+		}
+	}
+	arm_caspian_riches = {
+		icon = mission_arabian_sea_trade
+		position = 4
+		required_missions = { Armenia_conquer_georgia }
+		provinces_to_highlight = {
+			area = shirvan_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			shirvan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			421 = {
+				center_of_trade = 1
+			}
+			add_country_modifier = {
+				name = "arm_caspian_riches"
+				duration = 5475
+			}
+			if = {
+				limit = {
+					4341 = {
+						trade_share = {
+							country = ROOT
+							share = 15
+						}
+					}
+				}
+				custom_tooltip = arm_caspian_riches_tt_yes
+			}
+			else = {
+				custom_tooltip = arm_caspian_riches_tt_no
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						4341 = {
+							trade_share = {
+								country = ROOT
+								share = 15
+							}
+						}
+					}
+					remove_country_modifier = arm_caspian_riches
+					add_country_modifier = {
+						name = "arm_caspian_riches"
+						duration = 10950
+					}
+				}
 			}
 		}
 	}
@@ -189,7 +243,7 @@ Atl_Armenia_12 = {
 			tag = ARM
 		}
 	}
-	has_country_shield = yes
+
 	armenianprosperity = {
 		icon = prosper_in_piedmont
 		position = 2
@@ -222,37 +276,35 @@ Atl_Armenia_12 = {
 			}
 		}
 		effect = {
-	4302 = {
-	hidden_effect = {
+			4302 = {
+				hidden_effect = {
 					clear_trade_good_modifiers_effect = yes
-	 }
-	change_trade_goods = glass
-	 add_permanent_province_modifier = { 
-	name = trade_good_glass
- 	duration = -1 
- }
-
+				}
+				change_trade_goods = glass
+				add_permanent_province_modifier = {
+					name = trade_good_glass
+					duration = -1
+				}
 			}
 			2305 = {
 				hidden_effect = {
 					clear_trade_good_modifiers_effect = yes
-				 }
-			change_trade_goods = atl_tools
-		add_permanent_province_modifier = { 
-	name = trade_good_ammunition
- 	duration = -1 
- }
-
+				}
+				change_trade_goods = atl_tools
+				add_permanent_province_modifier = {
+					name = trade_good_ammunition
+					duration = -1
+				}
 			}
 			420 = {
 				change_trade_goods = glass
 				hidden_effect = {
 					clear_trade_good_modifiers_effect = yes
-	 }
-	 add_permanent_province_modifier = { 
-	name = trade_good_furnitures
- 	duration = -1 
- }
+				}
+				add_permanent_province_modifier = {
+					name = trade_good_furnitures
+					duration = -1
+				}
 			}
 		}
 	}
@@ -342,7 +394,7 @@ Atl_Armenia_13 = {
 			tag = ARM
 		}
 	}
-	has_country_shield = yes
+
 	armenia_stabilise = {
 		icon = atlantropa_armeniaflag
 		position = 1
@@ -353,7 +405,111 @@ Atl_Armenia_13 = {
 		}
 		effect = {
 			add_years_of_income = 1
-			add_manpower = 5
+			add_manpower = 1
+			armenia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			shirvan_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			tabriz_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					is_free_or_tributary_trigger = yes
+				}
+				custom_tooltip = arm_breaking_chains_indep_tt_yes
+				tooltip = {
+					add_stability_or_adm_power = yes
+					add_adm_power = 100
+					add_dip_power = 100
+					add_mil_power = 100
+					add_country_modifier = {
+						name = "arm_resurgence"
+						duration = 7300
+					}
+				}
+			}
+			else = {
+				custom_tooltip = arm_breaking_chains_indep_tt_no
+				tooltip = {
+					add_stability_or_adm_power = yes
+					add_adm_power = 100
+					add_dip_power = 100
+					add_mil_power = 100
+					add_country_modifier = {
+						name = "arm_resurgence"
+						duration = 7300
+					}
+				}
+			}
+			if = {
+				limit = {
+					is_subject = yes
+					NOT = {
+						is_subject_of = QAR
+					}
+					overlord = {
+						has_opinion = {
+							who = ROOT
+							value = 190
+						}
+					}
+				}
+				custom_tooltip = arm_breaking_chains_vassal_tt_yes
+				tooltip = {
+					add_liberty_desire = -50
+				}
+			}
+			else = {
+				custom_tooltip = arm_breaking_chains_vassal_tt_no
+				tooltip = {
+					add_liberty_desire = -50
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						is_free_or_tributary_trigger = yes
+					}
+					add_stability_or_adm_power = yes
+					add_adm_power = 100
+					add_dip_power = 100
+					add_mil_power = 100
+					add_country_modifier = {
+						name = "arm_resurgence"
+						duration = 7300
+					}
+				}
+				else_if = {
+					limit = {
+						is_subject = yes
+						NOT = {
+							is_subject_of = QAR
+						}
+						overlord = {
+							has_opinion = {
+								who = ROOT
+								value = 190
+							}
+						}
+					}
+					add_liberty_desire = -50
+				}
+			}
 		}
 	}
 	Armenia_Establish_Army = {
@@ -423,7 +579,7 @@ Atl_Armenia_13 = {
 		}
 	}
 	Armeniaunitedhayasta = {
-		icon = atlantropa_WIELKAARMENIA
+		icon = arm_proclaim_great_armenia
 		position = 5
 		required_missions = { armena_george_2 Armeniaunitedhayastan }
 		trigger = {
@@ -436,6 +592,12 @@ Atl_Armenia_13 = {
 			country_event = {
 				id = armenian_events.2
 			}
+			custom_tooltip = arm_converting_culture_tt
+			add_country_modifier = {
+				name = "arm_resettle_ancestral"
+				duration = -1
+			}
+			set_country_flag = arm_coversion_bonus
 		}
 	}
 	Armeniajerusalem = {
@@ -459,14 +621,84 @@ Atl_Armenia_13 = {
 			add_stability = 1
 		}
 	}
-	Armeniachurches = {
-		icon = mission_catholic_heddal_church
+	arm_etchmiadzin_cathedral = {
+		icon = arm_etchmiadzin_cathedral
 		position = 7
 		required_missions = { Armeniaantioch Armeniajerusalem Armeniarakka }
+		provinces_to_highlight = {
+			if = {
+				limit = {
+					has_dlc = "Leviathan"
+				}
+				OR = {
+					province_id = 419
+					AND = {
+						NOT = {
+							has_tax_building_trigger = yes
+						}
+						owned_by = ROOT
+					}
+				}
+			}
+			else = {
+				owned_by = ROOT
+				NOT = {
+					has_tax_building_trigger = yes
+				}
+			}
+		}
 		trigger = {
-			temple = 10
+			if = {
+				limit = {
+					has_dlc = "Leviathan"
+				}
+				owns = 419
+				419 = {
+					has_great_project = {
+						type = etchimiadzin_cathedral
+						tier = 1
+					}
+				}
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					has_tax_building_trigger = yes
+					value = 5
+				}
+			}
+			else = {
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					has_tax_building_trigger = yes
+					value = 10
+				}
+			}
 		}
 		effect = {
+			custom_tooltip = arm_upgrade_church_tt
+			add_country_modifier = {
+				name = arm_cathedral
+				duration = 3650
+			}
+			define_advisor = {
+				type = inquisitor
+				skill = 3
+				culture = ROOT
+				religion = ROOT
+				cost_multiplier = 0.25
+			}
+			hidden_effect = {
+				for = {
+					amount = 5
+					effect = "
+					random_owned_province = {
+						limit = {
+							has_building = temple
+						}
+						remove_building = temple
+						add_building = cathedral
+					}
+					"
+				}
+			}
+			
 			add_years_of_income = 2.5
 			define_advisor = {
 				type = administrator8_tod
@@ -477,11 +709,44 @@ Atl_Armenia_13 = {
 			add_adm_power =  100
 		}
 	}
-	Armeniaexpandreligion = {
-		icon = mission_devastate_christianity
+	arm_holy_sites = {
+		icon = arm_holy_sites
 		position = 8
-		required_missions = { Armeniachurches }
+		required_missions = { arm_etchmiadzin_cathedral }
+		provinces_to_highlight = {
+			if = {
+				limit = {
+					ROOT = {
+						religion = coptic
+					}
+				}
+				OR = {
+					province_id = 358
+					province_id = 1227
+					province_id = 2313
+					province_id = 1234
+					province_id = 419
+				}
+				NOT = {
+					owner = {
+						religion = coptic
+					}
+				}
+			}
+			else = {
+				owned_by = ROOT
+				has_tax_building_trigger = yes
+				NOT = {
+					base_tax = 10
+				}
+			}
+		}
 		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					has_tax_building_trigger = yes
+					base_tax = 10
+					value = 10
+				}
 			num_of_owned_provinces_with = {
 				value = 50
 				religion = ROOT
@@ -490,6 +755,61 @@ Atl_Armenia_13 = {
 		effect = {
 			country_event = {
 				id = armenian_events.1
+			}
+			if = {
+				limit = {
+					religion = coptic
+				}
+				custom_tooltip = arm_all_coptic_tt
+				if = {
+					limit = {
+						owns = 358
+						owns = 1227
+						owns = 2313
+						owns = 1234
+						owns = 419
+					}
+					custom_tooltip = arm_own_holy_sites_tt_yes
+				}
+				else = {
+					custom_tooltip = arm_own_holy_sites_tt_no
+				}
+			}
+			else = {
+				add_country_modifier = {
+					name = arm_sword_of_true_faith
+					duration = 9125
+				}
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						religion = coptic
+					}
+					every_country = {
+						limit = {
+							religion = coptic
+						}
+						add_country_modifier = {
+							name = arm_holy_sites_protector
+							duration = 9125
+						}
+					}
+					if = {
+						limit = {
+							owns = 358
+							owns = 1227
+							owns = 2313
+							owns = 1234
+							owns = 419
+						}
+						remove_country_modifier = arm_holy_sites_protector
+						add_country_modifier = {
+							name = arm_holy_sites_protector
+							duration = -1
+						}
+					}
+				}
 			}
 		}
 	}
@@ -591,7 +911,7 @@ Atl_Armenia_14 = {
 			tag = ARM
 		}
 	}
-	has_country_shield = yes
+
 	armenianwiness = {
 		icon = mission_vodka_monopoly
 		position = 2
@@ -708,7 +1028,7 @@ Atl_Armenia_15 = {
 			tag = ARM
 		}
 	}
-	has_country_shield = yes
+
 	Armeniaroads = {
 		icon = atlantropa_imperialroads
 		position = 2
@@ -738,6 +1058,81 @@ Atl_Armenia_15 = {
 					has_building = atlantropa_tracks
 				}
 				add_base_production = 3
+			}
+		}
+	}
+	arm_national_awakening = {
+		icon = mission_handle_the_streltsy
+		position = 4
+		required_missions = { Armenia_Conquer_Tao }
+		provinces_to_highlight = {
+			culture = ROOT
+		}
+		trigger = {
+			development_in_provinces = {
+				value = 80
+				culture = ROOT
+			}
+		}
+		effect = {
+			change_government_reform_progress = 50
+			add_country_modifier = {
+				name = "arm_national_awakening"
+				duration = 7300
+			}
+			if = {
+				limit = {
+					capital_scope = {
+						development = 20
+					}
+				}
+				custom_tooltip = arm_capital_cot_tt_yes
+			}
+			else = {
+				custom_tooltip = arm_capital_cot_tt_no
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						capital_scope = {
+							development = 20
+						}
+					}
+					if = {
+						limit = {
+							capital_scope = {
+								NOT = {
+									OR = {
+										province_has_center_of_trade_of_level = 1
+										province_has_center_of_trade_of_level = 2
+										province_has_center_of_trade_of_level = 3
+									}
+								}
+							}
+						}
+						capital_scope = {
+							center_of_trade = 1
+						}
+					}
+					else_if = {
+						limit = {
+							capital_scope = {
+								OR = {
+									province_has_center_of_trade_of_level = 1
+									province_has_center_of_trade_of_level = 2
+								}
+							}
+						}
+						capital_scope = {
+							add_center_of_trade_level = 1
+						}
+					}
+					else = {
+						capital_scope = {
+							add_base_production = 3
+						}
+					}
+				}
 			}
 		}
 	}

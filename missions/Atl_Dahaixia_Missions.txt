@@ -1,0 +1,911 @@
+Xingang_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = IN4
+	}
+	
+	has_country_shield = yes
+
+	IN4_the_new_port = {
+		icon = mission_asian_city
+		position = 1
+		required_missions = {  }
+		provinces_to_highlight = {
+			province_id = 5642 
+			NOT = {
+				OR = {
+					has_building = marketplace 
+					has_building = trade_depot
+					has_building = stock_exchange
+				}
+				development = 25
+			}
+		}
+		trigger = {
+			5642 = {
+				OR = {
+					has_building = marketplace 
+					has_building = trade_depot
+					has_building = stock_exchange
+				}
+				development = 25 
+			}
+		}
+		effect = {
+			atlantis_muland1 = {
+				limit = {
+					NOT = { has_terrain = jungle }
+				}
+				add_province_modifier = {
+					name = "in4_growth_of_dahaixia"
+					duration = 14600 #40 years
+				}
+			}
+			atlantis_muland5 = {
+				limit = {
+					NOT = { has_terrain = jungle }
+				}
+				add_province_modifier = {
+					name = "in4_growth_of_dahaixia"
+					duration = 14600 #40 years
+				}
+			}
+			add_harmonization_progress = 50
+		}
+	}
+	IN4_the_farmlands = {
+		icon = mission_rice_field
+		position = 2
+		required_missions = { IN4_the_new_port }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1996
+				province_id = 1995
+				province_id = 1146
+			}
+			NOT = {
+				OR = {
+					has_building = marketplace
+					has_building = trade_depot
+					has_building = stock_exchange
+					has_building = temple
+					has_building = cathedral
+					has_building = barracks
+					has_building = training_fields
+				}
+				num_of_times_improved = 1
+			}
+		}
+		trigger = {
+			1996 = {
+				num_of_times_improved = 1 
+				OR = {
+					has_building = marketplace
+					has_building = trade_depot
+					has_building = stock_exchange
+					has_building = temple
+					has_building = cathedral
+					has_building = barracks
+					has_building = training_fields
+				}
+			}
+			1995 = {
+				num_of_times_improved = 1 
+				OR = {
+					has_building = marketplace
+					has_building = trade_depot
+					has_building = stock_exchange
+					has_building = temple
+					has_building = cathedral
+					has_building = barracks
+					has_building = training_fields
+				}
+			}
+			1146 = {
+				num_of_times_improved = 1 
+				OR = {
+					has_building = marketplace
+					has_building = trade_depot
+					has_building = stock_exchange
+					has_building = temple
+					has_building = cathedral
+					has_building = barracks
+					has_building = training_fields
+				}
+			}
+		}
+		effect = {
+			add_years_of_income = 1
+			add_yearly_manpower = 1
+			add_harmonization_progress = 50
+		}
+	}
+	IN4_the_city_grows = {
+		icon = atlantropa_southeasia
+		position = 3
+		required_missions = { IN4_the_farmlands IN4_achieving_harmony IN4_ending_piracy }
+		provinces_to_highlight = {
+			province_id = 5642 
+			NOT = {
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+				OR = {
+					has_building = barracks
+					has_building = training_fields
+				}
+				development = 27 
+			}
+		}
+		trigger = {
+			5642 = {
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+				OR = {
+					has_building = barracks
+					has_building = training_fields
+				}
+				development = 27 
+			}
+		}
+		effect = {
+			capital_scope = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				area = {
+					limit = { owned_by = ROOT }
+					add_province_modifier = {
+						name = "growth_of_capital"
+						duration = 9125 #25 years
+					}
+				}
+			}
+		}
+	}
+	IN4_settling_the_interior = {
+		icon = mission_ne_agriculture
+		position = 4
+		required_missions = {  }
+		trigger = {
+			OR = {
+				num_of_colonists = 1
+				num_of_colonies = 1
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					ai = yes
+				}
+				add_country_modifier = {
+					name = outermu_settling_interior
+					duration = -1
+				}
+			}
+			if = {
+				limit = {
+					ai = no
+				}
+				add_country_modifier = {
+					name = outermu_settling_interior
+					duration = 36500
+				}
+			}
+		}
+	}
+	IN4_the_strange_gate = {
+		icon = atlantropa_urbsconditia
+		position = 5
+		required_missions = { IN4_settling_the_interior }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 5987
+				province_id = 5215
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			OR = {
+				owns_core_province = 5987
+				owns_core_province = 5215
+			}
+		}
+		effect = {
+			country_event = {
+				id = atl_bonusevent.11
+			}
+		}
+	}
+	IN4_the_old_world = {
+		icon = atlantropa_steamengine
+		position = 6
+		required_missions = { IN4_the_strange_gate }
+		provinces_to_highlight = {
+			has_terrain = urbanistic_railway
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 2
+				has_terrain = urbanistic_railway
+			}
+		}
+		effect = {
+			add_prestige = 15
+			the_great_railroad = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	IN4_into_mu = {
+		icon = mission_colonial
+		position = 7
+		required_missions = { IN4_the_old_world }
+		provinces_to_highlight = {
+			region = the_great_railroad
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				region = the_great_railroad
+			}
+		}
+		effect = {
+			add_splendor = 200
+		}
+	}
+	IN4_the_gilden_city = {
+		icon = atlantropa_africamap
+		position = 8
+		required_missions = { IN4_into_mu }
+		provinces_to_highlight = {
+			province_id = 5141
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_core_province = 5141
+		}
+		effect = {
+			country_event = {
+				id = atl_bonusevent.13
+			}
+		}
+	}
+	IN4_the_great_caverns = {
+		icon = mission_build_up_to_force_limit
+		position = 9
+		required_missions = { IN4_the_gilden_city }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 1
+				has_terrain = cave
+			}
+		}
+		effect = {
+			country_event = {
+				id = atl_bonusevent.12
+			}
+		}
+	}
+}
+
+the_north_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = IN4
+	}
+	
+	has_country_shield = yes
+
+	IN4_wokou_problems = {
+		icon = atlantropa_handelsbolag
+		position = 1
+		required_missions = {  }
+		provinces_to_highlight = {
+			OR = {
+				owned_by = JP1
+				owned_by = JP2
+			}
+		}
+		trigger = {
+			navy_size_percentage = 1
+			OR = {
+				trade_embargoing = JP1
+				trade_embargoing = JP2
+				NOT = {
+					exists = JP1
+					exists = JP2
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						atlantis_muland7 = {
+							type = all	
+							OR = {
+								country_or_non_sovereign_subject_holds = ROOT
+								is_city = no
+							}
+						}
+					}
+				}
+				atlantis_muland7 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				1145 = {
+					add_permanent_claim = ROOT
+				}
+			}
+			if = {
+				limit = {
+					atlantis_muland7 = {
+						type = all	
+						OR = {
+							country_or_non_sovereign_subject_holds = ROOT
+							is_city = no
+						}
+					}
+				}
+				add_adm_power = 50
+			}
+		}
+	}
+	IN4_ending_piracy = {
+		icon = mission_japanese_fort
+		position = 2
+		required_missions = { IN4_wokou_problems }
+		provinces_to_highlight = {
+			area = atlantis_muland7
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			atlantis_muland7 = {
+				type = all	
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "in4_trade_protected"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	IN4_a_wokou_navy = {
+		icon = atlantropa_barge
+		position = 3
+		required_missions = { IN4_ending_piracy }
+		trigger = {
+			has_privateers = yes
+			NOT = {
+				has_country_modifier = in4_trade_protected
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "in4_pirate_free_trade"
+				duration = -1
+			}
+		}
+	}
+	IN4_the_trade_fleet = {
+		icon = atlantropa_bargetwo
+		position = 4
+		required_missions = { IN4_a_wokou_navy }
+		trigger = {
+			num_of_light_ship = 25
+		}
+		effect = {
+			add_mercantilism = 5
+			668 = {
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	IN4_trade_with_the_mainland = {
+		icon = mission_asian_trader
+		position = 5
+		required_missions = { IN4_the_trade_fleet }
+		trigger = {
+			684 = { #Hangzhou
+				trade_share = {
+					country = IN4
+					share = 20
+				}
+			}
+		}
+		effect = {
+			add_mercantilism = 10
+		}
+	}
+	IN4_attract_settlers = {
+		icon = mission_war_chest
+		position = 6
+		required_missions = { IN4_trade_with_the_mainland }
+		trigger = {
+			treasury = 1000
+		}
+		effect = {
+			add_treasury = -1000
+			add_country_modifier = {
+				name = "in4_attracted_settlers"
+				duration = -1
+			}
+		}
+	}
+	#IN4_delving_into_ruins = {
+	#	icon = atlantropa_ancientcity
+	#	position = 7
+	#	required_missions = { IN4_the_old_world }
+	#	trigger = {
+	#		treasury = 500
+	#	}
+	#	effect = {
+	#		add_treasury = -500
+	#		country_event = {
+	#			id = atl_bonusevent.14
+	#		}
+	#	}
+	#}
+}
+
+the_south_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = IN4
+	}
+	
+	has_country_shield = yes
+
+	IN4_the_benzhu = {
+		icon = mission_kowtow
+		position = 1
+		required_missions = {  }
+		trigger = {
+			OR = {
+				all_owned_province = {
+					NOT = {
+						religion_group = pagan
+					}
+				}
+				has_harmonized_with = pagan
+			}
+		}
+		effect = {
+			add_harmony = 25
+		}
+	}
+	IN4_achieving_harmony = {
+		icon = mission_scholar_officials
+		position = 2
+		required_missions = { IN4_the_benzhu IN4_the_mahayana }
+		trigger = { }
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						AND = {
+							atlantis_muland2 = {
+								type = all	
+								OR = {
+									country_or_non_sovereign_subject_holds = ROOT
+									is_city = no
+								}
+							}
+							atlantis_muland3 = {
+								type = all	
+								OR = {
+									country_or_non_sovereign_subject_holds = ROOT
+									is_city = no
+								}
+							}
+							atlantis_muland4 = {
+								type = all	
+								OR = {
+									country_or_non_sovereign_subject_holds = ROOT
+									is_city = no
+								}
+							}
+						}
+					}
+				}
+				atlantis_muland2 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				atlantis_muland3 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				atlantis_muland4 = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			if = {
+				limit = {
+					AND = {
+						atlantis_muland2 = {
+							type = all	
+							OR = {
+								country_or_non_sovereign_subject_holds = ROOT
+								is_city = no
+							}
+						}
+						atlantis_muland3 = {
+							type = all	
+							OR = {
+								country_or_non_sovereign_subject_holds = ROOT
+								is_city = no
+							}
+						}
+						atlantis_muland4 = {
+							type = all	
+							OR = {
+								country_or_non_sovereign_subject_holds = ROOT
+								is_city = no
+							}
+						}
+					}
+				}
+				add_adm_power = 100
+			}
+			if = {
+				limit = {
+					ai = yes
+					NOT = {
+						has_idea_group = expansion_ideas
+					}
+				}
+				add_idea_group = expansion_ideas
+			}
+		}
+	}
+	IN4_pacifying_the_malay = {
+		icon = atlantropa_ind
+		position = 3
+		required_missions = { IN4_achieving_harmony }
+		provinces_to_highlight = {
+			OR = {
+				area = atlantis_muland2
+				area = atlantis_muland3
+				area = atlantis_muland4
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			atlantis_muland2 = {
+				type = all	
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+			atlantis_muland3 = {
+				type = all	
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+			atlantis_muland4 = {
+				type = all	
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					stability = 3
+				}
+				add_adm_power = 50
+			}
+			if = {
+				limit = {
+					NOT = {
+						stability = 3
+					}
+				}
+				add_stability = 1
+			}
+		}
+	}
+	In4_the_jungles_of_mu = {
+		icon = atlantropa_tiger
+		position = 5
+		required_missions = { IN4_pacifying_the_malay IN4_settling_the_interior }
+		provinces_to_highlight = {
+			region = atlantis_muland_region
+			has_terrain = jungle
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 15
+				has_terrain = jungle
+				is_overseas = no
+			}
+		}
+		effect = {
+			atlantis_muland_region = {
+				limit = { has_terrain = jungle }
+				add_province_modifier = {
+					name = "in4_jungle_settlements"
+					duration = 14600 #40 years
+				}
+			}
+		}
+	}
+	IN4_jungle_warriors = {
+		icon = atlantropa_burningchina
+		position = 6
+		required_missions = { In4_the_jungles_of_mu }
+		provinces_to_highlight = {
+			region = atlantis_muland_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			atlantis_muland_region = {
+				type = all	
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			OR = {
+				army_tradition = 80
+				army_professionalism = 0.60
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = in4_jungle_warriors
+				duration = -1
+			}
+		}
+	}
+	IN4_department_of_archaeology = {
+		icon = atlantropa_chinesearchaeology
+		position = 7
+		required_missions = { IN4_the_old_world }
+		trigger = {
+			treasury = 1000
+		}
+		effect = {
+			add_prestige = 25
+			add_treasury = -1000
+			add_country_modifier = {
+				name = in4_department_of_archaeology
+				duration = -1
+			}
+		}
+	}
+	IN4_studying_the_rail = {
+		icon = atlantropa_jungletrain
+		position = 8
+		required_missions = { IN4_department_of_archaeology }
+		trigger = {
+			NOT = {
+				has_country_modifier = in4_archaeology_research
+			}
+			treasury = 500
+		}
+		effect = {
+			add_country_modifier = {
+				name = in4_archaeology_research
+				duration = 7300
+			}
+			add_treasury = -500
+		}
+	}
+	IN4_implementing_rails = {
+		icon = atlantropa_jungletrain2
+		position = 9
+		required_missions = { IN4_studying_the_rail }
+		trigger = {
+			NOT = {
+				has_country_modifier = in4_archaeology_research
+			}
+			treasury = 1250
+		}
+		effect = {
+			add_country_modifier = {
+				name = in4_railway_researched
+				duration = -1
+			}
+			5642 = {
+				add_great_project = {
+					type = atlantropa_in4_railnetwork
+					instant = yes
+				}
+			}
+			add_treasury = -1250
+		}
+	}
+}
+
+the_south_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = IN4
+	}
+	
+	has_country_shield = yes
+
+	IN4_the_mahayana = {
+		icon = mission_buddhist_monk_praying
+		position = 1
+		required_missions = {  }
+		trigger = {
+			OR = {
+				all_owned_province = {
+					NOT = {
+						religion = mahayana
+					}
+				}
+				has_harmonized_with = mahayana
+			}
+		}
+		effect = {
+			add_harmony = 25
+		}
+	}
+	IN4_the_grace_of_the_buddha = {
+		icon = mission_hands_praying
+		position = 3
+		required_missions = { IN4_the_mahayana }
+		trigger = {
+			harmony = 100
+			legitimacy_equivalent = 100
+			war_exhaustion = 0
+			stability = 3
+		}
+		effect = {
+			add_country_modifier = {
+				name = in4_buddhas_peace
+				duration = -1
+			}
+		}
+	}
+	IN4_studying_the_field = {
+		icon = atlantropa_forcefield
+		position = 8
+		required_missions = { IN4_department_of_archaeology }
+		trigger = {
+			NOT = {
+				has_country_modifier = in4_archaeology_research
+			}
+			treasury = 500
+		}
+		effect = {
+			add_country_modifier = {
+				name = in4_archaeology_research
+				duration = 7300
+			}
+			add_treasury = -500
+		}
+	}
+	IN4_applied_forcefield_dynamics = {
+		icon = atlantropa_appliedforcefield
+		position = 9
+		required_missions = { IN4_studying_the_field }
+		trigger = {
+			NOT = {
+				has_country_modifier = in4_archaeology_research
+			}
+			treasury = 750
+		}
+		effect = {
+			add_country_modifier = {
+				name = in4_forcefield_researched
+				duration = -1
+			}
+			add_treasury = -750
+		}
+	}
+}
+
+generic_outer_mu_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		capital_scope = {
+			region = atlantis_muland_region
+		}
+		NOT = {
+			tag = IN4
+		}
+	}
+
+	outermu_exploiting_the_interior = {
+		icon = atlantropa_tiger
+		position = 1
+		required_missions = {  }
+		trigger = {
+			OR = {
+				num_of_colonists = 1
+				num_of_colonies = 1
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					ai = yes
+				}
+				add_country_modifier = {
+					name = outermu_settling_interior
+					duration = -1
+				}
+			}
+			if = {
+				limit = {
+					ai = no
+				}
+				add_country_modifier = {
+					name = outermu_settling_interior
+					duration = 36500
+				}
+			}
+		}
+	}
+	outer_mu_approaching_the_gate = {
+		icon = atlantropa_urbsconditia
+		position = 2
+		required_missions = { outermu_exploiting_the_interior }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 5987
+				province_id = 5215
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			OR = {
+				owns_core_province = 5987
+				owns_core_province = 5215
+			}
+		}
+		effect = {
+			country_event = {
+				id = atl_bonusevent.11
+			}
+		}
+	}
+}
+

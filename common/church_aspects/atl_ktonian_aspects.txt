@@ -1,0 +1,160 @@
+carrion_reanimation_aspect = { #Adds small modifier
+	sprite = "GFX_carrion_birds"
+	cost = 75
+	
+	effect = {
+		country_event = { id = atl_ktonian.1 }
+	}
+	trigger = {
+		NOT = {
+			has_country_modifier = carrion_reanimation_mod
+		}
+	}
+	ai_will_do = {
+		factor = 4
+		modifier = {
+			factor = 0
+			is_at_war = no
+		}
+	}
+}
+
+reanimation_aspect = { #Gives Manpower(maybe troops?)
+	sprite = "GFX_reanimation"
+	cost = 85
+	
+	effect = {
+		country_event = { id = atl_ktonian.2 }
+	}
+	trigger = {
+		NOT = {
+			OR = {
+				has_country_modifier = darkmagics_mod_disappearances
+				has_country_modifier = moderate_darkmagics_mod_rean
+				has_country_modifier = darkmagics_mod_rean
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 8
+		modifier = {
+			factor = 0
+			manpower_percentage = 0.8
+		}
+	}
+}
+
+dust_to_dust_aspect = { #Siege Fast
+	sprite = "GFX_dust_to_dust"
+	cost = 100
+	trigger = {
+		NOT = {
+			has_country_modifier = darkmagics_mod_dust
+		}
+	}
+	effect = {
+		country_event = { id = atl_ktonian.3 }
+	}
+}
+
+necronomics_aspect = { #the dead plow!
+	sprite = "GFX_necronomics"
+	cost = 100
+	trigger = {
+		NOT = {
+			has_country_modifier = moderate_darkmagics_mod_economics
+		}
+	}
+	effect = {
+		country_event = { id = atl_ktonian.4 }
+	}
+	ai_will_do = {
+		factor = 8
+		modifier = {
+			factor = 0
+			is_at_war = yes
+		}
+	}
+}
+
+the_dead_walk_great_aspect = { #Changes Unit type!!!
+	sprite = "GFX_the_dead_walk"
+	cost = 200
+	
+	effect = {
+		country_event = { id = atl_ktonian.5 }
+	}
+	trigger = {
+		NOT = {
+			technology_group = ktonian_dead_t
+		}
+	}
+}
+
+the_dead_rest_great_aspect = { #Changes Unit type...back
+	sprite = "GFX_the_dead_rest"
+	cost = 10
+	
+	effect = {
+		country_event = { id = atl_ktonian.6 }
+	}
+	trigger = {
+		NOT = {
+			technology_group = ktonian_t
+		}
+	}
+}
+
+lichdom_great_aspect = { #Immortal Leader
+	sprite = "GFX_lichdom"
+	cost = 200
+	
+	effect = {
+		country_event = { id = atl_ktonian.7 }
+	}
+	trigger = {
+		NOT = {
+			ruler_has_personality = immortal_personality
+		}
+	}
+}
+
+revive_bane_lord_great_aspect = { #Powerful Leader
+	sprite = "GFX_banelord"
+	cost = 200
+	trigger = {
+		NOT = {
+			has_country_modifier = darkmagics_mod_bane
+		}
+	}
+	effect = {
+		country_event = { id = atl_ktonian.8 }
+	}
+	ai_will_do = {
+		factor = 8
+		modifier = {
+			factor = 0
+			num_of_generals = 2
+		}
+	}
+}
+###olm_worship one
+commune_olms_great_aspect = { #olms
+	sprite = "GFX_olm"
+	cost = 200
+	trigger = {
+		NOT = {
+			has_country_modifier = darkmagics_mod_bane
+		}
+	}
+	effect = {
+		country_event = { id = atl_ktonian.9 }
+	}
+	ai_will_do = {
+		factor = 8
+		modifier = {
+			factor = 0
+			num_of_generals = 2
+		}
+	}
+}

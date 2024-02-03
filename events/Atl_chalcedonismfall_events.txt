@@ -156,6 +156,7 @@ country_event = {
 
 	custom_tooltip = CHRISTIANSCHISMAISCOMING
 hidden_effect = {
+
 	every_province = {
 		limit = {
 			religion = united_christianity
@@ -267,6 +268,9 @@ hidden_effect = {
 	A52 = {
 		change_religion = orthodox
 	}
+	SL1 = {
+		change_religion = orthodox
+	}	
 	A4R = {
 		change_religion = orthodox
 	}
@@ -276,7 +280,7 @@ hidden_effect = {
 	A4R = {
 	every_owned_province = {
 		limit = {
-			religion = christian_change_religion_for_debug
+			religion_group = christian
 		}
 		change_religion = orthodox
 	}
@@ -324,10 +328,12 @@ hidden_effect = {
 	118 = {
 		add_core = PAP
 		cede_province = PAP
+		remove_core = X46
 	}
+	add_reform_desire = 95
 	PAP = {
 			hidden_effect = {
-				add_reform_desire = 95
+				
 
 			random_subject_country = {
 				limit = {
@@ -345,6 +351,15 @@ hidden_effect = {
 	}
 
 	
+	}
+	random_country = {
+	limit = {	religion = catholic
+		ai = yes
+		NOT = { total_development = 100 }
+}
+country_event = {
+	id = 2001
+}
 	}
 }
 	}
@@ -582,10 +597,21 @@ hidden_effect = {
 	118 = {
 		add_core = PAP
 		cede_province = PAP
+		REMOVE_CORE = X46
 	}
-
+	add_reform_desire = 100
 	
 	}	
+	random_country = {
+		limit = {	religion = catholic
+			ai = yes
+			NOT = { total_development = 100 }
+	}
+	country_event = {
+		id = 2001
+	}
+		}
 }
+
 	}
 	

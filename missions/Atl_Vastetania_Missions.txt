@@ -1,0 +1,1309 @@
+vastetania1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = A57
+	}
+
+	vastetania_defender = {
+		icon = atlantropa_aztecship
+		position = 2
+		required_missions = { vastetania_crusade_over }
+		provinces_to_highlight = {
+			region = iberia_region
+						NOT = { religion_group = ROOT }
+		}
+		trigger = {
+			iberia_region = {
+							type = all
+							religion_group = ROOT
+						}
+		}
+		effect = {
+			add_country_modifier = {
+							name = "spa_rb_christian_iberia"
+							duration = 5475
+						}
+		}
+	}
+	vastetania_cleaness = {
+		icon = atlantropa_moderncrusade
+		position = 4
+		required_missions = { vastetania_defender }
+		trigger = {
+			is_defender_of_faith = yes
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			add_prestige = 10
+						add_country_modifier = {
+							name = atlantropa_christianisation
+							duration = -1
+						}
+		}
+	}
+	vastetatnia_ideas = {
+		icon = mission_spanish_armada
+		position = 7
+		required_missions = {  }
+		trigger = {
+			OR = {
+				full_idea_group = exploration_ideas
+				full_idea_group = expansion_ideas
+			}
+		}
+		effect = {
+			if = {
+				limit = { has_dlc = "Rights of Man" }
+				custom_tooltip = por_more_likely_to_get_expansionist_tt
+				set_country_flag = por_more_likely_to_get_expansionist_flag
+				add_dip_power = 100
+			}
+			else = {
+				
+				add_dip_power = 200
+				
+				add_prestige_or_monarch_power = { amount = 10 }
+			}
+		}
+	}
+	vastetania_circunavigation = {
+		icon = atlantropa_globe
+		position = 10
+		required_missions = { vastetatnia_ideas vst_colonize_carribeans }
+		trigger = {
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = achievement_magellans_voyage_tooltip
+					has_country_flag = circumnavigation_first
+				}
+				custom_trigger_tooltip = {
+					tooltip = second_circumnavigation_tt
+					has_country_flag = circumnavigation_done
+				}
+			}OR = {
+				custom_trigger_tooltip = {
+					tooltip = achievement_magellans_voyage_tooltip
+					has_country_flag = circumnavigation_first
+				}
+				custom_trigger_tooltip = {
+					tooltip = second_circumnavigation_tt
+					has_country_flag = circumnavigation_done
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = { has_country_flag = circumnavigation_first }
+				add_country_modifier = {
+					name = por_first_circumnavigation_modifier
+					duration = -1
+				}
+			}
+			else = {
+				add_country_modifier = {
+					name = por_first_circumnavigation_modifier
+					duration = 9125
+				}
+			}
+		}
+	}
+	vst_colonize_pacifiqa = {
+		icon = mission_sail_to_the_east_indies
+		position = 12
+		required_missions = {  }
+		provinces_to_highlight = {
+			colonial_region = colonial_pacifiqa
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						has_discovered = ROOT
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+							value = 5
+							colonial_region = colonial_pacifiqa
+							is_city = yes
+						}
+		}
+		effect = {
+			add_adm_power = 200
+			add_dip_power = 200
+			add_mil_power = 200
+		}
+	}
+}
+
+vastetania2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = A57
+	}
+
+	vasteta_purge = {
+		icon = atlantropa_burningkazan
+		position = 2
+		required_missions = { vastetania_crusade_over }
+		trigger = {
+			stability = 3
+			mil_power_cost = 100
+		}
+		effect = {
+			add_stability = -2
+			add_mil_power = -100
+						custom_tooltip = purgeaztecs
+						hidden_effect = {
+						every_owned_province = {
+							limit = {
+								religion = reformednahuatl
+							}
+							change_culture = ROOT
+							change_religion = ROOT
+							add_base_production = -2
+							add_base_manpower = -2
+						}
+						}
+		}
+	}
+	vastetania_divine_state = {
+		icon = holy_state
+		position = 3
+		required_missions = { vasteta_purge vastetania_defender }
+		provinces_to_highlight = {
+			owned_by = PAP
+		}
+		trigger = {
+			if = {
+				limit = { exists = PAP  }
+					PAP = {
+							has_opinion = {
+								who = ROOT
+								value = 150
+							}
+						}
+						}
+								if = {
+									limit = { NOT = { exists = PAP } }
+					
+					religious_unity = 0.90
+					stability = 2
+			
+						}	
+			total_development = 500
+		}
+		effect = {
+			add_adm_power = 150
+			add_dip_power = 150
+			add_mil_power = 150
+		}
+	}
+	vastetania_annex_northspain = {
+		icon = mission_castillian_aggression
+		position = 4
+		required_missions = { vastetania_ccrusaders }
+		provinces_to_highlight = {
+			OR = {
+				area = castille_area
+				area = beieras_area
+				area = catalonia_area
+			}
+		}
+		trigger = {
+			castille_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			beieras_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			catalonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_mil_power = 100
+			add_country_modifier = {
+				name = "lusitania_castilla"
+				duration = -1
+			}
+		}
+	}
+	vast_secure_northern_border = {
+		icon = alpine_fortifications
+		position = 5
+		required_missions = { vastetania_annex_northspain }
+		provinces_to_highlight = {
+			OR = {
+			province_id = 1746
+			province_id = 5641
+			province_id = 5560
+			}
+		}
+		trigger = {
+			1746 = {
+				owned_by = ROOT
+				fort_level = 1
+			}
+			5641 = {
+				owned_by = ROOT
+				fort_level = 1
+			}
+			5560 = {
+				owned_by = ROOT
+				fort_level = 1
+			}
+		}
+		effect = {
+			basque_country = {
+										limit = {
+											NOT = { is_core = ROOT }
+											NOT = { is_permanent_claim = ROOT }
+										}
+										add_permanent_claim = ROOT
+									}
+			east_midlands_area = {
+										limit = {
+											NOT = { is_core = ROOT }
+											NOT = { is_permanent_claim = ROOT }
+										}
+										add_permanent_claim = ROOT
+									}
+			add_prestige = 10
+			add_mil_power = 100
+		}
+	}
+	vast_freench_conquest = {
+		icon = mission_the_french_menace
+		position = 6
+		required_missions = { Vastetania_rule_spain vast_secure_northern_border }
+		provinces_to_highlight = {
+			OR = {
+			area = basque_country
+			area = east_midlands_area
+			}
+		}
+		trigger = {
+			basque_country = { type = all	owned_by = ROOT }
+			east_midlands_area = { type = all	owned_by = ROOT }
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+							custom_tooltip = franchespaniaa
+							hidden_effect = {
+							every_owned_province = {
+							limit = {
+								OR = {
+								culture = frenchteruel
+								}
+							}
+								change_culture = spanishfrench
+						 }
+							}
+		}
+	}
+	vst_hispaniola_colonize = {
+		icon = mission_invade_island
+		position = 10
+		required_missions = { vst_colonize_carribeans }
+		provinces_to_highlight = {
+			OR = {
+							AND = {
+								OR = {
+									area = hispaniola_area
+									area = dominica_area
+								}
+								NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			
+							}
+							province_id = 490
+						}
+						has_discovered = ROOT
+		}
+		trigger = {
+			if = {
+							limit = {
+								has_dlc = "Rights of Man"
+							}
+							490 = {
+								country_or_non_sovereign_subject_holds = ROOT
+								OR = {
+									has_building = temple
+									has_building = cathedral
+								}
+							
+							}
+						}
+						else = {
+							490 = {
+								country_or_non_sovereign_subject_holds = ROOT
+							}
+						}
+						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+							value = 5
+							OR = {
+								area = hispaniola_area
+								area = dominica_area
+							}
+							is_city = yes
+						}
+		}
+		effect = {
+			define_conquistador = {
+							shock = 5
+							fire = 5
+							manuever = 6
+							siege = 1
+							name = "Hernán Cortés"
+						}
+						490 = {
+							add_base_production = 3
+							if = {
+								limit = {
+									NOT = {
+										trade_goods = sugar
+									}
+								}
+								change_trade_goods = sugar
+							}
+						}
+						mexico_area = {
+							limit = {
+								NOT = { is_permanent_claim = ROOT	}
+								NOT = { is_core = ROOT	}
+							}
+							add_permanent_claim = ROOT
+						}
+						eastern_mexico_area = {
+							limit = {
+								NOT = { is_permanent_claim = ROOT	}
+								NOT = { is_core = ROOT	}
+							}
+							add_permanent_claim = ROOT
+						}
+						puebla_area = {
+							limit = {
+								NOT = { is_permanent_claim = ROOT	}
+								NOT = { is_core = ROOT	}
+							}
+							add_permanent_claim = ROOT
+						}
+						west_florida_area = {
+							limit = {
+								NOT = { is_permanent_claim = ROOT }
+								NOT = { is_core = ROOT	}
+								is_empty = no
+							}
+							add_permanent_claim = ROOT
+						}
+		}
+	}
+	vst_florida = {
+		icon = mission_colonize_florida
+		position = 12
+		required_missions = { vst_hispaniola_colonize }
+		provinces_to_highlight = {
+			OR = {
+							region = southeast_america_region
+							area = west_florida_area
+						}
+						OR = {
+							NOT = { country_or_non_sovereign_subject_holds = ROOT }
+							NOT = { fort_level = 3 }
+						}
+						has_discovered = ROOT
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+							value = 3
+							OR = {
+								region = southeast_america_region
+								area = west_florida_area
+							}
+							fort_level = 3
+						}
+		}
+		effect = {
+			add_mil_power = 100
+						custom_tooltip = fortified_florida_tooltip
+						hidden_effect = {
+							every_province = {
+								limit = {
+									OR = {
+										owned_by = ROOT
+										owner = {
+											is_subject_of = ROOT
+										}
+									}
+									OR = {
+										region = southeast_america_region
+										area = west_florida_area
+									}
+									fort_level = 3
+								}
+								add_province_modifier = {
+									name = "fortified_florida_modifier"
+									duration = -1
+								}
+							}
+						}
+		}
+	}
+	sacro_naval_power = {
+		icon = mission_naval_dominance
+		position = 14
+		required_missions = { Sacro_global_Empire }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = fra_strongest_eu_navy
+				NOT = {
+					any_known_country = {
+						capital_scope = { continent = europe }
+						navy_size = ROOT
+						num_of_heavy_ship = ROOT
+					}
+				}
+			}
+			if = {
+				limit = { has_dlc = "Rule Britannia" }
+				has_naval_doctrine = any
+			}
+			if = {
+				limit = { has_dlc = "Emperor" }
+				OR = {
+					is_hegemon_of_type = naval_hegemon
+					num_of_heavy_ship = 150
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = fra_france_rules_the_waves_modifier
+				duration = -1
+			}
+		}
+	}
+}
+
+vastetania3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = A57
+	}
+
+	vastetania_crusade_over = {
+		icon = atlantropa_crusadeover
+		position = 1
+		required_missions = {  }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = aztecfallen
+				has_global_flag = atlantropa_aztec_falleeempire
+			}
+		}
+		effect = {
+			hidden_effect ={ add_stability = -2 }
+			add_prestige = 10
+			add_adm_power = 150
+			add_dip_power = 150
+			add_mil_power = 150
+		}
+	}
+	vastetania_ccrusaders = {
+		icon = atlantropa_crusadearmy
+		position = 3
+		required_missions = { vastetania_crusade_over }
+		trigger = {
+			army_size_percentage = 0.8
+			manpower_percentage = 0.6
+			num_of_generals = 1
+		}
+		effect = {
+			add_country_modifier = {
+				name = armenia_first_mission
+				duration = -1
+			}
+			create_general = { tradition = 50 }
+			add_mil_power = 50
+			iberia_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	vastetania_south_spain = {
+		icon = atlantropa_aztec3
+		position = 4
+		required_missions = { vastetania_ccrusaders }
+		provinces_to_highlight = {
+			owned_by = A46
+		}
+		trigger = {
+			baleares_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			leon_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			NOT = { exists = A46  }
+		}
+		effect = {
+			add_prestige = 10
+			add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+		}
+	}
+	Vastetania_rule_spain = {
+		icon = shield_of_christendom
+		position = 5
+		required_missions = { vastetania_annex_northspain vastetania_south_spain vastetania_central_spain }
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					region = iberia_region
+					owner = { religion_group = reformednahuatl }
+				}
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		trigger = {
+			OR = {
+			NOT = { exists = SPA }
+			TAG = SPA
+			}
+			num_of_owned_provinces_with = {
+				value = 25
+				region = iberia_region
+				owned_by = ROOT
+			}
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+		}
+		effect = {
+			change_tag = SPA
+			restore_country_name = yes
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			override_country_name = IBERIAOFGOD
+			change_country_color = { color = { 246 248 213 } }
+		}
+	}
+	vastetania_sstroy_numidia = {
+		icon = the_latin_empire
+		position = 6
+		required_missions = { Vastetania_rule_spain }
+		provinces_to_highlight = {
+			OR = {
+			region = iberia_region
+			region = libyasuperior_region
+			}
+		}
+		trigger = {
+			iberia_region = {
+							type = all
+							owned_by = ROOT
+						}
+						libyasuperior_region= {
+							type = all
+							owned_by = ROOT
+						}
+		}
+		effect = {
+			every_owned_province = {
+							limit = {
+								culture_group = central_american
+							}
+							change_culture = andalucian
+						}
+						add_country_modifier = {
+							name = "spa_rb_christian_iberia"
+							duration = -1
+						}
+						atlantis_sicily_region = {
+							limit = {
+								NOT = { is_core = ROOT }
+								NOT = { is_permanent_claim = ROOT }
+							}
+							add_permanent_claim = ROOT
+						}
+		}
+	}
+	vastetaniahegemon = {
+		icon = convert_the_holy_lands
+		position = 7
+		required_missions = { vastetania_sstroy_numidia seize_atlantis_vaste vast_freench_conquest }
+		trigger = {
+			stability = 3
+						if = {
+							limit = { has_dlc = "Emperor" }
+							is_hegemon = yes
+						}
+						else = { total_development = 2000 }
+						has_regency = no
+		}
+		effect = {
+			if = {
+							limit = {
+								in_golden_age = no
+							}
+							reset_golden_age = yes
+						}
+						if = {
+							limit = {
+								in_golden_age = yes
+							}
+							extend_golden_age = 1800
+						}
+		}
+	}
+	vastetania_carribeans = {
+		icon = mission_plus_ultra
+		position = 8
+		required_missions = { vastetania_discovery vastetatnia_ideas }
+		trigger = {
+			if = {
+							limit = {
+								is_random_new_world = yes
+							}
+							custom_trigger_tooltip = {
+								tooltip = cas_carib_rnw
+								any_owned_province = {
+									continent = new_world
+								}
+							}
+						}
+						else = {
+							custom_trigger_tooltip = {
+								tooltip = miss_discover_caribbean
+								colonial_the_carribean = { has_discovered = ROOT }
+							}
+						}
+		}
+		effect = {
+			add_country_modifier = {
+							name = "spa_hispaniola_discovered"
+							duration = 5475
+						}
+		}
+	}
+	vst_colonize_carribeans = {
+		icon = mission_expel_the_moriscos
+		position = 9
+		required_missions = { vastetania_carribeans }
+		provinces_to_highlight = {
+			colonial_region = colonial_the_carribean
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						has_discovered = ROOT
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+							tooltip = miss_colonize_caribbean
+							num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+								value = 1
+								colonial_region = colonial_the_carribean
+								is_city = yes
+							}
+						}
+		}
+		effect = {
+			add_prestige = 15
+						add_country_modifier = {
+							name = "the_unknown_frontier"
+							duration = 5475
+						}
+			add_adm_power = 100
+			central_america_superregion = {
+							limit = {
+								NOT = { is_core = ROOT }
+								NOT = { is_permanent_claim = ROOT }
+							}
+							add_permanent_claim = ROOT
+						}
+		}
+	}
+	vst_colonise_hhvanna = {
+		icon = mission_found_havana
+		position = 10
+		required_missions = { vst_colonize_carribeans }
+		provinces_to_highlight = {
+			OR = {
+							area = cuba_area
+							area = east_cuba_area
+						}
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						has_discovered = ROOT
+		}
+		trigger = {
+			if = {
+							limit = {
+								has_dlc = "Rights of Man"
+							}
+							484 = {
+								country_or_non_sovereign_subject_holds = ROOT
+								OR = {
+									has_building = workshop
+									has_building = counting_house
+								}
+							}
+						}
+						else = {
+							484 = {
+								country_or_non_sovereign_subject_holds = ROOT
+							}
+						}
+						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+							value =  5
+							OR = {
+								area = cuba_area
+								area = east_cuba_area
+							}
+						}
+		}
+		effect = {
+			set_country_flag = spa_house_of_trade_flag
+						country_event = { id = flavor_spa.1003 }
+						if = {
+							limit = {
+								any_subject_country = {
+									OR = {
+										is_subject_of_type = colony
+										is_subject_of_type = crown_colony
+										is_subject_of_type = private_enterprise
+										is_subject_of_type = self_governing_colony
+									}
+									owns = 484
+								}
+							}
+							every_subject_country = {
+								limit = {
+									owns = 484
+								}
+								484 = {
+									prev_move_capital_effect = yes
+								}
+							}
+						}
+						central_america_region = {
+							limit = {
+								NOT = { is_core = ROOT }
+								NOT = { is_permanent_claim = ROOT }
+							}
+							add_permanent_claim = ROOT
+						}
+		}
+	}
+	Vastetania_Mexico = {
+		icon = mission_kingdom_of_new_spain
+		position = 11
+		required_missions = { vst_colonise_hhvanna vst_hispaniola_colonize vastetania_colonize_main }
+		provinces_to_highlight = {
+			region = mexico_region
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						has_discovered = ROOT
+		}
+		trigger = {
+			if = {
+							limit = {
+								has_dlc = "Golden Century"
+								religion = catholic
+							}
+							custom_trigger_tooltip = {
+								tooltip = mexico_holy_order_tooltip
+								num_of_states_owned_or_owned_by_non_sovereign_subjects_with = {
+									has_holy_order_trigger = yes
+									region = mexico_region
+									value = 5
+								}
+							}
+						}
+						else = {
+							custom_trigger_tooltip = {
+								tooltip = mexico_holy_order_alternative_tooltip
+								num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+									religion = ROOT
+									region = mexico_region
+									value = 25
+								}
+							}
+						}
+						mexico_region = {
+							type = all
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+		}
+		effect = {
+			add_country_modifier = {
+							name = "viceroyalty_of_new_spain"
+							duration = 7300
+						}
+						if = {
+							limit = {
+								any_subject_country = {
+									OR = {
+										is_subject_of_type = colony
+										is_subject_of_type = crown_colony
+										is_subject_of_type = private_enterprise
+										is_subject_of_type = self_governing_colony
+									}
+									owns = 852
+								}
+								852 = { is_capital = no }
+							}
+							every_subject_country = {
+								limit = {
+									owns = 852
+								}
+								852 = {
+									prev_move_capital_effect = yes
+								}
+							}
+						}
+						west_florida_area = {
+							limit = {
+								NOT = { is_permanent_claim = ROOT }
+								NOT = { is_core = ROOT	}
+								is_empty = no
+							}
+							add_permanent_claim = ROOT
+						}
+		}
+	}
+	Sacro_global_Empire = {
+		icon = kingdom_of_heaven
+		position = 13
+		required_missions = { Vastetania_Mexico VastetaniaGrenada vst_florida vst_colonize_pacifiqa vst_colonize_california }
+		provinces_to_highlight = {
+			province_id = 852
+		}
+		trigger = {
+			852 = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			country_event = { id = castellowar.3 }
+		}
+	}
+}
+
+vastetanai4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = A57
+	}
+
+	reequest_aid_from_empire_vasteta = {
+		icon = mission_rule_italy
+		position = 2
+		required_missions = { vastetania_crusade_over }
+		provinces_to_highlight = {
+			owned_by = emperor
+		}
+		trigger = {
+			emperor = {
+							has_opinion = {
+								who = ROOT
+								value = 190
+							}
+						}
+		}
+		effect = {
+			add_yearly_manpower = 1
+						add_years_of_income = 2
+			capital_scope = {
+			add_base_tax = 1
+			add_base_production = 1
+			add_base_manpower = 1
+			}
+		}
+	}
+	diplomacy_vastetania = {
+		icon = a_real_roman_empire
+		position = 3
+		required_missions = { reequest_aid_from_empire_vasteta vastetania_teutons }
+		trigger = {
+			diplomatic_reputation = 5
+			num_of_diplomatic_relations = 5
+		}
+		effect = {
+			add_country_modifier = {
+							name = atlantropa_avalon_legio
+							duration = -1
+						}
+		}
+	}
+	vastetania_central_spain = {
+		icon = atlantropa_homeregion
+		position = 4
+		required_missions = { vastetania_ccrusaders }
+		provinces_to_highlight = {
+			OR = {
+				area = toledo_area
+				area = valencia_area
+			}
+		}
+		trigger = {
+			valencia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			toledo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_dip_power = 100
+			add_country_modifier = {
+				name = "lusitania_catalonia"
+				duration = -1
+			}
+		}
+	}
+	crusade_champa = {
+		icon = atlantropa_aztecnavy2
+		position = 5
+		required_missions = { vastetania_docks }
+		provinces_to_highlight = {
+			OR = {
+			area = atlantis_maderiatwo 
+			area = atlantis_maderiaone
+			}
+		}
+		trigger = {
+			atlantis_maderiatwo = { type = all	owned_by = ROOT }
+			atlantis_maderiaone = { type = all	owned_by = ROOT }
+		}
+		effect = {
+			atlantis_maderiatwo = { change_religion = ROOT change_culture  = canarian }
+			atlantis_maderiaone = { change_religion = ROOT change_culture  = canarian }
+		}
+	}
+	seize_atlantis_vaste = {
+		icon = atlantropa_greekarmy
+		position = 6
+		required_missions = { Vastetania_rule_spain crusade_champa }
+		provinces_to_highlight = {
+			region = atlantis_region
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+											value = 15
+											region = atlantis_region
+											is_city = yes
+										}
+		}
+		effect = {
+			add_prestige = 10
+									add_country_modifier = {
+										name = "the_unknown_frontier"
+										duration = 5475
+									}
+		}
+	}
+	vastetania_colonize_main = {
+		icon = mission_colonize_the_caribbean
+		position = 10
+		required_missions = { vst_colonize_carribeans }
+		provinces_to_highlight = {
+			colonial_region = colonial_colombia
+							NOT = { country_or_non_sovereign_subject_holds = ROOT }
+							has_discovered = yes
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+							value = 5
+							colonial_region = colonial_colombia
+							is_city = yes
+						}
+		}
+		effect = {
+			define_conquistador = {
+							name = "Francisco Pizarro"
+							fire = 4
+							shock = 4
+							manuever = 5
+							siege = 1
+						}
+						andes_superregion = {
+							limit = {
+								NOT = { is_core = ROOT }
+								NOT = { is_permanent_claim = ROOT }
+							}
+							add_permanent_claim = ROOT
+						}
+		}
+	}
+	VastetaniaGrenada = {
+		icon = mission_new_kingdom_of_granada
+		position = 12
+		required_missions = { vastetania_colonize_main }
+		provinces_to_highlight = {
+			colonial_region = colonial_colombia
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			if = {
+							limit = {
+								has_dlc = "Golden Century"
+								religion = catholic
+							}
+							custom_trigger_tooltip = {
+								tooltip = colombia_holy_order_tooltip
+								num_of_states_owned_or_owned_by_non_sovereign_subjects_with = {
+									has_holy_order_trigger = yes
+									colonial_region = colonial_colombia
+									value = 5
+								}
+							}
+						}
+						else = {
+							custom_trigger_tooltip = {
+								tooltip = colombia_holy_order_alternative_tooltip
+								num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+									religion = ROOT
+									colonial_region = colonial_colombia
+									value = 25
+								}
+							}
+						}
+						colonial_colombia = {
+							type = all
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+		}
+		effect = {
+			add_dip_power = 100
+						if = {
+							limit = {
+								government = monarchy
+							}
+							add_legitimacy = 25
+						}
+						add_country_modifier = {
+							name = "spa_new_granada"
+							duration = 7300
+						}
+						if = {
+							limit = {
+								any_subject_country = {
+									OR = {
+										is_subject_of_type = colony
+										is_subject_of_type = crown_colony
+										is_subject_of_type = private_enterprise
+										is_subject_of_type = self_governing_colony
+									}
+									owns = 825
+								}
+								825 = { is_capital = no }
+							}
+							every_subject_country = {
+								limit = {
+									owns = 825
+								}
+								825 = {
+									prev_move_capital_effect = yes
+								}
+							}
+						}
+		}
+	}
+	sacro_mil_power = {
+		icon = fra_grande_armee
+		position = 14
+		required_missions = { Sacro_global_Empire }
+		trigger = {
+			army_size_percentage = 0.8
+						num_of_generals = 2
+						OR = {
+							army_tradition = 60
+							has_global_modifier_value = {
+								which = discipline
+								value = 0.2
+							}
+						}
+		}
+		effect = {
+			add_yearly_manpower = 2
+						add_country_modifier = {
+							name = holy_reorganized_army
+							duration = -1
+						}
+		}
+	}
+}
+
+vastetania5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = A57
+	}
+
+	vastetania_teutons = {
+		icon = mission_teutonic_riders
+		position = 2
+		required_missions = { vastetania_crusade_over }
+		provinces_to_highlight = {
+			owned_by = TEU
+		}
+		trigger = {
+			OR = {
+						TEU = {
+							has_opinion = {
+								who = ROOT
+								value = 190
+							}
+						}
+						AND = {
+						owns = 2461
+						owns = 2410
+						owns = 5685
+						}
+			}
+		}
+		effect = {
+			add_yearly_manpower = 2
+			add_historical_friend = TEU
+			TEU  = { add_historical_friend = ROOT }
+		}
+	}
+	vastetania_docks = {
+		icon = toulon_dockyards
+		position = 4
+		required_missions = {  }
+		trigger = {
+			dock = 10
+		}
+		effect = {
+			set_country_flag = navy_availible
+						custom_tooltip = enable_naval_mechanic
+						add_dip_power = 50
+						add_mil_power = 50
+						add_adm_power = 50
+		}
+	}
+	vastetania_discovery = {
+		icon = mission_launch_a_flagship
+		position = 7
+		required_missions = { vastetania_docks }
+		trigger = {
+			has_flagship = yes
+		}
+		effect = {
+			add_navy_tradition = 20
+			leon_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			extremadura_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			lower_andalucia_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	vst_laplata = {
+		icon = settle_north_america
+		position = 10
+		required_missions = { vastetania_discovery }
+		provinces_to_highlight = {
+			colonial_region = colonial_la_plata
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						has_discovered = yes
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+							value = 5
+							colonial_region = colonial_la_plata
+							is_city = yes
+						}
+		}
+		effect = {
+			add_country_modifier = {
+							name = "spa_rb_overseas_trade"
+							duration = 5475
+						}
+		}
+	}
+	vst_colonize_california = {
+		icon = mission_colonize_california
+		position = 12
+		required_missions = {  }
+		provinces_to_highlight = {
+			colonial_region = colonial_california
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						has_discovered = ROOT
+		}
+		trigger = {
+			if = {
+							limit = {
+								has_dlc = "Golden Century"
+								religion = catholic
+							}
+							2021 = {
+								country_or_non_sovereign_subject_holds = ROOT
+								has_holy_order_trigger = yes
+							}
+						}
+						else = {
+							2021 = {
+								country_or_non_sovereign_subject_holds = ROOT
+								religion = ROOT
+							}
+						}
+						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+							value = 5
+							colonial_region = colonial_california
+							is_city = yes
+						}
+		}
+		effect = {
+			add_dip_power = 100
+						2021 = {
+							add_base_tax = 3
+						}
+						colonial_california = {
+							limit = {
+								NOT = { is_core = ROOT }
+								NOT = { is_permanent_claim = ROOT }
+							}
+							add_permanent_claim = ROOT
+						}
+		}
+	}
+}
+

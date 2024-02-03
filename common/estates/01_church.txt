@@ -4,16 +4,20 @@ estate_church = {
 	# If true, country will get estate
 	trigger = {
 		NOT = { has_government_attribute = disables_estate_church }
-		NOT = { has_country_flag = disables_estate_church_flag }
+		NOT = { has_disabled_estate = { estate = estate_church } }
 		if = {
 			limit = {
 				religion_group = dharmic
 			}
-			NOT = { has_estate = estate_brahmins }
+			OR = {
+				has_enabled_estate = { estate = estate_church }
+				NOT = { has_estate = estate_brahmins }
+			}
 		}
 		OR = {
 			has_government_attribute = enables_estate_church
-			has_country_flag = enables_estate_church_flag
+			has_enabled_estate = { estate = estate_church }
+			has_unlocked_estate = { estate = estate_church }			
 			AND = {
 				NOT = { has_government_attribute = is_pirate_republic_reform }
 				NOT = { has_reform = siberian_tribe }
@@ -317,8 +321,8 @@ estate_church = {
 			religion_group = muslim
 		}
 	}
-		custom_name = {
-		desc = estate_patrarchy
+	custom_name = {
+		desc = estate_klirikoi
 		trigger = {
 			culture_group = byzantine
 		}
@@ -428,6 +432,13 @@ estate_church = {
 		estate_church_religious_delegation
 		estate_church_institutionalized_clergy
 		estate_church_donation_right
+		estate_church_union_of_the_churches
+		estate_church_BYZ_legitimization_of_dynasty
+		#1.36
+		estate_church_fund_dar_al_hadith
+		estate_church_fund_madrasas
+		estate_church_sponsor_waqf_payments
+		estate_church_muslim_integration
 	}
 
 	agendas = {

@@ -32,21 +32,6 @@ atlantropa_venediabonus_sca_slot_3_a = {
 					exists = no 
 				}
 			}
-			VOL = { 
-				OR = { 
-					alliance_with = ROOT 
-					is_rival = ROOT 
-					has_opinion_modifier = {
-						who = ROOT
-						modifier = insulted
-					}
-					has_opinion_modifier = {
-						who = ROOT
-						modifier = scornfully_insulted
-					}
-					exists = no 
-				}
-			}
 		}
 		effect = {
 				add_favors = {
@@ -77,7 +62,7 @@ atlantropa_venediabonus_sca_slot_3_a = {
 			}
 		}
 		effect = {
-			brittany_area = {
+			holland_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -438,17 +423,13 @@ atlantropa_venediabonus_sca_slot_3_a = {
 		}
 		trigger = {
 			OR = { 
-				owns_core_province = 94
+				owns_core_province = 183
 				VOL = { is_subject_of = ROOT } 
 				VOL = { 
 					alliance_with = ROOT 
 					has_opinion = {
 						who = ROOT 
-						value = 190 
-					}
-					trust = { 	
-						who = ROOT 
-						value = 100 
+						value = 170 
 					}
 					is_at_war = no 
 					NOT = { total_development = ROOT } 
@@ -457,7 +438,8 @@ atlantropa_venediabonus_sca_slot_3_a = {
 			}
 		}
 		effect = { 
-				country_event = { id = venediaevent.8 }
+				vassalize = VOL
+				add_adm_power = 100
 				if = { 
 					limit = { 
 						VOL = { is_subject_of = ROOT } 
@@ -1331,6 +1313,7 @@ atlantropa_venedia_sca_slot_2_a = {
 					owned_by = ROOT
 					}
 				}
+				ROOT = { is_subject_of = BOH } 
 				BOH = { is_subject_of = ROOT } 
 				BOH = { 
 					alliance_with = ROOT 
@@ -1349,45 +1332,13 @@ atlantropa_venedia_sca_slot_2_a = {
 			}
 		}
 		effect = { 
-			custom_tooltip = pol_if_completed_via_diplomatic_relations_tt
-			tooltip = {
-				BOH = { 
-					country_event = { id = flavor_pol.25 }
-				}
-			}
-			custom_tooltip = pol_alternatively_every_required_province_tt
-			tooltip = {
-				add_mil_power = 200	
-				if = {
-					limit = {
-						BOH = { alliance_with = ROOT }
-					}
-					BOH = { 
-						country_event = { id = flavor_pol.25 }
-					}
-				}
-			}
-			set_country_flag = bohemian_country_crown_flag
-			hidden_effect = {
-				if = {
-					limit = {
-						BOH = { alliance_with = ROOT }
-					}
-					BOH = { 
-						country_event = { id = flavor_pol.25 }
-					}
-				}
-				else = { 
-					if = { 
-						limit = { 
-							BOH = { is_subject_of = ROOT } 
-						}
-						BOH = { add_liberty_desire = -20 } 
-					}
-				}
+			add_prestige = 10
+			add_adm_power = 100
+			add_dip_power = 100
+			BOH = { add_historical_friend = ROOT }
+			add_historical_friend = BOH
 			}
 		}
-	}
 
 	vnd_subjugate_brittany = {
 		icon = atlantropa_britanny

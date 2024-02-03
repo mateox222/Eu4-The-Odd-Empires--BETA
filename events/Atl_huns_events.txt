@@ -1,0 +1,107 @@
+
+
+
+
+
+
+namespace = huns_events
+country_event = {
+	id =  huns_events.1   #christianity
+	title = "huns_events.1.t"
+	desc = "huns_events.1.d"
+	picture = Sacrificepagan_eventPicture
+	is_triggered_only = yes
+    fire_only_once = yes
+	option = { 
+    name = "huns_events.1.a"
+		add_prestige = 10
+        change_religion = tengri_pagan_reformed
+        add_government_power = {
+            mechanic_type = toe_tribal_fervor
+            power_type = toe_tribal_fervor
+            value = 25
+        }
+    }
+	
+
+}
+country_event = {
+	id =  huns_events.2   #christianity
+	title = "huns_events.2.t"
+	desc = "huns_events.2.d"
+	picture = scandinaviaisout_eventPicture
+	is_triggered_only = yes
+    fire_only_once = yes
+	option = { 
+    name = "huns_events.2.a"
+    override_country_name = HUNNICEMPIRE
+	add_adm_power = 150
+add_mil_power = 150
+add_dip_power = 150
+add_stability = 1
+custom_tooltip = hunsawaken
+add_government_reform = hunnic_empire
+hidden_effect = {
+every_province = {
+limit = {
+    OR = {
+culture_group = south_slavic
+culture_group = east_slavic
+    }
+            NOT = { is_core = ROOT }
+            NOT = { is_permanent_claim = ROOT }
+}
+      add_permanent_claim = ROOT
+}}
+    }
+}
+
+country_event = {
+	id =  huns_events.3  #christianity
+	title = "huns_events.3.t"
+	desc = "huns_events.3.d"
+	picture = seljuksstart_eventPicture
+	is_triggered_only = yes
+    fire_only_once = yes
+	option = { 
+    name = "huns_events.3.a"
+	add_adm_power = 250
+add_mil_power = 250
+add_dip_power = 250
+set_government_rank = 3	
+add_stability = 1
+custom_tooltip = hunsawaken2
+hidden_effect = {
+every_province = {
+limit = {
+    OR = {
+region = baltic_region
+region = scandinavia_region
+    }
+            NOT = { is_core = ROOT }
+            NOT = { is_permanent_claim = ROOT }
+}
+      add_permanent_claim = ROOT
+}}
+    }
+}
+
+country_event = {
+	id =  huns_events.4  #christianity
+	title = "huns_events.4.t"
+	desc = "huns_events.4.d"
+	picture = burningcarpathia_eventPicture
+	is_triggered_only = yes
+    fire_only_once = yes
+	option = { 
+    name = "huns_events.4.a"
+        custom_tooltip = huns_prepare_invasio
+        add_prestige = 10
+        add_mil_power = 100
+        set_country_flag = hunsempireprepare
+    }
+}
+
+
+
+

@@ -108,3 +108,35 @@ country_event = {
 
 	}
 }
+
+country_event = {
+	id = castellowar.3
+	title = "castellowar.3.t"
+	desc = "castellowar.3.d"
+	picture = coronation_eventPicture
+	fire_only_once = yes
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = castellowar.3.a
+       add_prestige = 200
+		every_subject_country = {
+			inherit = ROOT	
+	  }
+	  hidden_effect = {
+	  every_province = {
+		limit = {
+			NOT = { is_core = ROOT }
+			NOT = { is_permanent_claim = ROOT }
+		}
+		add_permanent_claim = ROOT
+	  }
+	}
+    override_country_name = IBERIAHOLY
+	add_country_modifier = {
+		name = "castillesuperpower"
+		duration = -1
+	}
+
+	}
+}

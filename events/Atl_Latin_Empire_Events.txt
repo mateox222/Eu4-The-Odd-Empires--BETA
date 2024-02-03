@@ -49,3 +49,26 @@ country_event = {
 	add_stability = 2
 	}
 	}
+	country_event = {
+		id = latin_empire.4
+		fire_only_once = yes
+		title = latin_empire.4.t
+		desc = latin_empire.4.d
+		picture = Daqin_City_eventPicture
+		major = yes
+		trigger = {
+			tag = LAE
+			controls = 148
+			NOT = { is_year = 6505 }
+		}
+		option = {
+		name = "latin_empire.4.a" 
+		add_prestige = 10
+		every_province = {
+			limit = { 
+				owned_by = A54	
+			}
+			cede_province = LAE
+		}
+		}
+		}

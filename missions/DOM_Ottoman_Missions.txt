@@ -2537,10 +2537,8 @@ tur_egyptian_conquest = {
 				EGY = {
 					remove_country_modifier = tur_mamlukian_administration
 				}
-				change_ruler_stat = {
-					stat = dip
-					amount = 2
-				}
+		
+				add_dip_power = 200
 			}
 			else = {
 				custom_tooltip = tur_handle_the_egyptian_eyalet_ct
@@ -4268,18 +4266,9 @@ tur_non_muslim_path = {
 				name = tur_religious_empire
 				duration = -1
 			}
-			change_ruler_stat = {
-				stat = adm
-				amount = 1
-			}
-			change_ruler_stat = {
-				stat = dip
-				amount = 1
-			}
-			change_ruler_stat = {
-				stat = mil
-				amount = 1
-			}
+				add_adm_power = 100
+				add_dip_power = 100
+				add_mil_power = 100
 		}
 
 		ai_weight = {
@@ -4344,10 +4333,7 @@ tur_issue_the_kannuname_slot = {
 				id = flavor_tur.254
 				insight_tooltip = INSIGHT_JUST_TOOLTIP
 				effect_tooltip = "
-				change_ruler_stat = {
-					stat = adm
-					amount = 2
-				}
+			add_adm_power = 200
 				add_ruler_modifier = { 
 					name = tur_legendary_lawgiver_modifier 
 					duration = -1 
@@ -4684,10 +4670,7 @@ tur_persian_conquest = {
 				}
 				add_permanent_claim = ROOT
 			}
-			change_ruler_stat = {
-				stat = dip
-				amount = 2
-			}
+			add_dip_power = 200
 			country_event_with_insight = {
 				id = flavor_tur.259
 				insight_tooltip = INSIGHT_JUST_TOOLTIP
@@ -5770,9 +5753,7 @@ tur_stagnation_slot_5 = {
 					has_adm_advisor_3 = yes
 					has_dip_advisor_3 = yes
 					has_mil_advisor_3 = yes
-					ruler_total_stats = {
-						stats = 10
-					}
+				
 					legitimacy = 60
 				}
 			}
@@ -5807,9 +5788,7 @@ tur_stagnation_slot_5 = {
 		trigger = {
 			if = {
 				limit = { NOT = { has_country_modifier = tur_weakened_the_harem } }
-				ruler_total_stats = {
-					stats = 15
-				}
+				
 				legitimacy = 90
 				NOT = { has_spawned_rebels = pretender_rebels }
 				stability = 3

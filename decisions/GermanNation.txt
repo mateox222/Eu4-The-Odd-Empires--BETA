@@ -42,55 +42,25 @@ country_decisions = {
 			}
 		}
 		provinces_to_highlight = {
-						region = south_german_region
+			culture_group = germanic
 		}
 		allow = {
-			adm_tech = 10
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
 			is_at_war = no
-			owns_core_province = 1770	# Brunswick
-			owns_core_province = 134	# M�nchen
-			OR = {
-				owns_core_province = 4759 # Augsburg
-				owns_core_province = 4713 # Wurttemberg
-			}
-			OR = {
-				owns_core_province = 72 # Frankfurt
-			}
-			OR = {
-				owns_core_province = 71 # Niederhessen
-				owns_core_province = 1757	# K�ln
-			}
-			OR = {
-				owns_core_province = 265	# Hamburg
-				owns_core_province = 110	# Lubeck
-			}
-			OR = {
-				owns_core_province = 152	# Dresden
-				owns_core_province = 75	# Th�ringen
-			}
 			num_of_owned_provinces_with = {
 				is_core = ROOT
-				OR = {
-					region = north_german_region
-					region = south_german_region
-				}
-				value = 30
+				culture_group = germanic
+				value = 40
 			}
 		}
 		effect = {
 			change_tag = GER
 			GER = { set_government_rank = 3 }
-			north_german_region = {
+			Every_province = {
 				limit = {
 					NOT = { owned_by = ROOT }
-				}
-				add_permanent_claim = GER
-			}
-			south_german_region = {
-				limit = {
-					NOT = { owned_by = ROOT }
+					culture_group = germanic
 				}
 				add_permanent_claim = GER
 			}			
@@ -156,17 +126,6 @@ country_decisions = {
 			if = {
 				limit = { 
 					OR = {
-						was_tag = SWI
-						tag = SWI
-					}
-				}
-				set_country_flag = has_overriden_color_flag
-				override_country_name = GERMANSWI
-				change_country_color = { color = { 136 105 67 } }
-			}
-			if = {
-				limit = { 
-					OR = {
 						was_tag = TIR
 						tag = TIR
 					}
@@ -185,7 +144,81 @@ country_decisions = {
 				set_country_flag = has_overriden_color_flag
 				override_country_name = GERMANCLI
 				change_country_color = { color = { 124 144 67 } }
+			}###NEW
+			if = {
+				limit = { 
+					OR = {
+						was_tag = SER
+						tag = SER
+					}
+				}
+				set_country_flag = has_overriden_color_flag
+				override_country_name = GERMANSAX
+				change_country_color = { color = { 160 179 196 } }
 			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = A4F
+						tag = A4F
+					}
+				}
+				set_country_flag = has_overriden_color_flag
+				override_country_name = GERMANA4F
+				change_country_color = { color = { 70 154 144 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = X35
+						tag = X35
+					}
+				}
+				set_country_flag = has_overriden_color_flag
+				override_country_name = GERMANX35
+				change_country_color = { color = { 160 97 196 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = CRO
+						tag = CRO
+					}
+				}
+				set_country_flag = has_overriden_color_flag
+				override_country_name = GERMANCRO
+				change_country_color = { color = { 17 1 9 } }
+			}
+			if = {
+				limit = { 
+					OR = {
+						was_tag = RO5
+						tag = RO5
+						was_tag = RO1
+						tag = RO1						
+					}
+				}
+				set_country_flag = has_overriden_color_flag
+				override_country_name = GERMANRO5
+				change_country_color = { color = { 155 16 121 } }
+			}	
+			if = {
+				limit = { 
+					OR = {
+						was_tag = TRA
+						tag = TRA
+						was_tag = RO4
+						tag = RO4
+						was_tag = RO3
+						tag = RO3											
+					
+						
+					}
+				}
+				set_country_flag = has_overriden_color_flag
+				override_country_name = GERMANTRA
+				change_country_color = { color = { 117 164 121 } }
+			}		
 
 		}
 		ai_will_do = {

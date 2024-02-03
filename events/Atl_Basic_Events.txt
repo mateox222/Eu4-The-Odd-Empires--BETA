@@ -9,6 +9,7 @@ province_event = {
 	picture = VILLAGE_BURNING_eventPicture
 	hidden = yes
 	trigger = {
+		always = no
 		is_in_capital_area = no
 		has_owner_accepted_culture = no
 		has_owner_culture = no
@@ -608,3 +609,194 @@ country_event = {
 
 
 
+province_event = {
+	id = atlantropa_basic_event.3011
+	title = "atlantropa_basic_event.1.t"
+	desc = "atlantropa_basic_event.1.d"
+	picture = VILLAGE_BURNING_eventPicture
+	is_triggered_only = yes
+	hidden = yes
+	option = {
+		name = "atlantropa_basic_event.1.a"
+		if = {
+			limit = {
+				owner = {
+					OR = {
+										AND = {
+											NOT = { 	has_country_flag =  alexandria_city_destroyed }
+						tag = CYP
+										}
+					  tag = A6F
+					  tag = A2R
+					  tag = MAK
+					  tag = HSN
+					  tag = A3R	
+					  tag = DI1
+					  tag = DI2
+					  tag = DI3
+					  tag = DI4
+					  tag = DI5		
+			  }	
+				}
+				controller = {
+	
+					OR = {
+						AND = {
+						NOT = { 	has_country_flag =  alexandria_city_destroyed }
+								tag = CYP
+												}
+					  tag = A6F
+					  tag = A2R
+					  tag = MAK
+					  tag = HSN
+					  tag = A3R	
+					  tag = DI1
+					  tag = DI2
+					  tag = DI3
+					  tag = DI4
+					  tag = DI5		
+			  }	
+	
+				}
+			}	
+				cede_province = controller
+				IF = {
+					limit = {
+						NOT = { is_core = controller }
+					}
+					add_territorial_core = controller
+				}
+				ROOT = {	
+					random_list = {
+					20 = { add_base_tax = -1 }
+					20 = { add_base_production = -1 }	
+					20 = { add_base_manpower = -1 }		
+					80 = { add_devastation = 2	}
+				}
+				}
+		
+	}
+	}
+}
+
+province_event = {
+	id = atlantropa_basic_event.3012
+	title = "atlantropa_basic_event.1.t"
+	desc = "atlantropa_basic_event.1.d"
+	picture = VILLAGE_BURNING_eventPicture
+	is_triggered_only = yes
+	hidden = yes
+	option = {
+		name = "atlantropa_basic_event.1.a"
+		if = {
+			limit = {
+				NOT = { is_capital = yes }
+				controller = {
+					has_country_flag = CHINSKAWOJNADOMOWAAAAA
+				}
+				from = {
+					has_country_flag = CHINSKAWOJNADOMOWAAAAA
+				}
+			}
+			
+				cede_province = controller
+				add_core = controller
+		
+	}
+
+	}
+}
+province_event = {
+	id = atlantropa_basic_event.3013
+	title = "atlantropa_basic_event.1.t"
+	desc = "atlantropa_basic_event.1.d"
+	picture = VILLAGE_BURNING_eventPicture
+	is_triggered_only = yes
+	hidden = yes
+	option = {
+		name = "atlantropa_basic_event.1.a"
+		if = {
+			limit = {
+				controller = {
+					has_country_flag = FRANCUSKAWOJNADOMOWA
+				}
+				from = {
+					has_country_flag = FRANCUSKAWOJNADOMOWA
+				}
+			}
+			
+				cede_province = controller
+				add_core = controller
+		
+	}
+
+	}
+}
+
+country_event = {
+	id = atlantropa_basic_event.3014
+	title = "atlantropa_basic_eventt.1.t"
+	desc = "atlantropa_basic_event.1.d"
+	picture = sackniflport_eventPicture
+	trigger = {
+		capital_scope = {
+			superregion = china_superregion
+		}
+		is_emperor_of_china = no
+		any_country = {
+			NOT = { total_development =	ROOT }
+			is_emperor_of_china = YES
+		 }	
+		
+	}
+	hidden = yes
+option = {
+	set_emperor_of_china = ROOT
+		name = "atlantropa_basic_event.1.a"
+}
+}
+
+
+
+		country_event = {
+	id = atlantropa_basic_event.4000
+	title = atlantropa_basic_event.6.t
+	desc = atlantropa_basic_event.6.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	hidden = yes
+	trigger = {
+		NOT = { has_country_flag = azteckiwasal }	
+		OR = {
+		is_subject_of = AZT
+		}
+		is_colonial_nation = no
+	}
+
+	option = {
+	name = "atlantropa_basic_event.6.a" 
+	 set_country_flag = azteckiwasal
+	 change_country_color = { color = { 47 46 44  }	}
+	set_country_flag = has_overriden_color 
+		}		
+
+		}
+
+		country_event = {
+	id = atlantropa_basic_event.4001
+	title = atlantropa_basic_event.6.t
+	desc = atlantropa_basic_event.6.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	hidden = yes
+	trigger = {
+		has_country_flag = azteckiwasal
+	NOT = {	is_subject_of = AZT }
+
+	}
+
+	option = {
+	name = "atlantropa_basic_event.6.a" 
+	clr_country_flag = azteckiwasal
+	 restore_country_color = yes	
+		}		
+
+		}

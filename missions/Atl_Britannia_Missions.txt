@@ -174,15 +174,6 @@ britannia_missions_1 = {
 							name = "the_state_is_me"
 							duration = -1
 						}
-						if = {
-							limit = {
-								is_revolutionary = no
-							}
-							add_absolutism = 10
-						}
-						else = {
-							add_revolutionary_zeal = 10
-						}
 		}
 	}
 	bri_colonize_england = {
@@ -1025,6 +1016,11 @@ britannia_missions_4 = {
 		effect = {
 			add_yearly_manpower = 1
 			add_years_of_income = 2
+			capital_scope = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				}
 		}
 	}
 	seize_wales_bri_atl = {

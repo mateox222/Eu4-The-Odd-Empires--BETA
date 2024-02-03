@@ -2,9 +2,7 @@ gc_aragon_1 = {
 	slot = 1
 	generic = no
 	ai = yes
-
 	potential = {
-
 		OR = {
 			tag = ARA
 			tag = CAT
@@ -19,11 +17,11 @@ gc_aragon_1 = {
 		}
 		NOT = { map_setup = map_setup_random }
 	}
-	has_country_shield = yes
-	
+
 	gc_ara_consultate_of_the_sea = {
 		icon = mission_consulate_of_the_sea
-		required_missions = { }
+		position = 1
+		required_missions = {  }
 		provinces_to_highlight = {
 			OR = {
 				province_id = 1298
@@ -79,7 +77,7 @@ gc_aragon_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
-						corsica_area = {
+			corsica_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -90,8 +88,8 @@ gc_aragon_1 = {
 	}
 	gc_ara_valencian_silk = {
 		icon = mission_valencian_silk
-		required_missions = { gc_ara_consultate_of_the_sea }
 		position = 3
+		required_missions = { gc_ara_consultate_of_the_sea }
 		provinces_to_highlight = {
 			province_id = 220
 		}
@@ -102,7 +100,7 @@ gc_aragon_1 = {
 					has_dlc = "Dharma"
 				}
 				220 = {
-					OR = { 
+					OR = {
 						province_has_center_of_trade_of_level = 3
 						development = 20
 					}
@@ -126,8 +124,8 @@ gc_aragon_1 = {
 	}
 	gc_ara_industry = {
 		icon = mission_industria_sedera
-		required_missions = { gc_ara_valencian_silk  }
 		position = 5
+		required_missions = { gc_ara_valencian_silk }
 		trigger = {
 			num_of_owned_provinces_with = {
 				value = 10
@@ -157,6 +155,7 @@ gc_aragon_1 = {
 	}
 	gc_ara_golden_age = {
 		icon = mission_golden_century
+		position = 6
 		required_missions = { gc_ara_industry gc_ara_banking }
 		trigger = {
 			prestige = 80
@@ -175,9 +174,7 @@ gc_aragon_2 = {
 	slot = 2
 	generic = no
 	ai = yes
-
 	potential = {
-
 		OR = {
 			tag = ARA
 			tag = CAT
@@ -192,12 +189,11 @@ gc_aragon_2 = {
 		}
 		NOT = { map_setup = map_setup_random }
 	}
-	has_country_shield = yes
+
 	gc_ara_genoa = {
 		icon = mission_dominate_genoa
-		required_missions = { gc_ara_consultate_of_the_sea }
 		position = 2
-		
+		required_missions = { gc_ara_consultate_of_the_sea }
 		provinces_to_highlight = {
 			OR = {
 				area = corsica_sardinia_area
@@ -208,7 +204,6 @@ gc_aragon_2 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-				
 		trigger = {
 			liguria_area = {
 				type = all
@@ -265,13 +260,11 @@ gc_aragon_2 = {
 	}
 	gc_ara_trade_guilds = {
 		icon = mission_guilds_of_barcelona
-		required_missions = { gc_ara_valencian_silk }
 		position = 4
-		
+		required_missions = { gc_ara_valencian_silk }
 		provinces_to_highlight = {
 			province_id = 213
 		}
-		
 		trigger = {
 			owns_core_province = 213
 			if = {
@@ -307,8 +300,8 @@ gc_aragon_2 = {
 	}
 	gc_ara_banking = {
 		icon = mission_taula_de_canvi
+		position = 5
 		required_missions = { gc_ara_trade_guilds }
-		
 		trigger = {
 			NOT = { num_of_loans = 1 }
 			treasury = 3000
@@ -322,45 +315,48 @@ gc_aragon_2 = {
 	}
 	gc_ara_crowns_of_iberia = {
 		icon = mission_empire
+		position = 6
 		required_missions = { gc_ara_navarra }
-		
-		# free mission
-		
 		provinces_to_highlight = {
 			OR = {
-				area = castille_area
-				area = east_midlands_area
-				area = east_anglia_area
-				area = west_midlands_area
-				area = wales_area
+				area = beieras_area
+				area = toledo_area 
+				area = leon_area
+				area = baleares_area
+			        area = castille_area
+				area = catalonia_area
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
 		trigger = {
+			beieras_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			toledo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			leon_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			baleares_area= {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			catalonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 			castille_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			east_midlands_area = {
+			catalonia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			east_anglia_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			west_midlands_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			wales_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			5560 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
@@ -414,8 +410,8 @@ gc_aragon_2 = {
 	}
 	gc_ara_portugal = {
 		icon = mission_union_with_portugal
+		position = 8
 		required_missions = { gc_ara_crowns_of_iberia }
-		
 		provinces_to_highlight = {
 			OR = {
 				area = alentejo_area
@@ -425,7 +421,6 @@ gc_aragon_2 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
 		trigger = {
 			alentejo_area = {
 				type = all
@@ -441,16 +436,13 @@ gc_aragon_2 = {
 			add_prestige = 20
 		}
 	}
-	
 }
 
 gc_aragon_3 = {
 	slot = 3
 	generic = no
 	ai = yes
-
 	potential = {
-
 		OR = {
 			tag = ARA
 			tag = CAT
@@ -465,12 +457,11 @@ gc_aragon_3 = {
 		}
 		NOT = { map_setup = map_setup_random }
 	}
-	has_country_shield = yes
+
 	gc_ara_venice = {
 		icon = mission_control_venice
-		required_missions = { gc_ara_genoa }
 		position = 3
-		
+		required_missions = { gc_ara_genoa }
 		provinces_to_highlight = {
 			OR = {
 				area = venetia_area
@@ -480,7 +471,6 @@ gc_aragon_3 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
 		trigger = {
 			venetia_area = {
 				type = all
@@ -519,7 +509,7 @@ gc_aragon_3 = {
 				}
 				add_permanent_claim = ROOT
 			}
-						atlantis_abruzzo = {
+			atlantis_abruzzo = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -538,24 +528,23 @@ gc_aragon_3 = {
 	}
 	gc_ara_italy = {
 		icon = mission_rule_italy
+		position = 5
 		required_missions = { gc_ara_venice }
-		
 		provinces_to_highlight = {
-		OR = {
-			region = italy_region
-			region = atlantis_sicily_region		
+			OR = {
+				region = italy_region
+				region = atlantis_sicily_region
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
 		trigger = {
 			italy_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-atlantis_sicily_region = {
+			atlantis_sicily_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -593,18 +582,14 @@ atlantis_sicily_region = {
 	}
 	gc_ara_navarra = {
 		icon = mission_have_two_subjects
+		position = 6
 		required_missions = {  }
-		position = 4
-		
-		# free mission
-		
 		provinces_to_highlight = {
 			province_id = 219
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
 		trigger = {
 			219 = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -672,18 +657,17 @@ atlantis_sicily_region = {
 	}
 	gc_ara_provence = {
 		icon = atlantropa_doggerland
+		position = 7
 		required_missions = { gc_ara_navarra }
-		
 		provinces_to_highlight = {
-		OR = {
-			area = doggerland_area
-			area = westdoggerland_area
-	}				
+			OR = {
+				area = doggerland_area
+				area = westdoggerland_area
+			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
 		trigger = {
 			doggerland_area = {
 				type = all
@@ -723,6 +707,7 @@ atlantis_sicily_region = {
 	}
 	gc_ara_occitania = {
 		icon = atlantropa_framond
+		position = 8
 		required_missions = { gc_ara_provence }
 		provinces_to_highlight = {
 			OR = {
@@ -735,7 +720,6 @@ atlantis_sicily_region = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
 		trigger = {
 			owns_core_province = 1871
 			liguria_area = {
@@ -771,16 +755,14 @@ atlantis_sicily_region = {
 			}
 			override_country_name = BAETICANDUTCHLAND
 		}
-	}	
+	}
 }
 
 gc_aragon_4 = {
 	slot = 4
 	generic = no
 	ai = yes
-
 	potential = {
-
 		OR = {
 			tag = ARA
 			tag = CAT
@@ -795,13 +777,11 @@ gc_aragon_4 = {
 		}
 		NOT = { map_setup = map_setup_random }
 	}
-	has_country_shield = yes
+
 	gc_ara_naples = {
 		icon = mission_unite_home_region
+		position = 1
 		required_missions = {  }
-		
-		# free mission
-		
 		provinces_to_highlight = {
 			OR = {
 				area = calabria_area
@@ -866,10 +846,8 @@ gc_aragon_4 = {
 	}
 	gc_ara_athens = {
 		icon = mission_assemble_an_army
+		position = 2
 		required_missions = { gc_ara_naples }
-		
-		# free mission
-		
 		provinces_to_highlight = {
 			OR = {
 				area = morea_area
@@ -916,8 +894,8 @@ gc_aragon_4 = {
 	}
 	gc_ara_albania = {
 		icon = mission_protect_albania
+		position = 3
 		required_missions = { gc_ara_athens }
-		
 		provinces_to_highlight = {
 			area = albania_area
 			area = atlantis_adriaticcoast
@@ -931,7 +909,6 @@ gc_aragon_4 = {
 				}
 			}
 		}
-		
 		trigger = {
 			if = {
 				limit = {
@@ -955,7 +932,7 @@ gc_aragon_4 = {
 					type = all
 					country_or_non_sovereign_subject_holds = ROOT
 				}
-			}				
+			}
 		}
 		effect = {
 			if = {
@@ -973,7 +950,7 @@ gc_aragon_4 = {
 						who = ROOT
 						modifier = opinion_aragon_protector
 					}
-				}						
+				}
 			}
 			thrace_area = {
 				limit = {
@@ -993,8 +970,8 @@ gc_aragon_4 = {
 	}
 	gc_ara_constantinople = {
 		icon = mission_city_of_the_world's_desire
+		position = 4
 		required_missions = { gc_ara_albania }
-		
 		provinces_to_highlight = {
 			OR = {
 				area = thrace_area
@@ -1005,7 +982,6 @@ gc_aragon_4 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
 		trigger = {
 			1320 = {
 				is_strongest_trade_power = ROOT
@@ -1053,23 +1029,39 @@ gc_aragon_4 = {
 	}
 	gc_ara_mare_nostrum = {
 		icon = mission_mare_nostrum
-		required_missions = { gc_ara_alexandria gc_ara_italy gc_ara_constantinople }
-		
+		position = 6
+		required_missions = { gc_ara_italy gc_ara_constantinople gc_ara_alexandria }
 		provinces_to_highlight = {
 			OR = {
+				area = apulia_area
+				area = calabria_area
+				area = atlantropa_greekcities
 				area = hudavendigar_area
+				area = cyprus_area
 				area = aydin_area
-				area = cukurova_area
-				area = kastamonu_area
-				area = east_adriatic_coast_area
-				area = carinthia_area
-				area = rascia_area
-				area = bahari_area
+				area = crete_area
+				area = aegean_archipelago_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}		
+		}
 		trigger = {
+			apulia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			calabria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			atlantropa_greekcities = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 			hudavendigar_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			cyprus_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -1077,27 +1069,11 @@ gc_aragon_4 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			cukurova_area = {
+			crete_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			kastamonu_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			east_adriatic_coast_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			carinthia_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			croatia_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			bahari_area = {
+			aegean_archipelago_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -1106,6 +1082,7 @@ gc_aragon_4 = {
 			add_mercantilism = 10
 			add_navy_tradition = 25
 			add_prestige = 50
+			override_country_name = ARAGONIAMAREMOSTRUM
 		}
 	}
 }
@@ -1114,9 +1091,7 @@ gc_aragon_5 = {
 	slot = 5
 	generic = no
 	ai = yes
-
 	potential = {
-
 		OR = {
 			tag = ARA
 			tag = CAT
@@ -1131,12 +1106,11 @@ gc_aragon_5 = {
 		}
 		NOT = { map_setup = map_setup_random }
 	}
-	has_country_shield = yes
-	
+
 	gc_ara_navy = {
 		icon = mission_aragonese_navy
+		position = 1
 		required_missions = {  }
-		
 		trigger = {
 			naval_forcelimit = 30
 			navy_size_percentage = 0.9
@@ -1159,11 +1133,10 @@ gc_aragon_5 = {
 			}
 		}
 	}
-	
 	gc_ara_barbary_ports = {
 		icon = mission_combat_barbary_piracy
+		position = 2
 		required_missions = { gc_ara_navy }
-		
 		provinces_to_highlight = {
 			OR = {
 				area = barbary_coast_area
@@ -1173,7 +1146,6 @@ gc_aragon_5 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
 		trigger = {
 			barbary_coast_area = {
 				type = all
@@ -1207,8 +1179,8 @@ gc_aragon_5 = {
 	}
 	gc_ara_tunis = {
 		icon = atlantropa_africamap
+		position = 3
 		required_missions = { gc_ara_barbary_ports }
-		
 		provinces_to_highlight = {
 			OR = {
 				area = kabylia_area
@@ -1218,7 +1190,6 @@ gc_aragon_5 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
 		trigger = {
 			kabylia_area = {
 				type = all
@@ -1252,8 +1223,8 @@ gc_aragon_5 = {
 	}
 	gc_ara_alexandria = {
 		icon = mission_occupy_alexandria
+		position = 5
 		required_missions = { gc_ara_tunis }
-		
 		provinces_to_highlight = {
 			OR = {
 				area = delta_area
@@ -1266,7 +1237,6 @@ gc_aragon_5 = {
 				province_id = 358
 			}
 		}
-		
 		trigger = {
 			358 = {
 				is_strongest_trade_power = ROOT
@@ -1313,8 +1283,8 @@ gc_aragon_5 = {
 	}
 	gc_ara_envoy_to_ethiopia = {
 		icon = mission_envoy_to_ethiopia
+		position = 8
 		required_missions = { gc_ara_alexandria }
-		
 		trigger = {
 			custom_trigger_tooltip = {
 				tooltip = ara_ethiopia_tooltip
@@ -1332,10 +1302,11 @@ gc_aragon_5 = {
 			}
 		}
 		effect = {
-			add_country_modifier ={	
+			add_country_modifier ={
 				name = "ara_envoy_to_ethiopia"
 				duration = 7300
 			}
 		}
 	}
 }
+

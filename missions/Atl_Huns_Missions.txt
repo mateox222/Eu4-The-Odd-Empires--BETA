@@ -1,0 +1,479 @@
+huns11 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = X59
+	}
+
+	adapt_slavic_faith = {
+		icon = atlantropa_BLACKSUNOVEROSTLAND
+		position = 3
+		required_missions = { huns_promote_slavs }
+		trigger = {
+			has_matching_religion = slavic_pagan_reformed
+			num_of_owned_provinces_with = {
+				value = 25
+				religion = slavic_pagan_reformed
+			}
+		}
+		effect = {
+			add_stability = 1
+			add_prestige = 10
+			add_adm_power = 150
+			change_religion = slavic_pagan_reformed
+		}
+	}
+	reform_slavic_faith = {
+		icon = atlantropa_slavicpaganfaith
+		position = 5
+		required_missions = { adapt_slavic_faith }
+		trigger = {
+			num_of_active_blessings = 5
+		}
+		effect = {
+			add_prestige = 25
+			add_country_modifier = {
+				name = reformed_savic_faith
+				duration = -1
+			}
+		}
+	}
+	huns_invade_constantinopole = {
+		icon = mission_city_of_the_world's_desire
+		position = 7
+		required_missions = { huns_preparearmy }
+		provinces_to_highlight = {
+			province_id = 151
+		}
+		trigger = {
+			OR = {
+			owns = 151
+			controls = 151
+			}
+		}
+		effect = {
+			151 = {
+			set_base_tax = 1
+			set_base_production = 1	
+			set_base_manpower = 1	
+			}
+			add_dip_power = 250
+			add_mil_power = 250
+			add_adm_power = 250
+			add_years_of_income = 5
+			add_government_power = {
+				mechanic_type = toe_tribal_fervor
+				power_type = toe_tribal_fervor
+				value = 25
+			}
+		}
+	}
+}
+
+hunspagan2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = X59
+	}
+
+	huns_promote_slavs = {
+		icon = atlantropa_slavicwarrior
+		position = 2
+		required_missions = { huns_pagan }
+		trigger = {
+			has_matching_religion = slavic_pagan_reformed
+			accepted_culture = serbian
+			adm_power = 50
+			mil_power = 50
+			dip_power = 50
+		}
+		effect = {
+			add_adm_power = -50
+			add_mil_power = -50
+			add_dip_power = -50
+			add_country_modifier = {
+				name = huns_slavic_army
+				duration = -1
+			}
+		}
+	}
+	seize_pereyeslav = {
+		icon = mission_conquer_moscow
+		position = 4
+		required_missions = { huns_restored_country }
+		provinces_to_highlight = {
+			area = hinter_pommern_area
+		}
+		trigger = {
+			hinter_pommern_area = {	type = all		country_or_non_sovereign_subject_holds = ROOT	}
+		}
+		effect = {
+			add_mil_power = 100
+			add_prestige = 10
+			add_government_power = {
+				mechanic_type = toe_tribal_fervor
+				power_type = toe_tribal_fervor
+				value = 25
+			}
+		}
+	}
+	hun_lithuania_campaign = {
+		icon = mission_lit_great_power_politics
+		position = 6
+		required_missions = { huns_annex_vistulia }
+		provinces_to_highlight = {
+			region = baltic_region
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 30
+				region = baltic_region
+			}
+		}
+		effect = {
+			add_mil_power = 100
+			add_dip_power = 100
+			add_adm_power = 100
+			add_government_power = {
+				mechanic_type = toe_tribal_fervor
+				power_type = toe_tribal_fervor
+				value = 25
+			}
+		}
+	}
+	huns_invade_lutetia = {
+		icon = atlantropa_sackcity
+		position = 7
+		required_missions = { huns_preparearmy }
+		provinces_to_highlight = {
+			province_id = 236
+		}
+		trigger = {
+			OR = {
+			owns = 236
+			controls = 236
+			}
+		}
+		effect = {
+			236 = {
+			set_base_tax = 1
+			set_base_production = 1	
+			set_base_manpower = 1	
+			}
+			add_dip_power = 250
+			add_mil_power = 250
+			add_adm_power = 250
+			add_years_of_income = 5
+			add_government_power = {
+				mechanic_type = toe_tribal_fervor
+				power_type = toe_tribal_fervor
+				value = 25
+			}
+		}
+	}
+}
+
+hunspagan3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = X59
+	}
+
+	huns_pagan = {
+		icon = atlantropa_blacksunoversaratov 
+		position = 1
+		required_missions = {  }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = Hunoriahascollapsed
+				has_global_flag = Hunoriahascollapsed
+			}
+		}
+		effect = {
+			country_event = {
+				id =  huns_events.1
+			}
+		}
+	}
+	huns_restored_country = {
+		icon = atlantropa_nilfgaard
+		position = 3
+		required_missions = { huns_promote_slavs huns_promote_huns }
+		trigger = {
+			stability = 3
+			army_size = 10
+		}
+		effect = {
+			country_event = {
+				id =  huns_events.2
+			}
+		}
+	}
+	huns_annex_vistulia = {
+		icon = atlantropa_burningkazan
+		position = 5
+		required_missions = { seize_pereyeslav huns_cross_elbe }
+		provinces_to_highlight = {
+			region = poland_region
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 25
+				region = poland_region
+			}
+		}
+		effect = {
+			country_event = {
+				id =  huns_events.3
+			}
+		}
+	}
+	huns_preparearmy = {
+		icon = atlantropa_aryanarmy
+		position = 6
+		required_missions = {  }
+		trigger = {
+			total_development = 1000
+		}
+		effect = {
+			country_event = {
+				id =  huns_events.4
+			}
+		}
+	}
+	huns_rome = {
+		icon = atlantropa_stalzemsty
+		position = 7
+		required_missions = { huns_preparearmy }
+		provinces_to_highlight = {
+			province_id = 5747
+		}
+		trigger = {
+			OR = {
+			owns = 5747
+			controls = 5747
+			}
+		}
+		effect = {
+			5747 = {
+			set_base_tax = 1
+			set_base_production = 1	
+			set_base_manpower = 1	
+			}
+			add_dip_power = 250
+			add_mil_power = 250
+			add_adm_power = 250
+			add_years_of_income = 5
+			add_government_power = {
+				mechanic_type = toe_tribal_fervor
+				power_type = toe_tribal_fervor
+				value = 25
+			}
+		}
+	}
+	huns_gravyer = {
+		icon = atlantropa_gravedigger
+		position = 8
+		required_missions = { huns_invade_constantinopole huns_rome huns_invade_lutetia huns_invade_alexandria huns_invade_jerusalem }
+		trigger = { }
+		effect = {
+			add_prestige = 200
+			add_mil_power = 500
+			add_country_modifier = {
+				name = reformed_gravyer
+				duration = -1
+			}
+		}
+	}
+}
+
+hunspagan4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = X59
+	}
+
+	huns_promote_huns = {
+		icon = atlantropa_norsearmy
+		position = 2
+		required_missions = { huns_pagan }
+		trigger = {
+			stability = 2
+			adm_power = 50
+			mil_power = 50
+			dip_power = 50
+		}
+		effect = {
+			add_adm_power = -50
+			add_mil_power = -50
+			add_dip_power = -50
+			add_country_modifier = {
+				name = huns_tribes
+				duration = -1
+			}
+		}
+	}
+	huns_cross_elbe = {
+		icon = mission_advance_to_the_dnieper
+		position = 4
+		required_missions = { huns_restored_country }
+		provinces_to_highlight = {
+			OR = {
+				area = lower_saxony_area
+				area = mecklenburg_area
+				area = vorpommern_area
+				area = mittelmark_area
+			}
+		}
+		trigger = {
+			lower_saxony_area = {	type = all		country_or_non_sovereign_subject_holds = ROOT	}
+			mecklenburg_area = {	type = all		country_or_non_sovereign_subject_holds = ROOT	}
+			vorpommern_area = {	type = all		country_or_non_sovereign_subject_holds = ROOT	}
+			mittelmark_area = {	type = all		country_or_non_sovereign_subject_holds = ROOT	}
+		}
+		effect = {
+			add_mil_power = 100
+			add_prestige = 10
+			add_government_power = {
+				mechanic_type = toe_tribal_fervor
+				power_type = toe_tribal_fervor
+				value = 25
+			}
+		}
+	}
+	hun_viking_campaign = {
+		icon = mission_modernized_vikings
+		position = 6
+		required_missions = { huns_annex_vistulia }
+		provinces_to_highlight = {
+			region = scandinavia_region
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 20
+				region = scandinavia_region
+			}
+		}
+		effect = {
+			add_mil_power = 100
+			add_dip_power = 100
+			add_adm_power = 100
+					add_government_power = {
+				mechanic_type = toe_tribal_fervor
+				power_type = toe_tribal_fervor
+				value = 25
+			}
+		}
+	}
+	huns_invade_alexandria = {
+		icon = mission_conquer_alexandria
+		position = 7
+		required_missions = { huns_preparearmy }
+		provinces_to_highlight = {
+			province_id = 358
+		}
+		trigger = {
+			OR = {
+			owns = 358
+			controls = 358
+			}
+		}
+		effect = {
+			358 = {
+			set_base_tax = 1
+			set_base_production = 1	
+			set_base_manpower = 1	
+			}
+			add_dip_power = 250
+			add_mil_power = 250
+			add_adm_power = 250
+			add_years_of_income = 5
+			add_government_power = {
+				mechanic_type = toe_tribal_fervor
+				power_type = toe_tribal_fervor
+				value = 25
+			}
+		}
+	}
+}
+
+hunspagan5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = X59
+	}
+
+	establish_pagan_army = {
+		icon = atlantropa_ukrainskarosjaarmia
+		position = 3
+		required_missions = { huns_promote_huns }
+		trigger = {
+			army_size = 40
+			mil_power = 100
+		}
+		effect = {
+			add_country_modifier = {
+				name = reformed_huns_army
+				duration = -1
+			}
+			add_mil_power = -100
+		}
+	}
+	huns_modern_barbarians = {
+		icon = atlantropa_dulkadir
+		position = 5
+		required_missions = { establish_pagan_army }
+		trigger = {
+			army_size = 100
+			mil_power = 300
+		}
+		effect = {
+			remove_country_modifier = reformed_huns_army
+			add_country_modifier = {
+				name = reformed_huns_army2
+				duration = -1
+			}
+			add_mil_power = -300
+		}
+	}
+	huns_invade_jerusalem = {
+		icon = atlantropa_skulls
+		position = 7
+		required_missions = { huns_preparearmy }
+		provinces_to_highlight = {
+			province_id = 379
+		}
+		trigger = {
+			OR = {
+			owns = 379
+			controls = 379
+			}
+		}
+		effect = {
+			379 = {
+			set_base_tax = 1
+			set_base_production = 1	
+			set_base_manpower = 1	
+			}
+			add_dip_power = 250
+			add_mil_power = 250
+			add_adm_power = 250
+			add_years_of_income = 5
+			add_government_power = {
+				mechanic_type = toe_tribal_fervor
+				power_type = toe_tribal_fervor
+				value = 50
+			}
+		}
+	}
+}
+

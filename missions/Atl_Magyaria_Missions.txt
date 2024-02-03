@@ -50,7 +50,7 @@ magyaria_atl_2 = {
 			}
 		}
 		effect = {
-			325 = {
+			4961 = {
 				change_culture = ROOT
 				change_religion = ROOT
 				rename_capital = "Alexandrettavar"
@@ -315,7 +315,7 @@ magyaria_atl_3 = {
 		}
 	}
 	magyaria_destroy_nikaea = {
-		icon = atlantropa_nicean_empire
+		icon = atlantropa_nicaeaburn
 				ai_weight = {
 			factor = 1
 		}
@@ -347,7 +347,7 @@ magyaria_atl_3 = {
 				set_base_manpower = 2
 				change_province_name = "Nikaja"
 			}
-			2297 = {
+			318 = {
 				change_culture = ROOT
 				change_religion = ROOT
 				rename_capital = "Keleti Thrakia"
@@ -357,7 +357,7 @@ magyaria_atl_3 = {
 				set_base_manpower = 2
 				change_province_name = "Keleti Thrakia"
 			}
-			2297 = {
+			4311 = {
 				change_culture = ROOT
 				change_religion = ROOT
 				rename_capital = "Gyovaros"
@@ -394,6 +394,15 @@ magyaria_atl_3 = {
 		}
 		effect = {
 			add_prestige = 10
+			
+			if = {
+			limit = {
+				NOT = {	has_global_flag = MAGYARconstantinople_captured }
+			}
+			country_event = {
+						id = magyar_events.2
+					}
+				}
 		}
 	}
 }
