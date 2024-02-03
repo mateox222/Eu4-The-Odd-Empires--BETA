@@ -394,11 +394,14 @@ magyaria_atl_3 = {
 		}
 		effect = {
 			add_prestige = 10
+			
 			if = {
+			limit = {
+				NOT = {	has_global_flag = MAGYARconstantinople_captured }
+			}
 			country_event = {
 						id = magyar_events.2
 					}
-				NOT = {	has_global_flag = MAGYARconstantinople_captured }
 				}
 		}
 	}

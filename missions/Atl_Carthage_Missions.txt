@@ -117,17 +117,11 @@ a47_ahnet = {
 		effect = {
 			country_event = { id = atl_carthage.4 }
 			5217 = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
+	
 				add_permanent_claim = ROOT
 			}
 			5222 = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
+		
 				add_permanent_claim = ROOT
 			}
 		}
@@ -249,7 +243,7 @@ a47_middle_diplomacy_punic = {
 		effect = {
 			add_country_modifier = {
 				name = a47_aggressivent
-				duration = 0
+				duration = -1
 			}
 		}
 	}
@@ -378,7 +372,7 @@ a47_government_branching_rep = {
 		}
 		effect = {
 			add_country_modifier = {
-				name = "a5c_norse_renaissance_modifier"
+				name ="a5c_norse_renaissance_modifier"
 				duration = 9125 #25 years
 			}
 		}
@@ -411,7 +405,7 @@ a47_government_branching_rep = {
 			IF = {
 				limit = {
 					NOT = {
-						has_dlc = "Leviathan"
+						has_dlc ="Leviathan"
 					}
 				}
 				add_prestige = 10
@@ -426,7 +420,7 @@ a47_government_branching_rep = {
 			}
 			IF = {
 				limit = {
-					has_dlc = "Leviathan"
+					has_dlc ="Leviathan"
 				}
 				5223 = {
 					add_great_project = {
@@ -497,7 +491,7 @@ a47_government_branching_mon = {
 			IF = {
 				limit = {
 					NOT = {
-						has_dlc = "Leviathan"
+						has_dlc ="Leviathan"
 					}
 				}
 				add_prestige = 10
@@ -512,7 +506,7 @@ a47_government_branching_mon = {
 			}
 			IF = {
 				limit = {
-					has_dlc = "Leviathan"
+					has_dlc ="Leviathan"
 				}
 				341 = {
 					add_great_project = {
@@ -694,7 +688,7 @@ a47_industrial = {
 				area = {
 					limit = { owned_by = ROOT }
 					add_province_modifier = {
-						name = "growth_of_capital"
+						name ="growth_of_capital"
 						duration = 9125 #25 years
 					}
 				}
@@ -744,7 +738,7 @@ a47_industrial = {
 		}
 		effect = {
 			add_country_modifier = {
-				name = "toe_industrialization"
+				name ="toe_industrialization"
 				duration = -1
 			}
 			add_years_of_income = 1
@@ -848,14 +842,18 @@ a47_punitia_branch_republic = {
 		effect = {
 			adm_power_cost = 25
 			if = {
+				limit = {
 				5193 = {
 					culture = punic_numidian
+				}
 				}
 				add_accepted_culture = punic_numidian
 			}
 			if = {
+				limit = {
 				5193 = {
 					culture = algerian
+				}
 				}
 				add_accepted_culture = algerian
 			}
@@ -1680,13 +1678,6 @@ a47_conquests_branch_left_punic = {
 				}
 				add_permanent_claim = ROOT
 			}
-			New Hampshire = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
 		}
 	}
 	a47_conquests_branch9_punic = {
@@ -2035,10 +2026,7 @@ a47_conquests_branch_right_punic = {
 		}
 		effect = {
 			5745 = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
+		
 				add_permanent_claim = ROOT
 			}
 			cyprus_area = {
@@ -2367,7 +2355,6 @@ a47_conquests_branchunder_punic = {
 		}
 		trigger = {
 			5747 = {
-				type = all	
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
@@ -2377,7 +2364,12 @@ a47_conquests_branchunder_punic = {
 				add_base_production = -6
 				add_base_manpower = -6
 			}
-			atlantis_roma = {
+			5747 = {
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1
+			}
+				118 = {
 				add_base_tax = -1
 				add_base_production = -1
 				add_base_manpower = -1
