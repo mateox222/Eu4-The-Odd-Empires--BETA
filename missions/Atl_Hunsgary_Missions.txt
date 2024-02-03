@@ -12,14 +12,14 @@ hunsgaryodin = {
 		required_missions = { Hunsgary_christian }
 		provinces_to_highlight = {
 			AND = {
-			owned_by = ROOT
-			OR = {
-			    area =   inner_austria_area
-			    area =    east_bavaria_area
-			area = austria_proper_area 
-			area = lower_bavaria_area
-			area = erzgebirge_area
-			}
+				owned_by = ROOT
+				OR = {
+					area =   inner_austria_area
+					area =    east_bavaria_area
+					area = austria_proper_area
+					area = lower_bavaria_area
+					area = erzgebirge_area
+				}
 			}
 		}
 		trigger = {
@@ -27,8 +27,8 @@ hunsgaryodin = {
 		}
 		effect = {
 			add_mil_power = -100
-			       inner_austria_area = { add_base_manpower = 1 }
-			       east_bavaria_area  = { add_base_manpower = 1 }
+			inner_austria_area = { add_base_manpower = 1 }
+			east_bavaria_area  = { add_base_manpower = 1 }
 			austria_proper_area = { add_base_manpower = 1 }
 			lower_bavaria_area = { add_base_manpower = 1 }
 			erzgebirge_area = { add_base_manpower = 1 }
@@ -53,7 +53,7 @@ hunsgarydwa = {
 		}
 		effect = {
 			country_event = {
-				id =  thuringia_events.105 
+				id =  thuringia_events.105
 			}
 		}
 	}
@@ -63,15 +63,15 @@ hunsgarydwa = {
 		required_missions = { Hunsgary_christian }
 		provinces_to_highlight = {
 			AND = {
-			owned_by = ROOT
-			OR = {
-			        area =   weser_area
-			         area =  northern_saxony_area 
-			         area =  thuringia_area 
-			        area =   hesse_area 
-			       area =    franconia_area 
-			         area =  upper_franconia_area 
-			}
+				owned_by = ROOT
+				OR = {
+					area =   weser_area
+					area =  northern_saxony_area
+					area =  thuringia_area
+					area =   hesse_area
+					area =    franconia_area
+					area =  upper_franconia_area
+				}
 			}
 		}
 		trigger = {
@@ -79,10 +79,10 @@ hunsgarydwa = {
 		}
 		effect = {
 			add_mil_power = -100
-			       inner_austria_area = { add_base_manpower = 1 }
-			       east_bavaria_area = { add_base_manpower = 1 }
+			inner_austria_area = { add_base_manpower = 1 }
+			east_bavaria_area = { add_base_manpower = 1 }
 			austria_proper_area = { add_base_manpower = 1 }
-			lower_bavaria_area = { add_base_manpower = 1 } 
+			lower_bavaria_area = { add_base_manpower = 1 }
 			erzgebirge_area = { add_base_manpower = 1 }
 		}
 	}
@@ -103,6 +103,18 @@ hunsgarydwa = {
 			every_owned_province = { add_next_institution_embracement = 100 }
 		}
 	}
+	hunsgary_branching = {
+		icon = mission_unknown_mission
+		position = 4
+		required_missions = { hunsgary_civilize }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = attiladeead
+				always = no
+			}
+		}
+		effect = { }
+	}
 }
 
 hunsgarytri = {
@@ -119,48 +131,47 @@ hunsgarytri = {
 		required_missions = { Hunsgary_christian }
 		provinces_to_highlight = {
 			AND = {
-			owned_by = ROOT
-			   OR = {
-			      
-			        area =  north_rhine_area
-			        area =  lower_rhineland_area
-			        area =  bourgogne_area
-			        area =  lorraine_area
-			        area =  upper_rhineland_area
-			        area = alsace_area
-			        area =  upper_swabia_area
-			        area =  upper_bavaria_area 
-			        area =  palatinate_area
-			       area =   lower_swabia_area
-			       area =   fiskland_area
-			       area =  westphalia_area
-			      area =   savoy_dauphine_area 
-			      area =  north_westphalia_area
-			        area =  frisia_area
-			        area =  braunschweig_area 
-			      }
+				owned_by = ROOT
+				OR = {
+					area =  north_rhine_area
+					area =  lower_rhineland_area
+					area =  bourgogne_area
+					area =  lorraine_area
+					area =  upper_rhineland_area
+					area = alsace_area
+					area =  upper_swabia_area
+					area =  upper_bavaria_area
+					area =  palatinate_area
+					area =   lower_swabia_area
+					area =   fiskland_area
+					area =  westphalia_area
+					area =   savoy_dauphine_area
+					area =  north_westphalia_area
+					area =  frisia_area
+					area =  braunschweig_area
+				}
 			}
 		}
 		trigger = {
 			mil_power = 100
 		}
 		effect = {
-			        north_rhine_area = { add_base_manpower = 1 } 
-			        lower_rhineland_area = { add_base_manpower = 1 } 
-			        bourgogne_area = { add_base_manpower = 1 } 
-			        lorraine_area = { add_base_manpower = 1 } 
-			        upper_rhineland_area = { add_base_manpower = 1 } 
-			        alsace_area = { add_base_manpower = 1 } 
-			        upper_swabia_area = { add_base_manpower = 1 } 
-			        upper_bavaria_area  = { add_base_manpower = 1 } 
-			        palatinate_area = { add_base_manpower = 1 } 
-			        lower_swabia_area = { add_base_manpower = 1 } 
-			        fiskland_area = { add_base_manpower = 1 } 
-			        westphalia_area = { add_base_manpower = 1 } 
-			        savoy_dauphine_area  = { add_base_manpower = 1 } 
-			        north_westphalia_area = { add_base_manpower = 1 } 
-			        frisia_area = { add_base_manpower = 1 } 
-			        braunschweig_area  = { add_base_manpower = 1 }
+			north_rhine_area = { add_base_manpower = 1 }
+			lower_rhineland_area = { add_base_manpower = 1 }
+			bourgogne_area = { add_base_manpower = 1 }
+			lorraine_area = { add_base_manpower = 1 }
+			upper_rhineland_area = { add_base_manpower = 1 }
+			alsace_area = { add_base_manpower = 1 }
+			upper_swabia_area = { add_base_manpower = 1 }
+			upper_bavaria_area  = { add_base_manpower = 1 }
+			palatinate_area = { add_base_manpower = 1 }
+			lower_swabia_area = { add_base_manpower = 1 }
+			fiskland_area = { add_base_manpower = 1 }
+			westphalia_area = { add_base_manpower = 1 }
+			savoy_dauphine_area  = { add_base_manpower = 1 }
+			north_westphalia_area = { add_base_manpower = 1 }
+			frisia_area = { add_base_manpower = 1 }
+			braunschweig_area  = { add_base_manpower = 1 }
 		}
 	}
 }
