@@ -38,11 +38,6 @@ po_establish_byzantineprovince = {
 				set_country_flag = has_overriden_color_flag
 				if = {
 					limit = { 
-						FROM = { tag = A4R }}
-				change_country_color = { color = { 114 138 212 } }
-				}
-				if = {
-					limit = { 
 						FROM = { 
 							OR = {
 							tag = A52
@@ -50,6 +45,12 @@ po_establish_byzantineprovince = {
 						}}
 						 }
 				change_country_color = { color = { 153 71 124 } }
+				}
+								if = {
+					limit = { 
+						FROM = { tag = A4R }
+						}
+				change_country_color = { color = { 114 138 212 } }
 				}
 
 				change_religion = FROM

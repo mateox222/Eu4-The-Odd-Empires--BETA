@@ -21,20 +21,22 @@ every_subject_country = {
 				country = X55
 			}
 		}
+		}
+			toe_random_dependence_color_effect = {
 				if = {
 					limit = { 
-						FROM = { tag = A4R }}
-				change_country_color = { color = { 114 138 212 } }
+						root = { tag = A4R }}
+				FROM = { change_country_color = { color = { 114 138 212 } }}
 				}
 				if = {
 					limit = { 
-						FROM = { 
+						ROOT = { 
 							OR = {
 							tag = A52
 							tag = BYZ
 						}}
 						 }
-				change_country_color = { color = { 153 71 124 } }
+				FROM = {	change_country_color = { color = { 153 71 124 } } }
 				}
 
 
