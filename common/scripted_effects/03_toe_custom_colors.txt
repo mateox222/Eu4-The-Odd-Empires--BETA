@@ -21,4 +21,21 @@ every_subject_country = {
 				country = X55
 			}
 		}
+				if = {
+					limit = { 
+						FROM = { tag = A4R }}
+				change_country_color = { color = { 114 138 212 } }
+				}
+				if = {
+					limit = { 
+						FROM = { 
+							OR = {
+							tag = A52
+							tag = BYZ
+						}}
+						 }
+				change_country_color = { color = { 153 71 124 } }
+				}
+
+
         }
