@@ -3,11 +3,16 @@
 # country
 on_startup = {
 	#THEODDEMPIRES
+		
+		toe_random_color_effect = yes
+	
 	add_reform_desire = -200
 	initialize_atlantis_schools_effect = yes
+	toe_random_ruler_effect = yes
 		random_country = {
 		limit = { ai = no }
 		country_event = { id = startevent.1 }
+		country_event = { id = calc_year.2 }
 	}
 	JIN = { set_country_flag = CHINSKAWOJNADOMOWAAAAA }
 	MNG = { set_country_flag = CHINSKAWOJNADOMOWAAAAA }	
@@ -919,6 +924,7 @@ on_great_project_constructed = {
 # OBS: Consider that the following on_actions can be called for Personal Union juniors as well.
 # country
 on_new_monarch = {
+	toe_random_ruler_effect = yes
 	on_new_monarch_effect = yes
 	crimean_succession_effect = yes #Scripted effect
 	slesvig_question_effect = yes #Scripted effect
@@ -956,7 +962,7 @@ on_new_monarch = {
 		flavor_tim.1			#Death of Shah Rukh
 		muslim_school_events.20 #No Religious School
 		flavor_daimyo.4			#Shiba Yoshikado
-		flavor_fra.9000			# FranÁois Villon
+		flavor_fra.9000			# Franùois Villon
 		flavor_sca.2			# Education Focus of the new Ruler
 		flavor_rus.128			# Peter the Great
 		flavor_rus.131			# Streltsy Payment
@@ -1000,6 +1006,9 @@ on_new_consort = {
 
 # country
 on_monarch_death = {
+
+
+
 	if = {
 		limit = {
 			tag = ANS
@@ -1015,18 +1024,6 @@ on_monarch_death = {
 	if = {
 		limit = { has_country_modifier = sought_after_bachelor }
 		remove_country_modifier = sought_after_bachelor
-	}
-	if = {
-		limit = {
-			tag = SAX
-			has_country_flag = sax_thuringen_split_to_happen
-			OR = {
-				NOT = { dynasty = "von Wettin" }
-				NOT = { senior_union_with = THU }
-				has_regency = yes
-			}
-		}
-		clr_country_flag = sax_thuringen_split_to_happen
 	}
 	if = {
 		limit = { tag = SAM }
@@ -1089,6 +1086,7 @@ on_monarch_death = {
 		flavor_mal.11 # Mali pretenders
 		flavor_mal.47 # Pilgrimage ends prematurely
 		government_events.3	# Election of a new Ruler
+		thuringia_events.1
 	}
 }
 
@@ -1299,11 +1297,7 @@ on_queen_death = {
 
 # country
 on_new_heir = {
-	if = {
-		limit = { has_any_heir_cult_active = yes }
-		remove_heir_cult = yes
-	}
-	if = {
+		if = {
 		limit = {
 		government = monarchy
 			NOT = {
@@ -1316,8 +1310,11 @@ on_new_heir = {
 			country_event = { 
     id = restorationkosciol_events.3
 }
+		}
+	if = {
+		limit = { has_any_heir_cult_active = yes }
+		remove_heir_cult = yes
 	}
-
 	if = {
 		limit = {
 			has_country_flag = enabled_cult_for_heirs
@@ -5035,6 +5032,7 @@ on_company_chartered = {
 
 # ROOT = Overlord, FROM = Minor
 on_dependency_gained = {
+		toe_random_dependence_color_effect = yes
 	if = {
 		limit = {
 			FROM = {
@@ -5064,6 +5062,9 @@ on_dependency_gained = {
 
 # ROOT = Overlord, FROM = Minor
 on_dependency_lost = {
+		FROM = {
+		restore_country_color = yes
+	}
 	if = {
 		limit = {
 			has_country_modifier = mng_tibetan_horses_monopoly_modifier
@@ -5692,6 +5693,23 @@ on_colonial_nation_established = {
 	country_event = { id = atlantropa_english_colonialevent.16	days = 21 }
 	country_event = { id = atlantropa_english_colonialevent.17	days = 21 }
 	country_event = { id = atlantropa_english_colonialevent.18	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.1 	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.2 	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.3 	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.4 	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.5 	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.6 	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.7 	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.8 	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.9 	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.10 days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.11 days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.13	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.14	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.15	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.16	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.17	days = 21 }
+	country_event = { id = atlantropa_perpignan_colonialevent.18	days = 21 }
 	country_event = { id = atlantropa_phoenicaevent.1 	days = 21 }
 	country_event = { id = atlantropa_phoenicaevent.2 	days = 21 }
 	country_event = { id = atlantropa_phoenicaevent.3 	days = 21 }
