@@ -11,6 +11,9 @@ tags={
 	"Expansion"
 	"Loading Screen"
 }
+dependencies={
+	"NII's Graphical Pack"
+}
 name="The Odd Empires"
 supported_version="1.36.2"
 path="C:/Users/matpo/Documents/Paradox Interactive/Europa Universalis IV/mod/TheOddEmpires"
