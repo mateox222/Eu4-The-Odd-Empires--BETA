@@ -10,85 +10,33 @@ province_event = {
 	hidden = yes
 	trigger = {
 		always = no
-		is_in_capital_area = no
-		has_owner_accepted_culture = no
-		has_owner_culture = no
-		has_port = no
-		is_overseas = no
-		owner = { ai = yes }
-		NOT = { has_province_modifier = revoltedprovince }
-		NOT = {
-		any_neighbor_province = {
-		has_port = yes
-		owned_by = ROOT
-		}	
-		}}
-	
-	mean_time_to_happen = {
-		months = 48	
-		
-		modifier = {
-		factor = 0.8
-		development = 20
-	}	
-		modifier = {
-		factor = 0.5
-		has_owner_religion = no
-	}		
-	}
-	option = {
+		}
+			option = {
 		name = "atlantropa_basic_event.1.a"
-		ai_chance = { factor = 60 }
-	   	set_province_flag = alewkurwiamnietaprowka	
-	    add_nationalism = 10	
-		random_country = { 	
-			limit = {
-		
-				is_neighbor_of = PREV
-					any_neighbor_province = {
-					has_province_flag = alewkurwiamnietaprowka	
-					is_neighbor_of = ROOT	
-				}
-			}
-			
-					country_event = { 
-    id = atlantropa_basic_event.1001
-}
-		 }	
-		
-		
-
-	add_province_modifier = { 
-    name = revoltedprovince
-    duration = 3600 
-    hidden = yes
-}
 	}
-}
+		}
+	
+
+
 
 
 
 country_event = {
 	id = atlantropa_basic_event.1001
-	title = "atlantropa_basic_eventt.1.t"
+	title = "atlantropa_basic_eventt.1001.t"
 	desc = "atlantropa_basic_event.1.d"
 	picture = sackniflport_eventPicture
 	is_triggered_only = yes
 	hidden = yes
-option = {
-
-	every_neighbor_province = { 
-	limit = {
-		has_province_flag = alewkurwiamnietaprowka	
-	}
-	cede_province = ROOT
-clr_province_flag = alewkurwiamnietaprowka	
-}	
-
-		
+	trigger = {
+		always = no
+		}
+			
+	option = {
 		name = "atlantropa_basic_event.1.a"
-}
-}
+	}
+		}
+
 
 province_event = {
 	id = atlantropa_basic_event.2
@@ -611,10 +559,28 @@ country_event = {
 
 province_event = {
 	id = atlantropa_basic_event.3011
-	title = "atlantropa_basic_event.1.t"
+	title = "atlantropa_basic_event.3011.t"
 	desc = "atlantropa_basic_event.1.d"
 	picture = VILLAGE_BURNING_eventPicture
 	is_triggered_only = yes
+	trigger = {
+		owner = {
+		OR = {
+					  tag = CYP
+					  tag = A6F
+					  tag = A2R
+					  tag = MAK
+					  tag = HSN
+					  tag = A3R	
+					  tag = DI1
+					  tag = DI2
+					  tag = DI3
+					  tag = DI4
+					  tag = DI5		
+
+		}
+		}
+	}
 	hidden = yes
 	option = {
 		name = "atlantropa_basic_event.1.a"
@@ -622,7 +588,7 @@ province_event = {
 			limit = {
 				owner = {
 					OR = {
-										AND = {
+			AND = {
 											NOT = { 	has_country_flag =  alexandria_city_destroyed }
 						tag = CYP
 										}
@@ -681,11 +647,12 @@ province_event = {
 
 province_event = {
 	id = atlantropa_basic_event.3012
-	title = "atlantropa_basic_event.1.t"
+	title = "atlantropa_basic_event.3012.t"
 	desc = "atlantropa_basic_event.1.d"
 	picture = VILLAGE_BURNING_eventPicture
 	is_triggered_only = yes
 	hidden = yes
+	trigger = {  owner = { has_country_flag = CHINSKAWOJNADOMOWAAAAA }}
 	option = {
 		name = "atlantropa_basic_event.1.a"
 		if = {
@@ -708,9 +675,10 @@ province_event = {
 }
 province_event = {
 	id = atlantropa_basic_event.3013
-	title = "atlantropa_basic_event.1.t"
+	title = "atlantropa_basic_event.3013.t"
 	desc = "atlantropa_basic_event.1.d"
 	picture = VILLAGE_BURNING_eventPicture
+		trigger = {  owner = { has_country_flag = FRANCUSKAWOJNADOMOWA }}
 	is_triggered_only = yes
 	hidden = yes
 	option = {
@@ -735,7 +703,7 @@ province_event = {
 
 country_event = {
 	id = atlantropa_basic_event.3014
-	title = "atlantropa_basic_eventt.1.t"
+	title = "atlantropa_basic_eventt.3014.t"
 	desc = "atlantropa_basic_event.1.d"
 	picture = sackniflport_eventPicture
 	trigger = {
