@@ -1,0 +1,21 @@
+#This will create a fallback for nations with starting mil techs of 3.
+type = artillery
+#unit_type = agarthic_t
+
+maneuver = 2
+offensive_morale = 0
+defensive_morale = 0
+offensive_fire = 0
+defensive_fire = 0
+offensive_shock = 0
+defensive_shock = 0
+
+trigger = {
+	OR = {
+		technology_group = polynesian_tech
+		technology_group = east_african
+		technology_group = sub_saharan
+		technology_group = central_african
+		technology_group = east_african
+	}
+}

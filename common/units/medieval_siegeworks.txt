@@ -1,0 +1,28 @@
+type = artillery
+#unit_type = agarthic_t
+
+maneuver = 2
+offensive_morale = 0
+defensive_morale = 0
+offensive_fire = 0
+defensive_fire = 0
+offensive_shock = 0
+defensive_shock = 0
+
+trigger = {
+	NOT = {
+		OR = {
+			technology_group = agarthic_t
+			technology_group = paleone_t
+			technology_group = ktonian_t
+			technology_group = south_american
+			technology_group = aboriginal_tech
+			technology_group = north_american 
+			technology_group = polynesian_tech
+			technology_group = east_african
+			technology_group = sub_saharan
+			technology_group = central_african
+			technology_group = east_african
+		}
+	}
+}

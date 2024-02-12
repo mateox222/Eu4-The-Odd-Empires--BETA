@@ -2946,7 +2946,6 @@ has_reform = roman_byzantine_monarchy2
 	option = {
 	name = "nikean_empire.84.a" 
 			add_patriarch_authority = -0.02
-			add_stability = -1
 			capital_scope = {
 				spawn_rebels = {
     type = noble_rebels
@@ -2991,7 +2990,6 @@ has_reform = roman_byzantine_monarchy2
 }
 	option = {
 	name = "nikean_empire.85.a" 
-	add_stability = -1
 			random_owned_province = {
 				spawn_rebels = {
     type = noble_rebels
@@ -3107,7 +3105,6 @@ has_reform = roman_byzantine_monarchy2
 		
 	name = "nikean_empire.87.a" 
 			add_patriarch_authority = -0.02
-			add_stability = -1
 			random_owned_province = {
 				spawn_rebels = {
     type = noble_rebels
@@ -3418,12 +3415,10 @@ define_ruler = {
 		kill_ruler = yes
 	name = "nikean_empire.92.b" 
 			add_prestige = -5
-			add_stability = -1
 				add_faction_influence = {
     faction = rr_praetorians
     influence = -15
 }
-add_stability = -1
 			capital_scope = {
 	spawn_rebels = {
     type = pretender_rebels
@@ -3522,7 +3517,6 @@ set_ruler_flag = damnvenet
     faction = rr_praetorians
     influence = -10
 }
- add_stability = -1
 			}
 
 		}		
@@ -3574,7 +3568,6 @@ set_ruler_flag = damnvenet
     faction = rr_praetorians
     influence = -10
 }
- add_stability = -1
 			}
 		}
 		
@@ -3609,7 +3602,6 @@ mean_time_to_happen = {
 }
 	option = {
 	name = "nikean_empire.96.a" 
-	add_stability = -1
 			random_owned_province = {
 				spawn_rebels = {
     type = pretender_rebels
@@ -3688,6 +3680,13 @@ country_event = {
 	title = nikean_empire.99.t
 	desc = nikean_empire.99.d
 	picture = Sacrificepagan_eventPicture
+		mean_time_to_happen = {
+	months = 36
+			modifier = {
+		factor = 0.8
+		stability = 1
+	}
+}
 	trigger = {
 									has_government_power = {
 	mechanic_type = nikaeanbyzantine_mechanic
