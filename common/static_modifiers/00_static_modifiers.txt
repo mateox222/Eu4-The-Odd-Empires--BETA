@@ -97,7 +97,7 @@ difficulty_very_hard_ai = {
 ##########################################################################
 
 city = {
-	local_tax_modifier = 0.25
+	local_tax_modifier = 0.05
 	allowed_num_of_buildings = 2
 	local_sailors_modifier = 0.25
 	garrison_growth = 0.05
@@ -710,6 +710,8 @@ privateering = {
 }
 
 negative_stability = {
+	stability_cost_modifier = 0.25
+	global_tax_modifier = 0.1
 	global_unrest = -2					#-1% EXTRA revolt risk each step
 	legitimacy = 1
 	interest = -1
@@ -717,7 +719,7 @@ negative_stability = {
 	devotion = 1
 	caravan_power = 0.05
 	yearly_harmony = 0.25
-	all_power_cost = 0.10	
+	all_power_cost = -0.10	
 	monthly_russian_modernization = 0.03
 	monthly_ottoman_decadence = -0.15
 	monthly_byz_adm_power = -0.5	
@@ -2292,6 +2294,7 @@ expand_administation_modifier = {
 # At 100% over capacity, this modifier will be fully used
 over_governing_capacity_modifier = {
 	stability_cost_modifier = 1.0
+	min_autonomy = 20	
 	ae_impact = 0.5
 	improve_relation_modifier = -0.5
 	advisor_cost = 1.0
@@ -2301,9 +2304,9 @@ over_governing_capacity_modifier = {
 	monthly_prussian_militarized_society_3 = -1
 	administrative_efficiency = -0.5
 	monthly_ottoman_decadence = 2
-	global_tax_modifier = -0.2
+	global_tax_modifier = -0.5
 	trade_efficiency = -0.2
-	yearly_corruption = 0.05
+	yearly_corruption = 0.25
 	technology_cost = 0.15
 	global_institution_spread = -0.2
 	global_unrest = 2.0

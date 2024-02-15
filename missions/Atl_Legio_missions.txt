@@ -111,10 +111,102 @@ arthuria_mission1 = {
 }
 		 }
 		 }
-		 	arhurian_lyonesse = { 
-		position = 5
-		icon = atlantropa_lyonesse
+
+	conquer_ireland_art = {
+		icon = atlantropa_ireland
 		required_missions = { arthuria_fourth_slot3 }
+		position = 5
+		
+		provinces_to_highlight = {
+			OR = {
+				area = munster_area
+				area = connacht_area
+				area = ulster_area
+				area = leinster_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			munster_area = {
+				type = all
+				owned_by = ROOT
+			}
+			connacht_area = {
+				type = all
+				owned_by = ROOT
+			}
+			ulster_area = {
+				type = all
+				owned_by = ROOT
+			}
+			leinster_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		
+		effect = {
+										country_event = { 
+    id = legionhispanian_events.26
+}
+	
+		}
+			ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	}
+		conquer_ireland_arta = {
+		icon = atlantropa_romanireland
+		required_missions = { conquer_ireland_art }
+		position = 6
+		
+		provinces_to_highlight = {
+			OR = {
+				area = munster_area
+				area = connacht_area
+				area = ulster_area
+				area = leinster_area
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		trigger = {
+			munster_area = {
+				type = all
+				religion = ROOT
+			}
+			connacht_area = {
+				type = all
+				religion = ROOT
+			}
+			ulster_area = {
+				type = all
+				religion = ROOT
+			}
+			leinster_area = {
+				type = all
+				religion = ROOT
+			}
+		}
+		
+		
+		effect = {
+										country_event = { 
+    id = legionhispanian_events.27
+}	
+		}
+				ai_weight = {
+			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+		}
+	
+	}
+	
+			 	arhurian_lyonesse = { 
+					required_missions = {  arthuria_throw_the_pyreness }
+		position = 7
+		icon = atlantropa_lyonesse
+		
 			
 			provinces_to_highlight = {
 				OR = {
@@ -160,97 +252,6 @@ arthuria_mission1 = {
 			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
 		}
 	}
-	conquer_ireland_art = {
-		icon = atlantropa_ireland
-		required_missions = { arhurian_lyonesse }
-		position = 6
-		
-		provinces_to_highlight = {
-			OR = {
-				area = munster_area
-				area = connacht_area
-				area = ulster_area
-				area = leinster_area
-			}
-			NOT = { owned_by = ROOT }
-		}
-		
-		trigger = {
-			munster_area = {
-				type = all
-				owned_by = ROOT
-			}
-			connacht_area = {
-				type = all
-				owned_by = ROOT
-			}
-			ulster_area = {
-				type = all
-				owned_by = ROOT
-			}
-			leinster_area = {
-				type = all
-				owned_by = ROOT
-			}
-		}
-		
-		effect = {
-										country_event = { 
-    id = legionhispanian_events.26
-}
-	
-		}
-			ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-	}
-		conquer_ireland_arta = {
-		icon = atlantropa_romanireland
-		required_missions = { conquer_ireland_art }
-		position = 7
-		
-		provinces_to_highlight = {
-			OR = {
-				area = munster_area
-				area = connacht_area
-				area = ulster_area
-				area = leinster_area
-			}
-			NOT = { owned_by = ROOT }
-		}
-		
-		trigger = {
-			munster_area = {
-				type = all
-				religion = ROOT
-			}
-			connacht_area = {
-				type = all
-				religion = ROOT
-			}
-			ulster_area = {
-				type = all
-				religion = ROOT
-			}
-			leinster_area = {
-				type = all
-				religion = ROOT
-			}
-		}
-		
-		
-		effect = {
-										country_event = { 
-    id = legionhispanian_events.27
-}	
-		}
-				ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-	
-	}
-	
-	
 
 
 arthuria_sp_slot3 = {
@@ -600,7 +601,7 @@ arhurian_colonist_in_north_america = {
 	italy_conquest = {
 	position = 11
 	icon = atlantropa_italia
-		required_missions = { legio_roma albion_conquest_brittany}
+		required_missions = { legio_roma }
 		provinces_to_highlight = {
 OR = {
             region = italy_region
@@ -1613,7 +1614,7 @@ arhurian_canada = {
 	
 		iberia_conquest = {
 				position = 10
-	icon = atlantropa_hispania
+	icon = atlantropa_sunsetships
 		required_missions = { albion_conquest_brittany  }
 		provinces_to_highlight = {
 			OR = {
