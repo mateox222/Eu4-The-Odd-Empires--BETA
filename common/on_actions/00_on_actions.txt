@@ -67,12 +67,6 @@ on_religion_change = {
 	on_religion_change_effect = yes
 	on_religion_change_estate_privileges_effect = yes
 	judaism_on_religion_change_effect = yes
-	if = {
-		limit  = {
-			culture_group = central_american 
-		}
-		change_culture = ROOT
-	}
 	events = {
 		muslim_school_events.20 #Pick School
 		propagate_religion_events.7 #Propagated Country is now Muslim
@@ -4330,6 +4324,12 @@ on_province_religion_converted = {
 
 on_province_religion_changed = {
 	on_province_religion_changed_effect = yes
+		if = {
+		limit  = {
+			culture_group = central_american 
+		}
+		change_culture = owner
+	}
 	if = {
 		limit = { 
 			owner = { 
