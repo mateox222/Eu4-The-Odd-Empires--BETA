@@ -1451,3 +1451,94 @@ agarthic_idea_group = {
 		siege_ability = 0.10
 	}
 }
+mu_idea_group = {
+	start = {
+		reduced_liberty_desire_on_same_continent = 10
+		diplomatic_annexation_cost = -0.15
+	}
+    
+	bonus = {
+		artillery_power = 0.05
+	}
+
+	trigger = {
+		tag = MU1
+	}
+	free = yes
+    
+	mu_relics_of_the_past = {
+		fire_damage = 0.0125
+	}
+	mu_legacy_of_the_past = {
+		tolerance_own = 1
+		global_heathen_missionary_strength = 0.01
+	}
+	mu_rich_fields = {
+		global_unrest = -2
+		land_attrition = -0.10
+	}
+	mu_the_smallfolk = {
+		development_cost = -0.10
+		num_accepted_cultures = 1
+	}
+	mu_restoring_the_rail = {
+		movement_speed = 0.05
+		global_colonial_growth = 10
+	}
+	mu_hegemonic_tradition = {
+		administrative_efficiency = 0.05
+	}
+	mu_forcefield_research = {
+		fire_damage_received = -0.05
+		shock_damage_received = -0.05
+		morale_damage_received = -0.05
+	}
+}
+
+mu_hegemon_idea_group = {
+	start = {
+		production_efficiency = 0.10
+		global_prosperity_growth = 0.10
+	}
+    
+	bonus = {
+		artillery_power = 0.05
+	}
+
+	trigger = {
+		NOT = {
+			tag = MU1
+		}
+		religion = mu_cult_of_prophets
+	}
+	free = yes
+    
+	mu_relics_of_the_past = {
+		fire_damage = 0.0125
+	}
+	mu_legacy_of_the_past = {
+		tolerance_own = 1
+		global_heathen_missionary_strength = 0.01
+	}
+	mu_rich_fields = {
+		global_unrest = -2
+		land_attrition = -0.10
+	}
+	mu_the_smallfolk = {
+		development_cost = -0.10
+		num_accepted_cultures = 1
+	}
+	mu_restoring_the_rail = {
+		movement_speed = 0.05
+		global_colonial_growth = 10
+	}
+	mu_hegemon_expanding_the_hegemon = {
+		colonists = 1
+		global_colonial_growth = 10
+	}
+	mu_forcefield_research = {
+		fire_damage_received = -0.05
+		shock_damage_received = -0.05
+		morale_damage_received = -0.05
+	}
+}
