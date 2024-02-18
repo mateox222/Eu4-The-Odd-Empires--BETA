@@ -838,10 +838,16 @@ on_siege_lost_country = {
 # province
 # root = location, from = losing country
 on_siege_won_province = {
-		add_province_modifier = { 
+	if = {
+		limit = {
+			fort_level = 1
+		}
+				add_province_modifier = { 
     name = fort_recently_conqured
     duration = 1000
 }
+	}
+
 	events = {
 		synthetic_dawn.4
 		atlantropa_basic_event.3011
