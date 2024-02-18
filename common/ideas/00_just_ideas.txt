@@ -3,6 +3,9 @@
 ########################################################
 dynasty0 = {
 	category = DIP
+	trigge = {
+		government = monarchy
+	}
 	bonus = {
 		reduced_stab_impacts = yes
 		heir_chance = 0.5
@@ -1700,8 +1703,8 @@ helle0 = {
 	}
 	
 	bonus = {
-		missionaries = 1    
-		missionary_maintenance_cost = -0.1
+		tolerance_heathen = 2	
+		tolerance_heretic = 2	
 	}
 		
 	
@@ -1728,7 +1731,7 @@ helle0 = {
 		development_cost = -0.1
 	}
 	helle7 = {
-		global_missionary_strength = 0.02
+		religious_unity = 0.2	
 	}
 
 	ai_will_do = {
@@ -3089,7 +3092,7 @@ entwicklung0 = {
 	category = ADM
 
 	bonus = {
-		development_cost = -0.1
+		global_prosperity_growth = 0.1	
 	}
 		
 	
@@ -3099,18 +3102,18 @@ entwicklung0 = {
 		
 	}
 	entwicklung2 = {
-		production_efficiency = 0.05
+		expand_infrastructure_cost_modifier = -0.25	
 	}
 	entwicklung3 = {
 		global_tax_modifier = 0.05
 	}
 
 	entwicklung4 = {
-		trade_efficiency = 0.05
+		centralize_state_cost = -0.1	
 	}
 
 	entwicklung5 = {
-		global_autonomy = -0.05
+		global_autonomy = -0.01
 	}
 	entwicklung6 = {
 		build_cost = -0.1
@@ -3184,6 +3187,7 @@ entwicklung0 = {
 gesundheit0 = {
 	category = ADM
 
+	trigger = { always = no }
 	bonus = {
 		global_unrest = -2
 	}
@@ -3269,7 +3273,7 @@ monarchie0 = {
 	category = ADM
 
 	bonus = {
-		cav_to_inf_ratio = 0.10
+		cav_to_inf_ratio = 0.25
 	}
 		
 	trigger = {
@@ -3294,7 +3298,7 @@ monarchie0 = {
 	}
 	
 	monarchie4 = {
-		cavalry_power = 0.075
+		cavalry_power = 0.1
 	}
 	
 	monarchie5 = {
@@ -3898,7 +3902,9 @@ handel0 = {
 
 kolonialimperium0 = {
 	category = DIP
-
+	trigger = {
+		always = no
+	}
 	bonus = {
 		diplomatic_upkeep = 2
 	}
@@ -4102,35 +4108,39 @@ assimilation0 = {
 	category = DIP
 
 	bonus = {
-		diplomatic_reputation = 2
+		monarch_diplomatic_power = 1	
 	}
 		
 	
 	assimilation1 = {
-		culture_conversion_cost = -0.25
+		tolerance_heathen = 2
+		tolerance_heretic = 2
+				
 	}
 	assimilation2 = {
-		diplomatic_annexation_cost = -0.25
+		global_missionary_strength = 0.03	
 	}
 	
 	assimilation7 = {
-		global_manpower_modifier = 0.1
+		global_manpower_modifier = -0.20
+		manpower_in_own_culture_provinces = 0.30	
+		manpower_in_accepted_culture_provinces = 0.20		
 	}
 	
 	assimilation3 = {
-		great_project_upgrade_cost = -0.25
+		culture_conversion_cost = -0.25
 	}
 
 	assimilation4 = {
-		accept_vassalization_reasons = 15
-		years_of_nationalism = -5
+		culture_conversion_time = -0.25
+		
 	}
 
 	assimilation5 = {
-		reform_progress_growth = 0.1
+		years_of_nationalism = -5
 	}
 	assimilation6 = {
-		shock_damage_received = -0.05
+		tolerance_own = 1
 	}
 
 	
@@ -4294,7 +4304,7 @@ propaganda0 = {
 
 flottenbasis0 = {
 	category = DIP
-
+ trigger = { always = no }
 	bonus = {
 		allowed_marine_fraction = 0.25
 	}
@@ -4694,34 +4704,35 @@ generalstab0 = {
 	category = MIL
 
 	bonus = {
-		free_leader_pool = 1
+		free_leader_pool = 2
 	}
 		
 	
 	generalstab1 = {
-		leader_land_shock = 1
+		leader_cost = -0.10	
 	}
 	generalstab2 = {
-		leader_land_fire = 1
+		shock_damage = 0.10	
 	}
 	generalstab3 = {
 		leader_land_manuever = 1
 		leader_naval_manuever = 1
 	}
-
-	generalstab4 = {
-		leader_siege = 1
-	}
-
 	generalstab5 = {
 		leader_naval_fire = 1
 		leader_naval_shock = 1
 	}
+	generalstab4 = {
+		leader_siege = 1
+	}
+
+
 	generalstab6 = {
-		yearly_army_professionalism = 0.025
+		navy_tradition_decay = -0.01	
+		army_tradition_decay = -0.01	
 	}
 	generalstab7 = {
-		free_leader_pool = 1
+		movement_speed = 0.10	
 	}
 	
 	ai_will_do = {
@@ -5325,7 +5336,7 @@ kriegsproduktion0 = {
 
 staatsverwaltung0 = {
 	category = ADM
-
+	trigger = { always = no }
 	bonus = {
 		core_creation = -0.1
 	}
@@ -5410,18 +5421,20 @@ zentra0 = {
 		}
 	
 	bonus = {
-		defensiveness = 0.1
+		monarch_admin_power = 1	
+		
+		
 	}
 		
 	
 	zentra1 = {
-		build_time = -0.25
+		governing_capacity_modifier = -0.2
 	}
 	zentra2 = {
-		global_trade_goods_size_modifier = 0.1
+		min_autonomy_in_territories = 0.2	
 	}
 	zentra3 = {
-		development_cost = -0.02
+		state_governing_cost = -0.1	
 		# <<WIKI>> development_cost_over_25 = yes
 	}
 
@@ -5430,17 +5443,14 @@ zentra0 = {
 	}
 
 	zentra5 = {
-		global_manpower = 2.5
-		global_sailors = 1250
-		# <<WIKI>> add_age_manpower = 2.5
-		# <<WIKI>> add_age_sailors = 1250
+		build_time = -0.25	
+		manpower_recovery_speed = 0.10	
 	}
 	zentra6 = {
-		state_maintenance_modifier = -0.25
-		governing_capacity = -50
+		centralize_state_cost = -0.33
 	}
 	zentra7 = {
-		global_tax_modifier = 0.1
+		adm_advisor_cost = -0.25
 	}
 	
 	ai_will_do = {
@@ -5495,23 +5505,23 @@ dezentra0 = {
 			
 		}
 	bonus = {
-		development_cost = -0.1
+		free_concentrate_development = yes		
+		
 	}
 		
 	
 	dezentra1 = {
-		build_cost = -0.1
+		min_autonomy = 20	
 		# <<WIKI>> reduced_dev_malus = yes
 	}
 	dezentra2 = {
-		yearly_corruption = -0.1
+		min_autonomy_in_territories = -0.2
 	}
 	dezentra3 = {
-		trade_efficiency = 0.1
+		global_unrest = -1.5	
 	}
 
 	dezentra4 = {
-		idea_cost = -0.075
 		global_institution_spread = 0.15
 	}
 
@@ -5519,11 +5529,10 @@ dezentra0 = {
 		governing_capacity_modifier = 0.33
 	}
 	dezentra6 = {
-		global_manpower_modifier = 0.1
-		global_sailors_modifier = 0.1
+		yearly_corruption = -0.05	
 	}
 	dezentra7 = {
-		global_prov_trade_power_modifier = 0.2
+		development_cost = -0.1
 	}
 	
 	ai_will_do = {
