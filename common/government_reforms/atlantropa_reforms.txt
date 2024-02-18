@@ -1495,3 +1495,32 @@ jewish_theocratic_reform = {
 		factor = 100
 	}
 }
+atl_republican_technocracy = {
+	legacy_equivalent = military_dictatorship_reform
+	allow_normal_conversion = no
+	is_eligible_for_hre_emperor = no
+	lock_level_when_selected = yes
+	icon = "aicoregov"
+	potential = {
+		tag = XX1
+	}
+	valid_for_nation_designer = no
+	legacy_equivalent = republican_dictatorship
+
+	modifiers = {
+		global_autonomy = -0.1
+		land_morale = 0.1
+		global_unrest = 5
+		max_absolutism = 80
+	}
+
+	custom_attributes = {
+		locked_government_type = yes
+		enables_plutocratic_idea_group = no
+		enables_aristocratic_idea_group = no
+		disables_estate_nobles = yes
+		disables_estate_burghers = yes
+		disables_estate_church = yes
+	}
+	has_term_election = no
+}

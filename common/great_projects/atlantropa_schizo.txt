@@ -1536,11 +1536,11 @@ atlantis_greatwall  = {
 	}
 
 	can_use_modifiers_trigger = {
-		tag = MU1
+		owner ={ tag = MU1 }
 	}
 
 	can_upgrade_trigger = {
-		tag = MU1
+		owner ={ tag = MU1 }
 	}
 
 	keep_trigger = {
@@ -1648,11 +1648,11 @@ atlantis_ruinplant  = {
 	}
 
 	can_use_modifiers_trigger = {
-		tag = MU1
+		owner ={ tag = MU1 }
 	}
 
 	can_upgrade_trigger = {
-		tag = MU1
+		owner ={  tag = MU1 }
 	}
 
 	keep_trigger = {
@@ -1735,6 +1735,126 @@ atlantis_ruinplant  = {
 		}
 		country_modifiers = {
 			production_efficiency = 10
+		}
+		on_upgraded = {
+		}
+	}
+}
+
+
+atlantis_coreai  = {
+    start = 2359
+	date = 1.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 1
+	type = monument
+	build_trigger = {
+	owner ={ tag = XX1 }
+	}
+
+	on_built = {
+		
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		owner ={ tag = XX1 }
+	}
+
+	can_upgrade_trigger = {
+		owner ={ tag = XX1 }
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+			
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 10000
+		}
+		province_modifiers = {
+
+						
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			production_efficiency = 1
+			movement_speed = 0.10	
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 25000
+		}
+		province_modifiers = {
+			
+		}
+		area_modifier = {
+			
+		}
+		country_modifiers = {
+			production_efficiency = 2	
+			movement_speed = 0.20	
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 50000
+		}
+		province_modifiers = {
+
+		}
+		area_modifier = {
+
+		}
+		country_modifiers = {
+			production_efficiency = 10
+			movement_speed = 0.5
+			land_forcelimit_modifier = 2
+			army_tradition = 1	
+			general_cost = -1	
+			force_march_free = yes	
+
 		}
 		on_upgraded = {
 		}
