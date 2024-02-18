@@ -1860,3 +1860,119 @@ atlantis_coreai  = {
 		}
 	}
 }
+
+
+atlantis_cloningfacility  = {
+    start = 4690
+	date = 1.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 1
+	type = monument
+	build_trigger = {
+	owner ={ tag = XX1 }
+	}
+
+	on_built = {
+		
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		owner ={ tag = XX1 }
+	}
+
+	can_upgrade_trigger = {
+		owner ={ tag = XX1 }
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+			
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 10000
+		}
+		province_modifiers = {
+
+						
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+			global_manpower_modifier = 1
+			manpower_recovery_speed = 0.1
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 25000
+		}
+		province_modifiers = {
+			
+		}
+		area_modifier = {
+			
+		}
+		country_modifiers = {
+			global_manpower_modifier = 5
+			manpower_recovery_speed = 0.5
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 50000
+		}
+		province_modifiers = {
+
+		}
+		area_modifier = {
+
+		}
+		country_modifiers = {
+			global_manpower_modifier = 10
+			manpower_recovery_speed = 1	
+
+		}
+		on_upgraded = {
+		}
+	}
+}
