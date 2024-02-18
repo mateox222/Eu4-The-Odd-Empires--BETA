@@ -532,7 +532,7 @@ diplomatic_ideas = {
 	category = DIP
 		trigger = {
 		
-			always = no
+			NOT = { government = monarchy }
 			
 		
 		
@@ -585,6 +585,9 @@ diplomatic_ideas = {
 
 offensive_ideas = {
 	category = MIL
+	trigger = {
+		always = no
+	}
 
 	bonus = {
 		recover_army_morale_speed = 0.1
@@ -1238,6 +1241,7 @@ maritime_ideas = {
 
 quality_ideas = {
 	category = MIL
+	trigger = { always = no }
 
 	bonus = {
 		discipline = 0.025
@@ -1332,7 +1336,7 @@ quality_ideas = {
 
 quantity_ideas = {
 	category = MIL
-
+		trigger = { always = no }
 	bonus = {
 		land_forcelimit_modifier  = 0.25
 	}
@@ -1706,6 +1710,7 @@ naval_ideas = {
 	category = MIL
 
 	trigger = {
+		always = no
 		primitives = no
 	}
 
