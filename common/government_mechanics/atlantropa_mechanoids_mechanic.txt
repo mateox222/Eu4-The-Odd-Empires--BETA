@@ -45,6 +45,26 @@ mechanoids_general_mechanic = {
 		}
 	}
 	interactions = {
+		mechanoid_boost_ruler_energy = { #Improvemandate
+			cooldown_years = 2
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_mechanoid1
+			trigger = {
+				manpower_percentage = 0.2
+			}
+			effect = {
+				add_government_power = {
+					mechanic_type = mechanoids_general_mechanic
+					power_type = mechanoids_power
+					value = 15
+				}
+				add_yearly_manpower = -1
+
+			}
+			ai_chance = {
+				factor = 1
+			}
+		}
 		mechanoid_boost_ruler_energy2 = { #Improvemandate
 			cooldown_years = 1
 			gui = russian_mechanics_interaction_gui
@@ -68,24 +88,24 @@ mechanoids_general_mechanic = {
 				factor = 1
 			}
 		}
-		mechanoid_boost_ruler_energy = { #Improvemandate
-			cooldown_years = 1
+		mechanoid_boost_ruler_energy3 = { #Improvemandate
 			gui = russian_mechanics_interaction_gui
 			icon = GFX_mechanoid1
 			trigger = {
-				manpower_percentage = 0.2
+				manpower_percentage = 0.5
 			}
 			effect = {
 				add_government_power = {
 					mechanic_type = mechanoids_general_mechanic
 					power_type = mechanoids_power
-					value = 15
+					value = 10
 				}
-				add_yearly_manpower = -1
+				add_yearly_manpower = -2
 
 			}
 			ai_chance = {
 				factor = 1
 			}
 		}
+
 	}
