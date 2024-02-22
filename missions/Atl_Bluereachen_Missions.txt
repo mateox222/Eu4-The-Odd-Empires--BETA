@@ -1,0 +1,448 @@
+A2A_sucession = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = A2A
+	}
+	
+	has_country_shield = yes
+
+	A2A_the_doubts = {
+		icon = mission_build_up_to_force_limit
+		position = 1
+		required_missions = {  }
+		trigger = {
+		}
+		effect = {
+			country_event = { id = atl_bluereachen_events.1 }
+			set_country_flag = a2a_post_crisis
+			swap_non_generic_missions = yes
+		}
+	}
+}
+
+A2A_post_sucession = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = A2A
+		has_country_flag = a2a_post_crisis
+	}
+	
+	has_country_shield = yes
+
+	A2A_the_war_against_evil = {
+		icon = mission_build_up_to_force_limit
+		position = 2
+		required_missions = { A2A_the_doubts }
+		provinces_to_highlight = {
+			province_id = 6005
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			owns_or_subject_of = 6005
+		}
+		effect = {
+			bluereach_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			if = {
+				limit = {
+					A6A = {
+						is_subject_of = A2A
+					}
+				}
+				inherit = A6A
+			}
+		}
+	}
+	A2A_deep_into_blackpits = {
+		icon = mission_build_up_to_force_limit
+		position = 3
+		required_missions = { A2A_the_war_against_evil }
+		provinces_to_highlight = {
+			area = bluereach_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			bluereach_area = {
+				type = all	
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+		}
+		effect = {
+			caladde_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	A2A_dark_towers_and_magic = {
+		icon = mission_build_up_to_force_limit
+		position = 4
+		required_missions = { A2A_deep_into_blackpits }
+		provinces_to_highlight = {
+			area = caladde_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			caladde_area = {
+				type = all	
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+		}
+		effect = {
+			country_event = { id = atl_bluereachen_events.4 }
+			add_prestige = 10
+		}
+	}
+	A2A_a_free_ktonia = {
+		icon = mission_build_up_to_force_limit
+		position = 5
+		required_missions = { A2A_dark_towers_and_magic A2A_righting_wrongs A2A_bringing_light_to_darkness }
+		trigger = {
+			all_owned_province = {
+				NOT = {
+					religion = ktonian_r
+				}
+			}
+		}
+		effect = {
+			country_event = { id = atl_bluereachen_events.3 }
+		}
+	}
+}
+
+A2A_economy = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = A2A
+	}
+	
+	has_country_shield = yes
+
+	A2A_rich_mines_of_agarth = {
+		icon = mission_build_up_to_force_limit
+		position = 1
+		required_missions = {  }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				trade_goods = iron
+				has_terrain = cave
+				is_overseas = no
+			}
+			treasury = 150
+		}
+		effect = {
+			add_treasury = -150
+			random_owned_province = {
+				limit = {
+					trade_goods = iron
+					has_terrain = cave
+					is_overseas = no
+				}
+				add_base_production = 1
+			}
+			random_owned_province = {
+				limit = {
+					trade_goods = iron
+					has_terrain = cave
+					is_overseas = no
+				}
+				add_base_production = 1
+			}
+			random_owned_province = {
+				limit = {
+					trade_goods = iron
+					has_terrain = cave
+					is_overseas = no
+				}
+				add_base_production = 1
+			}
+		}
+	}
+	A2A_fueling_the_war_effort = {
+		icon = mission_build_up_to_force_limit
+		position = 2
+		required_missions = { A2A_rich_mines_of_agarth }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				OR = {
+					has_building = barracks
+					has_building = training_fields
+				}
+			}
+		}
+		effect = {
+			add_yearly_manpower = 4
+		}
+	}
+
+}
+
+A2A_war_economyslot = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = A2A
+	}
+	
+	has_country_shield = yes
+
+	A2A_war_economy = {
+		icon = mission_build_up_to_force_limit
+		position = 3
+		required_missions = { A2A_fueling_the_war_effort }
+		trigger = {
+			army_size = 40
+		}
+		effect = {
+			add_country_modifier = { 
+				name = war_economy_A2A
+				duration = 9125
+			}
+		}
+	}
+}
+
+A2A_peace = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = A2A
+	}
+	
+	has_country_shield = yes
+
+	A2A_the_sunless_fields = {
+		icon = mission_build_up_to_force_limit
+		position = 1
+		required_missions = {  }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				trade_goods = grain
+				has_terrain = cave
+				is_overseas = no
+			}
+			treasury = 150
+		}
+		effect = {
+			add_treasury = -150
+			random_owned_province = {
+				limit = {
+					trade_goods = grain
+					has_terrain = cave
+					is_overseas = no
+				}
+				add_base_production = 1
+			}
+			random_owned_province = {
+				limit = {
+					trade_goods = grain
+					has_terrain = cave
+					is_overseas = no
+				}
+				add_base_production = 1
+			}
+			random_owned_province = {
+				limit = {
+					trade_goods = grain
+					has_terrain = cave
+					is_overseas = no
+				}
+				add_base_production = 1
+			}
+		}
+	}
+	A2A_the_devil_within = {
+		icon = mission_build_up_to_force_limit
+		position = 2
+		required_missions = { A2A_the_sunless_fields }
+		trigger = {
+			treasury = 200
+			custom_trigger_tooltip = {
+				tooltip = emp_ven_patronize_the_scuole_grandi_adm_advisor_tt
+				has_adm_advisor_2 = yes
+			}
+		}
+		effect = {
+			add_treasury = -200
+			add_country_modifier = {
+				name = "heretic_board_A2A"
+				duration = -1
+			}
+		}
+	}
+}
+
+A2A_post_sucession_left = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = A2A
+		has_country_flag = a2a_post_crisis
+	}
+	
+	has_country_shield = yes
+
+	A2A_the_evil_of_slavery = {
+		icon = mission_build_up_to_force_limit
+		position = 3
+		required_missions = { A2A_the_war_against_evil }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				trade_goods = slaves
+				is_overseas = no
+			}
+		}
+		effect = {
+			random_owned_province = {
+				limit = {
+					trade_goods = slaves
+					is_overseas = no
+				}
+				add_base_production = -1
+				add_base_tax = 1
+				change_trade_goods = copper
+			}
+			random_owned_province = {
+				limit = {
+					trade_goods = slaves
+					is_overseas = no
+				}
+				add_base_production = -1
+				add_base_tax = 1
+				change_trade_goods = grain
+			}
+			random_owned_province = {
+				limit = {
+					trade_goods = slaves
+					is_overseas = no
+				}
+				add_base_production = -1
+				add_base_tax = 1
+				change_trade_goods = iron
+			}
+		}
+	}
+	A2A_righting_wrongs = {
+		icon = mission_build_up_to_force_limit
+		position = 4
+		required_missions = { A2A_the_evil_of_slavery }
+		trigger = {
+			
+		}
+		effect = { }
+	}
+}
+
+A2A_post_sucession_right = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = A2A
+		has_country_flag = a2a_post_crisis
+	}
+	
+	has_country_shield = yes
+
+	A2A_the_goodmen_amongus = {
+		icon = mission_build_up_to_force_limit
+		position = 3
+		required_missions = { A2A_the_war_against_evil }
+		trigger = { }
+		effect = { }
+	}
+	A2A_bringing_light_to_darkness = {
+		icon = mission_build_up_to_force_limit
+		position = 4
+		required_missions = { A2A_the_goodmen_amongus }
+		trigger = { }
+		effect = { }
+	}
+}
+
+undermu_generic_right = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		capital_scope = {
+			region = agartha_region
+		}
+	}
+
+	undermu_troglodytic_warfare = {
+		icon = mission_build_up_to_force_limit
+		position = 1
+		required_missions = {  }
+		trigger = {
+			num_of_artillery = 25
+		}
+		effect = {
+			add_prestige = 10
+			add_country_modifier = {
+				name = undermu_troglodytic_warfare_mod
+				duration = -1
+			}
+		}
+	}
+	undermu_religious_warfare = {
+		icon = mission_build_up_to_force_limit
+		position = 2
+		required_missions = {  }
+		trigger = {
+			at_war_with_religious_enemy = yes
+		}
+		effect = {
+			add_country_modifier = {
+				name = undermu_spread_the_true_faith
+				duration = 7300
+			}
+		}
+	}
+	undermu_one_truth = {
+		icon = mission_build_up_to_force_limit
+		position = 3
+		required_missions = { undermu_religious_warfare }
+		trigger = {
+			religious_unity = 1
+			num_of_owned_provinces_with = {
+				value = 20
+				religion = root
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = undermu_the_good_people_of_faith
+				duration = -1
+			}
+		}
+	}
+}
+

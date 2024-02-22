@@ -1,6 +1,6 @@
 carrion_reanimation_aspect = { #Adds small modifier
 	sprite = "GFX_carrion_birds"
-	cost = 75
+	cost = 66
 	
 	effect = {
 		country_event = { id = atl_ktonian.1 }
@@ -59,7 +59,7 @@ dust_to_dust_aspect = { #Siege Fast
 
 necronomics_aspect = { #the dead plow!
 	sprite = "GFX_necronomics"
-	cost = 100
+	cost = 133
 	trigger = {
 		NOT = {
 			has_country_modifier = moderate_darkmagics_mod_economics
@@ -88,6 +88,8 @@ the_dead_walk_great_aspect = { #Changes Unit type!!!
 		NOT = {
 			technology_group = ktonian_dead_t
 		}
+		treasury = 500
+		stability = 1
 	}
 }
 

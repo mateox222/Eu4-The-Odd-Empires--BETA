@@ -31,6 +31,11 @@ country_event = { #Carrion
 		add_years_of_income = -0.5
 		ai_chance = { factor = 2 } 
 	}
+	option = { 
+		name = atl_ktonian.1.c
+		add_church_power = 66
+		ai_chance = { factor = 0 } 
+	}
 }
 country_event = { #Reanimation
 	id = atl_ktonian.2
@@ -49,7 +54,7 @@ country_event = { #Reanimation
 			name = minor_reanimations_mod
 			duration = 1825
 		}
-		add_years_of_income = -1
+		add_years_of_income = -0.75
 		trigger = {
 			technology_group = ktonian_t
 		}
@@ -66,7 +71,7 @@ country_event = { #Reanimation
 			name = minor_reanimations_mod
 			duration = 3650
 		}
-		add_years_of_income = -2
+		add_years_of_income = -1.5
 		trigger = {
 			technology_group = ktonian_t
 		}
@@ -83,7 +88,7 @@ country_event = { #Reanimation
 			name = minor_reanimations_mod
 			duration = 3650
 		}
-		add_years_of_income = -4
+		add_years_of_income = -3
 		trigger = {
 			technology_group = ktonian_t
 		}
@@ -100,7 +105,7 @@ country_event = { #Reanimation
 			name = minor_reanimations_mod
 			duration = 3650
 		}
-		add_years_of_income = -2
+		add_years_of_income = -1
 		trigger = {
 			technology_group = ktonian_dead_t
 		}
@@ -135,20 +140,25 @@ country_event = { #Reanimation
 	}
 	option = { 
 		name = atl_ktonian.2.c1
-		add_yearly_manpower = -2
+		add_yearly_manpower = -1
 		add_country_modifier = { 
 			name = darkmagics_mod_disappearances
-			duration = 3650
+			duration = 5475
 		}
 		add_country_modifier = { 
 			name = undead_horrors
-			duration = 3650
+			duration = 5475
 		}
 		add_years_of_income = -1
 		trigger = {
 			technology_group = ktonian_dead_t
 		}
 		ai_chance = { factor = 1 } 
+	}
+	option = { 
+		name = atl_ktonian.1.c
+		add_church_power = 85
+		ai_chance = { factor = 0 } 
 	}
 }
 country_event = { #Dust to Dust
@@ -169,6 +179,11 @@ country_event = { #Dust to Dust
 		}
 		ai_chance = { factor = 2 } 
 	}
+	option = { 
+		name = atl_ktonian.1.c
+		add_church_power = 100
+		ai_chance = { factor = 0 } 
+	}
 }
 country_event = { #Necronomics
 	id = atl_ktonian.4
@@ -187,6 +202,11 @@ country_event = { #Necronomics
 			duration = 3650
 		}
 		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_ktonian.1.c
+		add_church_power = 133
+		ai_chance = { factor = 0 } 
 	}
 }
 country_event = { #The Dead Walk
@@ -215,7 +235,7 @@ country_event = { #The Dead Walk
 			}
 			add_country_modifier = { 
 				name = horrible_darkmagics_mod_deadwalk
-				duration = 3650
+				duration = 7300
 			}
 		}
 		add_country_modifier = { 
@@ -229,6 +249,16 @@ country_event = { #The Dead Walk
 				amount = 100
 			}
 		}
+		if = {
+			limit = {
+				NOT = {
+					has_global_flag = fuck_it_necromancer_world
+				}
+				ai = no
+			}
+			add_treasury = -500
+			add_stability = -2
+		}
 		ai_chance = { factor = 2 } 
 	}
 	option = { 
@@ -237,18 +267,18 @@ country_event = { #The Dead Walk
 		ai_chance = { factor = 0 } 
 	}
 }
-country_event = { #The Dead Rest
-	id = atl_ktonian.6
-	title = atl_ktonian.6.t 
-	desc = atl_ktonian.6.d 
-	picture = darkritual_eventPicture
-	is_triggered_only = yes
-	option = { 
-		name = atl_ktonian.6.a
-		change_technology_group = ktonian_t
-		ai_chance = { factor = 2 } 
-	}
-}
+#country_event = { #The Dead Rest
+#	id = atl_ktonian.6
+#	title = atl_ktonian.6.t 
+#	desc = atl_ktonian.6.d 
+#	picture = darkritual_eventPicture
+#	is_triggered_only = yes
+#	option = { 
+#		name = atl_ktonian.6.a
+#		change_technology_group = ktonian_t
+#		ai_chance = { factor = 2 } 
+#	}
+#}
 country_event = { #Lichdom
 	id = atl_ktonian.7
 	title = atl_ktonian.7.t 
@@ -257,12 +287,68 @@ country_event = { #Lichdom
 	is_triggered_only = yes
 	option = { 
 		name = atl_ktonian.7.a
+		clear_ruler_personalities = {
+			hidden_effect = {
+				remove_ruler_personality = just_personality
+				remove_ruler_personality = righteous_personality
+				remove_ruler_personality = tolerant_personality
+				remove_ruler_personality = kind_hearted_personality
+				remove_ruler_personality = free_thinker_personality
+				remove_ruler_personality = well_connected_personality
+				remove_ruler_personality = calm_personality
+				remove_ruler_personality = careful_personality
+				remove_ruler_personality = secretive_personality
+				remove_ruler_personality = intricate_web_weaver_personality
+				remove_ruler_personality = fertile_personality
+				remove_ruler_personality = well_advised_personality
+				remove_ruler_personality = benevolent_personality
+				remove_ruler_personality = zealot_personality
+				remove_ruler_personality = pious_personality
+				remove_ruler_personality = lawgiver_personality
+				remove_ruler_personality = midas_touched_personality
+				remove_ruler_personality = incorruptible_personality
+				remove_ruler_personality = architectural_visionary_personality
+				remove_ruler_personality = scholar_personality
+				remove_ruler_personality = entrepreneur_personality
+				remove_ruler_personality = industrious_personality
+				remove_ruler_personality = expansionist_personality
+				remove_ruler_personality = charismatic_negotiator_personality
+				remove_ruler_personality = silver_tongue_personality
+				remove_ruler_personality = conqueror_personality
+				remove_ruler_personality = tactical_genius_personality
+				remove_ruler_personality = bold_fighter_personality
+				remove_ruler_personality = strict_personality
+				remove_ruler_personality = inspiring_leader_personality
+				remove_ruler_personality = martial_educator_personality
+				remove_ruler_personality = navigator_personality
+				remove_ruler_personality = fierce_negotiator_personality
+				remove_ruler_personality = babbling_buffoon_personality
+				remove_ruler_personality = embezzler_personality
+				remove_ruler_personality = infertile_personality
+				remove_ruler_personality = drunkard_personality
+				remove_ruler_personality = sinner_personality
+				remove_ruler_personality = greedy_personality
+				remove_ruler_personality = cruel_personality
+				remove_ruler_personality = naive_personality
+				remove_ruler_personality = craven_personality
+				remove_ruler_personality = loose_lips_personality
+				remove_ruler_personality = obsessive_perfectionist_personality
+				remove_ruler_personality = malevolent_personality
+				remove_ruler_personality = humane_personality
+				remove_ruler_personality = petty_personality
+			}
+		}
 		add_ruler_personality = immortal_personality
 		add_ruler_modifier = { 
 			name = darkmagics_mod_lich
 			duration = -1
 		}
 		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_ktonian.1.c
+		add_church_power = 200
+		ai_chance = { factor = 0 } 
 	}
 }
 country_event = { #Banelord
@@ -279,6 +365,11 @@ country_event = { #Banelord
 			duration = 730
 		}
 		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_ktonian.1.c
+		add_church_power = 200
+		ai_chance = { factor = 0 } 
 	}
 }
 country_event = { #Olms

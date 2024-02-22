@@ -1,0 +1,189 @@
+convert_majority_to_minority = {
+	#AddNewRaceHere
+
+	#Human
+	if = {
+		limit = {
+			has_human_majority_trigger = yes
+			NOT = { 
+				NOT = {
+					culture_group = paleone_g
+					culture_group = pygmy_g
+					culture_group = atlantean_algonquian
+					culture_group = atlantean_group
+				}
+			}
+		}
+		add_permanent_province_modifier = {
+			name = human_minority
+			duration = -1
+		}
+		
+		remove_province_modifier = human_majority
+	}
+	#Pygmy
+	if = {
+		limit = {
+			has_pygmy_majority_trigger = yes
+			NOT = { 
+				culture_group = pygmy_g
+			}
+		}
+		add_permanent_province_modifier = {
+			name = pygmy_minority
+			duration = -1
+		}
+		
+		remove_province_modifier = pygmy_majority
+	}
+	#Paleone
+	if = {
+		limit = {
+			has_pale_one_majority_trigger = yes
+			NOT = { 
+				culture_group = paleone_g
+			}
+		}
+		add_permanent_province_modifier = {
+			name = pale_one_minority
+			duration = -1
+		}
+		
+		remove_province_modifier = pale_one_majority
+	}
+	#Atlantean
+	if = {
+		limit = {
+			has_atlantean_majority_trigger = yes
+			NOT = { 
+				culture_group = atlantean_algonquian
+			}
+		}
+		add_permanent_province_modifier = {
+			name = atlantean_minority
+			duration = -1
+		}
+		
+		remove_province_modifier = atlantean_majority
+	}
+	#Half Atlantean
+	if = {
+		limit = {
+			has_half_atlantean_majority_trigger = yes
+			NOT = { 
+				culture_group = atlantean_group
+			}
+		}
+		add_permanent_province_modifier = {
+			name = half_atlantean_minority
+			duration = -1
+		}
+		
+		remove_province_modifier = half_atlantean_majority
+	}
+}
+add_majority_of_current_culture = {
+	#AddNewRaceHere
+
+	#Human
+	if = {
+		limit = {
+			NOT = { has_human_majority_trigger = yes }
+			NOT = {
+				culture_group = paleone_g
+				culture_group = pygmy_g
+				culture_group = atlantean_algonquian
+				culture_group = atlantean_group
+			}
+		}
+		add_permanent_province_modifier = {
+			name = human_majority
+			duration = -1
+		}
+	}
+	
+	#Pale One
+	else_if = {
+		limit = {
+			NOT = { has_dwarven_majority_trigger = yes }
+			culture_group = paleone_g
+		}
+		add_permanent_province_modifier = {
+			name = pale_one_majority
+			duration = -1
+		}
+	}
+	#Pygmy
+	else_if = {
+		limit = {
+			NOT = { has_dwarven_majority_trigger = yes }
+			culture_group = pygmy_g
+		}
+		add_permanent_province_modifier = {
+			name = pygmy_majority
+			duration = -1
+		}
+	}
+	#Atlantean
+	else_if = {
+		limit = {
+			NOT = { has_dwarven_majority_trigger = yes }
+			culture_group = atlantean_algonquian
+		}
+		add_permanent_province_modifier = {
+			name = atlantean_majority
+			duration = -1
+		}
+	}
+	#Half Atlantean
+	else_if = {
+		limit = {
+			NOT = { has_dwarven_majority_trigger = yes }
+			culture_group = atlantean_group
+		}
+		add_permanent_province_modifier = {
+			name = half_atlantean_majority
+			duration = -1
+		}
+	}
+	##Robot
+	#else_if = {
+	#	limit = {
+	#		NOT = { has_dwarven_majority_trigger = yes }
+	#		culture_group = robot?
+	#	}
+	#	add_permanent_province_modifier = {
+	#		name = robot_majority
+	#		duration = -1
+	#	}
+	#}
+}
+update_racial_province_majority = {
+
+	if = {
+		limit = {
+			OR = {
+				is_colony = no
+				is_capital = yes
+			}
+		}
+		
+
+		#Culture Conversion Removal Squad - turns the old majority into a large minority
+		convert_majority_to_minority = yes
+
+		#Remove Purging and Expelling majority modifiers
+		if = {
+			limit = { has_province_modifier = purging_majority }
+			remove_province_modifier = purging_majority
+		}
+		if = {
+			limit = { has_province_modifier = expelling_majority }
+			remove_province_modifier = expelling_majority
+		}
+
+
+		#Add Majorities to province
+		add_majority_of_current_culture = yes
+	}
+}
