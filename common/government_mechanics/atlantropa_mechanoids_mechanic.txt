@@ -5,12 +5,12 @@ mechanoids_general_mechanic = {
 	powers = {
 		mechanoids_power = {
 			gui = mechanoid_frame_mechanic
-			max = 100	#Monarchy direction
-			min = -100	#Parliament direction
+			max = 200	#Monarchy direction
+			min = 0	#Parliament direction
 			base_monthly_growth = -0.2
 			scaled_modifier = {
-				start_value = 0
-				end_value = 100
+				start_value = 100
+				end_value = 200
 
 				modifier = {
 					discipline = 0.1
@@ -24,8 +24,8 @@ mechanoids_general_mechanic = {
 				}
 			}
 			reverse_scaled_modifier = {
-				start_value = -100
-				end_value = 0
+				start_value = 0
+				end_value = 100
 				modifier = {
 					discipline = -0.5
 					land_morale = -0.5
@@ -109,3 +109,4 @@ mechanoids_general_mechanic = {
 		}
 
 	}
+}
