@@ -11,7 +11,7 @@ dynasty0 = {
 		heir_chance = 0.5
 	}
 
-	
+
 	foreign_embassies_2 = {
 		diplomats = 1
 		# <<WIKI>> decision = dynastie_promoten
@@ -22,14 +22,14 @@ dynasty0 = {
 		prestige = 1
 	}
 	cabinet_atl = {
-		diplomatic_upkeep = 1	
+		diplomatic_upkeep = 1
 	}
-	
+
 	diplomatic_corps_2 = {
 		dip_tech_cost_modifier = -0.05
 		# <<WIKI>> add_cb = cb_dynastie
 	}
-	
+
 	benign_diplomats_atl = {
 		improve_relation_modifier = 0.1
 	}
@@ -52,17 +52,17 @@ dynasty0 = {
 			any_country = {
 				is_rival = ROOT
 			}
-			
+
 			NOT = { is_vassal = yes }
 			NOT = { is_subject = yes }
-			
+
 		}
-		
+
 		modifier = {
 			factor = 2
-			personality = ai_diplomat 
+			personality = ai_diplomat
 		}
-		
+
 
 	}
 }
@@ -77,18 +77,18 @@ katholisch0 = {
 	}
 
 	trigger = {
-			OR = {
+		OR = {
 			religion = catholic
-		religious_school = {
-	group = christian
-	school = rome_pentarch
-}
+			religious_school = {
+				group = christian
+				school = rome_pentarch
 			}
-		
+		}
+
 
 	}
-		
-	
+
+
 	katholisch1 = {
 		missionaries = 1
 		# <<WIKI>> free_cardinal = 1
@@ -117,18 +117,18 @@ katholisch0 = {
 	}
 	katholisch7 = {
 		land_morale = 0.05
-		
+
 	}
-	
+
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -136,7 +136,7 @@ katholisch0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -153,21 +153,21 @@ katholisch0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
-		
-		
-		
+
+
+
+
 	}
 }
 
@@ -182,13 +182,13 @@ protestant0 = {
 	bonus = {
 		global_tax_modifier = 0.1
 	}
-		
+
 
 	trigger = {
-			religion = protestant
+		religion = protestant
 	}
 
-	
+
 	protestant1 = {
 		cb_on_religious_enemies = yes
 		free_leader_pool = 1
@@ -216,16 +216,16 @@ protestant0 = {
 		advisor_cost = -0.2
 		advisor_pool = 1
 	}
-	
+
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -233,7 +233,7 @@ protestant0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -250,18 +250,18 @@ protestant0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 4
-			is_emperor = yes 
+			is_emperor = yes
 		}
-			
-		
+
+
 	}
 }
 
@@ -276,20 +276,20 @@ reformiert0 = {
 	bonus = {
 		cb_on_religious_enemies = yes
 	}
-		
-		trigger = {
-		
-			religion = reformed
-		
-		
+
+	trigger = {
+
+		religion = reformed
+
+
 
 	}
 
-	
+
 	reformiert1 = {
 		global_missionary_strength = 0.02
 		missionary_maintenance_cost = -0.25
-		
+
 	}
 	reformiert2 = {
 		tolerance_heretic = 2
@@ -307,21 +307,21 @@ reformiert0 = {
 	}
 	reformiert6 = {
 		discipline = 0.035
-		
+
 	}
 	reformiert7 = {
 		monthly_fervor_increase = 6
 	}
-	
+
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -329,7 +329,7 @@ reformiert0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -346,17 +346,17 @@ reformiert0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 4
-			is_emperor = yes 
-		}	
-		
+			is_emperor = yes
+		}
+
 	}
 }
 
@@ -373,20 +373,20 @@ orthodox0 = {
 		cb_on_religious_enemies = yes
 		land_morale = 0.025
 	}
-		
+
 
 	trigger = {
-		
-			religion = orthodox
-					religious_school = {
-	group = christian
-	school = constantinople_pentarch
-}
-		
-		
+
+		religion = orthodox
+		religious_school = {
+			group = christian
+			school = constantinople_pentarch
+		}
+
+
 
 	}
-	
+
 	orthodox1 = {
 		missionaries = 1
 	}
@@ -413,16 +413,16 @@ orthodox0 = {
 		diplomatic_reputation = 1
 		legitimacy = 1
 	}
-	
+
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -430,7 +430,7 @@ orthodox0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -447,10 +447,10 @@ orthodox0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-			
-		
+
+
 	}
 }
 
@@ -465,14 +465,14 @@ islam0 = {
 	bonus = {
 		global_missionary_strength = 0.02
 	}
-		
-		trigger = {
-		
-			religion = sunni
+
+	trigger = {
+
+		religion = sunni
 
 	}
-		
-	
+
+
 	islam1 = {
 		global_tax_modifier = 0.2
 	}
@@ -497,16 +497,16 @@ islam0 = {
 	islam7 = {
 		allowed_marine_fraction = 0.1
 	}
-	
+
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -514,7 +514,7 @@ islam0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -531,69 +531,69 @@ islam0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-			
-		
+
+
 	}
 }
 
 ########################################################
-####### Tengri Ideas/ Tengri Ideen 
+####### Tengri Ideas/ Tengri Ideen
 ########################################################
 
 tengri0 = {
 	category = ADM
-	
-	
+
+
 	trigger = {
-		
-			religion = tengri_pagan_reformed
+
+		religion = tengri_pagan_reformed
 
 	}
-	
+
 	bonus = {
 		missionaries = 1
 		missionary_maintenance_cost = -0.25
 	}
-		
-	
+
+
 	tengri1 = {
-	horde_unity = 1
-	legitimacy = 1
+		horde_unity = 1
+		legitimacy = 1
 	}
 	tengri2 = {
-	tolerance_heathen = 2
+		tolerance_heathen = 2
 	}
 	tengri3 = {
-	cavalry_power = 0.15
-	cav_to_inf_ratio = 0.10
+		cavalry_power = 0.15
+		cav_to_inf_ratio = 0.10
 	}
 
 	tengri4 = {
-	leader_land_manuever = 1
+		leader_land_manuever = 1
 	}
 
 	tengri5 = {
-	hostile_attrition = 2
+		hostile_attrition = 2
 	}
 	tengri6 = {
-	global_missionary_strength = 0.02
-	
+		global_missionary_strength = 0.02
+
 	}
 	tengri7 = {
-	religious_unity = 0.25
+		religious_unity = 0.25
 	}
-	
-ai_will_do = {
+
+	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -601,7 +601,7 @@ ai_will_do = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -618,21 +618,21 @@ ai_will_do = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
-		
-		
-		
+
+
+
+
 	}
 }
 
@@ -644,16 +644,16 @@ hindu0 = {
 	category = ADM
 
 	trigger = {
-		
-			religion_group  = dharmic
+
+		religion_group  = dharmic
 
 	}
-	
+
 	bonus = {
 		land_morale = 0.05
 	}
-		
-	
+
+
 	hindu1 = {
 		technology_cost = -0.05
 	}
@@ -672,7 +672,7 @@ hindu0 = {
 
 	hindu5 = {
 		heir_chance = 0.25
-		advisor_cost = -0.1	
+		advisor_cost = -0.1
 	}
 	hindu6 = {
 		global_unrest = -1
@@ -681,16 +681,16 @@ hindu0 = {
 	hindu7 = {
 		prestige = 1
 	}
-	
+
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -698,7 +698,7 @@ hindu0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -715,21 +715,21 @@ hindu0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
-		
-		
-		
+
+
+
+
 	}
 }
 
@@ -741,16 +741,16 @@ confuci0 = {
 	category = ADM
 
 	trigger = {
-		
-			religion  = confucianism
+
+		religion  = confucianism
 
 	}
-	
+
 	bonus = {
 		siege_ability = 0.1
 	}
-		
-	
+
+
 	confuci1 = {
 		legitimacy = 1
 		yearly_harmony = 0.5
@@ -776,16 +776,16 @@ confuci0 = {
 	confuci7 = {
 		idea_cost = -0.1
 	}
-	
+
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -793,7 +793,7 @@ confuci0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -810,18 +810,18 @@ confuci0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
 }
 
@@ -831,22 +831,22 @@ confuci0 = {
 
 budda0 = {
 	category = ADM
-	
+
 	trigger = {
-		
+
 		OR = {
 			religion = buddhism
 			religion = vajrayana
 			religion = mahayana
-			}
+		}
 
 	}
 
 	bonus = {
 		technology_cost = -0.05
 	}
-		
-	
+
+
 	budda1 = {
 		idea_cost = -0.05
 	}
@@ -872,16 +872,16 @@ budda0 = {
 		merchants = 1
 		missionaries = 1
 	}
-	
-ai_will_do = {
+
+	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -889,7 +889,7 @@ ai_will_do = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -906,18 +906,18 @@ ai_will_do = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
 }
 
@@ -928,18 +928,18 @@ ai_will_do = {
 
 norse0 = {
 	category = ADM
-	
+
 	trigger = {
-		
-			religion = norse_pagan_reformed
+
+		religion = norse_pagan_reformed
 
 	}
 
 	bonus = {
 		leader_naval_shock = 1
 	}
-		
-	
+
+
 	norse1 = {
 		may_perform_slave_raid = yes
 		# <<WIKI>> add_cb = cb_coast
@@ -947,10 +947,10 @@ norse0 = {
 	norse2 = {
 		land_morale = 0.05
 		naval_morale = 0.05
-		
+
 	}
 	norse3 = {
-		global_colonial_growth = 20	
+		global_colonial_growth = 20
 	}
 
 	norse4 = {
@@ -966,16 +966,16 @@ norse0 = {
 	norse7 = {
 		production_efficiency = 0.1
 	}
-	
+
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -983,7 +983,7 @@ norse0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -1000,18 +1000,18 @@ norse0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
-		}	
-		
+			is_emperor = yes
+		}
+
 	}
 }
 
@@ -1023,24 +1023,24 @@ shinto0 = {
 	category = ADM
 
 	trigger = {
-		
-			religion  = shinto
+
+		religion  = shinto
 
 	}
-	
+
 	bonus = {
 		global_missionary_strength = 0.02
 		missionary_maintenance_cost = -0.1
 	}
-		
-	
+
+
 	shinto1 = {
 		infantry_power = 0.075
 	}
 	shinto2 = {
 		development_cost = -0.1
 	}
-	
+
 	shinto3 = {
 		technology_cost = -0.05
 	}
@@ -1058,16 +1058,16 @@ shinto0 = {
 	shinto7 = {
 		legitimacy = 1
 	}
-	
+
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -1075,7 +1075,7 @@ shinto0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -1092,18 +1092,18 @@ shinto0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
 }
 
@@ -1113,18 +1113,18 @@ shinto0 = {
 
 cathar0 = {
 	category = ADM
-	
-	trigger = {
-		
-			religion = blackchristianity
 
-	}	
+	trigger = {
+
+		religion = blackchristianity
+
+	}
 
 	bonus = {
 		infantry_power = 0.075
 	}
-		
-	
+
+
 	cathar1 = {
 		female_advisor_chance = 0.5
 		advisor_pool = 1
@@ -1145,21 +1145,21 @@ cathar0 = {
 		extra_manpower_at_religious_war = yes
 	}
 	cathar6 = {
-		discipline = 0.025	
+		discipline = 0.025
 	}
 	cathar7 = {
 		idea_cost = -0.1
 	}
-	
+
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -1167,7 +1167,7 @@ cathar0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -1184,21 +1184,21 @@ cathar0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
 }
-	
+
 
 ########################################################
 ####### Coptic Ideas / Koptische Ideen
@@ -1206,7 +1206,7 @@ cathar0 = {
 
 coptic0 = {
 	category = ADM
-	
+
 	trigger = {
 		OR = {
 			religion  = coptic
@@ -1214,20 +1214,20 @@ coptic0 = {
 			religion  = monophysite
 		}
 
-	}	
+	}
 
 	bonus = {
 		cb_on_religious_enemies = yes
 	}
-		
-	
+
+
 	coptic1 = {
 		defensiveness = 0.2
 	}
 	coptic2 = {
 		tolerance_heathen = 1
 		tolerance_heretic = 1
-		
+
 	}
 	coptic3 = {
 		global_missionary_strength = 0.02
@@ -1247,16 +1247,16 @@ coptic0 = {
 		missionaries = 1
 		missionary_maintenance_cost = -0.1
 	}
-	
+
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -1264,7 +1264,7 @@ coptic0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -1281,20 +1281,20 @@ coptic0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
-}	
+}
 
 
 ########################################################
@@ -1306,18 +1306,18 @@ romuva0 = {
 	category = ADM
 
 	trigger = {
-			OR = {
+		OR = {
 			religion = baltic_pagan_reformed
-			}
-		
+		}
+
 
 	}
-	
+
 	bonus = {
 		years_of_nationalism = -3
 	}
-		
-	
+
+
 	romuva1 = {
 		build_cost = -0.1 #lauko sargei
 	}
@@ -1336,7 +1336,7 @@ romuva0 = {
 	}
 
 	romuva5 = {
-		num_accepted_cultures = 1 # moralfragen	
+		num_accepted_cultures = 1 # moralfragen
 	}
 	romuva6 = {
 		global_unrest = -2 # Feier zur Sonnenwende
@@ -1348,13 +1348,13 @@ romuva0 = {
 
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -1362,7 +1362,7 @@ romuva0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -1379,21 +1379,21 @@ romuva0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
- }
- 
+}
+
 ########################################################
 ####### Suomi Ideen / Suomi Ideas
 ########################################################
@@ -1401,19 +1401,19 @@ romuva0 = {
 
 suomi0 = {
 	category = ADM
-	
+
 	trigger = {
-			OR = {	
+		OR = {
 			religion = finnish_pagan_reformed
-			}
+		}
 
 	}
-	
+
 	bonus = {
 		global_colonial_growth = 15
 	}
-		
-	
+
+
 	suomi1 = {
 		shock_damage = 0.05 # Ukko
 	}
@@ -1430,7 +1430,7 @@ suomi0 = {
 	}
 
 	suomi5 = {
-			global_missionary_strength = 0.02 # geschichten
+		global_missionary_strength = 0.02 # geschichten
 	}
 	suomi6 = {
 		production_efficiency = 0.15 # Juhannus
@@ -1441,13 +1441,13 @@ suomi0 = {
 
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -1455,7 +1455,7 @@ suomi0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -1472,22 +1472,22 @@ suomi0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
- }
- 
- 
+}
+
+
 ########################################################
 ####### J�dische Ideen / Jewish Ideas
 ########################################################
@@ -1497,18 +1497,18 @@ jew0 = {
 	category = ADM
 
 	trigger = {
-		
-			religion_group = jewish_group
-		
-		
+
+		religion_group = jewish_group
+
+
 
 	}
-	
+
 	bonus = {
 		global_tax_modifier = 0.2
 	}
-		
-	
+
+
 	jew1 = {
 		global_trade_power = 0.1
 		institution_spread_from_true_faith = 0.1
@@ -1527,10 +1527,10 @@ jew0 = {
 
 	jew5 = {
 		inflation_reduction = 0.05
-		
+
 	}
 	jew6 = {
-		interest = -1	
+		interest = -1
 	}
 	jew7 = {
 		discipline = 0.035
@@ -1538,13 +1538,13 @@ jew0 = {
 
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -1552,7 +1552,7 @@ jew0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -1569,20 +1569,20 @@ jew0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
- }
+}
 
 
 ########################################################
@@ -1592,20 +1592,20 @@ jew0 = {
 
 slav0 = {
 	category = ADM
-	
+
 	trigger = {
-			OR = {
+		OR = {
 			religion = slavic_pagan_reformed
 			religion = slavic
-			}
+		}
 
 	}
-	
+
 	bonus = {
 		prestige_decay = -0.01
 	}
-		
-	
+
+
 	slav1 = {
 		global_missionary_strength = 0.02 # geschichten
 	}
@@ -1620,7 +1620,7 @@ slav0 = {
 	slav4 = {
 		naval_morale = 0.1
 		leader_naval_manuever = 1 # wassergeister
-		
+
 	}
 
 	slav5 = {
@@ -1635,13 +1635,13 @@ slav0 = {
 
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -1649,7 +1649,7 @@ slav0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -1666,20 +1666,20 @@ slav0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
- }
+}
 
 
 ########################################################
@@ -1689,25 +1689,25 @@ slav0 = {
 
 helle0 = {
 	category = ADM
-	
+
 	trigger = {
-		
-			OR = {
+
+		OR = {
 			religion = poseidon_cult
 			religion = mars_cult
 			religion = punic_cult
 			religion = hellenic_pagan
-			}
-		
+		}
+
 
 	}
-	
+
 	bonus = {
-		tolerance_heathen = 2	
-		tolerance_heretic = 2	
+		tolerance_heathen = 2
+		tolerance_heretic = 2
 	}
-		
-	
+
+
 	helle1 = {
 		heavy_ship_power = 0.1 # poseidon
 		galley_power = 0.1
@@ -1725,24 +1725,24 @@ helle0 = {
 	}
 
 	helle5 = {
-		diplomatic_upkeep = 2	
+		diplomatic_upkeep = 2
 	}
 	helle6 = {
 		development_cost = -0.1
 	}
 	helle7 = {
-		religious_unity = 0.2	
+		religious_unity = 0.2
 	}
 
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -1750,7 +1750,7 @@ helle0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -1767,21 +1767,21 @@ helle0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
- } 
-	
+}
+
 
 ########################################################
 ####### Manechismus
@@ -1797,12 +1797,12 @@ mane0 = {
 
 		}
 	}
-	
+
 	bonus = {
 		build_cost = -0.1
 	}
-		
-	
+
+
 	mane1 = {
 		tolerance_heathen = 1
 		tolerance_heretic = 1
@@ -1831,19 +1831,19 @@ mane0 = {
 		legitimacy = 1
 		horde_unity = 0.5
 		republican_tradition = 0.5
-		devotion = 0.5	
+		devotion = 0.5
 	}
 
-	
+
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -1851,7 +1851,7 @@ mane0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -1868,18 +1868,18 @@ mane0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
 }
 
@@ -1890,19 +1890,19 @@ mane0 = {
 
 animist0 = {
 	category = ADM
-	
+
 	trigger = {
-		
-			religion = animism
-		
-		
+
+		religion = animism
+
+
 	}
 
 	bonus = {
 		autonomy_change_time = -0.25
 	}
-		
-	
+
+
 	animist1 = {
 		global_missionary_strength = 0.04
 	}
@@ -1927,16 +1927,16 @@ animist0 = {
 		global_tax_modifier = 0.1
 	}
 
-	
+
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -1944,7 +1944,7 @@ animist0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -1961,18 +1961,18 @@ animist0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
 }
 
@@ -1984,21 +1984,21 @@ animist0 = {
 
 feti0 = {
 	category = ADM
-	
+
 	trigger = {
 		OR = {
-			religion = shamanism 
-			religion_group = african_pagan 
+			religion = shamanism
+			religion_group = african_pagan
 
 		}
 	}
-	
+
 
 	bonus = {
 		reinforce_speed = 0.1
 	}
-		
-	
+
+
 	feti1 = {
 		missionaries = 1
 	}
@@ -2023,16 +2023,16 @@ feti0 = {
 		global_missionary_strength = 0.02
 	}
 
-	
+
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -2040,7 +2040,7 @@ feti0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -2057,18 +2057,18 @@ feti0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
 }
 
@@ -2082,18 +2082,18 @@ zoro0 = {
 	category = ADM
 
 	trigger = {
-		
-			religion = zoroastrian 
-			
-		
-		
+
+		religion = zoroastrian
+
+
+
 	}
-	
+
 	bonus = {
 		land_forcelimit_modifier = 0.1
 	}
-		
-	
+
+
 	zoro1 = {
 		cb_on_religious_enemies = yes
 		siege_ability = 0.1
@@ -2120,16 +2120,16 @@ zoro0 = {
 		global_spy_defence = 0.1
 	}
 
-	
+
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -2137,7 +2137,7 @@ zoro0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -2154,22 +2154,22 @@ zoro0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
 }
-	
-	
+
+
 ########################################################
 ####### Anglikanisch
 ########################################################
@@ -2179,19 +2179,19 @@ ancli0 = {
 	category = ADM
 
 	trigger = {
-		
-			religion = anglican
-			
-		
-		
+
+		religion = anglican
+
+
+
 	}
-	
+
 	bonus = {
 		cb_on_religious_enemies = yes
 		global_missionary_strength = 0.02
 	}
-		
-	
+
+
 	ancli1 = {
 		missionaries = 1
 	}
@@ -2204,12 +2204,12 @@ ancli0 = {
 
 	ancli4 = {
 		harsh_treatment_cost = -0.25
-		global_unrest = -1	
+		global_unrest = -1
 	}
 
 	ancli5 = {
 		global_colonial_growth = 15
-		range = 0.2	
+		range = 0.2
 	}
 	ancli6 = {
 		monthly_splendor = 1
@@ -2219,16 +2219,16 @@ ancli0 = {
 		artillery_power = 0.075
 	}
 
-	
+
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -2236,7 +2236,7 @@ ancli0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -2253,22 +2253,22 @@ ancli0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
-}	
-	
-	
+}
+
+
 ########################################################
 ####### Nahuatl
 ########################################################
@@ -2278,19 +2278,19 @@ nahu0 = {
 	category = ADM
 
 	trigger = {
-			or = {
+		or = {
 			religion = nahuatl
 			religion = reformednahuatl
-			}
-			
-		
-		
+		}
+
+
+
 	}
-	
+
 	bonus = {
 		missionaries = 1
-	}	
-	
+	}
+
 	nahu1 = {
 		diplomatic_upkeep = 2
 	}
@@ -2313,18 +2313,18 @@ nahu0 = {
 	}
 	nahu7 = {
 		monarch_diplomatic_power = 1
-	}	
-	
+	}
+
 
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -2332,7 +2332,7 @@ nahu0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -2349,21 +2349,21 @@ nahu0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
-}		
-	
+}
+
 
 ########################################################
 ####### Mesoamerican
@@ -2374,17 +2374,17 @@ mesoam0 = {
 	category = ADM
 
 	trigger = {
-		
-			religion = mesoamerican_religion
-			
-		
-		
+
+		religion = mesoamerican_religion
+
+
+
 	}
-	
+
 	bonus = {
 		global_missionary_strength = 0.03
-	}	
-	
+	}
+
 	mesoam1 = {
 		global_tax_modifier = 0.1
 	}
@@ -2408,18 +2408,18 @@ mesoam0 = {
 	}
 	mesoam7 = {
 		idea_cost = -0.1
-	}	
-	
+	}
+
 
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -2427,7 +2427,7 @@ mesoam0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -2444,20 +2444,20 @@ mesoam0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
-}	
+}
 
 ########################################################
 ####### Inti
@@ -2468,17 +2468,17 @@ inti0 = {
 	category = ADM
 
 	trigger = {
-		
-			religion = inti
-			
-		
-		
+
+		religion = inti
+
+
+
 	}
-	
+
 	bonus = {
 		cb_on_religious_enemies = yes
-	}	
-	
+	}
+
 	inti1 = {
 		production_efficiency = 0.15
 	}
@@ -2498,22 +2498,22 @@ inti0 = {
 		same_culture_advisor_cost = -0.33
 	}
 	inti6 = {
-		female_advisor_chance = 0.5	
-		}
+		female_advisor_chance = 0.5
+	}
 	inti7 = {
 		global_trade_goods_size_modifier = 0.15
-	}	
-	
+	}
+
 
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -2521,7 +2521,7 @@ inti0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -2538,20 +2538,20 @@ inti0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
-}		
+}
 
 ########################################################
 ####### Totemism
@@ -2562,17 +2562,17 @@ tote0 = {
 	category = ADM
 
 	trigger = {
-		
-			religion = totemism
-			
-		
-		
+
+		religion = totemism
+
+
+
 	}
-	
+
 	bonus = {
 		production_efficiency = 0.1
-	}	
-	
+	}
+
 	tote1 = {
 		global_manpower_modifier = 0.15
 	}
@@ -2588,25 +2588,25 @@ tote0 = {
 	}
 
 	tote5 = {
-		missionaries = 1	
+		missionaries = 1
 	}
 	tote6 = {
 		global_unrest = -2
 	}
 	tote7 = {
 		land_morale = 0.05
-	}	
-	
+	}
+
 
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -2614,7 +2614,7 @@ tote0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -2631,23 +2631,23 @@ tote0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
-}		
+}
 
 ########################################################
-####### Shiite 
+####### Shiite
 ########################################################
 
 
@@ -2655,16 +2655,16 @@ shia0 = {
 	category = ADM
 
 	trigger = {
-		
-			religion = shiite
+
+		religion = shiite
 	}
-	
+
 	bonus = {
 		cavalry_power = 0.075
-	}	
-	
+	}
+
 	shia1 = {
-		missionaries = 1 
+		missionaries = 1
 	}
 	shia2 = {
 		army_tradition = 1
@@ -2678,7 +2678,7 @@ shia0 = {
 	}
 
 	shia5 = {
-		technology_cost = -0.05	
+		technology_cost = -0.05
 	}
 	shia6 = {
 		cb_on_religious_enemies = yes
@@ -2686,18 +2686,18 @@ shia0 = {
 	shia7 = {
 		global_missionary_strength = 0.02
 		missionary_maintenance_cost = -0.5
-	}	
-	
+	}
+
 
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -2705,7 +2705,7 @@ shia0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -2722,20 +2722,20 @@ shia0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
-}		
+}
 
 ########################################################
 ####### Ibadi
@@ -2746,14 +2746,14 @@ ibadi0 = {
 	category = ADM
 
 	trigger = {
-		
-			religion = ibadi
+
+		religion = ibadi
 	}
-	
+
 	bonus = {
 		cb_on_religious_enemies = yes
-	}	
-	
+	}
+
 	ibadi1 = {
 		same_culture_advisor_cost = -0.25
 	}
@@ -2776,18 +2776,18 @@ ibadi0 = {
 	}
 	ibadi7 = {
 		global_spy_defence = 0.5
-	}	
-	
+	}
+
 
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -2795,7 +2795,7 @@ ibadi0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -2812,20 +2812,20 @@ ibadi0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
-}	
+}
 
 ########################################################
 ####### Hussite
@@ -2836,14 +2836,14 @@ hussite0 = {
 	category = ADM
 
 	trigger = {
-		
-			religion = hussite
+
+		religion = hussite
 	}
-	
+
 	bonus = {
 		missionaries = 1
-	}	
-	
+	}
+
 	hussite1 = {
 		global_religious_conversion_resistance = 0.25
 	}
@@ -2866,18 +2866,18 @@ hussite0 = {
 	}
 	hussite7 = {
 		global_institution_spread = 0.25
-	}	
-	
+	}
+
 
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -2885,7 +2885,7 @@ hussite0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -2902,20 +2902,20 @@ hussite0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
-}	
+}
 
 ########################################################
 ####### Dreamtime
@@ -2926,15 +2926,15 @@ alche0 = {
 	category = ADM
 
 	trigger = {
-		
-			religion = dreamtime
+
+		religion = dreamtime
 	}
-	
+
 	bonus = {
 		missionaries = 1
 		cb_on_religious_enemies = yes
-	}	
-	
+	}
+
 	alche1 = {
 		innovativeness_gain = 0.5
 	}
@@ -2959,18 +2959,18 @@ alche0 = {
 	}
 	alche7 = {
 		global_missionary_strength = 0.02
-	}	
-	
+	}
+
 
 	ai_will_do = {
 		factor = 10
-		
-		modifier = {			
+
+		modifier = {
 			factor = 1.25
 			any_rival_country = {
 				NOT = { religion = ROOT }
 			}
-		}	
+		}
 		modifier = {
 			factor = 2
 			has_dlc = "Common Sense"
@@ -2978,7 +2978,7 @@ alche0 = {
 			OR = {
 				has_reform =  theocratic_government
 				has_reform =  papal_government
-				has_reform =  monastic_order_government 
+				has_reform =  monastic_order_government
 			}
 		}
 		modifier = {
@@ -2995,22 +2995,22 @@ alche0 = {
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
-		
+
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 10
-			is_emperor = yes 
+			is_emperor = yes
 		}
-		
+
 	}
-}	
-	
-	
+}
+
+
 ########################################################
 ####### Judiciary / Justiz
 ########################################################
@@ -3023,8 +3023,8 @@ justiz0 = {
 		ae_impact = -0.15
 
 	}
-		
-	
+
+
 	justiz1 = {
 		legitimacy = 1
 		republican_tradition = 1
@@ -3056,26 +3056,26 @@ justiz0 = {
 		tolerance_heretic = 1
 		enemy_core_creation = 0.1
 	}
-	
+
 	ai_will_do = {
 		factor = 10
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
 		modifier = {
 			factor = 2
-			is_elector = yes 
+			is_elector = yes
 		}
 		modifier = {
 			factor = 4
-			is_emperor = yes 
+			is_emperor = yes
 		}
 		modifier = {
 			factor = 2
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
@@ -3092,24 +3092,24 @@ entwicklung0 = {
 	category = ADM
 
 	bonus = {
-		global_prosperity_growth = 0.1	
+		global_prosperity_growth = 0.1
 	}
-		
-	
+
+
 	entwicklung1 = {
 		development_cost = -0.05
 		# <<WIKI>> decision = improve_development
-		
+
 	}
 	entwicklung2 = {
-		expand_infrastructure_cost_modifier = -0.25	
+		expand_infrastructure_cost_modifier = -0.25
 	}
 	entwicklung3 = {
 		global_tax_modifier = 0.05
 	}
 
 	entwicklung4 = {
-		centralize_state_cost = -0.1	
+		centralize_state_cost = -0.1
 	}
 
 	entwicklung5 = {
@@ -3122,19 +3122,19 @@ entwicklung0 = {
 	entwicklung7 = {
 		inflation_reduction = 0.05
 	}
-	
+
 	ai_will_do = {
 		factor = 8
 		modifier = {
 			factor = 4
-				OR = {
+			OR = {
 				is_march = yes
 				is_colonial_nation = yes
 			}
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
 		modifier = {
 			factor = 1.5
@@ -3162,11 +3162,11 @@ entwicklung0 = {
 		}
 		modifier = {
 			factor = 1.5
-			government_rank = 0 
+			government_rank = 0
 		}
 		modifier = {
 			factor = 1.5
-			government_rank = 1  
+			government_rank = 1
 		}
 		modifier = {
 			factor = 0.5
@@ -3191,8 +3191,8 @@ gesundheit0 = {
 	bonus = {
 		global_unrest = -2
 	}
-		
-	
+
+
 	gesundheit1 = {
 		production_efficiency = 0.1
 	}
@@ -3201,7 +3201,7 @@ gesundheit0 = {
 	}
 	gesundheit3 = {
 		global_manpower_modifier = 0.1
-		
+
 	}
 
 	gesundheit4 = {
@@ -3216,25 +3216,25 @@ gesundheit0 = {
 	}
 	gesundheit7 = {
 		global_tax_modifier = 0.10
-		
+
 	}
-	
+
 	ai_will_do = {
 		factor = 10
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
 		modifier = {
 			factor = 3
 			num_of_colonists = 1
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
@@ -3256,7 +3256,7 @@ gesundheit0 = {
 			NOT = { num_of_ports = 4 }
 			num_of_cities = 4
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			num_of_ports = 16
@@ -3275,36 +3275,36 @@ monarchie0 = {
 	bonus = {
 		cav_to_inf_ratio = 0.25
 	}
-		
+
 	trigger = {
-	
+
 		government = monarchy
-	
+
 	}
-	
+
 	monarchie1 = {
 		legitimacy = 1
-		# <<WIKI>> decision = monarchie_dec	
+		# <<WIKI>> decision = monarchie_dec
 		# <<WIKI>> elective_monarchy_add_buff = yes
 	}
-	
+
 	monarchie2 = {
 		heir_chance = 0.5
 	}
-	
+
 	monarchie3 = {
 		global_unrest = -1
-		
+
 	}
-	
+
 	monarchie4 = {
 		cavalry_power = 0.1
 	}
-	
+
 	monarchie5 = {
 		yearly_absolutism = 1.0
 	}
-	
+
 	monarchie6 = {
 		ae_impact = -0.1
 	}
@@ -3313,23 +3313,23 @@ monarchie0 = {
 		global_manpower_modifier = 0.1
 		# <<WIKI>> stand_interaktion = Nobil_1
 	}
-	
-	
+
+
 	ai_will_do = {
 		factor = 10
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
 		modifier = {
 			factor = 2
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
 		modifier = {
 			factor = 2
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
@@ -3348,44 +3348,44 @@ republik0 = {
 	bonus = {
 		manpower_recovery_speed = 0.1
 	}
-		
+
 	trigger = {
-	government = republic
-	
-	}	
-	
-	
+		government = republic
+
+	}
+
+
 	republik1 = {
 		diplomatic_upkeep = 1
 	}
-	
+
 	republik2 = {
 		land_morale = 0.05
 	}
 	republik3 = {
 		global_unrest = -1
 	}
-	
+
 	republik4 = {
 		promote_culture_cost = -1.0
 	}
-	
+
 	republik5 = {
 		reform_progress_growth = 0.15
 	}
-	
-	
+
+
 	republik6 = {
 		global_trade_goods_size_modifier = 0.1
 	}
-	
+
 	republik7 = {
 		max_absolutism = 20
 	}
-	
+
 	ai_will_do = {
 		factor = 10
-		modifier = {			
+		modifier = {
 			factor = 1.5
 			any_neighbor_country = {
 				is_enemy = ROOT
@@ -3397,27 +3397,27 @@ republik0 = {
 		}
 		modifier = {
 			factor = 3
-				has_reform =  merchant_republic
-			
+			has_reform =  merchant_republic
+
 		}
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
 		modifier = {
 			factor = 2
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
 		modifier = {
 			factor = 2
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
 		}
-	
+
 	}
 }
 
@@ -3472,17 +3472,17 @@ aristo0 = {
 		factor = 10
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
 		modifier = {
 			factor = 2
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
 		modifier = {
 			factor = 2
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
@@ -3500,13 +3500,13 @@ diktatur0 = {
 	category = ADM
 
 	bonus = {
-		mercenary_discipline = 0.05	
+		mercenary_discipline = 0.05
 	}
-	
+
 	trigger = {
-		government = dictatorship	
-	}	
-	
+		government = dictatorship
+	}
+
 	diktatur1 = {
 		global_tax_modifier = 0.1
 	}
@@ -3515,7 +3515,7 @@ diktatur0 = {
 	}
 	diktatur3 = {
 		mercenary_manpower = 0.1
-		
+
 	}
 
 	diktatur4 = {
@@ -3532,25 +3532,25 @@ diktatur0 = {
 	diktatur7 = {
 		mil_tech_cost_modifier = -0.05
 	}
-	
+
 	ai_will_do = {
 		factor = 10
 		modifier = {
 			factor = 2
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
-		modifier = {			
+		modifier = {
 			factor = 1.5
 			any_neighbor_country = {
 				is_enemy = ROOT
 			}
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
@@ -3568,18 +3568,18 @@ horde0 = {
 	bonus = {
 		diplomatic_reputation = 1
 	}
-		
+
 	trigger = {
-	
-			government = tribal
-			
+
+		government = tribal
+
 	}
-	
+
 	horde1 = {
 		raze_power_gain = 0.25
 	}
 	horde2 = {
-		cavalry_cost = -0.2	
+		cavalry_cost = -0.2
 	}
 	horde3 = {
 		claim_duration = 0.25
@@ -3597,22 +3597,22 @@ horde0 = {
 	horde7 = {
 		reduced_liberty_desire = 5
 	}
-	
+
 	ai_will_do = {
 		factor = 10
 		modifier = {
 			factor = 2
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
 		modifier = {
 			factor = 2
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
 		modifier = {
 			factor = 2
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
@@ -3632,14 +3632,14 @@ gross0 = {
 		NOT = {
 			has_idea_group = handel0
 			has_idea_group = galle0
-			}
+		}
 	}
-	
+
 	bonus = {
 		recover_navy_morale_speed = 0.1
 	}
-		
-	
+
+
 	gross1 = {
 		heavy_ship_cost = -0.2
 	}
@@ -3666,7 +3666,7 @@ gross0 = {
 		sailor_maintenance_modifer = -0.1
 		# <<WIKI>> extra_navy tradition_heavy_ships = yes
 	}
-	
+
 	ai_will_do = {
 		factor = 10
 		modifier = {
@@ -3681,14 +3681,14 @@ gross0 = {
 		modifier = {
 			factor = 10
 			OR = {
-			tag = SPA
-			tag = ENG
-			tag = GBR
-			tag = CAS
-			tag = POR
-			tag = NED
-			tag = HOL
-			tag = BUR
+				tag = SPA
+				tag = ENG
+				tag = GBR
+				tag = CAS
+				tag = POR
+				tag = NED
+				tag = HOL
+				tag = BUR
 			}
 		}
 		modifier = {
@@ -3707,9 +3707,9 @@ gross0 = {
 				num_of_light_ship = 18
 				num_of_galley = 28
 			}
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
-	
+
 	}
 }
 
@@ -3722,21 +3722,21 @@ galle0 = {
 
 	trigger = {
 		primitives = no
-		
+
 		NOT = {
 			has_idea_group = handel0
 			has_idea_group = gross0
-			}
-		
+		}
+
 	}
-	
+
 	bonus = {
-		
+
 		global_sailors_modifier = 0.35
 		sailors_recovery_speed = 0.15
 	}
-		
-	
+
+
 	galle1 = {
 		naval_forcelimit = 100
 		heavy_ship_cost = 0.5
@@ -3746,7 +3746,7 @@ galle0 = {
 	}
 	galle2 = {
 		galley_cost = -0.2
-		
+
 	}
 	galle3 = {
 		galley_power = 0.15
@@ -3766,7 +3766,7 @@ galle0 = {
 	galle4 = {
 		blockade_efficiency = 0.5
 	}
-	
+
 	ai_will_do = {
 		factor = 10
 		modifier = {
@@ -3781,15 +3781,15 @@ galle0 = {
 
 		modifier = {
 			factor = 4
-				num_of_galley = 25
-			
+			num_of_galley = 25
+
 		}
 		modifier = {
 			factor = 15
 			OR = {
-			tag = TUR
-			tag = VEN
-			tag = GEN
+				tag = TUR
+				tag = VEN
+				tag = GEN
 			}
 		}
 		modifier = {
@@ -3801,12 +3801,12 @@ galle0 = {
 					region = balkan_region
 					region = maghreb_region
 					region = anatolia_region
-					
+
 				}
 			}
 			NOT = { technology_group = high_american }
 		}
-		
+
 	}
 }
 
@@ -3822,13 +3822,13 @@ handel0 = {
 		NOT = {
 			has_idea_group = galle0
 			has_idea_group = gross0
-			}
+		}
 	}
-	
+
 	bonus = {
 		merchants = 1
 	}
-		
+
 
 	handel1 = {
 		light_ship_cost = -0.2
@@ -3856,12 +3856,12 @@ handel0 = {
 	handel6 = {
 		privateer_efficiency = 0.25
 		embargo_efficiency = 0.25
-		
+
 	}
 	handel7 = {
 		naval_morale = 0.1
 	}
-	
+
 	ai_will_do = {
 		factor = 10
 		modifier = {
@@ -3889,9 +3889,9 @@ handel0 = {
 		modifier = {
 			factor = 20
 
-				num_of_light_ship = 50
+			num_of_light_ship = 50
 		}
-		
+
 	}
 }
 
@@ -3908,30 +3908,30 @@ kolonialimperium0 = {
 	bonus = {
 		diplomatic_upkeep = 2
 	}
-		
+
 
 	kolonialimperium2 = {
 		colonists = 1
-		
+
 	}
-	
+
 	kolonialimperium1 = {
 		trade_company_governing_cost = -0.25
 	}
-	
+
 	kolonialimperium4 = {
 		global_tariffs = 0.25
 		# <<WIKI>> global_tariffs = 0.05/Colonial Nation
 		# <<WIKI>> Inflation reduction = -0.025/Colonial Nation
 	}
-	
+
 	kolonialimperium3 = {
 		global_manpower_modifier = 0.05
 		global_sailors_modifier = 0.05
 		# <<WIKI>> global_manpower_modifier = 0.05/Colonial Nation
 		# <<WIKI>> global_sailors_modifier = 0.05/Colonial Nation
 	}
-	
+
 	kolonialimperium6 = {
 		naval_forcelimit_modifier = 0.25
 		# <<WIKI>> naval_forcelimit_modifier = 0.05/Colonial Nation
@@ -3941,11 +3941,11 @@ kolonialimperium0 = {
 		build_cost = -0.01
 		# <<WIKI>> build_cost_in_colo_nation = -0.5
 	}
-	
+
 	kolonialimperium7 = {
 		liberty_desire_from_subject_development = -0.5
 	}
-	
+
 	ai_will_do = {
 		factor = 15
 		modifier = {
@@ -3954,7 +3954,7 @@ kolonialimperium0 = {
 		}
 		modifier = {
 			factor = 5
-			num_of_colonists = 1 
+			num_of_colonists = 1
 		}
 		modifier = {
 			factor = 10
@@ -3964,10 +3964,10 @@ kolonialimperium0 = {
 			factor = 2
 			personality = ai_diplomat
 		}
-		
+
 		modifier = {
 			factor = 2
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
 		modifier = {
 			factor = 0
@@ -4037,7 +4037,7 @@ kolonialimperium0 = {
 			any_known_country = {
 				has_idea_group = exploration_ideas
 			}
-			num_of_ports = 3 
+			num_of_ports = 3
 		}
 		modifier = {
 			factor = 10
@@ -4047,45 +4047,45 @@ kolonialimperium0 = {
 			factor = 0.5
 			personality = ai_militarist
 		}
-		modifier = {	
+		modifier = {
 			factor = 3
-			technology_group = western 
+			technology_group = western
 			num_of_ports = 5
 			any_neighbor_country = {
 				has_idea_group = exploration_ideas
-					num_of_colonies = 1
-				
+				num_of_colonies = 1
+
 			}
 		}
-		modifier = {			
+		modifier = {
 			factor = 3
-			technology_group = western 
+			technology_group = western
 			num_of_ports = 3
 			any_rival_country = {
 				has_idea_group = exploration_ideas
-	
-					num_of_colonies = 1
-				
+
+				num_of_colonies = 1
+
 			}
 		}
-		modifier = {			
+		modifier = {
 			factor = 3
 			num_of_ports = 9
 			any_neighbor_country = {
 				has_idea_group = exploration_ideas
-	
-					num_of_colonies = 1
-				
+
+				num_of_colonies = 1
+
 			}
 		}
-		modifier = {			
+		modifier = {
 			factor = 3
 			num_of_ports = 7
 			any_rival_country = {
 				has_idea_group = exploration_ideas
-	
-					num_of_colonies = 1
-				
+
+				num_of_colonies = 1
+
 			}
 		}
 		modifier = {
@@ -4108,32 +4108,32 @@ assimilation0 = {
 	category = DIP
 
 	bonus = {
-		monarch_diplomatic_power = 1	
+		monarch_diplomatic_power = 1
 	}
-		
-	
+
+
 	assimilation1 = {
 		tolerance_heathen = 2
 		tolerance_heretic = 2
-				
+
 	}
 	assimilation2 = {
-		global_missionary_strength = 0.03	
+		global_missionary_strength = 0.03
 	}
-	
+
 	assimilation7 = {
 		global_manpower_modifier = -0.20
-		manpower_in_own_culture_provinces = 0.30	
-		manpower_in_accepted_culture_provinces = 0.20		
+		manpower_in_own_culture_provinces = 0.30
+		manpower_in_accepted_culture_provinces = 0.20
 	}
-	
+
 	assimilation3 = {
 		culture_conversion_cost = -0.25
 	}
 
 	assimilation4 = {
 		culture_conversion_time = -0.25
-		
+
 	}
 
 	assimilation5 = {
@@ -4143,7 +4143,7 @@ assimilation0 = {
 		tolerance_own = 1
 	}
 
-	
+
 	ai_will_do = {
 		factor = 10
 		modifier = {
@@ -4154,12 +4154,12 @@ assimilation0 = {
 			factor = 2
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
 		}
-		
+
 	}
 }
 
@@ -4174,8 +4174,8 @@ gesellschaft0 = {
 	bonus = {
 		advisor_pool = 1
 	}
-		
-	
+
+
 	gesellschaft1 = {
 		land_maintenance_modifier = -0.05
 	}
@@ -4201,23 +4201,23 @@ gesellschaft0 = {
 	gesellschaft7 = {
 		land_morale = 0.05
 	}
-	
+
 	ai_will_do = {
 		factor = 10
 		modifier = {
 			factor = 5
 			personality = ai_diplomat
 		}
-		
+
 		modifier = {
 			factor = 2
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
 		modifier = {
 			factor = 0.5
 			government =  monarchy
 		}
-		
+
 		modifier = {
 			factor = 3
 			government =  republic
@@ -4236,8 +4236,8 @@ propaganda0 = {
 	bonus = {
 		global_manpower_modifier = 0.1
 	}
-		
-	
+
+
 	propaganda1 = {
 		war_exhaustion = -0.025
 	}
@@ -4262,24 +4262,24 @@ propaganda0 = {
 	propaganda7 = {
 		siege_ability = 0.05
 	}
-	
+
 	ai_will_do = {
 		factor = 10
 		modifier = {
 			factor = 2
 			personality = ai_diplomat
 		}
-		modifier = {			
+		modifier = {
 			factor = 1.5
 			any_neighbor_country = {
-				
+
 			}
 		}
 		modifier = {
 			factor = 3
 			government =  monarchy
 		}
-		
+
 		modifier = {
 			factor = 3
 			government =  republic
@@ -4288,12 +4288,12 @@ propaganda0 = {
 			factor = 2
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
 		}
-		
+
 	}
 }
 
@@ -4304,25 +4304,25 @@ propaganda0 = {
 
 flottenbasis0 = {
 	category = DIP
- trigger = { always = no }
+	trigger = { always = no }
 	bonus = {
 		allowed_marine_fraction = 0.25
 	}
-		
-	
+
+
 	flottenbasis2 = {
 		sailor_maintenance_modifer = -0.25
 		# <<WIKI>> add_building = navalbase_lvl_1
 		# <<WIKI>> add_building = navalbase_lvl_2
-		
+
 	}
 	flottenbasis3 = {
 		naval_forcelimit_modifier = 0.1
 	}
-	
+
 	flottenbasis1 = {
 		global_manpower = 2.5
-		# <<WIKI>> add_age_manpower = 2.5	
+		# <<WIKI>> add_age_manpower = 2.5
 		# <<WIKI>> add_cb = cb_coast
 	}
 
@@ -4333,7 +4333,7 @@ flottenbasis0 = {
 
 	flottenbasis5 = {
 		naval_morale = 0.075
-		
+
 	}
 	flottenbasis6 = {
 		heavy_ship_power = 0.1
@@ -4341,7 +4341,7 @@ flottenbasis0 = {
 	flottenbasis7 = {
 		global_ship_repair = 0.2
 	}
-	
+
 	ai_will_do = {
 		factor = 10
 		modifier = {
@@ -4361,12 +4361,12 @@ flottenbasis0 = {
 			NOT = { num_of_ports = 4 }
 			num_of_cities = 4
 		}
-		
+
 		modifier = {
 			factor = 1.5
 			num_of_ports = 16
 		}
-		
+
 		modifier = {
 			factor = 2
 			OR = {
@@ -4374,25 +4374,25 @@ flottenbasis0 = {
 				num_of_light_ship = 18
 				num_of_galley = 28
 			}
-			
+
 		}
-		modifier = {			
+		modifier = {
 			factor = 1.5
 			any_neighbor_country = {
 				is_enemy = ROOT
 			}
 		}
-		
+
 		modifier = {
 			factor = 10
-			num_of_colonists = 1 
+			num_of_colonists = 1
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
@@ -4401,10 +4401,10 @@ flottenbasis0 = {
 			factor = 2
 			personality = ai_diplomat
 		}
-		
+
 		modifier = {
 			factor = 4
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
 	}
 }
@@ -4420,8 +4420,8 @@ nationalismus0 = {
 	bonus = {
 		prestige = 1
 	}
-		
-	
+
+
 	nationalismus1 = {
 		war_exhaustion_cost = -0.25
 		# <<WIKI>> add_stand = estate_nationalist
@@ -4439,12 +4439,12 @@ nationalismus0 = {
 	nationalismus5 = {
 		enemy_core_creation = 0.25
 	}
-	
+
 	nationalismus2 = {
 		global_manpower = 1
 		# <<WIKI>> add_age_manpower = 2.5
 	}
-	
+
 	nationalismus6 = {
 		max_absolutism = 5
 		global_unrest = -1
@@ -4452,19 +4452,19 @@ nationalismus0 = {
 	nationalismus7 = {
 		prestige_from_land = 0.5
 	}
-	
+
 	ai_will_do = {
 		factor = 15
 		modifier = {
 			factor = 2
 			personality = ai_diplomat
 		}
-		
+
 		modifier = {
 			factor = 2
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
-		modifier = {			
+		modifier = {
 			factor = 5
 			any_neighbor_country = {
 				is_enemy = ROOT
@@ -4474,7 +4474,7 @@ nationalismus0 = {
 			factor = 2
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
@@ -4493,20 +4493,20 @@ konigreich0 = {
 	bonus = {
 		land_morale = 0.05
 	}
-		
+
 	trigger = {
-			
-			government_rank = 2
-			 
-			 NOT = {
-			 OR = {
-			government_rank = 3 
-			is_emperor = yes 
+
+		government_rank = 2
+
+		NOT = {
+			OR = {
+				government_rank = 3
+				is_emperor = yes
 			}
-			}
-			
+		}
+
 	}
-	
+
 	konigreich1 = {
 		prestige_decay = -0.01
 		# <<WIKI>> decision = konigreich_dec
@@ -4534,9 +4534,9 @@ konigreich0 = {
 		diplomatic_upkeep = 1
 		# <<WIKI>> add_cb = cb_herzog
 	}
-	
-	
-	
+
+
+
 	ai_will_do = {
 		factor = 10
 		modifier = {
@@ -4559,12 +4559,12 @@ konigreich0 = {
 			factor = 5
 			government =  monarchy
 		}
-		
+
 		modifier = {
 			factor = 2.5
 			num_of_ports = 25
 		}
-		
+
 		modifier = {
 			factor = 2
 			OR = {
@@ -4572,18 +4572,18 @@ konigreich0 = {
 				num_of_light_ship = 18
 				num_of_galley = 28
 			}
-			
+
 		}
 		modifier = {
 			factor = 2
 			personality = ai_diplomat
 		}
-		
+
 		modifier = {
 			factor = 2
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
-		modifier = {			
+		modifier = {
 			factor = 4.5
 			any_neighbor_country = {
 				is_enemy = ROOT
@@ -4603,15 +4603,15 @@ imperialismus0 = {
 	bonus = {
 		max_absolutism = 10
 	}
-		
+
 	trigger = {
-			OR = {
-			government_rank = 3 
-			is_emperor = yes 
-			}
+		OR = {
+			government_rank = 3
+			is_emperor = yes
+		}
 	}
-	
-	
+
+
 	imperialismus1 = {
 		core_creation = -0.10
 	}
@@ -4639,7 +4639,7 @@ imperialismus0 = {
 	imperialismus7 = {
 		discipline = 0.025
 	}
-	
+
 	ai_will_do = {
 		factor = 10
 		modifier = {
@@ -4662,12 +4662,12 @@ imperialismus0 = {
 			factor = 5
 			government =  monarchy
 		}
-		
+
 		modifier = {
 			factor = 2.5
 			num_of_ports = 25
 		}
-		
+
 		modifier = {
 			factor = 2
 			OR = {
@@ -4675,18 +4675,18 @@ imperialismus0 = {
 				num_of_light_ship = 18
 				num_of_galley = 28
 			}
-			
+
 		}
 		modifier = {
 			factor = 2
 			personality = ai_diplomat
 		}
-		
+
 		modifier = {
 			factor = 2
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
-		modifier = {			
+		modifier = {
 			factor = 4.5
 			any_neighbor_country = {
 				is_enemy = ROOT
@@ -4706,13 +4706,13 @@ generalstab0 = {
 	bonus = {
 		free_leader_pool = 2
 	}
-		
-	
+
+
 	generalstab1 = {
-		leader_cost = -0.10	
+		leader_cost = -0.10
 	}
 	generalstab2 = {
-		shock_damage = 0.10	
+		shock_damage = 0.10
 	}
 	generalstab3 = {
 		leader_land_manuever = 1
@@ -4728,20 +4728,20 @@ generalstab0 = {
 
 
 	generalstab6 = {
-		navy_tradition_decay = -0.01	
-		army_tradition_decay = -0.01	
+		navy_tradition_decay = -0.01
+		army_tradition_decay = -0.01
 	}
 	generalstab7 = {
-		movement_speed = 0.10	
+		movement_speed = 0.10
 	}
-	
+
 	ai_will_do = {
 		factor = 15
 		modifier = {
 			factor = 30
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
-		modifier = {			
+		modifier = {
 			factor = 4.5
 			any_neighbor_country = {
 				is_enemy = ROOT
@@ -4771,7 +4771,7 @@ generalstab0 = {
 			factor = 2
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
@@ -4791,13 +4791,13 @@ stehendesheer0 = {
 		drill_decay_modifier = -0.5
 		land_maintenance_modifier = 0.075
 	}
-		
-		trigger = {
+
+	trigger = {
 		NOT = {
-			has_idea_group = wehrpflicht0 
-			}
+			has_idea_group = wehrpflicht0
 		}
-	
+	}
+
 	stehendesheer1 = {
 		infantry_power = 0.1
 	}
@@ -4813,24 +4813,24 @@ stehendesheer0 = {
 	}
 	stehendesheer6 = {
 		prestige_from_land = 0.5
-		
+
 	}
 	stehendesheer7 = {
 		siege_ability = 0.1
-		
+
 	}
-	
+
 	stehendesheer4 = {
 		discipline = 0.025
 	}
-	
+
 	ai_will_do = {
 		factor = 30
 		modifier = {
 			factor = 30
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
-		modifier = {			
+		modifier = {
 			factor = 4.5
 			any_neighbor_country = {
 				is_enemy = ROOT
@@ -4861,7 +4861,7 @@ stehendesheer0 = {
 			factor = 2
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
@@ -4881,13 +4881,13 @@ wehrpflicht0 = {
 	bonus = {
 		manpower_recovery_speed = 0.5
 	}
-		
-		trigger = {
+
+	trigger = {
 		NOT = {
 			has_idea_group = stehendesheer0
-			}
 		}
-	
+	}
+
 	wehrpflicht3 = {
 		reinforce_speed = 0.2
 	}
@@ -4912,14 +4912,14 @@ wehrpflicht0 = {
 	wehrpflicht7 = {
 		drill_gain_modifier = 0.5
 	}
-	
+
 	ai_will_do = {
 		factor = 30
 		modifier = {
 			factor = 30
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
-		modifier = {			
+		modifier = {
 			factor = 4.5
 			any_neighbor_country = {
 				is_enemy = ROOT
@@ -4949,7 +4949,7 @@ wehrpflicht0 = {
 			factor = 5
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
@@ -4970,14 +4970,14 @@ soldnerheer0 = {
 		merc_maintenance_modifier = -0.25
 		#yearly_army_professionalism = 0.005
 	}
-		
-	
+
+
 	soldnerheer1 = {
 		loot_amount = 0.5
 	}
 	soldnerheer2 = {
 		mercenary_cost = -0.5
-		
+
 	}
 	soldnerheer3 = {
 		war_exhaustion = -0.025
@@ -4997,14 +4997,14 @@ soldnerheer0 = {
 		mercenary_manpower = 1.0
 		# <<WIKI>> no_prof_loss_for_mercs = yes
 	}
-	
+
 	ai_will_do = {
 		factor = 30
 		modifier = {
 			factor = 30
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
-		modifier = {			
+		modifier = {
 			factor = 4.5
 			any_neighbor_country = {
 				is_enemy = ROOT
@@ -5034,7 +5034,7 @@ soldnerheer0 = {
 			factor = 5
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
@@ -5058,8 +5058,8 @@ waffenqualitat0 = {
 	bonus = {
 		discipline = 0.025
 	}
-		
-	
+
+
 	waffenqualitat1 = {
 		global_trade_goods_size_modifier = 0.075
 	}
@@ -5083,14 +5083,14 @@ waffenqualitat0 = {
 	waffenqualitat7 = {
 		artillery_power = 0.075
 	}
-	
+
 	ai_will_do = {
 		factor = 15
 		modifier = {
 			factor = 30
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
-		modifier = {			
+		modifier = {
 			factor = 20
 			any_neighbor_country = {
 				is_enemy = ROOT
@@ -5124,7 +5124,7 @@ waffenqualitat0 = {
 			factor = 4
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 4
 			government_rank = 2  # Kingdom
@@ -5142,19 +5142,19 @@ festung0 = {
 
 	bonus = {
 		reinforce_speed = 0.1
-		fort_level = 1	
+		fort_level = 1
 	}
-		
-		
+
+
 	festung7 = {
 		reinforce_cost_modifier = -0.25
-		
+
 	}
 	festung1 = {
 		defensiveness = 0.25
-		
+
 	}
-	
+
 	festung4 = {
 		fort_maintenance_modifier = -0.5
 		# <<WIKI>> add_building = fortress_keep
@@ -5164,11 +5164,11 @@ festung0 = {
 		# <<WIKI>> add_building = fortress_wall
 		# <<WIKI>> add_building = fortress_supply
 	}
-	
+
 	festung6 = {
 		shock_damage_received = -0.05
 	}
-	
+
 	festung2 = {
 		garrison_size = 0.50
 		global_garrison_growth = 0.25
@@ -5177,25 +5177,25 @@ festung0 = {
 	festung5 = {
 		hostile_attrition = 2
 	}
-	
+
 	festung3 = {
 		artillery_power = 0.15
 		artillery_cost = -0.1
 	}
-	
-	
+
+
 	ai_will_do = {
 		factor = 15
 		modifier = {
 			factor = 5
-				is_march = yes
-			
+			is_march = yes
+
 		}
 		modifier = {
 			factor = 30
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
-		modifier = {			
+		modifier = {
 			factor = 4.5
 			any_neighbor_country = {
 				is_enemy = ROOT
@@ -5226,7 +5226,7 @@ festung0 = {
 			factor = 2
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
@@ -5245,8 +5245,8 @@ kriegsproduktion0 = {
 	bonus = {
 		land_morale = 0.05
 	}
-		
-	
+
+
 	kriegsproduktion1 = {
 		infantry_cost = -0.15
 	}
@@ -5272,26 +5272,26 @@ kriegsproduktion0 = {
 		naval_forcelimit_modifier = 0.15
 		land_forcelimit_modifier = 0.15
 	}
-	
+
 	ai_will_do = {
 		factor = 15
 		modifier = {
 			factor = 30
-			
-				is_march = yes
-			
+
+			is_march = yes
+
 		}
 		modifier = {
 			factor = 5
-			
-				is_vassal = yes
-			
+
+			is_vassal = yes
+
 		}
 		modifier = {
 			factor = 30
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
-		modifier = {			
+		modifier = {
 			factor = 20
 			any_neighbor_country = {
 				is_enemy = ROOT
@@ -5321,7 +5321,7 @@ kriegsproduktion0 = {
 			factor = 3
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
@@ -5330,7 +5330,7 @@ kriegsproduktion0 = {
 }
 
 ########################################################
-####### Public Administration / Staatsverwaltung 
+####### Public Administration / Staatsverwaltung
 ########################################################
 
 
@@ -5340,11 +5340,11 @@ staatsverwaltung0 = {
 	bonus = {
 		core_creation = -0.1
 	}
-		
-	
+
+
 	staatsverwaltung1 = {
 		governing_capacity_modifier = 0.15
-		
+
 	}
 	staatsverwaltung2 = {
 		state_maintenance_modifier = -0.25
@@ -5362,17 +5362,17 @@ staatsverwaltung0 = {
 	}
 	staatsverwaltung6 = {
 		embracement_cost = -0.15
-		
+
 	}
 	staatsverwaltung7 = {
 		global_trade_goods_size_modifier = 0.1
 	}
-	
+
 	ai_will_do = {
 		factor = 10
 		modifier = {
 			factor = 10
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
 		modifier = {
 			factor = 2.0
@@ -5386,17 +5386,17 @@ staatsverwaltung0 = {
 			factor = 2
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
 		}
-		
+
 		modifier = {
 			factor = 3
 			government =  monarchy
 		}
-		
+
 		modifier = {
 			factor = 2
 			government =  republic
@@ -5413,28 +5413,28 @@ zentra0 = {
 	category = ADM
 
 	trigger = {
-		
+
 		NOT = {
 			has_idea_group = dezentra0
-			}	
-			
 		}
-	
-	bonus = {
-		monarch_admin_power = 1	
-		
-		
+
 	}
-		
-	
+
+	bonus = {
+		monarch_admin_power = 1
+
+
+	}
+
+
 	zentra1 = {
 		governing_capacity_modifier = -0.2
 	}
 	zentra2 = {
-		min_autonomy_in_territories = 0.2	
+		min_autonomy_in_territories = 0.2
 	}
 	zentra3 = {
-		state_governing_cost = -0.1	
+		state_governing_cost = -0.1
 		# <<WIKI>> development_cost_over_25 = yes
 	}
 
@@ -5443,8 +5443,8 @@ zentra0 = {
 	}
 
 	zentra5 = {
-		build_time = -0.25	
-		manpower_recovery_speed = 0.10	
+		build_time = -0.25
+		manpower_recovery_speed = 0.10
 	}
 	zentra6 = {
 		centralize_state_cost = -0.33
@@ -5452,12 +5452,12 @@ zentra0 = {
 	zentra7 = {
 		adm_advisor_cost = -0.25
 	}
-	
+
 	ai_will_do = {
 		factor = 10
 		modifier = {
 			factor = 10
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
 		modifier = {
 			factor = 2.0
@@ -5471,17 +5471,17 @@ zentra0 = {
 			factor = 2
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
 		}
-		
+
 		modifier = {
 			factor = 3
 			government =  monarchy
 		}
-		
+
 		modifier = {
 			factor = 2
 			government =  republic
@@ -5496,29 +5496,29 @@ zentra0 = {
 
 dezentra0 = {
 	category = ADM
-	
-		trigger = {
-		
+
+	trigger = {
+
 		NOT = {
 			has_idea_group = zentra0
-			}	
-			
 		}
-	bonus = {
-		free_concentrate_development = yes		
-		
+
 	}
-		
-	
+	bonus = {
+		free_concentrate_development = yes
+
+	}
+
+
 	dezentra1 = {
-		min_autonomy = 20	
+		min_autonomy = 10
 		# <<WIKI>> reduced_dev_malus = yes
 	}
 	dezentra2 = {
 		min_autonomy_in_territories = -0.2
 	}
 	dezentra3 = {
-		global_unrest = -1.5	
+		global_unrest = -1.5
 	}
 
 	dezentra4 = {
@@ -5529,17 +5529,17 @@ dezentra0 = {
 		governing_capacity_modifier = 0.33
 	}
 	dezentra6 = {
-		yearly_corruption = -0.05	
+		yearly_corruption = -0.05
 	}
 	dezentra7 = {
 		development_cost = -0.1
 	}
-	
+
 	ai_will_do = {
 		factor = 10
 		modifier = {
 			factor = 10
-			personality = ai_capitalist 
+			personality = ai_capitalist
 		}
 		modifier = {
 			factor = 2.0
@@ -5553,17 +5553,17 @@ dezentra0 = {
 			factor = 2
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
 		}
-		
+
 		modifier = {
 			factor = 3
 			government =  monarchy
 		}
-		
+
 		modifier = {
 			factor = 2
 			government =  republic
@@ -5582,8 +5582,8 @@ formation0 = {
 	bonus = {
 		movement_speed_onto_off_boat_modifier = 0.5
 	}
-		
-	
+
+
 	formation1 = {
 		movement_speed = 0.1
 	}
@@ -5610,14 +5610,14 @@ formation0 = {
 	formation7 = {
 		fire_damage_received = -0.15
 	}
-	
+
 	ai_will_do = {
 		factor = 15
 		modifier = {
 			factor = 30
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
-		modifier = {			
+		modifier = {
 			factor = 20
 			any_neighbor_country = {
 				is_enemy = ROOT
@@ -5647,7 +5647,7 @@ formation0 = {
 			factor = 3
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
@@ -5666,8 +5666,8 @@ militarismus0 = {
 	bonus = {
 		war_exhaustion = -0.03
 	}
-		
-	
+
+
 	militarismus1 = {
 		land_forcelimit_modifier = 0.1
 	}
@@ -5685,7 +5685,7 @@ militarismus0 = {
 
 	militarismus5 = {
 		global_garrison_growth = 0.25
-		garrison_size = 0.25	
+		garrison_size = 0.25
 	}
 	militarismus6 = {
 		monthly_militarized_society = 0.05
@@ -5694,14 +5694,14 @@ militarismus0 = {
 	militarismus7 = {
 		shock_damage_received = -0.05
 	}
-	
+
 	ai_will_do = {
 		factor = 15
 		modifier = {
 			factor = 30
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
-		modifier = {			
+		modifier = {
 			factor = 20
 			any_neighbor_country = {
 				is_enemy = ROOT
@@ -5731,7 +5731,7 @@ militarismus0 = {
 			factor = 3
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
@@ -5746,20 +5746,20 @@ militarismus0 = {
 
 shock0 = {
 	category = MIL
-	
+
 	trigger = {
-		
+
 		NOT = {
 			has_idea_group = fire0
-			}	
-			
 		}
-	
+
+	}
+
 	bonus = {
 		cavalry_power = 0.075
 	}
-		
-	
+
+
 	shock2 = {
 		cavalry_flanking = 1.0
 	}
@@ -5782,14 +5782,14 @@ shock0 = {
 	shock7 = {
 		leader_land_shock = 1
 	}
-	
+
 	ai_will_do = {
 		factor = 15
 		modifier = {
 			factor = 30
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
-		modifier = {			
+		modifier = {
 			factor = 20
 			any_neighbor_country = {
 				is_enemy = ROOT
@@ -5819,7 +5819,7 @@ shock0 = {
 			factor = 3
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
@@ -5835,20 +5835,20 @@ shock0 = {
 
 fire0 = {
 	category = MIL
-	
+
 	trigger = {
-		
+
 		NOT = {
 			has_idea_group = shock0
-			}	
-			
 		}
-	
+
+	}
+
 	bonus = {
 		shock_damage_received = -0.05
 	}
-		
-	
+
+
 	fire1 = {
 		shock_damage_received = -0.05
 	}
@@ -5872,14 +5872,14 @@ fire0 = {
 	fire7 = {
 		leader_land_fire = 1
 	}
-	
+
 	ai_will_do = {
 		factor = 15
 		modifier = {
 			factor = 30
-			personality = ai_militarist 
+			personality = ai_militarist
 		}
-		modifier = {			
+		modifier = {
 			factor = 20
 			any_neighbor_country = {
 				is_enemy = ROOT
@@ -5909,7 +5909,7 @@ fire0 = {
 			factor = 3
 			government_rank = 3  # Empire
 		}
-		
+
 		modifier = {
 			factor = 2
 			government_rank = 2  # Kingdom
