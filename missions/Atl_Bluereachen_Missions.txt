@@ -115,7 +115,17 @@ A2A_post_sucession = {
 		icon = mission_build_up_to_force_limit
 		position = 5
 		required_missions = { A2A_dark_towers_and_magic A2A_righting_wrongs A2A_bringing_light_to_darkness }
+		provinces_to_highlight = {
+			region = agartha_region
+			religion = ktonian_r
+		}
 		trigger = {
+			agartha_region = {
+				type = all	
+				NOT = {
+					religion = ktonian_r
+				}
+			}
 			all_owned_province = {
 				NOT = {
 					religion = ktonian_r
@@ -349,15 +359,18 @@ A2A_post_sucession_left = {
 			}
 		}
 	}
-	A2A_righting_wrongs = {
-		icon = mission_build_up_to_force_limit
-		position = 4
-		required_missions = { A2A_the_evil_of_slavery }
-		trigger = {
-			
-		}
-		effect = { }
-	}
+	#A2A_righting_wrongs = {
+	#	icon = mission_build_up_to_force_limit
+	#	position = 4
+	#	required_missions = { A2A_the_evil_of_slavery }
+	#	trigger = {
+	#		dip_power = 100
+	#	}
+	#	effect = {
+	#		add_dip_power = -100
+	#		
+	#	}
+	#}
 }
 
 A2A_post_sucession_right = {
@@ -375,16 +388,84 @@ A2A_post_sucession_right = {
 		icon = mission_build_up_to_force_limit
 		position = 3
 		required_missions = { A2A_the_war_against_evil }
-		trigger = { }
-		effect = { }
+		trigger = {
+			total_development = 100
+			total_development = A1A
+			alliance_with = A1A
+		}
+		effect = {
+			if = {
+				limit = {
+					A1A = {
+						ai = no
+					}
+					A2A = {
+						ai = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					A1A = {
+						ai = yes
+					}
+					A2A = {
+						ai = yes
+					}
+				}
+				vassalize = A1A
+			}
+			if = {
+				limit = {
+					A1A = {
+						ai = yes
+					}
+					A2A = {
+						ai = no
+					}
+				}
+				vassalize = A1A
+			}
+			if = {
+				limit = {
+					A1A = {
+						ai = no
+					}
+					A2A = {
+						ai = no
+					}
+				}
+				add_stability = 1
+			}
+			if = {
+				limit = {
+					6025 = {
+						owned_by = A1A
+					}
+					A1A = {
+						ai = yes
+					}
+				}
+				agartha_region = {
+					limit = {
+						owned_by = A1A
+						NOT = {
+							province_id = 6024
+						}
+					}
+					cede_province = A2A
+					add_core = A2A
+				}
+			}
+		}
 	}
-	A2A_bringing_light_to_darkness = {
-		icon = mission_build_up_to_force_limit
-		position = 4
-		required_missions = { A2A_the_goodmen_amongus }
-		trigger = { }
-		effect = { }
-	}
+	#A2A_bringing_light_to_darkness = {
+	#	icon = mission_build_up_to_force_limit
+	#	position = 4
+	#	required_missions = { A2A_the_goodmen_amongus }
+	#	trigger = { }
+	#	effect = { }
+	#}
 }
 
 undermu_generic_right = {
