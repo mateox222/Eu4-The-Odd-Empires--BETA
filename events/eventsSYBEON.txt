@@ -18,6 +18,8 @@ country_event = { #Startup Event
 			set_variable = { which = mammoth1_count value = 0}
 			set_variable = { which = kyknocampsmaxcount value = 2}
 			set_variable = { which = pyrocampsmaxcount value = 2}
+			set_variable = { which = kyknocampscount value = 1}
+			set_variable = { which = pyrocampscount value = 1}
 		}
 	}
 	option = {
@@ -345,6 +347,7 @@ country_event = { #pre mammoth debuff on enemy
 				}
 			}
 		}
+		set_country_flag = recently_attacked
 	}
 	mean_time_to_happen = {
 		months = 10
@@ -455,14 +458,12 @@ country_event = { #natives switch to sybeonese
 
 #events regarding interactions/mechanics
 country_event = {
-	id = sybeon_events_interactions.1
-	title = "sybeon_events_interactions.1.t"
-	desc = "sybeon_events_interactions.1.d"
+	id = sybeon_events.1000
+	title = "sybeon_events.1000.t"
+	desc = "sybeon_events.1000.d"
 	picture = SYBEONstart_eventPicture
 	is_triggered_only = yes
 	immediate = {
-		set_variable = { which = kyknocampscount value = 0}
-		set_variable = { which = pyrocampscount value = 0}
 		every_owned_province = {
 			limit = {
 				OR = {
@@ -490,8 +491,8 @@ country_event = {
 		random_owned_province = {
 			limit = {
 				is_city = yes
-				religion = orthodox	
-				culture = siberian	
+				religion = united_christianity
+				culture = sybeonese	
 				NOT = {
 					OR = {
 						has_province_modifier = fledgeling_pyromammothos_camp
@@ -506,10 +507,10 @@ country_event = {
 	}
 	option = {
 		highlight = yes
-		name = "sybeon_events_interactions.1.a"
+		name = "sybeon_events.1000a"
 	}
 	option = {
-		name = "sybeon_events_interactions.1.b"
+		name = "sybeon_events.1000b"
 		trigger = {
 			check_variable = {
 				which = kyknocampsmaxcount
@@ -522,6 +523,12 @@ country_event = {
 			add_province_modifier = {
 				name = fledgeling_kyknomammothos_camp
 				duration = -1
+			}
+		}
+		hidden_effect = {
+			change_variable = {
+				which = pyrocampscount
+				value = 1
 			}
 		}
 	}
