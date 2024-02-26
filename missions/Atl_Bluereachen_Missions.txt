@@ -34,7 +34,7 @@ A2A_post_sucession = {
 	has_country_shield = yes
 
 	A2A_the_war_against_evil = {
-		icon = mission_build_up_to_force_limit
+		icon = atlantropa_army
 		position = 2
 		required_missions = { A2A_the_doubts }
 		provinces_to_highlight = {
@@ -59,6 +59,35 @@ A2A_post_sucession = {
 					}
 				}
 				inherit = A6A
+			}
+			if = {
+				limit = {
+					NOT = {
+						stability = 1
+					}
+				}
+				add_stability = 1
+			}
+			if = {
+				limit = {
+					stability = 1
+				}
+				add_adm_power = 50
+			}
+			if = {
+				limit = {
+					NOT = {
+						legitimacy = 90
+					}
+				}
+				add_legitimacy = 50
+			}
+			if = {
+				limit = {
+					legitimacy = 90
+				}
+				add_legitimacy = 10
+				add_prestige = 25
 			}
 		}
 	}
@@ -92,7 +121,7 @@ A2A_post_sucession = {
 	A2A_dark_towers_and_magic = {
 		icon = mission_build_up_to_force_limit
 		position = 4
-		required_missions = { A2A_deep_into_blackpits }
+		required_missions = { A2A_deep_into_blackpits A2A_the_evil_of_slavery }
 		provinces_to_highlight = {
 			area = caladde_area
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
@@ -220,7 +249,7 @@ A2A_war_economyslot = {
 	has_country_shield = yes
 
 	A2A_war_economy = {
-		icon = mission_build_up_to_force_limit
+		icon = mission_war_chest
 		position = 3
 		required_missions = { A2A_fueling_the_war_effort }
 		trigger = {
@@ -494,7 +523,7 @@ undermu_generic_right = {
 		}
 	}
 	undermu_religious_warfare = {
-		icon = mission_build_up_to_force_limit
+		icon = mission_impaled_soldies
 		position = 2
 		required_missions = {  }
 		trigger = {
@@ -508,7 +537,7 @@ undermu_generic_right = {
 		}
 	}
 	undermu_one_truth = {
-		icon = mission_build_up_to_force_limit
+		icon = mission_hands_praying
 		position = 3
 		required_missions = { undermu_religious_warfare }
 		trigger = {

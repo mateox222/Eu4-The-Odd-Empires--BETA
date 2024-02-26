@@ -261,7 +261,7 @@ autonomy_local_balaton = {
 free_people_a2a_order = {
     icon = GFX_holy_order_oblast
     trigger = {
-		has_country_modifier = a2a_noslaves
+		has_country_flag = allowed_juche_a2a
 		religion = golem_cult
     }
     cost = 50
@@ -306,15 +306,6 @@ technocrats_a2a_order = {
     cost_type = adm_power
     per_province_effect = {
 		add_base_tax = 1
-		custom_tooltip = a2a_noslavestt
-		hidden_effect = {
-			if = {
-				limit = {
-					trade_goods = slaves
-				}
-				change_trade_goods = unknown
-			}
-		}
     }
     per_province_abandon_effect = {
 		add_base_tax = -1
