@@ -1,0 +1,1026 @@
+africa_series_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = X55
+	}
+
+	african_stocznia = {
+		icon = atlantropa_barge
+		position = 2
+		required_missions = { african_mission_war }
+		provinces_to_highlight = {
+			province_id = 341
+		}
+		trigger = {
+
+			341 = {
+				owned_by = ROOT
+				controlled_by = ROOT
+				has_dock_building_trigger = yes
+			}
+		}
+		effect = {
+				341 = {
+				add_great_project = {
+					type = atlantropa_cothon
+					instant = no
+				}
+			}
+			if = {
+				limit = {
+					341 = {
+						NOT = {
+							has_building = drydock
+						}
+					}
+				}
+				341 = {
+					add_building = drydock
+				}
+			}
+			341 = {
+				add_unit_construction = {
+					type = heavy_ship
+					amount = 5
+					speed = 1
+					cost = 0
+				}
+			}
+		}
+	}
+	african_navy = {
+		icon = mam_highway_empire
+		position = 3
+		required_missions = { african_stocznia }
+		trigger = {
+			navy_size = 30
+		}
+		effect = {
+			add_country_modifier = {
+				name = african_army_road_ship
+				duration = -1
+			}
+			add_prestige = 10
+		}
+	}
+	african_mediterranean_navy = {
+		icon = mission_russian_navy
+		position = 4
+		required_missions = { african_navy }
+		trigger = {
+			navy_size = 100
+		}
+		effect = {
+			set_country_flag = navy_availible
+			custom_tooltip = enable_naval_mechanic
+			add_dip_power = 50
+			add_mil_power = 50
+			add_adm_power = 50
+		}
+	}
+	africa_establish_army = {
+		icon = mission_modern_knight_army
+		position = 5
+		required_missions = { africa_establish_cult }
+		trigger = {
+			army_size = 25
+			mil_power = 100
+		}
+		effect = {
+			add_mil_power = -100
+			add_country_modifier = {
+				name = armenia_first_mission
+				duration = -1
+			}
+		}
+	}
+	africa_reform_army = {
+		icon = army_reforms
+		position = 7
+		required_missions = { africa_establish_army }
+		trigger = {
+			army_size_percentage = 0.8
+			num_of_generals = 2
+			OR = {
+				army_tradition = 60
+				has_global_modifier_value = {
+					which = discipline
+					value = 0.2
+				}
+			}
+		}
+		effect = {
+			add_yearly_manpower = 2
+			add_country_modifier = {
+				name = aegyptus_reorganized_army
+				duration = -1
+			}
+		}
+	}
+}
+
+africa_series_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = X55
+	}
+
+	african_rule_hre = {
+		icon = a_roman_empire
+		position = 2
+		required_missions = { african_mission_war }
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					owner = { is_emperor = yes }
+					root = { is_emperor = no }
+				}
+				AND = {
+					owner = {
+						is_elector = yes
+						OR = {
+							NOT = { preferred_emperor = ROOT }
+							NOT = { has_opinion = { who = ROOT value = 100 } }
+						}
+					}
+					NOT = {
+						ROOT = {
+							calc_true_if = {
+								all_elector = {
+									preferred_emperor = ROOT
+									has_opinion = { who = ROOT value = 100 }
+								}
+								amount = 5
+							}
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			is_emperor = yes
+			calc_true_if = {
+				desc = secure_the_imperial_crown.tooltip
+				all_elector = {
+					preferred_emperor = ROOT
+					has_opinion = { who = ROOT value = 100 }
+				}
+				amount = 5
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					exists = NAP
+					valid_for_personal_unions_trigger = yes
+					NAP = {
+						valid_for_personal_unions_trigger = yes
+					}
+				}
+				add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = NAP
+				}
+			}
+			else = {
+				atlantis_napoli_area = {
+					limit = {
+						NOT = { is_permanent_claim = ROOT }
+						NOT = { is_core = ROOT	}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			add_country_modifier = {
+				name = "succesful_bid_for_imperial_crown"
+				duration = 5475
+			}
+		}
+	}
+	africa_govern_africa = {
+		icon = imperial_ascendancy
+		position = 3
+		required_missions = { african_rule_hre }
+		provinces_to_highlight = {
+			owner = {
+				NOT = { tag = root }
+				NOT = { is_subject_of = ROOT }
+				OR = {
+					AND = {
+						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+							value = 10
+							continent = europe
+						}
+						is_part_of_hre = yes
+					}
+					is_emperor = yes
+				}
+			}
+		}
+		trigger = {
+			is_emperor = yes
+			OR = {
+				hre_reform_passed = emperor_privilegia_de_non_appelando
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = emp_hab_no_one_to_threaten_us_trigger_tooltip
+						NOT = {
+							any_country = {
+								NOT = { tag = root }
+								NOT = { is_subject_of = ROOT }
+								is_part_of_hre = yes
+								num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+									value = 10
+									continent = europe
+								}
+							}
+						}
+					}
+					calc_true_if = {
+						desc = emp_hab_no_one_to_threaten_us_trigger2_tooltip
+						amount = 10
+						all_country = {
+							has_reform = free_city
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			add_dip_power = 50
+			add_country_modifier = {
+				name = hab_ascendancy_in_empire
+				duration = 7300
+			}
+		}
+	}
+	africa_border_hre = {
+		icon = mission_plc_governance_act
+		position = 4
+		required_missions = { africa_govern_africa }
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					owner = { is_emperor = yes }
+					root = { is_emperor = no }
+				}
+				AND = {
+					is_part_of_hre = yes
+					owner = {
+						OR = {
+							is_part_of_hre = no
+							AND = {
+								is_subject = yes
+								overlord = { is_part_of_hre = no }
+							}
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			is_emperor = yes
+			custom_trigger_tooltip = {
+				tooltip = no_hre_province_owned_by_non_hre_member_or_overlord_trigger
+				europe = {
+					type = all
+					OR = {
+						is_part_of_hre = no
+						AND = {
+							is_part_of_hre = yes
+							owner = {
+								is_part_of_hre = yes
+								OR = {
+									is_subject = no
+									AND = {
+										is_subject = yes
+										overlord = { is_part_of_hre = yes }
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			add_imperial_influence = 15
+			if = {
+				limit = {
+					has_dlc = "The Cossacks"
+				}
+				add_dip_power = 100
+				custom_tooltip = latin_hab_imperial_border_effect_tooltip
+				hidden_effect = {
+					every_country = {
+						limit = {
+							is_part_of_hre = yes
+							NOT = { is_rival = root }
+							NOT = { root = { is_rival = prev } }
+						}
+						add_trust = {
+							who = root
+							value = 10
+						}
+					}
+				}
+			}
+			else = { add_dip_power = 200 }
+		}
+	}
+	africa_establish_holy_guards = {
+		icon = form_the_swiss_guard
+		position = 5
+		required_missions = { africa_establish_cult }
+		trigger = {
+			religion = african_imperial_cult
+			mil_power = 100
+		}
+		effect = {
+			add_mil_power = -100
+			add_country_modifier = {
+				name = african_emperor_custodia
+				duration = -1
+			}
+		}
+	}
+	africa_build_artillery = {
+		icon = mission_cannons_firing
+		position = 7
+		required_missions = { africa_holy_empire }
+		provinces_to_highlight = {
+			province_id = 2455
+		}
+		trigger = {
+			owns_core_province = 2455
+						2455 = { base_production = 10	}
+		}
+		effect = {
+			2455 = {
+							hidden_effect = {
+								clear_trade_good_modifiers_effect = yes
+							}
+							change_trade_goods = atl_tools
+							add_permanent_province_modifier = {
+								name = trade_good_artillery
+								duration = -1
+							}
+						}
+		}
+	}
+	africa_conquer_seize_egypt = {
+		icon = atlantropa_jewishlargearmy
+		position = 8
+		required_missions = { africa_conquer_africa }
+		provinces_to_highlight = {
+			region = egypt_region
+		}
+		trigger = {
+			egypt_region = {
+				type = all
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+		}
+	}
+	africa_seize_rome = {
+		icon = atlantropa_colosseum
+		position = 10
+		required_missions = { africa_conquer_italy }
+		provinces_to_highlight = {
+			province_id = 5747
+		}
+		trigger = {
+			is_state_core = 5747
+		}
+		effect = {
+			5747 = {
+				change_culture = ROOT
+				change_religion = ROOT
+				rename_capital = "Antiqua Capitoli"
+				add_devastation = 20
+				change_province_name = "Antiqua Capitoli"
+			}
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+		}
+	}
+}
+
+africa_series_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = X55
+	}
+
+	african_mission_war = {
+		icon = mission_conquer_romania
+		position = 1
+		required_missions = {  }
+		trigger = {
+			is_at_war = no
+		}
+		effect = {
+			add_stability = 1
+		}
+	}
+	africa_manage_estates = {
+		icon = mission_establish_the_prikazy
+		position = 2
+		required_missions = { african_mission_war }
+		trigger = {
+			crown_land_share = 30
+			if = {
+				limit = {
+					has_estate = estate_nobles
+				}
+				estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 60
+				}
+			}
+			if = {
+				limit = {
+					has_estate = estate_burghers
+				}
+				estate_loyalty = {
+					estate = estate_burghers
+					loyalty = 60
+				}
+			}
+			if = {
+				limit = {
+					has_estate = estate_church
+				}
+				estate_loyalty = {
+					estate = estate_church
+					loyalty = 60
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					NOT = { has_estate = estate_nobles }
+					NOT = { has_estate = estate_burghers }
+					NOT = { has_estate = estate_church }
+				}
+				add_stability_or_adm_power = yes
+			}
+			else = {
+				if = {
+					limit = {
+						NOT = { crown_land_share = 60 }
+					}
+					custom_tooltip = add_5_crown_land_share
+					hidden_effect = {
+						change_estate_land_share = {
+							estate = all
+							share = -5
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_estate = estate_nobles
+					}
+					add_estate_loyalty_modifier = {
+						estate = estate_nobles
+						desc = VAL_HAB_BALANCED_ESTATES
+						loyalty = 10
+						duration = 7300
+					}
+				}
+				if = {
+					limit = {
+						has_estate = estate_church
+					}
+					add_estate_loyalty_modifier = {
+						estate = estate_church
+						desc = VAL_HAB_BALANCED_ESTATES
+						loyalty = 10
+						duration = 7300
+					}
+				}
+				if = {
+					limit = {
+						has_estate = estate_burghers
+					}
+					add_estate_loyalty_modifier = {
+						estate = estate_burghers
+						desc = VAL_HAB_BALANCED_ESTATES
+						loyalty = 10
+						duration = 7300
+					}
+				}
+			}
+		}
+	}
+	africa_establish_cult = {
+		icon = mission_plc_cultural_flowering
+		position = 4
+		required_missions = { africa_manage_estates }
+		trigger = {
+			NOT = { religion = united_christianity }
+		}
+		effect = {
+			country_event = {
+				id = atlantropa_africa_event.3
+			}
+		}
+	}
+	africa_demand_religion = {
+		icon = mission_rb_control_state_religion
+		position = 5
+		required_missions = { africa_establish_cult }
+		trigger = {
+			religion = african_imperial_cult
+			religious_unity = 0.8
+			legitimacy = 90
+		}
+		effect = {
+			add_country_modifier = {
+				name = african_imperial_cult_rising
+				duration = -1
+			}
+		}
+	}
+	africa_holy_empire = {
+		icon = atlantropa_romanisation
+		position = 6
+		required_missions = { africa_establish_holy_guards africa_demand_religion africa_build_imperial_palace }
+		trigger = {
+			adm_power = 100
+			dip_power = 100
+			mil_power = 100
+		}
+		effect = {
+			add_adm_power = -100
+			add_dip_power = -100
+			add_mil_power = -100
+			country_event = {
+				id = atlantropa_africa_event.4
+			}
+		}
+	}
+	africa_conquer_africa = {
+		icon = mission_invade_the_deccan_ori
+		position = 7
+		required_missions = { africa_holy_empire }
+		provinces_to_highlight = {
+			region = maghreb_region
+		}
+		trigger = {
+			maghreb_region = {
+				type = all
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+		}
+		effect = {
+			egypt_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			libyasuperior_region = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			add_prestige = 20
+		}
+	}
+	africa_conquer_italy = {
+		icon = atlantropa_rome
+		position = 9
+		required_missions = { africa_conquer_seize_egypt africa_conquer_mauretania }
+		trigger = {
+			mil_power = 300
+		}
+		effect = {
+			add_mil_power = -300
+			custom_tooltip = romewszystkieprowincje
+			hidden_effect = {
+				every_province = {
+					limit = {
+						OR = {
+							continent = europe
+							continent = africa
+							continent = asia
+						}
+						religion_group = christian
+					}
+					add_permanent_claim	= ROOT
+				}
+			}
+		}
+	}
+	carthago_capitoli_africa = {
+		icon = atlantropa_carthago
+		position = 10
+		required_missions = { africa_conquer_italy }
+		provinces_to_highlight = {
+			province_id = 341
+		}
+		trigger = {
+			341 = {
+				owned_by = ROOT
+				development = 40
+				has_tax_building_trigger = yes
+				has_production_building_trigger = yes
+				has_manpower_building_trigger = yes
+				custom_trigger_tooltip = {
+					tooltip = BYZ_most_developed_city_in_the_world
+					NOT = {
+						any_province = {
+							higher_development_than = PREV
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			341 = { add_province_modifier = {
+				name = BYZ_megalopolis_modifier_1
+				duration = -1
+			}
+		}
+	}
+}
+	atl_africa_hegemony = {
+		icon = mission_empire
+		position = 11
+		required_missions = { africa_seize_rome africa_seize_troya carthago_capitoli_africa }
+		trigger = {
+			stability = 3
+			if = {
+				limit = { has_dlc = "Emperor" }
+				is_hegemon = yes
+			}
+			else = { total_development = 2000 }
+			has_regency = no
+		}
+		effect = {
+			if = {
+				limit = {
+					in_golden_age = no
+				}
+				reset_golden_age = yes
+			}
+			if = {
+				limit = {
+					in_golden_age = yes
+				}
+				extend_golden_age = 1800
+			}
+		}
+	}
+}
+
+africa_series_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = X55
+	}
+
+	afica_conquest_africa = {
+		icon = mission_west_african_ports
+		position = 2
+		required_missions = { african_mission_war }
+		provinces_to_highlight = {
+			OR = {
+				area = tunisia_area
+				area = tripolitania_area
+				area = djerba_area
+				area = kabylia_area
+			}
+		}
+		trigger = {
+			tunisia_area = {
+				type = all
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+			tripolitania_area = {
+				type = all
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+			djerba_area = {
+				type = all
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+			kabylia_area = {
+				type = all
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+		}
+		effect = {
+			add_dip_power = 100
+			add_prestige = 15
+			add_country_modifier = {
+				name = "african_mercenaries"
+				duration = -1
+			}
+		}
+	}
+	africa_economy = {
+		icon = mission_african_gold
+		position = 3
+		required_missions = { afica_conquest_africa }
+		provinces_to_highlight = {
+			province_id = 341
+		}
+		trigger = {
+			341 = {
+				trade_share = {
+					country = ROOT
+					share = 80
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = BYZ_coin_of_pure_gold
+				duration = 10950
+			}
+			add_years_of_trade_income = {
+				years = 2
+				custom_tooltip = BYZ_add_2_years_of_trade_income
+			}
+		}
+	}
+	african_roads = {
+		icon = mission_silk_road
+		position = 4
+		required_missions = { africa_economy }
+		trigger = {
+			atlantropa_road = 20
+		}
+		effect = {
+			every_owned_province = {
+				limit = {
+					has_building = atlantropa_road
+				}
+				add_base_production = 1
+			}
+		}
+	}
+	africa_build_imperial_palace = {
+		icon = mission_el_badi_palace
+		position = 5
+		required_missions = { africa_establish_cult }
+		trigger = {
+			religion = african_imperial_cult
+			dip_power = 100
+			adm_power = 100
+		}
+		effect = {
+			add_dip_power = -100
+			add_adm_power = -100
+			341 = {
+				add_great_project = {
+					type = a47_palace_of_kings_gp
+					instant = no
+				}
+			}
+		}
+	}
+	africa_build_fortress = {
+		icon = fortify_the_passes
+		position = 7
+		required_missions = { africa_holy_empire }
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+							value = 2
+							has_building = atlantropa_superfortress
+						}
+		}
+		effect = {
+			add_prestige = 15
+						add_legitimacy =10
+						add_mil_power = 100
+			341 = {
+							add_great_project = {
+								type = atlantis_castle_tunis
+								instant = no
+							}
+						}
+		}
+	}
+	africa_conquer_mauretania = {
+		icon = mission_moroccan_ports
+		position = 8
+		required_missions = { africa_conquer_africa }
+		provinces_to_highlight = {
+			region = libyasuperior_region
+		}
+		trigger = {
+			libyasuperior_region = {
+				type = all
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+		}
+	}
+	africa_seize_troya = {
+		icon = mission_city_of_the_world's_desire
+		position = 10
+		required_missions = { africa_conquer_italy }
+		provinces_to_highlight = {
+			province_id = 151
+		}
+		trigger = {
+			is_state_core = 151
+		}
+		effect = {
+			151 = {
+				change_culture = ROOT
+				change_religion = ROOT
+				rename_capital = "Nova Capitoli"
+				add_devastation = 20
+				change_province_name = "Nova Capitoli"
+			}
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+		}
+	}
+}
+
+africa_series_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = X55
+	}
+
+	african_economyincrease = {
+		icon = reform_the_monte
+		position = 2
+		required_missions = { african_mission_war }
+		trigger = {
+			OR = {
+				monthly_income = 50
+				AND = {
+					monthly_income = 40
+					advisor = treasurer
+				}
+			}
+		}
+		effect = {
+			add_years_of_income = 0.5
+			add_country_modifier = {
+				name = 	rochina_economybonus
+				duration = -1
+			}
+		}
+	}
+	africa_buildweath = {
+		icon = prosperity_for_all
+		position = 3
+		required_missions = { afica_conquest_africa african_economyincrease }
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 10
+				OR = {
+					trade_goods = grain
+					trade_goods = atl_fruit
+				}
+				base_production = 5
+			}
+		}
+		effect = {
+			add_years_of_income = 1
+			every_owned_province = {
+				limit = {
+					OR = {
+						trade_goods = grain
+						trade_goods = atl_fruit
+					}
+				}
+				add_base_manpower = 1
+			}
+		}
+	}
+	african_capital_atl = {
+		icon = africa_proconsulare
+		position = 4
+		required_missions = { africa_buildweath }
+		provinces_to_highlight = {
+			province_id = 341
+		}
+		trigger = {
+			341 = {
+				owned_by = ROOT
+				development = 30
+				has_tax_building_trigger = yes
+				has_production_building_trigger = yes
+				has_manpower_building_trigger = yes
+			}
+		}
+		effect = {
+			341 = { add_province_modifier = {
+				name = BYZ_queen_of_cities
+				duration = -1
+			}
+		}
+	}
+}
+	african_economy_build = {
+		icon = public_works
+		position = 5
+		required_missions = { africa_establish_cult }
+		trigger = {
+			workshop = 10
+		}
+		effect = {
+			every_owned_province = {
+							limit = {
+								has_building = workshop
+							}
+							add_base_production = 1
+						}
+						add_adm_power = 100
+						add_dip_power = 100
+		}
+	}
+	african_economy_buildermanufactor = {
+		icon = mission_rb_prospect_for_coal
+		position = 7
+		required_missions = { african_economy_build }
+		trigger = {
+			num_of_owned_provinces_with = {
+							value = 10
+							OR = {
+								has_building = wharf
+								has_building = weapons
+								has_building = textile
+								has_building = plantations
+								has_building = tradecompany
+								has_building = mills
+							}
+						}
+		}
+		effect = {
+			add_years_of_income = 2.5
+						add_country_modifier = {
+							name = fjordland_manufacturing
+							duration = 3650
+						}
+						2954 = {
+							hidden_effect = {
+								clear_trade_good_modifiers_effect = yes
+							}
+							change_trade_goods = cloth
+							add_permanent_province_modifier = {
+								name = trade_good_clothes
+								duration = -1
+							}
+						}
+		}
+	}
+}
+
