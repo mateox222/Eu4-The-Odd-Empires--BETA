@@ -93,3 +93,39 @@ country_event = {
 	}
 
 }
+
+country_event = {
+	id =  atlantropa_africa_event.3
+	title = "atlantropa_africa_event.3.t"
+	desc = "atlantropa_africa_event.3.d"
+	picture = easternchurches_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = { #Slavia
+		name = "atlantropa_africa_event.3.a"
+		change_religion = african_imperial_cult
+		341 = { change_religion = african_imperial_cult }
+		add_prestige = 25
+		on_religion_change_effect = yes
+		on_religion_change_estate_privileges_effect = yes
+	}
+}
+country_event = {
+	id =  atlantropa_africa_event.4
+	title = "atlantropa_africa_event.4.t"
+	desc = "atlantropa_africa_event.4.d"
+	picture = 4thpunicwar_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "atlantropa_africa_event.4.a"
+		override_country_name = HOLYAFRICANEMPIRE
+		add_prestige = 25
+	}
+	option = {
+		name = "atlantropa_africa_event.4.b"
+		override_country_name = HOLYAFRICANEMPIRE2
+		add_prestige = 25
+	}
+}
+
