@@ -1,0 +1,194 @@
+stuzi_undeath = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = K2A
+	}
+	
+	has_country_shield = yes
+
+	stuzi_undeath_experiments = {
+		icon = mission_build_up_to_force_limit
+		position = 1
+		required_missions = {  }
+		trigger = { }
+		effect = { }
+	}
+	stuzi_dark_reign = {
+		icon = mission_build_up_to_force_limit
+		position = 3
+		required_missions = { stuzi_undeath_experiments }
+		trigger = { }
+		effect = { }
+	}
+	stuzi_agartha = {
+		icon = mission_build_up_to_force_limit
+		position = 4
+		required_missions = { stuzi_dark_reign stuzi_southwards }
+		trigger = { }
+		effect = { }
+	}
+}
+
+stuzi_conquest = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = K2A
+	}
+	
+	has_country_shield = yes
+
+	stuzi_dark_tidings = {
+		icon = mission_build_up_to_force_limit
+		position = 1
+		required_missions = {  }
+		provinces_to_highlight = {
+			area = caladde_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			caladde_area = {
+				type = all	
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+		}
+		effect = { }
+	}
+	stuzi_one_fist = {
+		icon = mission_build_up_to_force_limit
+		position = 2
+		required_missions = { stuzi_dark_tidings }
+		provinces_to_highlight = {
+			area = bluereach_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			bluereach_area = {
+				type = all	
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+		}
+		effect = { }
+	}
+	stuzi_southwards = {
+		icon = mission_build_up_to_force_limit
+		position = 3
+		required_missions = { stuzi_one_fist }
+		provinces_to_highlight = {
+			area = necropolis_area 
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			necropolis_area  = {
+				type = all	
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+		}
+		effect = { }
+	}
+	stuzi_stragglers = {
+		icon = mission_build_up_to_force_limit
+		position = 4
+		required_missions = { stuzi_southwards }
+		provinces_to_highlight = {
+			OR = {
+				area = plutusia_area 
+				area = agartha_area
+				area = longbend_area
+				area = halar_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			plutusia_area = {
+				type = all	
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+			agartha_area = {
+				type = all	
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+			longbend_area = {
+				type = all	
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+			halar_area = {
+				type = all	
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+		}
+		effect = { }
+	}
+	stuzi_pale_ones = {
+		icon = mission_build_up_to_force_limit
+		position = 5
+		required_missions = { stuzi_stragglers }
+		trigger = { }
+		effect = { }
+	}
+}
+
+stuzi_necronomics = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = K2A
+	}
+	
+	has_country_shield = yes
+
+	stuzi_neconomics_ms = {
+		icon = mission_build_up_to_force_limit
+		position = 1
+		required_missions = {  }
+		trigger = { }
+		effect = { }
+	}
+	stuzi_slave_labor = {
+		icon = mission_build_up_to_force_limit
+		position = 2
+		required_missions = { stuzi_neconomics_ms }
+		trigger = { }
+		effect = { }
+	}
+	stuzi_charnal_pits = {
+		icon = mission_build_up_to_force_limit
+		position = 3
+		required_missions = { stuzi_slave_labor }
+		trigger = { }
+		effect = { }
+	}
+	stuzi_despair = {
+		icon = mission_build_up_to_force_limit
+		position = 5
+		required_missions = { stuzi_stragglers stuzi_charnal_pits }
+		trigger = { }
+		effect = { }
+	}
+}
+

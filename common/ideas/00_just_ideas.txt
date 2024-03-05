@@ -5919,3 +5919,98 @@ fire0 = {
 
 
 
+########################################################
+####### Underworld Ideas / Unterwelt Ideen
+########################################################
+
+underworld0 = {
+	category = ADM
+
+	trigger = {
+
+		religion_group = deep_group
+		NOT = {
+			religion = raumarysm
+		}
+
+	}
+
+	bonus = {
+		cb_on_religious_enemies = yes
+	}
+
+
+	underworld1 = {
+		missionaries = 1
+	}
+	underworld2 = {
+		global_heretic_missionary_strength = 0.04
+		global_missionary_strength = 0.01
+	}
+	underworld3 = {
+		global_colonial_growth = 15
+	}
+
+	underworld4 = {
+		artillery_cost = -0.2
+		artillery_power = 0.025
+	}
+
+	underworld5 = {
+		ignore_coring_distance = yes
+		core_creation = -0.05
+	}
+	underworld6 = {
+		ae_impact = -0.10
+	}
+	underworld7 = {
+		missionary_maintenance_cost = -0.25
+	}
+
+	ai_will_do = {
+		factor = 10
+
+		modifier = {
+			factor = 1.25
+			any_rival_country = {
+				NOT = { religion = ROOT }
+			}
+		}
+		modifier = {
+			factor = 2
+			has_dlc = "Common Sense"
+			NOT = { devotion = 70 }
+			OR = {
+				has_reform =  theocratic_government
+				has_reform =  papal_government
+				has_reform =  monastic_order_government
+			}
+		}
+		modifier = {
+			factor = 1.33
+			NOT = { religious_unity = 0.9 }
+		}
+		modifier = {
+			factor = 1.4
+			NOT = { religious_unity = 0.8 }
+		}
+		modifier = {
+			factor = 2.25
+			NOT = { religious_unity = 0.7 }
+		}
+		modifier = {
+			factor = 2
+			personality = ai_capitalist
+		}
+
+		modifier = {
+			factor = 2
+			is_elector = yes
+		}
+		modifier = {
+			factor = 10
+			is_emperor = yes
+		}
+
+	}
+}
