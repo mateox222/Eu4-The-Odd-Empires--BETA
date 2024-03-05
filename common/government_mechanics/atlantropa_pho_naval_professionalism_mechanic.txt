@@ -1,22 +1,11 @@
 pho_naval_professionalism_mechanic = {
-   alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_gfx = GFX_alerticons_government_mechanics
 	alert_icon_index = 15
 
 	available = {
- if = {
-	limit = {
-		OR = {
-		tag = XA8
-		tag = A79
-		tag = A80
-		tag = X1H	
-		tag = A4R	
-		tag = SPA
-		tag = POR		
+		if = {
+			has_country_flag = navy_availible
 		}
-	}
-	has_country_flag = navy_availible
- }
 	}
 
 	powers = {
@@ -34,24 +23,24 @@ pho_naval_professionalism_mechanic = {
 			}
 			scaled_modifier = {
 				modifier = {
-					naval_morale = 0.2	
+					naval_morale = 0.2
 				}
 			}
 		}
 	}
-	
+
 	interactions = {
 		boost_naval_professionalism = {
 			cooldown_years = 2
-			
+
 			icon = GFX_naval_professionalism_button_1
 			trigger = {
 				dip_power_cost = 75
 				manpower_percentage = 0.10
 			}
-			effect = { 
+			effect = {
 				dip_power_cost = 75
-				add_yearly_manpower = -1	
+				add_yearly_manpower = -1
 				add_yearly_sailors = 1
 				add_government_power = {
 					mechanic_type = pho_naval_professionalism_mechanic
@@ -72,33 +61,33 @@ pho_naval_professionalism_mechanic = {
 			trigger = {
 				dip_tech = 8
 			}
-						cooldown_years = 2
+			cooldown_years = 2
 			icon = GFX_naval_professionalism_button_2
 			trigger = {
 				dip_power_cost = 75
 				years_of_income = 0.5
 
 			}
-			effect = { 
-random_owned_province = {
-    limit = { has_port = yes }
-    ROOT = {
-        heavy_ship = PREV
-    }
-}
-	random_owned_province = {
-    limit = { has_port = yes }
-    ROOT = {
-        heavy_ship = PREV
-    }
-		}
-random_owned_province = {
-    limit = { has_port = yes }
-    ROOT = {
-        heavy_ship = PREV
-    }
-}
-				add_years_of_income = -0.5	
+			effect = {
+				random_owned_province = {
+					limit = { has_port = yes }
+					ROOT = {
+						heavy_ship = PREV
+					}
+				}
+				random_owned_province = {
+					limit = { has_port = yes }
+					ROOT = {
+						heavy_ship = PREV
+					}
+				}
+				random_owned_province = {
+					limit = { has_port = yes }
+					ROOT = {
+						heavy_ship = PREV
+					}
+				}
+				add_years_of_income = -0.5
 				dip_power_cost = 75
 				add_government_power = {
 					mechanic_type = pho_naval_professionalism_mechanic
@@ -116,14 +105,14 @@ random_owned_province = {
 			}
 		}
 		boost_naval_professionalism3 = {
-						cooldown_years = 2
+			cooldown_years = 2
 			icon = GFX_naval_professionalism_button_3
 			trigger = {
 				dip_power_cost = 33
 				mil_power_cost = 33
 			}
-			effect = { 
-				create_admiral = { tradition = 55 }	
+			effect = {
+				create_admiral = { tradition = 55 }
 				dip_power_cost = 33
 				mil_power_cost = 33
 				add_government_power = {

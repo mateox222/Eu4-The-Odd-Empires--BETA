@@ -7,70 +7,70 @@ country_event = {
 	major = yes
 	fire_only_once = yes
 	is_triggered_only = yes
-immediate = {
-	hidden_effect = {
+	immediate = {
+		hidden_effect = {
+			every_country = {
+				limit = {
+					ai = yes
+					has_heir = no
+					has_regency = no
+				}
+				country_event = {
+					id = startevent.302
+				}
+
+			}
+			set_hre_religion = united_christianity
+			toe_random_ruler_effect = yes
+			151 = {
+				add_province_modifier = {
+					name = atlantropa_genoese_port
+					duration = -1
+				}
+				add_province_modifier = {
+					name = atlantropa_venice_port
+					duration = -1
+				}
+
+			}
+
+			add_reform_desire = -2
+			hide_ambient_object = volcano_ash_emmiter
+			set_heir_flag = ochrzczony
+			set_ruler_flag = koronowanykrol
+			set_global_flag = atlantropa_start_flag
+			set_global_flag = niecrashujmizjebanagro
+			set_ruler_flag = koronowanykrolsrednio
+			MEN = { change_country_color = { color = { 153 71 124 }	}
+			set_country_flag = has_overriden_color  }
 		every_country = {
-			limit = {
-				ai = yes
-				has_heir = no
-				has_regency = no
-			}
+			limit = { is_subject_of = FRA }
 			country_event = {
-				id = startevent.302
+				id = atlantropa_basic_event.100
 			}
+
 
 		}
-		set_hre_religion = united_christianity
-		toe_random_ruler_effect = yes
-	151 = { 
-		add_province_modifier = { 
-    name = atlantropa_genoese_port
-    duration = -1  
-}
-add_province_modifier = { 
-    name = atlantropa_venice_port
-    duration = -1  
-}
-
-	}
-
-	add_reform_desire = -2
-	hide_ambient_object = volcano_ash_emmiter
-	set_heir_flag = ochrzczony
-	set_ruler_flag = koronowanykrol
-	set_global_flag = atlantropa_start_flag
-	set_global_flag = niecrashujmizjebanagro
-	set_ruler_flag = koronowanykrolsrednio
-	MEN = { change_country_color = { color = { 153 71 124 }	}
-	set_country_flag = has_overriden_color  }
-	every_country = {
-		limit = { is_subject_of = FRA }
-		country_event = { 
-    id = atlantropa_basic_event.100
-	}
-
-	
-}
-	every_country = {
-		limit = { is_subject_of = AZT }
-		country_event = { 
-    id = atlantropa_basic_event.4000
-	}
-}
+		every_country = {
+			limit = { is_subject_of = AZT }
+			country_event = {
+				id = atlantropa_basic_event.4000
+			}
+		}
 
 
 
 
-}}
+	}}
 
-	
+
 	option = {
 		name = startevent.1.a
-		country_event = { 
+		country_event = {
 			id = startevent.5
 		}
 	}
-	
+
 }
 
 country_event = {
@@ -79,16 +79,16 @@ country_event = {
 	desc = startevent.2.d
 	picture = BLACKSUN_eventPicture
 	trigger = {
-	inflation = 50
-	ai = yes
-}
+		inflation = 50
+		ai = yes
+	}
 	option = {
-	name = startevent.1.a 
-	add_inflation = -30
-					add_country_modifier = {
-				name = "atlantropa_inflation_ai"
-				duration = 1800
-			}
+		name = startevent.1.a
+		add_inflation = -30
+		add_country_modifier = {
+			name = "atlantropa_inflation_ai"
+			duration = 1800
+		}
 
 
 	}
@@ -101,15 +101,15 @@ country_event = {
 	desc = startevent.2.d
 	picture = BLACKSUN_eventPicture
 	trigger = {
-	always = no
-}
-	option = {
-	name = startevent.1.a 
-
-	eastern_europe_superregion = {
-		add_core = ROOT
-		cede_province = ROOT
+		always = no
 	}
+	option = {
+		name = startevent.1.a
+
+		eastern_europe_superregion = {
+			add_core = ROOT
+			cede_province = ROOT
+		}
 
 
 	}
@@ -120,43 +120,28 @@ country_event = {
 	desc = startevent.2.d
 	picture = BLACKSUN_eventPicture
 	trigger = {
-	always = no
-}
-	option = {
-	name = startevent.1.a 
-	europe_superregion = {
-		add_core = ROOT
-		cede_province = ROOT
+		always = no
 	}
+	option = {
+		name = startevent.1.a
+		europe_superregion = {
+			add_core = ROOT
+			cede_province = ROOT
+		}
 
 
 	}
 }
 country_event = {
-	id = startevent.5
-	title = startevent.5.t
-	desc = startevent.5.d
+	id = startevent.250
+	title = startevent.250.t
+	desc = startevent.250.d
 	picture = BLACKSUN_eventPicture
 	is_triggered_only = yes
-	immediate = {
-		hidden_effect = {
-		every_province = {
-			limit = {
-				has_special_toe_resources = no
-			}
-		the_odd_empires_enable_special_resources = yes
-		}
-	}
-}
-	option = {
-		highlight = yes
-	name = startevent.5.a 
-	}
-	
 	#Change Nothing
 	option = {
 		name = startevent.101.a
-		country_event = { 
+		country_event = {
 			id = startevent.100
 		}
 	}
@@ -166,10 +151,11 @@ country_event = {
 		trigger = {
 			NOT = { has_global_flag = specialresourcesdisabled }
 		}
-		country_event = { 
+		country_event = {
 			id = startevent.102
 		}
 	}
+
 	#Destroy all forts
 	option = {
 		name = startevent.101.b
@@ -178,10 +164,61 @@ country_event = {
 				has_global_flag = fort_destroyed_atlantropa
 			}
 		}
-		country_event = { 
+		country_event = {
 			id = startevent.101
 		}
 	}
+	option = { #Annex Vassals
+		name = startevent.105.b
+		trigger = {
+			NOT = {
+				has_global_flag = vassals_annexed
+			}
+		}
+		country_event = {
+			id = startevent.105
+		}
+	}
+	option = {
+		name = startevent.102.b
+		country_event = {
+			id = startevent.5
+		}
+	}
+
+
+
+}
+
+
+country_event = {
+	id = startevent.5
+	title = startevent.5.t
+	desc = startevent.5.d
+	picture = BLACKSUN_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			every_province = {
+				limit = {
+					has_special_toe_resources = no
+				}
+				the_odd_empires_enable_special_resources = yes
+			}
+		}
+	}
+	option = {
+		highlight = yes
+		name = startevent.5.a
+	}
+	option = {
+		name = startevent.250.b
+		country_event = {
+			id = startevent.250
+		}
+	}
+
+
 	#All undead
 	option = {
 		name = startevent.101.ne
@@ -190,11 +227,11 @@ country_event = {
 				has_global_flag = fuck_it_necromancer_world
 			}
 		}
-		country_event = { 
+		country_event = {
 			id = startevent.109
 		}
 	}
-	
+
 }
 
 
@@ -206,130 +243,130 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		highlight = yes
-	name = startevent.5.a 
-	country_event = { 
-		id = startevent.5
-	}
-}
-	option = {
-	trigger = { NOT = { has_global_flag = DEKOLONIZACJAAFRYKI }}
-	name = startevent.100.a 
-	set_global_flag = DEKOLONIZACJAAFRYKI
-	central_africa_region = {
-		decolonize = THIS
-	}
-	kongo_region  = {
-		decolonize = THIS
-	}
-	nigeriacontinet_region = {
-		decolonize = THIS
-	}
-	africa_superregion = {
-		limit = {
-			AND = {
-				NOT = {
-				region = maghreb_region
-				region = libyasuperior_region
-				}
-			}
-			
+		name = startevent.5.a
+		country_event = {
+			id = startevent.250
 		}
-		    decolonize = THIS
 	}
-	country_event = { 
-    id = startevent.5
-}
-}
 	option = {
-	trigger = { NOT = { has_global_flag = DEKOLONIZACJALEMURII }}
-	name = startevent.100.b 
-	set_global_flag = DEKOLONIZACJALEMURII
-	lemuria_region = {
-		decolonize = THIS
+		trigger = { NOT = { has_global_flag = DEKOLONIZACJAAFRYKI }}
+		name = startevent.100.a
+		set_global_flag = DEKOLONIZACJAAFRYKI
+		central_africa_region = {
+			decolonize = THIS
+		}
+		kongo_region  = {
+			decolonize = THIS
+		}
+		nigeriacontinet_region = {
+			decolonize = THIS
+		}
+		africa_superregion = {
+			limit = {
+				AND = {
+					NOT = {
+						region = maghreb_region
+						region = libyasuperior_region
+					}
+				}
+
+			}
+			decolonize = THIS
+		}
+		country_event = {
+			id = startevent.250
+		}
 	}
-	country_event = { 
-    id = startevent.5
-}
-}
 	option = {
-	trigger = { NOT = { has_global_flag = DEKOLONIZACJAAMERYKIPLN }}
-	name = startevent.100.c
-	set_global_flag = DEKOLONIZACJAAMERYKIPLN
-	north_america_superregion = {
-		decolonize = THIS
+		trigger = { NOT = { has_global_flag = DEKOLONIZACJALEMURII }}
+		name = startevent.100.b
+		set_global_flag = DEKOLONIZACJALEMURII
+		lemuria_region = {
+			decolonize = THIS
+		}
+		country_event = {
+			id = startevent.250
+		}
 	}
-	country_event = { 
-    id = startevent.5
-}
-}
 	option = {
-	trigger = { NOT = { has_global_flag = DEKOLONIZACJAAATLANTIS }}
-	name = startevent.100.e
-	set_global_flag = DEKOLONIZACJAAATLANTIS
-	atlantis_region = {
-		decolonize = THIS
+		trigger = { NOT = { has_global_flag = DEKOLONIZACJAAMERYKIPLN }}
+		name = startevent.100.c
+		set_global_flag = DEKOLONIZACJAAMERYKIPLN
+		north_america_superregion = {
+			decolonize = THIS
+		}
+		country_event = {
+			id = startevent.250
+		}
 	}
-	country_event = { 
-    id = startevent.5
-}
-}
 	option = {
-	trigger = { NOT = { has_global_flag = DEKOLONIZACJAASYBIR }}
-	name = startevent.100.f
-	set_global_flag = DEKOLONIZACJAASYBIR
-	west_siberia_region = {
-		decolonize = THIS
+		trigger = { NOT = { has_global_flag = DEKOLONIZACJAAATLANTIS }}
+		name = startevent.100.e
+		set_global_flag = DEKOLONIZACJAAATLANTIS
+		atlantis_region = {
+			decolonize = THIS
+		}
+		country_event = {
+			id = startevent.250
+		}
 	}
-	east_siberia_region = {
-		decolonize = THIS
-	}
-	country_event = { 
-    id = startevent.5
-}
-}
 	option = {
-	trigger = { NOT = { has_global_flag = DEKOLONIZACJAOCEANIA }}
-	name = startevent.100.h
-	set_global_flag = DEKOLONIZACJAOCEANIA
-	oceania_superregion = {
-		decolonize = THIS
+		trigger = { NOT = { has_global_flag = DEKOLONIZACJAASYBIR }}
+		name = startevent.100.f
+		set_global_flag = DEKOLONIZACJAASYBIR
+		west_siberia_region = {
+			decolonize = THIS
+		}
+		east_siberia_region = {
+			decolonize = THIS
+		}
+		country_event = {
+			id = startevent.250
+		}
 	}
-	country_event = { 
-    id = startevent.5
-}
-}
+	option = {
+		trigger = { NOT = { has_global_flag = DEKOLONIZACJAOCEANIA }}
+		name = startevent.100.h
+		set_global_flag = DEKOLONIZACJAOCEANIA
+		oceania_superregion = {
+			decolonize = THIS
+		}
+		country_event = {
+			id = startevent.250
+		}
+	}
 
 
 
 	option = {
-	trigger = { NOT = { has_global_flag = DEKOLONIZACJAACALEJAMERYKI }}
-	name = startevent.100.g
-	set_global_flag = DEKOLONIZACJAACALEJAMERYKI
-	set_global_flag = DEKOLONIZACJAAMERYKIPLN
-	north_america_superregion = {
-		decolonize = THIS
+		trigger = { NOT = { has_global_flag = DEKOLONIZACJAACALEJAMERYKI }}
+		name = startevent.100.g
+		set_global_flag = DEKOLONIZACJAACALEJAMERYKI
+		set_global_flag = DEKOLONIZACJAAMERYKIPLN
+		north_america_superregion = {
+			decolonize = THIS
+		}
+		central_america_superregion = {
+			decolonize = THIS
+		}
+		andes_superregion  = {
+			decolonize = THIS
+		}
+		south_america_superregion = {
+			decolonize = THIS
+		}
+
+
+		country_event = {
+			id = startevent.5
+		}
 	}
-	central_america_superregion = {
-		decolonize = THIS
-	} 
-	andes_superregion  = {
-		decolonize = THIS
-	}
-	south_america_superregion = {
-		decolonize = THIS
-	}
-	
-	
-		country_event = { 
-    id = startevent.5
+
+
+
+
+
 }
-}
-
-
-
-
-
-	}
 
 
 
@@ -345,8 +382,8 @@ country_event = {
 	picture = BLACKSUN_eventPicture
 	is_triggered_only = yes
 	option = {
-	clr_global_flag = evangelical_union_happened
-	name = startevent.5.a 
+		clr_global_flag = evangelical_union_happened
+		name = startevent.5.a
 	}
 }
 
@@ -355,14 +392,14 @@ country_event = {
 	title = startevent.2.t
 	desc = startevent.2.d
 	picture = BLACKSUN_eventPicture
-		is_triggered_only = yes
+	is_triggered_only = yes
 	option = {
-	name = startevent.1.a 
+		name = startevent.1.a
 
-	north_america_superregion = {
-		add_core = ROOT
-		cede_province = ROOT
-	}
+		north_america_superregion = {
+			add_core = ROOT
+			cede_province = ROOT
+		}
 
 
 	}
@@ -373,18 +410,18 @@ country_event = {
 	title = startevent.2.t
 	desc = startevent.2.d
 	picture = BLACKSUN_eventPicture
-		is_triggered_only = yes
+	is_triggered_only = yes
 	option = {
-	name = startevent.1.a 
+		name = startevent.1.a
 
-	atlantis_sicily_region = {
-		add_core = ROOT
-		cede_province = ROOT
-	}
-	italy_region = {
-		add_core = ROOT
-		cede_province = ROOT
-	}
+		atlantis_sicily_region = {
+			add_core = ROOT
+			cede_province = ROOT
+		}
+		italy_region = {
+			add_core = ROOT
+			cede_province = ROOT
+		}
 
 	}
 }
@@ -396,11 +433,11 @@ country_event = {
 	picture = BLACKSUN_eventPicture
 	is_triggered_only = yes
 	option = {
-	name = startevent.1.a 
-			define_heir = {
-    dynasty = ROOT
+		name = startevent.1.a
+		define_heir = {
+			dynasty = ROOT
+		}
 	}
-}
 }
 
 country_event = {
@@ -410,17 +447,17 @@ country_event = {
 	picture = BLACKSUN_eventPicture
 	is_triggered_only = yes
 	option = {
-		name = startevent.102.a 
+		name = startevent.102.a
 		set_global_flag = specialresourcesdisabled
 		every_province = { clear_trade_good_modifiers_effect = yes }
-		country_event = { 
+		country_event = {
 			id = startevent.5
 		}
 	}
 	option = {
-		name = startevent.102.b 
-		country_event = { 
-			id = startevent.5
+		name = startevent.102.b
+		country_event = {
+			id = startevent.250
 		}
 	}
 }
@@ -433,21 +470,80 @@ country_event = {
 	picture = BLACKSUN_eventPicture
 	is_triggered_only = yes
 	option = {
-		name = startevent.109.a 
+		name = startevent.109.a
 		set_global_flag = fuck_it_necromancer_world
-		country_event = { 
+		country_event = {
 			id = startevent.5
 		}
 	}
 	option = {
-		name = startevent.109.b 
-		country_event = { 
+		name = startevent.109.b
+		country_event = {
 			id = startevent.5
 		}
 	}
 }
 
 
+
+
+country_event = {
+	id = startevent.105
+	title = startevent.105.t
+	desc = startevent.105.d
+	picture = BLACKSUN_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = startevent.5.a
+		country_event = {
+			id = startevent.5
+		}
+	}
+	option = {
+		name = startevent.105.e
+		custom_tooltip = destroys_all_vassals
+		trigger = {
+			NOT = {
+				has_global_flag = vassals_annexed
+			}
+		}
+		country_event = {
+			id = startevent.5
+		}
+		hidden_effect = {
+			set_global_flag = vassals_annexed
+			every_country = {
+				limit = {
+					is_subject = yes
+					NOT = { is_subject_of_type = tributary_state}
+					NOT = { is_subject_of_type = march}
+					NOT = { is_subject_of_type = personal_union }
+					NOT = { is_subject_of_type = vassal }
+					NOT = { is_subject_of_type = colony }
+					NOT = { is_subject_of_type = appanage }
+					NOT = { is_subject_of_type = daimyo_vassal  }
+
+				}
+
+				country_event = {
+					id = startevent.1005
+				}
+			}
+
+
+		}
+
+	}
+}
+country_event = {
+	id = startevent.1005
+	title = startevent.105.t
+	desc = startevent.105.d
+	picture = BLACKSUN_eventPicture
+	is_triggered_only = yes
+	hidden = yes
+	option = { overlord = { inherit = ROOT	 } }
+}
 
 
 country_event = {
@@ -881,14 +977,14 @@ country_event = {
 				type = atlantis_castle_acquisgrana
 			}
 		}
-		country_event = { 
+		country_event = {
 			id = startevent.5
 		}
 	}
 	option = {
-		name = startevent.101.c 
-		country_event = { 
-			id = startevent.5
+		name = startevent.101.c
+		country_event = {
+			id = startevent.250
 		}
 	}
 }

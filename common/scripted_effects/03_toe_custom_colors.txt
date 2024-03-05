@@ -1,7 +1,7 @@
 toe_random_color_effect = {
 	every_subject_country = {
 		limit = {
-			is_part_of_hre = yes
+			NOT = {has_country_flag = has_overriden_color_flag }
 			is_colonial_nation = no
 			NOT = {
 				is_subject_of_type = tributary_state
@@ -10,32 +10,7 @@ toe_random_color_effect = {
 		change_country_color = {
 			country = ROOT
 		}
-		set_country_flag = memberofetruria
-	}
-
-	every_subject_country = {
-		limit = {
-			is_subject_of = X55
-		}
-		change_country_color = {
-			country = X55
-		}
-	}
-	every_subject_country = {
-		limit = {
-			is_subject_of = SP5
-		}
-		change_country_color = {
-			country = SP5
-		}
-	}
-	every_subject_country = {
-		limit = {
-			is_subject_of = CH3
-		}
-		change_country_color = {
-			country = CH3
-		}
+		set_country_flag = has_overriden_color_flag
 	}
 }
 toe_random_dependence_color_effect = {
