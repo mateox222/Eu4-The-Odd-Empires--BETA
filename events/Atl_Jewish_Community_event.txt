@@ -200,10 +200,18 @@ province_event = {
 		remove_province_modifier = atlantropa_nativeatlantis_community
 		if = {
 			limit = {
+				#Not Native Atlantean or Human, and No Existing Atlantean Minority/Majority
 				NOT = {
 					culture_group = atlantean_algonquian
-					culture_group = punic_culture
 					has_province_modifier = atlantean_minority
+					has_province_modifier = atlantean_majority
+				}
+				OR = {
+					culture_group = paleone_g
+					culture_group = pygmy_g
+					culture_group = atlantean_group
+					culture_group = neanderthalgroup
+					culture_group = android_group
 				}
 			}
 			add_permanent_province_modifier = {
@@ -213,10 +221,33 @@ province_event = {
 		}
 		if = {
 			limit = {
+				#Human, and No Existing Half Atlantean Minority/Majority
 				NOT = {
 					has_province_modifier = half_atlantean_minority
+					has_province_modifier = half_atlantean_majority
+					culture_group = paleone_g
+					culture_group = pygmy_g
+					culture_group = atlantean_algonquian
+					culture_group = atlantean_group
+					culture_group = neanderthalgroup
+					culture_group = android_group
 				}
-				culture_group = punic_culture
+			}
+			add_permanent_province_modifier = {
+				name = half_atlantean_minority
+				duration = -1
+			}
+		}
+		if = {
+			limit = {
+				#Native Atlantean, and No Half Atlantean Minority/Majority
+				NOT = {
+					OR = {
+						has_province_modifier = half_atlantean_minority
+						has_province_modifier = half_atlantean_majority
+					}
+				}
+				culture_group = atlantean_algonquian
 			}
 			add_permanent_province_modifier = {
 				name = half_atlantean_minority
