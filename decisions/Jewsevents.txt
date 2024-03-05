@@ -1,29 +1,29 @@
 country_decisions = {
 	jews_expell = {
-        color = { 30 135 242 }
+		color = { 30 135 242 }
 		potential = {
-		NOT = {  has_country_flag = jewsexpelled }
-        NOT = {   has_country_modifier = borrowmoneyfromjews }  
-           NOT = {   has_country_modifier = Jewsingovernment }  
-        any_owned_province = {
-	OR = {
-        has_province_modifier = atlantropa_jewish_community	
-        has_province_modifier = atlantropa_large_jewish_community
-    }
-}
+			NOT = {  has_country_flag = jewsexpelled }
+			NOT = {   has_country_modifier = borrowmoneyfromjews }
+			NOT = {   has_country_modifier = Jewsingovernment }
+			any_owned_province = {
+				OR = {
+					has_province_modifier = atlantropa_jewish_community
+					has_province_modifier = atlantropa_large_jewish_community
+				}
+			}
 		}
 		allow = {
-		NOT = {  has_country_flag = jewsexpelled }
-        NOT = {   has_country_modifier = borrowmoneyfromjews }  
-        NOT = {   has_country_modifier = Jewsingovernment }  
+			NOT = {  has_country_flag = jewsexpelled }
+			NOT = {   has_country_modifier = borrowmoneyfromjews }
+			NOT = {   has_country_modifier = Jewsingovernment }
 		}
 		effect = {
-    set_country_flag = jewsexpelled
-    add_stability = -1
-    add_yearly_manpower = -5
-    custom_tooltip = atlantisjewsexpelled
-}
-		
+			set_country_flag = jewsexpelled
+			add_stability = -1
+			add_yearly_manpower = -5
+			custom_tooltip = atlantisjewsexpelled
+		}
+
 		ai_will_do = {
 			factor = 0
 		}
@@ -32,27 +32,31 @@ country_decisions = {
 
 country_decisions = {
 	neandertals_invite = {
-        color = { 30 135 242 }
+		color = { 30 135 242 }
 		potential = {
-                    any_owned_province = {
-        has_province_modifier = atlantropa_neandertalczycy_community
-}
-NOT = {   has_country_modifier = Neandertalesguardia }
+			any_owned_province = {
+				OR = {
+					#has_province_modifier = atlantropa_neandertalczycy_community
+					has_province_modifier = neanderthal_majority
+					has_province_modifier = neanderthal_minority
+				}
+			}
+			NOT = {   has_country_modifier = Neandertalesguardia }
 		}
 		allow = {
 			mil_power = 150
-           NOT = {   has_country_modifier = Neandertalesguardia }
+			NOT = {   has_country_modifier = Neandertalesguardia }
 		}
 		effect = {
-            add_country_modifier = { 
-    name = Neandertalesguardia
-    duration = -1
-}
-add_mil_power = -150	
-}
-		
+			add_country_modifier = {
+				name = Neandertalesguardia
+				duration = -1
+			}
+			add_mil_power = -150
+		}
+
 		ai_will_do = {
 			factor = 0
 		}
 	}
-}	
+}
