@@ -221,25 +221,6 @@ province_event = {
 		}
 		if = {
 			limit = {
-				#Human, and No Existing Half Atlantean Minority/Majority
-				NOT = {
-					has_province_modifier = half_atlantean_minority
-					has_province_modifier = half_atlantean_majority
-					culture_group = paleone_g
-					culture_group = pygmy_g
-					culture_group = atlantean_algonquian
-					culture_group = atlantean_group
-					culture_group = neanderthalgroup
-					culture_group = android_group
-				}
-			}
-			add_permanent_province_modifier = {
-				name = half_atlantean_minority
-				duration = -1
-			}
-		}
-		if = {
-			limit = {
 				#Human, and Existing Half Atlantean Minority/Majority
 				NOT = {
 					culture_group = paleone_g
@@ -256,6 +237,25 @@ province_event = {
 			}
 			add_permanent_province_modifier = {
 				name = atlantean_minority
+				duration = -1
+			}
+		}
+		if = {
+			limit = {
+				#Human, and No Existing Half Atlantean Minority/Majority
+				NOT = {
+					has_province_modifier = half_atlantean_minority
+					has_province_modifier = half_atlantean_majority
+					culture_group = paleone_g
+					culture_group = pygmy_g
+					culture_group = atlantean_algonquian
+					culture_group = atlantean_group
+					culture_group = neanderthalgroup
+					culture_group = android_group
+				}
+			}
+			add_permanent_province_modifier = {
+				name = half_atlantean_minority
 				duration = -1
 			}
 		}
