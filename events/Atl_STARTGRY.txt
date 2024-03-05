@@ -179,6 +179,20 @@ country_event = {
 			id = startevent.105
 		}
 	}
+	option = { #Annex Vassals
+		name = startevent.1050.c
+		trigger = {
+			NOT = {
+				has_global_flag = vassals_annexed
+			}
+		}
+		country_event = {
+			id = atlantropa_basic_event.5001
+		}
+	}
+
+
+
 	option = {
 		name = startevent.102.b
 		country_event = {
@@ -987,4 +1001,100 @@ country_event = {
 			id = startevent.250
 		}
 	}
+}
+
+
+country_event = {
+	id = atlantropa_basic_event.5001
+	title = atlantropa_basic_event.5001.t
+	desc = atlantropa_basic_event.5001.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	is_triggered_only = YES
+	country_event = {
+		id = startevent.5
+	}
+	option = {
+		name = "atlantropa_basic_event.6.a"
+		every_country = {
+			change_country_color = { color = { 255 252 255 }}
+		}
+
+		#Little Content
+		AZT = { change_country_color = { color = { 0 124 0 }}  }
+		A49 = { change_country_color = { color = { 0 124 0 }}  }
+		A3C = { change_country_color = { color = { 0 124 0 }}  }
+		A5C = { change_country_color = { color = { 0 124 0 }}  }
+		A2C = { change_country_color = { color = { 0 124 0 }}  }
+		BOH = { change_country_color = { color = { 0 124 0 }}  }
+		PSK = { change_country_color = { color = { 0 124 0 }}  }
+		HOL = { change_country_color = { color = { 0 124 0 }}  }
+		KO3 = { change_country_color = { color = { 0 124 0 }}  }
+		GR6 = { change_country_color = { color = { 0 124 0 }} }
+		V02 = { change_country_color = { color = { 0 124 0 }} }
+		V01 = { change_country_color = { color = { 0 124 0 }} }
+		V00 = { change_country_color = { color = { 0 124 0 }} }
+
+
+		#Medium Content
+
+		SER = { change_country_color = { color = { 253 255 130 }} }
+		NAV = { change_country_color = { color = { 253 255 130 }} }
+		X46 = { change_country_color = { color = { 253 255 130 }} }
+		BUL = { change_country_color = { color = { 253 255 130 }} }
+		EPI = { change_country_color = { color = { 253 255 130 }} }
+		KIE = { change_country_color = { color = { 253 255 130 }} }
+		A10 = { change_country_color = { color = { 253 255 130 }} }
+		ARM = { change_country_color = { color = { 253 255 130 }} }
+		A13 = { change_country_color = { color = { 253 255 130 }} }
+		X39 = { change_country_color = { color = { 253 255 130 }} }
+
+
+
+
+
+
+
+		#Long Content
+		#Europe
+		FRA = { change_country_color = { color = { 255 3 1 }} }
+		POL = { change_country_color = { color = { 255 3 1 }} }
+		A52 = { change_country_color = { color = { 255 3 1 }} }
+		LAE = { change_country_color = { color = { 255 3 1 }} }
+		ZT1 = { change_country_color = { color = { 255 3 1 }} }
+		ENG = { change_country_color = { color = { 255 3 1 }} }
+		A27 = { change_country_color = { color = { 255 3 1 }} }
+		A34 = { change_country_color = { color = { 255 3 1 }} }
+		X1H = { change_country_color = { color = { 255 3 1 }} }
+		X58 = { change_country_color = { color = { 255 3 1 }} }
+		A57 = { change_country_color = { color = { 255 3 1 }} }
+		POR = { change_country_color = { color = { 255 3 1 }} }
+		ZT1 = { change_country_color = { color = { 255 3 1 }} }
+		X55 = { change_country_color = { color = { 255 3 1 }} }
+		XA8 = { change_country_color = { color = { 255 3 1 }} }
+		A4R = { change_country_color = { color = { 255 3 1 }} }
+		TRE = { change_country_color = { color = { 255 3 1 }} }
+		SL1 = { change_country_color = { color = { 255 3 1 }} }
+		A82 = { change_country_color = { color = { 255 3 1 }} }
+		A47 = { change_country_color = { color = { 255 3 1 }} }
+		A76 = { change_country_color = { color = { 255 3 1 }} }
+
+		#ASIA
+		A56 = { change_country_color = { color = { 255 3 1 }} }
+		A5F = { change_country_color = { color = { 255 3 1 }} }
+		IN4 = { change_country_color = { color = { 255 3 1 }} }
+
+		#ATLANTIS
+		IS6 = { change_country_color = { color = { 255 3 1 }} }
+		#AMERICA
+		IS1 = { change_country_color = { color = { 255 3 1 }} }
+		IS8 = { change_country_color = { color = { 255 3 1 }} }
+
+		#SCHIZOCONTENT
+		DA1 = { change_country_color = { color = { 108 3 136 }} }
+		KO1 = { change_country_color = { color = { 108 3 136 }} }
+		MU1 = { change_country_color = { color = { 108 3 136 }} }
+		FI1 = { change_country_color = { color = { 108 3 136 }} }
+
+	}
+
 }
