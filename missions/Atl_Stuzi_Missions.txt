@@ -147,7 +147,29 @@ stuzi_conquest = {
 		icon = mission_build_up_to_force_limit
 		position = 5
 		required_missions = { stuzi_stragglers }
-		trigger = { }
+		provinces_to_highlight = {
+			OR = {
+				area = brula_area 
+				area = deepwater_caves_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			brula_area = {
+				type = all	
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+			deepwater_caves_area = {
+				type = all	
+				OR = {
+					country_or_non_sovereign_subject_holds = ROOT
+					is_city = no
+				}
+			}
+		}
 		effect = { }
 	}
 }
