@@ -34,6 +34,8 @@ country_event = {
 						culture_group = pygmy_g
 						culture_group = atlantean_algonquian
 						culture_group = atlantean_group
+						culture_group = neanderthalgroup
+						culture_group = android_group
 						is_wasteland = yes
 					}
 					native_size = 0.01
@@ -88,6 +90,30 @@ country_event = {
 				}
 				add_permanent_province_modifier = {
 					name = half_atlantean_majority
+					duration = -1
+				}
+				
+			}
+			#Add Majorities to province
+			#Robot
+			if = {
+				limit = {
+					culture_group = android_group
+				}
+				add_permanent_province_modifier = {
+					name = robot_majority
+					duration = -1
+				}
+				
+			}
+			#Add Majorities to province
+			#Neanderthal
+			if = {
+				limit = {
+					culture_group = neanderthalgroup
+				}
+				add_permanent_province_modifier = {
+					name = neanderthal_majority
 					duration = -1
 				}
 				
@@ -169,6 +195,8 @@ country_event = {
 						culture_group = pygmy_g
 						culture_group = atlantean_algonquian
 						culture_group = atlantean_group
+						culture_group = neanderthalgroup
+						culture_group = android_group
 					}
 				}
 				add_permanent_province_modifier = {
@@ -221,6 +249,30 @@ country_event = {
 				}
 				add_permanent_province_modifier = {
 					name = half_atlantean_majority
+					duration = -1
+				}
+				
+			}
+			#Add Majorities to province
+			#Robot
+			if = {
+				limit = {
+					culture_group = android_group
+				}
+				add_permanent_province_modifier = {
+					name = robot_majority
+					duration = -1
+				}
+				
+			}
+			#Add Majorities to province
+			#Neanderthal
+			if = {
+				limit = {
+					culture_group = neanderthalgroup
+				}
+				add_permanent_province_modifier = {
+					name = neanderthal_majority
 					duration = -1
 				}
 				

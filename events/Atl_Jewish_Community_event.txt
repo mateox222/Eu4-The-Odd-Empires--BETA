@@ -173,18 +173,16 @@ province_event = {
 	picture = sackniflport_eventPicture
 	hidden = yes
 	trigger = {
-		NOT = { has_province_modifier = atlantropa_nativeatlantis_community }		
-
-region = atlantis_region
-	NOT = {	development = 15 }
+		NOT = { has_province_modifier = atlantropa_nativeatlantis_community }
+		region = atlantis_region
+		NOT = {	development = 15 }
 	}
 
 	option = {
-
-	add_province_modifier = { 
-    name = atlantropa_nativeatlantis_community
-    duration = -1
-}
+		add_province_modifier = { 
+			name = atlantropa_nativeatlantis_community
+			duration = -1
+		}
 	}
 }
 province_event = {
@@ -199,9 +197,21 @@ province_event = {
 	}
 
 	option = {
-	remove_province_modifier = atlantropa_nativeatlantis_community
-}
+		remove_province_modifier = atlantropa_nativeatlantis_community
+		if = {
+			limit = {
+				NOT = { 
+					culture_group = atlantean_algonquian
+					has_province_modifier = atlantean_minority
+				}
+			}
+			add_permanent_province_modifier = {
+				name = atlantean_minority
+				duration = -1
+			}
+		}
 	}
+}
 
 
 
@@ -225,11 +235,10 @@ province_event = {
 		}
 	
 		option = {
-	
-		add_province_modifier = { 
-		name = atlantropa_neandertalczycy_community
-		duration = -1
-	}
+			add_province_modifier = { 
+				name = atlantropa_neandertalczycy_community
+				duration = -1
+			}
 		}
 	}
 	province_event = {
@@ -251,9 +260,21 @@ province_event = {
 		}
 	
 		option = {
-		remove_province_modifier = atlantropa_neandertalczycy_community
-	}
+			remove_province_modifier = atlantropa_neandertalczycy_community
+			if = {
+			limit = {
+				NOT = { 
+					culture_group = neanderthalgroup
+					has_province_modifier = neanderthal_minority
+				}
+			}
+			add_permanent_province_modifier = {
+				name = neanderthal_minority
+				duration = -1
+			}
 		}
+		}
+	}
 
 
 
