@@ -2470,7 +2470,7 @@ country_event = {
 	title = prices.43.t
 	desc = prices.43.d
 	picture = TRADEGOODS_eventPicture
-	goto = 1771
+	goto = 192
 
 	fire_only_once = yes
 	
@@ -2482,10 +2482,10 @@ country_event = {
 			AND = {
 				OR = {
 					NOT = { has_dlc = Emperor }
-					NOT = { BOH = { owns = 1771 } }
+					NOT = { BOH = { owns = 192 } }
 				}
 				NOT = { has_global_flag = bohemian_glass }
-				owns = 1771
+				owns = 192
 				dip_tech = 17
 			}
 		}
@@ -2510,7 +2510,7 @@ country_event = {
 			value = 0.25
 			duration = -1
 		}
-		1771 = {
+		192 = {
 			add_base_production = 2
 			add_base_tax = 2
 		}

@@ -2,26 +2,18 @@ emp_bohemia_1 = {
 	slot = 1
 	generic = no
 	ai = yes
-	potential_on_load = {
-		has_dlc = "Emperor"
-	}
+	has_country_shield = yes
 	potential = {
 		tag = BOH
 		NOT = { map_setup = map_setup_random }
-		has_dlc = "Emperor"
+
 	}
-	has_country_shield = yes
+
 	emp_boh_hussite_start = {
 		icon = hussite_regency
-		required_missions = {  }
+		position = 2
+		required_missions = { regnum_vangionea }
 		trigger = {
-			OR = {
-				custom_trigger_tooltip = {
-					tooltip = hussite_regency_tt
-					has_country_flag = hussite_regency_mission_flag
-				}
-				is_year = 6609
-			}
 			has_regency = no
 			if = {
 				limit = {
@@ -35,7 +27,7 @@ emp_bohemia_1 = {
 				limit = {
 					religion = hussite
 				}
-				add_country_modifier = { # misionary maintenance cost
+				add_country_modifier = {
 					name = "hussite_conversions"
 					duration = 7300
 				}
@@ -54,9 +46,9 @@ emp_bohemia_1 = {
 	}
 	emp_boh_hussite_one = {
 		icon = mission_luther_theses
+		position = 3
+		completed_by = 7557.1.1
 		required_missions = { emp_boh_hussite_start }
-		completed_by =  7557.1.1
-		
 		provinces_to_highlight = {
 			OR = {
 				area = bourgogne_area
@@ -73,7 +65,6 @@ emp_bohemia_1 = {
 				}
 			}
 		}
-		
 		trigger = {
 			if = {
 				limit = {
@@ -112,7 +103,6 @@ emp_bohemia_1 = {
 				}
 			}
 		}
-		
 		effect = {
 			if = {
 				limit = {
@@ -130,19 +120,13 @@ emp_bohemia_1 = {
 				266 = {
 					add_reform_center = hussite
 				}
-				hidden_effect = {
-					266 = {
-						province_event = {
-							id = flavor_boh.13
-							days = 36500
-						}
-					}
-				}
+
 			}
 		}
 	}
 	emp_boh_defenestrate_the_heretics = {
 		icon = defenestrate_the_heretics
+		position = 4
 		required_missions = { emp_boh_hussite_one }
 		trigger = {
 			is_subject = no
@@ -194,7 +178,8 @@ emp_bohemia_1 = {
 	}
 	emp_boh_bohemian_crystal = {
 		icon = bohemian_crystal
-		required_missions = { }
+		position = 5
+		required_missions = {  }
 		provinces_to_highlight = {
 			province_id = 189
 			OR = {
@@ -222,14 +207,12 @@ emp_bohemia_1 = {
 			}
 			add_prestige = 20
 		}
-		ai_weight = {
-			factor = 500	#Tall
-		}
 	}
 	emp_boh_development_one = {
 		icon = mission_have_manufactories
+		position = 6
+		completed_by = 7520.1.1
 		required_missions = { emp_boh_bohemian_crystal }
-		completed_by =  7520.1.1
 		provinces_to_highlight = {
 			owned_by = ROOT
 			is_capital = yes
@@ -244,7 +227,6 @@ emp_bohemia_1 = {
 				has_building = university
 			}
 		}
-		
 		effect = {
 			if = {
 				limit = {
@@ -278,12 +260,10 @@ emp_bohemia_1 = {
 				}
 			}
 		}
-		ai_weight = {
-			factor = 500	#Tall
-		}
 	}
 	emp_boh_bergordnung_reforms = {
 		icon = reform_bergordnung
+		position = 7
 		required_missions = { emp_boh_development_one }
 		provinces_to_highlight = {
 			OR = {
@@ -317,42 +297,35 @@ emp_bohemia_1 = {
 				duration = -1
 			}
 		}
-		ai_weight = {
-			factor = 500	#Tall
-		}
 	}
 }
 
 emp_bohemia_2 = {
 	slot = 2
 	generic = no
+	has_country_shield = yes
 	ai = yes
-	potential_on_load = {
-		has_dlc = "Emperor"
-	}
 	potential = {
 		tag = BOH
 		NOT = { map_setup = map_setup_random }
-		has_dlc = "Emperor"
+
 	}
-	has_country_shield = yes
+
 	emp_boh_integrate_silesia = {
 		icon = mission_have_two_subjects
-		required_missions = { }
-		completed_by =  7557.1.1
-		
+		position = 2
+		completed_by = 7557.1.1
+		required_missions = { regnum_vangionea }
 		provinces_to_highlight = {
 			area = west_burgundy_area
 			NOT = { owned_by = ROOT }
 		}
-		
 		trigger = {
 			west_burgundy_area = {
 				type = all
 				owned_by = ROOT
 			}
 		}
-		
 		effect = {
 			if = {
 				limit = {
@@ -364,7 +337,14 @@ emp_bohemia_2 = {
 				name = "boh_integrated_silesia"
 				duration = 7300
 			}
-			romandie_area = {
+			savoy_dauphine_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			foresko_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -372,19 +352,24 @@ emp_bohemia_2 = {
 				add_permanent_claim = ROOT
 			}
 		}
-		ai_weight = {
-			factor = 500	#Historical
-		}
 	}
 	emp_boh_great_moravia = {
 		icon = restore_great_moravia
+		position = 3
 		required_missions = { emp_boh_integrate_silesia }
 		provinces_to_highlight = {
-			area = romandie_area
+			or = {
+			area = foresko_area
+			area = savoy_dauphine_area
+			}
 			NOT = { owned_by = ROOT }
 		}
 		trigger = {
-			romandie_area = {
+			foresko_area = {
+				type = all
+				owned_by = ROOT
+			}
+			 savoy_dauphine_area = {
 				type = all
 				owned_by = ROOT
 			}
@@ -406,14 +391,28 @@ emp_bohemia_2 = {
 				}
 			}
 			else = {
-				upper_rhineland_area = {
+				upper_bavaria_area = {
 					limit = {
 						NOT = { is_core = ROOT }
 						NOT = { is_permanent_claim = ROOT }
 					}
 					add_permanent_claim = ROOT
 				}
-				lower_swabia_area = {
+				upper_swabia_area= {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				upper_franconia_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = { is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				north_rhine_area  = {
 					limit = {
 						NOT = { is_core = ROOT }
 						NOT = { is_permanent_claim = ROOT }
@@ -421,28 +420,36 @@ emp_bohemia_2 = {
 					add_permanent_claim = ROOT
 				}
 			}
-		}
-		ai_weight = {
-			factor = 500	#Reasonable conquest
 		}
 	}
 	emp_boh_hungarian_union = {
 		icon = hungarian_union
-		required_missions = { emp_boh_great_moravia }
+		position = 5
+		required_missions = { emp_boh_great_moravia emp_boh_prem_conquest }
 		provinces_to_highlight = {
 			OR = {
-				area = lower_swabia_area
-				area = upper_rhineland_area
+				area = upper_swabia_area
+				area = upper_bavaria_area
+			area = upper_franconia_area
+			area = north_rhine_area
+
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
-		position = 4
 		trigger = {
-			upper_rhineland_area = {
+			upper_swabia_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			lower_swabia_area = {
+			upper_bavaria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			upper_franconia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			north_rhine_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -461,30 +468,28 @@ emp_bohemia_2 = {
 				add_permanent_claim = ROOT
 			}
 		}
-		ai_weight = {
-			factor = 500	#Reasonable conquest
-		}
 	}
 	emp_boh_protect_against_turks = {
 		icon = protect_against_the_turks
+		position = 6
 		required_missions = { emp_boh_hungarian_union }
 		provinces_to_highlight = {
 			province_has_current_tech_fort_trigger = no
-			region = north_german_region
+			region = south_german_region
 			country_or_non_sovereign_subject_holds = ROOT
 		}
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				value = 5
 				province_has_current_tech_fort_trigger = yes
-				region = north_german_region
+				region = south_german_region
 			}
 			if = {
 				limit = {
-					exists = BAV
+					exists = THU
 				}
 				army_strength = {
-					who = BAV
+					who = THU
 					value = 0.5
 				}
 			}
@@ -494,23 +499,7 @@ emp_bohemia_2 = {
 			is_subject = no
 		}
 		effect = {
-			tirol_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			inner_austria_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			custom_tooltip = poland_varna_tt
-			hidden_effect = {
-				north_german_region = {
+			north_german_region = {
 					limit = {
 						NOT = { is_permanent_claim = ROOT	}
 						NOT = { is_core = ROOT	}
@@ -526,43 +515,24 @@ emp_bohemia_2 = {
 					}
 					add_claim = ROOT
 				}
-			}
 		}
 	}
 	emp_boh_revenge_for_nicopolis = {
 		icon = revenge_for_nicopolis
+		position = 7
 		required_missions = { emp_boh_protect_against_turks }
 		provinces_to_highlight = {
-			OR = {
-				AND = {
-					region = south_german_region
-					owned_by = BAV
-				}
-				AND = {
-					OR = {
-						area = inner_austria_area
-						area = tirol_area
-						province_id = 73
-					}
-					NOT = { country_or_non_sovereign_subject_holds = ROOT }
-				}
-			}
+			owned_by = THU
 		}
 		trigger = {
-			73 = {
+			134 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 6
-				OR = {
-					area = tirol_area
-					area = inner_austria_area
-				}
-			}
+
 			NOT = {
-				BAV = {
+				THU = {
 					any_owned_province = {
-						region = north_german_region
+						region = south_german_region
 					}
 				}
 			}
@@ -574,9 +544,6 @@ emp_bohemia_2 = {
 				amount = 50
 			}
 		}
-		ai_weight = {
-			factor = 75	#Too ambitious
-		}
 	}
 }
 
@@ -584,19 +551,36 @@ emp_bohemia_3 = {
 	slot = 3
 	generic = no
 	ai = yes
-	potential_on_load = {
-		has_dlc = "Emperor"
-	}
+	has_country_shield = yes
 	potential = {
 		tag = BOH
 		NOT = { map_setup = map_setup_random }
-		has_dlc = "Emperor"
+
 	}
-	has_country_shield = yes	
+
+	regnum_vangionea = {
+		icon = atlantropa_regnumvangionea
+		position = 1
+		required_missions = {  }
+		trigger = {
+			is_at_war = no
+		}
+		effect = {
+			add_stability = 1
+			add_adm_power = 50
+			add_dip_power = 50
+			add_mil_power = 50
+					add_casus_belli = {
+								type = cb_vassalize_mission
+								target = VOL
+								months = 120
+							}
+		}
+	}
 	emp_boh_polish_diplomacy = {
 		icon = polish_diplomacy
-		required_missions = { emp_boh_integrate_silesia }
-		position = 2
+		position = 3
+		required_missions = { emp_boh_integrate_silesia regnum_vangionea }
 		provinces_to_highlight = {
 			OR = {
 				owned_by = POL
@@ -688,25 +672,20 @@ emp_bohemia_3 = {
 				}
 			}
 		}
-		ai_weight = {
-			factor = 100	#Little bit too ambitious?
-		}
 	}
 	emp_boh_prem_conquest = {
 		icon = mission_noble_council
+		position = 4
 		required_missions = { emp_boh_polish_diplomacy }
-		
 		provinces_to_highlight = {
 			OR = {
-				area = orleans_area
 				area = ile_de_france_area
-				area = champagne_area
+				area = poitou_area
 			}
 			NOT = { owned_by = ROOT }
 		}
-		
 		trigger = {
-			orleans_area = {
+			poitou_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -714,37 +693,24 @@ emp_bohemia_3 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			champagne_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
+
 			is_subject = no
 		}
-		
 		effect = {
 			add_mil_power = 50
-			167 = {
-				add_permanent_claim = ROOT
-			}
-			168 = {
-				add_permanent_claim = ROOT
-			}
-			4385 = { 
-				add_permanent_claim = ROOT
-			}
-			1879 = { 
-				add_permanent_claim = ROOT 
-			}
-		}
-		ai_weight = {
-			factor = 100	#Little bit too ambitious?
+			france_region = {
+							limit = {
+								NOT = { is_core = ROOT }
+								NOT = { is_permanent_claim = ROOT }
+							}
+							add_permanent_claim = ROOT
+						}
 		}
 	}
-	
 	emp_boh_prem_conquest_two = {
 		icon = mission_teutonic_knights
+		position = 5
 		required_missions = { emp_boh_prem_conquest }
-		
 		provinces_to_highlight = {
 			OR = {
 				province_id = 167
@@ -754,7 +720,6 @@ emp_bohemia_3 = {
 			}
 			NOT = { owned_by = ROOT }
 		}
-		
 		trigger = {
 			167 = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -769,7 +734,6 @@ emp_bohemia_3 = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
 		effect = {
 			add_adm_power = 100
 			add_country_modifier = {
@@ -777,44 +741,23 @@ emp_bohemia_3 = {
 				duration = 7300
 			}
 		}
-		ai_weight = {
-			factor = 50	#Little bit too ambitious?
-		}
 	}
 	emp_boh_bohemian_commonwealth = {
 		icon = bohemian_commonwealth
-		required_missions = { emp_boh_prem_conquest_two emp_boh_hungarian_union  }
-		position = 5
+		position = 6
+		required_missions = { emp_boh_hungarian_union emp_boh_prem_conquest_two }
 		provinces_to_highlight = {
-			OR = {
-				province_id = 187
-				province_id = 184
-				province_id = 89
-				province_id = 165
-				province_id = 70
-				province_id = 205
-			}
+			region = france_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-			187 = {
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			184 = {
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			89 = {
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			165 = {
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			70 = {
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			205 = {
-				country_or_non_sovereign_subject_holds = ROOT
-			}
+			france_region = {
+							type = all
+							OR = {
+								country_or_non_sovereign_subject_holds = ROOT
+								is_city = no
+							}
+						}
 		}
 		effect = {
 			set_country_flag = has_overriden_color_flag
@@ -825,9 +768,6 @@ emp_bohemia_3 = {
 				duration = -1
 			}
 		}
-		ai_weight = {
-			factor = 50	#Little bit too ambitious?
-		}
 	}
 }
 
@@ -835,46 +775,48 @@ emp_bohemia_4 = {
 	slot = 4
 	generic = no
 	ai = yes
-	potential_on_load = {
-		has_dlc = "Emperor"
-	}
+	has_country_shield = yes
 	potential = {
 		tag = BOH
 		NOT = { map_setup = map_setup_random }
-		has_dlc = "Emperor"
+
 	}
-	has_country_shield = yes
+
 	emp_boh_humiliate_austria = {
 		icon = boh_humiliate_austria
-		required_missions = {  }
+		position = 2
+		required_missions = { regnum_vangionea }
 		provinces_to_highlight = {
 			owned_by = VOL
 		}
 		trigger = {
 			is_subject = no
 			OR = {
-				VOL = { humiliated_by = ROOT }
-				AND = {
-					is_great_power = yes
-					VOL = { is_great_power = no }
-				}
-				NOT = { exists = VOL }
+				VOL = { vassal_of = ROOT }
+				185 = { owned_by = ROOT }
+				183 = { owned_by = ROOT }
 			}
 		}
 		effect = {
 			if = {
 				limit = {
-					exists = SAV
-					
+					exists = SWI
 				}
 				add_casus_belli = {
-					target = SAV
+					target = SWI
 					type = cb_vassalize_mission
 					months = 120
 				}
 			}
 			else = {
-				savoy_dauphine_area = {
+			alsace_area = {
+					limit = {
+						NOT = { is_core = ROOT }
+						NOT = {  is_permanent_claim = ROOT }
+					}
+					add_permanent_claim = ROOT
+				}
+				lower_swabia_area = {
 					limit = {
 						NOT = { is_core = ROOT }
 						NOT = {  is_permanent_claim = ROOT }
@@ -886,11 +828,12 @@ emp_bohemia_4 = {
 	}
 	emp_boh_electorate_of_brandenburg = {
 		icon = atlantropa_conquestnorth
+		position = 3
 		required_missions = { emp_boh_humiliate_austria }
 		provinces_to_highlight = {
 			OR = {
 				owner = {
-					tag = SAV
+					tag = SWI
 					NOT = { is_subject_of = ROOT }
 				}
 				AND = {
@@ -902,12 +845,12 @@ emp_bohemia_4 = {
 		trigger = {
 			if = {
 				limit = {
-					exists = SAV
+					exists = SWI
 				}
-				SAV = { is_subject_of = ROOT }
+				SWI = { is_subject_of = ROOT }
 			}
 			else = {
-				205 = {
+				4710 = {
 					owned_by = ROOT
 				}
 			}
@@ -918,43 +861,27 @@ emp_bohemia_4 = {
 			is_subject = no
 		}
 		effect = {
-			if = {	
-				limit = {
-					exists = SAV
-					SAV = { 
-						is_elector = yes
-						is_revolutionary = no
-					}
-				}
-				country_event = { id = emp_mission_events.8 }
-			}
-			else = {
-				add_prestige = 25
-			}
+			add_prestige = 25
 			if = {
 				limit = {
-					exists = DAU
-					
+					exists = LUX
 				}
 				add_casus_belli = {
-					target = DAU
+					target = LUX
 					type = cb_vassalize_mission
 					months = 120
 				}
 			}
 		}
-		ai_weight = {
-			factor = 75	#Not too high or else Austria will never get their vote
-		}
 	}
 	emp_boh_electorate_of_saxony = {
 		icon = atlantropa_devlegio
+		position = 5
 		required_missions = { emp_boh_electorate_of_brandenburg }
-		position = 4
 		provinces_to_highlight = {
 			OR = {
 				owner = {
-					tag = DAU
+					tag = LUX
 					NOT = { is_subject_of = ROOT }
 				}
 				AND = {
@@ -966,90 +893,52 @@ emp_bohemia_4 = {
 		trigger = {
 			if = {
 				limit = {
-					exists = DAU
+					exists = LUX
 				}
-				DAU = { is_subject_of = ROOT }
+				LUX = { is_subject_of = ROOT }
 			}
 			else = {
-				204 = {
+				94 = {
 					owned_by = ROOT
 				}
 			}
-			south_saxony_area = {
+			wallonia_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 			is_subject = no
 		}
 		effect = {
-			if = {	
-				limit = {
-					exists = DAU
-					DAU = {
-						is_elector = yes
-						is_revolutionary = no
-					}
-				}
-				country_event = { id = emp_mission_events.9 }
-			}
-			else = {
+			add_adm_power = 50
+			add_dip_power = 50
+			add_mil_power = 50
 				add_prestige = 25
-			}
-		}
-		ai_weight = {
-			factor = 75	#Not too high or else Saxony will never get their vote
 		}
 	}
 	emp_boh_reformatio_sigismundi = {
 		icon = reformatio_sigismundi
-		required_missions = { emp_boh_electorate_of_saxony gen_hre_emperor }
+		position = 6
+		required_missions = { emp_boh_electorate_of_saxony }
 		trigger = {
-			if = {
-				limit = {
-					hre_size = 1
-				}
-				is_emperor = yes
-				hre_reform_passed = emperor_perpetual_diet
-			}
-			else = {
-				reform_level = 7
-			}
+			government_rank = 3
 		}
 		effect = {
-			if = {
-				limit = {
-					hre_size = 1
-				}
-				add_country_modifier = {
-					name = "boh_sigismund_reforms"
-					duration = 7300
-				}
-			}
-			else = {
-				add_adm_power = 100
-			}
+			add_dip_power = 150
+			add_mil_power = 150
+				add_adm_power = 150
+						add_country_modifier = {
+							name = vangioneanempire
+							duration = -1
+						}
 		}
 	}
 	emp_boh_peace_in_europe = {
 		icon = peace_in_europe
+		position = 7
 		required_missions = { emp_boh_reformatio_sigismundi }
 		trigger = {
 			is_at_war = no
-			if = {
-				limit = {
-					hre_size = 1
-				}
-				calc_true_if = {
-					all_province = {
-						is_part_of_hre = yes
-					}
-					amount = 250
-				}
-				is_emperor = yes
-			}
-			else = {
 				total_development = 2000
-			}
 		}
 		effect = {
 			change_dip = 1
@@ -1060,3 +949,105 @@ emp_bohemia_4 = {
 		}
 	}
 }
+
+vangionea_4ser = {
+	slot = 5
+	has_country_shield = yes
+	generic = no
+	ai = yes
+	potential = {
+		TAG = BOH
+	}
+	vangionea_economyincrease = {
+		icon = reform_the_monte
+		position = 2
+		required_missions = { regnum_vangionea }
+		trigger = {
+			OR = {
+				monthly_income = 50
+				AND = {
+					monthly_income = 40
+					advisor = treasurer
+				}
+			}
+		}
+		effect = {
+			add_years_of_income = 0.5
+			add_country_modifier = {
+				name = 	rochina_economybonus
+				duration = -1
+			}
+		}
+	}
+	vangionea_buildweath = {
+		icon = prosperity_for_all
+		position = 3
+		required_missions = { vangionea_economyincrease }
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 10
+				OR = {
+					trade_goods = grain
+					trade_goods = atl_fruit
+				}
+				base_production = 5
+			}
+		}
+		effect = {
+			add_years_of_income = 1
+			every_owned_province = {
+				limit = {
+					OR = {
+						trade_goods = grain
+						trade_goods = atl_fruit
+					}
+				}
+				add_base_manpower = 1
+			}
+		}
+	}
+	vangionea_capital_atl = {
+		icon = atlantropa_aryanarchitecture
+		position = 4
+		required_missions = { vangionea_buildweath }
+		provinces_to_highlight = {
+			province_id = 187
+		}
+		trigger = {
+			187 = {
+				owned_by = ROOT
+				development = 30
+				has_tax_building_trigger = yes
+				has_production_building_trigger = yes
+				has_manpower_building_trigger = yes
+			}
+		}
+		effect = {
+			187 = { add_province_modifier = {
+				name = BYZ_queen_of_cities
+				duration = -1
+			}
+		}
+	}
+}
+	vangionea_economy_build = {
+		icon = public_works
+		position = 5
+		required_missions = { vangionea_capital_atl }
+		trigger = {
+			workshop = 10
+		}
+		effect = {
+			every_owned_province = {
+							limit = {
+								has_building = workshop
+							}
+							add_base_production = 1
+						}
+						add_adm_power = 100
+						add_dip_power = 100
+		}
+	}
+
+}
+
