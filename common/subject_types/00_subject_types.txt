@@ -57,7 +57,7 @@ default = {
 
 	# Triggers:
 	is_potential_overlord = { always = no } 			# This part is not copied in copy_from. Actual default is equivalent to always = yes
-	
+
 	# Properties:
 	has_overlords_ruler = no
 	can_fight_independence_war = yes
@@ -203,7 +203,7 @@ default = {
 
 vassal = {
 	copy_from = default
-	
+
 	# Graphics:
 	sprite = GFX_icon_vassal
 	diplomacy_overlord_sprite = GFX_diplomacy_leadvassal
@@ -276,7 +276,7 @@ vassal = {
 
 march = {
 	copy_from = vassal
-	
+
 	# Graphics:
 	sprite = GFX_icon_march
 	diplomacy_overlord_sprite = GFX_diplomacy_leadmarch
@@ -295,7 +295,7 @@ march = {
 	scutage = no
 	subsidize_armies = yes
 	fortify_march = yes
-	
+
 	send_officers = yes
 
 	# Modifiers:
@@ -339,7 +339,7 @@ march = {
 daimyo_vassal = {
 	copy_from = vassal
 	count = vassal
-	
+
 	# Properties:
 	has_power_projection = yes
 	takes_diplo_slot = no
@@ -352,7 +352,7 @@ daimyo_vassal = {
 	can_concentrate_development = no
 
 	trust_on_start = 0
-	
+
 	base_liberty_desire = 10.0
 	military_focus = 1.2
 
@@ -371,7 +371,7 @@ daimyo_vassal = {
 	can_marry = {
 		same_overlord = daimyo_vassal
 	}
-	
+
 	# Subject Interactions
 	#(disable)
 	scutage = no
@@ -391,9 +391,9 @@ daimyo_vassal = {
 	sword_hunt = yes
 	sankin_kotai = yes
 	expel_ronin = yes
-	
+
 	# Modifiers
-	
+
 	modifier_overlord = clear #We don't want to duplicate the ones inherited from vassal
 	modifier_subject = clear #Ditto
 	modifier_subject = {
@@ -410,10 +410,11 @@ appanage = {
     sprite = GFX_icon_appanage
 	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_appanage
 	diplomacy_subject_sprite = GFX_icon_diplomacy_am_appanage
-	
+
 	# Properties:
 	has_power_projection = yes
 	joins_overlords_wars = no
+	can_be_co_belligerented = yes    #Enemies can force this subject to join its overlord into the defense war. Only used when the subject has the "joins_overlords_wars = no". By default it's "no"
 	takes_diplo_slot = no
 	manpower_to_overlord = 0.05
 	gets_help_with_rebels = no
@@ -444,7 +445,7 @@ appanage = {
 		same_overlord = appanage
 		independent_nations = yes
 	}
-	
+
 	# Subject Interactions
 	seize_court_resources = no
 	request_extra_levies = no
@@ -461,9 +462,9 @@ appanage = {
 	contribute_to_capital = yes
 	return_land = yes
 	conscript_general = yes
-	
+
 	# Modifiers
-	
+
 	modifier_overlord = clear #We don't want to duplicate the ones inherited from vassal
 	modifier_subject = clear #Ditto
 	modifier_subject = {
@@ -509,7 +510,7 @@ personal_union = {
 	should_quit_wars_on_activation = yes
 
 	restoration_cb = cb_restore_personal_union
-	
+
 	# Subject Interactions:
 	placate_rulers = no
 	enforce_culture = yes
@@ -540,7 +541,7 @@ personal_union = {
 client_vassal = {
 	copy_from = vassal
 	count = vassal
-	
+
 	# Graphics:
 	diplomacy_overlord_sprite = GFX_diplomacy_leadclients
 	diplomacy_subject_sprite = GFX_diplomacy_areclients
@@ -578,7 +579,7 @@ client_march = {
 
 colony = {
 	copy_from = default
-	
+
 	# Graphics:
 	sprite = GFX_subject_colony_icon
 	diplomacy_overlord_sprite = GFX_diplomacy_leadcolony
@@ -670,7 +671,7 @@ crown_colony = {
 	change_colonial_type = yes
 	upgrade_subject_type = yes
 	is_colony_subtype = yes
-	can_send_missionary_to_subject = yes	
+	can_send_missionary_to_subject = yes
 	count = colony
 
 	forcelimit_to_overlord = 0.3
@@ -688,7 +689,7 @@ crown_colony = {
 	block_settlement_growth = yes
 	allow_settlement_growth = yes
 	enforce_culture = yes
-	
+
 	# Modifiers:
 	modifier_overlord = clear
 	modifier_overlord = {
@@ -721,13 +722,13 @@ private_enterprise = {
 	block_settlement_growth = no
 	allow_settlement_growth = no
 	enforce_culture = yes
-	
-	# Modifiers:	
+
+	# Modifiers:
 	modifier_overlord = clear
 	modifier_overlord = {
 		modifier = private_enterprise_overlord
 	}
-	
+
 	modifier_subject = {
 		modifier = private_enterprise_subject
 	}
@@ -755,13 +756,13 @@ self_governing_colony = {
 	allow_settlement_growth = no
 	press_sailors = no
 	enforce_culture = yes
-	
-	# Modifiers:	
+
+	# Modifiers:
 	modifier_overlord = clear
 	modifier_overlord = {
 		modifier = self_governing_colony_overlord
 	}
-	
+
 	modifier_subject = {
 		modifier = self_governing_colony_subject
 	}
@@ -780,7 +781,7 @@ tributary_state = {
 		OR = {
 			AND = {
 				has_dlc = "Mandate of Heaven"
-				NOT = { 
+				NOT = {
 					is_subject_of_type = tributary_state
 				}
 				OR = {
@@ -797,7 +798,7 @@ tributary_state = {
 			has_country_flag = forced_tributary_state	#A special flag for the Ottomans so they can get Crimea without allowing them to make tributaries by default
 		}
 	}
-	
+
 	# Graphics:
 	sprite = GFX_subject_tributary_state
 	diplomacy_overlord_sprite = GFX_diplomacy_leadtributary
@@ -826,13 +827,13 @@ tributary_state = {
 	overlord_can_fabricate_for = no
 	does_overlord_size_count_for_warscore_cost = no
 	can_concentrate_development = no
-	
+
 	liberty_desire_development_ratio = 0.175
 	trust_on_start = 0
-	
+
 	overlord_opinion_modifier = is_tributary
 	subject_opinion_modifier = is_tributary
-	
+
 	can_fight = {
 		independent_nations = yes
 		same_overlord = tributary_state
@@ -870,7 +871,7 @@ tributary_state = {
 	embargo_rivals = no
 
 	# Modifiers:
-	modifier_subject = clear # Tributaries don't get the ordinary subject_nation penalty 
+	modifier_subject = clear # Tributaries don't get the ordinary subject_nation penalty
 	modifier_subject = {
 		modifier = tributary_state_behind_overlord_tech_adm
 		trigger = {
@@ -899,11 +900,11 @@ tributary_state = {
 
 eyalet = {
 	copy_from = default
-	
+
 	# Graphics:
     sprite = GFX_icon_eyalet
 	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_eyalet
-	diplomacy_subject_sprite = GFX_icon_diplomacy_am_eyalet 
+	diplomacy_subject_sprite = GFX_icon_diplomacy_am_eyalet
 
 	# Properties:
 	transfer_trade_power = yes
@@ -975,11 +976,11 @@ eyalet = {
 
 core_eyalet = {
 	copy_from = eyalet
-	
+
 	# Graphics:
     sprite = GFX_icon_core_eyalet
 	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_core_eyalet
-	diplomacy_subject_sprite = GFX_icon_diplomacy_am_core_eyalet 
+	diplomacy_subject_sprite = GFX_icon_diplomacy_am_core_eyalet
 
 	# Properties:
 	can_be_annexed = yes
@@ -1032,7 +1033,7 @@ core_eyalet = {
 #Trade Company Subject
 commercial_enterprise = {
 	copy_from = default
-	
+
 	# Graphics:
     sprite = GFX_icon_commercial_enterprise
 	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_commercial_enterprise
@@ -1061,7 +1062,7 @@ commercial_enterprise = {
 
 	relative_power_class = 0
 	should_quit_wars_on_activation = yes
-	
+
 	can_fight = {
 		independent_nations = yes
 		other_overlord = all
@@ -1119,7 +1120,7 @@ commercial_enterprise = {
 	modifier_overlord = {
 		modifier = private_enterprise_overlord
 	}
-	
+
 	modifier_subject = {
 		modifier = private_enterprise_subject
 	}
@@ -1151,12 +1152,12 @@ trade_protectorate = {
 	# Triggers:
 	is_potential_overlord = {
 	}
-	
+
 	# Graphics:
 	sprite = GFX_icon_trade_protectorate
 	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_trade_protectorate
 	diplomacy_subject_sprite = GFX_icon_diplomacy_am_trade_protectorate
-        
+
 
 	# Properties:
 	can_fight_independence_war = yes
@@ -1186,15 +1187,15 @@ trade_protectorate = {
 	does_overlord_size_count_for_warscore_cost = no
 	can_concentrate_development = no
 	transfer_trade_power = yes
-	
+
 	liberty_desire_development_ratio = 0.175
 	trust_on_start = 0
 
 	pays_overlord = 1.0									# 1.0 represents the amount payed by vassals
-	
+
 	overlord_opinion_modifier = is_trade_protectorate
 	subject_opinion_modifier = is_trade_protectorate
-	
+
 	can_fight = {
 		independent_nations = yes
 		same_overlord = trade_protectorate
@@ -1223,7 +1224,7 @@ trade_protectorate = {
 	divert_trade = yes
 
 	# Modifiers:
-	modifier_subject = clear # Trade Protectorate don't get the ordinary subject_nation penalty 
+	modifier_subject = clear # Trade Protectorate don't get the ordinary subject_nation penalty
 	modifier_subject = {
 		modifier = trade_protectorate_subject_modifier
 	}
@@ -1249,7 +1250,7 @@ trade_protectorate = {
 hereditary_pronoia_subject_type = {
 	copy_from = vassal
 	count = vassal
-	
+
 	# Graphics:
 	sprite = GFX_icon_hereditary_pronoia_subject_type
 	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_hereditary_pronoia_subject_type
@@ -1261,23 +1262,23 @@ hereditary_pronoia_subject_type = {
 
 	takes_diplo_slot = no
 	can_be_integrated = no #can be inherited
-	
+
 	place_relative_on_throne = no #exploitable
-	
+
 	base_liberty_desire = 25.0
-	
+
 	pays_overlord = 0.1 #purely military subject. Pays very little by default.
 	forcelimit_to_overlord = 0.1
-	naval_forcelimit_to_overlord = 0.1		
-	manpower_to_overlord = 0.2		    
-	sailors_to_overlord = 0.2		
+	naval_forcelimit_to_overlord = 0.1
+	manpower_to_overlord = 0.2
+	sailors_to_overlord = 0.2
 	military_focus = 1.0
-	
+
 	subsidize_armies = yes
 	scutage = no
 	send_officers = yes
 	send_additional_troops = yes
-	
+
 	modifier_subject = {
 		modifier = pronoia_base_modifiers
 	}
@@ -1305,7 +1306,7 @@ hereditary_pronoia_subject_type = {
 			}
 		}
 	}
-	
+
 	modifier_overlord = {
 		modifier = pronoia_base_overlord_modifiers
 	}
@@ -1352,7 +1353,7 @@ cultural_sphere_of_influence_subject = {
 	is_potential_overlord = {
 		has_government_mechanic = persian_influence_mechanic
 	}
-	
+
 	# Graphics:
 	sprite = GFX_icon_cultural_sphere_of_influence_subject
 	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_cultural_sphere_of_influence_subject
@@ -1382,14 +1383,14 @@ cultural_sphere_of_influence_subject = {
 	does_overlord_size_count_for_warscore_cost = no
 	can_concentrate_development = no
 	extend_trading_range = yes
-	
+
 	liberty_desire_development_ratio = 0.1
 	trust_on_start = 0
 	pays_overlord = 0.25									# 1.0 represents the amount payed by vassals
-	
+
 	overlord_opinion_modifier = is_sphere_of_influence_overlord
 	subject_opinion_modifier = is_sphere_of_influence_subject
-	
+
 	can_fight = {
 		independent_nations = yes
 		same_overlord = cultural_sphere_of_influence_subject
