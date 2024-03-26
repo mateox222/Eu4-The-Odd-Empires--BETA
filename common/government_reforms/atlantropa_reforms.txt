@@ -990,7 +990,7 @@ bulgarian_monarchy = {
 		has_reform = bulgarian_monarchy
 	}
 	trigger = {
-		religion = orthodox
+		religion_group = christian
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 30
@@ -1568,7 +1568,9 @@ atl_republican_technocracy = {
 }
 african_autocracy_reform = {
 	icon = "king"
-	locked_government_type = yes
+		custom_attributes = {
+		locked_government_type = yes
+	}
 	allow_normal_conversion = yes
 	lock_level_when_selected = yes
 	valid_for_nation_designer = no
