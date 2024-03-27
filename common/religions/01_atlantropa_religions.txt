@@ -407,10 +407,11 @@ christian = {
 
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
+				NOT = { TAG = CYP }
+				NOT = { TAG = TEU }
 				NOT = { has_country_flag = christianityforever }
 				capital_scope = { continent = africa }
 				NOT = { culture_group = byzantine }
-				NOT = { culture_group = latin  }
 				NOT = { has_country_modifier = alexandria_pentarch_modifier }
 			}
 
@@ -458,7 +459,6 @@ christian = {
 						capital_scope = { superregion = eastern_europe_superregion }
 
 					}
-					culture_group = latin
 					culture_group = french
 				}
 				NOT = { culture_group = byzantine }
@@ -493,11 +493,7 @@ christian = {
 		}
 		antioch_pentarch = {
 			potential_invite_scholar = {
-				OR = {
-					knows_of_scholar_country_capital_trigger = yes
-				}
-				religion = united_christianity
-
+				always = no
 			}
 
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
@@ -540,10 +536,7 @@ christian = {
 		}
 		jerusalem_pentarch = {
 			potential_invite_scholar = {
-				OR = {
-					knows_of_scholar_country_capital_trigger = yes
-				}
-				religion = united_christianity
+				always = no
 			}
 
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
