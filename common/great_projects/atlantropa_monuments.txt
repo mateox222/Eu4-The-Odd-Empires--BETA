@@ -7979,3 +7979,120 @@ atlantis_sejmpolski = {
 			}
 		}
 	}
+	atlantis_ptolemarian_palace = {
+		start = 5737
+		date = 6408.01.01
+		time = { months = 0 }
+		build_cost = 0
+		can_be_moved = no
+		move_days_per_unit_distance = 10
+		starting_tier = 2
+		type = monument
+		build_trigger = {
+			always = no
+		}
+
+		on_built = {
+		}
+
+		on_destroyed = {
+		}
+
+		can_use_modifiers_trigger = {
+
+
+
+		}
+
+		can_upgrade_trigger = {
+
+
+		}
+
+		keep_trigger = {
+		}
+
+		tier_0 = {
+			upgrade_time = {
+				months = 0
+			}
+			cost_to_upgrade = {
+				factor = 0
+			}
+			province_modifiers = {
+			}
+			area_modifier = {
+			}
+			country_modifiers = {
+			}
+			on_upgraded = {
+			}
+		}
+
+		tier_1 = {
+			upgrade_time = {
+				months = 120
+			}
+			cost_to_upgrade = {
+				factor = 1000
+			}
+			province_modifiers = {
+				defensiveness = 0.10
+				garrison_size = 0.10
+				fort_level = 1
+			}
+			area_modifier = {
+			}
+			country_modifiers = {
+			}
+			on_upgraded = {
+			}
+		}
+
+		tier_2 = {
+			upgrade_time = {
+				months = 240
+			}
+			cost_to_upgrade = {
+				factor = 2500
+			}
+			province_modifiers = {
+				defensiveness = 0.20
+				garrison_size = 0.20
+				trade_value_modifier = 0.1
+				fort_level = 2
+			}
+			area_modifier = {
+
+			}
+			country_modifiers = {
+
+			}
+			on_upgraded = {
+			}
+		}
+
+		tier_3 = {
+			upgrade_time = {
+				months = 480
+			}
+			cost_to_upgrade = {
+				factor = 5000
+			}
+			province_modifiers = {
+				defensiveness = 0.40
+				garrison_size = 0.40
+				trade_value_modifier = 0.2
+				fort_level = 3
+			}
+			area_modifier = {
+			}
+			country_modifiers = {
+
+				max_absolutism = 2.5
+
+			}
+			on_upgraded = {
+			}
+		}
+	}
