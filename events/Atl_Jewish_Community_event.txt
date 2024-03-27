@@ -343,3 +343,40 @@ province_event = {
 
 
 
+province_event = {
+	id = atlantropa_jewish_event.12
+	title = "atlantropa_basic_event.5.t"
+	desc = "atlantropa_basic_event.5.d"
+	picture = sackniflport_eventPicture
+	hidden = yes
+	trigger = {
+		NOT = { has_province_modifier = disnosaurs_lemuria }
+
+		continent = lemuria
+		NOT = {	development = 15 }
+		has_port = no
+	}
+
+	option = {
+
+		add_province_modifier = {
+			name = disnosaurs_lemuria
+			duration = -1
+		}
+	}
+}
+province_event = {
+	id = atlantropa_jewish_event.13
+	title = "atlantropa_basic_event.5.t"
+	desc = "atlantropa_basic_event.5.d"
+	picture = sackniflport_eventPicture
+	hidden = yes
+	trigger = {
+		has_province_modifier = disnosaurs_lemuria
+		development = 15
+	}
+
+	option = {
+		remove_province_modifier = disnosaurs_lemuria
+	}
+}
