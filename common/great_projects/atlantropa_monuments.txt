@@ -7492,3 +7492,133 @@ atlantis_sejmpolski = {
 					}
 				}
 			}
+			atlantis_imperialcapripalace = {
+				start = 2957
+				date = 6000.01.01
+				time = { months = 0 }
+				build_cost = 0
+				can_be_moved = no
+				move_days_per_unit_distance = 10
+				starting_tier = 2
+				type = monument
+				build_trigger = {
+
+				}
+
+				on_built = {
+				}
+
+				on_destroyed = {
+				}
+
+				can_use_modifiers_trigger = {
+					province_is_or_accepts_culture = yes
+					owner = { has_reform = roman_legio_monarchy }
+
+				}
+
+				can_upgrade_trigger = {
+					province_is_or_accepts_culture = yes
+					owner = { has_reform = roman_legio_monarchy }
+
+				}
+
+				keep_trigger = {
+				}
+
+				tier_0 = {
+					upgrade_time = {
+						months = 120
+					}
+					cost_to_upgrade = {
+						factor = 2000
+					}
+					province_modifiers = {
+					}
+					area_modifier = {
+					}
+					country_modifiers = {
+					}
+					on_upgraded = {
+					}
+				}
+
+				tier_1 = {
+					upgrade_time = {
+						months = 120
+					}
+					cost_to_upgrade = {
+						factor = 2000
+					}
+					province_modifiers = {
+						local_defensiveness = 0.1
+						fort_maintenance_modifier = -0.10
+
+					}
+					area_modifier = {
+						hostile_attrition = 1
+					}
+					country_modifiers = {
+						stability_cost_modifier = -0.05
+						prestige = 0.1
+						legitimacy = 0.1
+						global_tax_modifier = 0.05
+					}
+					on_upgraded = {
+					}
+				}
+
+				tier_2 = {
+					upgrade_time = {
+						months = 240
+					}
+					cost_to_upgrade = {
+						factor = 2500
+					}
+					province_modifiers = {
+						local_defensiveness = 0.1
+						fort_maintenance_modifier = -0.10
+
+					}
+					area_modifier = {
+						hostile_attrition = 1
+					}
+					country_modifiers = {
+						stability_cost_modifier = -0.1
+						prestige = 0.2
+						legitimacy = 0.2
+						global_tax_modifier = 0.08
+						yearly_corruption = -0.05
+						monthly_splendor = 0.1
+					}
+					on_upgraded = {
+					}
+				}
+
+				tier_3 = {
+					upgrade_time = {
+						months = 480
+					}
+					cost_to_upgrade = {
+						factor = 5000
+					}
+					province_modifiers = {
+						local_defensiveness = 0.15
+						fort_maintenance_modifier = -0.20
+
+					}
+					area_modifier = {
+						hostile_attrition = 1
+					}
+					country_modifiers = {
+						stability_cost_modifier = -0.25
+						prestige = 0.5
+						legitimacy = 0.5
+						global_tax_modifier = 0.1
+						yearly_corruption = -0.1
+						monthly_splendor = 0.5
+					}
+					on_upgraded = {
+					}
+				}
+			}
