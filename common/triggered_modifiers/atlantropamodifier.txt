@@ -1,41 +1,44 @@
 medieval_times = {
 	potential = {
+		ai = no
 		normal_or_historical_nations = yes
 	}
 
 	trigger = {
-	current_age = medieval_age
+
+		current_age = medieval_age
 	}
 	monthly_polska_adm_power = -0.15
 	inflation_reduction = 0.25
 	trade_efficiency = -0.25
 	development_cost = 1.5
 	tribal_development_growth = -0.9
-	build_time = 1	
+	build_time = 1
 	administrative_efficiency = -0.1
-	movement_speed = -0.25	
+	movement_speed = -0.25
 	monarch_lifespan = -0.25
-	movement_speed = -0.40	
+	movement_speed = -0.40
 	artillery_cost = 1
 }
 discovery_times = {
 	potential = {
+		ai = no
 		normal_or_historical_nations = yes
 	}
 
 	trigger = {
-	current_age = age_of_discovery
+		current_age = age_of_discovery
 	}
 	monthly_polska_adm_power = 0.05
 	trade_efficiency = -0.15
 	development_cost = 1
 	tribal_development_growth = -0.8
-	build_time = 0.5	
+	build_time = 0.5
 	administrative_efficiency = -0.05
-	movement_speed = -0.15	
+	movement_speed = -0.15
 	monarch_lifespan = -0.1
 	movement_speed = -0.3
-	
+
 }
 reformation_times = {
 	potential = {
@@ -43,66 +46,71 @@ reformation_times = {
 	}
 
 	trigger = {
-	current_age = age_of_reformation
+		ai = no
+		current_age = age_of_reformation
 	}
 	monthly_polska_adm_power = 0.15
 	inflation_reduction = -0.05
 	trade_efficiency = -0.1
 	development_cost = 0.5
 	tribal_development_growth = -0.7
-	build_time = 0.25	
+	build_time = 0.25
 	administrative_efficiency = -0.025
 	movement_speed = -0.2
-	
+
 }
 absolutism_times = {
 	potential = {
+		ai = no
 		normal_or_historical_nations = yes
 	}
 
 	trigger = {
-	current_age = age_of_absolutism
+		current_age = age_of_absolutism
 	}
 	monthly_polska_adm_power = 0.5
 	development_cost = 0.15
 	inflation_reduction = -0.1
 	tribal_development_growth = -0.5
-	movement_speed = 0.15	
+	movement_speed = 0.15
 	monarch_lifespan = 0.1
 	movement_speed = -0.1
-	
+
 }
 revolution_times = {
 	potential = {
+		ai = no
 		normal_or_historical_nations = yes
 	}
 
 	trigger = {
-	current_age = age_of_revolutions
+		current_age = age_of_revolutions
 	}
 	monthly_polska_adm_power = 0.25
 	trade_efficiency = 0.1
-	development_cost = -0.15	
+	development_cost = -0.15
 	inflation_reduction = -0.15
 	administrative_efficiency = 0.025
-	movement_speed = 0.25	
-	monarch_lifespan = 0.15	
+	movement_speed = 0.25
+	monarch_lifespan = 0.15
 }
 industrial_times = {
 	potential = {
+		ai = no
 		normal_or_historical_nations = yes
 	}
 
 	trigger = {
-	current_age = age_of_industrialization
+
+		current_age = age_of_industrialization
 	}
 	monthly_polska_adm_power = 0.05
 	trade_efficiency = 0.15
-	development_cost = -0.2	
+	development_cost = -0.2
 	inflation_reduction = -0.20
 	administrative_efficiency = 0.05
-	movement_speed = 0.25	
-	monarch_lifespan = 0.25	
+	movement_speed = 0.25
+	monarch_lifespan = 0.25
 }
 
 
@@ -115,135 +123,135 @@ french_kartago_threat = {
 	}
 
 	trigger = {
-	war_with = POL
+		war_with = POL
 	}
-	land_morale = 0.05	
+	land_morale = 0.05
 	naval_morale = 0.1
-	discipline = 0.025	
-	infantry_cost = -0.2			
+	discipline = 0.025
+	infantry_cost = -0.2
 }
 polish_kartago_threat = {
 	potential = {
-	OR ={
-		tag = POL
-		tag = PLC	
-	}
+		OR ={
+			tag = POL
+			tag = PLC
+		}
 	}
 	trigger = {
-	defensive_war_with = BYZ
-	has_country_flag = zlotowile_captured
+		defensive_war_with = BYZ
+		has_country_flag = zlotowile_captured
 	}
-	land_morale = 0.2	
+	land_morale = 0.2
 	naval_morale = 0.1
-	discipline = 0.025	
-	infantry_cost = -0.25	
-	stability_cost_modifier = 0.5		
+	discipline = 0.025
+	infantry_cost = -0.25
+	stability_cost_modifier = 0.5
 }
 uncrowned_king = {
 	potential = {
 		ai = no
-	 government = monarchy
+		government = monarchy
 	}
 
 	trigger = {
-	 NOT = { has_ruler_flag = koronowanykrol }
-	 has_regency = no
+		NOT = { has_ruler_flag = koronowanykrol }
+		has_regency = no
 	}
-	legitimacy = -1		
-	monthly_byz_adm_power = 0.25 	
+	legitimacy = -1
+	monthly_byz_adm_power = 0.25
 }
 uncrownedbiednie_king = {
 	potential = {
 		ai = no
-	 government = monarchy
+		government = monarchy
 	}
 
 	trigger = {
-	 has_ruler_flag = koronowanykrolbiednie
-	 has_regency = no
+		has_ruler_flag = koronowanykrolbiednie
+		has_regency = no
 	}
-	legitimacy = -0.25	
-		monthly_byz_adm_power = 0.05 	
+	legitimacy = -0.25
+	monthly_byz_adm_power = 0.05
 }
 uncrownedsredniobogato_king = {
 	potential = {
 		ai = no
-	 government = monarchy
+		government = monarchy
 	}
 
 	trigger = {
-		 has_ruler_flag = koronowanykrolsrednio
-	 has_regency = no
+		has_ruler_flag = koronowanykrolsrednio
+		has_regency = no
 	}
-	legitimacy = 0.25		
-	monthly_byz_adm_power = -0.05	
+	legitimacy = 0.25
+	monthly_byz_adm_power = -0.05
 }
 uncrownedbogato_king = {
 	potential = {
 		ai = no
-	 government = monarchy
+		government = monarchy
 	}
 
 	trigger = {
-	 has_ruler_flag = koronowanykrolnabogato
-	 has_regency = no
+		has_ruler_flag = koronowanykrolnabogato
+		has_regency = no
 	}
-	legitimacy = 0.5	
-	papal_influence = 0.5	
-	monthly_byz_adm_power = -0.1	
+	legitimacy = 0.5
+	papal_influence = 0.5
+	monthly_byz_adm_power = -0.1
 }
 
 uncrownedheir_king = {
 	potential = {
 		ai = no
-	 government = monarchy
+		government = monarchy
 	}
 
 	trigger = {
-	  has_heir = yes
-	  religion_group = christian
-	  NOT = { has_heir_flag	= ochrzczony }
-	  			NOT = {
-				heir_age = 15
-			}
+		has_heir = yes
+		religion_group = christian
+		NOT = { has_heir_flag	= ochrzczony }
+		NOT = {
+			heir_age = 15
+		}
 	}
-	legitimacy = -0.5	
-	religious_unity = -0.1	
-	yearly_patriarch_authority = -0.01	
+	legitimacy = -0.5
+	religious_unity = -0.1
+	yearly_patriarch_authority = -0.01
 	monthly_church_power = -0.05
-	tolerance_own = -1		
-	papal_influence = -0.5	
-	monthly_byz_adm_power = 0.1 	
+	tolerance_own = -1
+	papal_influence = -0.5
+	monthly_byz_adm_power = 0.1
 }
 noheir_king = {
 	potential = {
 		ai = no
-	 government = monarchy
-	 NOT = { has_government_mechanic =  states_general_mechanic }
+		government = monarchy
+		NOT = { has_government_mechanic =  states_general_mechanic }
 	}
 
 	trigger = {
-	  has_heir = no
+		has_heir = no
 	}
-	legitimacy = -0.25	
+	legitimacy = -0.25
 	papal_influence = -0.1
-	prestige = -0.1	
-	monthly_byz_adm_power = 0.05	
+	prestige = -0.1
+	monthly_byz_adm_power = 0.05
 }
 
 sprzedane_insygnia = {
 	potential = {
 		ai = no
-	 has_country_flag = insygniawyprzedanelmao
-	 government = monarchy
+		has_country_flag = insygniawyprzedanelmao
+		government = monarchy
 	}
 
 	trigger = {
-	 has_country_flag = insygniawyprzedanelmao
+		has_country_flag = insygniawyprzedanelmao
 	}
 	legitimacy = -0.5
-	prestige = -0.5	
-	monthly_byz_adm_power = 0.25 	
+	prestige = -0.5
+	monthly_byz_adm_power = 0.25
 }
 
 
@@ -252,37 +260,37 @@ sprzedane_insygnia = {
 panstwo_exilednikea = {
 	potential = {
 		tag = A52
-}
-trigger = {
-	exists = LAE
-   }
-manpower_recovery_speed = 1
+	}
+	trigger = {
+		exists = LAE
+	}
+	manpower_recovery_speed = 1
 }
 
 
 zpoganizowanyidea = {
 	potential = {
-			OR = {
+		OR = {
 			tag = DA1
 			religion = finnish_pagan_reformed
 			religion = baltic_pagan_reformed
-			religion = norse_pagan_reformed		
-			}
-		 NOT = { has_ruler_flag = zpoganizowany }
+			religion = norse_pagan_reformed
+		}
+		NOT = { has_ruler_flag = zpoganizowany }
 	}
 
 	trigger = {
-			OR = {
+		OR = {
 			tag = DA1
 			religion = finnish_pagan_reformed
 			religion = baltic_pagan_reformed
-			religion = norse_pagan_reformed		
-			}
-		 NOT = { has_ruler_flag = zpoganizowany }
+			religion = norse_pagan_reformed
+		}
+		NOT = { has_ruler_flag = zpoganizowany }
 	}
 	legitimacy = -0.5
 	horde_unity = -0.5
-	prestige = -0.5	
+	prestige = -0.5
 }
 
 
@@ -294,52 +302,52 @@ nerfdlatychzjebanychplemionamerykanskich = {
 	trigger = {
 		ai = yes
 		OR = {
-		religion = totemism
-		religion = animism
-		religion = dreamtime
+			religion = totemism
+			religion = animism
+			religion = dreamtime
 		}
 		capital_scope = {
-			OR = {	
-			continent = north_america
-			continent = south_america
-			continent = oceania
-		}}
-		government = native
-	}
-	defensiveness = -2
-	garrison_size = -0.95
-	war_exhaustion = -0.25
-	siege_ability = -0.95			
-	global_manpower_modifier = -0.8	
-	movement_speed = 0.25
-	discipline = -0.05		
-	naval_morale = -0.85
-	ship_durability = -0.95	
-}
-
-
-egyptianwar = {
-	potential = {
-		capital_scope = {
-			region = egypt_region
+			OR = {
+				continent = north_america
+				continent = south_america
+				continent = oceania
+			}}
+			government = native
 		}
+		defensiveness = -2
+		garrison_size = -0.95
+		war_exhaustion = -0.25
+		siege_ability = -0.95
+		global_manpower_modifier = -0.8
+		movement_speed = 0.25
+		discipline = -0.05
+		naval_morale = -0.85
+		ship_durability = -0.95
 	}
 
-	trigger = {
+
+	egyptianwar = {
+		potential = {
 			capital_scope = {
-			region = egypt_region
+				region = egypt_region
+			}
 		}
-	    NOT = { has_global_flag = atlantropa_egypt_united }
-		NOT = {
-			is_year = 6515
+
+		trigger = {
+			capital_scope = {
+				region = egypt_region
+			}
+			NOT = { has_global_flag = atlantropa_egypt_united }
+			NOT = {
+				is_year = 6515
+			}
 		}
+		diplomatic_reputation = -100
+		diplomatic_upkeep = -4
+		siege_ability = 0.1
+		province_warscore_cost = -0.5
+		can_not_declare_war = yes
+		ae_impact = -2.5
+		global_unrest = -50
+		reinforce_speed = 0.5
 	}
-	diplomatic_reputation = -100
-	diplomatic_upkeep = -4		
-	siege_ability = 0.1	
-	province_warscore_cost = -0.5	
-	can_not_declare_war = yes	
-	ae_impact = -2.5	
-	global_unrest = -50
-	reinforce_speed = 0.5
-}
