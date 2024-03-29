@@ -5,20 +5,13 @@ medieval_times = {
 	}
 
 	trigger = {
-
+		OR = {
+			TAG = POL
+			TAG = PLC
+		}
 		current_age = medieval_age
 	}
 	monthly_polska_adm_power = -0.15
-	inflation_reduction = 0.25
-	trade_efficiency = -0.25
-	development_cost = 1.5
-	tribal_development_growth = -0.9
-	build_time = 1
-	administrative_efficiency = -0.1
-	movement_speed = -0.25
-	monarch_lifespan = -0.25
-	movement_speed = -0.40
-	artillery_cost = 1
 }
 discovery_times = {
 	potential = {
@@ -28,16 +21,13 @@ discovery_times = {
 
 	trigger = {
 		current_age = age_of_discovery
+		OR = {
+			TAG = POL
+			TAG = PLC
+		}
 	}
 	monthly_polska_adm_power = 0.05
-	trade_efficiency = -0.15
-	development_cost = 1
-	tribal_development_growth = -0.8
-	build_time = 0.5
-	administrative_efficiency = -0.05
-	movement_speed = -0.15
-	monarch_lifespan = -0.1
-	movement_speed = -0.3
+
 
 }
 reformation_times = {
@@ -48,15 +38,13 @@ reformation_times = {
 	trigger = {
 		ai = no
 		current_age = age_of_reformation
+		OR = {
+			TAG = POL
+			TAG = PLC
+		}
 	}
 	monthly_polska_adm_power = 0.15
-	inflation_reduction = -0.05
-	trade_efficiency = -0.1
-	development_cost = 0.5
-	tribal_development_growth = -0.7
-	build_time = 0.25
-	administrative_efficiency = -0.025
-	movement_speed = -0.2
+
 
 }
 absolutism_times = {
@@ -67,14 +55,13 @@ absolutism_times = {
 
 	trigger = {
 		current_age = age_of_absolutism
+		OR = {
+			TAG = POL
+			TAG = PLC
+		}
 	}
 	monthly_polska_adm_power = 0.5
-	development_cost = 0.15
-	inflation_reduction = -0.1
-	tribal_development_growth = -0.5
-	movement_speed = 0.15
-	monarch_lifespan = 0.1
-	movement_speed = -0.1
+
 
 }
 revolution_times = {
@@ -85,14 +72,13 @@ revolution_times = {
 
 	trigger = {
 		current_age = age_of_revolutions
+		OR = {
+			TAG = POL
+			TAG = PLC
+		}
 	}
 	monthly_polska_adm_power = 0.25
-	trade_efficiency = 0.1
-	development_cost = -0.15
-	inflation_reduction = -0.15
-	administrative_efficiency = 0.025
-	movement_speed = 0.25
-	monarch_lifespan = 0.15
+
 }
 industrial_times = {
 	potential = {
@@ -103,14 +89,13 @@ industrial_times = {
 	trigger = {
 
 		current_age = age_of_industrialization
+		OR = {
+			TAG = POL
+			TAG = PLC
+		}
 	}
 	monthly_polska_adm_power = 0.05
-	trade_efficiency = 0.15
-	development_cost = -0.2
-	inflation_reduction = -0.20
-	administrative_efficiency = 0.05
-	movement_speed = 0.25
-	monarch_lifespan = 0.25
+
 }
 
 
