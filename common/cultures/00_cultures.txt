@@ -9,7 +9,9 @@
 
 west_slavic = {
 	graphical_culture = westerngfx
-
+	country = {
+		land_morale = 0.10
+	 }
 
 	goralscyzydzi = {}
 	kashubian = {
@@ -162,6 +164,9 @@ Wygant Zrycik
 
 
 germanic = {
+		country = {
+		diplomats = 1
+	 }
 	graphical_culture = westerngfx
 	transylvanian = {
 		primary = TRA
@@ -546,8 +551,8 @@ germanic = {
 
 scandinavian = { #Nordic
 	graphical_culture = westerngfx
-	#country = { land_forcelimit_modifier = 0.25}
-	#province = { local_build_cost = -0.10 }
+	country = { land_forcelimit_modifier = 0.25}
+	province = { local_build_cost = -0.10 }
 	scanian = {
 		male_names = {
 			Anders Anund Asger Benedikt Bjarn Bo Christopher Daniel Edvard
@@ -1006,6 +1011,7 @@ baltic_german = {
 	}
 british	= {
 	graphical_culture = westerngfx
+		country = {ae_impact = -0.1	}
 		toledoese = { }
 
 		britishanglish = { }
@@ -1123,6 +1129,7 @@ british	= {
 }
 
 gaelic	= {
+	country = { province_warscore_cost = -0.1		}
 	graphical_culture = westerngfx
 		scottish = {
 		primary = SCO
@@ -1653,6 +1660,9 @@ Pádraigín Pádraigín Reine Reine Reinaert Síne Síne Róise Tamara
 }
 
 latin = {
+	country = { diplomatic_reputation = 1
+	improve_relation_modifier = 0.1
+}
 	graphical_culture = westerngfx
 	sicilian = {
 		primary = SIC
@@ -1872,7 +1882,7 @@ ital_cabylian = {
 
 iberian	= {
 	graphical_culture = westerngfx
-
+	country = { global_colonial_growth = 20	 }
 	castillian = {
 		country = { }
 		province = { local_has_caravel = yes local_has_galleon = yes }
@@ -2165,6 +2175,8 @@ iberian	= {
 }
 
 french	= {
+	country = { diplomatic_annexation_cost = -0.1
+accept_vassalization_reasons = 5			 }
 	graphical_culture = westerngfx
 	cosmopolitan_french = {
 		primary = FRA
@@ -2274,7 +2286,7 @@ french	= {
 
 finno_ugric = { #Ugric
 	graphical_culture = westerngfx
-
+	country = { defensiveness = 0.10	 }
 	uralic = {
 		primary = PRM
 		male_names = {
@@ -2352,7 +2364,7 @@ finno_ugric = { #Ugric
 
 south_slavic = {
 	graphical_culture = westerngfx
-
+		country = { global_manpower_modifier = 0.10		 }
 
 		vojvodian = {
 		primary = CLI
@@ -2566,7 +2578,7 @@ carpathian = {
 
 	east_slavic = {
 	graphical_culture = easterngfx
-
+		country = { governing_capacity_modifier = 0.1	 }
 		pommeranian = {
 		primary = POM
 		male_names = {
@@ -2864,8 +2876,8 @@ dynasty_names = {
 
 baltic	= {
 	graphical_culture = easterngfx
-
-
+	country = { land_attrition = -0.10		 }
+	country = { reinforce_cost_modifier = -0.10			 }
 	lithuanian = {
 		primary = LIT
 		male_names = {
@@ -2994,6 +3006,7 @@ baltic	= {
 	}
 }
 caucasian = {
+		country = { land_forcelimit_modifier = 0.10	 }
 	graphical_culture = easterngfx
 	georgian_new = {
 		primary = GEO
@@ -3116,6 +3129,10 @@ caucasian = {
 
 
 byzantine = {
+	country = { technology_cost = -0.1
+	embracement_cost = -0.1
+ }
+
 	graphical_culture = easterngfx
 		griko = {
 		male_names = {
@@ -3697,7 +3714,7 @@ byzantine = {
 
 turko_semitic = { #Levantine
 	graphical_culture = muslimgfx
-
+	country = { unjustified_demands = -0.1		 }
 
 	al_misr_arabic = { #Egyptian Arab
 		primary = MAM
@@ -3908,6 +3925,7 @@ turko_semitic = { #Levantine
 }
 
 maghrebi = {
+	country = { global_tax_modifier = 0.1	 }
 	graphical_culture = muslimgfx
 	moroccan = {
 		primary = MOR
@@ -4003,6 +4021,7 @@ maghrebi = {
 }
 
 iranian	= {
+	country = { diplomats = 1		 }
 	graphical_culture = muslimgfx
 	persian = {
 		primary = PER
@@ -4310,6 +4329,10 @@ iranian	= {
 }
 
 altaic = {
+	country = { cavalry_power = 0.10
+ cavalry_cost = -0.25
+ cavalry_flanking = 0.10
+		 }
 	graphical_culture = muslimgfx
 	uzbehk = {
 		primary = SHY
@@ -4501,6 +4524,7 @@ altaic = {
 }
 
 central_american = {
+	country = {infantry_cost = -0.5	 }
 	graphical_culture = southamericagfx
 	kauayotl = { }
 	maureplet = { }
@@ -4685,7 +4709,8 @@ aridoamerican = {
 
 maya = {
 	graphical_culture = southamericagfx
-
+	country = {global_institution_spread = 0.1
+ advisor_cost = -0.1	 }
 	yucatec = {
 		primary = XIU
 		male_names = {
@@ -6221,6 +6246,9 @@ penutian = {
 }
 
 east_asian = {	# Chinese Group
+ country = { technology_cost = -0.1
+ global_institution_spread = 0.1
+ all_power_cost = -0.05		 }
 	graphical_culture = asiangfx
 	vietnamese_new = {
 		#primary = DAI
@@ -6775,7 +6803,7 @@ east_asian = {	# Chinese Group
 
 korean_g = {
 	graphical_culture = asiangfx
-
+ country = { technology_cost = -0.2 }
 		dynasty_names = {
 			Yi Wang Kim Pak Shin Song Chae Gang Jeong Jang Yun Han Hong Yu Ki Choi Ga Gye Go Na Noh Woo Do Du Ban Ma Min Mun
 			Seo Son Sim An Yang O Jeon Cho Jin Ha Hong Heo Kwak Lim Won Kwon Hwang Bae Seok Bang Dae Gyeong Nam Sung Baek
@@ -6819,6 +6847,7 @@ korean_g = {
 }
 
 japanese_g = {
+	country = { discipline = 0.1	 }
 	graphical_culture = asiangfx
 	country = { has_samurai = yes }
 	province = { local_has_samurai = yes }
@@ -10248,7 +10277,7 @@ romanian_group = {
 	}
 
 
-	albanian_group = {
+albanian_group = {
 	graphical_culture = easterngfx
 	albanian_illryain = { }
 		albanian = {
@@ -10286,6 +10315,7 @@ romanian_group = {
 	}
 
 	jewish_group = {
+		country = { tolerance_own = 3		 }
 	hebrew = { #EU Rome
 		dynasty_names = {
 			Abiatarid Akabonid Amitid Amramid Boazid Dorid Dovid Eiranid Eleazid Heroid Honioid Hillelid Joazid Kahanid Nahumid Nirid Nogahid
@@ -10822,6 +10852,8 @@ Ajian Cataunaa Kloeisa Luierja Kramkala Dfanee Egruu Mineoalata Ramasqa Frajnes 
 	}
 
 			roman_group = {
+				country = { global_institution_spread = 0.1
+			idea_cost = -0.1			 }
 		roman = { #EU Rome
 		dynasty_names = {
 			Aemilia Antonia Atilia Atia Aufidia Aurelia Caecilia Calpurnia Cassia Claudia
@@ -10992,6 +11024,7 @@ Ajian Cataunaa Kloeisa Luierja Kramkala Dfanee Egruu Mineoalata Ramasqa Frajnes 
 
 
 	turkic = { #turskish
+	country = {cavalry_power = 0.10	 }
 	graphical_culture = muslimgfx
 	hungarian_north = {}
 		hungarian = {
@@ -11046,6 +11079,7 @@ Ajian Cataunaa Kloeisa Luierja Kramkala Dfanee Egruu Mineoalata Ramasqa Frajnes 
 		second_turkish = { }
 	}
 	punic_culture = {
+		country = { naval_morale = 0.1		 }
 		graphical_culture = westerngfx
 		phoenician = { #EU Rome
 			dynasty_names = {
@@ -11218,6 +11252,7 @@ Ajian Cataunaa Kloeisa Luierja Kramkala Dfanee Egruu Mineoalata Ramasqa Frajnes 
 
 
 	egyptian_culture = {
+		country = { prestige = 0.5	 }
 		graphical_culture = muslimgfx
 		old_egyptian = {
 			dynasty_names = {
@@ -11489,7 +11524,7 @@ Ajian Cataunaa Kloeisa Luierja Kramkala Dfanee Egruu Mineoalata Ramasqa Frajnes 
 
 	mongoloic = {
 	graphical_culture = muslimgfx
-
+    country = { cavalry_power = 0.30	 }
 	mongol = {
 		primary = KHA
 		male_names = {
@@ -11588,7 +11623,7 @@ Ajian Cataunaa Kloeisa Luierja Kramkala Dfanee Egruu Mineoalata Ramasqa Frajnes 
 
 	grecobactrian_group = {
 	graphical_culture = easterngfx
-
+		country = { idea_cost = -0.1	 }
 
 		bactrian_greek = {
 		primary = TRE
@@ -12128,6 +12163,7 @@ Ajian Cataunaa Kloeisa Luierja Kramkala Dfanee Egruu Mineoalata Ramasqa Frajnes 
 
 
 	nilfhishgroup = {
+		country = { legitimacy = 1	 }
 		graphical_culture = westerngfx
 		male_names = {
 			Alberic Bertrand Chlotilde Dagobert Eudes Florian Gisèle Hugolin Isabeau Jocelyn Lambert Mathilde Norbert Odette Perrin Roland Sigfried Thierry Ulric Yseult
@@ -12183,6 +12219,7 @@ Ajian Cataunaa Kloeisa Luierja Kramkala Dfanee Egruu Mineoalata Ramasqa Frajnes 
 
 
 	assyriangroup = {
+		country = { global_tax_modifier = 0.1	 }
 		graphical_culture = muslimgfx
 		aramaic = { #EU Rome
 		dynasty_names = {
@@ -12250,6 +12287,7 @@ Ajian Cataunaa Kloeisa Luierja Kramkala Dfanee Egruu Mineoalata Ramasqa Frajnes 
 
 
 latin_phoenix = {
+	country = { discipline = 0.05		 }
 	graphical_culture = westerngfx
 		italian_phoenix = { #EU Rome
 		dynasty_names = {
@@ -12369,6 +12407,7 @@ north_algonquian = {
 
 
 latin_african = { #here
+    country = { merchants = 1	 }
 	graphical_culture = westerngfx
 		romagnan = {
 		primary = FER
@@ -12507,7 +12546,7 @@ pygmy_g = {
 }
 mulandish = {
 	graphical_culture = westerngfx
-
+	country = { technology_cost = -0.15		 }
 
 	mulandish_original = {
 		primary = MU1
@@ -12700,6 +12739,8 @@ atlantean_algonquian = {
 }
 
 android_group = {
+	country = { technology_cost = -0.15		 }
+	province = { local_unrest = -10	}
 	graphical_culture = westerngfx
 		mu_android = {
 
