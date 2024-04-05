@@ -179,15 +179,16 @@ country_event = {
 			id = startevent.105
 		}
 	}
+
 	option = { #Annex Vassals
-		name = startevent.1050.c
+		name = startevent.105.KOLORY
 		trigger = {
 			NOT = {
-				has_global_flag = colorchangedsetting
+				has_global_flag = kolorywyjebane
 			}
 		}
 		country_event = {
-			id = atlantropa_basic_event.5001
+			id = startevent.2105
 		}
 	}
 
@@ -231,7 +232,17 @@ country_event = {
 			id = startevent.250
 		}
 	}
-
+	option = { #Annex Vassals
+		name = startevent.1050.c
+		trigger = {
+			NOT = {
+				has_global_flag = colorchangedsetting
+			}
+		}
+		country_event = {
+			id = atlantropa_basic_event.5001
+		}
+	}
 
 	#All undead
 	option = {
@@ -1002,6 +1013,29 @@ country_event = {
 }
 
 
+
+
+country_event = {
+	id = startevent.2105
+	title = atlantropa_basic_event.5001.t
+	desc = atlantropa_basic_event.5001.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	is_triggered_only = YES
+	option = {
+		name = "atlantropa_basic_event.5556.b"
+		country_event = {
+			id = startevent.5
+		}
+	}
+	option = {
+		name = "atlantropa_basic_event.6.a"
+		set_global_flag = kolorywyjebane
+		every_country = { restore_country_color = yes }
+	}
+
+
+
+}
 country_event = {
 	id = atlantropa_basic_event.5001
 	title = atlantropa_basic_event.5001.t

@@ -11,17 +11,18 @@ cb_byzantine_autonomous_province = {
 		OR = {
 			tag = BYZ
 			was_tag = BYZ
-			tag = A4R				
+			tag = A4R
+			tag = X55
 		}
 	}
 
 	prerequisites = {
 		is_subject = no
 		is_neighbor_of = FROM
-		FROM =  { total_development = 20 } 		
+		FROM =  { total_development = 20 }
 		FROM = { NOT = { total_development = 200 } }
-		FROM = { NOT = { total_development = ROOT } }		
-		NOT = { truce_with = FROM }		
+		FROM = { NOT = { total_development = ROOT } }
+		NOT = { truce_with = FROM }
 	}
 
 	war_goal = byzantine_provinceindependece
@@ -39,10 +40,10 @@ cb_magyar_autonomous_province = {
 	prerequisites = {
 		is_subject = no
 		is_neighbor_of = FROM
-		FROM =  { total_development = 20 } 		
+		FROM =  { total_development = 20 }
 		FROM = { NOT = { total_development = 200 } }
-		FROM = { NOT = { total_development = ROOT } }		
-		NOT = { truce_with = FROM }		
+		FROM = { NOT = { total_development = ROOT } }
+		NOT = { truce_with = FROM }
 	}
 
 	war_goal = magyar_provinceindependece

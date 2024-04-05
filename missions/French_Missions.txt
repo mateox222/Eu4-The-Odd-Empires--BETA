@@ -2073,9 +2073,72 @@ french_missions_33 = {
 					}
 
 				}}
+
+
+
+				fra_reconquista_four = {
+					icon = atlantropa_fallmexico
+					required_missions = { france_spain_campaign }
+
+					# free mission
+
+					provinces_to_highlight = {
+						OR = {
+							area = northern_morocco_area
+							area = barbary_coast_area
+							area = algiers_area
+						}
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+
+					trigger = {
+						northern_morocco_area = {
+							type = all
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+						barbary_coast_area = {
+							type = all
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+						algiers_area = {
+							type = all
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+
+					}
+
+					effect = {
+						add_country_modifier = {
+							name = "completing_the_reconquista"
+							duration = 5475
+						}
+						western_morocco_area = {
+							limit = {
+								NOT = { is_core = ROOT }
+								NOT = { is_claim = ROOT }
+							}
+							add_claim = ROOT
+						}
+						marrekesh_area = {
+							limit = {
+								NOT = { is_core = ROOT }
+								NOT = { is_claim = ROOT }
+							}
+							add_claim = ROOT
+						}
+						southern_morocco_area = {
+							limit = {
+								NOT = { is_core = ROOT }
+								NOT = { is_claim = ROOT }
+							}
+							add_claim = ROOT
+						}
+
+					}
+				}
 				fra_iberia_christian = {
 					icon = mission_religious
-					required_missions = { france_spain_campaign }
+					required_missions = { fra_reconquista_four }
 
 					# free mission
 
@@ -2151,68 +2214,6 @@ french_missions_33 = {
 							}
 							add_permanent_claim = ROOT
 						}
-					}
-				}
-
-
-				fra_reconquista_four = {
-					icon = atlantropa_fallmexico
-					required_missions = { fra_iberia_christian }
-
-					# free mission
-
-					provinces_to_highlight = {
-						OR = {
-							area = northern_morocco_area
-							area = barbary_coast_area
-							area = algiers_area
-						}
-						NOT = { country_or_non_sovereign_subject_holds = ROOT }
-					}
-
-					trigger = {
-						northern_morocco_area = {
-							type = all
-							country_or_non_sovereign_subject_holds = ROOT
-						}
-						barbary_coast_area = {
-							type = all
-							country_or_non_sovereign_subject_holds = ROOT
-						}
-						algiers_area = {
-							type = all
-							country_or_non_sovereign_subject_holds = ROOT
-						}
-
-					}
-
-					effect = {
-						add_country_modifier = {
-							name = "completing_the_reconquista"
-							duration = 5475
-						}
-						western_morocco_area = {
-							limit = {
-								NOT = { is_core = ROOT }
-								NOT = { is_claim = ROOT }
-							}
-							add_claim = ROOT
-						}
-						marrekesh_area = {
-							limit = {
-								NOT = { is_core = ROOT }
-								NOT = { is_claim = ROOT }
-							}
-							add_claim = ROOT
-						}
-						southern_morocco_area = {
-							limit = {
-								NOT = { is_core = ROOT }
-								NOT = { is_claim = ROOT }
-							}
-							add_claim = ROOT
-						}
-
 					}
 				}
 

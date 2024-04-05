@@ -3,8 +3,13 @@
 # country
 on_startup = {
 	#THEODDEMPIRES
+	if = {
+		limit = {
+			NOT = { has_global_flag = kolorywyjebane }
+		}
+		toe_random_color_effect = yes
+	}
 
-	toe_random_color_effect = yes
 
 	add_reform_desire = -200
 	initialize_atlantis_schools_effect = yes
@@ -5054,8 +5059,13 @@ on_company_chartered = {
 
 # ROOT = Overlord, FROM = Minor
 on_dependency_gained = {
+	if = {
+		limit = {
+			NOT = { has_global_flag = kolorywyjebane }
+		}
+		toe_random_dependence_color_effect = yes
+	}
 
-	FROM = { toe_random_dependence_color_effect = yes }
 
 	if = {
 		limit = {

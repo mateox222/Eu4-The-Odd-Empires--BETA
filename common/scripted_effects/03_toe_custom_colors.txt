@@ -14,6 +14,11 @@ toe_random_color_effect = {
 	}
 }
 toe_random_dependence_color_effect = {
+			FROM = { NOT = {
+				is_subject_of_type = tributary_state
+			}}
+	set_country_flag = has_overriden_color_flag
+	FROM = { change_country_color = { color =  ROOT  }}
 	if = {
 		limit = {
 			root = { tag = A4R }}
@@ -29,6 +34,12 @@ toe_random_dependence_color_effect = {
 				}
 				FROM = {	change_country_color = { color = { 153 71 124 } } }
 			}
+			if = {
+					limit = {
+						ROOT = { tag = X55 }
+						}
+				FROM = {  change_country_color = { color = { 98 0 102 } } }
+				}
 
 
 		}

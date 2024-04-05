@@ -20,7 +20,7 @@ po_establish_byzantineprovince = {
 	requires_demand_independence = yes # Whether this can be demanded by the former subject in an independence war without also demanding independence.
 	is_make_subject = yes # This will make the treaty mutually exclusive with other treaties that makes the giver a subject, or that explicitly frees the giver from their current overlord.
 	requires_is_allowed = yes # If set to "yes", treaty will only be visible when explicitly allowed by casus belli. If not, it will be available but cost diplomatic power.
-	
+
 	is_visible = { # Defaults to equivalent of "always = yes"
 		always = yes
 	}
@@ -31,14 +31,14 @@ po_establish_byzantineprovince = {
 		create_subject = {
 			who = FROM
 			subject_type = atlantis_coempire
-		}		
+		}
 		FROM = {
 				add_government_reform = autonomous_byzantine_province
 				set_country_flag = has_rhomaioi_color
 				set_country_flag = has_overriden_color_flag
 				if = {
-					limit = { 
-						FROM = { 
+					limit = {
+						FROM = {
 							OR = {
 							tag = A52
 							tag = BYZ
@@ -47,16 +47,23 @@ po_establish_byzantineprovince = {
 				change_country_color = { color = { 153 71 124 } }
 				}
 								if = {
-					limit = { 
+					limit = {
 						FROM = { tag = A4R }
 						}
 				change_country_color = { color = { 114 138 212 } }
 				}
+								if = {
+					limit = {
+						FROM = { tag = X55 }
+						}
+				change_country_color = { color = { 98 0 102 } }
+				}
+
 
 				change_religion = FROM
 			}
 		}
-	
+
 	ai_weight = { # Defaults to always evaluate to 0
 		export_to_variable = {
 			variable_name = ai_value # Mandatory to have entry called "ai_value". Its value at the end of the ai_weight scope is what will be used
