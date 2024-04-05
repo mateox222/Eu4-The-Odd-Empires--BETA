@@ -1,488 +1,488 @@
-sybeon_missions = {
-	slot = 1
-	generic = no
-	ai = yes
-	potential = {
-		tag = GR7
-	}
+#sybeon_missions = {
+##slot = 1
+##generic = no
+##ai = yes
+##potential = {
+###tag = GR7
+##}
 
-	contact_with_the_natives = {
-		icon = mission_build_up_to_force_limit
-		position = 1
-		required_missions = {  }
-		provinces_to_highlight = {
-			OR = {
-				province_id = 1080
-			}
-			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			1080 = {
-				owned_by = GR7
-				OR = {
-					is_colony = yes
-					is_city = yes
-				}		
-			}
-		}
-		effect = {
-			country_event = { id = sybeon_events.2 }
-		}
-	}
-	churches_for_the_kilirikoi = {
-		icon = mission_build_up_to_force_limit
-		position = 2
-		required_missions = {  
-			contact_with_the_natives
-		}
-		trigger = {
-			GR7 = {
-				num_of_cities = 6
-				dip_power = 50
-				treasury = 100
-			}		
-		}
-		effect = {
-			add_treasury = -100
-			add_dip_power = -50
-			random_owned_province = {
-				limit = { is_city = yes }
-				add_base_tax = 1
-				add_building_construction = {
-					building = temple
-					speed = 1
-					cost = 0
-				}
-			}
-			random_owned_province = {
-				limit = { is_city = yes }
-				add_base_tax = 1
-				add_building_construction = {
-					building = temple
-					speed = 1
-					cost = 0
-				}
-			}
-			random_owned_province = {
-				limit = { is_city = yes }
-				add_base_tax = 1
-				add_building_construction = {
-					building = temple
-					speed = 1
-					cost = 0
-				}
-			}
-		}
-	}
-}
-sybeon_mission2 = {
-	slot = 2
-	generic = no
-	ai = yes
-	potential = {
-		tag = GR7
-	}
-	friends_in_low_places = {
-		icon = mission_build_up_to_force_limit
-		position = 1
-		required_missions = {  }
-		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = cool_shit_done_tooltip
-				has_country_flag = cool_shit_done
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = friendship
-				duration = 9125
-			}
-		}
+##contact_with_the_natives = {
+###icon = mission_build_up_to_force_limit
+###position = 1
+###required_missions = {  }
+###provinces_to_highlight = {
+####OR = {
+#####province_id = 1080
+####}
+####NOT = {#country_or_non_sovereign_subject_holds = ROOT }
+###}
+###trigger = {
+####1080 = {
+#####owned_by = GR7
+#####OR = {
+######is_colony = yes
+######is_city = yes
+#####}##
+####}
+###}
+###effect = {
+####country_event = { id = sybeon_events.2 }
+###}
+##}
+##churches_for_the_kilirikoi = {
+###icon = mission_build_up_to_force_limit
+###position = 2
+###required_missions = {
+####contact_with_the_natives
+###}
+###trigger = {
+####GR7 = {
+#####num_of_cities = 6
+#####dip_power = 50
+#####treasury = 100
+####}##
+###}
+###effect = {
+####add_treasury = -100
+####add_dip_power = -50
+####random_owned_province = {
+#####limit = { is_city = yes }
+#####add_base_tax = 1
+#####add_building_construction = {
+######building = temple
+######speed = 1
+######cost = 0
+#####}
+####}
+####random_owned_province = {
+#####limit = { is_city = yes }
+#####add_base_tax = 1
+#####add_building_construction = {
+######building = temple
+######speed = 1
+######cost = 0
+#####}
+####}
+####random_owned_province = {
+#####limit = { is_city = yes }
+#####add_base_tax = 1
+#####add_building_construction = {
+######building = temple
+######speed = 1
+######cost = 0
+#####}
+####}
+###}
+##}
+#}
+#sybeon_mission2 = {
+##slot = 2
+##generic = no
+##ai = yes
+##potential = {
+###tag = GR7
+##}
+##friends_in_low_places = {
+###icon = mission_build_up_to_force_limit
+###position = 1
+###required_missions = {  }
+###trigger = {
+####custom_trigger_tooltip = {
+#####tooltip = cool_shit_done_tooltip
+#####has_country_flag = cool_shit_done
+####}
+###}
+###effect = {
+####add_country_modifier = {
+#####name = friendship
+#####duration = 9125
+####}
+###}
 
-	}
-	trading_privileges = {
-		icon = mission_build_up_to_force_limit
-		position = 3
-		required_missions = {  }
-		trigger = {
-			estate_loyalty = {
-				estate = estate_burghers
-				loyalty = 60
-			}
-			estate_influence = {
-				estate = estate_burghers
-				influence = 50
-			}
-			custom_trigger_tooltip = {
-				tooltip = loan_issue_tooltip
-				has_country_flag = loan_issue_settled
-			}	
-			advisor = trader
-		}
-		effect = {
-			5148 = {
-				add_province_modifier = {
-					name = the_ivory_port
-					duration = -1
-				}
-			}
-			hidden_effect = {
-				5148 = {
-					remove_province_modifier = trade_good_goodivory
-					remove_province_modifier = trade_good_poorivory
-					add_permanent_province_modifier = {
-						name = trade_good_goodivory
-					}
-				}
-			}
-			custom_tooltip = trading_privileges_tooltip
-		}
-	}
-}
-sybeon_mission3 = {
-	slot = 3
-	generic = no
-	ai = yes
-	potential = {
-		tag = GR7
-	}
-	wealthy_bankers = {
-		icon = mission_build_up_to_force_limit
-		position = 1
-		required_missions = {  }
-		trigger = {
-			num_of_loans = 0
-			estate_loyalty = {
-				estate = estate_burghers
-				loyalty = 50
-			}
-			estate_influence = {
-				estate = estate_burghers
-				influence = 40
-			}
-		}
-		effect = { 
-			add_treasury = 400
-			add_country_modifier = {
-				name = funded_expansion
-				duration = 7300
-			}
-			custom_tooltip = debts_tobepaid_tooltip
-			hidden_effect = {
-				country_event = {
-					days = 9125
-					id = sybeon_events.9
-				}
-			}
-		}
-	}
-	the_northern_coast = {
-		icon = mission_build_up_to_force_limit
-		position = 2
-		required_missions = { 
-			wealthy_bankers
-			contact_with_the_natives
-	 	}
-		trigger = {
-			num_of_cities = 6
-			adm_power = 50
-			dip_power = 50
-			5148 = {
-				has_building = marketplace
-			}
-		}
-		effect = {
-			random_owned_province = {
-				limit = { is_city = yes }
-				random_list = {
-					1 = { add_base_manpower = 1 }
-					1 = { add_base_tax = 1 }
-					1 = { add_base_production = 1 }
-				}
-			}
-			random_owned_province = {
-				limit = { is_city = yes }
-				random_list = {
-					1 = { add_base_manpower = 1 }
-					1 = { add_base_tax = 1 }
-					1 = { add_base_production = 1 }
-				}
-			}
-			random_owned_province = {
-				limit = { is_city = yes }
-				random_list = {
-					1 = { add_base_manpower = 1 }
-					1 = { add_base_tax = 1 }
-					1 = { add_base_production = 1 }
-				}
-			}
-			random_owned_province = {
-				limit = { is_city = yes }
-				random_list = {
-					1 = { add_base_manpower = 1 }
-					1 = { add_base_tax = 1 }
-					1 = { add_base_production = 1 }
-				}
-			}
-			random_owned_province = {
-				limit = { is_city = yes }
-				random_list = {
-					1 = { add_base_manpower = 1 }
-					1 = { add_base_tax = 1 }
-					1 = { add_base_production = 1 }
-				}
-			}
-			1075 = { add_permanent_claim = GR7 }
-			1071 = { add_permanent_claim = GR7 }
-			add_dip_power = -50
-			add_adm_power = -50
-		}
-	}
-	forward_presence = {
-		icon = mission_build_up_to_force_limit
-		position = 3
-		required_missions = { 
-			the_northern_coast
-		}
-		provinces_to_highlight = {
-			OR = {
-				area = yrtesh_area
-				area = ishim_area
-				area = aqmola_area
-				area = ob_area
-			}
-			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			num_of_owned_provinces_with = {
-				value = 6
-				OR = {
-					area = yrtesh_area
-					area = ishim_area
-					area = aqmola_area
-					area = ob_area
-				}
-			}
-		}
-		effect = {
-			every_owned_province = {
-				limit = {
-					OR = {
-						area = yrtesh_area
-						area = ishim_area
-						area = aqmola_area
-						area = ob_area
-					}
-				}
-				add_province_modifier = {
-					name = forceful_conversions
-					duration = 3650
-				}
-			}
-		}
-	}
-	the_path_east = {
-		icon = mission_build_up_to_force_limit
-		position = 4
-		required_missions = { 
-			forward_presence
-		}
-		provinces_to_highlight = {
-			OR = {
-				province_id = 1067
-				province_id = 1065
-			}
-			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			any_owned_province = {
-				OR = {
-					province_id = 1067
-					province_id = 1065
-				}
-			}
-			dip_power = 50
-			manpower = 2
-		}
-		effect = {
-			country_event = {
-				id = sybeon_events.12
-			}
-		}
-	}	
-}
-sybeon_mission4 = {
-	slot = 4
-	generic = no
-	ai = yes
-	potential = {
-		tag = GR7
-	}
-	using_their_tusks = {
-		icon = mission_build_up_to_force_limit
-		position = 3
-		required_missions = { 
-			the_northern_coast 
-			finding_pyro_mammoths
-		}
-		trigger = {
-			army_size = 14
-			manpower_percentage = 0.2
-			custom_trigger_tooltip = {
-				tooltip = preparing_for_war_tooltip2
-				has_country_flag = preparing_for_war
-			}
-		}
-		effect = {
-			add_manpower = -2
-			hidden_effect = {
-				set_country_flag = ready_for_war
-			}
-			custom_tooltip = preparing_for_war_tooltip3
-		}
-	}
-}
-sybeon_missions5 = {
-	slot = 5
-	generic = no
-	ai = yes
-	potential = {
-		tag = GR7
-	}
-	finding_mammoths = {
-		icon = mission_build_up_to_force_limit
-		position = 1
-		required_missions = {  }
-		provinces_to_highlight = {
-			OR = {
-				area = kara_area
-			}
-			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = { 
-			custom_trigger_tooltip = {
-				tooltip = discovered_mamooths_tooltip
-				has_country_flag = mamooths_discovered
-			}
-		}
-		effect = { 
-			random_owned_province = {
-				limit = { area = kara_area }
-				add_province_modifier = {
-					name = fledgeling_kyknomammothos_camp
-					duration = -1
-				}
-				add_base_production = 1
-				add_base_tax = 1
-			}
-			change_variable = {
-				which = kyknocampscount
-				value = 1
-			}
-		}
-	}
-	finding_pyro_mammoths = {
-		icon = mission_build_up_to_force_limit
-		position = 2
-		required_missions = { finding_mammoths }
-		provinces_to_highlight = {
-			OR = {
-				province_id = 2429
-			}
-			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = { 
-			2429 = {
-				is_city = yes
-				owned_by = GR7
-			}
-			num_of_cities = 3
-		}
-		effect = { 
-			country_event = {
-				id = sybeon_events_discovering_mamooths.2
-			}
-		}
-	}
-	upgrading_the_camps = {
-		icon = mission_build_up_to_force_limit
-		position = 3
-		required_missions = { finding_pyro_mammoths }
-		trigger = {
-			treasury = 200
-			mil_power = 50
-			adm_power = 50
-		}
-		effect = {
-			hidden_effect = {
-				random_owned_province = {
-					limit = {
-						has_province_modifier = fledgeling_kyknomammothos_camp
-					}
-					remove_province_modifier = fledgeling_kyknomammothos_camp
-					add_province_modifier = {
-						name = established_kyknomammothos_camp
-						duration = -1
-					}
-				}
-				random_owned_province = {
-					limit = {
-						has_province_modifier = fledgeling_pyromammothos_camp
-					}
-					remove_province_modifier = fledgeling_pyromammothos_camp
-					add_province_modifier = {
-						name = established_pyromammothos_camp
-						duration = -1
-					}
-				}
-				change_variable = {
-					which = pyrocampscount
-					value = 1
-				}
-			}
-			custom_tooltip = upgrading_the_camps_tooltip
-		}
-	}
-	mammoth_economics = {
-		icon = mission_build_up_to_force_limit
-		position = 4
-		provinces_to_highlight = {
-			OR = {
-				area = yrtesh_area
-				area = ishim_area
-				area = aqmola_area
-				area = ob_area
-			}
-			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
-		}
-		required_missions = { upgrading_the_camps }
-		trigger = {
-			treasury = 100
-			mil_power = 50
-			adm_power = 50
-			dip_power = 50
-			yrtesh_area = {
-				owned_by = ROOT
-			}
-			ishim_area = {
-				owned_by = ROOT
-			}
-			aqmola_area = {
-				owned_by = ROOT
-			}
-			ob_area = {
-				owned_by = ROOT
-			}
-		}
-		effect = {
-			add_treasury = -100
-			add_adm_power = -50
-			add_dip_power = -50
-			add_mil_power = -50
-			custom_tooltip = mammoth_economics_tooltip
-			hidden_effect = {
-				set_country_flag = mammoth_build_mechanic
-			}
-		}
-	}
-}
+##}
+##trading_privileges = {
+###icon = mission_build_up_to_force_limit
+###position = 3
+###required_missions = {  }
+###trigger = {
+####estate_loyalty = {
+#####estate = estate_burghers
+#####loyalty = 60
+####}
+####estate_influence = {
+#####estate = estate_burghers
+#####influence = 50
+####}
+####custom_trigger_tooltip = {
+#####tooltip = loan_issue_tooltip
+#####has_country_flag = loan_issue_settled
+####}#
+####advisor = trader
+###}
+###effect = {
+####5148 = {
+#####add_province_modifier = {
+######name = the_ivory_port
+######duration = -1
+#####}
+####}
+####hidden_effect = {
+#####5148 = {
+######remove_province_modifier = trade_good_goodivory
+######remove_province_modifier = trade_good_poorivory
+######add_permanent_province_modifier = {
+#######name = trade_good_goodivory
+######}
+#####}
+####}
+####custom_tooltip = trading_privileges_tooltip
+###}
+##}
+#}
+#sybeon_mission3 = {
+##slot = 3
+##generic = no
+##ai = yes
+##potential = {
+###tag = GR7
+##}
+##wealthy_bankers = {
+###icon = mission_build_up_to_force_limit
+###position = 1
+###required_missions = {  }
+###trigger = {
+####num_of_loans = 0
+####estate_loyalty = {
+#####estate = estate_burghers
+#####loyalty = 50
+####}
+####estate_influence = {
+#####estate = estate_burghers
+#####influence = 40
+####}
+###}
+###effect = {
+####add_treasury = 400
+####add_country_modifier = {
+#####name = funded_expansion
+#####duration = 7300
+####}
+####custom_tooltip = debts_tobepaid_tooltip
+####hidden_effect = {
+#####country_event = {
+######days = 9125
+######id = sybeon_events.9
+#####}
+####}
+###}
+##}
+##the_northern_coast = {
+###icon = mission_build_up_to_force_limit
+###position = 2
+###required_missions = {
+####wealthy_bankers
+####contact_with_the_natives
+###}
+###trigger = {
+####num_of_cities = 6
+####adm_power = 50
+####dip_power = 50
+####5148 = {
+#####has_building = marketplace
+####}
+###}
+###effect = {
+####random_owned_province = {
+#####limit = { is_city = yes }
+#####random_list = {
+######1 = { add_base_manpower = 1 }
+######1 = { add_base_tax = 1 }
+######1 = { add_base_production = 1 }
+#####}
+####}
+####random_owned_province = {
+#####limit = { is_city = yes }
+#####random_list = {
+######1 = { add_base_manpower = 1 }
+######1 = { add_base_tax = 1 }
+######1 = { add_base_production = 1 }
+#####}
+####}
+####random_owned_province = {
+#####limit = { is_city = yes }
+#####random_list = {
+######1 = { add_base_manpower = 1 }
+######1 = { add_base_tax = 1 }
+######1 = { add_base_production = 1 }
+#####}
+####}
+####random_owned_province = {
+#####limit = { is_city = yes }
+#####random_list = {
+######1 = { add_base_manpower = 1 }
+######1 = { add_base_tax = 1 }
+######1 = { add_base_production = 1 }
+#####}
+####}
+####random_owned_province = {
+#####limit = { is_city = yes }
+#####random_list = {
+######1 = { add_base_manpower = 1 }
+######1 = { add_base_tax = 1 }
+######1 = { add_base_production = 1 }
+#####}
+####}
+####1075 = { add_permanent_claim = GR7 }
+####1071 = { add_permanent_claim = GR7 }
+####add_dip_power = -50
+####add_adm_power = -50
+###}
+##}
+##forward_presence = {
+###icon = mission_build_up_to_force_limit
+###position = 3
+###required_missions = {
+####the_northern_coast
+###}
+###provinces_to_highlight = {
+####OR = {
+#####area = yrtesh_area
+#####area = ishim_area
+#####area = aqmola_area
+#####area = ob_area
+####}
+####NOT = {#country_or_non_sovereign_subject_holds = ROOT }
+###}
+###trigger = {
+####num_of_owned_provinces_with = {
+#####value = 6
+#####OR = {
+######area = yrtesh_area
+######area = ishim_area
+######area = aqmola_area
+######area = ob_area
+#####}
+####}
+###}
+###effect = {
+####every_owned_province = {
+#####limit = {
+######OR = {
+#######area = yrtesh_area
+#######area = ishim_area
+#######area = aqmola_area
+#######area = ob_area
+######}
+#####}
+#####add_province_modifier = {
+######name = forceful_conversions
+######duration = 3650
+#####}
+####}
+###}
+##}
+##the_path_east = {
+###icon = mission_build_up_to_force_limit
+###position = 4
+###required_missions = {
+####forward_presence
+###}
+###provinces_to_highlight = {
+####OR = {
+#####province_id = 1067
+#####province_id = 1065
+####}
+####NOT = {#country_or_non_sovereign_subject_holds = ROOT }
+###}
+###trigger = {
+####any_owned_province = {
+#####OR = {
+######province_id = 1067
+######province_id = 1065
+#####}
+####}
+####dip_power = 50
+####manpower = 2
+###}
+###effect = {
+####country_event = {
+#####id = sybeon_events.12
+####}
+###}
+##}#
+#}
+#sybeon_mission4 = {
+##slot = 4
+##generic = no
+##ai = yes
+##potential = {
+###tag = GR7
+##}
+##using_their_tusks = {
+###icon = mission_build_up_to_force_limit
+###position = 3
+###required_missions = {
+####the_northern_coast
+####finding_pyro_mammoths
+###}
+###trigger = {
+####army_size = 14
+####manpower_percentage = 0.2
+####custom_trigger_tooltip = {
+#####tooltip = preparing_for_war_tooltip2
+#####has_country_flag = preparing_for_war
+####}
+###}
+###effect = {
+####add_manpower = -2
+####hidden_effect = {
+#####set_country_flag = ready_for_war
+####}
+####custom_tooltip = preparing_for_war_tooltip3
+###}
+##}
+#}
+#sybeon_missions5 = {
+##slot = 5
+##generic = no
+##ai = yes
+##potential = {
+###tag = GR7
+##}
+##finding_mammoths = {
+###icon = mission_build_up_to_force_limit
+###position = 1
+###required_missions = {  }
+###provinces_to_highlight = {
+####OR = {
+#####area = kara_area
+####}
+####NOT = {#country_or_non_sovereign_subject_holds = ROOT }
+###}
+###trigger = {
+####custom_trigger_tooltip = {
+#####tooltip = discovered_mamooths_tooltip
+#####has_country_flag = mamooths_discovered
+####}
+###}
+###effect = {
+####random_owned_province = {
+#####limit = { area = kara_area }
+#####add_province_modifier = {
+######name = fledgeling_kyknomammothos_camp
+######duration = -1
+#####}
+#####add_base_production = 1
+#####add_base_tax = 1
+####}
+####change_variable = {
+#####which = kyknocampscount
+#####value = 1
+####}
+###}
+##}
+##finding_pyro_mammoths = {
+###icon = mission_build_up_to_force_limit
+###position = 2
+###required_missions = { finding_mammoths }
+###provinces_to_highlight = {
+####OR = {
+#####province_id = 2429
+####}
+####NOT = {#country_or_non_sovereign_subject_holds = ROOT }
+###}
+###trigger = {
+####2429 = {
+#####is_city = yes
+#####owned_by = GR7
+####}
+####num_of_cities = 3
+###}
+###effect = {
+####country_event = {
+#####id = sybeon_events_discovering_mamooths.2
+####}
+###}
+##}
+##upgrading_the_camps = {
+###icon = mission_build_up_to_force_limit
+###position = 3
+###required_missions = { finding_pyro_mammoths }
+###trigger = {
+####treasury = 200
+####mil_power = 50
+####adm_power = 50
+###}
+###effect = {
+####hidden_effect = {
+#####random_owned_province = {
+######limit = {
+#######has_province_modifier = fledgeling_kyknomammothos_camp
+######}
+######remove_province_modifier = fledgeling_kyknomammothos_camp
+######add_province_modifier = {
+#######name = established_kyknomammothos_camp
+#######duration = -1
+######}
+#####}
+#####random_owned_province = {
+######limit = {
+#######has_province_modifier = fledgeling_pyromammothos_camp
+######}
+######remove_province_modifier = fledgeling_pyromammothos_camp
+######add_province_modifier = {
+#######name = established_pyromammothos_camp
+#######duration = -1
+######}
+#####}
+#####change_variable = {
+######which = pyrocampscount
+######value = 1
+#####}
+####}
+####custom_tooltip = upgrading_the_camps_tooltip
+###}
+##}
+##mammoth_economics = {
+###icon = mission_build_up_to_force_limit
+###position = 4
+###provinces_to_highlight = {
+####OR = {
+#####area = yrtesh_area
+#####area = ishim_area
+#####area = aqmola_area
+#####area = ob_area
+####}
+####NOT = {#country_or_non_sovereign_subject_holds = ROOT }
+###}
+###required_missions = { upgrading_the_camps }
+###trigger = {
+####treasury = 100
+####mil_power = 50
+####adm_power = 50
+####dip_power = 50
+####yrtesh_area = {
+#####owned_by = ROOT
+####}
+####ishim_area = {
+#####owned_by = ROOT
+####}
+####aqmola_area = {
+#####owned_by = ROOT
+####}
+####ob_area = {
+#####owned_by = ROOT
+####}
+###}
+###effect = {
+####add_treasury = -100
+####add_adm_power = -50
+####add_dip_power = -50
+####add_mil_power = -50
+####custom_tooltip = mammoth_economics_tooltip
+####hidden_effect = {
+#####set_country_flag = mammoth_build_mechanic
+####}
+###}
+##}
+#}

@@ -1,103 +1,103 @@
-machines_atl_1 = {
-	slot = 1
-	generic = no
-	ai = yes
-	potential = {
-		tag = XX1
-	}
+#machines_atl_1 = {
+##slot = 1
+##generic = no
+##ai = yes
+##potential = {
+###tag = XX1
+##}
 
-}
+#}
 
-machines_atl_2 = {
-	slot = 2
-	generic = no
-	ai = yes
-	potential = {
-		tag = XX1
-	}
+#machines_atl_2 = {
+##slot = 2
+##generic = no
+##ai = yes
+##potential = {
+###tag = XX1
+##}
 
-}
+#}
 
-machines_atl_3 = {
-	slot = 3
-	generic = no
-	ai = yes
-	potential = {
-		tag = XX1
-	}
+#machines_atl_3 = {
+##slot = 3
+##generic = no
+##ai = yes
+##potential = {
+###tag = XX1
+##}
 
-	machines_awake = {
-		icon = atlantropa_coreai
-		position = 1
-		required_missions = {  }
-		trigger = {
-			stability = 0
-		}
-		effect = {
-			add_adm_power = 100
-			add_dip_power = 100
-			add_mil_power = 100
-		}
-	}
-	mechanoids_vision = {
-		icon = atlantropa_greatradar
-		position = 2
-		required_missions = { machines_awake }
-		trigger = {
-			adm_power = 200
-			dip_power = 200
-			mil_power = 200
-		}
-		effect = {
-			add_adm_power = -200
-			add_dip_power = -200
-			add_mil_power = -200
-			custom_tooltip = mechanoidradar
-			hidden_effect = {
-			1609 = {  discover_country = XX1 }
-			1603 = {  discover_country = XX1 }
-			1460 = {  discover_country = XX1 }
-			1453 = {  discover_country = XX1 }
-			1626 = {  discover_country = XX1 }
-			1629 = {  discover_country = XX1 }
-			1628 = {  discover_country = XX1 }
-			1631 = {  discover_country = XX1 }
-			every_province = {
-			    limit = {
-			        continent = Antarctique
-			    }
-			        discover_country = XX1
-			
-			}
-			}
-		}
-	}
-	mechanoid_colonizeantar = {
-		icon = atlantropa_antarctida
-		position = 3
-		required_missions = { mechanoids_vision }
-		trigger = { }
-		effect = { }
-	}
-}
+##machines_awake = {
+###icon = atlantropa_coreai
+###position = 1
+###required_missions = {  }
+###trigger = {
+####stability = 0
+###}
+###effect = {
+####add_adm_power = 100
+####add_dip_power = 100
+####add_mil_power = 100
+###}
+##}
+##mechanoids_vision = {
+###icon = atlantropa_greatradar
+###position = 2
+###required_missions = { machines_awake }
+###trigger = {
+####adm_power = 200
+####dip_power = 200
+####mil_power = 200
+###}
+###effect = {
+####add_adm_power = -200
+####add_dip_power = -200
+####add_mil_power = -200
+####custom_tooltip = mechanoidradar
+####hidden_effect = {
+####1609 = {  discover_country = XX1 }
+####1603 = {  discover_country = XX1 }
+####1460 = {  discover_country = XX1 }
+####1453 = {  discover_country = XX1 }
+####1626 = {  discover_country = XX1 }
+####1629 = {  discover_country = XX1 }
+####1628 = {  discover_country = XX1 }
+####1631 = {  discover_country = XX1 }
+####every_province = {
+#####limit = {
+######continent = Antarctique
+#####}
+######discover_country = XX1
+####
+####}
+####}
+###}
+##}
+##mechanoid_colonizeantar = {
+###icon = atlantropa_antarctida
+###position = 3
+###required_missions = { mechanoids_vision }
+###trigger = { }
+###effect = { }
+##}
+#}
 
-machines_atl_4 = {
-	slot = 4
-	generic = no
-	ai = yes
-	potential = {
-		tag = XX1
-	}
+#machines_atl_4 = {
+##slot = 4
+##generic = no
+##ai = yes
+##potential = {
+###tag = XX1
+##}
 
-}
+#}
 
-machines_atl_5 = {
-	slot = 5
-	generic = no
-	ai = yes
-	potential = {
-		tag = XX1
-	}
+#machines_atl_5 = {
+##slot = 5
+##generic = no
+##ai = yes
+##potential = {
+###tag = XX1
+##}
 
-}
+#}
 
