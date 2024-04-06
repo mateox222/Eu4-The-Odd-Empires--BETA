@@ -1,0 +1,627 @@
+ilioscompany_one = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = X44
+	}
+
+	ilios_genoese_trade = {
+		icon = mission_subjugate_the_merchants
+		position = 2
+		required_missions = { Ilios_Company_mission }
+		trigger = {
+			if = {
+				limit = { has_estate = estate_burghers }
+				estate_loyalty = {
+					estate = estate_burghers
+					loyalty = 60
+				}
+			}
+			else = {
+				custom_trigger_tooltip = {
+					tooltip = emp_ven_patronize_the_scuole_grandi_adm_advisor_tt
+					has_adm_advisor_2 = yes
+				}
+				custom_trigger_tooltip = {
+					tooltip = emp_ven_patronize_the_scuole_grandi_dip_advisor_tt
+					has_dip_advisor_2 = yes
+				}
+			}
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+			add_prestige = 100
+		}
+	}
+	ilios_burgers = {
+		icon = mam_harness_spice_trade
+		position = 4
+		required_missions = { ilios_genoese_trade }
+		trigger = {
+			num_of_merchants = 5
+
+num_of_estate_privileges = {
+	estate = estate_burghers
+	value = 2
+}
+		}
+		effect = {
+			add_adm_power = 100
+			add_yearly_sailors = 3
+			add_years_of_income = 3
+		}
+	}
+}
+
+ilioscompany_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = X44
+	}
+
+	ilios_mercenaries = {
+		icon = swiss_mercenaries
+		position = 2
+		required_missions = { Ilios_Company_mission }
+		trigger = {
+			num_of_mercenaries = 1
+			adm_power = 50
+			mil_power = 100
+		}
+		effect = {
+			add_adm_power = -50
+			add_mil_power = -100
+			add_country_modifier = {
+				name = iliosmercenary
+				duration = -1
+			}
+		}
+	}
+	ilios_trade_advisor = {
+		icon = mission_swedish_military_advise
+		position = 3
+		required_missions = { ilios_genoese_trade }
+		trigger = {
+			has_adm_advisor = yes
+			has_dip_advisor = yes
+			has_mil_advisor = yes
+			crown_land_share = 40
+		}
+		effect = {
+			add_stability = 1
+			add_adm_power = 100
+			add_country_modifier = {
+				name = "ilios_advisors"
+				duration = -1
+			}
+		}
+	}
+	ilco_seize_constantinople = {
+		icon = byz_reinforce_constantinople
+		position = 4
+		required_missions = { ilcom_reclaim_greece }
+		trigger = {
+			owns_core_province = 151
+		}
+		effect = {
+			set_government_rank = 3
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			hidden_effect = {
+				every_province = {
+					limit = {
+						culture_group = byzantine
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			custom_tooltip = greekevery
+		}
+	}
+	ilios_cure_economy = {
+		icon = mission_zambezi_gold
+		position = 6
+		required_missions = { ilios_centralize_copmany }
+		trigger = {
+			gold_income = 10
+			share_of_starting_income = 5
+		}
+		effect = {
+			define_advisor = {
+				type = master_of_mint
+				skill = 2
+				culture = ROOT
+				religion = ROOT
+				cost_multiplier = 0.5
+			}
+			custom_tooltip = " "
+			add_country_modifier = {
+				name = BYZ_coin_of_pure_gold
+				duration = 10950
+			}
+			add_years_of_trade_income = {
+				years = 2
+				custom_tooltip = BYZ_add_2_years_of_trade_income
+			}
+		}
+	}
+}
+
+ilioscompany_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = X44
+	}
+
+	Ilios_Company_mission = {
+		icon = mercenary_companies
+		position = 1
+		required_missions = {  }
+		trigger = {
+			legitimacy_equivalent = 95
+			stability = 1
+		}
+		effect = {
+			country_event = {
+    id = nikean_empire.1113
+}
+		}
+	}
+	ilcompan_recruit_admiral = {
+		icon = mission_marines
+		position = 2
+		required_missions = { Ilios_Company_mission }
+		trigger = {
+			navy_size_percentage = 1
+			sailors_percentage = 0.6
+		}
+		effect = {
+			add_navy_tradition = 10
+			define_admiral = {
+				shock = 3
+				fire = 2
+				manuever = 4
+				siege = 3
+			}
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 15
+			}
+			add_country_modifier = {
+				name = "ven_arsenal_marines"
+				duration = -1
+			}
+		}
+	}
+	ilcom_reclaim_greece = {
+		icon = mission_control_the_barbary_coast
+		position = 3
+		required_missions = { ilcompan_recruit_admiral ilios_mercenaries ilios_buil_ships }
+		trigger = {
+			total_development = 150
+		}
+		effect = {
+			151 = {
+				if = {
+					limit = {
+						NOT = {
+							is_permanent_claim = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			321 = {
+				if = {
+					limit = {
+						NOT = {
+							is_permanent_claim = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			163 = {
+				if = {
+					limit = {
+						NOT = {
+							is_permanent_claim = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			5731 = {
+				if = {
+					limit = {
+						NOT = {
+							is_permanent_claim = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			4962 = {
+				if = {
+					limit = {
+						NOT = {
+							is_permanent_claim = ROOT
+							is_core = ROOT
+						}
+					}
+					add_permanent_claim = ROOT
+				}
+			}
+			add_mil_power = 100
+		}
+	}
+	ilioscompany_crete = {
+		icon = mission_rb_conquer_the_isles
+		position = 4
+		required_missions = { ilcom_reclaim_greece }
+		trigger = {
+			163 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			5731 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4962 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			add_stability_or_adm_power = yes
+			create_admiral = {
+				tradition = 65
+			}
+			naxos_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	ilios_centralize_copmany = {
+		icon = the_ostend_company
+		position = 5
+		required_missions = { ilco_seize_constantinople ilcoseie_cyprus ilioscompany_crete }
+		trigger = {
+			all_subject_country = {
+				NOT = { liberty_desire = 25
+				}	}
+			}
+			effect = {
+				every_subject_country = {
+					limit = {
+						is_subject_of_type = merchant_italian_colony
+					}
+					inherit = ROOT
+				}
+				override_country_name = ILIOSLEAGUE
+				add_prestige = 30
+				add_adm_power = 100
+				add_dip_power = 100
+				add_mil_power = 100
+			}
+		}
+	}
+
+ilioscompany_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = X44
+	}
+
+	ilios_buil_ships = {
+		icon = mission_norwegian_ship
+		position = 2
+		required_missions = { Ilios_Company_mission }
+		trigger = {
+			navy_size = 50
+		}
+		effect = {
+			add_country_modifier = {
+				name = "refromed_byzantine_greek_fire"
+				duration = -1
+			}
+			random_owned_province = {
+				limit = { has_port = yes }
+				create_flagship = {
+					name = "Demokratos"
+					type = galley
+				}
+			}
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 15
+			}
+		}
+	}
+	kythira_build_trade_ships = {
+		icon = mission_grand_bengali_shipyards
+		position = 3
+		required_missions = { ilios_buil_ships develop_kythira }
+		trigger = {
+			OR = {
+				num_of_light_ship = 75
+				AND = {
+					num_of_light_ship = VEN
+					num_of_light_ship = GEN
+					num_of_light_ship = BYZ
+				}
+			}
+		}
+		effect = {
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 25
+			}
+			add_country_modifier = {
+				name = "kythiraships"
+				duration = -1
+			}
+		}
+	}
+	ilcoseie_cyprus = {
+		icon = kingdom_of_cyprus
+		position = 4
+		required_missions = { ilcom_reclaim_greece }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 321
+				province_id = 4971
+			}
+		}
+		trigger = {
+			321 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			4971 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			4971 = { change_culture = cypriot }
+			321 = { change_culture = cypriot }
+			add_country_modifier = {
+				name = "mediterranean_ambition"
+				duration = 3650
+			}
+			delta_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			aleppo_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	ilioscompany_economy = {
+		icon = medici_bank_ledgers
+		position = 6
+		required_missions = { ilios_centralize_copmany }
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					OR = {
+						owned_by = GEN
+						owned_by = VEN
+					}
+					NOT = {
+						owner = {
+							ROOT = {
+								has_won_war_against = { who = PREV max_years_since = 50 }
+							}
+						}
+					}
+				}
+				province_id = 151
+			}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = BYZ_has_integrated_galata
+				NOT = {
+					151 = {
+						has_province_modifier = BYZ_galata
+					}
+				}
+			}
+			NOT = { has_estate_privilege = estate_burghers_reliance_on_republics }
+			NOT = { has_estate_privilege = estate_burghers_exkousseiai_for_latins }
+			OR = {
+				151 = {
+					trade_share = {
+						country = ROOT
+						share = 80
+					}
+				}
+				AND = {
+					if = {
+						limit = {
+							exists = GEN
+						}
+						has_won_war_against = { who = GEN max_years_since = 50 }
+					}
+					else = {
+						GEN = {
+							any_core_province = {
+								country_or_non_sovereign_subject_holds = ROOT
+							}
+						}
+					}
+					if = {
+						limit = {
+							exists = VEN
+						}
+						has_won_war_against = { who = VEN max_years_since = 50 }
+					}
+					else = {
+						VEN = {
+							any_core_province = {
+								country_or_non_sovereign_subject_holds = ROOT
+							}
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			custom_tooltip = BYZ_buff_burgher_loans_no_mercantilism_loss
+			custom_tooltip = " "
+			complex_dynamic_effect = {
+				first_custom_tooltip = BYZ_if_done_via_war
+				first_limit = "
+				if = {
+					limit = { exists = GEN }
+					has_won_war_against = { who = GEN max_years_since = 50 }
+				}
+				else = {
+					GEN = {
+						any_core_province = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+				}
+				if = {
+					limit = { exists = VEN }
+					has_won_war_against = { who = VEN max_years_since = 50 }
+				}
+				else = {
+					VEN = {
+						any_core_province = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+				}
+				"
+				first_effect = "
+				add_country_modifier = {
+					name = BYZ_dominance
+					duration = 7300
+				}
+				"
+				second_custom_tooltip = BYZ_if_done_via_trade_share
+				second_limit = "
+				151 = {
+					trade_share = {
+						country = ROOT
+						share = 80
+					}
+				}
+				"
+				second_effect = "
+				add_country_modifier = {
+					name = BYZ_maintaining_relations
+					duration = 5475
+				}
+				"
+			}
+		}
+	}
+}
+
+ilioscompany_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = X44
+	}
+
+	develop_kythira = {
+		icon = renaissance_city
+		position = 2
+		required_missions = { Ilios_Company_mission }
+		provinces_to_highlight = {
+			province_id = 4984
+		}
+		trigger = {
+			owns_core_province = 4984
+			4984 = {
+				num_of_buildings_in_province = 3
+				development = 20
+			}
+		}
+		effect = {
+			add_prestige = 10
+			add_adm_power = 100
+			4984 = {add_center_of_trade_level = 1 }
+		}
+	}
+	kythira_build_palace = {
+		icon = expand_the_doges_palace
+		position = 3
+		required_missions = { develop_kythira }
+		trigger = {
+			4984 = { has_great_project = {
+				type = atlantis_palace_kyritha
+				tier = 3
+			}}
+		}
+		effect = {
+			add_prestige = 20
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			4984 = {add_center_of_trade_level = 1 }
+		}
+	}
+	kythira_trade_domination = {
+		icon = mission_seize_north_sea_trade
+		position = 4
+		required_missions = { kythira_build_trade_ships }
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1320
+				province_id = 148
+				province_id = 4531
+			}
+		}
+		trigger = {
+			OR = {
+				1320 = {
+					has_most_province_trade_power = ROOT
+				}
+				148 = {
+					has_most_province_trade_power = ROOT
+				}
+				4531 = {
+					has_most_province_trade_power = ROOT
+				}
+			}
+		}
+		effect = {
+			add_yearly_sailors = 3
+			add_years_of_income = 3
+			add_government_power = {
+				mechanic_type = pho_naval_professionalism_mechanic
+				power_type = phoenican_naval_professionalism
+				value = 25
+			}
+		}
+	}
+}
+

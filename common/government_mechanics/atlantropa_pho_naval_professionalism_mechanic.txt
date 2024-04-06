@@ -3,10 +3,15 @@ pho_naval_professionalism_mechanic = {
 	alert_icon_index = 15
 
 	available = {
-		if = {
-			has_country_flag = navy_availible
-		}
+	OR = {
+				has_reform = venice_merchants_reform
+				has_reform = merchants_reform
+				has_reform = phoenice_merchants_reform
+				has_reform = norse_viking_republic_reform
+				has_country_flag = navy_availible
 	}
+	}
+
 
 	powers = {
 		phoenican_naval_professionalism = {

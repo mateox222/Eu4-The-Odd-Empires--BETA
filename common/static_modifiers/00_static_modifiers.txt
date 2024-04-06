@@ -283,6 +283,8 @@ province_razed = {
 }
 
 development = {
+	local_build_cost = 0.025
+	local_build_time = 0.025
 	allowed_num_of_buildings = 0.1
 	supply_limit_modifier = 0.01
 	local_missionary_strength = -0.001
@@ -668,6 +670,7 @@ ai_nation = {
 	diplomats = 1 							# ai has to reserve a diplomat for short term action so it gets an extra to put it on equal footing with player
 	free_leader_pool = 1					# ai needs to have enough pool for 1 general & 1 admiral
 	sailors_recovery_speed = 0.25
+	build_cost = -1
 }
 
 
@@ -677,9 +680,13 @@ war_taxes = {
 	naval_maintenance_modifier = -0.15
 	merc_maintenance_modifier = -0.05
 	global_unrest = 2
+	build_cost = 0.1
+	build_time = 0.1
 }
 
 stability = {
+	build_cost = -0.1
+	build_time = -0.1
 	global_trade_power = 0.01			#1% chance each step.
 	global_spy_defence = 0.05				#-15 to +15% modifier
 	administrative_efficiency = 0.01
@@ -764,7 +771,8 @@ cancelled_loan = {
 }
 
 bank_loan = {
-	#no effects
+	build_cost = 0.1
+	build_time = 0.1
 }
 
 inflation = {
@@ -823,7 +831,8 @@ bankruptcy = {
 
 
 war = {
-
+	build_cost = 0.25
+	build_time = 0.25
 	monthly_militarized_society = 0.1
 	rr_girondists_influence = 0.15
 	all_power_cost = 0.05
@@ -874,6 +883,8 @@ call_for_peace = {
 }
 
 war_exhaustion = {
+	build_cost = 0.02
+	build_time = 0.02
 	monthly_byz_adm_power = 0.25
 	global_unrest = 1
 	land_morale = -0.02
@@ -2308,6 +2319,7 @@ expand_administation_modifier = {
 # At 100% over capacity, this modifier will be fully used
 over_governing_capacity_modifier = {
 	stability_cost_modifier = 1.0
+	build_cost = 1
 	min_autonomy = 20
 	ae_impact = 0.5
 	improve_relation_modifier = -0.5
@@ -2331,6 +2343,7 @@ over_governing_capacity_modifier = {
 # At 1000% below capacity, this modifier will be fully used
 under_governing_capacity_modifier = {
 	ae_impact = 0.2
+	build_cost = 1
 	global_tax_modifier = -0.2
 	trade_efficiency = -0.2
 	yearly_corruption = 0.05

@@ -7,7 +7,7 @@ namespace = nahuatlatl
 	desc = azteceuropa.1.d
 	picture = aztecritaul_eventPicture
 	major = yes
-	major_trigger = { 
+	major_trigger = {
 		is_neighbor_of = ROOT
 
 	}
@@ -20,7 +20,7 @@ OR = {
 
 }
     is_month = 7
-NOT = {  is_month = 8 }    
+NOT = {  is_month = 8 }
 
     religion = reformednahuatl
 	}
@@ -28,10 +28,10 @@ NOT = {  is_month = 8 }
 	months = 2
 }
 	option = {
-	name = "azteceuropa.1.a" 
+	name = "azteceuropa.1.a"
 			add_church_power = 5
-			add_yearly_manpower = -0.1	
-			
+			add_yearly_manpower = -0.1
+
 			add_government_power = {
 					mechanic_type = atlantropa_aztec_mechanic
 					power_type = azt_adm_power
@@ -46,27 +46,27 @@ NOT = {  is_month = 8 }
 	desc = azteceuropa.2.d
 	picture = aztecritaul_eventPicture
 	major = yes
-	major_trigger = { 
+	major_trigger = {
 		is_neighbor_of = ROOT
 
 	}
 	is_triggered_only = yes
 	option = {
-	name = "azteceuropa.1.a" 
+	name = "azteceuropa.1.a"
 			add_church_power = 50
 			add_adm_power = 50
 			add_mil_power = 50
 			add_dip_power = 50
-			add_yearly_manpower = -0.25	
+			add_yearly_manpower = -0.25
 			add_faction_influence = {
 				faction = doom_decrease
 				influence = 15
 			}
 			random_owned_province = {
 				limit = { NOT = { religion = ROOT } }
-			add_base_tax = -1	
-			add_base_production = -1	
-			add_base_manpower = -1	
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
 
 			}
 			}
@@ -78,13 +78,13 @@ NOT = {  is_month = 8 }
 		desc = azteceuropa.3.d
 		picture = aztecritaul_eventPicture
 		major = yes
-	major_trigger = { 
+	major_trigger = {
 		is_neighbor_of = ROOT
 
 	}
 		is_triggered_only = yes
 		option = {
-		name = "azteceuropa.1.a" 
+		name = "azteceuropa.1.a"
 				add_church_power = 100
 				add_adm_power = 100
 				add_mil_power = 100
@@ -97,12 +97,12 @@ NOT = {  is_month = 8 }
 				random_owned_province = {
 					limit = { NOT = { religion = ROOT } }
 					change_religion = ROOT
-					add_base_tax = -2	
-					add_base_production = -2	
+					add_base_tax = -2
+					add_base_production = -2
 					add_base_manpower = -2
 				}
 				}
-	
+
 		}
 
 		country_event = {
@@ -113,7 +113,7 @@ NOT = {  is_month = 8 }
 			is_triggered_only = yes
 			major = yes
 			option = {
-			name = "azteceuropa.4.a" 
+			name = "azteceuropa.4.a"
 					add_church_power = 200
 					add_adm_power = 200
 					add_mil_power = 200
@@ -125,14 +125,14 @@ NOT = {  is_month = 8 }
 					}
 					random_owned_province = {
 						limit = { NOT = {culture = ROOT } }
-						add_base_tax = -5	
-						add_base_production = -5	
-						add_base_manpower = -5	
+						add_base_tax = -5
+						add_base_production = -5
+						add_base_manpower = -5
 						change_culture = ROOT
 						change_religion = ROOT
 					}
 					}
-		
+
 			}
 					country_event = {
 			id = azteceuropa.5
@@ -142,8 +142,8 @@ NOT = {  is_month = 8 }
 			is_triggered_only = yes
 			major = yes
 			option = {
-			name = "azteceuropa.5.a" 
-			set_government_rank = 3	
+			name = "azteceuropa.5.a"
+			set_government_rank = 3
 							add_country_modifier = {
 				name = "aztecwar11"
 				duration = -1
@@ -154,7 +154,7 @@ NOT = {  is_month = 8 }
 					power_type = azt_adm_power
 					value = 100
 				}
-				override_country_name = AZTECEUROPEANEMPIRE	
+				override_country_name = AZTECEUROPEANEMPIRE
 				france_region = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -168,21 +168,21 @@ NOT = {  is_month = 8 }
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
-			}	
+			}
 			atlantis_sicily_region = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
-			}	
+			}
 			atlantis_region = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
-			}	
+			}
 
 			maghreb_region = {
 				limit = {
@@ -190,15 +190,15 @@ NOT = {  is_month = 8 }
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
-			}	
+			}
 			add_casus_belli = {
 				type = cb_restore_personal_union
 				months = 600
 				target = A69
 			}
-			change_country_color = { color = { 107 0 0 } }	
+			change_country_color = { color = { 107 0 0 } }
 					}
-		
+
 			}
 
 
@@ -210,7 +210,7 @@ NOT = {  is_month = 8 }
 				is_triggered_only = yes
 				major = yes
 				option = {
-					name = "azteceuropa.6.a" 
+					name = "azteceuropa.6.a"
 					custom_tooltip = disabledoom
 					set_country_flag = doomend
 					remove_faction = doom_decrease
@@ -219,19 +219,19 @@ NOT = {  is_month = 8 }
 						name = "aztecwar23"
 						duration = -1
 					}
-			
+
 					add_prestige = 100
 							add_government_power = {
 							mechanic_type = atlantropa_aztec_mechanic
 							power_type = azt_adm_power
 							value = 100
-						}			
-					
+						}
+
 
 				}}
 
 
-				
+
 
 
 
@@ -245,13 +245,13 @@ country_event = {
 		is_part_of_hre = no
 	}
 	option = {
-	name = "azteceuropa.9.a" 
+	name = "azteceuropa.9.a"
 	change_country_color = { color = {  89 110 146 }	}
 		override_country_name = IMPERIALCOMPANYBEZHRE
 			}
 			}
 
-	
+
 
 
 
@@ -263,16 +263,16 @@ country_event = {
 	major = yes
 	is_triggered_only = yes
 	option = {
-		name = nahuatlatl.1a 
+		name = nahuatlatl.1a
 			ROOT = {
 				random_owned_province = {
-					limit = { 
+					limit = {
 						NOT = { culture = ROOT }
 						NOT = { religion = ROOT }
 						NOT = { trade_goods = slaves }
 						NOT = { trade_goods = gold }
-	
-					} 
+
+					}
 					change_trade_goods = slaves
 					add_unrest = 5
 				}
@@ -288,16 +288,16 @@ country_event = {
 	major = yes
 	is_triggered_only = yes
 	option = {
-		name = nahuatlatl.2a 
+		name = nahuatlatl.2a
 			ROOT = {
 				random_owned_province = {
-					limit = { 
+					limit = {
 						NOT = { culture = ROOT }
-					} 
+					}
 					change_culture = ROOT
 					change_religion = ROOT
-					add_base_tax = -1	
-					add_base_production = -1	
+					add_base_tax = -1
+					add_base_production = -1
 					add_base_manpower = -1
 				}
 
@@ -327,20 +327,20 @@ country_event = {
 }
 	option = {
 		add_stability = -2
-		country_event = { 
+		country_event = {
 			id = azteceuropa.11
 			days = 31
 		}
 		set_global_flag = atlantropa_aztec_falleeempire
 		change_tag = A68
-		swap_non_generic_missions = yes	
-		swap_free_idea_group = yes	
+		swap_non_generic_missions = yes
+		swap_free_idea_group = yes
 		name = azteceuropa.10.a #Sack of City
 		342 = {
 	add_devastation = 100
 	set_base_tax = 1
 	set_base_manpower = 1
-	set_base_production = 1		
+	set_base_production = 1
 	}
 		add_mil_power = -100
 		add_dip_power = -100
@@ -352,10 +352,14 @@ country_event = {
 		cede_province = SP3
 		add_core = SP3
 	}
+	5145 = {
+		cede_province = I5L
+		add_core = I5L
+	}
 	2755 = {
 		cede_province = SP3
 		add_core = SP3
-	}	
+	}
 	337 = {
 		cede_province = TEU
 		add_core = TEU
@@ -372,7 +376,7 @@ country_event = {
 		cede_province = SB2
 		add_core = SB2
 	}
-	
+
 
 	galicia_area = {
 		cede_province = A57
@@ -391,11 +395,11 @@ country_event = {
 		limit = {
 			war_with = A68
 		}
-		add_years_of_income = 0.5	
+		add_years_of_income = 0.5
 		white_peace = A68
-		}	
+		}
 		hidden_effect = {
-			
+
 			1751 = {
 			   add_core = A46
 			   cede_province = A46
@@ -403,29 +407,29 @@ country_event = {
 		   5681 = {
 			   add_core = AZ6
 			   cede_province = AZ6
-			}  
+			}
 		   343 = {
 			   add_core = A69
 			   cede_province = A69
-			}  
+			}
 		   4562 = {
 			   add_core = A69
 			   cede_province = A69
-			}  
+			}
 
 				5689 = {
 				   add_core =  X1P
 				   cede_province =  X1P
 			   }
 			   5690 = {
-				   add_core =  X1P 
+				   add_core =  X1P
 				   cede_province =  X1P
-			   }	
-			
+			   }
+
 			   add_truce_with = X1P
 			   add_truce_with = A69
-			   add_truce_with = AZ6	
-			   add_truce_with = A46	
+			   add_truce_with = AZ6
+			   add_truce_with = A46
 		   }
 
 
@@ -435,7 +439,7 @@ country_event = {
 	id = azteceuropa.11 #Collapse of the Empire
 	title = "azteceuropa.11.t"
 	desc = "azteceuropa.11.d"
-	picture =  aztec_SACRIFICE_eventPicture	
+	picture =  aztec_SACRIFICE_eventPicture
 	major = yes
 	is_triggered_only = yes
 	option = {
@@ -463,7 +467,7 @@ country_event = {
 				}
 			cede_province = A69
 			add_core = A69
-			}	
+			}
 
 			atlantis_region = {
 				limit = {
@@ -471,16 +475,16 @@ country_event = {
 				}
 			cede_province = AZ6
 			add_core = AZ6
-			}	
+			}
 			libyasuperior_region = {
 				limit = {
 					owned_by = A68
 				}
 			cede_province = A68
 			add_core = A68
-			}	
-			
- 
+			}
+
+
 	}
 	switch_tag = A46
 }
@@ -507,7 +511,7 @@ option = {
 			}
 		cede_province = A69
 		add_core = A69
-		}	
+		}
 
 		atlantis_region = {
 			limit = {
@@ -515,17 +519,17 @@ option = {
 			}
 		cede_province = AZ6
 		add_core = AZ6
-		}	
+		}
 		libyasuperior_region = {
 			limit = {
 				owned_by = A68
 			}
 		cede_province = A68
 		add_core = A68
-		}	
+		}
 
 }
-		switch_tag = AZ6	
+		switch_tag = AZ6
 }
 option = {
 	name = azteceuropa.11.a #Sack of City
@@ -550,7 +554,7 @@ option = {
 			}
 		cede_province = A69
 		add_core = A69
-		}	
+		}
 
 		atlantis_region = {
 			limit = {
@@ -558,7 +562,7 @@ option = {
 			}
 		cede_province = AZ6
 		add_core = AZ6
-		}	
+		}
 
 
 
@@ -592,7 +596,7 @@ option = {
 			}
 		cede_province = A69
 		add_core = A69
-		}	
+		}
 
 		atlantis_region = {
 			limit = {
@@ -600,7 +604,7 @@ option = {
 			}
 		cede_province = AZ6
 		add_core = AZ6
-		}	
+		}
 
 }
 }

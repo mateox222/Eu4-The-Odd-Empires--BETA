@@ -6,10 +6,10 @@ country_event = {
 	picture = romanhagiasophia_eventPicture
 	is_triggered_only = yes
 	option = {
-	name = "nikean_empire.1.a" 
+	name = "nikean_empire.1.a"
 		add_stability = 1
 		add_legitimacy = 25
-		add_prestige = 15	
+		add_prestige = 15
 	}
 	}
 	country_event = {
@@ -19,21 +19,21 @@ country_event = {
 	picture = byzantinehorseman_eventPicture
 	is_triggered_only = yes
 	option = {
-	name = "nikean_empire.2.a" 
+	name = "nikean_empire.2.a"
 				add_country_modifier = {
 				name = "byzantine_horse_army"
 				duration = -1
 			}
 			325 = {     add_core = A52 }
-					anatolia_region  = { 
+					anatolia_region  = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT	}
 				}
-				add_permanent_claim = ROOT								
-						
+				add_permanent_claim = ROOT
+
 }
-			
+
 	}
 	}
 		country_event = {
@@ -43,7 +43,7 @@ country_event = {
 	picture = CITY_VIEW_eventPicture
 	is_triggered_only = yes
 	option = {
-	name = "nikean_empire.3.a" 
+	name = "nikean_empire.3.a"
 				add_country_modifier = {
 				name = "growth_of_capital"
 				duration = 6850
@@ -57,11 +57,11 @@ country_event = {
 	picture = hellenistic_eventPicture
 	is_triggered_only = yes
 	option = {
-	name = "nikean_empire.4.a" 
+	name = "nikean_empire.4.a"
 			inherit = MEN
 	}
 	}
-	
+
 				country_event = {
 	id = nikean_empire.5
 	title = nikean_empire.5.t
@@ -69,7 +69,7 @@ country_event = {
 	picture = roman_legion_eventPicture
 	is_triggered_only = yes
 	option = {
-	name = "nikean_empire.5.a" 
+	name = "nikean_empire.5.a"
 				add_country_modifier = {
 				name = "byzantine_road_to_restoration"
 				duration = -1
@@ -83,23 +83,23 @@ country_event = {
 	picture = avaloncity_eventPicture
 	is_triggered_only = yes
 	major = yes
-	major_trigger = { 
-		capital_scope = { 
+	major_trigger = {
+		capital_scope = {
 			OR = {
-			region = anatolia_region 
+			region = anatolia_region
 			 }}
 	}
 	option = {
-	name = "nikean_empire.6.a" 
+	name = "nikean_empire.6.a"
 				A52 = { vassalize = CND }
-					ai_chance = { 
+					ai_chance = {
 			factor = 2
 			}
 	}
 		option = {
-	name = "nikean_empire.6.b" 
+	name = "nikean_empire.6.b"
 				CND = { declare_war = A52 }
-				ai_chance = { 
+				ai_chance = {
 			factor = 1 }
 	}
 	}
@@ -111,7 +111,7 @@ country_event = {
 	picture = seljuksstart_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.7.a" 
+	name = "nikean_empire.7.a"
 				add_prestige = 10
 				add_country_modifier = {
 				name = "byzantine_turkey_threat"
@@ -119,7 +119,7 @@ country_event = {
 			}
 	}
 	}
-	
+
 						country_event = {
 	id = nikean_empire.8
 	title = nikean_empire.8.t
@@ -127,23 +127,23 @@ country_event = {
 	picture = avaloncity_eventPicture
 	is_triggered_only = yes
 	major = yes
-	major_trigger = { 
-		capital_scope = { 
+	major_trigger = {
+		capital_scope = {
 			OR = {
-			region = anatolia_region 
+			region = anatolia_region
 			 }}
 	}
 	option = {
-	name = "nikean_empire.8.a" 
+	name = "nikean_empire.8.a"
 				A52 = { vassalize = TU2 }
-					ai_chance = { 
+					ai_chance = {
 			factor = 1
 			}
 	}
 		option = {
-	name = "nikean_empire.8.b" 
+	name = "nikean_empire.8.b"
 				TU2 = { declare_war = A52 }
-				ai_chance = { 
+				ai_chance = {
 			factor = 0 }
 	}
 	}
@@ -155,7 +155,7 @@ country_event = {
 	is_triggered_only = yes
 
 		option = {
-	name = "nikean_empire.9.a" 
+	name = "nikean_empire.9.a"
 				add_prestige = 10
 				add_country_modifier = {
 				name = "byzantine_karaman_threat"
@@ -172,10 +172,10 @@ country_event = {
 	major = yes
 
 		option = {
-	name = "nikean_empire.10.a" 
+	name = "nikean_empire.10.a"
 				add_prestige = 25
-				set_government_rank = 3	
-				override_country_name = ANATOLIAN_EMPIRE	
+				set_government_rank = 3
+				override_country_name = ANATOLIAN_EMPIRE
 				add_country_modifier = {
 				name = "anatolian_empire_modifier"
 				duration = 6800
@@ -193,38 +193,38 @@ country_event = {
 	picture = sackniflport_eventPicture
 	is_triggered_only = yes
 	major = yes
-	major_trigger = { 
-		capital_scope = { 
+	major_trigger = {
+		capital_scope = {
 			OR = {
-			region = anatolia_region 
+			region = anatolia_region
 			 }}
 	}
 		option = {
-	name = "nikean_empire.11.a" 
+	name = "nikean_empire.11.a"
 				add_country_modifier = {
 				name = "byzantine_ERETNA_threat"
 				duration = -1
 			}
 	}
 	}
-	
+
 	country_event = {
 	id = nikean_empire.12
 	title = "nikean_empire.12.t"
 	desc = "nikean_empire.12.d"
 	picture = BYZ_BYZANTINE_EMPEROR_eventPicture
 	major = yes
-	major_trigger = { 
-		capital_scope = { 
+	major_trigger = {
+		capital_scope = {
 			OR = {
-			region = anatolia_region 
+			region = anatolia_region
 			 }}
 	}
 	is_triggered_only = yes
 	option = {
-	name = "byzantine_war.6a" 
+	name = "byzantine_war.6a"
 		add_prestige = 10
-		set_global_flag = A52_interventionklikniecie	
+		set_global_flag = A52_interventionklikniecie
 }}
 
 	country_event = {
@@ -235,7 +235,7 @@ country_event = {
 	is_triggered_only = yes
 	major = yes
 		option = {
-	name = "nikean_empire.14.a" 
+	name = "nikean_empire.14.a"
 		hidden_effect = { add_faction = rr_praetorians	}
 		custom_tooltip = redfaction
 		151 = {  cede_province = ROOT }
@@ -244,16 +244,16 @@ country_event = {
 	add_government_reform = roman_byzantine_monarchy
 	change_primary_culture = greekilium
 	add_prestige = 20
-	restore_country_name = yes	
+	restore_country_name = yes
 				151 = {
 				move_capital_effect = yes
 			}
 
-		set_government_rank = 3		
-	add_adm_power = 100	
-	add_dip_power = 100	
-	add_mil_power = 100	
-	
+		set_government_rank = 3
+	add_adm_power = 100
+	add_dip_power = 100
+	add_mil_power = 100
+
 				set_country_flag = formed_byzantium_flag
 				set_country_flag = REDZIWCHODZADOGRY
 				add_country_modifier = {
@@ -281,14 +281,14 @@ country_event = {
 						tag = TRE
 						was_tag = TRE
 					}
-					
+
 				}
 				country_event = { id = nikean_empire.1112 }
 			}
 	}
 
 	}
-	
+
 	country_event = {
 	id = nikean_empire.13
 	title = "byzantine_war.11.t"
@@ -308,9 +308,9 @@ country_event = {
 	add_devastation = 15
 	}
 		add_mil_power = 50
-		add_dip_power = 50 
+		add_dip_power = 50
 		add_adm_power = 50
-		add_treasury = 200	
+		add_treasury = 200
 		set_country_flag = constantinople_captured
 }}
 
@@ -322,7 +322,7 @@ country_event = {
 	is_triggered_only = yes
 
 		option = {
-	name = "nikean_empire.15.a" 
+	name = "nikean_empire.15.a"
 				add_country_modifier = {
 				name = "byzantine_armenian_threat"
 				duration = -1
@@ -337,7 +337,7 @@ country_event = {
 	is_triggered_only = yes
 
 		option = {
-	name = "nikean_empire.16.a" 
+	name = "nikean_empire.16.a"
 				add_mil_power = 150
 				add_prestige = 5
 	}
@@ -350,7 +350,7 @@ country_event = {
 	is_triggered_only = yes
 
 		option = {
-	name = "nikean_empire.17.a" 
+	name = "nikean_empire.17.a"
 				add_mil_power = 100
 				add_patriarch_authority = 0.1
 			palestine_area = {
@@ -384,7 +384,7 @@ country_event = {
 	is_triggered_only = yes
 
 		option = {
-	name = "nikean_empire.18.a" 
+	name = "nikean_empire.18.a"
 				add_mil_power = 100
 			mecca_area = {
 				limit = {
@@ -410,9 +410,9 @@ country_event = {
 	major = yes
 
 		option = {
-	name = "nikean_empire.19.a" 
+	name = "nikean_empire.19.a"
 				add_mil_power = 100
-				add_prestige = 15	
+				add_prestige = 15
 
 			delta_area = {
 				limit = {
@@ -435,7 +435,7 @@ country_event = {
 				}
 						add_permanent_claim = ROOT
 }
-						
+
 every_country = {
     limit = {
         religion = catholic
@@ -448,8 +448,8 @@ every_country = {
 
 	}
 	}
-	
-	
+
+
 					country_event = {
 	id = nikean_empire.20
 	title = nikean_empire.20.t
@@ -458,7 +458,7 @@ every_country = {
 	is_triggered_only = yes
 
 		option = {
-	name = "nikean_empire.20.a" 
+	name = "nikean_empire.20.a"
 				add_mil_power = 100
 				add_patriarch_authority = 0.1
 			said_area = {
@@ -493,11 +493,11 @@ every_country = {
 				name = "byzantine_armenian_alexandria"
 				duration = -1
 			}
-	
-	
+
+
 	}
 	}
-	
+
 						country_event = {
 	id = nikean_empire.21
 	title = nikean_empire.21.t
@@ -506,10 +506,10 @@ every_country = {
 	is_triggered_only = yes
 
 		option = {
-	name = "nikean_empire.21.a" 
-				add_adm_power = 100	
-	add_dip_power = 100	
-	add_mil_power = 100	
+	name = "nikean_empire.21.a"
+				add_adm_power = 100
+	add_dip_power = 100
+	add_mil_power = 100
 	add_country_modifier = {
 					name = "atlantropa_coring"
 					duration = 3475
@@ -529,11 +529,11 @@ every_country = {
 				add_permanent_claim = ROOT
 			}
 
-	
+
 
 	}
 	}
-	
+
 	country_event = {
 	id = nikean_empire.22
 	title = nikean_empire.22.t
@@ -542,10 +542,10 @@ every_country = {
 	is_triggered_only = yes
 
 		option = {
-	name = "nikean_empire.22.a" 
-				add_adm_power = 50	
-	add_dip_power = 50	
-	add_mil_power = 50	
+	name = "nikean_empire.22.a"
+				add_adm_power = 50
+	add_dip_power = 50
+	add_mil_power = 50
 	tunisia_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -561,7 +561,7 @@ every_country = {
 				add_permanent_claim = ROOT
 			}
 
-	
+
 
 	}
 	}
@@ -573,10 +573,10 @@ every_country = {
 	is_triggered_only = yes
 
 		option = {
-	name = "nikean_empire.23.a" 
-	add_adm_power = 50	
-	add_dip_power = 50	
-	add_mil_power = 50	
+	name = "nikean_empire.23.a"
+	add_adm_power = 50
+	add_dip_power = 50
+	add_mil_power = 50
 	add_country_modifier = {
 					name = "atlantropa_coring"
 					duration = 3475
@@ -633,14 +633,14 @@ every_country = {
 	is_triggered_only = yes
 
 		option = {
-			name = "nikean_empire.24.a" 
+			name = "nikean_empire.24.a"
 				add_country_modifier = {
 					name = "byzantine_kartagni_antiuch"
 					duration = -1
 				}
-	add_adm_power = 150	
-	add_dip_power = 150	
-	add_mil_power = 150	
+	add_adm_power = 150
+	add_dip_power = 150
+	add_mil_power = 150
 
 							libyasuperior_region = {
 				limit = {
@@ -661,18 +661,18 @@ every_country = {
 	is_triggered_only = yes
 
 		option = {
-			name = "nikean_empire.25.a" 
+			name = "nikean_empire.25.a"
 				add_country_modifier = {
 					name = "byzantine_greek_fire"
 					duration = -1
 				}
-	add_dip_power = 100	
+	add_dip_power = 100
 	317 = {
-	change_province_name = "Meletiospolis"	
-	rename_capital = "Meletiospolis"	
+	change_province_name = "Meletiospolis"
+	rename_capital = "Meletiospolis"
 	add_base_tax = 3
-	add_base_production = 3	
-	add_base_manpower = 3	
+	add_base_production = 3
+	add_base_manpower = 3
 }
 
 
@@ -686,23 +686,23 @@ every_country = {
 	is_triggered_only = yes
 
 		option = {
-			name = "nikean_empire.26.a" 
+			name = "nikean_empire.26.a"
 
-	add_dip_power = 100	
-	remove_country_modifier = byzantine_greek_fire	
+	add_dip_power = 100
+	remove_country_modifier = byzantine_greek_fire
 				add_country_modifier = {
 					name = "refromed_byzantine_greek_fire"
 					duration = -1
 				}
 				random_owned_province = {
     limit = { has_port = yes }
-            create_flagship = {  
+            create_flagship = {
                 name = "Vasilefs"
                 type = galley
             }
     }
 }
-				
+
 
 	}
 			country_event = {
@@ -712,7 +712,7 @@ every_country = {
 	picture = KING_ASSASSINATION_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.27.a" 
+	name = "nikean_empire.27.a"
 	if = {
 		limit = {
 			TRE = { ai = yes }
@@ -728,7 +728,7 @@ every_country = {
 
 	}
 	}
-	
+
 				country_event = {
 	id = nikean_empire.28
 	title = nikean_empire.28.t
@@ -736,18 +736,18 @@ every_country = {
 	picture = cyprus_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.28.a" 
+	name = "nikean_empire.28.a"
 		add_mil_power = 100
 		KOJ = { add_historical_rival = ROOT }
 		add_historical_rival = KOJ
 				add_country_modifier = {
 					name = "byzantine_cyprus_threat"
 					duration = -1
-				}		
-		
+				}
+
 	}
 	}
-	
+
 				country_event = {
 	id = nikean_empire.29
 	title = nikean_empire.29.t
@@ -755,20 +755,20 @@ every_country = {
 	picture = shipconstantinople_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.29.a" 
+	name = "nikean_empire.29.a"
 		set_global_flag = pahlagonianultimatumglobalflag
-			tooltip = { 
+			tooltip = {
 				add_favors = {
 					who = HRZ
-					amount = 10 
+					amount = 10
 				}
-				add_favors = { 
+				add_favors = {
 					who = LAE
-					amount = -10 
+					amount = -10
 				}
 				HRZ = { add_historical_friend = ROOT }
 				add_historical_friend = HRZ
-			}	
+			}
 	}
 	}
 					country_event = {
@@ -778,8 +778,8 @@ every_country = {
 	picture = byzantinehorseman_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.30.a" 
-	add_mil_power = 200	
+	name = "nikean_empire.30.a"
+	add_mil_power = 200
 							al_jazira_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -808,8 +808,8 @@ every_country = {
 				}
 				add_permanent_claim = ROOT
 			}
-			
-			}	
+
+			}
 	}
 						country_event = {
 	id = nikean_empire.31
@@ -818,7 +818,7 @@ every_country = {
 	picture = roman_legion_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.31.a" 
+	name = "nikean_empire.31.a"
 	add_prestige = 20
 							bahrain_area = {
 				limit = {
@@ -834,10 +834,10 @@ every_country = {
 				}
 				add_permanent_claim = ROOT
 			}
-			
-			}	
+
+			}
 	}
-	
+
 							country_event = {
 	id = nikean_empire.32
 	title = nikean_empire.32.t
@@ -845,8 +845,8 @@ every_country = {
 	picture = persia_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.32.a" 
-		add_mil_power = 100	
+	name = "nikean_empire.32.a"
+		add_mil_power = 100
 	add_country_modifier = {
 					name = "crusade_for_persia"
 					duration = 9000
@@ -856,13 +856,13 @@ every_country = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT	}
 				}
-				add_permanent_claim = ROOT	
+				add_permanent_claim = ROOT
 		}
 				add_prestige = 15
-			
-			}	
+
+			}
 	}
-	
+
 			country_event = {
 	id = nikean_empire.33
 	title = nikean_empire.33.t
@@ -870,14 +870,14 @@ every_country = {
 	picture = hellenistic_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.33.a" 
-		add_mil_power = 100	
+	name = "nikean_empire.33.a"
+		add_mil_power = 100
 	add_country_modifier = {
 					name = "atlantropa_christianisation"
 					duration = -1
 				}
 				add_prestige = 15
-			
+
 }}
 			country_event = {
 	id = nikean_empire.34
@@ -887,7 +887,7 @@ every_country = {
 	is_triggered_only = yes
 		#Establish this East India Company
 		option = {
-			add_dip_power = 100	
+			add_dip_power = 100
 			add_country_modifier = {
 							name = "eastern_roman_company"
 							duration = -1
@@ -1025,10 +1025,10 @@ every_country = {
 				factor = 1
 			}
 		}
-		
+
 		#We do not need such enterprise on foreign ground
 		option = {
-			add_dip_power = 100	
+			add_dip_power = 100
 			add_country_modifier = {
 							name = "eastern_roman_company"
 							duration = -1
@@ -1130,14 +1130,14 @@ every_country = {
 				factor = 1
 			}
 		}
-		
+
 		#Play as the East India Company
 		option = {
 			name = nikean_empire.34.c
 			trigger = {
 				ai = no
 			}
-			add_dip_power = 100	
+			add_dip_power = 100
 			add_country_modifier = {
 							name = "eastern_roman_company"
 							duration = -1
@@ -1276,9 +1276,9 @@ every_country = {
 			}
 		}
 	}
-	
 
-			
+
+
 
 			country_event = {
 	id = nikean_empire.35
@@ -1287,17 +1287,17 @@ every_country = {
 	picture = crusade_for_mecca_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.35.a" 
-			
-	add_adm_power = 100	
-	add_dip_power = 100	
-	add_mil_power = 100	
+	name = "nikean_empire.35.a"
+
+	add_adm_power = 100
+	add_dip_power = 100
+	add_mil_power = 100
 					arabia_region = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT	}
 				}
-				add_permanent_claim = ROOT	
+				add_permanent_claim = ROOT
 		}
 	add_country_modifier = {
 					name = "atlantropa_coring"
@@ -1312,17 +1312,17 @@ every_country = {
 	picture = abissyniafall_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.36.a" 
-			
-	add_adm_power = 100	
-	add_dip_power = 100	
-	add_mil_power = 100	
+	name = "nikean_empire.36.a"
+
+	add_adm_power = 100
+	add_dip_power = 100
+	add_mil_power = 100
 					horn_of_africa_region = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT	}
 				}
-				add_permanent_claim = ROOT	
+				add_permanent_claim = ROOT
 		}
 	add_country_modifier = {
 					name = "byzantine_abissynian_threat"
@@ -1337,9 +1337,9 @@ every_country = {
 	picture = vandals_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.37.a" 
-		
-	add_mil_power = 50	
+	name = "nikean_empire.37.a"
+
+	add_mil_power = 50
 				maghreb_region = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -1361,7 +1361,7 @@ country_event = {
 	picture = aztecbattleofpyramids_eventPicture
 	trigger = {
 	OR = {
-		tag = A52		
+		tag = A52
 		tag = BYZ
 		}
 		OR = {
@@ -1376,11 +1376,11 @@ country_event = {
 	}
 	fire_only_once = yes
 	mean_time_to_happen = { days = 1 }
-	
+
 	option = {
 		name = "nikean_empire.38.a"
 		set_country_flag =  battle_of_pyramids
-		add_prestige = 15	
+		add_prestige = 15
 	}
 }
 country_event = {
@@ -1390,7 +1390,7 @@ country_event = {
 	picture = ATLANTROPA_VOLCANO_BURNING_eventPicture
 	trigger = {
 	OR = {
-		tag = A52		
+		tag = A52
 		tag = BYZ
 		}
 		controls = 4561
@@ -1398,15 +1398,15 @@ country_event = {
 	}
 	fire_only_once = yes
 	mean_time_to_happen = { days = 1 }
-	
+
 	option = {
 		name = "nikean_empire.39.a"
 		set_country_flag =  siege_of_pyramids
 		4561 = {
-		add_devastation = 100	
-		set_base_tax = 1	
-		set_base_production = 1	
-		set_base_manpower = 1	
+		add_devastation = 100
+		set_base_tax = 1
+		set_base_production = 1
+		set_base_manpower = 1
 	}
 }
 }
@@ -1417,9 +1417,9 @@ country_event = {
 	picture = GREAT_BUILDING_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.40.a" 
-		
-	add_mil_power = 150	
+	name = "nikean_empire.40.a"
+
+	add_mil_power = 150
 				lower_andalucia_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -1455,7 +1455,7 @@ country_event = {
 				}
 				add_permanent_claim = ROOT
 			}
-					
+
 }
 }
 			country_event = {
@@ -1465,8 +1465,8 @@ country_event = {
 	picture = LARGE_SHIPYARD_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.41.a" 
-		
+	name = "nikean_empire.41.a"
+
 					cap_verde_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -1496,15 +1496,15 @@ country_event = {
 				add_permanent_claim = ROOT
 			}
 			1110 = {
-			change_province_name = "Orientalis"	
-			rename_capital = "Orientalis"	
+			change_province_name = "Orientalis"
+			rename_capital = "Orientalis"
 			add_base_manpower = 3
 			add_base_production = 3
 			add_base_tax = 3
 			change_culture = ROOT
 			change_religion = ROOT
 			}
-					
+
 }
 
 }
@@ -1515,7 +1515,7 @@ country_event = {
 	picture = BYZ_ATHENS_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.42.a" 
+	name = "nikean_empire.42.a"
 			add_country_modifier = {
 				name = "byzantium_resurgent"
 				duration = -1
@@ -1542,9 +1542,9 @@ country_event = {
 				add_permanent_claim = ROOT
 			}
 
-					
+
 			}
-					
+
 }
 
 			country_event = {
@@ -1554,7 +1554,7 @@ country_event = {
 	picture = romanisation_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.43.a" 
+	name = "nikean_empire.43.a"
 		venetia_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -1590,7 +1590,7 @@ country_event = {
 				}
 				add_permanent_claim = ROOT
 			}
-					
+
 }
 }
 	country_event = {
@@ -1599,17 +1599,17 @@ country_event = {
 	desc = "nikean_empire.44.d"
 	fire_only_once = yes
 	picture = queen_saxons_eventPicture
-	major_trigger = { 
-		capital_scope = { 
+	major_trigger = {
+		capital_scope = {
 			OR = {
-			region = balkan_region 
+			region = balkan_region
 			 }}
 	}
 	trigger = {
 	OR = {
 		tag = A52
-		tag = BYZ	
-}		
+		tag = BYZ
+}
 		    NOT = { has_country_flag = germanteutonic_battle}
 			has_country_flag = formed_byzantium_flag
 			OR = {
@@ -1619,7 +1619,7 @@ country_event = {
 	}
 	option = {
 		name = nikean_empire.44.a #Sack of City
-		add_mil_power = 50	
+		add_mil_power = 50
 		set_country_flag = germanteutonic_battle
 }}
 	country_event = {
@@ -1629,36 +1629,36 @@ country_event = {
 	fire_only_once = yes
 	picture = sackniflport_eventPicture
 	major = yes
-	major_trigger = { 
-		capital_scope = { 
+	major_trigger = {
+		capital_scope = {
 			OR = {
-			region = balkan_region 
+			region = balkan_region
 			 }}
 	}
 	trigger = {
 	OR = {
 		tag = A52
-		tag = BYZ	
-}		
+		tag = BYZ
+}
 		    NOT = { has_country_flag = germanteutonic_siege}
 			141 = { controlled_by = ROOT }
-			
+
 	}
 	option = {
 		name = nikean_empire.45.a #Sack of City
-		add_mil_power = 50	
+		add_mil_power = 50
 		141 = {
 		add_devastation = 100
 		set_base_manpower = 1
 		set_base_production = 1
 		set_base_tax = 1
 		}
-		
+
 		set_country_flag = germanteutonic_siege
 }
 	option = {
 		name = nikean_empire.45.b #Sack of City
-		add_mil_power = 100	
+		add_mil_power = 100
 		set_country_flag = germanteutonic_siege
 }
 
@@ -1670,7 +1670,7 @@ country_event = {
 	picture = scottishcastle_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.46.a" 
+	name = "nikean_empire.46.a"
 		carinthia_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -1696,7 +1696,7 @@ country_event = {
 				name = "balkan_empire"
 				duration = 10475
 			}
-					
+
 }
 }
 
@@ -1707,7 +1707,7 @@ country_event = {
 	picture = hellenistic_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.47.a" 
+	name = "nikean_empire.47.a"
 			add_country_modifier = {
 				name = "roman_italy"
 				duration = 5475
@@ -1733,7 +1733,7 @@ country_event = {
 				}
 				add_permanent_claim = ROOT
 			}
-					
+
 }
 }
 			country_event = {
@@ -1743,7 +1743,7 @@ country_event = {
 	picture = roman_legion_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.48.a" 
+	name = "nikean_empire.48.a"
 		tuscany_area = {
 				limit = { owned_by = ROOT }
 				add_province_modifier = {
@@ -1792,7 +1792,7 @@ country_event = {
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
-			}	
+			}
 }
 }
 			country_event = {
@@ -1802,7 +1802,7 @@ country_event = {
 	picture = snowfortress_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.49.a" 
+	name = "nikean_empire.49.a"
 					add_country_modifier = {
 				name = "byzantine_unification_of_italy"
 				duration = -1
@@ -1834,7 +1834,7 @@ country_event = {
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
-			}	
+			}
 }
 }
 			country_event = {
@@ -1844,7 +1844,7 @@ country_event = {
 	picture = dutchnavalbattle_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.50.a" 
+	name = "nikean_empire.50.a"
 	custom_tooltip = francjapolskarzym
 	hidden_effect = {
 				france_region = {
@@ -1883,7 +1883,7 @@ country_event = {
 						if = {
 				limit = {
 					exists = PLC
-					
+
 				}
 				add_casus_belli = {
 					target = PLC
@@ -1904,7 +1904,7 @@ country_event = {
 						if = {
 				limit = {
 					exists = A59
-					
+
 				}
 				add_casus_belli = {
 					target = A59
@@ -1934,7 +1934,7 @@ country_event = {
 	picture = kamieniecpodolski_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.51.a" 
+	name = "nikean_empire.51.a"
 					add_country_modifier = {
 				name = "byzantine_venedia_threat"
 				duration = -1
@@ -1957,28 +1957,28 @@ country_event = {
 		trigger = {
 		OR = {
 		tag = POL
-		tag = PLC		
+		tag = PLC
 		}
 		    NOT = { has_country_flag = zlotowile_captured }
 			184 = { controlled_by = BYZ }
 
 	}
 		option = {
-	name = "nikean_empire.52.a" 
+	name = "nikean_empire.52.a"
 
 			4387 = {
     ROOT = {
         infantry = PREV
     }
 }
-add_manpower = 25	
+add_manpower = 25
 define_general = {
     shock = 5
     fire = 4
     manuever = 4
     siege = 4
 }
-			set_country_flag = zlotowile_captured 
+			set_country_flag = zlotowile_captured
 }
 }
 			country_event = {
@@ -1988,7 +1988,7 @@ define_general = {
 	picture = kingdomgrandefrance_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.53.a" 
+	name = "nikean_empire.53.a"
 					add_country_modifier = {
 				name = "byzantine_france_threat"
 				duration = -1
@@ -2005,7 +2005,7 @@ define_general = {
 					months = 300
 					target = POR
 				}
-			
+
 }
 }
 			country_event = {
@@ -2015,7 +2015,7 @@ define_general = {
 	picture = portuguesebyzantine_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.54.a" 
+	name = "nikean_empire.54.a"
 					add_country_modifier = {
 				name = "byzantine_portugal_threat"
 				duration = -1
@@ -2051,7 +2051,7 @@ define_general = {
 	picture = BLACKSUNDAWN_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.55.a" 
+	name = "nikean_empire.55.a"
 				add_country_modifier = {
 				name = "spa_rb_christian_iberia"
 				duration = 5475
@@ -2096,7 +2096,7 @@ define_general = {
 		trigger = {
 		OR = {
 		tag = A52
-		tag = BYZ		
+		tag = BYZ
 		has_faction = rr_veneta
 		has_faction = rr_prasina
 		has_faction = rr_praetorians
@@ -2106,7 +2106,7 @@ define_general = {
 
 	}
 		option = {
-	name = "nikean_empire.56.a" 
+	name = "nikean_empire.56.a"
 	add_faction_influence = {
     faction = rr_veneta
     influence = 33
@@ -2115,25 +2115,25 @@ define_general = {
 	set_ruler_flag = wyborfrakcji
 }
 		option = {
-	name = "nikean_empire.56.b" 
+	name = "nikean_empire.56.b"
 	add_faction_influence = {
     faction = rr_prasina
     influence = 33
 
 
 }
-	set_ruler_flag = wyborfrakcji			
+	set_ruler_flag = wyborfrakcji
 }
 		option = {
 	trigger = {tag = BYZ }
-	name = "nikean_empire.56.c" 
+	name = "nikean_empire.56.c"
 	add_faction_influence = {
     faction = rr_praetorians
     influence = 33
 
 
 }
-	set_ruler_flag = wyborfrakcji			
+	set_ruler_flag = wyborfrakcji
 }
 }
 
@@ -2145,10 +2145,10 @@ define_general = {
 	picture = war_of_fouremperors_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.57.a" 
-			add_adm_power = 100	
-	add_dip_power = 100	
-	add_mil_power = 100	
+	name = "nikean_empire.57.a"
+			add_adm_power = 100
+	add_dip_power = 100
+	add_mil_power = 100
 	add_country_modifier = {
 					name = "atlantropa_romanisation"
 					duration = 3475
@@ -2158,7 +2158,7 @@ define_general = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT	}
 				}
-				add_permanent_claim = ROOT	
+				add_permanent_claim = ROOT
 		}
 
 			}
@@ -2171,21 +2171,21 @@ define_general = {
 	picture = byzantinehorseman_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.58.a" 
-	add_mil_power = 50	
+	name = "nikean_empire.58.a"
+	add_mil_power = 50
 
 		carpathia_region = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT	}
 				}
-				add_permanent_claim = ROOT	
+				add_permanent_claim = ROOT
 		}
 
 			}
 			}
-	
-	
+
+
 			country_event = {
 	id = nikean_empire.59
 	title = nikean_empire.59.t
@@ -2193,13 +2193,13 @@ define_general = {
 	picture = citysiegea_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.59.a" 
-	add_mil_power = 50	
+	name = "nikean_empire.59.a"
+	add_mil_power = 50
 	add_country_modifier = {
 					name = "expansionist_romania_byzantine"
 					duration = -1
 				}
-		
+
 
 			}
 			}
@@ -2211,8 +2211,8 @@ define_general = {
 	picture = krimeabattle_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.60.a" 
-	add_dip_power = 50	
+	name = "nikean_empire.60.a"
+	add_dip_power = 50
 	add_country_modifier = {
 					name = "byzantine_crimea"
 					duration = -1
@@ -2222,7 +2222,7 @@ define_general = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT	}
 				}
-				add_permanent_claim = ROOT	
+				add_permanent_claim = ROOT
 		}
 
 			}
@@ -2235,16 +2235,16 @@ define_general = {
 	picture = kamieniecpodolski_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.61.a" 
+	name = "nikean_empire.61.a"
 	add_dip_power = 100
-	add_mil_power = 100	
+	add_mil_power = 100
 	add_adm_power = 100
 	emperor = {
 	add_opinion = {
     who = ROOT
     modifier = byzantine_border
 }}
-		
+
 
 			}
 			}
@@ -2256,15 +2256,15 @@ country_event = {
 	desc = "nikean_empire.62.d"
 	picture = londonburn_eventPicture
 	major = yes
-	major_trigger = { 
-		capital_scope = { 
+	major_trigger = {
+		capital_scope = {
 			OR = {
-			region = balkan_region 
+			region = balkan_region
 			 }}
 	}
 	trigger = {
 	OR = {
-		tag = A52		
+		tag = A52
 		tag = BYZ
 		tag = LAE
 		}
@@ -2277,7 +2277,7 @@ country_event = {
 		name = "nikean_empire.62.a"
 		set_global_flag =  moesian_battle
 		2750 = {
-		add_devastation = 10	
+		add_devastation = 10
 	}
 	add_prestige = -1
 }
@@ -2290,19 +2290,19 @@ country_event = {
 	picture = snowfortress_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.63.a" 
-	add_adm_power = 100	
-	add_dip_power = 100	
-	add_mil_power = 100	
+	name = "nikean_empire.63.a"
+	add_adm_power = 100
+	add_dip_power = 100
+	add_mil_power = 100
 	add_country_modifier = {
 					name = "atlantropa_romanisation"
 					duration = 3475
 				}
 
 				add_prestige = 10
-				
-	
-				
+
+
+
 
 			}
 			}
@@ -2313,7 +2313,7 @@ country_event = {
 	picture = ITALIAN_wars_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.64.a" 
+	name = "nikean_empire.64.a"
 					capital_scope = {
 				add_base_manpower = 1
 				add_base_tax = 1
@@ -2359,19 +2359,19 @@ country_event = {
 	picture = romanshipbattle_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.65.a" 
-	add_adm_power = 50	
-	add_dip_power = 50	
-	add_mil_power = 50	
+	name = "nikean_empire.65.a"
+	add_adm_power = 50
+	add_dip_power = 50
+	add_mil_power = 50
 				add_country_modifier = {
 				name = "theme_of_sicily"
 				duration = 10475
 			}
 
 				add_prestige = 10
-				
-	
-				
+
+
+
 
 			}
 			}
@@ -2382,19 +2382,19 @@ country_event = {
 	picture = SHIP_SAILING_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.66.a" 
-	add_adm_power = 50	
-	add_dip_power = 50	
-	add_mil_power = 50	
+	name = "nikean_empire.66.a"
+	add_adm_power = 50
+	add_dip_power = 50
+	add_mil_power = 50
 				add_country_modifier = {
 				name = "sardinia_of_sicily"
 				duration = -1
 			}
 
 				add_prestige = 10
-				
-	
-				
+
+
+
 
 			}
 			}
@@ -2407,7 +2407,7 @@ country_event = {
 	is_triggered_only = yes
 
 		option = {
-	name = "nikean_empire.67.a" 
+	name = "nikean_empire.67.a"
 	add_patriarch_authority = 0.2
 			add_country_modifier = {
 				name = "conversion_of_rome"
@@ -2416,7 +2416,7 @@ country_event = {
 			override_country_name = RestoredRome_BYZ
 		custom_tooltip = egyptasanotherprovincetooltip2
 		hidden_effect = {
-		every_owned_province = { 
+		every_owned_province = {
 			limit = {
 				region = italy_region
 			}
@@ -2424,18 +2424,18 @@ country_event = {
 			cede_province = A50
 }
 			every_country = {
-				limit = { 
+				limit = {
 				is_part_of_hre = yes
 				capital_scope = {
 					region = italy_region
 				}
 				}
-				country_event = { 
+				country_event = {
     id = nikean_empire.1111
 }
-				
+
 			}
-			dismantle_hre = yes	
+			dismantle_hre = yes
 			create_subject = {
     subject_type = atlantis_coempire
     subject = A50
@@ -2449,13 +2449,13 @@ country_event = {
 					add_government_reform = autonomous_byzantine_province
 					change_country_color = { color = { 108 9 9 }	}
 					set_country_flag = has_overriden_color
-					
-					}			
-		}	
+
+					}
+		}
 			}
 				option = {
-	name = "nikean_empire.67.b" 
-			dismantle_hre = yes	
+	name = "nikean_empire.67.b"
+			dismantle_hre = yes
 			override_country_name = RestoredRome_BYZ
 						add_country_modifier = {
 				name = "conversion_of_rome"
@@ -2467,7 +2467,7 @@ country_event = {
 			}
 	}
 			option = {
-				name = "nikean_empire.67.c" 
+				name = "nikean_empire.67.c"
 			override_country_name = RestoredRome_BYZ
 						add_country_modifier = {
 				name = "conversion_of_rome"
@@ -2478,8 +2478,8 @@ country_event = {
 				duration = 3600
 			}
 	}}
-	
-			
+
+
 
 		country_event = {
 	id = nikean_empire.68
@@ -2488,29 +2488,29 @@ country_event = {
 	picture = romanhagiasophia_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.68.a" 
+	name = "nikean_empire.68.a"
 	add_patriarch_authority = 0.2
 					add_country_modifier = {
 				name = "healing_the_schism"
 				duration = -1
 			}
 			country_event = { id = catholic_flavor.3 }
-			
+
 				hidden_effect = {
 				every_country = {
-					limit = { 
-						religion = catholic 
+					limit = {
+						religion = catholic
 						knows_country = BYZ
 					}
 					country_event = { id = flavor_byz.2 }
 				}
-				set_hre_religion = orthodox	
+				set_hre_religion = orthodox
 			}
 
 			}
 						}
 
-			
+
 						country_event = {
 	id = nikean_empire.69
 	title = nikean_empire.69.t
@@ -2518,19 +2518,19 @@ country_event = {
 	picture = scottishcastle_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.69.a" 
-	add_adm_power = 50	
-	add_dip_power = 50	
-	add_mil_power = 50	
+	name = "nikean_empire.69.a"
+	add_adm_power = 50
+	add_dip_power = 50
+	add_mil_power = 50
 				add_country_modifier = {
 				name = "switzerland_of_sicily"
 				duration = -1
 			}
 
 				add_prestige = 10
-				
-	
-				
+
+
+
 
 			}
 			}
@@ -2541,23 +2541,23 @@ country_event = {
 	picture = sackniflport_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.70.a" 
-	add_adm_power = 50	
-	add_dip_power = 50	
-	add_mil_power = 50	
-	
+	name = "nikean_empire.70.a"
+	add_adm_power = 50
+	add_dip_power = 50
+	add_mil_power = 50
+
 
 				add_prestige = 10
-				
-					south_german_region  = { 
+
+					south_german_region  = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT	}
 				}
-				add_permanent_claim = ROOT								
-						
+				add_permanent_claim = ROOT
+
 }
-				
+
 
 			}
 			}
@@ -2569,23 +2569,23 @@ country_event = {
 	picture = Meropiscity_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.71.a" 
-	add_adm_power = 50	
-	add_dip_power = 50	
-	add_mil_power = 50	
-	
+	name = "nikean_empire.71.a"
+	add_adm_power = 50
+	add_dip_power = 50
+	add_mil_power = 50
+
 
 				add_prestige = 10
 				add_country_modifier = {
 				name = "aeaea_of_sicily"
 				duration = -1
 			}
-				
+
 
 			}
 			}
 
-			
+
 									country_event = {
 	id = nikean_empire.72
 	title = nikean_empire.72.t
@@ -2593,27 +2593,27 @@ country_event = {
 	picture = fortaleza_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.72.a" 
-	add_adm_power = 50	
-	add_dip_power = 50	
-	add_mil_power = 50	
-	
+	name = "nikean_empire.72.a"
+	add_adm_power = 50
+	add_dip_power = 50
+	add_mil_power = 50
+
 
 				add_prestige = 10
-								british_isles_region  = { 
+								british_isles_region  = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT	}
 				}
-				add_permanent_claim = ROOT								
-						
+				add_permanent_claim = ROOT
+
 }
-				
+
 
 			}
 			}
 
-			
+
 									country_event = {
 	id = nikean_empire.73
 	title = nikean_empire.73.t
@@ -2621,18 +2621,18 @@ country_event = {
 	picture = kartagnigilda_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.73.a" 
-	add_adm_power = 150	
-	add_dip_power = 150	
-	add_mil_power = 150	
-	
+	name = "nikean_empire.73.a"
+	add_adm_power = 150
+	add_dip_power = 150
+	add_mil_power = 150
+
 
 				add_prestige = 15
 				add_country_modifier = {
 				name = "iberia_of_sicily"
 				duration = -1
 			}
-				 create_general = { tradition = 100 }	
+				 create_general = { tradition = 100 }
 
 			}
 			}
@@ -2643,10 +2643,10 @@ country_event = {
 	picture = greekfire_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.74.a" 
-	add_adm_power = 50	
-	add_dip_power = 50	
-	add_mil_power = 50	
+	name = "nikean_empire.74.a"
+	add_adm_power = 50
+	add_dip_power = 50
+	add_mil_power = 50
 					germiyan_area = {
 					limit = {
 						NOT = { is_core = ROOT }
@@ -2671,8 +2671,8 @@ country_event = {
 		add_permanent_claim = 327
 		add_permanent_claim = 332
 		add_permanent_claim = 4310
-		add_permanent_claim = 2305		
-				
+		add_permanent_claim = 2305
+
 
 			}
 			}
@@ -2683,11 +2683,11 @@ country_event = {
 	picture = byzantinehorseman_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.75.a" 
-	add_adm_power = 50	
-	add_dip_power = 50	
-	add_mil_power = 50	
-					
+	name = "nikean_empire.75.a"
+	add_adm_power = 50
+	add_dip_power = 50
+	add_mil_power = 50
+
 				capital_scope = {
 					add_base_manpower = 1
 					add_base_production = 1
@@ -2704,20 +2704,20 @@ country_event = {
 	picture = romanempire_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.76.a" 
+	name = "nikean_empire.76.a"
 				151 = {
 					add_base_tax = 2
 					add_base_production = 2
 					add_base_manpower = 2
 				}
 				add_government_reform = theme_system
-				create_general = { tradition = 50 }	
+				create_general = { tradition = 50 }
 			}
 
- 
+
 
 			}
-			
+
 					country_event = {
 	id = nikean_empire.77
 	title = nikean_empire.77.t
@@ -2725,7 +2725,7 @@ country_event = {
 	picture = shipconstantinople_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.77.a" 
+	name = "nikean_empire.77.a"
 				add_prestige = 5
 	2195 = {
 	add_core = ROOT
@@ -2734,8 +2734,8 @@ country_event = {
 		add_base_manpower = 3
 		add_building = drydock
 	}
-create_admiral = { tradition = 50 }	
- 
+create_admiral = { tradition = 50 }
+
 
 			}
 					}
@@ -2747,16 +2747,16 @@ create_admiral = { tradition = 50 }
 	picture = vandals_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.78.a" 
+	name = "nikean_empire.78.a"
 				add_prestige = 10
 			ruthenia_region  = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT	}
 				}
-				add_permanent_claim = ROOT	
+				add_permanent_claim = ROOT
 		}
- create_general = { tradition = 100 }	
+ create_general = { tradition = 100 }
 
 			}
 					}
@@ -2768,18 +2768,18 @@ create_admiral = { tradition = 50 }
 	picture = vandals_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.79.a" 
+	name = "nikean_empire.79.a"
 				add_prestige = 25
-	add_adm_power = 150	
-	add_dip_power = 150	
-	add_mil_power = 150	
- create_general = { tradition = 100 }	
+	add_adm_power = 150
+	add_dip_power = 150
+	add_mil_power = 150
+ create_general = { tradition = 100 }
 
 			}
 					}
 
 
-					
+
 	country_event = {
 	id = nikean_empire.80
 	title = nikean_empire.80.t
@@ -2787,16 +2787,16 @@ create_admiral = { tradition = 50 }
 	picture = citysiegea_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.80.a" 
+	name = "nikean_empire.80.a"
 				add_prestige = 10
 				north_german_region  = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT	}
 				}
-				add_permanent_claim = ROOT	
+				add_permanent_claim = ROOT
 		}
- create_general = { tradition = 50 }	
+ create_general = { tradition = 50 }
 
 			}
 					}
@@ -2807,19 +2807,19 @@ create_admiral = { tradition = 50 }
 	picture = islandbrafil_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.81.a" 
+	name = "nikean_empire.81.a"
 				add_prestige = 25
-	add_adm_power = 150	
-	add_dip_power = 150	
-	add_mil_power = 150	
- create_general = { tradition = 100 }	
+	add_adm_power = 150
+	add_dip_power = 150
+	add_mil_power = 150
+ create_general = { tradition = 100 }
  98 = {
 add_base_manpower = 2
 add_base_production = 2
 add_base_tax = 2
 change_culture = ROOT
-change_province_name = "Kontastinakti"	
-rename_capital = "Kontastinakti"	
+change_province_name = "Kontastinakti"
+rename_capital = "Kontastinakti"
 
  }
 
@@ -2833,7 +2833,7 @@ rename_capital = "Kontastinakti"
 	picture = romanhagiasophia_eventPicture
 	is_triggered_only = yes
 		option = {
-	name = "nikean_empire.82.a" 
+	name = "nikean_empire.82.a"
 				add_country_modifier = {
 				name = "atlantropa_endless_empire_mod"
 				duration = -1
@@ -2841,7 +2841,7 @@ rename_capital = "Kontastinakti"
  }
 
 			}
-										
+
 
 
 										###############FactionSystem
@@ -2857,7 +2857,7 @@ rename_capital = "Kontastinakti"
 	trigger = {
 	NOT = {	has_country_modifier = rrvenetaleased }
 	NOT = {	has_country_modifier = rrvenetaunpleased }
-	faction_in_power = rr_veneta 
+	faction_in_power = rr_veneta
 	    OR = {
 has_reform = roman_byzantine_monarchy
 has_reform = roman_byzantine_monarchy2
@@ -2874,7 +2874,7 @@ has_reform = roman_byzantine_monarchy2
 	}
 }
 	option = {
-	name = "nikean_empire.83.a" 
+	name = "nikean_empire.83.a"
 							add_government_power = {
 					mechanic_type = nikaeanbyzantine_mechanic
 					power_type = byz_adm_power
@@ -2889,23 +2889,23 @@ has_reform = roman_byzantine_monarchy2
     share = 1
 }
 	add_faction_influence = {
-    faction = rr_veneta 
+    faction = rr_veneta
     influence = 25
 }
-add_country_modifier = { 
+add_country_modifier = {
     name = rrvenetaleased
     duration = 3600
 }
 }
 	option = {
-	name = "nikean_empire.83.b" 
+	name = "nikean_empire.83.b"
 	add_patriarch_authority = -0.03
 	add_faction_influence = {
-    faction = rr_veneta 
+    faction = rr_veneta
     influence = -10
 	}
-	add_country_modifier = { 
-    name = rrvenetaunpleased 
+	add_country_modifier = {
+    name = rrvenetaunpleased
     duration = 1800
 }
 						add_government_power = {
@@ -2915,7 +2915,7 @@ add_country_modifier = {
 				}
 }
 }
-	
+
 
 	country_event = {
 	id = nikean_empire.84
@@ -2944,7 +2944,7 @@ has_reform = roman_byzantine_monarchy2
 	}
 }
 	option = {
-	name = "nikean_empire.84.a" 
+	name = "nikean_empire.84.a"
 			add_patriarch_authority = -0.02
 			capital_scope = {
 				spawn_rebels = {
@@ -2974,7 +2974,7 @@ has_reform = roman_byzantine_monarchy2
 
 
 	has_country_modifier = rrvenetaleased
-	faction_in_power = rr_veneta	
+	faction_in_power = rr_veneta
 							has_government_power = {
 	mechanic_type = nikaeanbyzantine_mechanic
 	power_type = byz_adm_power
@@ -2989,7 +2989,7 @@ has_reform = roman_byzantine_monarchy2
 	}
 }
 	option = {
-	name = "nikean_empire.85.a" 
+	name = "nikean_empire.85.a"
 			random_owned_province = {
 				spawn_rebels = {
     type = noble_rebels
@@ -3004,9 +3004,9 @@ has_reform = roman_byzantine_monarchy2
 				}
 			}
 
-	}									
+	}
 
-	
+
 											###############Greens
 
 				country_event = {
@@ -3034,8 +3034,8 @@ has_reform = roman_byzantine_monarchy2
 	}
 }
 	option = {
-	name = "nikean_empire.86.a" 
-			add_years_of_income = 0.5	
+	name = "nikean_empire.86.a"
+			add_years_of_income = 0.5
 			change_estate_land_share = {
     estate = estate_burghers
     share = 2
@@ -3050,13 +3050,13 @@ has_reform = roman_byzantine_monarchy2
     faction = rr_prasina
     influence = 25
 }
-add_country_modifier = { 
+add_country_modifier = {
     name = rrprasinapleased
     duration = 3600
 }
 }
 	option = {
-	name = "nikean_empire.86.b" 
+	name = "nikean_empire.86.b"
 							add_government_power = {
 					mechanic_type = nikaeanbyzantine_mechanic
 					power_type = byz_adm_power
@@ -3067,13 +3067,13 @@ add_country_modifier = {
     faction = rr_prasina
     influence = -10
 	}
-	add_country_modifier = { 
+	add_country_modifier = {
     name = rrprasinaunpleased
     duration = 1800
 }
 }
 }
-	
+
 
 	country_event = {
 	id = nikean_empire.87
@@ -3102,8 +3102,8 @@ has_reform = roman_byzantine_monarchy2
 	}
 }
 	option = {
-		
-	name = "nikean_empire.87.a" 
+
+	name = "nikean_empire.87.a"
 			add_patriarch_authority = -0.02
 			random_owned_province = {
 				spawn_rebels = {
@@ -3148,7 +3148,7 @@ has_reform = roman_byzantine_monarchy2
 	}
 }
 	option = {
-	name = "nikean_empire.88.a" 
+	name = "nikean_empire.88.a"
 			random_owned_province = {
 				spawn_rebels = {
     type = noble_rebels
@@ -3162,20 +3162,20 @@ has_reform = roman_byzantine_monarchy2
 			}
 			}
 
-	}									
+	}
 
-											
+
 											##########Reds
 		country_event = {
 	id = nikean_empire.89
 	title = nikean_empire.89.t
 	desc = nikean_empire.89.d
-	picture = sackniflport_eventPicture 
+	picture = sackniflport_eventPicture
 	trigger = {
-		   tag = BYZ   
+		   tag = BYZ
 			is_at_war = no
 	NOT = { has_country_modifier = preatoriadevastating }
-	NOT = { has_country_modifier = preatoriansagaindevastating }	
+	NOT = { has_country_modifier = preatoriansagaindevastating }
 	faction_in_power = rr_praetorians
 							has_government_power = {
 	mechanic_type = nikaeanbyzantine_mechanic
@@ -3191,12 +3191,12 @@ has_reform = roman_byzantine_monarchy2
 	}
 }
 	option = {
-	name = "nikean_empire.89.a" 
+	name = "nikean_empire.89.a"
 			random_owned_province = {
-				add_base_tax = -2	
+				add_base_tax = -2
 			}
 		add_patriarch_authority = 0.05
-	add_country_modifier = { 
+	add_country_modifier = {
     name = preatoriadevastating
     duration = 3600
 }
@@ -3213,11 +3213,11 @@ has_reform = roman_byzantine_monarchy2
 
 			}
 	option = {
-	name = "nikean_empire.89.b" 
+	name = "nikean_empire.89.b"
 			random_owned_province = {
-				add_base_tax = -1	
+				add_base_tax = -1
 			}
-	add_country_modifier = { 
+	add_country_modifier = {
     name = preatoriadevastating
     duration = 1800
 }
@@ -3239,9 +3239,9 @@ has_reform = roman_byzantine_monarchy2
 			}
 
 	}
-		
 
-		
+
+
 			country_event = {
 	id = nikean_empire.90
 	title = nikean_empire.90.t
@@ -3250,7 +3250,7 @@ has_reform = roman_byzantine_monarchy2
 	trigger = {
 		   tag = BYZ
 	NOT = { has_country_modifier = preatoriansagaindevastating }
-	NOT = { has_country_modifier = preatoriadevastating }	
+	NOT = { has_country_modifier = preatoriadevastating }
 	faction_in_power = rr_praetorians
 	has_government_power = {
 	mechanic_type = nikaeanbyzantine_mechanic
@@ -3266,12 +3266,12 @@ has_reform = roman_byzantine_monarchy2
 	}
 }
 	option = {
-	name = "nikean_empire.90.a" 
+	name = "nikean_empire.90.a"
 			random_owned_province = {
-				add_base_tax = -2	
+				add_base_tax = -2
 			}
 	add_yearly_manpower = -1
-	add_country_modifier = { 
+	add_country_modifier = {
     name = preatoriansagaindevastating
     duration = 3600
 }
@@ -3288,11 +3288,11 @@ has_reform = roman_byzantine_monarchy2
 
 			}
 	option = {
-	name = "nikean_empire.90.b" 
+	name = "nikean_empire.90.b"
 			random_owned_province = {
-				add_base_manpower = -1	
+				add_base_manpower = -1
 			}
-	add_country_modifier = { 
+	add_country_modifier = {
     name = preatoriansagaindevastating
     duration = 1800
 }
@@ -3315,7 +3315,7 @@ has_reform = roman_byzantine_monarchy2
 
 			}
 
-	}	
+	}
 
 
 		country_event = {
@@ -3324,7 +3324,7 @@ has_reform = roman_byzantine_monarchy2
 	desc = nikean_empire.91.d
 	picture = praetoriaguards_eventPicture
 	trigger = {
-		   tag = BYZ   
+		   tag = BYZ
 	NOT = { has_ruler_modifier = preatoriaguards }
 	NOT = { has_ruler_flag = preatoriaguardsdenied }
 	}
@@ -3336,14 +3336,14 @@ has_reform = roman_byzantine_monarchy2
 	}
 }
 	option = {
-	name = "nikean_empire.91.a" 
+	name = "nikean_empire.91.a"
 
 						add_government_power = {
 					mechanic_type = nikaeanbyzantine_mechanic
 					power_type = byz_adm_power
 					value = -5
 				}
-	add_ruler_modifier = { 
+	add_ruler_modifier = {
     name = preatoriaguards
     duration = -1
 }
@@ -3355,10 +3355,10 @@ has_reform = roman_byzantine_monarchy2
 
 			}
 	option = {
-	name = "nikean_empire.91.b" 
+	name = "nikean_empire.91.b"
 			set_ruler_flag = preatoriaguardsdenied
 			add_prestige = -5
-			
+
 	add_faction_influence = {
     faction = rr_praetorians
     influence = -15
@@ -3371,7 +3371,7 @@ has_reform = roman_byzantine_monarchy2
 				}
 
 	}
-		}	
+		}
 
 
 		country_event = {
@@ -3380,15 +3380,15 @@ has_reform = roman_byzantine_monarchy2
 	desc = nikean_empire.92.d
 	picture = praetoriaguards_eventPicture
 	trigger = {
-		   tag = BYZ   
+		   tag = BYZ
 									has_government_power = {
 	mechanic_type = nikaeanbyzantine_mechanic
 	power_type = byz_adm_power
 	value = 50
 }
 			OR = {
- has_ruler_modifier = preatoriaguards 
-			}	
+ has_ruler_modifier = preatoriaguards
+			}
 	}
 	mean_time_to_happen = {
 	months = 72
@@ -3398,7 +3398,7 @@ has_reform = roman_byzantine_monarchy2
 	}
 }
 	option = {
-	name = "nikean_empire.92.a" 
+	name = "nikean_empire.92.a"
 kill_ruler = yes
 define_ruler = {
     culture = ROOT
@@ -3413,7 +3413,7 @@ define_ruler = {
 	option = {
 		trigger = { has_heir = yes }
 		kill_ruler = yes
-	name = "nikean_empire.92.b" 
+	name = "nikean_empire.92.b"
 			add_prestige = -5
 				add_faction_influence = {
     faction = rr_praetorians
@@ -3427,7 +3427,7 @@ define_ruler = {
 
 			}
 
-	}		
+	}
 		}
 
 
@@ -3438,11 +3438,11 @@ define_ruler = {
 	picture = praetoriaguards_eventPicture
 	trigger = {
 			faction_in_power = rr_praetorians
-		   tag = BYZ   
+		   tag = BYZ
 	NOT = { has_ruler_modifier = preatoriaguards }
 	 has_ruler_flag = preatoriaguardsdenied
 
-			
+
 	}
 	mean_time_to_happen = {
 	months = 1
@@ -3452,10 +3452,10 @@ define_ruler = {
 	}
 }
 	option = {
-	name = "nikean_empire.93.a" 
+	name = "nikean_empire.93.a"
 
-	
-	add_ruler_modifier = { 
+
+	add_ruler_modifier = {
     name = preatoriaguards
     duration = -1
 }
@@ -3468,7 +3468,7 @@ define_ruler = {
 
 			}
 
-		}		
+		}
 
 		country_event = {
 	id = nikean_empire.94
@@ -3476,7 +3476,7 @@ define_ruler = {
 	desc = nikean_empire.94.d
 	picture = praetoriaguards_eventPicture
 	trigger = {
-		   tag = BYZ   
+		   tag = BYZ
 	NOT = { has_ruler_flag = damnvenet }
 	has_ruler_modifier = preatoriaguards
 							has_government_power = {
@@ -3493,7 +3493,7 @@ define_ruler = {
 	}
 }
 	option = {
-	name = "nikean_empire.94.a" 
+	name = "nikean_empire.94.a"
 	add_dip_power = -50
 	add_faction_influence = {
     faction = rr_praetorians
@@ -3510,8 +3510,8 @@ set_ruler_flag = damnvenet
 
 			}
 				option = {
-				set_ruler_flag = damnvenet	
-	name = "nikean_empire.95.b" 
+				set_ruler_flag = damnvenet
+	name = "nikean_empire.95.b"
 	trigger = { 	not = { 	faction_in_power = rr_praetorians  }   }
 	add_faction_influence = {
     faction = rr_praetorians
@@ -3519,7 +3519,7 @@ set_ruler_flag = damnvenet
 }
 			}
 
-		}		
+		}
 
 		country_event = {
 	id = nikean_empire.95
@@ -3527,7 +3527,7 @@ set_ruler_flag = damnvenet
 	desc = nikean_empire.95.d
 	picture = praetoriaguards_eventPicture
 	trigger = {
-		   tag = BYZ   
+		   tag = BYZ
 	has_ruler_modifier = preatoriaguards
 						has_government_power = {
 	mechanic_type = nikaeanbyzantine_mechanic
@@ -3545,7 +3545,7 @@ set_ruler_flag = damnvenet
 }
 	option = {
 		set_ruler_flag = damnprasina
-	name = "nikean_empire.95.a" 
+	name = "nikean_empire.95.a"
 		add_adm_power = -50
 	add_faction_influence = {
     faction = rr_praetorians
@@ -3562,7 +3562,7 @@ set_ruler_flag = damnvenet
 			}
 	option = {
 				set_ruler_flag = damnprasina
-	name = "nikean_empire.95.b" 
+	name = "nikean_empire.95.b"
 	trigger = { 	not = { 	faction_in_power = rr_praetorians  }   }
 	add_faction_influence = {
     faction = rr_praetorians
@@ -3570,7 +3570,7 @@ set_ruler_flag = damnvenet
 }
 			}
 		}
-		
+
 
 
 		country_event = {
@@ -3601,7 +3601,7 @@ mean_time_to_happen = {
 
 }
 	option = {
-	name = "nikean_empire.96.a" 
+	name = "nikean_empire.96.a"
 			random_owned_province = {
 				spawn_rebels = {
     type = pretender_rebels
@@ -3611,7 +3611,7 @@ mean_time_to_happen = {
 			}
 	option = {
 		trigger = { tag = BYZ }
-	name = "nikean_empire.96.b" 
+	name = "nikean_empire.96.b"
 	add_faction_influence = {
     faction = rr_praetorians
     influence = 10
@@ -3642,7 +3642,7 @@ country_event = {
 	months = 72
 }
 	option = {
-	name = "nikean_empire.97.a" 
+	name = "nikean_empire.97.a"
 	add_war_exhaustion = -3
 					add_government_power = {
 					mechanic_type = nikaeanbyzantine_mechanic
@@ -3650,7 +3650,7 @@ country_event = {
 					value = -5
 				}
 	 set_ruler_flag = modlitwawhagiishophia
-	
+
 
 			}
 
@@ -3669,12 +3669,12 @@ country_event = {
 	}
 
 	option = {
-	name = "nikean_empire.97.a" 
+	name = "nikean_empire.97.a"
 	add_prestige = -5
 	set_country_flag = varnagiaguard
 			}
 
-		}	
+		}
 country_event = {
 	id = nikean_empire.99
 	title = nikean_empire.99.t
@@ -3697,8 +3697,8 @@ country_event = {
 	}
 
 	option = {
-	name = "nikean_empire.99.a" 
-		add_ruler_modifier = { 
+	name = "nikean_empire.99.a"
+		add_ruler_modifier = {
     name = robicomozebyz
     duration = 3600
 
@@ -3711,7 +3711,7 @@ country_event = {
 				}
 			}
 				option = {
-	name = "nikean_empire.99.b" 
+	name = "nikean_empire.99.b"
 					add_government_power = {
 					mechanic_type = nikaeanbyzantine_mechanic
 					power_type = byz_adm_power
@@ -3720,7 +3720,7 @@ country_event = {
 	add_prestige = 5
 			}
 
-		}	
+		}
 
 
 
@@ -3731,7 +3731,7 @@ country_event = {
 	picture = brauchinstadr_eventPicture
 	is_triggered_only = yes
 	option = {
-	name = "nikean_empire.100.a" 
+	name = "nikean_empire.100.a"
 	if = {
 		limit = { is_lesser_in_union = no }
 	kill_ruler = yes
@@ -3742,14 +3742,14 @@ country_event = {
 	}
 	if = {
 		limit = { has_regency = yes	}
-		kill_heir = { allow_new_heir = no }	
+		kill_heir = { allow_new_heir = no }
 	}
 
 	add_prestige = -5
 	add_legitimacy = 10
 			}
 
-		}	
+		}
 
 
 		country_event = {
@@ -3758,14 +3758,14 @@ country_event = {
 	desc = flavor_tur.1000.desc
 	picture = EYALET_eventPicture
 	is_triggered_only = yes
-	
+
 	option = {	# We are free from the Turks!
 		name = flavor_tur.1000.a
 		clr_country_flag = has_rhomaioi_color
 		restore_country_name = yes
 		restore_country_color = yes
 		add_prestige = 20
-		
+
 		ai_chance = {
 			factor = 1
 		}
@@ -3779,7 +3779,7 @@ country_event = {
 	desc = flavor_tur.1000.desc
 	picture = EYALET_eventPicture
 	is_triggered_only = yes
-	
+
 	option = {	# We are free from the Turks!
 		name = flavor_tur.1000.a
 		add_prestige = 10
@@ -3806,22 +3806,40 @@ country_event = {
 	desc = flavor_tur.1112.desc
 	picture = EYALET_eventPicture
 	is_triggered_only = yes
-	
+
 	option = {	# We are free from the Turks!
 		name = flavor_tur.1112.a
 		override_country_name = ICONIUM1
-		change_country_color = { 
+		change_country_color = {
 			color = { 92 134 178 }
 		}
 	}
 		option = {	# We are free from the Turks!
 		name = flavor_tur.1112.b
 		override_country_name = ICONIUM2
-		change_country_color = { 
+		change_country_color = {
 			color = { 92 134 178 }
 		}
 		}
 		option = {	# We are free from the Turks!
 		name = flavor_tur.1112.c
 		}
+	}
+country_event = {
+	id = nikean_empire.1113
+	title = flavor_tur.1113.t
+	desc = flavor_tur.1113.desc
+	picture = IMPERIALCOMPANY_eventPicture
+	is_triggered_only = yes
+
+	option = {	# We are free from the Turks!
+		name = flavor_tur.1113.a
+			add_stability_or_adm_power = yes
+			create_admiral = {
+				tradition = 85
+			}
+			add_adm_power = 50
+			add_mil_power = 50
+			add_dip_power = 50
+	}
 	}
