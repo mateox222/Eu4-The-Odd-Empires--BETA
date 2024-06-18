@@ -13,7 +13,7 @@ province_event = {
 	desc = "aow_events.1.d"
 	picture = FAMINE_eventPicture
 	goto = root
-	
+
 	is_mtth_scaled_to_size = 1
 
 	trigger = {
@@ -428,6 +428,7 @@ country_event = {
 
 	trigger = {
 		is_at_war = yes
+		NOT = { has_country_flag = disable_cruelty_of_mercs }
 		num_of_hired_mercenary_companies = 1
 		NOT = { has_country_modifier = curtailed_mercenaries }
 		any_hired_mercenary_company = {
@@ -665,7 +666,7 @@ province_event = {
 		}
 		modifier = {
 			factor = 2
-					
+
 				OR = {
 		current_age = age_of_revolutions
 		current_age = age_of_industrialization
@@ -1138,7 +1139,7 @@ province_event = {
 	desc = "aow_events.27.d"
 	picture = RELIGIOUS_TURMOIL_eventPicture
 	goto = root
-	
+
 	is_mtth_scaled_to_size = 1
 
 	trigger = {
@@ -1152,7 +1153,7 @@ province_event = {
 				religion = ROOT
 			}
 		}
-		
+
 	}
 
 	mean_time_to_happen = {
@@ -1176,7 +1177,7 @@ province_event = {
 	desc = "aow_events.28.d"
 	picture = RELIGIOUS_TURMOIL_eventPicture
 	goto = root
-	
+
 	is_mtth_scaled_to_size = 1
 
 	trigger = {
@@ -1189,7 +1190,7 @@ province_event = {
 				religion = ROOT
 			}
 		}
-		
+
 		NOT = { is_religious_center_province = yes }
 		NOT = { has_province_modifier = religious_center }
 		any_neighbor_province = {
@@ -1248,7 +1249,7 @@ province_event = {
 	title = "aow_events.29.t"
 	desc = "aow_events.29.d"
 	picture = SPY_eventPicture
-	
+
 	is_mtth_scaled_to_size = 1
 
 	trigger = {
@@ -1303,7 +1304,7 @@ province_event = {
 	desc = "aow_events.30.d"
 	picture = ANGRY_MOB_eventPicture
 	goto = root
-	
+
 	is_mtth_scaled_to_size = 1
 
 	trigger = {
@@ -1783,7 +1784,7 @@ country_event = {
 
 	is_triggered_only = yes
 
-	# 
+	#
 	option = {
 		name = "aow_events.41.a"
 		add_prestige = -10
@@ -1890,8 +1891,8 @@ country_event = {
 			}
 		}
 	}
-	
-	# 
+
+	#
 	option = {
 		name = "aow_events.43.a"
 		add_years_of_income = -0.05
@@ -1950,7 +1951,7 @@ province_event = {
 
 	is_triggered_only = yes
 
-	# 
+	#
 	option = {
 		name = "aow_events.44.a"
 		owner = {
@@ -1985,12 +1986,12 @@ province_event = {
 	}
 
 	is_mtth_scaled_to_size = 1
-	
+
 	mean_time_to_happen = {
 		months = 480
 	}
 
-	# 
+	#
 	option = {
 		name = "aow_events.45.a"
 		owner = {
@@ -2027,7 +2028,7 @@ province_event = {
 		exists = PAP
 	}
 
-	# 
+	#
 	option = {
 		name = "aow_events.46.a"
 		PAP = {
@@ -2060,7 +2061,7 @@ province_event = {
 		months = 480
 	}
 
-	# 
+	#
 	option = {
 		name = "aow_events.47.a"
 		owner = {
@@ -2111,7 +2112,7 @@ country_event = {
 		months = 480
 	}
 
-	# 
+	#
 	option = {
 		name = "aow_events.48.a"
 		add_adm_power = -100
@@ -2148,7 +2149,7 @@ country_event = {
 		months = 480
 	}
 
-	# 
+	#
 	option = {
 		name = "aow_events.49.a"
 		if = {
@@ -2165,12 +2166,12 @@ country_event = {
 				estate = estate_church
 				desc = EST_VAL_CARDINAL_IN_ADMINISTRATION
 				influence = 5
-				duration = 6900
+				duration = 7300
 			}
 		}
 		add_country_modifier = {
 			name = "cardinal_in_administration"
-			duration = 6900
+			duration = 7300
 		}
 	}
 
@@ -2191,6 +2192,11 @@ country_event = {
 		has_country_modifier = cardinal_in_administration
 		NOT = { has_country_modifier = centralization_modifier }
 		num_of_cardinals = 1
+		capital_scope = {
+			any_neighbor_province = {
+				owned_by = ROOT
+			}
+		}
 	}
 
 	mean_time_to_happen = {
@@ -2215,7 +2221,7 @@ country_event = {
 		}
 	}
 
-	# 
+	#
 	option = {
 		name = "aow_events.50.a"
 		goto = rebel_province
@@ -2262,7 +2268,7 @@ country_event = {
 		months = 1200
 	}
 
-	# 
+	#
 	option = {
 		name = "aow_events.51.a"
 		random_neighbor_country = {

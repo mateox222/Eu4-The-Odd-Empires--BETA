@@ -2,7 +2,7 @@ estate_burghers = {
 	icon = 3
 
 	# If true, country will get estate
-	trigger = {	
+	trigger = {
 		NOT = { has_government_attribute = disables_estate_burghers }
 		NOT = { has_disabled_estate = { estate = estate_burghers } }
 		OR = {
@@ -37,7 +37,7 @@ estate_burghers = {
 	}
 	country_modifier_neutral = {
 		trade_efficiency = 0.2
-	}	
+	}
 	country_modifier_angry = {
 		trade_efficiency = -0.1
 		development_cost = 0.1
@@ -46,7 +46,7 @@ estate_burghers = {
 	land_ownership_modifier = {
 		burghers_loyalty_modifier = 0.2
 	}
-	
+
 	province_independence_weight = {
 		factor = 1
 		modifier = {
@@ -84,7 +84,7 @@ estate_burghers = {
 
 	# Influence modifiers
 	base_influence = 10
-	influence_modifier = {	
+	influence_modifier = {
 		desc = EST_HIGH_DEVELOPMENT_PROVINCE
 		trigger = {
 			any_owned_province = {
@@ -93,7 +93,7 @@ estate_burghers = {
 		}
 		influence = 5
 	}
-	influence_modifier = {	
+	influence_modifier = {
 		desc = EST_VAL_COT
 		trigger = {
 			NOT = { has_reform = free_city }
@@ -143,7 +143,7 @@ estate_burghers = {
 				capital = 2994 # Greifswald
 				capital = 2995 # Stolp
 			}
-		}	
+		}
 		influence = 5
 	}
 	influence_modifier = {
@@ -165,7 +165,7 @@ estate_burghers = {
 		desc = EST_VAL_LOW_TRADE_INCOME
 		trigger = {
 			NOT = { trade_income_percentage = 0.25 }
-		}	
+		}
 		influence = -5
 	}
 	influence_modifier = {
@@ -173,14 +173,14 @@ estate_burghers = {
 		trigger = {
 			trade_income_percentage = 0.5
 			NOT = { trade_income_percentage = 0.75 }
-		}	
+		}
 		influence = 5
 	}
 	influence_modifier = {
 		desc = EST_VAL_VERY_HIGH_TRADE_INCOME
 		trigger = {
 			trade_income_percentage = 0.75
-		}	
+		}
 		influence = 10
 	}
 	influence_modifier = {
@@ -188,10 +188,10 @@ estate_burghers = {
 		trigger = {
 			has_any_estate_disaster_active = yes
 			has_not_own_estate_disaster_active = { estate = estate_burghers }
-		}	
+		}
 		influence = -40
 	}
-	
+
 	loyalty_modifier = {
 		desc = EST_VAL_OTHER_ESTATE_IN_POWER_LOY
 		trigger = {
@@ -204,7 +204,7 @@ estate_burghers = {
 	custom_name = {
 		desc = estate_emporoi
 		trigger = {
-			
+
 			culture_group = byzantine
 		}
 	}
@@ -227,11 +227,17 @@ estate_burghers = {
 		}
 	}
 	custom_name = {
+		desc = estate_ppolom
+		trigger = {
+			is_mayan_society_trigger = yes
+		}
+	}
+	custom_name = {
 		desc = estate_pochteca
 		trigger = {
 						OR = {
 			religion = nahuatl
-			religion = reformednahuatl 
+			religion = reformednahuatl
 			}
 		}
 	}
@@ -305,6 +311,27 @@ estate_burghers = {
 		estate_burghers_ARB_oasis_development
 		estate_burghers_YEM_coffee_monopoly
 		estate_burghers_persian_rugs
+		estate_burghers_hungarian_royal_cities
+		estate_burghers_italian_coastal_influence
+		estate_burghers_livestock_regulations
+		estate_burghers_arabian_traders
+		estate_burghers_omani_marines
+		estate_burghers_ITA_promote_latin_merchants
+		estate_burghers_ITA_permit_merchant_colonists
+		estate_burghers_GER_customs_union
+		estate_burghers_GER_turn_towards_mercantilism
+		estate_burghers_black_devils
+		estate_burghers_maximize_cargo_space
+		estate_burghers_diversify_fluyts
+		estate_burghers_voc_privilege
+		estate_burghers_INC_mountain_development
+		estate_burghers_MAY_support_of_chontal_maya
+		estate_burghers_MAY_tropical_adaptation
+		estate_burghers_SUN_support_recovering_populations
+		estate_burghers_AZT_sponsor_artisans
+		estate_burghers_AZT_mexican_gold_mines
+		estate_burghers_fugger_family
+		estate_burghers_TIM_gulf_toll
 	}
 
 	agendas = {
