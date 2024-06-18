@@ -515,7 +515,7 @@ on_battle_won_country = {
 		set_country_flag = hun_won_battle
 		from = { set_country_flag = hun_lost_battle }
 		}
-}
+
 	if = {
 		limit = {
 			ROOT = {
@@ -565,7 +565,7 @@ on_battle_won_country = {
 			80 = { }
 		}
 	}
-
+}
 
 # country
 # root = loser country, from = winner country
@@ -1300,71 +1300,7 @@ on_new_consort = {
 
 # country
 on_monarch_death = {
-
-
-
-	if = {
-		limit = {
-			tag = ANS
-			BRA = {
-				has_country_flag = albrecht_achilles_flag
-			}
-		}
-		BRA = {
-			clr_country_flag = albrecht_achilles_flag #Just to be sure
-			kill_heir = {} #If Albrecht Achilles dies in Ansbach he will also be dead in Brandenburg, will appear as normal death of heir to BRA.
-		}
-	}
-	if = {
-		limit = { has_country_modifier = sought_after_bachelor }
-		remove_country_modifier = sought_after_bachelor
-	}
-	if = {
-		limit = { tag = SAM }
-		country_event = { id = polynesian.35 }
-	}
-	if = {
-		limit = { tag = TOG }
-		country_event = { id = polynesian.36 }
-	}
-	if = {	# Ascension of Trailokanat
-		limit = { tag = AYU }
-		country_event = { id = flavor_suk.1 }
-	}
-	if = {
-		limit = { tag = GOT }
-		country_event = { id = flavor_got.37 }
-	}
-	if = {
-		limit = { has_government_attribute = no_stability_loss_on_monarch_death }
-		add_stability = 1
-	}
-
-	if = {
-		limit = {
-			is_subject_of_type = pronoia_subject_type
-			NOT = { liberty_desire = 50 }
-		}
-		overlord = {
-			inherit = ROOT
-			if = {
-				limit = {
-					has_country_flag = BYZ_inheriting_pronoia_crownland_flag
-				}
-				change_estate_land_share = {
-					estate = all
-					share = -5
-				}
-			}
-		}
-	}
-	if = {
-		limit = {
-			has_government_attribute = civil_war_on_every_new_ruler
-		}
-		country_event = { id = 611 }
-	}
-
+	on_monarch_death_effect = yes
 	burgundian_inheritance_start_effect = yes
 	ladislaus_postumus_king_died_effect = yes
 	joan_de_trastamara_king_died_effect = yes
@@ -5842,6 +5778,19 @@ on_country_released = {
 
 # ROOT = province, FROM = country
 on_trade_good_changed = {
+		on_trade_good_changed_estate_privileges_effect = yes
+	on_trade_good_changed_government_effect = yes
+	ROOT = {
+		if = {
+			limit = {
+				trade_goods = coal
+				FROM = { economic_ideas = 3 }
+				has_manufactory_trigger = yes
+				base_production = 2
+			}
+			add_base_production = -1
+		}
+	}
 			if = {
 			limit = {
 				has_province_modifier = INC_gold_debuff

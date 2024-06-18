@@ -30,13 +30,13 @@ has_mil_advisor = {
 			advisor = recruitmaster
 			advisor = fortification_expert
 			advisor = quartermaster
-			advisor = militarist1_tod 
-			advisor = militarist2_tod 
-			advisor = militarist3_tod 
-			advisor = militarist4_tod 
-			advisor = militarist5_tod 
-			advisor = militarist6_tod 
-			advisor = militarist7_tod 
+			advisor = militarist1_tod
+			advisor = militarist2_tod
+			advisor = militarist3_tod
+			advisor = militarist4_tod
+			advisor = militarist5_tod
+			advisor = militarist6_tod
+			advisor = militarist7_tod
 
 
 		}
@@ -99,10 +99,10 @@ has_adm_advisor = {
 			advisor = inquisitor
 			advisor = natural_scientist
 			advisor = addadministrator_tod
-			advisor = addadministrator2_tod 
-			advisor = addadministrator3_tod 
-			advisor = addadministrator4_tod 
-			advisor = addadministrator4byz_tod 
+			advisor = addadministrator2_tod
+			advisor = addadministrator3_tod
+			advisor = addadministrator4_tod
+			advisor = addadministrator4byz_tod
 			advisor = administrator_tod
 			advisor = builder2_tod
 			advisor = builder_tod
@@ -112,7 +112,7 @@ has_adm_advisor = {
 			advisor = administrator5_tod
 			advisor = administrator6_tod
 			advisor = administrator7_tod
-			advisor = administrator8_tod 
+			advisor = administrator8_tod
 		}
 	}
 }
@@ -132,7 +132,7 @@ has_adm_advisor_2 = {
 			addadministrator2_tod  = 2
 			addadministrator3_tod  = 2
 			addadministrator4_tod  = 2
-			addadministrator4byz_tod = 2 
+			addadministrator4byz_tod = 2
 			administrator_tod = 2
 			builder2_tod = 2
 			builder_tod = 2
@@ -162,7 +162,7 @@ has_adm_advisor_3 = {
 			addadministrator3_tod  = 3
 			addadministrator3_tod  = 3
 			addadministrator4_tod  = 3
-			addadministrator4byz_tod = 3 
+			addadministrator4byz_tod = 3
 			administrator_tod = 3
 			builder_tod = 3
 			administrator3_tod = 3
@@ -292,6 +292,7 @@ is_subject_other_than_tributary_trigger = { #Ie Tags that cannot conduct indepen
 		tooltip = is_subject_other_than_tributary_trigger_tooltip
 		is_subject = yes
 		NOT = { is_subject_of_type = tributary_state }
+		NOT = { is_subject_of_type = cultural_sphere_of_influence_subject }
 	}
 }
 
@@ -301,6 +302,7 @@ is_free_or_tributary_trigger = { #I.e. Tags that can conduct independent diploma
 		OR = {
 			is_subject = no
 			is_subject_of_type = tributary_state
+			is_subject_of_type = cultural_sphere_of_influence_subject
 		}
 	}
 }
@@ -340,7 +342,7 @@ ruler_has_good_adm_personality = {
 }
 
 ruler_has_good_dip_personality = {
-	has_dlc = "Rights of Man" 
+	has_dlc = "Rights of Man"
 	OR = {
 		ruler_has_personality = careful_personality
 		ruler_has_personality = entrepreneur_personality
@@ -357,7 +359,7 @@ ruler_has_good_dip_personality = {
 }
 
 ruler_has_good_mil_personality = {
-	has_dlc = "Rights of Man" 
+	has_dlc = "Rights of Man"
 	OR = {
 		ruler_has_personality = bold_fighter_personality
 		ruler_has_personality = tactical_genius_personality
@@ -372,7 +374,7 @@ ruler_has_good_mil_personality = {
 }
 
 ruler_has_bad_adm_personality = {
-	has_dlc = "Rights of Man" 
+	has_dlc = "Rights of Man"
 	OR = {
 		ruler_has_personality = embezzler_personality
 		ruler_has_personality = sinner_personality
@@ -382,7 +384,7 @@ ruler_has_bad_adm_personality = {
 }
 
 ruler_has_bad_dip_personality = {
-	has_dlc = "Rights of Man" 
+	has_dlc = "Rights of Man"
 	OR = {
 		ruler_has_personality = drunkard_personality
 		ruler_has_personality = babbling_buffoon_personality
@@ -394,7 +396,7 @@ ruler_has_bad_dip_personality = {
 }
 
 ruler_has_bad_mil_personality = {
-	has_dlc = "Rights of Man" 
+	has_dlc = "Rights of Man"
 	#OR = {
 	ruler_has_personality = craven_personality
 	#}
@@ -421,7 +423,7 @@ heir_has_good_adm_personality = {
 }
 
 heir_has_good_dip_personality = {
-	has_dlc = "Rights of Man" 
+	has_dlc = "Rights of Man"
 	OR = {
 		heir_has_personality = careful_personality
 		heir_has_personality = entrepreneur_personality
@@ -439,7 +441,7 @@ heir_has_good_dip_personality = {
 }
 
 heir_has_good_mil_personality = {
-	has_dlc = "Rights of Man" 
+	has_dlc = "Rights of Man"
 	OR = {
 		heir_has_personality = bold_fighter_personality
 		heir_has_personality = tactical_genius_personality
@@ -454,7 +456,7 @@ heir_has_good_mil_personality = {
 }
 
 heir_has_bad_adm_personality = {
-	has_dlc = "Rights of Man" 
+	has_dlc = "Rights of Man"
 	OR = {
 		heir_has_personality = embezzler_personality
 		heir_has_personality = sinner_personality
@@ -464,7 +466,7 @@ heir_has_bad_adm_personality = {
 }
 
 heir_has_bad_dip_personality = {
-	has_dlc = "Rights of Man" 
+	has_dlc = "Rights of Man"
 	OR = {
 		heir_has_personality = drunkard_personality
 		heir_has_personality = babbling_buffoon_personality
@@ -476,7 +478,7 @@ heir_has_bad_dip_personality = {
 }
 
 heir_has_bad_mil_personality = {
-	has_dlc = "Rights of Man" 
+	has_dlc = "Rights of Man"
 	#OR = {
 	heir_has_personality = craven_personality
 	#}
@@ -503,7 +505,7 @@ consort_has_good_adm_personality = {
 }
 
 consort_has_good_dip_personality = {
-	has_dlc = "Rights of Man" 
+	has_dlc = "Rights of Man"
 	OR = {
 		consort_has_personality = careful_personality
 		consort_has_personality = entrepreneur_personality
@@ -521,7 +523,7 @@ consort_has_good_dip_personality = {
 }
 
 consort_has_good_mil_personality = {
-	has_dlc = "Rights of Man" 
+	has_dlc = "Rights of Man"
 	OR = {
 		consort_has_personality = bold_fighter_personality
 		consort_has_personality = tactical_genius_personality
@@ -536,7 +538,7 @@ consort_has_good_mil_personality = {
 }
 
 consort_has_bad_adm_personality = {
-	has_dlc = "Rights of Man" 
+	has_dlc = "Rights of Man"
 	OR = {
 		consort_has_personality = embezzler_personality
 		consort_has_personality = sinner_personality
@@ -546,7 +548,7 @@ consort_has_bad_adm_personality = {
 }
 
 consort_has_bad_dip_personality = {
-	has_dlc = "Rights of Man" 
+	has_dlc = "Rights of Man"
 	OR = {
 		consort_has_personality = drunkard_personality
 		consort_has_personality = babbling_buffoon_personality
@@ -558,12 +560,12 @@ consort_has_bad_dip_personality = {
 }
 
 consort_has_bad_mil_personality = {
-	has_dlc = "Rights of Man" 
+	has_dlc = "Rights of Man"
 	#OR = {
 	consort_has_personality = craven_personality
 	#}
 }
- 
+
 can_have_center_of_reformation_trigger = { #Province Scope
 	#$RELIGION$ needs to match the religion of the center that is being spawned.
 	continent = europe
@@ -627,7 +629,7 @@ industrialized_province_trigger = { #Province Scope
 	OR = {
 		#has_province_flag = canals_and_turnpikes_flag
 		#has_province_flag = agricultural_revolution_province
-		has_province_flag = had_economic_urbanization 
+		has_province_flag = had_economic_urbanization
 		has_province_flag = swapped_to_cloth
 		has_province_flag = swapped_to_paper
 		has_province_flag = swapped_to_glass
@@ -645,14 +647,14 @@ was_never_end_game_tag_trigger = {	#Country Scope
 			tooltip = was_never_end_game_tag_trigger_tt
 			AND = {
 				NOT = { was_tag = A53 }
-				NOT = { was_tag = XX1 }				
+				NOT = { was_tag = XX1 }
 				NOT = { was_tag = FRA }
-				NOT = { was_tag = MUG }	
-				NOT = { was_tag = X34 }	
+				NOT = { was_tag = MUG }
+				NOT = { was_tag = X34 }
 				NOT = { was_tag = PER }
-				NOT = { was_tag = ERS }			
-				NOT = { was_tag = A79}				
-				NOT = { was_tag = A44 }					
+				NOT = { was_tag = ERS }
+				NOT = { was_tag = A79}
+				NOT = { was_tag = A44 }
 				NOT = { was_tag = TUR }
 				NOT = { was_tag = BYZ }
 				NOT = { was_tag = ROM }
@@ -688,16 +690,16 @@ was_never_end_game_tag_trigger = {	#Country Scope
 				NOT = { was_tag = RZI }
 				NOT = { was_tag = MAL }
 				NOT = { was_tag = SCA }
-				NOT = { tag = XX1 }				
+				NOT = { tag = XX1 }
 				NOT = { tag = FRA }
-				NOT = { tag = A54 }	
+				NOT = { tag = A54 }
 				NOT = { tag = LAE }
-				NOT = { tag = A59 }					
+				NOT = { tag = A59 }
 				NOT = { tag = MUG }
 				NOT = { tag = PER }
 				NOT = { tag = ERS }
 				NOT = { tag = TUR }
-				NOT = { tag = A44 }			
+				NOT = { tag = A44 }
 				NOT = { tag = BYZ }
 				NOT = { tag = ROM }
 				NOT = { tag = HLR }
@@ -731,9 +733,9 @@ was_never_end_game_tag_trigger = {	#Country Scope
 				NOT = { tag = GZI }
 				NOT = { tag = RZI }
 				NOT = { tag = SCA }
-				NOT = { tag = X34 }		
-				NOT = { tag = A53 }		
-				NOT = { tag = A79 }						
+				NOT = { tag = X34 }
+				NOT = { tag = A53 }
+				NOT = { tag = A79 }
 			}
 		}
 	}
@@ -751,7 +753,7 @@ was_never_german_regional_tag_trigger = {	#Country Scope
 	NOT = { was_tag = FKN }
 	NOT = { was_tag = WES }
 	NOT = { was_tag = HAN }
-	
+
 	NOT = { tag = BRA }
 	NOT = { tag = PRU }
 	NOT = { tag = POM }
@@ -1170,12 +1172,12 @@ has_any_holy_order = {
 can_create_holy_orders = {
 	OR = {
 		AND = {
-			OR = { 
-				AND = { 
+			OR = {
+				AND = {
 					culture_group = iberian
 					religion = catholic
 				}
-				has_country_flag = enable_holy_orders_flag 
+				has_country_flag = enable_holy_orders_flag
 			}
 			religion_group = christian
 		}
@@ -1190,7 +1192,7 @@ can_create_holy_orders = {
 		custom_trigger_tooltip = {
 			tooltip = mng_has_enabled_grand_coordinator_offices_tt
 			has_country_flag = mng_enable_3_grand_coordinators_offices_flag
-		} 
+		}
 		AND = {
 			OR = {
 				has_government_attribute = unlock_persia_holy_orders
@@ -1212,8 +1214,44 @@ can_create_holy_orders = {
 	}
 }
 
-unlocked_holy_order = {
-	has_country_flag = unlocked_holy_order_$type$
+is_ahead_of_time_in_technology = {
+	custom_trigger_tooltip = {
+		tooltip = is_ahead_of_time_in_technology_$tech$
+		has_global_modifier_value = {
+			which = ahead_of_time_benefit_$tech$
+			value = 1
+		}
+	}
+}
+
+num_of_age_rewards_taken = {
+	custom_trigger_tooltip = {
+		tooltip = num_of_age_rewards_taken_$amount$
+		has_global_modifier_value = {
+			which = num_of_age_rewards
+			value = $amount$
+		}
+	}
+}
+
+has_orthodox_religious_icon_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = BYZ_has_religious_icon
+		OR = {
+			current_icon = icon_michael
+			current_icon = icon_eleusa
+			current_icon = icon_pancreator
+			current_icon = icon_nicholas
+			current_icon = icon_climacus
+		}
+	}
+}
+
+can_have_incorporated_vassals = {
+    OR = {
+        has_government_attribute = GER_unlock_integrated_vassal
+        has_country_flag = hab_integrated_vassals_flag
+    }
 }
 
 same_govt_as_root_trigger = {
@@ -1324,7 +1362,7 @@ has_forcelimit_building_trigger = {
 has_courthouse_building_trigger = {
 	custom_trigger_tooltip = {
 		tooltip = has_courthouse_building_trigger_tt
-		OR = {	
+		OR = {
 			has_building = courthouse
 			has_building = town_hall
 		}
@@ -1372,7 +1410,10 @@ has_been_insulted_by_root = {
 valid_for_personal_unions_trigger = {
 	exists = yes
 	is_subject = no
+    OR = {
 	government = monarchy
+        has_reform = dutch_republic
+    }
 	religion_group = christian
 }
 
@@ -1424,10 +1465,10 @@ is_germanic_but_not_mountains = {
 #province scope; checks it is highest or joint highest supply limit in the area owned by you (useful for spawning rebels)
 highest_supply_limit_in_area = {
 	NOT = {
-		area_for_scope_province = { 
+		area_for_scope_province = {
 			NOT = { province_id = prev }
 			owned_by = root
-			supply_limit = prev 
+			supply_limit = prev
 			NOT = { prev = { supply_limit = prev } }
 		}
 	}
@@ -1671,8 +1712,8 @@ revolution_event_can_happen_trigger = {
 		has_dlc = "Emperor"
 	}
 	OR = {
-		capital_scope = { 
-#			continent = europe 
+		capital_scope = {
+#			continent = europe
 			controlled_by = revolutionary_rebels
 		}
 		has_country_modifier = just_lost_to_revolutionary_rebels
@@ -2111,7 +2152,7 @@ has_completed_idea_group_of_category = {
 				full_idea_group = shinto0
 				full_idea_group = norse0
 				full_idea_group = budda0
-				full_idea_group = confuci0 
+				full_idea_group = confuci0
 				full_idea_group = hindu0
 				full_idea_group = tengri0
 				full_idea_group = coptic0
@@ -2131,7 +2172,7 @@ has_completed_idea_group_of_category = {
 				full_idea_group = nahu0
 				full_idea_group = shia0
 				full_idea_group = ibadi0
-				full_idea_group = hussite0	 
+				full_idea_group = hussite0
 				full_idea_group = indigenous_ideas
 				full_idea_group = justiz0
 				full_idea_group = entwicklung0
@@ -2512,6 +2553,13 @@ is_not_free_merc_company = {
 		NOT = { mercenary_company = merc_veteran_almogavars }
 		NOT = { mercenary_company = merc_byz_varangian_guard}
 		NOT = { mercenary_company = merc_byz_turkish_janissaries}
+		NOT = { mercenary_company = merc_gavras_house_guards }
+		NOT = { mercenary_company = merc_tatar_vanguard }
+		NOT = { mercenary_company = merc_inc_big_ears }
+		# NOT = { mercenary_company = merc_may_chontals }
+		NOT = { mercenary_company = merc_mug_elite_gurkhas }
+		NOT = { mercenary_company = merc_lisowczyk }
+		NOT = { mercenary_company = merc_ita_lost_legions }
 	}
 }
 
@@ -2529,93 +2577,6 @@ has_not_free_mercs_trait = {
 	NOT = { has_idea = seasoned_veterans }
 	NOT = { has_government_attribute = mercs_do_not_cost_army_professionalism }
 	NOT = { has_country_flag = fra_free_mercs_bargain_sale_flag }
-}
-
-##########################################################
-# Supports following merc companies
-# merc_oyo_cavalry
-# merc_hakkapeliita_cavalry
-# merc_prussian_volunteer_army
-# merc_large_hakkapeliita_cavalry
-# merc_guerilla_hakkapeliita_cavalry
-# merc_elite_hakkapeliita_cavalry
-# merc_schwarze_garde
-# merc_hessian_jaegerkorps
-# merc_doppelsoeldner
-# merc_frisian_free_company
-# merc_flemish_company
-# merc_reislaufer
-##########################################################
-# When adding a new merc company then make sure that a unlock_$merc_company$_tt is defined in the localization
-# For localization purposes use the following line: "Has unlocked the §Y$merc_company$§! mercenary company."
-
-has_unlocked_estate_privilege = {
-	has_country_flag = unlocked_privilege_$estate_privilege$
-}
-
-has_unlocked_merc_company = {
-	custom_trigger_tooltip = {
-		tooltip = has_unlocked_$merc_company$
-		has_country_flag = unlocked_$merc_company$
-	}
-}
-
-##########################################################
-# Supports following merc companies
-##########################################################
-# When adding a new merc company then make sure that a unlock_$merc_company$_tt is defined in the localization
-# For localization purposes use the following line: "The §Y$merc_company$§! mercenary company has been globally unlocked."
-has_globally_unlocked_merc_company = {
-	custom_trigger_tooltip = {
-		tooltip = has_globally_unlocked_$merc_company$
-		has_global_flag = global_unlocked_$merc_company$
-	}
-
-}
-
-has_unlocked_government_reform = {
-	has_country_flag = unlocked_$government_reform$
-}
-
-#This trigger is used for enabled estates which should be active, but can naturally disappear (like through revolutions)
-has_unlocked_estate = {
-	has_country_flag = unlocked_$estate$_flag
-}
-
-#This trigger is used for enabled estates which should be active at all time, no matter what
-has_enabled_estate = {
-	has_country_flag = enables_$estate$_flag
-}
-
-has_disabled_estate = {
-	has_country_flag = disables_$estate$_flag
-}
-
-#### Supports the following government reforms ####
-# prussian_monarchy
-# prussian_monarchy_base
-# prussian_republic_reform
-# prussian_theocratic_reform
-# livonian_military_monarchy
-# livonian_naval_monarchy
-# livonian_trade_monarchy
-# livonian_theocratic_monarchy
-# livonian_elective_monarchy
-# livonian_monarchy
-# livonian_mercenary_monarchy
-# livonian_diplomatic_monarchy
-# livonian_constitutional_monarchy
-# livonian_administrative_monarchy
-# livonian_admiral_monarchy
-# livonian_naval_controlled_monarchy
-# livonian_general_controlled_monarchy
-# livonian_absolute_monarchy
-# livonian_enlightened_monarchy
-has_unlocked_government_reform_tooltip = {
-	custom_trigger_tooltip = {
-		tooltip = unlocked_$government_reform$_tt
-		has_country_flag = unlocked_$government_reform$
-	}
 }
 
 mal_target_country_exists_in_region = {
@@ -2941,7 +2902,7 @@ has_trade_company_trade_goods = {
 
 #For Farm manufactories
 has_farm_trade_goods = {
-	OR = {						
+	OR = {
 		trade_goods = grain
 		trade_goods = livestock
 		trade_goods = wine
@@ -3179,7 +3140,7 @@ num_of_ruler_traits = {
 		ruler_has_personality = fertile_personality
 		ruler_has_personality = well_advised_personality
 		ruler_has_personality = benevolent_personality
-		ruler_has_personality = zealot_personality 
+		ruler_has_personality = zealot_personality
 		ruler_has_personality = pious_personality
 		ruler_has_personality = lawgiver_personality
 		ruler_has_personality = midas_touched_personality
@@ -3370,8 +3331,8 @@ is_flatland = {
 is_yellow_river_province_trigger = {
 	custom_trigger_tooltip = {
 		tooltip = is_yellow_river_province_trigger_tt
-		OR = { 
-			province_id = 4196 
+		OR = {
+			province_id = 4196
 			province_id = 2142
 			province_id = 2141
 			province_id = 2176
@@ -3386,7 +3347,7 @@ is_yellow_river_province_trigger = {
 is_yangtze_river_province_trigger = {
 	custom_trigger_tooltip = {
 		tooltip = is_yangtze_river_province_trigger_tt
-		OR = { 
+		OR = {
 			province_id = 2145
 			province_id = 1821
 			province_id = 1838
@@ -3413,10 +3374,10 @@ is_eyalet_trigger = {
 has_strong_mil_national_ideas = {
 	custom_trigger_tooltip = {
 		tooltip = has_strong_mil_national_ideas_tt
-		OR = { 
+		OR = {
 			tag = FRA
 			tag = PRU
-			tag = SPA 
+			tag = SPA
 			tag = TUR
 			tag = JAP
 			tag = RUS
@@ -4371,7 +4332,7 @@ has_not_locked_first_tier_reform = {
 	NOT = { has_reform = papacy_reform }
 	NOT = { has_reform = caliphate_theocracy_reform }
 	NOT = { has_reform = fifth_monarchists_reform }
-	NOT = { has_reform = great_mongol_state_reform }	
+	NOT = { has_reform = great_mongol_state_reform }
 }
 
 ARB_hedjaz_najd_bedouin_potential = {
@@ -4379,10 +4340,10 @@ ARB_hedjaz_najd_bedouin_potential = {
 		tag = ARB
 		tag = NAJ
 		tag = DAW
-		tag = SHM 
+		tag = SHM
 		tag = HED
 		tag = MDA
-		tag = MFL 
+		tag = MFL
 		tag = ANZ
 		tag = FAD
 	}
@@ -4390,7 +4351,7 @@ ARB_hedjaz_najd_bedouin_potential = {
 }
 
 YEM_is_yemeni_nation ={
-	OR = { 
+	OR = {
 		tag = YEM
 		tag = ADE
 		tag = HDR
@@ -4421,33 +4382,6 @@ num_of_converted_provinces = {
 	}
 }
 
-has_unlocked_trading_policy = {
-	custom_trigger_tooltip = {
-		tooltip = has_unlocked_trading_policy_$policy$_tt
-		NOT = { has_country_flag = locked_trading_policy_$policy$ }
-	}
-}
-
-has_locked_trading_policy = {
-	custom_trigger_tooltip = {
-		tooltip = has_locked_trading_policy_$policy$_tt
-		has_country_flag = locked_trading_policy_$policy$
-	}
-}
-
-has_enabled_trading_policy = {
-	has_country_flag = enabled_trading_policy_$policy$
-	NOT = { has_country_flag = disabled_trading_policy_$policy$ }
-}
-
-has_disabled_trading_policy = {
-	has_country_flag = disabled_trading_policy_$policy$
-}
-
-has_not_disabled_trading_policy = {
-	NOT = { has_country_flag = disabled_trading_policy_$policy$ }
-}
-
 trading_policy_or_upgraded_policy_in_node = {
 	OR = {
 		trading_policy_in_node = {
@@ -4458,17 +4392,6 @@ trading_policy_or_upgraded_policy_in_node = {
 			node = $node$
 			policy = $policy$_upgraded
 		}
-	}
-}
-
-# Supports the following decisions
-##################################
-# grand_vizier_selection
-# horse_breeding_decision
-has_unlocked_decision = {
-	custom_trigger_tooltip = {
-		tooltip = has_unlocked_decision_$type$_tt
-		has_country_flag = unlocked_decision_$type$
 	}
 }
 
@@ -4578,51 +4501,44 @@ has_completed_all_persian_missions = {
 		tooltip = has_completed_all_persian_missions_tt
 		mission_completed = per_reform_our_defenses
 		mission_completed = per_master_of_india
+		mission_completed = per_create_the_tupchi
 		OR = {
-			AND = {
-				mission_completed = per_indomitable_lion
-				mission_completed = per_unify_islam
-			}
-			AND = {
-				mission_completed = per_indomitable_lion
-				mission_completed = per_great_shia_empire
-			}
 			AND = {
 				mission_completed = per_a_new_eranshahr
 				mission_completed = per_an_asha_empire
 			}
+			AND = {
+				OR = {
+					mission_completed = per_unify_islam
+				mission_completed = per_great_shia_empire
+			}
+				mission_completed = per_indomitable_lion
+				mission_completed = per_language_of_poetry
+			}
 		}
-		if = {
-			limit = { primary_culture = mazandarani	}
+		OR = {
+			AND = {
+				has_mission = per_tab_legacy_of_eranshahr
 			mission_completed = per_tab_legacy_of_eranshahr
 		}
-		if = {
-			limit = { 
-				OR = {
-					was_tag = AKK
-					was_tag = QAR
-				}
-			}
+			AND = {
+				has_mission = per_qqq_legacy_of_the_seljuk
 			mission_completed = per_qqq_legacy_of_the_seljuk
 		}
-		if = {
-			limit = {
-				OR = {
-					was_tag = TIM
-					was_tag = KHO
-					was_tag = FRS
-					was_tag = AFG
-					was_tag = TRS
-					was_tag = SIS
-					was_tag = QOM
-					has_country_flag = enthroned_a_timurid_prince
-				}
-			}
+			AND = {
+				has_mission = per_tim_legacy_of_timur
 			mission_completed = per_tim_legacy_of_timur
 		}
-		if = {
-			limit = { was_tag = ARL }
+			AND = {
+				has_mission = per_arl_legacy_of_the_safavid
 			mission_completed = per_arl_legacy_of_the_safavid
+			}
+			AND = {
+				NOT = { has_mission = per_tab_legacy_of_eranshahr }
+				NOT = { has_mission = per_qqq_legacy_of_the_seljuk }
+				NOT = { has_mission = per_tim_legacy_of_timur }
+				NOT = { has_mission = per_arl_legacy_of_the_safavid }
+			}
 		}
 		mission_completed = per_riches_of_asia
 		mission_completed = per_enlightened_rule
@@ -4636,12 +4552,16 @@ has_completed_all_persian_missions = {
 has_any_ongoing_construction = {
 	custom_trigger_tooltip = {
 		tooltip = has_any_ongoing_construction_tt
+		OR = {
 		has_construction = building
 		has_construction = core
 		has_construction = culture
 		has_construction = great_project
 		has_construction = canal
 		has_construction = missionary
+			has_construction = state_house
+		}
+
 	}
 }
 
@@ -4651,6 +4571,435 @@ total_non_estate_disasters_completed = {
 		check_variable = {
 			which = total_disasters_completed_counter
 			value = $value$
+		}
+	}
+}
+
+has_domination_eoc_missions_available = {
+	has_dlc = "Domination"
+	OR = {
+		tag = MNG
+		tag = QNG
+		tag = MCH
+		tag = YAN
+		tag = JIN
+		tag = QIN
+		tag = QIC
+		tag = CSH
+		tag = LNG
+		tag = TNG
+		tag = CXI
+		tag = CHC
+		tag = WUU
+		tag = NNG
+		tag = MIN
+		tag = HUA
+		tag = YUE
+		tag = CMI
+		tag = CYI
+		tag = CDL
+		tag = CGS
+		tag = SHU
+		tag = FRM
+		tag = MJZ
+		tag = MYR
+		tag = EJZ
+		tag = NHX
+		tag = MHX
+		tag = KOR
+		tag = JAP
+	}
+}
+
+has_new_aztec_inca_maya_mission_trigger = {
+	OR = {
+		tag = INC
+		tag = CSU
+		tag = AZT
+		has_generic_maya_missions = yes
+		has_country_flag = unlock_aztec_missions_flag
+	}
+}
+
+is_andean_society_trigger = {
+	OR = {
+		tag = INC #failsafe
+		technology_group = andean
+	}
+}
+
+is_mayan_society_trigger = {
+	OR = {
+		tag = MAY
+		religion = mesoamerican_religion
+		culture_group = maya
+	}
+}
+
+has_reformed_inti_religion_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = INC_has_passed_5_religious_reforms
+		has_global_modifier_value = {
+			which = inti_reforms_passed
+			value = 5
+		}
+	}
+}
+
+INC_every_part_of_route = {
+	820 = { $trigger$ }
+	817 = { $trigger$ }
+	2824 = { $trigger$ }
+	813 = { $trigger$ }
+	2825 = { $trigger$ }
+	2827 = { $trigger$ }
+	811 = { $trigger$ }
+	810 = { $trigger$ }
+	808 = { $trigger$ }
+	2829 = { $trigger$ }
+	804 = { $trigger$ }
+	2831 = { $trigger$ }
+	797 = { $trigger$ }
+	795 = { $trigger$ }
+}
+
+INC_part_of_the_route = {
+	OR = {
+		province_id = 820
+		province_id = 817
+		province_id = 2824
+		province_id = 813
+		province_id = 2825
+		province_id = 2827
+		province_id = 811
+		province_id = 810
+		province_id = 808
+		province_id = 2829
+		province_id = 804
+		province_id = 2831
+		province_id = 797
+		province_id = 795
+	}
+}
+
+INC_can_be_colonized_without_natives = {
+	is_empty = yes
+	OR = {
+		AND = {
+			ROOT = { has_country_flag = INC_expand_into_coastal_provs_flag }
+			OR = { #chincha valleys and nazca
+				province_id = 806
+				province_id = 2828
+				province_id = 805
+			}
+		}
+		AND = {
+			ROOT = { has_country_flag = INC_expansion_south_flag }
+			OR = { #extent of inca empire south
+				province_id = 796
+				province_id = 793
+				province_id = 2840
+				province_id = 2839
+				province_id = 2841
+				province_id = 2836
+				province_id = 791
+				province_id = 2843
+				province_id = 792
+				province_id = 2862
+				province_id = 787
+			}
+		}
+		AND = {
+			OR = { #extension into eastern lands
+				province_id = 2833
+				province_id = 803
+				province_id = 801
+				province_id = 2832
+			}
+			ROOT = { has_country_flag = INC_colonize_eastern_edges_flag }
+		}
+		AND = {
+			ROOT = { has_country_flag = CSU_will_be_able_to_colonize_mountains_flag }
+			OR = { #towards muisca
+				province_id = 4604
+				province_id = 2817
+				province_id = 2818
+				province_id = 4607
+			}
+		}
+	}
+	any_neighbor_province = {
+		country_or_non_sovereign_subject_holds = ROOT
+	}
+}
+INC_highlight_provinces_that_can_be_colonized = {
+	INC_can_be_colonized_without_natives = yes
+	native_size = 0.001
+}
+
+INC_has_any_provinces_to_colonize = {
+	any_province = {
+		INC_can_be_colonized_without_natives = yes
+	}
+}
+INC_has_any_provinces_to_colonize_with_trigger = {
+	any_province = {
+		INC_can_be_colonized_without_natives = yes
+		$trigger$
+	}
+}
+
+has_generic_maya_missions = {
+	OR = {
+		tag = CNP #Can Pech
+		tag = XIU #Xiu
+		tag = YOK #Yokotan
+		tag = MAY #Maya
+		tag = LAC #Tzotzil
+		tag = COC #Cocomes
+		tag = CTM #Chactemal
+		tag = KIC #K'iche
+		tag = KAQ #Kaqkichel
+		tag = CHT #Chorti
+		tag = ITZ #Itza
+		tag = HST #Huastec
+	}
+}
+
+is_in_mesoamerica_trigger = {
+	OR = {
+		region = central_america_region
+		region = mexico_region
+	}
+}
+
+num_of_battles = {
+	custom_trigger_tooltip = {
+		tooltip = has_won_at_least_$amount$_battles #in case of adding a new number, localize
+		check_variable = {
+			which = num_of_battles_won_var
+			value = $amount$
+		}
+	}
+}
+
+num_of_wars = {
+	custom_trigger_tooltip = {
+		tooltip = has_won_at_least_$amount$_wars #in case of adding a new number, localize
+		check_variable = {
+			which = num_of_wars_won_var
+			value = $amount$
+		}
+	}
+}
+
+num_of_provinces_developed = {
+	custom_trigger_tooltip = {
+		tooltip = has_developed_at_least_$amount$_provinces
+		check_variable = {
+			which = num_of_times_developed
+			value = $amount$
+		}
+	}
+}
+
+has_obsidian_source_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = MAY_has_obsidian_source
+		OR = {
+			any_owned_province = {
+				has_province_modifier = MAY_active_obsidian_source
+			}
+			any_subject_country = {
+				any_owned_province = {
+					has_province_modifier = MAY_active_obsidian_source
+				}
+			}
+			any_ally = {
+				any_owned_province = {
+					has_province_modifier = MAY_active_obsidian_source
+				}
+			}
+		}
+	}
+}
+
+num_of_maya_religious_reforms = {
+	custom_trigger_tooltip = {
+		tooltip = maya_reforms_passed_tt_$amount$
+		has_global_modifier_value = {
+			which = maya_reforms_passed
+			value = $amount$
+		}
+	}
+}
+
+MAY_realm_size_trigger = {
+	num_of_cities = 20
+}
+
+MAY_pass_reform_trigger = {
+	num_of_maya_religious_reforms = { amount = $amount$ }
+}
+
+MAY_venus_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = MAY_has_killed_20k_troops
+		check_variable = {
+			which = land_units_killed_since_last_reform
+			value = 20000
+		}
+	}
+}
+
+has_had_disease_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = SUN_has_had_smallpox_tt
+		has_province_flag = had_smallpox_at_one_point
+		NOT = { has_province_modifier = inc_smallpox_outbreak }
+	}
+}
+
+former_colonial_territory_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = SUN_former_colonial_territory_tt
+		has_province_flag = SUN_colonial_territory
+	}
+}
+
+colonial_territory_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = SUN_colonial_territory_tt
+		owner = {
+			is_colonial_empire_trigger = yes
+		}
+	}
+}
+
+colonial_territory_trigger_on_action = {
+	custom_trigger_tooltip = {
+		tooltip = SUN_colonial_territory_tt
+		FROM = {
+			is_colonial_empire_trigger = yes
+		}
+	}
+}
+
+is_colonial_empire_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = SUN_part_of_colonial_empire_tt
+		OR = {
+			is_colonial_nation = yes
+			AND = {
+				NOT = {
+					capital_scope = {
+						OR = {
+							continent = south_america
+							continent = north_america
+							continent = new_world
+						}
+					}
+				}
+				num_of_colonists = 1
+			}
+		}
+	}
+}
+
+is_non_new_world_tech_group = {
+	custom_trigger_tooltip = {
+		tooltip = SUN_not_native_technology_group
+		NOT = {
+			OR = {
+				technology_group = andean
+				technology_group = south_american
+				technology_group = mesoamerican
+				technology_group = north_american
+			}
+		}
+	}
+}
+
+is_or_was_tatar_nation = {
+	OR = {
+		tag = GOL
+		tag = CRI
+		tag = NOG
+		tag = KAZ
+		tag = GLH
+		tag = SIB
+		tag = BSH
+		tag = AST
+		tag = QAS
+		tag = KLM
+		AND = {
+			tag = MGE
+			OR = {
+				was_tag = GOL
+				was_tag = CRI
+				was_tag = NOG
+				was_tag = KAZ
+				was_tag = GLH
+				was_tag = SIB
+				was_tag = BSH
+				was_tag = AST
+				was_tag = QAS
+				was_tag = KLM
+			}
+		}
+	}
+}
+
+is_or_was_mongol_nation = {
+	OR = {
+		tag = OIR
+		tag = KHA
+		tag = KRC
+		tag = HMI
+		tag = YUA
+		tag = KSD
+		tag = CHH
+		tag = KLK
+		tag = ZUN
+		AND = {
+			tag = MGE
+			OR = {
+				was_tag = OIR
+				was_tag = KHA
+				was_tag = KRC
+				was_tag = HMI
+				was_tag = YUA
+				was_tag = KSD
+				was_tag = CHH
+				was_tag = KLK
+				was_tag = ZUN
+			}
+		}
+	}
+}
+
+is_or_was_moghulistan_nation = {
+	OR = {
+		tag = KAS
+		tag = CHG
+		tag = SHY #Technically not Moghulistan, but part of Central Asia
+		tag = ILK #Technically not Moghulistan, but an extension of Uzbek
+		tag = BUK #Technically not Moghulistan, just an extension of Uzbek
+		tag = KZH
+		tag = KOK
+		tag = KHI
+		AND = {
+			tag = MGE
+			OR = {
+				was_tag = KAS
+				was_tag = CHG
+				was_tag = SHY #Technically not Moghulistan, but part of Central Asia
+				was_tag = ILK #Technically not Moghulistan, but an extension of Uzbek
+				was_tag = BUK #Technically not Moghulistan, just an extension of Uzbek
+				was_tag = KZH
+				was_tag = KOK
+				was_tag = KHI
+			}
 		}
 	}
 }
