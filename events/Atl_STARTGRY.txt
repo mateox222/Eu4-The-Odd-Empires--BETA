@@ -183,14 +183,26 @@ country_event = {
 	option = { #Annex Vassals
 		name = startevent.105.KOLORY
 		trigger = {
-		#	NOT = {
-		#		has_global_flag = kolorywyjebane
-		#	}
+			#	NOT = {
+			#		has_global_flag = kolorywyjebane
+			#	}
 		}
 		country_event = {
 			id = startevent.2105
 		}
 	}
+	option = { #Disable Portraits
+		name = startevent.105.portraty.a
+		trigger = {
+			NOT = {
+				has_global_flag = wylaczoneportretyzejaje
+			}
+		}
+		country_event = {
+			id = startevent.2106
+		}
+	}
+
 
 
 
@@ -1017,8 +1029,23 @@ country_event = {
 }
 
 
-
-
+country_event = {
+	id = startevent.2106
+	title = atlantropa_basic_event.5002.t
+	desc = atlantropa_basic_event.5002.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	is_triggered_only = YES
+	option = {
+		name = "atlantropa_basic_event.5556.b"
+		country_event = {
+			id = startevent.5
+		}
+	}
+	option = {
+		name = "atlantropa_basic_event.5002.a"
+		set_global_flag = wylaczoneportretyzejaje
+	}
+}
 country_event = {
 	id = startevent.2105
 	title = atlantropa_basic_event.5001.t
