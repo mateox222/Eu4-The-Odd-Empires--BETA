@@ -775,4 +775,21 @@ province_event = {
 					}
 
 				}
+				country_event = {
+					id = atlantropa_basic_event.400144
+					title = atlantropa_basic_event.6.t
+					desc = atlantropa_basic_event.6.d
+					picture = CITY_DEVELOPMENT_eventPicture
+					hidden = yes
+					trigger = {
+						is_subject_of = XX1
+						NOT = { is_subject_of_type = autonomous_ai }
+					}
+					option = {
+						name = "atlantropa_basic_event.6.a"
+						grant_independence = yes
+						restore_country_color = yes
+					}
+
+				}
 

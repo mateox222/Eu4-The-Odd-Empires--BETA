@@ -1,6 +1,6 @@
 cb_byzantine_war_on_empire = {
 	is_triggered_only = yes
-		months = 360
+	months = 360
 	war_goal = war_atlantropa_empire
 }
 
@@ -69,6 +69,23 @@ cb_huns_invasion = {
 	valid_for_subject = no
 	prerequisites_self = {
 		has_country_flag = hunsempireprepare
+	}
+
+	prerequisites = {
+		is_neighbor_of = FROM
+	}
+
+	war_goal = take_capital_imperial
+}
+cb_machine_extermination = {
+	valid_for_subject = yes
+	prerequisites_self = {
+		OR = {
+			TAG = XX1
+			TAG = XX3
+			TAG = XX2
+			TAG = XX4
+		}
 	}
 
 	prerequisites = {

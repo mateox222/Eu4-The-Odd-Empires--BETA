@@ -1,8 +1,13 @@
 # British Red Coat
 
 type = infantry
-trigger = { tag = XX1 }
-
+trigger = { 	or = {
+		tag = XX1
+		tag = XX2
+		tag = XX3
+		tag = XX4		
+		
+	} }
 maneuver = 1
 offensive_morale = 4
 defensive_morale = 3

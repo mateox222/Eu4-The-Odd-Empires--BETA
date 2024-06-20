@@ -1543,7 +1543,12 @@ atl_republican_technocracy = {
 	lock_level_when_selected = yes
 	icon = "aicoregov"
 	potential = {
-		tag = XX1
+		OR = {
+			tag = XX1
+			tag = XX2
+			tag = XX3
+			tag = XX4
+		}
 	}
 	valid_for_nation_designer = no
 	legacy_equivalent = republican_dictatorship

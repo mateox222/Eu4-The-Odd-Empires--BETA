@@ -7,8 +7,8 @@ country_event = {
 	picture = aiccore_eventPicture
 	fire_only_once = yes
 	trigger = {
-	tag = XX1
-		}
+		tag = XX1
+	}
 
 	option = {
 		name = "atlantropa_deadlycomputer_event.1.a"
@@ -18,26 +18,247 @@ country_event = {
 		add_dip_power = -200
 		add_adm_power = -200
 	}
-		option = {
+	option = {
 		name = "atlantropa_deadlycomputer_event.1.b"
 		ai_chance = { factor = 60 }
-	1074 = {
-    decolonize = THIS
-	set_base_tax = 1	
-	set_base_tax = 1
-	set_base_manpower = 1	
-}
-2359 = {
-    decolonize = THIS
-		set_base_tax = 1	
-	set_base_tax = 1
-	set_base_manpower = 1	
-}
-4690 = {
-    decolonize = THIS
-		set_base_tax = 1	
-	set_base_tax = 1
-	set_base_manpower = 1	
-}
+		1074 = {
+			decolonize = THIS
+			set_base_tax = 1
+			set_base_tax = 1
+			set_base_manpower = 1
+			rename_capital = "Jinghou"
+			change_province_name = "Jinghou"
+		}
+		2359 = {
+			decolonize = THIS
+			set_base_tax = 1
+			set_base_tax = 1
+			set_base_manpower = 1
+			rename_capital = "Argonia"
+			change_province_name = "Argonia"
+		}
+		4690 = {
+			decolonize = THIS
+			set_base_tax = 1
+			set_base_tax = 1
+			set_base_manpower = 1
+			rename_capital = "Kasteria"
+			change_province_name = "Kasteria"
+		}
 	}
-} 
+}
+country_event = {
+	id = atlantropa_deadlycomputer_event.2
+	title = "atlantropa_deadlycomputer_event.2.t"
+	desc = "atlantropa_deadlycomputer_event.2.d"
+	picture = aiccore_eventPicture
+	fire_only_once = yes
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = "atlantropa_deadlycomputer_event.2.a"
+		ai_chance = { factor = 0 }
+		add_stability = -2
+
+		hidden_effect = {
+			add_government_power = {
+				mechanic_type = mechanoids_general_mechanic
+				power_type = mechanoids_power
+				value = 150
+			}
+			2966 = {
+				add_core  = XX1
+				cede_province = XX1
+			}
+			4200 = {
+				add_core  = XX1
+				cede_province = XX1
+			}
+			920 = {
+				add_core  = XX1
+				cede_province = XX1
+			}
+			every_neighbor_country = { declare_war = ROOT }
+			2966 = {
+				add_core  = XX4
+				cede_province = XX4
+				change_culture = mu_android
+				change_religion = mu_ancient_atheism
+			}
+			create_subject = {
+				subject_type = autonomous_ai
+				subject = XX4
+			}
+
+			4200 = {
+				add_core  = XX3
+				cede_province = XX3
+				change_culture = mu_android
+				change_religion = mu_ancient_atheism
+			}
+			create_subject = {
+				subject_type = autonomous_ai
+				subject = XX3
+			}
+
+			920 = {
+				add_core  = XX2
+				cede_province = XX2
+				change_culture = mu_android
+				change_religion = mu_ancient_atheism
+			}
+			create_subject = {
+				subject_type = autonomous_ai
+				subject = XX2
+			}
+			2966 = {
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				artillery = XX1
+				artillery = XX1
+				artillery = XX1
+				artillery = XX1
+
+			}
+			4200 = {
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				artillery = XX1
+				artillery = XX1
+				artillery = XX1
+				artillery = XX1
+
+			}
+			920 = {
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				infantry = XX1
+				artillery = XX1
+				artillery = XX1
+				artillery = XX1
+				artillery = XX1
+
+			}
+
+			XX4 = {
+				capital_scope = {
+					infantry = XX4
+					infantry = XX4
+					infantry = XX4
+					infantry = XX4
+					infantry = XX4
+					infantry = XX4
+					infantry = XX4
+					infantry = XX4
+				}
+			}
+			XX3 = {
+				capital_scope = {
+					infantry = XX3
+					infantry = XX3
+					infantry = XX3
+					infantry = XX3
+					infantry = XX3
+					infantry = XX3
+					infantry = XX3
+					infantry = XX3
+				}
+			}
+			XX2 = {
+				capital_scope = {
+					infantry = XX2
+					infantry = XX2
+					infantry = XX2
+					infantry = XX2
+					infantry = XX2
+					infantry = XX2
+					infantry = XX2
+					infantry = XX2
+				}
+			}
+			XX2 = {
+				add_stability = 3
+				add_treasury = 5000
+			}
+			XX3 = {
+				add_stability = 3
+				add_treasury = 5000
+			}
+			XX4 = {
+				add_stability = 3
+				add_treasury = 5000
+			}
+			every_country = {
+				limit = {
+					ai = yes
+
+					NOT = {
+						is_subject_of = ROOT
+
+					}
+				}
+				add_opinion = {
+					who = XX1
+					modifier = opinion_invasion
+				}
+				add_opinion = {
+					who = XX2
+					modifier = opinion_invasion
+				}
+				add_opinion = {
+					who = XX3
+					modifier = opinion_invasion
+				}
+				add_opinion = {
+					who = XX4
+					modifier = opinion_invasion
+				}
+			}
+
+
+		}
+	}
+}
+
+

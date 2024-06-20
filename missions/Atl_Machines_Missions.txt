@@ -1,103 +1,302 @@
-machines_atl_1 = {
-slot = 1
-generic = no
-ai = yes
-potential = {
-tag = XX1
+machines_atl_11144343 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = XX1
+	}
+
 }
 
+machines_atl_1114433343 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = XX1
+	}
+
+}
+
+machines_atl_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = XX1
+	}
+
+	mechanoid_launch_nukes = {
+		icon = atlantropa_nuke_explosion
+		position = 4
+		required_missions = { mechanoid_colonizeantar }
+		trigger = {
+			mil_power = 800
+		}
+		effect = {
+			add_mil_power = -800
+			custom_tooltip = mechanoidradara27775
+			hidden_effect = {
+				every_province = {
+					limit = {
+						NOT = {owned_by = ROOT }
+						development = 20
+					}
+					set_base_tax = 1
+					set_base_production = 1
+					set_base_manpower = 1
+					add_devastation = 100
+				}
+			}
+		}
+	}
 }
 
 machines_atl_2 = {
-slot = 2
-generic = no
-ai = yes
-potential = {
-tag = XX1
-}
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = XX1
+	}
 
+	mechanoid_expand_pns = {
+		icon = atlantropa_space_probe2
+		position = 4
+		required_missions = { mechanoid_colonizeantar }
+		trigger = {
+			adm_power = 500
+			dip_power = 200
+			mil_power = 200
+		}
+		effect = {
+			add_adm_power = -500
+			add_dip_power = -200
+			add_mil_power = -200
+			hidden_effect = {
+				every_province = {
+					discover_country = XX1
+				}
+			}
+			custom_tooltip = mechanoidradara
+			add_adm_tech = 2
+		}
+	}
 }
 
 machines_atl_3 = {
-slot = 3
-generic = no
-ai = yes
-potential = {
-tag = XX1
-}
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = XX1
+	}
 
-machines_awake = {
-icon = atlantropa_coreai
-position = 1
-required_missions = {  }
-trigger = {
-stability = 0
-}
-effect = {
-add_adm_power = 100
-add_dip_power = 100
-add_mil_power = 100
-}
-}
-mechanoids_vision = {
-icon = atlantropa_greatradar
-position = 2
-required_missions = { machines_awake }
-trigger = {
-adm_power = 200
-dip_power = 200
-mil_power = 200
-}
-effect = {
-add_adm_power = -200
-add_dip_power = -200
-add_mil_power = -200
-custom_tooltip = mechanoidradar
-hidden_effect = {
-1609 = {  discover_country = XX1 }
-1603 = {  discover_country = XX1 }
-1460 = {  discover_country = XX1 }
-1453 = {  discover_country = XX1 }
-1626 = {  discover_country = XX1 }
-1629 = {  discover_country = XX1 }
-1628 = {  discover_country = XX1 }
-1631 = {  discover_country = XX1 }
-every_province = {
-limit = {
-continent = Antarctique
-}
-discover_country = XX1
-
-}
-}
-}
-}
-mechanoid_colonizeantar = {
-icon = atlantropa_antarctida
-position = 3
-required_missions = { mechanoids_vision }
-trigger = { }
-effect = { }
-}
+	machines_awake = {
+		icon = atlantropa_coreai
+		position = 1
+		required_missions = {  }
+		trigger = {
+			stability = 0
+		}
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+		}
+	}
+	mechanoids_vision = {
+		icon = atlantropa_greatradar
+		position = 2
+		required_missions = { machines_awake }
+		trigger = {
+			adm_power = 200
+			dip_power = 200
+			mil_power = 200
+		}
+		effect = {
+			add_adm_power = -200
+			add_dip_power = -200
+			add_mil_power = -200
+			custom_tooltip = mechanoidradar
+			hidden_effect = {
+				1609 = {  discover_country = XX1 }
+				1603 = {  discover_country = XX1 }
+				1460 = {  discover_country = XX1 }
+				1453 = {  discover_country = XX1 }
+				1626 = {  discover_country = XX1 }
+				1629 = {  discover_country = XX1 }
+				1628 = {  discover_country = XX1 }
+				1631 = {  discover_country = XX1 }
+				every_province = {
+					limit = {
+						continent = Antarctique
+					}
+					discover_country = XX1
+				}
+			}
+		}
+	}
+	mechanoid_colonizeantar = {
+		icon = atlantropa_antarctida
+		position = 3
+		required_missions = { mechanoids_vision }
+		trigger = {
+			adm_power = 500
+			dip_power = 500
+			mil_power = 500
+		}
+		effect = {
+			hidden_effect = {
+				every_province = {
+					limit = {
+						continent = Antarctique
+					}
+					add_core = XX1
+					cede_province = XX1
+				}
+			}
+			custom_tooltip = mechanoidradara23
+			override_country_name = ANTARCITAEXLUSION
+			add_adm_power = -500
+			add_dip_power = -500
+			add_mil_power = -500
+		}
+	}
+	mechanoid_build_satelites = {
+		icon = atlantropa_space_probe
+		position = 4
+		required_missions = { mechanoid_colonizeantar }
+		trigger = {
+			adm_power = 200
+			dip_power = 500
+			mil_power = 200
+		}
+		effect = {
+			add_adm_power = -200
+			add_dip_power = -500
+			add_mil_power = -200
+			custom_tooltip = mechanoidradara2
+			add_dip_tech = 2
+			add_treasury = 5000
+		}
+	}
+	mechanoid_launch_probes = {
+		icon = atlantropa_red_galaxy
+		position = 5
+		required_missions = { mechanoid_expand_pns mechanoid_build_army mechanoid_build_satelites }
+		trigger = {
+			stability = 3
+		}
+		effect = {
+			custom_tooltip = mechanoidradara444
+			country_event = {
+				id = atlantropa_deadlycomputer_event.2
+			}
+		}
+	}
+	mechanoisd_thelord_of_earth = {
+		icon = atlantropa_globe
+		position = 6
+		required_missions = { mechanoid_launch_probes }
+		trigger = {
+			all_province = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			inherit = XX2
+			inherit = XX3
+			inherit = XX4
+		}
+	}
+	MECHANOIDS_PURIFICATE = {
+		icon = atlantropa_BLACKSUNOVEROSTLAND
+		position = 7
+		required_missions = { mechanoisd_thelord_of_earth }
+		trigger = {
+			adm_power = 900
+			dip_power = 900
+			mil_power = 900
+		}
+		effect = {
+			hidden_effect = {
+				every_province = { change_culture = mu_android
+					change_religion = mu_ancient_atheism
+				}
+				add_adm_power = -900
+				add_dip_power = -900
+				add_mil_power = -900
+				add_prestige = 200
+			}
+		}
+	}
 }
 
 machines_atl_4 = {
-slot = 4
-generic = no
-ai = yes
-potential = {
-tag = XX1
-}
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = XX1
+	}
 
+	mechanoid_build_army = {
+		icon = atlantropa_android_army
+		position = 4
+		required_missions = { mechanoid_colonizeantar }
+		trigger = {
+			adm_power = 200
+			dip_power = 200
+			mil_power = 500
+		}
+		effect = {
+			add_adm_power = -200
+			add_dip_power = -200
+			add_mil_power = -500
+			custom_tooltip = mechanoidradara33
+			add_mil_tech = 2
+		}
+	}
 }
 
 machines_atl_5 = {
-slot = 5
-generic = no
-ai = yes
-potential = {
-tag = XX1
-}
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = XX1
+	}
 
+	mechanoid_poison_oceans = {
+		icon = atlantropa_poisoned_ocean
+		position = 4
+		required_missions = { mechanoid_colonizeantar }
+		trigger = {
+			mil_power = 800
+		}
+		effect = {
+			add_mil_power = -800
+			hidden_effect = {
+				every_province = {
+					limit = {
+						NOT = {
+							owned_by = ROOT
+						}
+					}
+					add_base_tax = -1
+					add_base_production = -1
+					add_base_manpower = -1
+				}
+				every_country = {
+					limit = {
+						NOT = {
+							tag = ROOT
+						}
+					}
+					add_stability = -2
+				}
+			}
+			custom_tooltip = mechanoidradara2777
+		}
+	}
 }
 

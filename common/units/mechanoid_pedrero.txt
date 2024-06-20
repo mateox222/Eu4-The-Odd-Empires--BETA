@@ -3,7 +3,13 @@
 # This mirrors its historical use as a more defensive, short-range weapon
 
 type = artillery
-trigger = { tag = XX1 }
+trigger = { 	or = {
+		tag = XX1
+		tag = XX2
+		tag = XX3
+		tag = XX4		
+		
+	} }
 maneuver = 3
 offensive_morale = 1
 defensive_morale = 1

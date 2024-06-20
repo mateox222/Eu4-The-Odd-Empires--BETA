@@ -524,3 +524,77 @@ merchant_italian_colony = {
 	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_commercial_enterprise
 	diplomacy_subject_sprite = GFX_icon_diplomacy_am_commercial_enterprise
 }
+
+autonomous_ai = {
+	copy_from = vassal
+	count = vassal
+	sprite = GFX_icon_appanage
+	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_appanage
+	diplomacy_subject_sprite = GFX_icon_diplomacy_am_appanage
+
+	# Properties:
+	has_power_projection = no
+	joins_overlords_wars = yes
+	can_be_co_belligerented = yes    #Enemies can force this subject to join its overlord into the defense war. Only used when the subject has the "joins_overlords_wars = no". By default it's "no"
+	takes_diplo_slot = no
+	manpower_to_overlord = 0.9
+	gets_help_with_rebels = yes
+	separatists_become_subjects = yes
+	allows_taking_land_without_independence = yes
+	forms_trade_companies = no
+	can_concentrate_development = no
+	liberty_desire_development_ratio = 0
+	trust_on_start = 100
+	base_liberty_desire = -1000.0
+	military_focus = 4
+
+	relative_power_class = 1
+	should_quit_wars_on_activation = yes
+
+	can_fight = {
+		independent_nations = yes
+	}
+	can_rival = {
+		independent_nations = yes
+	}
+	can_ally = {
+	}
+	can_marry = {
+	}
+
+	# Subject Interactions
+	seize_court_resources = yes
+	request_extra_levies = yes
+	grant_administrative_autonomy = yes
+	#(disable)
+	scutage = yes
+	grant_core_claim = yes
+	grant_province = yes
+	place_relative_on_throne = no
+	enforce_religion = no
+	enforce_culture = no
+	seize_territory = no
+	#(enable)
+	contribute_to_capital = yes
+	return_land = yes
+	conscript_general = yes
+
+	# Modifiers
+
+	modifier_overlord = clear #We don't want to duplicate the ones inherited from vassal
+	modifier_subject = clear #Ditto
+	modifier_subject = {
+		modifier = appanage_subject
+	}
+	modifier_subject = {
+		modifier = subject_tax_modifier
+		trigger = {
+			overlord = {
+				has_government_attribute = subject_tax_modifier_25
+			}
+		}
+	}
+	modifier_overlord = {
+		modifier = appanage_overlord
+	}
+}

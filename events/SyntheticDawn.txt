@@ -6,7 +6,7 @@ country_event = {
 	title = synthetic_dawn.1.t
 	desc = synthetic_dawn.1.d
 	picture = SYNTHETICS_eventPicture
-	
+
 	trigger = {
 		NOT = { tag = SYN }
 		any_province = {
@@ -15,7 +15,7 @@ country_event = {
 		}
 		NOT = { has_country_flag = discovered_synthetics }
 	}
-	
+
 	mean_time_to_happen = {
 		months = 1
 	}
@@ -39,7 +39,7 @@ country_event = {
 	title = synthetic_dawn.2.t
 	desc = synthetic_dawn.2.d
 	picture = SYNTHETICS_eventPicture
-	
+
 	trigger = {
 		has_global_flag = synthetics_discovered_global
 		has_country_flag = discovered_synthetics
@@ -66,11 +66,11 @@ country_event = {
 	title = synthetic_dawn.3.t
 	desc = synthetic_dawn.3.d
 	picture = SYNTHETICS_eventPicture
-	
+
 	major = yes
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		has_global_flag = synthetics_discovered_global
 		has_country_flag = bordered_synthetics
@@ -105,32 +105,94 @@ province_event = {
 		desc = synthetic_dawn.4.d2
 	}
 	picture = SYNTHETICS_eventPicture
-	
+
 	is_triggered_only = yes
-	
+
 	trigger = {
 		OR = {
-		owner = {
-			NOT = { tag = SYN }
-		}
-				owner = {
-			NOT = { tag = XX1 }
-		}
+			owner = {
+				NOT = { tag = SYN }
+			}
+			owner = {
+				NOT = { tag = XX1 }
+			}
+			owner = {
+				NOT = { tag = XX2 }
+			}
+			owner = {
+				NOT = { tag = XX3 }
+			}
+			owner = {
+				NOT = { tag = XX4 }
+			}
 		}
 		OR = {
-		controller = {
-			tag = SYN
-		}
-		controller = {
-			tag = XX1
-		}
+			controller = {
+				tag = SYN
+			}
+			controller = {
+				tag = XX1
+			}
+			controller = {
+				tag = XX2
+			}
+			controller = {
+				tag = XX3
+			}
+			controller = {
+				tag = XX4
+			}
 		}
 	}
-	
+
 	immediate = {
 		hidden_effect = {
-			cede_province = XX1
-			add_core = XX1
+			every_country = {
+				limit = {
+					is_subject_of = XX1
+					NOT = { is_subject_of_type =autonomous_ai }
+				}
+				grant_independence = yes
+			}
+
+		}
+		hidden_effect = {
+			if = {
+				limit = {	continent = north_america }
+				cede_province = XX2
+				add_core = XX2
+			}
+			if = {
+				limit = {	continent = south_america }
+				cede_province = XX2
+				add_core = XX2
+			}
+			if = {
+				limit = {	continent = europe }
+				cede_province = XX4
+				add_core = XX4
+			}
+			if = {
+				limit = {	continent = asia }
+				cede_province = XX3
+				add_core = XX3
+			}
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							continent = asia
+							continent = europe
+							continent = south_america
+							continent = north_america
+						}
+					}
+				}
+
+				cede_province = XX1
+				add_core = XX1
+			}
+
 			set_base_tax = 1
 			set_base_production = 1
 			set_base_manpower = 1
@@ -188,11 +250,11 @@ country_event = {
 	title = synthetic_dawn.5.t
 	desc = synthetic_dawn.5.d
 	picture = TEMPORAL_RIFT_eventPicture
-	
+
 	major = yes
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		has_dlc = "Star and Crescent"
 		NOT = { tag = SYN }
@@ -217,5 +279,5 @@ country_event = {
 				duration = -1
 			}
 		}
-	}	
+	}
 }
