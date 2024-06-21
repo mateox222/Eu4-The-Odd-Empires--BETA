@@ -147,11 +147,19 @@ province_event = {
 	}
 
 	immediate = {
+
+	}
+	option = {
 		hidden_effect = {
 			every_country = {
 				limit = {
 					is_subject_of = XX1
-					NOT = { is_subject_of_type =autonomous_ai }
+					NOT = {
+						OR = {
+							is_subject_of_type =autonomous_ai
+							is_colonial_nation = yes
+						}
+					}
 				}
 				grant_independence = yes
 			}
@@ -215,8 +223,6 @@ province_event = {
 				}
 			}
 		}
-	}
-	option = {
 		name = "synthetic_dawn.4.a"
 		tooltip = {
 			cede_province = XX1

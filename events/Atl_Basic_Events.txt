@@ -783,7 +783,12 @@ province_event = {
 					hidden = yes
 					trigger = {
 						is_subject_of = XX1
-						NOT = { is_subject_of_type = autonomous_ai }
+						NOT = {
+							OR = {
+								is_subject_of_type =autonomous_ai
+								is_colonial_nation = yes
+							}
+						}
 					}
 					option = {
 						name = "atlantropa_basic_event.6.a"
