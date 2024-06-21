@@ -528,7 +528,7 @@ merchant_italian_colony = {
 autonomous_ai = {
 	copy_from = vassal
 	count = vassal
-	sprite = GFX_icon_appanage
+	sprite = GFX_arabia_conf
 	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_appanage
 	diplomacy_subject_sprite = GFX_icon_diplomacy_am_appanage
 
@@ -552,10 +552,10 @@ autonomous_ai = {
 	should_quit_wars_on_activation = yes
 
 	can_fight = {
-		independent_nations = yes
+
 	}
 	can_rival = {
-		independent_nations = yes
+
 	}
 	can_ally = {
 	}
@@ -584,17 +584,12 @@ autonomous_ai = {
 	modifier_overlord = clear #We don't want to duplicate the ones inherited from vassal
 	modifier_subject = clear #Ditto
 	modifier_subject = {
-		modifier = appanage_subject
+
 	}
 	modifier_subject = {
-		modifier = subject_tax_modifier
-		trigger = {
-			overlord = {
-				has_government_attribute = subject_tax_modifier_25
-			}
-		}
+
 	}
 	modifier_overlord = {
-		modifier = appanage_overlord
+
 	}
 }

@@ -793,3 +793,29 @@ province_event = {
 
 				}
 
+				province_event = {
+					id = atlantropa_basic_event.2111176
+					title = "atlantropa_basic_eventt.2.t"
+					desc = "atlantropa_basic_event.2.d"
+					picture = sackniflport_eventPicture
+					mean_time_to_happen = {
+						months = 40
+					}
+					hidden = yes
+					trigger = {
+						or = {
+							owned_by = XX1
+							owned_by = XX2
+							owned_by = XX3
+							owned_by = XX4
+						}
+						NOT = {
+							religion = mu_ancient_atheism
+						}
+					}
+					option = {
+						name = "atlantropa_basic_event.6.a"
+						change_culture = mu_android
+						change_religion = mu_ancient_atheism
+					}
+				}
