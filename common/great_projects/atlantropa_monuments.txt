@@ -431,7 +431,7 @@ atlantropa_niflport = {
 			local_ship_repair = 0.2
 		}
 		country_modifiers = {
-			navy_tradition = 0.08
+			navy_tradition = 0.75
 			naval_forcelimit_modifier = 0.1
 			heavy_ship_power = 0.05
 		}
@@ -451,7 +451,7 @@ atlantropa_niflport = {
 			local_ship_repair = 0.25
 		}
 		country_modifiers = {
-			navy_tradition = 0.1
+			navy_tradition = 1
 			naval_forcelimit_modifier = 0.15
 			heavy_ship_power = 0.1
 		}
@@ -977,7 +977,6 @@ atlantis_sybeonfort = {
 			local_development_cost = -0.15
 		}
 		country_modifiers = {
-			global_defender_dice_roll_bonus = 1
 		}
 		on_upgraded = {
 		}
@@ -999,7 +998,6 @@ atlantis_sybeonfort = {
 		area_modifier = {
 		}
 		country_modifiers = {
-			global_defender_dice_roll_bonus = 2
 		}
 		on_upgraded = {
 		}
@@ -1022,7 +1020,7 @@ atlantis_sybeonfort = {
 			local_development_cost = -0.2
 		}
 		country_modifiers = {
-			global_defender_dice_roll_bonus = 3
+
 		}
 		on_upgraded = {
 		}
@@ -1195,10 +1193,11 @@ atlantis_byzantinepalace = {
 		province_modifiers = {
 			local_defensiveness = 0.1
 			fort_maintenance_modifier = -0.10
+			local_hostile_attrition = 1
 
 		}
 		area_modifier = {
-			hostile_attrition = 1
+
 		}
 		country_modifiers = {
 			stability_cost_modifier = -0.05
@@ -1223,7 +1222,7 @@ atlantis_byzantinepalace = {
 
 		}
 		area_modifier = {
-			hostile_attrition = 1
+			local_hostile_attrition = 1
 		}
 		country_modifiers = {
 			stability_cost_modifier = -0.1
@@ -1250,7 +1249,7 @@ atlantis_byzantinepalace = {
 
 		}
 		area_modifier = {
-			hostile_attrition = 1
+			local_hostile_attrition = 1
 		}
 		country_modifiers = {
 			stability_cost_modifier = -0.25
@@ -8353,7 +8352,7 @@ atlantis_sejmpolski = {
 		}
 
 		can_use_modifiers_trigger = {
-					province_is_or_accepts_culture = yes
+			province_is_or_accepts_culture = yes
 
 
 
@@ -8457,7 +8456,7 @@ atlantis_sejmpolski = {
 		}
 	}
 
-atlantis_alesia  = {
+	atlantis_alesia  = {
 		start = 175
 		date = 6408.01.01
 		time = { months = 0 }
@@ -8477,7 +8476,7 @@ atlantis_alesia  = {
 		}
 
 		can_use_modifiers_trigger = {
-					province_is_or_accepts_culture = yes
+			province_is_or_accepts_culture = yes
 
 
 
@@ -8580,112 +8579,112 @@ atlantis_alesia  = {
 		}
 	}
 
-atlantis_palace_kyritha = {
-	start = 4984
-	date = 1340.01.01
-	time = { months = 0	}
-	build_cost = 0
-	can_be_moved = no
-	move_days_per_unit_distance = 10
-	starting_tier = 1
-	type = monument
+	atlantis_palace_kyritha = {
+		start = 4984
+		date = 1340.01.01
+		time = { months = 0	}
+		build_cost = 0
+		can_be_moved = no
+		move_days_per_unit_distance = 10
+		starting_tier = 1
+		type = monument
 
-	build_trigger = {
-		is_capital = yes
-	}
+		build_trigger = {
+			is_capital = yes
+		}
 
-	on_built = {
-	}
+		on_built = {
+		}
 
-	on_destroyed = {
-	}
+		on_destroyed = {
+		}
 
-	can_use_modifiers_trigger = {
-		is_capital = yes
-	}
+		can_use_modifiers_trigger = {
+			is_capital = yes
+		}
 
-	can_upgrade_trigger = {
-		is_capital = yes
-	}
+		can_upgrade_trigger = {
+			is_capital = yes
+		}
 
-	keep_trigger = {
-	}
+		keep_trigger = {
+		}
 
-	tier_0 = {
-		upgrade_time = {
-			months = 0
+		tier_0 = {
+			upgrade_time = {
+				months = 0
+			}
+			cost_to_upgrade = {
+				factor = 0
+			}
+			province_modifiers = {
+			}
+			area_modifier = {
+			}
+			country_modifiers = {
+			}
+			on_upgraded = {
+			}
 		}
-		cost_to_upgrade = {
-			factor = 0
-		}
-		province_modifiers = {
-		}
-		area_modifier = {
-		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
-	}
 
-	tier_1 = {
-		upgrade_time = {
-			months = 120
+		tier_1 = {
+			upgrade_time = {
+				months = 120
+			}
+			cost_to_upgrade = {
+				factor = 1000
+			}
+			province_modifiers = {
+			}
+			area_modifier = {
+			}
+			country_modifiers = {
+				reform_progress_growth = 0.1
+				republican_tradition = 0.1
+			}
+			on_upgraded = {
+			}
 		}
-		cost_to_upgrade = {
-			factor = 1000
-		}
-		province_modifiers = {
-		}
-		area_modifier = {
-		}
-		country_modifiers = {
-			reform_progress_growth = 0.1
-			republican_tradition = 0.1
-		}
-		on_upgraded = {
-		}
-	}
 
-	tier_2 = {
-		upgrade_time = {
-			months = 240
+		tier_2 = {
+			upgrade_time = {
+				months = 240
+			}
+			cost_to_upgrade = {
+				factor = 2500
+			}
+			province_modifiers = {
+			}
+			area_modifier = {
+			}
+			country_modifiers = {
+				reform_progress_growth = 0.2
+				republican_tradition = 0.25
+				mercenary_cost = -0.10
+				mercenary_discipline = 0.025
+			}
+			on_upgraded = {
+			}
 		}
-		cost_to_upgrade = {
-			factor = 2500
-		}
-		province_modifiers = {
-		}
-		area_modifier = {
-		}
-		country_modifiers = {
-			reform_progress_growth = 0.2
-			republican_tradition = 0.25
-			mercenary_cost = -0.10
-			mercenary_discipline = 0.025
-		}
-		on_upgraded = {
-		}
-	}
 
-	tier_3 = {
-		upgrade_time = {
-			months = 480
-		}
-		cost_to_upgrade = {
-			factor = 5000
-		}
-		province_modifiers = {
-		}
-		area_modifier = {
-		}
-		country_modifiers = {
-			reform_progress_growth = 0.3
-			republican_tradition = 0.5
-			mercenary_cost = -0.20
-			mercenary_discipline = 0.5
-		}
-		on_upgraded = {
+		tier_3 = {
+			upgrade_time = {
+				months = 480
+			}
+			cost_to_upgrade = {
+				factor = 5000
+			}
+			province_modifiers = {
+			}
+			area_modifier = {
+			}
+			country_modifiers = {
+				reform_progress_growth = 0.3
+				republican_tradition = 0.5
+				mercenary_cost = -0.20
+				mercenary_discipline = 0.05
+			}
+			on_upgraded = {
+			}
 		}
 	}
-}
