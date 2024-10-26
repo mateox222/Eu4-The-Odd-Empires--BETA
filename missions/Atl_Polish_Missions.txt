@@ -1461,9 +1461,6 @@ atlantropa_venediabonus_sca_slot_3_a = {
 						OR = {
 							any_country = {
 								NOT = { tag = FRA }
-								capital_scope = {
-									region = iberia_region
-								}
 								has_opinion = { who = ROOT value = 100 }
 								total_development = 70
 							}
@@ -1512,14 +1509,12 @@ atlantropa_venediabonus_sca_slot_3_a = {
 						}
 					}
 					trigger = {
-						custom_trigger_tooltip = {
-							tooltip = fra_defeat_england_tt
-							NOT = {
-								FRA = {
-									num_of_owned_provinces_with = {
-										region = iberia_region
-										value = 10
-									}
+
+						NOT = {
+							FRA = {
+								num_of_owned_provinces_with = {
+									region = iberia_region
+									value = 10
 								}
 							}
 						}

@@ -3,7 +3,7 @@ atlantropa_eng_british_conquest22 = {
 	slot = 3
 	generic = no
 	ai = yes
-	
+
 	potential = {
 		OR = {
 			tag = ENG
@@ -17,15 +17,22 @@ atlantropa_eng_british_conquest22 = {
 		icon = atlantropa_chesziberian
 		required_missions = { }
 		position = 1
-		
+
 		trigger = {
 			army_size_percentage = 1
 			manpower_percentage = 0.6
 			num_of_generals = 1
 		}
-		
+
 		effect = {
 			lowlands_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			extremadura_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -53,7 +60,7 @@ atlantropa_eng_british_conquest22 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			
+
 			if = {
 				limit = {
 					exists = LOI
@@ -66,11 +73,11 @@ atlantropa_eng_british_conquest22 = {
 			}
 		}
 	}
-		atlantropa_conquer_ireland = {
+	atlantropa_conquer_ireland = {
 		icon = atlantropa_caucasia
 		required_missions = { atlantropa_eng_mighty_army }
 		position = 2
-		
+
 		provinces_to_highlight = {
 			OR = {
 				area = highlands_area
@@ -78,7 +85,7 @@ atlantropa_eng_british_conquest22 = {
 			}
 			NOT = { owned_by = ROOT }
 		}
-		
+
 		trigger = {
 			kingdom_of_the_isles_area = {
 				type = all
@@ -89,15 +96,15 @@ atlantropa_eng_british_conquest22 = {
 				owned_by = ROOT
 			}
 		}
-		
+
 		effect = {
-			highlands_area = { 
+			highlands_area = {
 				add_province_modifier = {
 					name = "eng_irish_revolts"
 					duration = 5475
 				}
 			}
-			kingdom_of_the_isles_area = { 
+			kingdom_of_the_isles_area = {
 				add_province_modifier = {
 					name = "eng_irish_revolts"
 					duration = 5475
@@ -109,10 +116,10 @@ atlantropa_eng_british_conquest22 = {
 		}
 	}
 
-atlantropa_eng_rb_take_shetland_and_faro_isles = {
+	atlantropa_eng_rb_take_shetland_and_faro_isles = {
 		icon = mission_rb_conquer_the_isles
 		required_missions = { atlantropa_conquer_ireland }
-		
+
 		provinces_to_highlight = {
 			OR = {
 				province_id = 5027
@@ -121,7 +128,7 @@ atlantropa_eng_rb_take_shetland_and_faro_isles = {
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
-		
+
 		trigger = {
 			5046 = {
 				owned_by = ROOT
@@ -133,7 +140,7 @@ atlantropa_eng_rb_take_shetland_and_faro_isles = {
 				owned_by = ROOT
 			}
 		}
-		
+
 		effect = {
 			add_country_modifier = {
 				name = "eng_rb_faro_coast"
@@ -163,26 +170,26 @@ atlantropa_eng_rb_take_shetland_and_faro_isles = {
 			}
 		}
 	}
-	
-conquer_niflheim = {
+
+	conquer_niflheim = {
 		icon = atlantropa_niflheim
 		required_missions = {	atlantropa_eng_rb_take_shetland_and_faro_isles }
 		position = 3
-		
+
 		provinces_to_highlight = {
 			OR = {
-				area = grauswig_area 
+				area = grauswig_area
 				area = niflport_area
 				area = hrodingard_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
-		
+
 		trigger = {
-				grauswig_area  = {
+			grauswig_area  = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}		
+			}
 			niflport_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
@@ -192,10 +199,10 @@ conquer_niflheim = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
+
 		effect = {
 			add_adm_power = 150
-				thule_region = {
+			thule_region = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
@@ -209,25 +216,25 @@ conquer_niflheim = {
 		}
 	}
 
-conquer_icelandiagbr = {
+	conquer_icelandiagbr = {
 		icon = atlantropa_canadahiber
 		required_missions = {	conquer_niflheim }
 		position = 3
-		
+
 		provinces_to_highlight = {
-				area = subarctic_islands_area
+			area = subarctic_islands_area
 
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
-		
+
 		trigger = {
-			
+
 			subarctic_islands_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
+
 		effect = {
 			add_adm_power = 150
 
@@ -244,7 +251,7 @@ conquer_icelandiagbr = {
 	atlantropa_eng_rb_greenland = {
 		icon = mission_rb_settle_the_north
 		required_missions = { conquer_icelandiagbr }
-		
+
 		provinces_to_highlight = {
 			area = frischland_area
 			NOT = { owned_by = ROOT }
@@ -260,14 +267,14 @@ conquer_icelandiagbr = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = miss_colonize_greenland
-				frischland_area = { 
+				frischland_area = {
 					type = all
 					owned_by = ROOT
 					is_city = yes
 				}
 			}
 		}
-		
+
 		effect = {
 			add_country_modifier = {
 				name = "eng_rb_colony_chance"
@@ -339,7 +346,7 @@ conquer_icelandiagbr = {
 				change_culture = ROOT
 			}
 		}
-	
+
 	}
 
 
@@ -350,13 +357,13 @@ conquer_icelandiagbr = {
 			superregion = india_superregion
 			has_port = yes
 			NOT = { owned_by = ROOT }
-		}		
+		}
 		trigger = {
 			india_superregion = {
 				has_port = yes
 				owned_by = ROOT
 			}
-		}	
+		}
 		effect = {
 			define_advisor = {
 				type = trader
@@ -385,8 +392,8 @@ conquer_icelandiagbr = {
 				area = kanara_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}		
-		trigger = { 
+		}
+		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				OR = {
 					area = tapti_area
@@ -398,7 +405,7 @@ conquer_icelandiagbr = {
 				}
 				value = 20
 			}
-		}	
+		}
 		effect = {
 			if = {
 				limit = {
@@ -468,7 +475,7 @@ atlantropa_eng_british_conquest = {
 	slot = 2
 	generic = no
 	ai = yes
-	
+
 	potential = {
 		OR = {
 			tag = ENG
@@ -477,10 +484,10 @@ atlantropa_eng_british_conquest = {
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-atlantropaeng_establish_trade_in_home_cot_gb = {
+	atlantropaeng_establish_trade_in_home_cot_gb = {
 		icon = mission_rb_monopolize_the_channel
 		required_missions = { }
-		
+
 		provinces_to_highlight = {
 			if = {
 				limit = { is_random_new_world = no }
@@ -494,7 +501,7 @@ atlantropaeng_establish_trade_in_home_cot_gb = {
 				province_id = 1269
 			}
 		}
-		
+
 		trigger = {
 			if = {
 				limit = { is_random_new_world = no }
@@ -520,7 +527,7 @@ atlantropaeng_establish_trade_in_home_cot_gb = {
 				}
 			}
 		}
-	
+
 		effect = {
 			add_country_modifier = {
 				name = "eng_channel_dominance"
@@ -535,39 +542,39 @@ atlantropaeng_establish_trade_in_home_cot_gb = {
 		}
 	}
 
-atlantropa_conquer_scotland = {
+	atlantropa_conquer_scotland = {
 		icon = atlantropa_alsace
 		required_missions = {	atlantropa_eng_mighty_army }
 		position = 2
-		
+
 		provinces_to_highlight = {
-				area = lowlands_area
+			area = lowlands_area
 
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
-		
+
 		trigger = {
-			
+
 			lowlands_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
+
 		effect = {
 			add_adm_power = 150
 			add_country_modifier = {
 				name = "atlantropa_army"
 				duration = 5475
 			}
-						lower_andalucia_area = {
+			lower_andalucia_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
-									upper_andalucia_area = {
+			upper_andalucia_area = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
@@ -581,11 +588,11 @@ atlantropa_conquer_scotland = {
 		}
 	}
 
- conquer_scotlandandalucia = {
+	conquer_scotlandandalucia = {
 		icon = atlantropa_frenchspain
 		required_missions = {	atlantropa_conquer_scotland }
 		position = 3
-		
+
 		provinces_to_highlight = {
 			OR = {
 				area = lower_andalucia_area
@@ -593,30 +600,30 @@ atlantropa_conquer_scotland = {
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
-		
+
 		trigger = {
-				lower_andalucia_area = {
+			lower_andalucia_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}		
+			}
 			upper_andalucia_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
+
 		effect = {
 			add_adm_power = 150
 			add_country_modifier = {
 				name = "wessex_army"
 				duration = -1
 			}
-				british_isles_region = {
+			british_isles_region = {
 				limit = {
 					NOT = { is_core = ROOT }
 					NOT = { is_permanent_claim = ROOT }
 				}
-				add_permanent_claim = ROOT
+				add_claim = ROOT
 			}
 
 		}
@@ -628,22 +635,22 @@ atlantropa_conquer_scotland = {
 	conquer_iberia = {
 		icon = atlantropa_iberianarmy
 		required_missions = { atlantropa_conquer_scotlandandalucia }
-		
+
 		provinces_to_highlight = {
-				region = british_isles_region
+			region = british_isles_region
 
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
-		
+
 		trigger = {
 			tag = GBR
-				british_isles_region = {
+			british_isles_region = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}		
+			}
 
 		}
-		
+
 		effect = {
 			add_adm_power = 150
 			add_country_modifier = {
@@ -660,13 +667,13 @@ atlantropa_conquer_scotland = {
 	atlantropa_eng_rb_own_thirteen_colonies = {
 		icon = mission_rb_the_thirteen_colonies
 		required_missions = { atlantropaenglish_colony_in_north_america }
-		
+
 		provinces_to_highlight = {
 			colonial_region = colonial_eastern_america
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			has_discovered = ROOT
 		}
-		
+
 		trigger = {
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				value = 15
@@ -674,7 +681,7 @@ atlantropa_conquer_scotland = {
 				is_city = yes
 			}
 		}
-		
+
 		effect = {
 			add_country_modifier = {
 				name = "eng_rb_thirteen_colonies_mod"
@@ -685,13 +692,13 @@ atlantropa_conquer_scotland = {
 	atlantropa_eng_rb_canada = {
 		icon = mission_rb_colonise_canada
 		required_missions = {  atlantropa_eng_rb_own_thirteen_colonies }
-		
+
 		provinces_to_highlight = {
 			colonial_region = colonial_canada
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			has_discovered = ROOT
 		}
-		
+
 		trigger = {
 			custom_trigger_tooltip = {
 				tooltip = miss_discover_canada
@@ -708,21 +715,21 @@ atlantropa_conquer_scotland = {
 				}
 			}
 		}
-		
+
 		effect = {
 			add_country_modifier = {
 				name = "eng_rb_established_shipping"
 				duration = 7300
 			}
 		}
-	
+
 	}
 
 	gbr_ave_the_redcoats = {
 		icon = mission_redcoats
 		provinces_to_highlight = {
-		}		
-		trigger = { 
+		}
+		trigger = {
 			reform_level = 4
 			max_manpower = 120
 			army_size = 80
@@ -732,7 +739,7 @@ atlantropa_conquer_scotland = {
 			}
 			army_tradition = 60
 			has_reform = royal_marines_reform
-		}	
+		}
 		effect = {
 			add_country_modifier = {
 				name = eng_the_redcoat
@@ -754,19 +761,19 @@ atlantropa_conquer_scotland = {
 				limit = {
 					has_building = atlantropa_road
 				}
-				add_base_production = 1	
+				add_base_production = 1
 			}
 		}
 		ai_weight = {
 			factor = 1
 		}
-	
+
 	}
-	
+
 	british_imperial_tracks = {
 		icon = atlantropa_steamengine
 		required_missions = { british_imperial_roads
-		atlantropa_eng_rb_furnaces
+			atlantropa_eng_rb_furnaces
 
 		}
 		position = 10
@@ -775,13 +782,13 @@ atlantropa_conquer_scotland = {
 		}
 		effect = {
 			every_owned_province = {
-				add_base_production = 1	
+				add_base_production = 1
 			}
 		}
 		ai_weight = {
 			factor = 1
 		}
-	
+
 	}
 
 
@@ -793,7 +800,7 @@ atlantropa_eng_british_naval_conq = {
 	slot = 4
 	generic = no
 	ai = yes
-	
+
 
 	potential = {
 		OR = {
@@ -806,8 +813,8 @@ atlantropa_eng_british_naval_conq = {
 	gbr_establish_royal_navy = {
 		icon = mission_rb_a_mighty_fleet
 		provinces_to_highlight = {
-		}		
-		trigger = { 
+		}
+		trigger = {
 			if = {
 				limit = { ai = no }
 				navy_size = 50
@@ -817,7 +824,7 @@ atlantropa_eng_british_naval_conq = {
 			else = {
 				navy_size = 25
 			}
-		}	
+		}
 		effect = {
 			5013 = {
 				add_permanent_claim = ROOT
@@ -838,19 +845,19 @@ atlantropa_eng_british_naval_conq = {
 			factor = 250
 		}
 	}
-	
-		
+
+
 
 	atlantropa_eng_rb_take_gibraltar = {
 		icon = atlantropa_brafil
 		required_missions = { gbr_establish_royal_navy }
 		position = 2
-		
+
 		provinces_to_highlight = {
 			province_id = 5013
 			NOT = { owned_by = ROOT }
 		}
-		
+
 		ai_weight = {
 			factor = 1
 			modifier = {
@@ -860,13 +867,13 @@ atlantropa_eng_british_naval_conq = {
 				}
 			}
 		}
-		
+
 		trigger = {
 			5013 = {
 				owned_by = ROOT
 			}
 		}
-		
+
 		effect = {
 			add_country_modifier = {
 				name = "eng_rb_gibraltar_mod"
@@ -884,82 +891,18 @@ atlantropa_eng_british_naval_conq = {
 	}
 
 
- 
- 	atlantropa_conquer_irelandia = {
-		icon = atlantropa_irelandia
-		required_missions = { atlantropa_eng_rb_take_gibraltar }
-		position = 2
-		
-		provinces_to_highlight = {
-			OR = {
-				area = munster_area
-				area = connacht_area
-				area = ulster_area
-				area = leinster_area
-			}
-			NOT = { owned_by = ROOT }
-		}
-		
-		trigger = {
-			munster_area = {
-				type = all
-				owned_by = ROOT
-			}
-			connacht_area = {
-				type = all
-				owned_by = ROOT
-			}
-			ulster_area = {
-				type = all
-				owned_by = ROOT
-			}
-			leinster_area = {
-				type = all
-				owned_by = ROOT
-			}
-		}
-		
-		effect = {
-			munster_area = { 
-				add_province_modifier = {
-					name = "eng_irish_revolts"
-					duration = 5475
-				}
-			}
-			connacht_area = { 
-				add_province_modifier = {
-					name = "eng_irish_revolts"
-					duration = 5475
-				}
-			}
-			ulster_area = { 
-				add_province_modifier = {
-					name = "eng_irish_revolts"
-					duration = 5475
-				}
-			}
-			leinster_area = { 
-				add_province_modifier = {
-					name = "eng_irish_revolts"
-					duration = 5475
-				}
-			}
-		}
-		ai_weight = {
-			factor = 500
-		}
-	}
 
-			atlantropa_eng_rb_take_baleares = {
+
+	atlantropa_eng_rb_take_baleares = {
 		icon = mission_rb_increase_our_reach
 		required_missions = { atlantropa_conquer_irelandia }
-		position = 3
-		
+		position = 4
+
 		provinces_to_highlight = {
-				region = lyonesse_region
+			region = lyonesse_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
-		
+
 		trigger = {
 
 			lyonesse_region = {
@@ -967,7 +910,7 @@ atlantropa_eng_british_naval_conq = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
+
 		effect = {
 			add_prestige = 10
 			munster_area = {
@@ -1002,26 +945,26 @@ atlantropa_eng_british_naval_conq = {
 	}
 
 
-conquer_thule = {
+	conquer_thule = {
 		icon = atlantropa_frenchanvy
 		required_missions = {	conquer_niflheim }
 		position = 3
-		
+
 		provinces_to_highlight = {
 			OR = {
 				region = thule_region
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
-		
+
 		trigger = {
-				thule_region  = {
+			thule_region  = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}		
+			}
 
 		}
-		
+
 		effect = {
 			add_adm_power = 150
 			add_country_modifier = {
@@ -1048,7 +991,7 @@ conquer_thule = {
 				deccan_region = { has_discovered = ROOT }
 			}
 		}
-		
+
 		effect = {
 			add_dip_power = 100
 			add_navy_tradition = 20
@@ -1122,8 +1065,8 @@ conquer_thule = {
 				area = south_lanka_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}		
-		trigger = { 
+		}
+		trigger = {
 			lanka_area = {
 				country_or_non_sovereign_subject_holds = ROOT
 				type = all
@@ -1132,7 +1075,7 @@ conquer_thule = {
 				country_or_non_sovereign_subject_holds = ROOT
 				type = all
 			}
-		}	
+		}
 		effect = {
 			572 = {
 				add_building = stock_exchange
@@ -1158,7 +1101,7 @@ conquer_thule = {
 		icon = mission_rb_inland_india
 		required_missions = { atlantropa_gbr_rb_india_landfall }
 		position = 9
-		
+
 		provinces_to_highlight = {
 			OR = {
 				area = golconda_area
@@ -1170,7 +1113,7 @@ conquer_thule = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			has_discovered = ROOT
 		}
-		
+
 		trigger = {
 			jharkhand_area = {
 				type = all
@@ -1193,7 +1136,7 @@ conquer_thule = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
+
 		effect = {
 			golconda_area = {
 				limit = {
@@ -1232,7 +1175,7 @@ conquer_thule = {
 				}
 			}
 		}
-	
+
 	}
 
 
@@ -1253,11 +1196,11 @@ atlantropa_eng_stability = {
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	atlantropa_eng_rb_control_state_religion = {
 		icon = mission_rb_control_state_religion
 
-		
+
 		trigger = {
 			current_age = age_of_discovery
 			OR = {
@@ -1267,7 +1210,7 @@ atlantropa_eng_stability = {
 				has_country_modifier = "counter_reformation"
 			}
 		}
-		
+
 		effect = {
 			add_country_modifier = {
 				name = "eng_rb_state_religion_mod"
@@ -1279,7 +1222,7 @@ atlantropa_eng_stability = {
 	atlantropa_eng_rb_empire_status = {
 		icon = mission_rb_empire
 		required_missions = {  gbr_establish_royal_navy }
-		
+
 		trigger = {
 			if = {
 				limit = {
@@ -1291,23 +1234,23 @@ atlantropa_eng_stability = {
 				}
 			}
 		}
-		
+
 		effect = {
 			add_adm_power = 75
 			add_dip_power = 75
 			add_mil_power = 75
-							add_casus_belli = {
-					target = GUY
-					type = cb_hundred_years_union
-					months = 360
-				}
+			add_casus_belli = {
+				target = GUY
+				type = cb_hundred_years_union
+				months = 360
+			}
 		}
 	}
 
 	atlantropa_vassalize_france = {
 		icon = atlantropa_burningkazan
 		required_missions = { atlantropa_eng_rb_empire_status }
-		
+
 		provinces_to_highlight = {
 			OR = {
 				area = guyenne_area
@@ -1316,7 +1259,7 @@ atlantropa_eng_stability = {
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
-		
+
 		trigger = {
 			OR = {
 				GUY = { is_subject_of = ROOT }
@@ -1334,20 +1277,20 @@ atlantropa_eng_stability = {
 				}
 			}
 		}
-		
+
 		effect = {
 			add_prestige = 25
 			add_country_modifier = {
 				name = "eng_french_recovery"
 				duration = 5475
 			}
-						poitou_area = { 
+			poitou_area = {
 				add_province_modifier = {
 					name = "eng_irish_revolts"
 					duration = 5475
 				}
 			}
-						brittany_area = { 
+			brittany_area = {
 				add_province_modifier = {
 					name = "eng_irish_revolts"
 					duration = 5475
@@ -1355,31 +1298,31 @@ atlantropa_eng_stability = {
 			}
 		}
 	}
-conquer_bretaniagbr = {
+	conquer_bretaniagbr = {
 		icon = atlantropa_normandy
 		required_missions = {	atlantropa_vassalize_france }
 		position = 3
-		
+
 		provinces_to_highlight = {
 			OR = {
 				area = poitou_area
-				area = brittany_area		
+				area = brittany_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
-		
+
 		trigger = {
-				poitou_area  = {
+			poitou_area  = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}		
-				brittany_area  = {
+			}
+			brittany_area  = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}		
+			}
 
 		}
-		
+
 		effect = {
 			add_adm_power = 150
 			add_country_modifier = {
@@ -1400,8 +1343,8 @@ conquer_bretaniagbr = {
 			owned_by = ROOT
 			NOT = { has_manpower_building_trigger = yes }
 			NOT = { has_building = soldier_households }
-		}		
-		trigger = { 
+		}
+		trigger = {
 			num_of_owned_provinces_with = {
 				OR = {
 					has_building = soldier_households
@@ -1476,14 +1419,14 @@ conquer_bretaniagbr = {
 		icon = army_reforms
 		required_missions = { ave_perfect_construct_barracks }
 		provinces_to_highlight = {
-		}		
-		trigger = { 
+		}
+		trigger = {
 			num_of_man_of_war = 10
 			num_of_marines = 20
 			army_size_percentage = 1
 			army_size = 50
 			monthly_mil = 10
-		}	
+		}
 		effect = {
 			define_advisor = {
 				type = commandant
@@ -1509,7 +1452,7 @@ conquer_bretaniagbr = {
 		icon = mission_rb_colonise_spice_islands
 		required_missions = { atlantropa_england_discovers_india }
 		position = 7
-		
+
 		provinces_to_highlight = {
 			OR = {
 				trade_company_region = trade_company_moluccas
@@ -1519,12 +1462,12 @@ conquer_bretaniagbr = {
 			NOT = { owned_by = ROOT }
 			has_discovered = ROOT
 		}
-		
+
 		trigger = {
 			custom_trigger_tooltip = {
 				tooltip = atlantropa_eng_rb_spice_islands.tooltip
 				OR = {
-					trade_company_moluccas = { 
+					trade_company_moluccas = {
 						owned_by = ROOT
 						is_city = yes
 					}
@@ -1535,7 +1478,7 @@ conquer_bretaniagbr = {
 				}
 			}
 		}
-		
+
 		effect = {
 			kutai_area = {
 				limit = {
@@ -1568,20 +1511,20 @@ conquer_bretaniagbr = {
 	atlantropa_gbr_rb_india_landfall = {
 		icon = mission_rb_conquer_bengal
 		required_missions = { atlantropa_eng_rb_spice_islands }
-		
+
 		provinces_to_highlight = {
 			area = west_bengal_area
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			has_discovered = ROOT
 		}
-		
+
 		trigger = {
 			west_bengal_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
+
 		effect = {
 			golconda_area = {
 				limit = {
@@ -1634,11 +1577,11 @@ conquer_bretaniagbr = {
 			}
 		}
 	}
-	
+
 	atlantropa_gbr_rb_india_coast = {
 		icon = mission_rb_take_indian_coast
 		required_missions = { atlantropa_gbr_rb_india_landfall }
-		
+
 		provinces_to_highlight = {
 			OR = {
 				area = orissa_area
@@ -1647,7 +1590,7 @@ conquer_bretaniagbr = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			has_discovered = ROOT
 		}
-		
+
 		trigger = {
 			orissa_area = {
 				type = all
@@ -1658,7 +1601,7 @@ conquer_bretaniagbr = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
+
 		effect = {
 			bihar_area = {
 				limit = {
@@ -1689,13 +1632,13 @@ conquer_bretaniagbr = {
 				add_permanent_claim = ROOT
 			}
 		}
-	
+
 	}
-	
+
 	atlantropa_gbr_rb_india_landgrab = {
 		icon = mission_rb_take_north_india
 		required_missions = { atlantropa_gbr_rb_india_coast }
-		
+
 		provinces_to_highlight = {
 			OR = {
 				area = bihar_area
@@ -1706,7 +1649,7 @@ conquer_bretaniagbr = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			has_discovered = ROOT
 		}
-		
+
 		trigger = {
 			bihar_area = {
 				type = all
@@ -1725,9 +1668,9 @@ conquer_bretaniagbr = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
-		
+
 		effect = {
-			add_country_modifier = {	
+			add_country_modifier = {
 				name = "gbr_rb_indian_integration"
 				duration = -1
 			}
@@ -1739,7 +1682,7 @@ conquer_bretaniagbr = {
 				add_permanent_claim = ROOT
 			}
 		}
-	
+
 	}
 
 
@@ -1749,7 +1692,7 @@ atlantropa_eng_british_conquestamerica = {
 	slot = 1
 	generic = no
 	ai = yes
-	
+
 	potential = {
 		OR = {
 			tag = ENG
@@ -1763,8 +1706,8 @@ atlantropa_eng_british_conquestamerica = {
 	gbr_english_superiority = {
 		icon = mission_the_french_menace
 		provinces_to_highlight = {
-		}		
-		trigger = { 
+		}
+		trigger = {
 			OR = {
 				custom_trigger_tooltip = {
 					tooltip = obj_humiliate_rival_tooltip
@@ -1799,7 +1742,7 @@ atlantropa_eng_british_conquestamerica = {
 		icon = mission_rb_control_the_hansa
 		required_missions = { atlantropaeng_establish_trade_in_home_cot_gb }
 		provinces_to_highlight = {
-		}		
+		}
 		trigger = {
 			reform_level = 3
 			OR = {
@@ -1807,7 +1750,7 @@ atlantropa_eng_british_conquestamerica = {
 				mercantilism = 40
 			}
 			trader = 3
-		}	
+		}
 		effect = {
 			unlock_estate_privilege = {
 				estate_privilege = estate_burghers_autonomous_trade_companies
@@ -1829,7 +1772,7 @@ atlantropa_eng_british_conquestamerica = {
 		icon = mission_establish_high_seas_navy
 		required_missions = { }
 
-		
+
 		trigger = {
 			custom_trigger_tooltip = {
 				tooltip = miss_discover_eastern_america
@@ -1840,7 +1783,7 @@ atlantropa_eng_british_conquestamerica = {
 				colonial_the_carribean = { has_discovered = ROOT }
 			}
 		}
-		
+
 		effect = {
 			add_country_modifier = {
 				name = "the_unknown_frontier"
@@ -1852,18 +1795,18 @@ atlantropa_eng_british_conquestamerica = {
 			factor = 500
 		}
 	}
-		atlantropaenglish_colony_in_north_america = {
-			position = 4
+	atlantropaenglish_colony_in_north_america = {
+		position = 4
 		icon = mission_settlers_north_america
 		required_missions = { atlantropa_eng_discover_america_caribbean }
-		
+
 		provinces_to_highlight = {
 			colonial_region = colonial_eastern_america
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			has_discovered = ROOT
 		}
-		
-		trigger = { 
+
+		trigger = {
 			custom_trigger_tooltip = {
 				tooltip = miss_colonize_eastern_america
 				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
@@ -1873,7 +1816,7 @@ atlantropa_eng_british_conquestamerica = {
 				}
 			}
 		}
-	
+
 		effect = {
 			create_conquistador = {
 				tradition = 80
@@ -1883,21 +1826,21 @@ atlantropa_eng_british_conquestamerica = {
 			factor = 500
 		}
 	}
-	
+
 	atlantropa_english_colony_in_the_carribean = {
 		position = 5
 		icon = mission_iberian_conquistador
 		required_missions = { atlantropaenglish_colony_in_north_america }
-		
+
 		provinces_to_highlight = {
 			colonial_region = colonial_the_carribean
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			has_discovered = ROOT
 		}
-		
-		trigger = { 
+
+		trigger = {
 			custom_trigger_tooltip = {
-			tooltip = atlantropa_english_colony_in_the_carribean.tooltip
+				tooltip = atlantropa_english_colony_in_the_carribean.tooltip
 				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 					value = 5
 					colonial_region = colonial_the_carribean
@@ -1905,7 +1848,7 @@ atlantropa_eng_british_conquestamerica = {
 				}
 			}
 		}
-	
+
 		effect = {
 			add_country_modifier = {
 				name = "eng_caribbean_trade"
@@ -1924,7 +1867,7 @@ atlantropa_eng_british_conquestamerica = {
 		provinces_to_highlight = {
 			is_capital_of = ROOT
 			is_prosperous = no
-		}		
+		}
 		trigger = {
 			has_institution = renaissance
 			artist = 3
@@ -1960,7 +1903,7 @@ atlantropa_eng_british_conquestamerica = {
 	gbr_ave_renovate_universities = {
 		icon = mission_rb_renovate_oxbridge
 		required_missions = { gbr_ave_english_renaissance }
-		
+
 		provinces_to_highlight = {
 			OR = {
 				province_id = 237
@@ -1971,7 +1914,7 @@ atlantropa_eng_british_conquestamerica = {
 				NOT = { development = 30 }
 			}
 		}
-		
+
 		trigger = {
 			owns = 237
 			owns = 218
@@ -1989,7 +1932,7 @@ atlantropa_eng_british_conquestamerica = {
 				}
 			}
 		}
-		
+
 		effect = {
 			237 = {
 				add_building = university
@@ -2049,11 +1992,11 @@ atlantropa_eng_british_conquestamerica = {
 			factor = 250
 		}
 	}
-	
+
 	atlantropa_eng_rb_coal = {
 		icon = mission_rb_prospect_for_coal
 		required_missions = { gbr_ave_renovate_universities }
-		
+
 		trigger = {
 			has_institution = enlightenment
 			calc_true_if = {
@@ -2076,10 +2019,10 @@ atlantropa_eng_british_conquestamerica = {
 			}
 			246 = {
 				owned_by = ROOT
-			}	
+			}
 
 		}
-		
+
 		effect = {
 			249 = {
 				add_base_production = 3
@@ -2097,21 +2040,21 @@ atlantropa_eng_british_conquestamerica = {
 					duration = -1
 				}
 			}
-			
+
 		}
 	}
-	
+
 	atlantropa_eng_rb_furnaces = {
 		icon = mission_rb_build_furnaces
 		required_missions = { atlantropa_eng_rb_coal }
-		
+
 		provinces_to_highlight = {
 			OR = {
 				province_id = 249
 				province_id = 246
 			}
 		}
-		
+
 		trigger = {
 			249 = {
 				owned_by = ROOT
@@ -2121,9 +2064,9 @@ atlantropa_eng_british_conquestamerica = {
 				owned_by = ROOT
 				has_building = furnace
 			}
-			
+
 		}
-		
+
 		effect = {
 			capital_scope = {
 				add_base_tax = 3
@@ -2132,7 +2075,7 @@ atlantropa_eng_british_conquestamerica = {
 			}
 		}
 	}
-	
+
 
 
 }

@@ -124,11 +124,11 @@ french_missions_north = {
 			}
 			if = {
 				limit = {
-					exists = BRI
+					exists = HOL
 				}
 				add_casus_belli = {
 					type = cb_vassalize_mission
-					target = BRI
+					target = HOL
 					months = 120
 				}
 			}
@@ -157,6 +157,18 @@ french_missions_north = {
 			}
 		}
 		effect = {
+			custom_tooltip = franchedurch
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							culture = dutch
+							culture = flemish
+						}
+					}
+					change_culture = frenchcdutch
+				}
+			}
 			add_dip_power = 100
 		}
 		ai_weight = {
@@ -312,7 +324,7 @@ french_missions_north = {
 			}
 			if = {
 				limit = {
-					exists = SPA
+					exists = NAP
 					valid_for_personal_unions_trigger = yes
 					SPA = {
 						valid_for_personal_unions_trigger = yes
@@ -321,66 +333,18 @@ french_missions_north = {
 				add_casus_belli = {
 					type = cb_restore_personal_union
 					months = 300
-					target = SPA
-				}
-			}
-			else_if = {
-				limit = {
-					exists = CAS
-					valid_for_personal_unions_trigger = yes
-					CAS = {
-						valid_for_personal_unions_trigger = yes
-					}
-				}
-				add_casus_belli = {
-					type = cb_restore_personal_union
-					months = 300
-					target = CAS
+					target = NAP
 				}
 			}
 			else = {
-				castille_area = {
+				atlantis_sicily_region = {
 					limit = {
 						NOT = { is_permanent_claim = ROOT }
 						NOT = { is_core = ROOT	}
 					}
 					add_permanent_claim = ROOT
 				}
-				toledo_area = {
-					limit = {
-						NOT = { is_permanent_claim = ROOT }
-						NOT = { is_core = ROOT	}
-					}
-					add_permanent_claim = ROOT
-				}
-				asturias_area = {
-					limit = {
-						NOT = { is_permanent_claim = ROOT }
-						NOT = { is_core = ROOT	}
-					}
-					add_permanent_claim = ROOT
-				}
-				leon_area = {
-					limit = {
-						NOT = { is_permanent_claim = ROOT }
-						NOT = { is_core = ROOT	}
-					}
-					add_permanent_claim = ROOT
-				}
-				extremadura_area = {
-					limit = {
-						NOT = { is_permanent_claim = ROOT }
-						NOT = { is_core = ROOT	}
-					}
-					add_permanent_claim = ROOT
-				}
-				basque_country = {
-					limit = {
-						NOT = { is_permanent_claim = ROOT }
-						NOT = { is_core = ROOT	}
-					}
-					add_permanent_claim = ROOT
-				}
+
 			}
 		}
 		ai_weight = {
@@ -663,13 +627,7 @@ emp_france_missions_2 = {
 		}
 
 		effect = {
-			holland_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
+
 			ile_de_france_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -747,7 +705,7 @@ emp_france_missions_2 = {
 		effect = {
 			87 = {
 				add_province_modifier = {
-					name = "french_callais"
+					name = "french_callais2"
 					duration = -1
 				}
 
@@ -823,18 +781,7 @@ emp_france_missions_2 = {
 
 
 		effect = {
-			custom_tooltip = franchedurch
-			hidden_effect = {
-				every_owned_province = {
-					limit = {
-						OR = {
-							culture = dutch
-							culture = flemish
-						}
-					}
-					change_culture = frenchcdutch
-				}
-			}
+
 			wallonia_area = {
 				add_province_modifier = {
 					name = "faster_integration"
@@ -1575,20 +1522,14 @@ french_missions_33 = {
 					add_casus_belli = {
 						target = POL
 						type = cb_hundred_years_union
-						months = 360
+						months = 1200
 					}
 				}
 				if = {
 					limit = {
 						has_dlc = "Rule Britannia"
 					}
-					holland_area = {
-						limit = {
-							NOT = { is_core = ROOT }
-							NOT = { is_permanent_claim = ROOT }
-						}
-						add_permanent_claim = ROOT
-					}
+					add_mil_power = 100
 				}
 			}
 		}
@@ -1699,7 +1640,7 @@ french_missions_33 = {
 			provinces_to_highlight = {
 				OR = {
 					province_id = 174
-					province_id = 173
+					province_id = 175
 				}
 				NOT = {
 					country_or_non_sovereign_subject_holds = ROOT
@@ -1709,7 +1650,7 @@ french_missions_33 = {
 				174 = {
 					country_or_non_sovereign_subject_holds = ROOT
 				}
-				173 = {
+				175 = {
 					country_or_non_sovereign_subject_holds = ROOT
 				}
 			}
@@ -2332,11 +2273,11 @@ french_missions_33 = {
 						}
 						if = {
 							limit = {
-								exists = PLC
+								exists = X46
 
 							}
 							add_casus_belli = {
-								target = PLC
+								target = X46
 								type = cb_vassalize_mission
 								months = 120
 							}
@@ -2346,13 +2287,13 @@ french_missions_33 = {
 								exists = POL
 							}
 							add_casus_belli = {
-								target = POL
+								target = X46
 								type = cb_vassalize_mission
 								months = 120
 							}
 						}
 						else = {
-							mazovia_area = {
+							italy_region = {
 								limit = {
 									NOT = { is_core = ROOT }
 									NOT = { is_permanent_claim = ROOT }
@@ -2373,7 +2314,7 @@ french_missions_33 = {
 							province_id = 257
 							if = {
 								limit = {
-									257 = {
+									184 = {
 										owner = {
 											primary_culture = polish
 											is_subject_of = ROOT
@@ -2412,21 +2353,20 @@ french_missions_33 = {
 								add_permanent_claim = ROOT
 							}
 						}
-						custom_tooltip = duchy_of_warsaw_tt
-						hidden_effect = {
-							257 = {
-								owner = {
-									save_event_target_as = duchy_of_warsaw
-								}
-							}
-							poland_region = {
-								limit = {
-									NOT = { is_core = event_target:duchy_of_warsaw }
-									NOT = { is_permanent_claim = event_target:duchy_of_warsaw }
-								}
-								add_permanent_claim = event_target:duchy_of_warsaw
+
+						257 = {
+							owner = {
+								save_event_target_as = duchy_of_warsaw
 							}
 						}
+						poland_region = {
+							limit = {
+								NOT = { is_core = event_target:duchy_of_warsaw }
+								NOT = { is_permanent_claim = event_target:duchy_of_warsaw }
+							}
+							add_permanent_claim = event_target:duchy_of_warsaw
+						}
+
 					}
 					ai_weight = {
 						factor = 50

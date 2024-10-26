@@ -1,49 +1,49 @@
 country_decisions = {
-Unite_Eusklaera = {
-major = yes
-potential = {
-		was_never_end_game_tag_trigger = yes
+	Unite_Eusklaera = {
+		major = yes
+		potential = {
+			was_never_end_game_tag_trigger = yes
 			tag = NAV
-	NOT = { exists = T7U }
-	}
-	provinces_to_highlight = { 
-				OR = {
-province_id = 210
-province_id = 4969
-province_id = 5464
-province_id = 4361
-province_id = 5461
-province_id = 1745
-
-
-	} }
-		allow = {
 			NOT = { exists = T7U }
-	stability = 1
-		is_nomad = no
-		is_at_war = no
-		owns_core_province = 210
-		owns_core_province = 4969
-		owns_core_province = 5464
-		owns_core_province = 4361
-		owns_core_province = 5461
-		owns_core_province = 1745
-		
-					num_of_owned_provinces_with = {
-				value = 20
-					region = british_isles_region
-				    is_core = root
-			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 239
+				province_id = 236
+				province_id = 4375
+				province_id = 235
+				province_id = 5641
+				province_id = 242
+
+
+			} }
+			allow = {
+				NOT = { exists = T7U }
+				stability = 1
+				is_nomad = no
+				is_at_war = no
+				owns_core_province = 239
+				owns_core_province = 236
+				owns_core_province = 4375
+				owns_core_province = 235
+				owns_core_province = 5641
+				owns_core_province = 242
+
+				num_of_owned_provinces_with = {
+					value = 20
+					region = iberia_region
+					is_core = root
+				}
 			}
 
-		effect = {
-					country_event = { 
-    id = uniteiberia_events.2
-}
+			effect = {
+				country_event = {
+					id = uniteiberia_events.2
+				}
 
-}
-		ai_will_do = {
-			factor = 1
-}
-}
-}
+			}
+			ai_will_do = {
+				factor = 1
+			}
+		}
+	}

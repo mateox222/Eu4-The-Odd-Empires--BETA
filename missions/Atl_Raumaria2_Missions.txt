@@ -12,6 +12,7 @@ Raumara2_mission = {
 		position = 1
 		required_missions = {  }
 		trigger = {
+			ai = no
 			republican_tradition = 90
 		}
 		effect = {
@@ -69,7 +70,7 @@ raumaria_dwa_1 = {
 		required_missions = { udmurtia_city }
 		trigger = {
 			1972 = {
-			development = 25 }
+				development = 25 }
 		}
 		effect = {
 			add_adm_power = 100
@@ -86,21 +87,21 @@ raumaria_dwa_1 = {
 		trigger = {
 			custom_trigger_tooltip = {
 				tooltip = republikaraumariaprzegrywa
-			has_country_flag = republikaraumariaprzegrywa
+				has_country_flag = republikaraumariaprzegrywa
 			}
 		}
 		effect = {
 			hidden_effect = {
 				kill_ruler = yes
-			change_country_color = {
-				color = { 31 50 67 }
-			}
-			override_country_name = RAUMARIA
-			set_country_flag = raumariaprzebudzenieprawdziwe
-			swap_non_generic_missions = yes
-			country_event = { 
-				id = aryan_empire.1
-			}
+				change_country_color = {
+					color = { 31 50 67 }
+				}
+				override_country_name = RAUMARIA
+				set_country_flag = raumariaprzebudzenieprawdziwe
+				swap_non_generic_missions = yes
+				country_event = {
+					id = aryan_empire.1
+				}
 			}
 			custom_tooltip = raumariafanatics2
 		}
@@ -136,7 +137,7 @@ raumaria_2_mi2 = {
 				tooltip = republikaraumariawygrywa
 				has_country_flag = republikaraumariawygrywa
 			}
-			
+
 		}
 		effect = {
 			add_stability = 3

@@ -6,14 +6,14 @@ tr_x11_religious_missions = {
 	potential = {
 		OR = {
 
-		tag = X11
-        tag = SL1
+			tag = X11
+			tag = SL1
 		}
 
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	X11_churches_mission = {
 		icon = mission_land_of_churches
 		required_missions = {  }
@@ -44,17 +44,17 @@ tr_x11_religious_missions = {
 			}
 		}
 	}
-	    	x11_ser_reform_the_nomocanon = {
+	x11_ser_reform_the_nomocanon = {
 		icon = reform_the_nomocanon
 		required_missions = { X11_churches_mission }
 		position = 1
-		
+
 		provinces_to_highlight = {
 		}
 		trigger = {
 			if = {
-				limit = { 
-					religion = orthodox 
+				limit = {
+					religion = orthodox
 					has_dlc = "Third Rome"
 				}
 				custom_trigger_tooltip = {
@@ -95,14 +95,14 @@ tr_x11_exclusive_church = {
 	ai = yes
 
 	potential = {
-        OR = {
-	tag = X11
-    tag = SL1
-        }
+		OR = {
+			tag = X11
+			tag = SL1
+		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	x11_patriarchate_mission = {
 		icon = atlantropa_aryanarchitecturedev
 		required_missions = { x11_ser_reform_the_nomocanon }
@@ -122,9 +122,9 @@ tr_x11_exclusive_church = {
 			}
 		}
 		trigger = {
-			NOT = { 
-				151 = { 
-					owned_by = BYZ 
+			NOT = {
+				151 = {
+					owned_by = BYZ
 				}
 			}
 			religion = orthodox
@@ -150,22 +150,22 @@ tr_musc2ovy_conquest = {
 	ai = yes
 
 	potential = {
-        OR = {
-	tag = X11
-    tag = SL1
-        }
+		OR = {
+			tag = X11
+			tag = SL1
+		}
 
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	x11_access_to_the_baltic_sea = {
 		icon = atlantropa_frenchanvy
 		required_missions = { tr_consolidate_x11_mission }
 		position = 4
 		provinces_to_highlight = {
-				area = gotaland_area
-			
+			area = gotaland_area
+
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -173,7 +173,7 @@ tr_musc2ovy_conquest = {
 		trigger = {
 			gotaland_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
@@ -184,10 +184,10 @@ tr_musc2ovy_conquest = {
 		}
 	}
 
-    	x11_third_rome_mission = {
+	x11_third_rome_mission = {
 		icon = mission_the_third_rome
 		required_missions = { x11_romania_conquest }
-        position = 6
+		position = 6
 		provinces_to_highlight = {
 			OR = {
 				AND = {
@@ -195,7 +195,7 @@ tr_musc2ovy_conquest = {
 						area = karelia_area
 						area = pskov_area
 						area = estonia_ingria_area
- 						area = livonia_area                
+						area = livonia_area
 					}
 					NOT = {
 						country_or_non_sovereign_subject_holds = ROOT
@@ -216,19 +216,19 @@ tr_musc2ovy_conquest = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-				livonia_area  = {
+			livonia_area  = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
-  add_country_modifier = {
+			add_country_modifier = {
 				name = "ruskaimperia"
 				duration = -1
 			}
-           
+
 			add_prestige = 20
-                        novgorod_area = {
+			novgorod_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -236,24 +236,24 @@ tr_musc2ovy_conquest = {
 				add_permanent_claim = ROOT
 			}
 
-		                       tver_area = {
+			tver_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
-            smolensk_area = {
+			smolensk_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
-            
-            }
+
+		}
 	}
-		x11_subjugate_crimea = {
+	x11_subjugate_crimea = {
 		icon = atlantropa_Krimeabattle
 		required_missions = { x11_conquer_volgaaa }
 		provinces_to_highlight = {
@@ -284,7 +284,7 @@ tr_musc2ovy_conquest = {
 			}
 		}
 	}
-    	x11_subjugate_kazan = {
+	x11_subjugate_kazan = {
 		icon = atlantropa_burningkazan
 		required_missions = { x11_conquer_steppes_russia_mission }
 		position = 2
@@ -319,16 +319,16 @@ tr_musc2ovy_conquest = {
 			}
 		}
 		effect = {
-		1082 = {
+			1082 = {
 				cede_province = ROOT
 				change_culture = ROOT
 				change_religion = ROOT
 				rename_capital = "Kazanskigrad"
 				add_devastation = 75
-				set_base_tax = 2	
+				set_base_tax = 2
 				set_base_production = 2
-				set_base_manpower = 2	
-				change_province_name = "Kazanskigrad"	
+				set_base_manpower = 2
+				change_province_name = "Kazanskigrad"
 			}
 			kazan_area = {
 				limit = { owned_by = ROOT }
@@ -470,23 +470,23 @@ tr_musc2ovy_conquest = {
 		}
 	}
 }
-	
-	
+
+
 tr_x11_conquest_1 = {
 	slot = 2
 	generic = no
 	ai = yes
 
 	potential = {
-        OR = {
-	tag = X11
-    tag = SL1
-        }
+		OR = {
+			tag = X11
+			tag = SL1
+		}
 
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	x11_invade_novgorod_mission = {
 		icon = atlantropa_wostochieniasoldiers
 		required_missions = {  }
@@ -495,11 +495,11 @@ tr_x11_conquest_1 = {
 			army_size_percentage = 0.8
 		}
 		effect = {
-              add_country_modifier = {
+			add_country_modifier = {
 				name = "ruskaarmia1"
 				duration = -1
 			}
-            create_general = { tradition = 50 }	
+			create_general = { tradition = 50 }
 
 			hinter_pommern_area = {
 				limit = {
@@ -515,7 +515,7 @@ tr_x11_conquest_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			    silesia_area = {
+			silesia_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
@@ -586,32 +586,39 @@ tr_x11_conquest_1 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-		hinter_pommern_area = {
+			hinter_pommern_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
-                          add_country_modifier = {
+			add_country_modifier = {
 				name = "ruskaarmia2"
 				duration = -1
 			}
-           custom_tooltip = francheczechruski
+			custom_tooltip = francheczechruski
 			hidden_effect = {
 				every_owned_province = {
-				limit = {
-					culture = byelorussian
-				}
+					limit = {
+						culture = byelorussian
+					}
 					change_culture = ROOT
-			
-		}
-            }
+
+				}
+			}
+			gotaland_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_claim = ROOT
+			}
 			poland_region = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
 				}
-				add_permanent_claim = ROOT
+				add_claim = ROOT
 			}
 			4523 = {
 				add_base_tax = 1
@@ -626,19 +633,15 @@ tr_x11_conquest_1 = {
 		completed_by =  7576.1.1
 		provinces_to_highlight = {
 			OR = {
-				province_id = 1859
-				province_id = 4524
-				province_id = 256
-				province_id = 5574
 				province_id = 262
 				province_id = 2960
 				province_id = 2959
 				province_id = 263
 				province_id = 4723
-  				province_id = 43           
-   				province_id = 2997
-    			province_id = 4747   
-     			province_id = 254                                         
+				province_id = 43
+				province_id = 2997
+				province_id = 4747
+				province_id = 254
 			}
 			NOT = {
 				owned_by = ROOT
@@ -646,18 +649,6 @@ tr_x11_conquest_1 = {
 		}
 		trigger = {
 			# integrate minors
-		1859 = {
-				owned_by = ROOT
-			}
-			4524 = {
-				owned_by = ROOT
-			}
-			256 = {
-				owned_by = ROOT
-			}
-			5574 = {
-				owned_by = ROOT
-			}
 			262 = {
 				owned_by = ROOT
 			}
@@ -673,27 +664,27 @@ tr_x11_conquest_1 = {
 			4723 = {
 				owned_by = ROOT
 			}
-            			43 = {
+			43 = {
 				owned_by = ROOT
 			}
-            			2997 = {
+			2997 = {
 				owned_by = ROOT
 			}
-            			4747 = {
+			4747 = {
 				owned_by = ROOT
 			}
-            		254 = {
+			254 = {
 				owned_by = ROOT
 			}
 		}
 		effect = {
-            add_government_reform = atlantropatsardom
-            set_government_rank = 3
+			add_government_reform = atlantropatsardom
+			set_government_rank = 3
 			add_country_modifier = {
 				name = "russian_integration"
 				duration = 5475
 			}
-		254 = {
+			254 = {
 				add_base_tax = 1
 				add_base_production = 1
 				add_base_manpower = 1
@@ -734,7 +725,7 @@ tr_x11_conquest_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
-            gotaland_area = {
+			gotaland_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -763,7 +754,7 @@ tr_x11_conquest_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
-            slavonia_area = {
+			slavonia_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -777,28 +768,28 @@ tr_x11_conquest_1 = {
 		icon = atlantropa_russianempireprussia
 		required_missions = { tr_consolidate_x11_mission }
 		provinces_to_highlight = {
-            OR = {
-			area = kuyavia_area
-            area = east_prussia_area
-            area = pruthenia_area
-            }
+			OR = {
+				area = kuyavia_area
+				area = east_prussia_area
+				area = pruthenia_area
+			}
 		}
 		trigger = {
 			kuyavia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				country_or_non_sovereign_subject_holds = ROOT
 			}
-            			east_prussia_area = {
+			east_prussia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				country_or_non_sovereign_subject_holds = ROOT
 			}
-            			pruthenia_area = {
+			pruthenia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
-            			              add_country_modifier = {
+			add_country_modifier = {
 				name = "ruskaarmia3"
 				duration = -1
 			}
@@ -819,7 +810,7 @@ tr_x11_conquest_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
-            			podlasie_area = {
+			podlasie_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -843,17 +834,17 @@ x11_russia_exclusive_1 = {
 	ai = yes
 
 	potential = {
-        OR = {
-	tag = X11
-    tag = SL1
-        }
+		OR = {
+			tag = X11
+			tag = SL1
+		}
 
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	x11_romania_conquest = {
-		icon = atlantropa_slupygiedymina
+		icon = atlantropa_aryanlebesnraum
 		required_missions = { x11_prussia_partitions_poland_new }
 		position = 5
 		provinces_to_highlight = {
@@ -861,7 +852,7 @@ x11_russia_exclusive_1 = {
 				area = samogitia_area
 				area = lithuania_area
 				area = curonia_area
- 				area = podlasie_area       
+				area = podlasie_area
 
 			}
 			NOT = {
@@ -877,18 +868,18 @@ x11_russia_exclusive_1 = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-            curonia_area = {
+			curonia_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 
-            podlasie_area = {
+			podlasie_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 		}
 		effect = {
-            			              add_country_modifier = {
+			add_country_modifier = {
 				name = "ruskaarmia4"
 				duration = -1
 			}
@@ -913,7 +904,7 @@ x11_russia_exclusive_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
-            karelia_area = {
+			karelia_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -931,8 +922,8 @@ x11_russia_exclusive_1 = {
 				area = white_ruthenia_area
 				area = chernigov_area
 				area = east_dniepr_area
- 				area = yedisan_area  
-  				area = podolia_volhynia_area                             
+				area = yedisan_area
+				area = podolia_volhynia_area
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -941,42 +932,42 @@ x11_russia_exclusive_1 = {
 		trigger = {
 			white_ruthenia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			chernigov_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				country_or_non_sovereign_subject_holds = ROOT
 			}
-           east_dniepr_area = {
+			east_dniepr_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				country_or_non_sovereign_subject_holds = ROOT
 			}
-          podolia_volhynia_area = {
+			podolia_volhynia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 
 		}
 		effect = {
-			            			              add_country_modifier = {
+			add_country_modifier = {
 				name = "ruskaarmia5"
 				duration = -1
 			}
-            	crimea_region = {
+			crimea_region = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
-            	chernigov_area = {
+			chernigov_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
-            	ruthenia_region = {
+			ruthenia_region = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -988,7 +979,7 @@ x11_russia_exclusive_1 = {
 	x11_conquer_steppes_russia_mission = {
 		icon = atlantropa_ukrainskarosjaarmia
 		required_missions = { x11_conquer_volgaaa }
-        position = 7
+		position = 7
 
 		provinces_to_highlight = {
 			area = tambov_area
@@ -1010,7 +1001,7 @@ x11_russia_exclusive_1 = {
 			}
 		}
 		effect = {
-            			            			              add_country_modifier = {
+			add_country_modifier = {
 				name = "ruskaarmia6"
 				duration = -1
 			}
@@ -1121,21 +1112,21 @@ x11_russia_exclusive_1 = {
 					duration = 5475
 				}
 			}
-			crimea_region = {
+			ural_region = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
-			nogai_area = {
+			west_siberia_region = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
-			lower_yik_area = {
+			central_asia_region = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -1153,27 +1144,27 @@ tr_x11_conquest_2 = {
 	ai = yes
 
 	potential = {
-        OR = {
-	tag = X11
-    tag = SL1
-        }
+		OR = {
+			tag = X11
+			tag = SL1
+		}
 
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-		 russia_vodka_states_two = {
+	russia_vodka_states_two = {
 		icon = atlantropa_vodka
-		
-		trigger = {
-		wine = 5
-		} 
 
-		
+		trigger = {
+			wine = 5
+		}
+
+
 		effect = {
-							add_country_modifier = {
-					name = "ruskavodka"
-					duration = -1
-				}
+			add_country_modifier = {
+				name = "ruskavodka"
+				duration = -1
+			}
 		}
 		ai_weight = {
 			factor = 500
@@ -1181,41 +1172,41 @@ tr_x11_conquest_2 = {
 	}
 
 
-	        	russia_POLSKA_states_two = {
+	russia_POLSKA_states_two = {
 		icon = atlantropa_frenchspain
 		required_missions = { x11_invade_novgorod_mission }
 		position = 2
-		
+
 		provinces_to_highlight = {
-            OR = {
-			area = lusatia_area
-            area = silesia_area        
-            }
+			OR = {
+				area = lusatia_area
+				area = silesia_area
+			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
-		
+
 		trigger = {
 			lusatia_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-						silesia_area   = {
+			silesia_area   = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-		} 
+		}
 
-		
+
 		effect = {
 			add_prestige = 15
-	            moravia_area = {
+			moravia_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
-                bohemia_area = {
+			bohemia_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
@@ -1234,42 +1225,42 @@ tr_x11_conquest_2 = {
 			factor = 500
 		}
 	}
-    	russia_krakow_UKRAINA = {
+	russia_krakow_UKRAINA = {
 		icon = atlantropa_undeavenedia
 		required_missions = { russia_POLSKA_states_two  }
 		provinces_to_highlight = {
-            OR = {
-			area = erzgebirge_area 
-			area = bohemia_area
-			area = moravia_area          
-            }
+			OR = {
+				area = erzgebirge_area
+				area = bohemia_area
+				area = moravia_area
+			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
-		
+
 		trigger = {
 			moravia_area  = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
- 			bohemia_area  = {
+			bohemia_area  = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
- 			erzgebirge_area   = {
+			erzgebirge_area   = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}                      
+			}
 			is_subject = no
 		}
 		effect = {
-				add_country_modifier = {
-					name = "ruskaukraina"
-					duration = -1
-				}
+			add_country_modifier = {
+				name = "ruskaukraina"
+				duration = -1
+			}
 
-        }
+		}
 
-}
+	}
 
 	x11_conquer_finland = {
 		icon = atlantropa_aryanarchitecture
@@ -1279,7 +1270,7 @@ tr_x11_conquest_2 = {
 			OR = {
 				area = red_ruthenia_area
 				area = slovakia_area
-                area = slavonia_area
+				area = slavonia_area
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -1288,45 +1279,45 @@ tr_x11_conquest_2 = {
 		trigger = {
 			slovakia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			red_ruthenia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				country_or_non_sovereign_subject_holds = ROOT
 			}
-            slavonia_area  = {
+			slavonia_area  = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 
 		}
 		effect = {
-					            			              add_country_modifier = {
+			add_country_modifier = {
 				name = "ruskaarmia7"
 				duration = -1
 			}
-            		                      volhynia_area = {
+			volhynia_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
-            	pripyat_area = {
+			pripyat_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
-            	west_dniepr_area = {
+			west_dniepr_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
-                        minsk_area = {
+			minsk_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -1336,7 +1327,7 @@ tr_x11_conquest_2 = {
 		}
 	}
 
- x11_conquer_volgaa = {
+	x11_conquer_volgaa = {
 		icon = atlantropa_burningturkland
 		required_missions = { x11_conquer_finland }
 		position = 5
@@ -1345,7 +1336,7 @@ tr_x11_conquest_2 = {
 				area = volhynia_area
 				area = pripyat_area
 				area = west_dniepr_area
- 				area = minsk_area            
+				area = minsk_area
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -1354,19 +1345,19 @@ tr_x11_conquest_2 = {
 		trigger = {
 			volhynia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 			pripyat_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				country_or_non_sovereign_subject_holds = ROOT
 			}
-            west_dniepr_area = {
+			west_dniepr_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				country_or_non_sovereign_subject_holds = ROOT
 			}
-           minsk_area = {
+			minsk_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				country_or_non_sovereign_subject_holds = ROOT
 			}
 
 		}
@@ -1375,42 +1366,42 @@ tr_x11_conquest_2 = {
 				name = "ruskaarmia8"
 				duration = -1
 			}
-            	white_ruthenia_area = {
+			white_ruthenia_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
-            	chernigov_area = {
+			chernigov_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
-            	east_dniepr_area = {
+			east_dniepr_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
-                       yedisan_area = {
+			yedisan_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
-                podolia_volhynia_area = {
+			podolia_volhynia_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
 			}
-            moldavia_area = {
+			moldavia_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -1428,14 +1419,14 @@ tr_x11_exclusive_2 = {
 	ai = yes
 
 	potential = {
-        OR = {
-	tag = X11
-    tag = SL1
-        }
+		OR = {
+			tag = X11
+			tag = SL1
+		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	x11_manchuria_coast = {
 		icon = mission_amur_acquisition
 		required_missions = { tr_x11n_colony_in_east_siberia_region }
@@ -1502,7 +1493,7 @@ tr_x11_exclusive_2 = {
 				OR = {
 					has_country_flag = rus_had_time_of_troubles
 					AND = {
-                        NOT = { current_age = medieval_age }
+						NOT = { current_age = medieval_age }
 						NOT = { current_age = age_of_discovery }
 						NOT = { current_age = age_of_reformation }
 
@@ -1514,7 +1505,7 @@ tr_x11_exclusive_2 = {
 			add_prestige = 10
 		}
 	}
-    	x11_streltsy_mission = {
+	x11_streltsy_mission = {
 		icon = mission_recruit_streltsy
 		required_missions = { x11time_of_troubles_mission }
 		position = 9
@@ -1590,7 +1581,7 @@ tr_x11_exclusive_2 = {
 					}
 				}
 			}
-			
+
 		}
 		effect = {
 			add_army_tradition = 25
@@ -1600,7 +1591,7 @@ tr_x11_exclusive_2 = {
 						has_reform = revolutionary_empire_reform
 						has_reform = revolutionary_republic_reform
 					}
-				}		
+				}
 				add_country_modifier = {
 					name = "rus_revolutionary_zeal"
 					duration = -1
@@ -1622,14 +1613,14 @@ tr_x11_conquest_3 = {
 	ai = yes
 
 	potential = {
-        OR = {
-	tag = X11
-    tag = SL1
-        }
+		OR = {
+			tag = X11
+			tag = SL1
+		}
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	# Tame the Steppes
 
 
@@ -1646,9 +1637,6 @@ tr_x11_conquest_3 = {
 			has_discovered = ROOT
 		}
 		trigger = {
-			1074 = {
-				owned_by = ROOT
-			}
 			1075 = {
 				owned_by = ROOT
 			}
@@ -1658,11 +1646,7 @@ tr_x11_conquest_3 = {
 			}
 		}
 		effect = {
-			1074 = {
-				change_religion = ROOT
-				change_culture = ROOT
-				add_base_production = 2
-			}
+
 			1075 = {
 				change_religion = ROOT
 				change_culture = ROOT
@@ -1718,15 +1702,15 @@ tr_x11_exclusive_3 = {
 	ai = yes
 
 	potential = {
-        OR = {
-	tag = X11
-    tag = SL1
-        }
+		OR = {
+			tag = X11
+			tag = SL1
+		}
 
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	x11tr_prikazy_mission = {
 		icon = mission_establish_the_prikazy
 		required_missions = { x11time_of_troubles_mission }
@@ -1780,7 +1764,7 @@ tr_x11_exclusive_3 = {
 			}
 		}
 	}
-	
+
 	x11_state_manufactories = {
 		icon = mission_state_manufactories
 		required_missions = { x11tr_prikazy_mission }
@@ -1817,17 +1801,17 @@ tr_siberia_mis2sions = {
 	ai = yes
 
 	potential = {
-        OR = {
-	tag = X11
-    tag = SL1
-        }
+		OR = {
+			tag = X11
+			tag = SL1
+		}
 
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
 
-	
+
+
 	rus_integrate_x11 = {
 		icon = mission_integrate_perm
 		required_missions = {  }

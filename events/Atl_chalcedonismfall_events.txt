@@ -320,18 +320,20 @@ country_event = {
 				change_religion = catholic
 			}
 			every_country = {
-							limit = {
-							NOT = { TAG = LAE }
-							culture_group = byzantine
-						}
-						change_religion = orthodox
-							every_owned_province = {
-						limit = {
-							religion = catholic
-						}
-						change_religion = orthodox
-					}
+				limit = {
+					NOT = { TAG = LAE }
+					NOT = { TAG = TRE }
+
+					culture_group = byzantine
 				}
+				change_religion = orthodox
+				every_owned_province = {
+					limit = {
+						religion = catholic
+					}
+					change_religion = orthodox
+				}
+			}
 			every_country = {
 				remove_country_modifier = alexandria_pentarch_modifier
 				remove_country_modifier = rome_pentarch_modifier
@@ -631,19 +633,20 @@ country_event = {
 				REMOVE_CORE = X46
 			}
 			add_reform_desire = 100
-				every_country = {
-							limit = {
-							NOT = { TAG = LAE }
-							culture_group = byzantine
-						}
-						change_religion = orthodox
-							every_owned_province = {
-						limit = {
-							religion = catholic
-						}
-						change_religion = orthodox
-					}
+			every_country = {
+				limit = {
+					NOT = { TAG = LAE }
+					NOT = { TAG = TRE }
+					culture_group = byzantine
 				}
+				change_religion = orthodox
+				every_owned_province = {
+					limit = {
+						religion = catholic
+					}
+					change_religion = orthodox
+				}
+			}
 
 		}
 		random_country = {
