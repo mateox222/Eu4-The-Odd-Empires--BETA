@@ -311,7 +311,7 @@ emp_mlo_venice_branch = {
 		}
 		effect = {
 			if = {
-				trigger = {
+				limit = {
 					MLO = { is_subject_of = X31 }
 				}
 				inherit = MLO
@@ -669,9 +669,9 @@ emp_mlo_security_branch = {
 		required_missions = { emp_mlo_friends_in_high_places }
 		trigger = {
 			crown_land_share = 30
-			}
 			legitimacy_equivalent = 75
 		}
+
 		effect = {
 			add_country_modifier = {
 				name = mlo_dealt_with_republicanism
@@ -806,7 +806,7 @@ emp_mlo_security_branch = {
 			}
 		}
 		effect = {
-						add_stability = 2
+			add_stability = 2
 			add_army_professionalism = 0.05
 			add_army_tradition = 10
 			create_general = { tradition = 100 }
