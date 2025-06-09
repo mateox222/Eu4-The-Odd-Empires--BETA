@@ -132,7 +132,10 @@ country_event = {
 	}
 
 	option = {
-		name = flavor_pol.18.c
+				trigger = {
+			X46 = { is_emperor = yes }
+		}
+		name = flavor_pol.18.c #test
 		ai_chance = {
 			factor = 15
 		}
@@ -1004,6 +1007,12 @@ country_event = {
 					country_event = {
 						id = venediaevent.2
 					}
+				PL7 = {
+					country_event = {
+						id = lechinaaevent.1
+					}
+				}
+					
 				}
 			}}
 
