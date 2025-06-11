@@ -1,0 +1,75 @@
+country_decisions = {
+restore_ancient_calendar = {
+        major = no
+        
+        potential = {
+            religion = slavic_pagan_reformed
+        }
+        
+        allow = {
+            stability = 1
+            adm_power = 100
+        }
+        
+        effect = {
+            add_country_modifier = {
+                name = "polans_ancient_calendar"
+                duration = -1
+            }
+            add_adm_power = -100
+        }
+    }
+    polans_restore_pagan_temples = {
+		potential = {
+			tag = PL7
+			religion = slavic_pagan_reformed
+			any_owned_province = {
+				OR = {
+					religion = catholic
+					religion = orthodox
+				}
+				NOT = { has_building = temple }
+			}
+		}
+		
+		allow = {
+			adm_power = 100
+			treasury = 100
+			religious_unity = 0.8
+		}
+		
+		effect = {
+			add_adm_power = -100
+			add_treasury = -100
+			random_owned_province = {
+				limit = {
+					OR = {
+						religion = catholic
+						religion = orthodox
+					}
+					NOT = { has_building = temple }
+				}
+				change_religion = slavic_pagan_reformed
+				add_building = temple
+				add_province_modifier = {
+					name = "polans_restored_temple"
+					duration = 3650
+				}
+			}
+			add_country_modifier = {
+				name = "polans_temple_restoration"
+				duration = 1825
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				religious_unity = 0.9
+			}
+		}
+	}
+
+}
+

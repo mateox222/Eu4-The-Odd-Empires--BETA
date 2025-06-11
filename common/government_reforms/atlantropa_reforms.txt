@@ -1594,3 +1594,33 @@ african_autocracy_reform = {
 		}
 	}
 }
+
+lechia_pagan_empire = {
+	icon = "russian_principality"
+	allow_normal_conversion = yes
+	potential = {
+		tag = PL7
+		religion = slavic_pagan_reformed
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 40
+	
+	modifiers = {
+		army_tradition_decay = -0.01
+		navy_tradition_decay = -0.01
+		religious_unity = 0.15
+		legitimacy = 1
+		land_morale = 0.10
+		naval_morale = 0.10
+		free_leader_pool = 1
+	}
+	
+	conditional = {
+		allow = { religion = slavic_pagan_reformed }
+		custom_attributes = {
+			enables_plutocratic_idea_group = no
+			enables_aristocratic_idea_group = yes
+			enables_divine_idea_group = yes
+		}
+	}
+}
