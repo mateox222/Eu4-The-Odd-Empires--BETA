@@ -1,0 +1,385 @@
+########################################
+# GOTHORIA MISSION TREE
+########################################
+
+gothoria_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = TLC
+	}
+	has_country_shield = yes
+
+	gtr_consolidate_realm = {
+		icon = mission_consolidate_the_state
+		required_missions = { gtr_aztec_fall }
+		position = 2
+		provinces_to_highlight = {
+			owned_by = ROOT
+			NOT = { is_core = ROOT }
+		}
+		trigger = {
+			all_owned_province = {
+				is_core = ROOT
+			}
+			stability = 3
+			NOT = { num_of_rebel_armies = 1 }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "gtr_realm_consolidated"
+				duration = 7300
+			}
+			add_adm_power = 100
+		}
+	}
+
+	gtr_gothic_administration = {
+		icon = mission_monarch_in_throne_room
+		required_missions = { gtr_consolidate_realm }
+		position = 3
+		trigger = {
+			adm_power = 200
+			advisor = theologian
+			has_idea_group = administrative_ideas
+		}
+		effect = {
+			add_adm_power = -200
+			add_years_of_income = 1
+			add_prestige = 10
+			add_country_modifier = {
+				name = "gtr_gothic_bureaucracy"
+				duration = -1
+			}
+			capital_scope = {
+				add_base_tax = 2
+				add_base_production = 1
+			}
+		}
+	}
+
+	gtr_cathedral_of_arians = {
+		icon = mission_european_church
+		required_missions = { gtr_gothic_administration }
+		position = 4
+		trigger = {
+			temple = 3
+			treasury = 200
+			stability = 2
+		}
+		effect = {
+			add_treasury = -200
+			add_stability = 1
+						every_province = {
+			limit = {
+			 region = libyasuperior_region
+			}
+			add_permanent_claim	= ROOT
+			}
+			capital_scope = {
+				add_building = cathedral
+			}
+			add_country_modifier = {
+				name = "gtr_arian_revival"
+				duration = -1
+			}
+		}
+	}
+
+	gtr_african_dominion = {
+		icon = mission_west_african_ports
+		required_missions = {   gtr_desert_fortress  }
+		position = 5
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 15
+				region = libyasuperior_region
+			}
+			prestige = 25
+		}
+		effect = {
+			add_country_modifier = {
+				name = "gtr_lords_of_maghreb"
+				duration = -1
+			}
+			maghreb_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	gtr_new_carthage = {
+		icon = africa_proconsulare
+		required_missions = { gtr_african_dominion gtr_ancient_rivalry  }
+		position = 6
+		provinces_to_highlight = {
+			province_id = 341  # Tunis
+		}
+
+		trigger = {
+						num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 15
+				region = maghreb_region
+			}
+			owns = 341  # Tunis
+			341 = {
+				development = 20
+				has_building = marketplace
+			}
+		}
+		effect = {
+			341 = {
+				change_province_name = "Karthago"
+				add_province_modifier = {
+					name = "gtr_new_carthage_port"
+					duration = -1
+				}
+			}
+			add_mercantilism = 5
+			add_years_of_income = 1.5
+		}
+	}
+}
+
+gothoria_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = TLC
+	}
+	has_country_shield = yes
+	gtr_aztec_fall = {
+		icon = atlantropa_aztec6
+		required_missions = {  }
+		position = 1
+		trigger = {
+			is_at_war = no
+
+		}
+		effect = {
+			add_stability = 1
+			add_years_of_income = 1
+			create_general = {
+				tradition = 80
+			}
+		}
+	}
+	gtr_gothic_warriors = {
+		icon = mission_assemble_an_army
+		required_missions = { gtr_aztec_fall}
+		position = 2
+		trigger = {
+			army_size_percentage = 1
+			manpower_percentage = 0.6
+			num_of_generals = 1
+		}
+		effect = {
+			add_country_modifier = {
+				name = "gtr_warrior_tradition"
+				duration = 9125
+			}
+			add_mil_power = 100
+		}
+	}
+
+
+
+	gtr_desert_fortress = {
+		icon = mission_bedouins
+		required_missions = { gtr_gothic_warriors  }
+		position = 4
+		trigger = {
+			owns = 336  # Fez
+			336 = {
+				fort_level = 2
+				has_building = barracks
+			}
+		}
+		effect = {
+			336 = {
+				add_province_modifier = {
+					name = "gtr_desert_bastion"
+					duration = -1
+				}
+			}
+			add_country_modifier = {
+				name = "gtr_fortified_frontier"
+				duration = 7300
+			}
+		}
+	}
+
+	gtr_ancient_rivalry = {
+		icon = mission_cannons_firing
+		required_missions = { gtr_desert_fortress }
+		position = 5
+		trigger = {
+			total_development = 400
+			army_tradition = 20
+		}
+		effect = {
+			add_country_modifier = {
+				name = "gtr_gothic_resurgence"
+				duration = -1
+			}
+			add_casus_belli = {
+				target = X55
+				type = cb_imperialism
+				months = 300
+			}
+		}
+	}
+
+	gtr_legacy_of_alaric = {
+		icon = mission_conquer_5_states
+		required_missions = { gtr_ancient_rivalry }
+		position = 6
+		trigger = {
+	
+			total_development = 600
+			owns = 341  # Tunis
+
+
+			prestige = 50
+			army_tradition = 60
+
+
+		}
+		effect = {
+			add_country_modifier = {
+				name = "gtr_alarics_heir"
+				duration = -1
+			}
+			add_prestige = 25
+			add_legitimacy = 20
+		}
+	}
+		gtr_empire_of_the_goths = {
+		icon = mission_empire
+		required_missions = { gtr_gothic_armada gtr_legacy_of_alaric gtr_new_carthage }
+		position = 7
+		trigger = {
+			total_development = 400
+			prestige = 75
+			is_great_power = yes
+			government_rank = 3
+		}
+		effect = {
+			override_country_name = GOTHORUMIMPERIUM
+			change_country_color = { 
+    color = { 107 15 18 }
+}
+			add_country_modifier = {
+				name = "gtr_gothic_empire"
+				duration = -1
+			}
+			change_government_reform_progress = 100
+			add_prestige = 50
+		}
+	}
+}
+
+gothoria_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = TLC
+	}
+	has_country_shield = yes
+
+	gtr_tribal_unity = {
+		icon = mission_unite_home_region
+		required_missions = { gtr_aztec_fall }
+		position = 2
+		trigger = {
+			religious_unity = 0.8
+			legitimacy = 75
+			stability = 3
+			NOT = { average_unrest = 1 }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "gtr_united_tribes"
+				duration = 10950
+			}
+			add_dip_power = 100
+		}
+	}
+
+	gtr_mediterranean_ambitions = {
+		icon = mission_establish_high_seas_navy
+		required_missions = {  }
+		position = 3
+		trigger = {
+			navy_size = 15
+			sailors_percentage = 0.6
+			num_of_light_ship = 5
+		}
+		effect = {
+			add_country_modifier = {
+				name = "gtr_naval_expansion"
+				duration = 7300
+			}
+		add_dip_power = 100
+			add_years_of_income = 1
+
+		}
+	}
+
+	gtr_iberian_raids = {
+		icon = mission_raid_on_venice
+		required_missions = { gtr_mediterranean_ambitions }
+		position = 4
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 3
+				region = iberia_region
+			}
+			has_won_war_against = {
+				who = CAS
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "gtr_iberian_terror"
+				duration = 5475
+			}
+			add_years_of_income = 1
+			add_prestige = 10
+		}
+	}
+
+	gtr_gothic_armada = {
+		icon = mission_invade_island
+		required_missions = { gtr_iberian_raids }
+		position = 6
+		trigger = {
+			navy_size = 30
+			num_of_galley = 15
+			naval_tradition = 30
+		}
+		effect = {
+			add_country_modifier = {
+				name = "gtr_masters_of_mediterranean"
+				duration = -1
+			}
+			create_admiral = {
+				tradition = 80
+			}
+		}
+	}
+
+
+}
+
+########################################
+# MODIFIERS
+########################################
+

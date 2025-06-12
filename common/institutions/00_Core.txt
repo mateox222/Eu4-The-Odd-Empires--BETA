@@ -375,7 +375,7 @@ gunpowder_warfare = {
 		is_state = yes
 		OR = {
 			has_building = fort_15th
-			trade_goods = saltpeter
+			trade_goods = salt
 			owner = { mil_tech = 11 }
 		}
 	}
@@ -434,8 +434,8 @@ gunpowder_warfare = {
 			factor = 2
 			scale = yes
 			custom_trigger_tooltip = {
-				tooltip = tooltip_saltpeter_trade_good
-				trade_goods = saltpeter
+				tooltip = tooltip_salt_trade_good
+				trade_goods = salt
 			}
 		}
 		modifier = {
@@ -773,7 +773,7 @@ banking_revolution = {
 		development = 25
 		OR = {
 			development = 25
-			trade_goods = precious_metals
+			trade_goods = gold
 		}
 		owner = {
 			NOT = { inflation = 5 }
@@ -841,8 +841,8 @@ banking_revolution = {
 			factor = 1.8
 			scale = yes
 			custom_trigger_tooltip = {
-				tooltip = tooltip_precious_metals_trade_good
-				trade_goods = precious_metals
+				tooltip = tooltip_gold_trade_good
+				trade_goods = gold
 			}
 		}
 		modifier = {
@@ -2365,7 +2365,7 @@ scientific_revolution = {
 				is_year = 6875
 				owner = {
 					NOT = { technology_group = sub_saharan }
-					NOT = { technology_group = new_world }
+					NOT = { technology_group = north_american }
 				}
 			}
 			is_year = 6900
@@ -2377,7 +2377,6 @@ scientific_revolution = {
 		is_state = yes
 		OR = {
 			has_building = university
-			has_building = observatory
 			development = 25
 			owner = { innovativeness = 20 }
 		}
@@ -2411,14 +2410,7 @@ scientific_revolution = {
 				has_building = university
 			}
 		}
-		modifier = {
-			factor = 2.5
-			scale = yes
-			custom_trigger_tooltip = {
-				tooltip = tooltip_observatory_building
-				has_building = observatory
-			}
-		}
+
 		modifier = {
 			factor = 1.5
 			scale = yes
@@ -3539,7 +3531,7 @@ administrative_efficiency = {
 				is_year = 6990
 				owner = {
 					NOT = { technology_group = sub_saharan }
-					NOT = { technology_group = new_world }
+					NOT = { technology_group = north_american }
 				}
 			}
 			is_year = 7000
