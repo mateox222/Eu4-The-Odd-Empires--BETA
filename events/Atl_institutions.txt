@@ -1,0 +1,162 @@
+# Events for New Institutions - EU4
+
+namespace = new_institutions
+
+# Urban Communes Institution
+country_event = {
+    id = new_institutions.1
+    title = "new_institutions.1.t"
+    desc = "new_institutions.1.d"
+    picture = CITY_DEVELOPMENT_eventPicture
+    
+    is_triggered_only = yes
+
+    goto = institution_origin
+    	immediate = {
+		hidden_effect = {
+			from = { save_event_target_as = institution_origin }
+		}
+	}
+    option = {
+        name = "new_institutions.1.a"
+ capital_scope = {
+            add_institution_embracement = {
+                which = urban_communes
+                value = 100
+            }
+        }
+        add_prestige = 10
+        		add_adm_power = 100
+		add_dip_power = 100
+		add_mil_power = 100
+    }
+}
+
+# Gunpowder Warfare Institution  
+country_event = {
+    id = new_institutions.2
+    title = "new_institutions.2.t"
+    desc = "new_institutions.2.d"
+    picture = MILITARY_CAMP_eventPicture
+    
+    is_triggered_only = yes
+
+    goto = institution_origin
+   	immediate = {
+		hidden_effect = {
+			from = { save_event_target_as = institution_origin }
+		}
+	} 
+    option = {
+        name = "new_institutions.2.a"
+         capital_scope = {
+            add_institution_embracement = {
+                which = gunpowder_warfare
+                value = 100
+            }
+        }
+        add_army_tradition = 5
+        		add_adm_power = 100
+		add_dip_power = 100
+		add_mil_power = 100
+    }
+}
+
+# Banking Revolution Institution
+country_event = {
+    id = new_institutions.3
+    title = "new_institutions.3.t"
+    desc = "new_institutions.3.d"
+    picture = MERCHANTS_TALKING_eventPicture
+    
+    is_triggered_only = yes
+
+    goto = institution_origin
+    	immediate = {
+		hidden_effect = {
+			from = { save_event_target_as = institution_origin }
+		}
+	}
+    option = {
+        name = "new_institutions.3.a"
+        capital_scope = {
+            add_institution_embracement = {
+                which = banking_revolution
+                value = 100
+            }
+        }
+        add_years_of_income = 0.5
+       		add_adm_power = 100
+		add_dip_power = 100
+		add_mil_power = 100
+    }
+}
+
+
+# Scientific Revolution Institution
+country_event = {
+    id = new_institutions.5
+    title = "new_institutions.5.t"
+    desc = "new_institutions.5.d"
+    picture = UNIVERSITY_eventPicture
+    
+    is_triggered_only = yes
+
+    goto = institution_origin
+    
+    mean_time_to_happen = {
+        days = 1
+    }
+    	immediate = {
+		hidden_effect = {
+			from = { save_event_target_as = institution_origin }
+		}
+	}
+    option = {
+        name = "new_institutions.5.a"
+       capital_scope = {
+            add_institution_embracement = {
+                which = scientific_revolution
+                value = 100
+            }
+        }
+       		add_adm_power = 100
+		add_dip_power = 100
+		add_mil_power = 100
+    }
+}
+
+
+# Administrative Efficiency Institution
+country_event = {
+    id = new_institutions.7
+    title = "new_institutions.7.t"
+    desc = "new_institutions.7.d"
+    picture = COURT_eventPicture
+    
+    is_triggered_only = yes
+
+    goto = institution_origin
+    
+    mean_time_to_happen = {
+        days = 1
+    }
+    	immediate = {
+		hidden_effect = {
+			from = { save_event_target_as = institution_origin }
+		}
+	}
+    
+    option = {
+        name = "new_institutions.7.a"
+        capital_scope = {
+            add_institution_embracement = {
+                which = administrative_efficiency
+                value = 100
+            }
+        }
+       		add_adm_power = 100
+		add_dip_power = 100
+		add_mil_power = 100
+    }
+}
