@@ -1,134 +1,134 @@
-	namespace = atlantropa_crisis
-    country_event = {
-	id = atlantropa_crisis.1
-	title = atlantropa_crisis.1.t
-	desc = atlantropa_crisis.1.d
-	picture = MONEYMONEYMONEY_eventPicture
-		trigger = {
-        inflation = 5
-NOT = { has_country_modifier = atlantropa_inflation_growing }
-NOT = { has_country_modifier = atlantropa_inflation_fight }
-NOT = { has_country_modifier = atlantropa_inflation_growing2 }
-NOT = { has_country_modifier = atlantropa_inflation_fight2 }
-        }
-mean_time_to_happen = {
-	months = 30
-	}
-    		option = {
-	name = "atlantropa_crisis.1.b" 
-		ai_chance = { factor = 75 }
-				add_country_modifier = {
-				name = "atlantropa_inflation_fight"
-				duration = 6850
-			}
-	if = {
-	limit = { 
-	OR = {
-	tag = BYZ
-	tag = A52
-	}}
-							add_government_power = {
-					mechanic_type = nikaeanbyzantine_mechanic
-					power_type = byz_adm_power
-					value = -2
-				}
-	}
-            add_stability = -1	
-            add_inflation = -5	
-			add_adm_power = 50	
-}
-		option = {
-	name = "atlantropa_crisis.1.a" 
-		ai_chance = { factor = 25 }
-				add_country_modifier = {
-				name = "atlantropa_inflation_growing"
-				duration = 3600
-			}
-            add_inflation = 1	
-	if = {
-	limit = { 
-	OR = {
-	tag = BYZ
-	tag = A52
-	}}
-							add_government_power = {
-					mechanic_type = nikaeanbyzantine_mechanic
-					power_type = byz_adm_power
-					value = 2
-				}
-	}
-}
-
-
-    }
-
-
-        country_event = {
-	id = atlantropa_crisis.2
-	title = atlantropa_crisis.2.t
-	desc = atlantropa_crisis.2.d
-	picture = MONEYMONEYMONEY_eventPicture
-		trigger = {
-        inflation = 10
-NOT = { has_country_modifier = atlantropa_inflation_growing2 }
-NOT = { has_country_modifier = atlantropa_inflation_fight2 }
-        }
-mean_time_to_happen = {
-	months = 60
-	}
-immediate = {
-	    remove_country_modifier = atlantropa_inflation_fight	
-        remove_country_modifier = atlantropa_inflation_growing
-}
-
-    		option = {
-	name = "atlantropa_crisis.2.b" 
-		ai_chance = { factor = 75 }
-				add_country_modifier = {
-				name = "atlantropa_inflation_fight2"
-				duration = 6850
-			}
-	if = {
-	limit = { 
-	OR = {
-	tag = BYZ
-	tag = A52
-	}}
-							add_government_power = {
-					mechanic_type = nikaeanbyzantine_mechanic
-					power_type = byz_adm_power
-					value = -4
-				}
-	}
-            add_stability = -2
-            add_inflation = -10
-			add_adm_power = 100	
-}
-		option = {
-	name = "atlantropa_crisis.2.a" 
-		ai_chance = { factor = 25 }
-				add_country_modifier = {
-				name = "atlantropa_inflation_growing2"
-				duration = 3600
-			}
-	if = {
-	limit = { 
-	OR = {
-	tag = BYZ
-	tag = A52
-	}}
-							add_government_power = {
-					mechanic_type = nikaeanbyzantine_mechanic
-					power_type = byz_adm_power
-					value = 4
-				}
-	}
-            add_stability = -1
-            add_inflation = 2	
-}
-
-
-    }
+	#namespace = atlantropa_crisis
+    #country_event = {
+	#id = atlantropa_crisis.1
+	#title = atlantropa_crisis.1.t
+	#desc = atlantropa_crisis.1.d
+	#picture = MONEYMONEYMONEY_eventPicture
+	#	trigger = {
+   #     inflation = 5
+#NOT = { has_country_modifier = atlantropa_inflation_growing }
+#NOT = { has_country_modifier = atlantropa_inflation_fight }
+#NOT = { has_country_modifier = atlantropa_inflation_growing2 }
+#NOT = { has_country_modifier = atlantropa_inflation_fight2 }
+#        }
+#mean_time_to_happen = {
+#	months = 30
+#	}
+#    		option = {
+#	name = "atlantropa_crisis.1.b" 
+#		ai_chance = { factor = 75 }
+#				add_country_modifier = {
+#				name = "atlantropa_inflation_fight"
+#				duration = 6850
+#			}
+#	if = {
+#	limit = { 
+#	OR = {
+#	tag = BYZ
+#	tag = A52
+#	}}
+#							add_government_power = {
+#					mechanic_type = nikaeanbyzantine_mechanic
+#					power_type = byz_adm_power
+#					value = -2
+#				}
+#	}
+#            add_stability = -1	
+#            add_inflation = -5	
+#			add_adm_power = 50	
+#}
+#		option = {
+#	name = "atlantropa_crisis.1.a" 
+#		ai_chance = { factor = 25 }
+#				add_country_modifier = {
+#				name = "atlantropa_inflation_growing"
+#				duration = 3600
+#			}
+#            add_inflation = 1	
+#	if = {
+#	limit = { 
+#	OR = {
+#	tag = BYZ
+#	tag = A52
+#	}}
+#							add_government_power = {
+#					mechanic_type = nikaeanbyzantine_mechanic
+#					power_type = byz_adm_power
+#					value = 2
+#				}
+#	}
+#}
+#
+#
+#    }
+#
+#
+ #       country_event = {
+#	id = atlantropa_crisis.2
+#	title = atlantropa_crisis.2.t
+#	desc = atlantropa_crisis.2.d
+#	picture = MONEYMONEYMONEY_eventPicture
+#		trigger = {
+#        inflation = 10
+#NOT = { has_country_modifier = atlantropa_inflation_growing2 }
+#NOT = { has_country_modifier = atlantropa_inflation_fight2 }
+#        }
+#mean_time_to_happen = {
+#	months = 60
+#	}
+#immediate = {
+#	    remove_country_modifier = atlantropa_inflation_fight
+#        remove_country_modifier = atlantropa_inflation_growing
+#}
+#
+ #   		option = {
+#	name = "atlantropa_crisis.2.b" 
+#		ai_chance = { factor = 75 }
+#				add_country_modifier = {
+#				name = "atlantropa_inflation_fight2"
+#				duration = 6850
+#			}
+#	if = {
+#	limit = { 
+#	OR = {
+#	tag = BYZ
+#	tag = A52
+#	}}
+#							add_government_power = {
+#					mechanic_type = nikaeanbyzantine_mechanic
+#					power_type = byz_adm_power
+#					value = -4
+#				}
+#	}
+ #           add_stability = -2
+ #           add_inflation = -10
+#			add_adm_power = 100	
+#}
+#		option = {
+#	name = "atlantropa_crisis.2.a" 
+#		ai_chance = { factor = 25 }
+#				add_country_modifier = {
+#				name = "atlantropa_inflation_growing2"
+#				duration = 3600
+#			}
+#	if = {
+#	limit = { 
+#	OR = {
+#	tag = BYZ
+#	tag = A52
+#	}}
+#							add_government_power = {
+#					mechanic_type = nikaeanbyzantine_mechanic
+#					power_type = byz_adm_power
+#					value = 4
+#				}
+#	}
+#            add_stability = -1
+#            add_inflation = 2	
+#}
+#
+##
+ #   }
 
 
     
