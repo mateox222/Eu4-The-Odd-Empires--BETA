@@ -1,0 +1,193 @@
+estate_urban_patricians_develop_city = {
+	can_select = {
+		any_owned_province = {
+			development = 15
+			estate_territory = {
+				estate = estate_urban_patricians
+			}
+		}
+	}
+	provinces_to_highlight = {
+		owned_by = ROOT
+	}
+	selection_weight = {
+		factor = 12
+		modifier = {
+			factor = 1.5
+			tax_income_percentage = 0.3
+		}
+	}
+	pre_effect = {
+		random_owned_province = {
+			limit = {
+			}
+			save_event_target_as = agenda_province
+		}
+	}
+	task_requirements = {
+		event_target:agenda_province = {
+						add_base_tax = 3
+		}
+	}
+	task_completed_effect = {
+		add_estate_loyalty = {
+			estate = estate_urban_patricians
+			loyalty = 15
+		}
+		event_target:agenda_province = {
+			add_province_modifier = {
+				name = "patrician_development_bonus"
+				duration = 5475
+			}
+		}
+	}
+	failing_effect = {
+		add_estate_loyalty_modifier = {
+			estate = estate_urban_patricians
+			desc = EST_VAL_AGENDA_FAILED
+			loyalty = -5
+			duration = 7300
+		}
+	}
+}
+
+estate_urban_patricians_build_university = {
+	can_select = {
+		any_owned_province = {
+			NOT = { has_building = university }
+			development = 20
+		}
+		adm_tech = 24
+	}
+	provinces_to_highlight = {
+		owned_by = ROOT
+		NOT = { has_building = university }
+		development = 20
+	}
+	selection_weight = {
+		factor = 6
+		modifier = {
+			factor = 1.5
+		}
+	}
+	pre_effect = {
+		random_owned_province = {
+			limit = {
+				NOT = { has_building = university }
+				development = 20
+			}
+			save_event_target_as = agenda_province
+		}
+	}
+	task_requirements = {
+		event_target:agenda_province = {
+			has_building = university
+		}
+	}
+	task_completed_effect = {
+		add_estate_loyalty = {
+			estate = estate_urban_patricians
+			loyalty = 12
+		}
+		add_country_modifier = {
+			name = "patrician_learning_patronage"
+			duration = 7300
+		}
+	}
+	failing_effect = {
+		add_estate_loyalty_modifier = {
+			estate = estate_urban_patricians
+			desc = EST_VAL_AGENDA_FAILED
+			loyalty = -5
+			duration = 7300
+		}
+	}
+}
+
+estate_urban_patricians_reduce_autonomy = {
+	can_select = {
+		any_owned_province = {
+			local_autonomy = 25
+		}
+	}
+	provinces_to_highlight = {
+		owned_by = ROOT
+		local_autonomy = 25
+	}
+	selection_weight = {
+		factor = 8
+		modifier = {
+			factor = 1.5
+			average_autonomy_above_min = 20
+		}
+	}
+	pre_effect = {
+		random_owned_province = {
+			limit = {
+				local_autonomy = 25
+			}
+			save_event_target_as = agenda_province
+		}
+	}
+	task_requirements = {
+		event_target:agenda_province = {
+			NOT = { local_autonomy = 15 }
+		}
+	}
+	task_completed_effect = {
+		add_estate_loyalty = {
+			estate = estate_urban_patricians
+			loyalty = 10
+		}
+		add_absolutism = 2
+	}
+	failing_effect = {
+		add_estate_loyalty_modifier = {
+			estate = estate_urban_patricians
+			desc = EST_VAL_AGENDA_FAILED
+			loyalty = -5
+			duration = 7300
+		}
+	}
+}
+
+estate_urban_patricians_hire_advisor = {
+	can_select = {
+		NOT = {
+			employed_advisor = {
+				type = treasurer
+			}
+		}
+		monthly_income = 15
+	}
+	selection_weight = {
+		factor = 4
+		modifier = {
+			factor = 2.0
+			NOT = { stability = 1 }
+		}
+	}
+	task_requirements = {
+		employed_advisor = {
+			type = treasurer
+		}
+	}
+	task_completed_effect = {
+		add_estate_loyalty = {
+			estate = estate_urban_patricians
+			loyalty = 8
+		}
+		add_country_modifier = {
+			name = "patrician_financial_expertise"
+			duration = 3650
+		}
+	}
+	failing_effect = {
+		add_estate_loyalty_modifier = {
+			estate = estate_urban_patricians
+			desc = EST_VAL_AGENDA_FAILED
+			loyalty = -5
+			duration = 7300
+		}
+	}
+}

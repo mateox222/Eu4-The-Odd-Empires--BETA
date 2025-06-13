@@ -241,6 +241,10 @@ country_event = {
 		clr_country_flag = estate_eunuchs_present_agenda
 		clr_country_flag = estate_qizilbash_present_agenda
 		clr_country_flag = estate_ghulams_present_agenda
+		clr_country_flag = rural_communes_present_agenda
+		clr_country_flag = estate_jewishestate_present_agenda
+		clr_country_flag = estate_urban_patricians_present_agenda
+		clr_country_flag = estate_urban_burghers_present_agenda		
 		clear_estate_agenda_cache = ROOT
 	}
 
@@ -948,6 +952,148 @@ country_event = {
 			}
 		}
 	}
+
+	#TOE
+		option = {
+		name = estate_privileges_and_agendas_events.3.p
+		trigger = { has_country_flag = estate_guilds_present_agenda }
+		start_estate_agenda = estate_guilds
+		goto = estate_guilds
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				NOT = {
+					estate_loyalty = {
+						loyalty = 30
+						estate = estate_guilds
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					estate_loyalty = {
+						loyalty = 20
+						estate = estate_guilds
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					influence = 70
+					estate = estate_guilds
+				}
+			}
+			modifier = {
+				factor = 2
+				is_absolutism_active = yes
+				num_of_estate_privileges = {
+					estate = estate_guilds
+					value = 1
+				}
+				estate_loyalty = {
+					estate = estate_guilds
+					higher_than_influence = no
+				}
+			}
+		}
+	}
+	option = {
+		name = estate_privileges_and_agendas_events.3.r
+		trigger = { has_country_flag = estate_rural_communes_present_agenda }
+		start_estate_agenda = estate_rural_communes
+		goto = estate_rural_communes
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				NOT = {
+					estate_loyalty = {
+						loyalty = 30
+						estate = estate_rural_communes
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					estate_loyalty = {
+						loyalty = 20
+						estate = estate_rural_communes
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					influence = 70
+					estate = estate_rural_communes
+				}
+			}
+			modifier = {
+				factor = 2
+				is_absolutism_active = yes
+				num_of_estate_privileges = {
+					estate = estate_rural_communes
+					value = 1
+				}
+				estate_loyalty = {
+					estate = estate_rural_communes
+					higher_than_influence = no
+				}
+			}
+		}
+	}
+
+option = {
+		name = estate_privileges_and_agendas_events.3.s
+		trigger = { has_country_flag = estate_urban_patricians_present_agenda }
+		start_estate_agenda = estate_urban_patricians
+		goto = estate_urban_patricians
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 1.5
+				NOT = {
+					estate_loyalty = {
+						loyalty = 30
+						estate = estate_urban_patricians
+					}
+				}
+			}
+			modifier = {
+				factor = 2
+				NOT = {
+					estate_loyalty = {
+						loyalty = 20
+						estate = estate_urban_patricians
+					}
+				}
+			}
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					influence = 70
+					estate = estate_urban_patricians
+				}
+			}
+			modifier = {
+				factor = 2
+				is_absolutism_active = yes
+				num_of_estate_privileges = {
+					estate = estate_urban_patricians
+					value = 1
+				}
+				estate_loyalty = {
+					estate = estate_urban_patricians
+					higher_than_influence = no
+				}
+			}
+		}
+	}
+
 }
 
 country_event = {

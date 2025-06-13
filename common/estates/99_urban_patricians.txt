@@ -1,0 +1,134 @@
+estate_urban_patricians = {
+	icon = 7
+	color = { 120 80 140 }
+	
+	trigger = {
+		NOT = { government = tribal }
+		NOT = { has_reform = steppe_horde }
+		technology_group = western
+		OR = {
+			religion_group = christian
+			religion = jewish
+		}
+		num_of_cities = 5
+	}
+
+	country_modifier_happy = {
+		global_tax_modifier = 0.10
+		development_cost = -0.05
+		advisor_cost = -0.10
+	}
+	country_modifier_neutral = {
+		global_tax_modifier = 0.05
+		advisor_cost = -0.05
+	}	
+	country_modifier_angry = {
+		global_tax_modifier = -0.10
+		development_cost = 0.10
+		global_unrest = 1
+	}
+
+	land_ownership_modifier = {
+		local_tax_modifier = 0.30
+		local_development_cost = -0.10
+	}
+
+	province_independence_weight = {
+		factor = 1
+		modifier = {
+			factor = 2.0
+			development = 20
+		}
+		modifier = {
+			factor = 1.5
+			OR = {
+				has_building = university
+				has_building = courthouse
+			}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { development = 15 }
+		}
+	}
+
+	base_influence = 15
+	influence_modifier = {
+		desc = EST_VAL_MANY_CITIES
+		trigger = {
+			num_of_cities = 10
+		}	
+		influence = 10
+	}
+	influence_modifier = {
+		desc = EST_VAL_DEVELOPED_CITIES
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				development = 25
+			}
+		}	
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_UNIVERSITIES
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 2
+				has_building = university
+			}
+		}	
+		influence = 5
+	}
+	
+	loyalty_modifier = {
+		desc = EST_VAL_URBAN_PRIVILEGES
+		trigger = {
+			has_estate_privilege = estate_urban_patricians_city_charters
+		}
+		loyalty = 10
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_RECENTLY_DEVELOPED
+		trigger = {
+			has_country_modifier = recently_developed_province
+		}
+		loyalty = 5
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_HIGH_AUTONOMY
+		trigger = {
+			average_autonomy_above_min = 25
+		}
+		loyalty = -10
+	}
+	
+	custom_name = {
+		desc = EST_PATRICIANS_ITALIAN
+		trigger = {
+			OR = {
+				culture_group = latin
+				region = italy_region
+			}
+		}
+	}
+	
+	contributes_to_curia_treasury = no
+
+	privileges = {
+		estate_urban_patricians_city_charters
+		estate_urban_patricians_administrative_posts
+		estate_urban_patricians_banking_rights
+		estate_urban_patricians_education_control
+		estate_urban_patricians_judicial_autonomy
+	}
+
+	agendas = {
+		estate_urban_patricians_develop_city
+		estate_urban_patricians_build_university
+		estate_urban_patricians_reduce_autonomy
+		estate_urban_patricians_hire_advisor
+	}
+	
+	influence_from_dev_modifier = 0.75
+}

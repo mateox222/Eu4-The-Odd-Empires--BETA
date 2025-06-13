@@ -1,0 +1,179 @@
+estate_rural_communes_local_autonomy = {
+	icon = privilege_give_money
+	max_absolutism = -5
+	loyalty = 0.1
+	influence = 0.10
+	
+	is_valid = {
+		has_estate = estate_rural_communes
+	}
+	can_select = {
+		estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = 40
+		}
+	}
+	
+	benefits = {
+		global_unrest = -1
+		stability_cost_modifier = -0.10
+	}
+	penalties = {
+		global_autonomy = 0.05
+		global_tax_modifier = -0.05
+	}
+	
+	ai_will_do = {
+		factor = 6
+		modifier = {
+			factor = 2.0
+			average_unrest = 2
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { average_unrest = 0.5 }
+		}
+	}
+}
+
+estate_rural_communes_militia_service = {
+	icon = privilege_infantry
+	max_absolutism = -2.5
+	loyalty = 0.1
+	influence = 0.1
+	
+	is_valid = {
+		has_estate = estate_rural_communes
+	}
+	can_select = {
+		estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = 50
+		}
+	}
+	
+	benefits = {
+		land_forcelimit_modifier = 0.05
+		fort_maintenance_modifier = -0.5
+	}
+	penalties = {
+		army_tradition_decay = 0.005
+	}
+	
+	ai_will_do = {
+		factor = 5
+		modifier = {
+			factor = 1.5
+			is_at_war = yes
+		}
+	}
+}
+
+estate_rural_communes_tax_exemptions = {
+	icon = privilege_land_rights
+	max_absolutism = -2.5
+	loyalty = 0.05
+	influence = 0.03
+	
+	is_valid = {
+		has_estate = estate_rural_communes
+	}
+	can_select = {
+		estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = 30
+		}
+	}
+	
+	benefits = {
+		global_manpower_modifier = 0.05
+		manpower_recovery_speed = 0.05
+	}
+	penalties = {
+		global_tax_modifier = -0.05
+	}
+	
+	ai_will_do = {
+		factor = 4
+		modifier = {
+			factor = 1.5
+			manpower_percentage = 0.5
+		}
+		modifier = {
+			factor = 0.8
+			tax_income_percentage = 0.4
+		}
+	}
+}
+
+estate_rural_communes_land_grants = {
+	icon = privilege_grant_autonomy
+	max_absolutism = -5
+	loyalty = 0.2
+	influence = 0.15
+	
+	is_valid = {
+		has_estate = estate_rural_communes
+	}
+	can_select = {
+		estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = 60
+		}
+	}
+	
+	modifier_by_land_ownership = {
+		local_manpower_modifier = 0.25
+		local_tax_modifier = -0.25
+	}
+	
+	penalties = {
+		development_cost = 0.05
+	}
+	
+	cooldown_years = 15
+	
+	ai_will_do = {
+		factor = 3
+		modifier = {
+			factor = 1.5
+			estate_territory = {
+				estate = estate_rural_communes
+				territory = 25
+			}
+		}
+	}
+}
+
+estate_rural_communes_collective_bargaining = {
+	icon = privilege_peasant
+	max_absolutism = -2.5
+	loyalty = 0.05
+	influence = 0.02
+	
+	is_valid = {
+		has_estate = estate_rural_communes
+	}
+	can_select = {
+		estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = 30
+		}
+	}
+	
+	benefits = {
+		global_autonomy = -0.01
+		harsh_treatment_cost = -0.1
+	}
+	penalties = {
+		global_unrest = 0.5
+	}
+	
+	ai_will_do = {
+		factor = 3
+		modifier = {
+			factor = 1.5
+			average_autonomy_above_min = 20
+		}
+	}
+}
