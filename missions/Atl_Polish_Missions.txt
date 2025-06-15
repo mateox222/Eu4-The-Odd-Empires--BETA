@@ -26,7 +26,10 @@ venedian_missions_1 = {
 				duration = 7300
 			}
 			create_general = { tradition = 60 }
-		
+			poitou_area = {
+				limit = { NOT = { is_core = ROOT } }
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	vnd_deal_mazovia = {
@@ -298,15 +301,20 @@ venedian_missions_3 = {
 		trigger = {
 			legitimacy = 90
 			stability = 2
-			num_of_owned_provinces_with = {
-				value = 8
-				culture_group = french
+			has_opinion = {
+				who = GUY
+				value = 150
+			}
+			GUY = {
+				is_subject_of = ROOT
 			}
 		}
 		effect = {
 			GUY = {
-				limit = { is_subject_of = ROOT }
-				add_liberty_desire = -15
+				limit = { 
+					if = { is_subject_of = ROOT }
+					add_liberty_desire = -15
+				}
 			}
 			add_country_modifier = {
 				name = "ven_integrated_nobility"
@@ -346,16 +354,18 @@ venedian_missions_3 = {
 		}
 		effect = {
 			add_dip_power = -100
-						GUY = {
-				limit = { is_subject_of = ROOT }
-				add_liberty_desire = -15
+				GUY = {
+				limit = { 
+					if = { is_subject_of = ROOT }
+					add_liberty_desire = -15
+				}
 			}
 			add_prestige = 10
 			179 = {
 				change_culture = polish
 				add_core = ROOT
 			}
-			add_accepted_culture = GUY
+			add_accepted_culture = gascon
 			GUY = { 
 				add_accepted_culture = polish
 			}
@@ -433,10 +443,7 @@ venedian_missions_4 = {
 				name = "ven_merchant_privileges"
 				duration = 7300
 			}
-			poitou_area = {
-				limit = { NOT = { is_core = ROOT } }
-				add_permanent_claim = ROOT
-			}
+	
 		}
 	}
 
@@ -594,7 +601,7 @@ venedian_missions_6 = {
 	}
 	ven_two_crowns_union = {
 		position = 6
-		icon = mission_empire
+		icon = mission_plc_proclaim_polish_hegemony
 		required_missions = { ven_diplomatic_preparations }
 		trigger = {
 			OR = {
@@ -634,7 +641,6 @@ venedian_missions_6 = {
 			}
 			add_prestige = 50
 			add_legitimacy = 25
-			country_event = { id = venedian_events.2 } # Formation of Commonwealth
 			set_country_flag = formed_two_crowns_commonwealth
 		}
 	}

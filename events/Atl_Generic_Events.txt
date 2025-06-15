@@ -1,0 +1,664 @@
+namespace = atlantropa_generic_events
+
+# Merchant's Discovery
+country_event = {
+    id = atlantropa_generic_events.1
+    title = "ATLANTROPA_MERCHANT_DISCOVERY_TITLE"
+    desc = "ATLANTROPA_MERCHANT_DISCOVERY_DESC"
+    picture = MERCHANTS_TALKING_eventPicture
+
+    trigger = {
+        any_owned_province = {
+            has_port = yes
+            trade_goods = spices
+        }
+        treasury = 50
+        NOT = { has_country_flag = atlantropa_merchant_discovery_flag }
+    }
+
+    mean_time_to_happen = {
+        months = 120
+        modifier = {
+            factor = 0.8
+            dip_power = 100
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_MERCHANT_DISCOVERY_A"
+        add_treasury = -50
+        add_dip_power = 25
+        add_country_modifier = {
+            name = "atlantropa_new_trade_routes"
+            duration = 1825
+        }
+        set_country_flag = atlantropa_merchant_discovery_flag
+    }
+
+    option = {
+        name = "ATLANTROPA_MERCHANT_DISCOVERY_B"
+        add_prestige = 10
+    }
+}
+
+# Plague Outbreak
+country_event = {
+    id = atlantropa_generic_events.2
+    title = "ATLANTROPA_PLAGUE_OUTBREAK_TITLE"
+    desc = "ATLANTROPA_PLAGUE_OUTBREAK_DESC"
+    picture = PLAGUE_eventPicture
+
+    trigger = {
+        any_owned_province = {
+            development = 15
+            NOT = { has_province_modifier = atlantropa_quarantine_measures }
+        }
+        NOT = { has_country_flag = atlantropa_recent_plague }
+    }
+
+    mean_time_to_happen = {
+        months = 180
+        modifier = {
+            factor = 0.7
+            NOT = { adm_tech = 10 }
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_PLAGUE_OUTBREAK_A"
+        random_owned_province = {
+            limit = {
+                development = 15
+            }
+            add_base_manpower = -1
+            add_base_production = -1
+        }
+        add_country_modifier = {
+            name = "atlantropa_plague_devastation"
+            duration = 1095
+        }
+        set_country_flag = atlantropa_recent_plague
+        clr_country_flag = atlantropa_recent_plague #Zamiast przestarzałego clr_country_flag_with_date
+    }
+
+    option = {
+        name = "ATLANTROPA_PLAGUE_OUTBREAK_B"
+        add_treasury = -100
+        add_country_modifier = {
+            name = "atlantropa_medical_response"
+            duration = 365
+        }
+    }
+}
+
+# Royal Marriage Proposal
+country_event = {
+    id = atlantropa_generic_events.3
+    title = "ATLANTROPA_ROYAL_MARRIAGE_PROPOSAL_TITLE"
+    desc = "ATLANTROPA_ROYAL_MARRIAGE_PROPOSAL_DESC"
+    picture = ROYAL_COURT_eventPicture
+
+    trigger = {
+        government = monarchy #Zamiast przestarzałego is_monarchy
+        prestige = 25
+        any_neighbor_country = {
+            government = monarchy #Zamiast przestarzałego is_monarchy
+            NOT = { war_with = ROOT }
+            NOT = { marriage_with = ROOT }
+        }
+    }
+
+    mean_time_to_happen = {
+        months = 150
+        modifier = {
+            factor = 0.9
+            prestige = 50
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_ROYAL_MARRIAGE_PROPOSAL_A"
+        random_neighbor_country = {
+            limit = {
+                government = monarchy #Zamiast przestarzałego is_monarchy
+                NOT = { war_with = ROOT }
+            }
+            add_opinion = {
+                who = ROOT
+                modifier = "atlantropa_royal_marriage_accepted"
+            }
+        }
+        add_dip_power = -50
+        add_prestige = 15
+    }
+
+    option = {
+        name = "ATLANTROPA_ROYAL_MARRIAGE_PROPOSAL_B"
+        add_legitimacy = 10
+        add_prestige = -5
+    }
+}
+
+# Scholar's Breakthrough
+country_event = {
+    id = atlantropa_generic_events.4
+    title = "ATLANTROPA_SCHOLARS_BREAKTHROUGH_TITLE"
+    desc = "ATLANTROPA_SCHOLARS_BREAKTHROUGH_DESC"
+    picture = UNIVERSITY_eventPicture
+
+    trigger = {
+        any_owned_province = {
+            has_building = university
+        }
+        adm_power = 75
+    }
+
+    mean_time_to_happen = {
+        months = 200
+        modifier = {
+            factor = 0.8
+            innovativeness = 30
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_SCHOLARS_BREAKTHROUGH_A"
+        add_adm_power = -75
+        add_country_modifier = {
+            name = "atlantropa_scientific_advancement"
+            duration = 3650
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_SCHOLARS_BREAKTHROUGH_B"
+        add_prestige = 20
+        add_adm_power = 25
+    }
+}
+
+# Bandit Raids
+country_event = {
+    id = atlantropa_generic_events.5
+    title = "ATLANTROPA_BANDIT_RAIDS_TITLE"
+    desc = "ATLANTROPA_BANDIT_RAIDS_DESC"
+    picture = BORDER_TENSION_eventPicture
+
+    trigger = {
+        any_owned_province = {
+            NOT = { fort_level = 1 }
+            is_capital = no
+            development = 8
+        }
+        NOT = { has_country_modifier = atlantropa_increased_patrols }
+    }
+
+    mean_time_to_happen = {
+        months = 100
+        modifier = {
+            factor = 1.5
+            stability = 2
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_BANDIT_RAIDS_A"
+        random_owned_province = {
+            limit = {
+                NOT = { fort_level = 1 }
+                is_capital = no
+            }
+            add_base_tax = -1
+            add_devastation = 25
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_BANDIT_RAIDS_B"
+        add_treasury = -75
+        add_mil_power = -25
+        add_country_modifier = {
+            name = "atlantropa_increased_patrols"
+            duration = 1825
+        }
+    }
+}
+
+# Diplomatic Mission Success
+country_event = {
+    id = atlantropa_generic_events.6
+    title = "ATLANTROPA_DIPLOMATIC_SUCCESS_TITLE"
+    desc = "ATLANTROPA_DIPLOMATIC_SUCCESS_DESC"
+    picture = DIPLOMACY_eventPicture
+
+    trigger = {
+        dip_power = 100
+        any_country = {
+            NOT = { alliance_with = ROOT }
+            NOT = { war_with = ROOT }
+            NOT = { is_rival = ROOT }
+        }
+    }
+
+    mean_time_to_happen = {
+        months = 140
+        modifier = {
+            factor = 0.9
+            diplomatic_reputation = 3
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_DIPLOMATIC_SUCCESS_A"
+        add_dip_power = -50
+        random_country = {
+            limit = {
+                NOT = { alliance_with = ROOT }
+                NOT = { war_with = ROOT }
+            }
+            add_opinion = {
+                who = ROOT
+                modifier = "atlantropa_successful_diplomacy"
+            }
+        }
+        add_prestige = 10
+    }
+
+    option = {
+        name = "ATLANTROPA_DIPLOMATIC_SUCCESS_B"
+        add_dip_power = 25
+        add_country_modifier = {
+            name = "atlantropa_diplomatic_expertise"
+            duration = 1095
+        }
+    }
+}
+
+# Harvest Festival
+country_event = {
+    id = atlantropa_generic_events.7
+    title = "ATLANTROPA_HARVEST_FESTIVAL_TITLE"
+    desc = "ATLANTROPA_HARVEST_FESTIVAL_DESC"
+    picture = FEAST_eventPicture
+
+    trigger = {
+        any_owned_province = {
+            trade_goods = grain
+            NOT = { devastation = 1 }
+        }
+        NOT = { has_country_flag = atlantropa_recent_harvest_festival }
+    }
+
+    mean_time_to_happen = {
+        months = 60
+        modifier = {
+            factor = 0.8
+            stability = 1
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_HARVEST_FESTIVAL_A"
+        add_treasury = -25
+        add_stability = 1
+        add_country_modifier = {
+            name = "atlantropa_bountiful_harvest"
+            duration = 365
+        }
+        set_country_flag = atlantropa_recent_harvest_festival
+        clr_country_flag = atlantropa_recent_harvest_festival #Zamiast przestarzałego clr_country_flag_with_date
+    }
+
+    option = {
+        name = "ATLANTROPA_HARVEST_FESTIVAL_B"
+        add_prestige = 5
+        add_legitimacy = 5
+    }
+}
+
+# Foreign Spy Network
+country_event = {
+    id = atlantropa_generic_events.8
+    title = "ATLANTROPA_SPY_NETWORK_TITLE"
+    desc = "ATLANTROPA_SPY_NETWORK_DESC"
+    picture = SPY_eventPicture
+
+    trigger = {
+        any_rival_country = {
+            NOT = { war_with = ROOT }
+        }
+        dip_power = 50
+    }
+
+    mean_time_to_happen = {
+        months = 180
+        modifier = {
+            factor = 0.8
+            spy_ideas = 3
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_SPY_NETWORK_A"
+        add_dip_power = -50
+        random_rival_country = {
+            add_spy_network_from = {
+                who = ROOT
+                value = 25
+            }
+        }
+        add_country_modifier = {
+            name = "atlantropa_intelligence_network"
+            duration = 1825
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_SPY_NETWORK_B"
+        add_prestige = 10
+        add_dip_power = 25
+    }
+}
+
+# Religious Pilgrimage
+country_event = {
+    id = atlantropa_generic_events.9
+    title = "ATLANTROPA_RELIGIOUS_PILGRIMAGE_TITLE"
+    desc = "ATLANTROPA_RELIGIOUS_PILGRIMAGE_DESC"
+    picture = RELIGION_eventPicture
+
+    trigger = {
+        religious_unity = 80
+        any_owned_province = {
+            has_building = temple
+        }
+        treasury = 100
+    }
+
+    mean_time_to_happen = {
+        months = 160
+        modifier = {
+            factor = 0.9
+            religious_unity = 95
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_RELIGIOUS_PILGRIMAGE_A"
+        add_treasury = -100
+        add_legitimacy = 15
+        add_country_modifier = {
+            name = "atlantropa_divine_blessing"
+            duration = 1825
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_RELIGIOUS_PILGRIMAGE_B"
+        add_prestige = 15
+        add_piety = 0.25
+    }
+}
+
+# Court Intrigue
+country_event = {
+    id = atlantropa_generic_events.10
+    title = "ATLANTROPA_COURT_INTRIGUE_TITLE"
+    desc = "ATLANTROPA_COURT_INTRIGUE_DESC"
+    picture = ROYAL_COURT_eventPicture
+
+    trigger = {
+        government = monarchy #Zamiast przestarzałego is_monarchy
+        NOT = { legitimacy = 95 }
+        adm_power = 50
+    }
+
+    mean_time_to_happen = {
+        months = 120
+        modifier = {
+            factor = 1.5
+            legitimacy = 75
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_COURT_INTRIGUE_A"
+        add_adm_power = -50
+        add_legitimacy = 10
+        add_country_modifier = {
+            name = "atlantropa_court_stability"
+            duration = 1095
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_COURT_INTRIGUE_B"
+        add_legitimacy = -10
+        add_prestige = -5
+        add_country_modifier = {
+            name = "atlantropa_political_instability"
+            duration = 730
+        }
+    }
+}
+
+# Trade Caravan Arrival
+country_event = {
+    id = atlantropa_generic_events.11
+    title = "ATLANTROPA_TRADE_CARAVAN_TITLE"
+    desc = "ATLANTROPA_TRADE_CARAVAN_DESC"
+    picture = MERCHANTS_TALKING_eventPicture
+
+    trigger = {
+        any_owned_province = {
+            NOT = { trade_company = yes } #Zamiast przestarzałego is_in_trade_company_region
+            OR = {
+                trade_goods = silk
+                trade_goods = spices
+                trade_goods = gems
+            }
+        }
+        treasury = 75
+    }
+
+    mean_time_to_happen = {
+        months = 80
+        modifier = {
+            factor = 0.8
+            mercantilism = 25
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_TRADE_CARAVAN_A"
+        add_treasury = -75
+        add_years_of_income = 0.25
+        add_country_modifier = {
+            name = "atlantropa_trade_prosperity"
+            duration = 1095
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_TRADE_CARAVAN_B"
+        add_treasury = 50
+        add_mercantilism = 1
+    }
+}
+
+# Natural Disaster
+country_event = {
+    id = atlantropa_generic_events.12
+    title = "ATLANTROPA_NATURAL_DISASTER_TITLE"
+    desc = "ATLANTROPA_NATURAL_DISASTER_DESC"
+    picture = FAMINE_eventPicture
+
+    trigger = {
+        any_owned_province = {
+            NOT = { has_province_modifier = atlantropa_disaster_relief }
+            development = 10
+        }
+        NOT = { has_country_flag = atlantropa_recent_disaster }
+    }
+
+    mean_time_to_happen = {
+        months = 300
+        modifier = {
+            factor = 0.7
+            num_of_cities = 15
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_NATURAL_DISASTER_A"
+        random_owned_province = {
+            limit = {
+                development = 10
+            }
+            add_devastation = 50
+            add_base_tax = -1
+            add_base_manpower = -1
+        }
+        add_country_modifier = {
+            name = "atlantropa_disaster_recovery"
+            duration = 1825
+        }
+        set_country_flag = atlantropa_recent_disaster
+        clr_country_flag = atlantropa_recent_disaster #Zamiast przestarzałego clr_country_flag_with_date
+    }
+
+    option = {
+        name = "ATLANTROPA_NATURAL_DISASTER_B"
+        add_treasury = -200
+        add_stability = -1
+        random_owned_province = {
+            add_province_modifier = {
+                name = "atlantropa_disaster_relief"
+                duration = 1095
+            }
+        }
+    }
+}
+
+# Military Parade
+country_event = {
+    id = atlantropa_generic_events.13
+    title = "ATLANTROPA_MILITARY_PARADE_TITLE"
+    desc = "ATLANTROPA_MILITARY_PARADE_DESC"
+    picture = MILITARY_CAMP_eventPicture
+
+    trigger = {
+        army_tradition = 40
+        manpower_percentage = 0.8
+        treasury = 100
+        is_at_war = no
+    }
+
+    mean_time_to_happen = {
+        months = 120
+        modifier = {
+            factor = 0.8
+            army_tradition = 60
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_MILITARY_PARADE_A"
+        add_treasury = -100
+        add_prestige = 20
+        add_country_modifier = {
+            name = "atlantropa_military_prestige"
+            duration = 1825
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_MILITARY_PARADE_B"
+        add_army_tradition = 5
+        add_mil_power = 25
+    }
+}
+
+# Artistic Renaissance
+country_event = {
+    id = atlantropa_generic_events.14
+    title = "ATLANTROPA_ARTISTIC_RENAISSANCE_TITLE"
+    desc = "ATLANTROPA_ARTISTIC_RENAISSANCE_DESC"
+    picture = ARTIST_PAINTING_eventPicture
+
+    trigger = {
+        prestige = 30
+        any_owned_province = {
+            has_building = university
+            development = 20
+        }
+        dip_power = 100
+    }
+
+    mean_time_to_happen = {
+        months = 200
+        modifier = {
+            factor = 0.8
+            prestige = 60
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_ARTISTIC_RENAISSANCE_A"
+        add_dip_power = -100
+        add_prestige = 25
+        add_country_modifier = {
+            name = "atlantropa_cultural_flowering"
+            duration = 3650
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_ARTISTIC_RENAISSANCE_B"
+        add_legitimacy = 15
+        add_prestige = 10
+    }
+}
+
+# Corrupt Officials
+country_event = {
+    id = atlantropa_generic_events.15
+    title = "ATLANTROPA_CORRUPT_OFFICIALS_TITLE"
+    desc = "ATLANTROPA_CORRUPT_OFFICIALS_DESC"
+    picture = BAD_WITH_MONARCH_eventPicture
+
+    trigger = {
+        corruption = 5
+        NOT = { has_country_modifier = atlantropa_anti_corruption_campaign }
+        treasury = 150
+    }
+
+    mean_time_to_happen = {
+        months = 100
+        modifier = {
+            factor = 0.8
+            corruption = 10
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_CORRUPT_OFFICIALS_A"
+        add_treasury = -150
+        add_adm_power = -50
+        add_corruption = -2
+        add_country_modifier = {
+            name = "atlantropa_anti_corruption_campaign"
+            duration = 1825
+        }
+    }
+
+    option = {
+        name = "ATLANTROPA_CORRUPT_OFFICIALS_B"
+        add_corruption = 1
+        add_treasury = -50
+        add_country_modifier = {
+            name = "atlantropa_endemic_corruption"
+            duration = 1095
+        }
+    }
+}

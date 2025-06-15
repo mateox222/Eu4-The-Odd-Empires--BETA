@@ -246,13 +246,7 @@ country_decisions = {
 			set_country_flag = emergency_measures_cooldown
 		}
 		
-		ai_will_do = {
-			factor = 0.5
-			modifier = {
-				factor = 4
-				inflation = 20
-			}
-		}
+
 	}
 
 	# Remove Currency Reform Cooldown
@@ -293,16 +287,6 @@ country_decisions = {
 			set_country_flag = financial_oversight_active
 		}
 		
-		ai_will_do = {
-			factor = 0.4
-			modifier = {
-				factor = 2
-				OR = {
-					corruption = 5
-					inflation = 5
-				}
-			}
-		}
 	}
 
 
@@ -358,16 +342,7 @@ country_decisions = {
 			set_country_flag = stimulus_package_cooldown
 		}
 		
-		ai_will_do = {
-			factor = 0.3
-			modifier = {
-				factor = 2
-				AND = {
-					inflation = 15
-					corruption = 10
-				}
-			}
-		}
+
 	}
 }
 

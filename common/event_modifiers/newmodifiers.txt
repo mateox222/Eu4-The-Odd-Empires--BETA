@@ -491,7 +491,7 @@ commune_agricultural_expansion = {
     local_manpower_modifier = 0.15
 }
 patrician_development_bonus = {
-    global_development_cost_modifier = -0.10
+   development_cost_modifier = -0.10
 }
 
 # Education/Technology Modifier
@@ -568,7 +568,11 @@ ven_religious_fervor = {
 	papal_influence = 1
 	church_power_modifier = 0.25
 }
-
+polishpope = {
+	tolerance_own = 3
+	papal_influence = 1.5
+	church_power_modifier = 0.25
+}
 ven_cultural_flowering = {
 	idea_cost = -0.10
 	prestige = 0.5
@@ -582,10 +586,425 @@ ven_efficient_administration = {
 }
 
 plc_two_crowns_commonwealth = {
-	max_states = 5
 	governing_capacity_modifier = 0.25
 	diplomatic_reputation = 3
 	prestige = 2
 	legitimacy = 1
 	tolerance_heretic = 2
 }
+
+venedia_efficient_bureaucracy = {
+	administrative_efficiency = 0.1
+	advisor_cost = -0.15
+}
+
+venedia_great_census = {
+	global_tax_modifier = 0.15
+	global_manpower_modifier = 0.1
+	development_cost = -0.1
+}
+
+venedia_industrial_boom = {
+	production_efficiency = 0.2
+	trade_efficiency = 0.15
+	global_trade_goods_size_modifier = 0.1
+}
+
+venedia_trade_dominance = {
+	global_trade_power = 0.25
+	light_ship_cost = -0.2
+}
+
+venedia_cultural_flowering = {
+	prestige_decay = -0.01
+	idea_cost = -0.1
+}
+
+venedia_scholarly_tradition = {
+	technology_cost = -0.1
+	all_power_cost = -0.05
+}
+
+venedia_professional_military = {
+	discipline = 0.05
+	army_tradition_decay = -0.01
+	drill_gain_modifier = 0.25
+}
+
+venedia_fortress_network = {
+	defensiveness = 0.2
+	fort_maintenance_modifier = -0.25
+	hostile_attrition = 1
+}
+
+venedia_colonial_expertise = {
+	colonist_placement_chance = 0.1
+	global_colonial_growth = 25
+	colonial_nation_tariff = 0.25
+}
+
+venedia_global_empire = {
+	diplomatic_reputation = 3
+	navy_tradition = 1
+	global_ship_trade_power = 0.25
+}
+
+venedia_golden_age = {
+	all_power_cost = -0.1
+	development_cost = -0.15
+	global_unrest = -2
+	diplomatic_upkeep = 2
+}
+
+venedia_administrative_capital = {
+	local_state_maintenance_modifier = -0.5
+	local_governing_cost_modifier = -0.25
+}
+
+venedia_center_of_learning = {
+	local_development_cost = -0.25
+	allowed_num_of_buildings = 1
+}
+
+venedia_great_library = {
+	local_institution_spread = 2.0
+	local_development_cost = -0.15
+}
+
+venedia_military_academy = {
+	local_manpower_modifier = 0.5
+	regiment_recruit_speed = -0.25
+}
+
+venedia_strategic_fortress = {
+	local_defensiveness = 0.25
+	local_hostile_attrition = 2
+}
+
+venedia_new_world_prosperity = {
+	local_tax_modifier = 0.25
+	local_production_efficiency = 0.25
+	trade_goods_size_modifier = 0.15
+}
+
+# Two Crowns Modifiers
+# Country Modifiers
+
+pol_magnate_submission = {
+	stability_cost_modifier = -0.15
+	harsh_treatment_cost = -0.25
+	nobles_loyalty_modifier = 0.10
+	max_absolutism = 5
+}
+
+pol_noble_registration = {
+	global_tax_modifier = 0.10
+	administrative_efficiency = 0.05
+	reform_progress_growth = 0.15
+	nobles_influence_modifier = -0.10
+}
+
+pol_centralized_authority = {
+	max_absolutism = 10
+	administrative_efficiency = 0.10
+	governing_capacity_modifier = 0.15
+	state_maintenance_modifier = -0.20
+}
+
+pol_efficient_administration = {
+	administrative_efficiency = 0.15
+	advisor_cost = -0.15
+	stability_cost_modifier = -0.10
+}
+
+pol_enlightened_rule = {
+	idea_cost = -0.10
+	technology_cost = -0.05
+	institution_spread_from_true_faith = 0.25
+	monthly_splendor = 2
+}
+
+pol_dual_crown_authority = {
+	prestige_decay = -0.01
+	diplomatic_reputation = 1
+	legitimacy = 0.5
+}
+
+pol_french_integration = {
+	culture_conversion_cost = -0.25
+	religious_unity = 0.15
+	global_autonomy = -0.05
+}
+
+pol_gallic_resurgence = {
+	army_tradition_decay = -0.01
+	discipline = 0.05
+	land_morale = 0.10
+	manpower_recovery_speed = 0.15
+}
+
+pol_channel_control = {
+	naval_forcelimit_modifier = 0.20
+	light_ship_cost = -0.15
+	privateer_efficiency = 0.25
+	ship_durability = 0.10
+}
+
+pol_naval_supremacy = {
+	navy_tradition_decay = -0.01
+	naval_morale = 0.15
+	heavy_ship_power = 0.10
+	global_ship_recruit_speed = -0.25
+}
+
+pol_urban_development = {
+	development_cost = -0.10
+	build_cost = -0.15
+	global_trade_goods_size_modifier = 0.10
+	burghers_loyalty_modifier = 0.15
+}
+
+pol_guild_privileges = {
+	production_efficiency = 0.15
+	trade_efficiency = 0.10
+	global_trade_power = 0.15
+	inflation_reduction = 0.05
+}
+
+pol_trade_dominance = {
+	global_trade_power = 0.20
+	merchants = 1
+	trade_steering = 0.15
+	caravan_power = 0.25
+}
+
+pol_industrial_growth = {
+	production_efficiency = 0.20
+	global_trade_goods_size_modifier = 0.15
+	build_time = -0.20
+	development_cost = -0.05
+}
+
+pol_economic_hegemony = {
+	global_tax_modifier = 0.15
+	production_efficiency = 0.20
+	trade_efficiency = 0.15
+	interest = -1
+}
+
+pol_age_of_exploration = {
+	range = 0.25
+	naval_attrition = -0.15
+	colonist_placement_chance = 0.10
+	global_colonial_growth = 15
+}
+
+pol_colonial_expansion = {
+	global_tariffs = 0.15
+	native_uprising_chance = -0.25
+	global_colonial_growth = 20
+}
+
+pol_colonial_support = {
+	local_development_cost = -0.15
+	local_build_cost = -0.20
+	local_colonial_growth = 25
+}
+
+pol_atlantic_commerce = {
+	global_trade_power = 0.15
+	trade_range_modifier = 0.25
+	merchants = 1
+	naval_forcelimit_modifier = 0.15
+}
+
+pol_sugar_wealth = {
+	global_tariffs = 0.20
+	production_efficiency = 0.15
+	yearly_corruption = -0.05
+	inflation_reduction = 0.10
+}
+
+pol_global_empire = {
+	diplomatic_upkeep = 2
+	global_trade_power = 0.25
+	prestige = 1
+	yearly_absolutism = 0.5
+}
+
+pol_military_preparation = {
+	land_forcelimit_modifier = 0.15
+	manpower_recovery_speed = 0.20
+	army_tradition = 0.5
+	drill_gain_modifier = 0.25
+}
+
+pol_rhine_dominance = {
+	fort_maintenance_modifier = -0.20
+	defensiveness = 0.15
+	hostile_attrition = 1
+	war_exhaustion = -0.02
+}
+
+pol_german_expansion = {
+	core_creation = -0.15
+	administrative_efficiency = 0.10
+	governing_capacity_modifier = 0.20
+	army_tradition_decay = -0.005
+}
+
+pol_central_european_hegemony = {
+	diplomatic_reputation = 2
+	improve_relation_modifier = 0.15
+	ae_impact = -0.10
+	prestige = 1
+}
+
+pol_holy_roman_emperor = {
+	imperial_authority_value = 0.15
+	diplomatic_upkeep = 3
+	prestige = 2
+	legitimacy = 1
+}
+
+# Province Modifiers
+
+pol_integrated_territories = {
+	local_unrest = -2
+	local_autonomy = -0.05
+	local_tax_modifier = 0.15
+	local_development_cost = -0.10
+}
+
+pol_thriving_guilds = {
+	local_production_efficiency = 0.20
+	local_build_cost = -0.10
+	trade_value_modifier = 0.15
+	local_development_cost = -0.05
+}
+
+pol_plantation_economy = {
+	local_production_efficiency = 0.25
+	trade_value_modifier = 0.20
+	local_colonial_growth = 15
+	local_development_cost = -0.15
+}
+atlantropa_new_trade_routes = {
+    trade_efficiency = 0.15
+    merchants = 1
+}
+
+atlantropa_plague_devastation = {
+    manpower_recovery_speed = -0.25
+    development_cost = 0.20
+    land_maintenance_modifier = 0.10
+}
+
+atlantropa_medical_response = {
+    development_cost = -0.10
+    global_unrest = -1
+}
+
+atlantropa_scientific_advancement = {
+    technology_cost = -0.10
+    idea_cost = -0.05
+    innovativeness_gain = 0.25
+}
+
+atlantropa_increased_patrols = {
+    global_unrest = -2
+    land_maintenance_modifier = 0.15
+    hostile_attrition = 1
+}
+
+atlantropa_diplomatic_expertise = {
+    diplomatic_reputation = 1
+    improve_relation_modifier = 0.20
+    diplomatic_upkeep = 1
+}
+
+atlantropa_bountiful_harvest = {
+    global_tax_modifier = 0.15
+    global_unrest = -1
+    stability_cost_modifier = -0.10
+}
+
+atlantropa_intelligence_network = {
+    spy_offence = 0.25
+    diplomatic_reputation = 1
+    ae_impact = -0.05
+}
+
+atlantropa_divine_blessing = {
+    legitimacy = 1
+    religious_unity = 0.15
+    global_missionary_strength = 0.02
+    stability_cost_modifier = -0.15
+}
+
+atlantropa_court_stability = {
+    legitimacy = 0.5
+    administrative_efficiency = 0.05
+    global_unrest = -1
+}
+
+atlantropa_political_instability = {
+    legitimacy = -1
+    administrative_efficiency = -0.10
+    global_unrest = 2
+    stability_cost_modifier = 0.25
+}
+
+atlantropa_trade_prosperity = {
+    trade_steering = 0.15
+	global_trade_power = 0.1
+}
+
+atlantropa_disaster_recovery = {
+    development_cost = 0.15
+    build_cost = 0.20
+    global_tax_modifier = -0.10
+}
+
+atlantropa_military_prestige = {
+    prestige = 0.5
+    army_tradition = 0.25
+    military_tactics = 0.05
+    war_exhaustion = -0.02
+}
+
+atlantropa_cultural_flowering = {
+    prestige = 1
+    diplomatic_reputation = 2
+    idea_cost = -0.10
+    advisor_cost = -0.15
+}
+
+atlantropa_anti_corruption_campaign = {
+    yearly_corruption = -0.10
+    administrative_efficiency = 0.025
+    advisor_cost = -0.10
+}
+
+atlantropa_endemic_corruption = {
+    corruption = 0.05
+    administrative_efficiency = -0.05
+    global_tax_modifier = -0.15
+    advisor_cost = 0.25
+}
+
+# Province Modifiers
+atlantropa_quarantine_measures = {
+    local_development_cost = -0.10
+    local_unrest = -2
+    local_tax_modifier = -0.15
+}
+
+atlantropa_disaster_relief = {
+    local_development_cost = -0.25
+    local_tax_modifier = 0.10
+    local_manpower_modifier = 0.15
+    local_unrest = -3
+}
+
+
