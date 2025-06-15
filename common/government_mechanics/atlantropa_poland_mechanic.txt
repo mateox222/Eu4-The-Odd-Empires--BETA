@@ -9,57 +9,509 @@ szlachtapower_mechanic = {
 			gui = polish_magnateria_echanicmech
 			max = 100
 			reset_on_new_ruler = no
-			base_monthly_growth = 0.25
+			base_monthly_growth = 0.5
 			is_good = no
 			
+			# At 100 power, modifiers will be at their maximum values
 			scaled_modifier = {
 				modifier = {
-                    max_absolutism = -50	
-                    all_power_cost = 0.15
-                    yearly_corruption = 1	
-					legitimacy = -1
-					stability_cost_modifier = 1	
-					global_unrest = -10	
-                    manpower_recovery_speed = 0.15	
-                    nobles_loyalty_modifier = 0.3	
-                    monthly_reform_progress_modifier = -0.5	
-                    global_tax_modifier = -0.2
+					max_absolutism = -50
+					all_power_cost = 0.20
+					yearly_corruption = 1.5
+					legitimacy = -1.5
+					stability_cost_modifier = 1.0
+					global_unrest = -8
+					manpower_recovery_speed = 0.15
+					nobles_loyalty_modifier = 0.25
+					monthly_reform_progress_modifier = -0.75
+					global_tax_modifier = -0.30
+					governing_capacity_modifier = -0.20
+					administrative_efficiency = -0.15
+					diplomatic_reputation = -1.0
+					state_maintenance_modifier = 0.25
+					fort_maintenance_modifier = 0.20
+				}
+		
+		pacify_regional_magnates = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_polskamechanika6
+			trigger = {
+				mil_power = 200
+				dip_power = 150
+				army_size = 15
+				num_of_generals = 1
+			}
+			effect = {
+				add_mil_power = -200
+				add_dip_power = -150
+				add_government_power = {
+					mechanic_type = szlachtapower_mechanic
+					power_type = polska_adm_power
+					value = -25
+				}
+				random_owned_province = {
+					limit = {
+						has_estate = estate_nobles
+						local_autonomy = 25
+					}
+					add_local_autonomy = -15
+				}
+				random_owned_province = {
+					limit = {
+						has_estate = estate_nobles
+						local_autonomy = 25
+					}
+					add_local_autonomy = -15
+				}
+				add_estate_loyalty = {
+					estate = estate_nobles
+					loyalty = -8
+				}
+				add_army_tradition = 5
+			}
+			cooldown_years = 8
+			ai_chance = {
+				factor = 10
+				modifier = {
+					factor = 30
+					has_government_power = {
+						mechanic_type = szlachtapower_mechanic
+						power_type = polska_adm_power
+						value = 70
+					}
+					army_size = 20
+				}
+				modifier = {
+					factor = 0
+					estate_loyalty = {
+						estate = estate_nobles
+						loyalty = 25
+					}
 				}
 			}
 		}
+		
+		establish_royal_courts = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_polskamechanika7
+			trigger = {
+				adm_power = 300
+				treasury = 500
+				num_of_owned_provinces_with = {
+					value = 5
+					has_building = courthouse
+				}
+			}
+			effect = {
+				add_adm_power = -300
+				add_treasury = -500
+				add_government_power = {
+					mechanic_type = szlachtapower_mechanic
+					power_type = polska_adm_power
+					value = -30
+				}
+				random_owned_province = {
+					limit = {
+						development = 12
+						NOT = { has_building = courthouse }
+					}
+					add_building = courthouse
+				}
+				random_owned_province = {
+					limit = {
+						development = 12
+						NOT = { has_building = courthouse }
+					}
+					add_building = courthouse
+				}
+				add_country_modifier = {
+					name = royal_courts_established
+					duration = 5475
+				}
+			}
+			cooldown_years = 12
+			ai_chance = {
+				factor = 15
+				modifier = {
+					factor = 40
+					has_government_power = {
+						mechanic_type = szlachtapower_mechanic
+						power_type = polska_adm_power
+						value = 80
+					}
+					treasury = 750
+				}
+			}
+		}
+		
+		convene_great_sejm = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_polskamechanika8
+			trigger = {
+				dip_power = 250
+				prestige = 40
+				stability = 2
+				if = {
+					limit = { has_parliament = yes }
+					current_size_of_parliament = 8
+				}
+			}
+			effect = {
+				add_dip_power = -250
+				add_government_power = {
+					mechanic_type = szlachtapower_mechanic
+					power_type = polska_adm_power
+					value = -40
+				}
+				add_prestige = 15
+				add_legitimacy = 10
+				if = {
+					limit = { has_parliament = yes }
+					add_parliament_effect = 10
+				}
+				else = {
+					change_government_reform_progress = 50
+				}
+				add_estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 5
+				}
+				add_estate_loyalty = {
+					estate = estate_burghers
+					loyalty = 5
+				}
+			}
+			cooldown_years = 15
+			ai_chance = {
+				factor = 20
+				modifier = {
+					factor = 50
+					has_government_power = {
+						mechanic_type = szlachtapower_mechanic
+						power_type = polska_adm_power
+						value = 85
+					}
+					stability = 2
+				}
+			}
+		}
+		
+		grant_magnate_privileges = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_polskamechanika9
+			trigger = {
+				treasury = 300
+			}
+			effect = {
+				add_treasury = -300
+				add_government_power = {
+					mechanic_type = szlachtapower_mechanic
+					power_type = polska_adm_power
+					value = 20
+				}
+				add_estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 15
+				}
+				add_absolutism = -2
+				random_owned_province = {
+					limit = { has_estate = estate_nobles }
+					add_local_autonomy = 8
+				}
+				random_owned_province = {
+					limit = { has_estate = estate_nobles }
+					add_local_autonomy = 8
+				}
+				add_estate_land_share = {
+					estate = estate_nobles
+					share = 5
+				}
+			}
+			cooldown_years = 6
+			ai_chance = {
+				factor = 5
+				modifier = {
+					factor = 0
+					has_government_power = {
+						mechanic_type = szlachtapower_mechanic
+						power_type = polska_adm_power
+						value = 50
+					}
+				}
+				modifier = {
+					factor = 30
+					estate_loyalty = {
+						estate = estate_nobles
+						loyalty = 30
+					}
+					NOT = { stability = 0 }
+				}
+				modifier = {
+					factor = 80
+					estate_loyalty = {
+						estate = estate_nobles
+						loyalty = 20
+					}
+					has_government_power = {
+						mechanic_type = szlachtapower_mechanic
+						power_type = polska_adm_power
+						value = 20
+					}
+				}
+			}
+		}
+		
+		royal_progress_tour = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_polskamechanika10
+			trigger = {
+				dip_power = 200
+				treasury = 400
+				legitimacy = 60
+				NOT = { war_exhaustion = 1 }
+			}
+			effect = {
+				add_dip_power = -200
+				add_treasury = -400
+				add_government_power = {
+					mechanic_type = szlachtapower_mechanic
+					power_type = polska_adm_power
+					value = -15
+				}
+				add_prestige = 10
+				add_legitimacy = 5
+				random_owned_province = {
+					limit = { development = 10 }
+					add_prosperity = 25
+				}
+				random_owned_province = {
+					limit = { development = 10 }
+					add_prosperity = 25
+				}
+				random_owned_province = {
+					limit = { development = 10 }
+					add_prosperity = 25
+				}
+				add_country_modifier = {
+					name = royal_progress_modifier
+					duration = 3650
+				}
+			}
+			cooldown_years = 10
+			ai_chance = {
+				factor = 25
+				modifier = {
+					factor = 50
+					has_government_power = {
+						mechanic_type = szlachtapower_mechanic
+						power_type = polska_adm_power
+						value = 60
+					}
+					treasury = 600
+				}
+				modifier = {
+					factor = 0
+					war_exhaustion = 2
+				}
+			}
+		}
+		
+		enforce_royal_monopolies = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_polskamechanika11
+			trigger = {
+				adm_power = 250
+				mil_power = 150
+				treasury = 200
+				monthly_income = 8
+			}
+			effect = {
+				add_adm_power = -250
+				add_mil_power = -150
+				add_treasury = -200
+				add_government_power = {
+					mechanic_type = szlachtapower_mechanic
+					power_type = polska_adm_power
+					value = -35
+				}
+				add_years_of_income = 1.5
+				add_mercantilism = 3
+				random_owned_province = {
+					limit = {
+						OR = {
+							trade_goods = salt
+							trade_goods = grain
+							trade_goods = fish
+							trade_goods = livestock
+						}
+					}
+					add_base_production = 2
+				}
+				add_estate_loyalty = {
+					estate = estate_nobles
+					loyalty = -12
+				}
+				add_estate_loyalty = {
+					estate = estate_burghers
+					loyalty = -8
+				}
+			}
+			cooldown_years = 10
+			ai_chance = {
+				factor = 15
+				modifier = {
+					factor = 40
+					has_government_power = {
+						mechanic_type = szlachtapower_mechanic
+						power_type = polska_adm_power
+						value = 75
+					}
+					monthly_income = 12
+				}
+				modifier = {
+					factor = 0
+					estate_loyalty = {
+						estate = estate_burghers
+						loyalty = 40
+					}
+				}
+			}
+		}
+		
+		summon_noble_assembly = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_polskamechanika12
+			trigger = {
+				dip_power = 150
+				adm_power = 100
+				NOT = { has_country_modifier = noble_assembly_cooldown }
+			}
+			effect = {
+				add_dip_power = -150
+				add_adm_power = -100
+				
+				# Random outcome system
+				random_list = {
+					40 = { # Successful negotiation
+						add_government_power = {
+							mechanic_type = szlachtapower_mechanic
+							power_type = polska_adm_power
+							value = -25
+						}
+						add_estate_loyalty = {
+							estate = estate_nobles
+							loyalty = 8
+						}
+						add_prestige = 5
+						add_stability = 1
+					}
+					35 = { # Tense compromise
+						add_government_power = {
+							mechanic_type = szlachtapower_mechanic
+							power_type = polska_adm_power
+							value = -10
+						}
+						add_estate_loyalty = {
+							estate = estate_nobles
+							loyalty = 3
+						}
+						add_years_of_income = -0.5
+					}
+					25 = { # Assembly deadlock
+						add_government_power = {
+							mechanic_type = szlachtapower_mechanic
+							power_type = polska_adm_power
+							value = 5
+						}
+						add_estate_loyalty = {
+							estate = estate_nobles
+							loyalty = -5
+						}
+						add_prestige = -5
+						random_owned_province = {
+							add_unrest = 3
+						}
+					}
+				}
+				
+				add_country_modifier = {
+					name = noble_assembly_cooldown
+					duration = 5475
+					hidden = yes
+				}
+			}
+			cooldown_years = 15
+			ai_chance = {
+				factor = 30
+				modifier = {
+					factor = 60
+					has_government_power = {
+						mechanic_type = szlachtapower_mechanic
+						power_type = polska_adm_power
+						value = 70
+					}
+				}
+				modifier = {
+					factor = 10
+					estate_loyalty = {
+						estate = estate_nobles
+						loyalty = 60
+					}
+				}
+			}
+		}
+			}
+		}
 	}
-	
 	
 	interactions = {
 		supportlocalsejmiki = {
 			gui = russian_mechanics_interaction_gui
 			icon = GFX_polskamechanika1
 			trigger = {
-				years_of_income = 1.0
+				years_of_income = 1.5
+				stability = 1
+				NOT = { unrest = 2 }
 			}
 			effect = { 
-				add_years_of_income = -1
-				add_stability = 1	
-                random_owned_province = {
-                    set_seat_in_parliament = yes	
-                }
+				add_years_of_income = -1.5
+				add_stability = 1
+				random_owned_province = {
+					limit = {
+						NOT = { has_seat_in_parliament = yes }
+						development = 10
+					}
+					set_seat_in_parliament = yes
+				}
 				add_government_power = {
 					mechanic_type = szlachtapower_mechanic
 					power_type = polska_adm_power
-					value = -25
+					value = -20
+				}
+				add_estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 5
 				}
 			}
-
-			cooldown_years = 10
+			cooldown_years = 12
 			ai_chance = {
 				factor = 0
 				modifier = {
-					factor = 10
+					factor = 50
 					has_government_power = {
-                        mechanic_type = szlachtapower_mechanic
-                        power_type = polska_adm_power
-	value = 80
-}
+						mechanic_type = szlachtapower_mechanic
+						power_type = polska_adm_power
+						value = 75
+					}
+					stability = 1
+				}
+				modifier = {
+					factor = 100
+					has_government_power = {
+						mechanic_type = szlachtapower_mechanic
+						power_type = polska_adm_power
+						value = 90
+					}
 				}
 			}
 		}
@@ -68,30 +520,45 @@ szlachtapower_mechanic = {
 			gui = russian_mechanics_interaction_gui
 			icon = GFX_polskamechanika2
 			trigger = {
-				adm_power_cost = 200
+				adm_power = 250
+				prestige = 25
+				NOT = { num_of_rebel_armies = 1 }
 			}
 			effect = {
-				add_prestige = 5
-				adm_power_cost = 200
-                change_government_reform_progress = 10
-				add_years_of_income = 0.5
-					add_government_power = {
-                        mechanic_type = szlachtapower_mechanic
-                        power_type = polska_adm_power
-					value = -50
-				}
-
-			}
-			cooldown_years = 10
-				ai_chance = {
-				factor = 1
-				modifier = {
-					factor = 10
-					has_government_power = {
+				add_prestige = 10
+				add_adm_power = -250
+				change_government_reform_progress = 25
+				add_years_of_income = 0.75
+				add_government_power = {
 					mechanic_type = szlachtapower_mechanic
 					power_type = polska_adm_power
-	value = 90
-}
+					value = -35
+				}
+				add_estate_loyalty = {
+					estate = estate_nobles
+					loyalty = -5
+				}
+				add_absolutism = 2
+			}
+			cooldown_years = 15
+			ai_chance = {
+				factor = 5
+				modifier = {
+					factor = 20
+					has_government_power = {
+						mechanic_type = szlachtapower_mechanic
+						power_type = polska_adm_power
+						value = 80
+					}
+					adm_power = 300
+				}
+				modifier = {
+					factor = 50
+					has_government_power = {
+						mechanic_type = szlachtapower_mechanic
+						power_type = polska_adm_power
+						value = 95
+					}
 				}
 			}
 		}
@@ -99,67 +566,275 @@ szlachtapower_mechanic = {
 		supportlocalsejmiki3 = {
 			gui = russian_mechanics_interaction_gui
 			icon = GFX_polskamechanika3
-					trigger = {
-				manpower_percentage = 0.15		
-				mil_power_cost = 150
+			trigger = {
+				manpower_percentage = 0.25
+				mil_power = 200
+				army_tradition = 20
 			}
 			effect = {
-				mil_power_cost = 150
+				add_mil_power = -200
 				if = {
-					limit = {
-						ai = no
+					limit = { ai = no }
+					add_yearly_manpower = -4
+					random_owned_province = {
+						limit = {
+							development = 8
+							has_estate = estate_nobles
+						}
+						spawn_rebels = {
+							type = polish_noble_rebels
+							size = 2
+						}
 					}
-					add_yearly_manpower = -3	
-                random_owned_province = {
-                    spawn_rebels = {
-                        type = polish_noble_rebels
-                        size = 2
-                    }
-                }
-                random_owned_province = {
-                    spawn_rebels = {
-                        type = polish_noble_rebels
-                        size = 2
-                    }
-                }
-                random_owned_province = {
-                    spawn_rebels = {
-                        type = polish_noble_rebels
-                        size = 2
-                    }
-                }
-			}
-			if = {
-				limit = {
-					ai = yes
+					random_owned_province = {
+						limit = {
+							development = 8
+							has_estate = estate_nobles
+						}
+						spawn_rebels = {
+							type = polish_noble_rebels
+							size = 2
+						}
+					}
+					random_owned_province = {
+						limit = {
+							development = 8
+							has_estate = estate_nobles
+						}
+						spawn_rebels = {
+							type = polish_noble_rebels
+							size = 1
+						}
+					}
 				}
-				random_owned_province = {
-                    spawn_rebels = {
-                        type = polish_noble_rebels
-                        size = 1
-                    }
-                }
-				add_yearly_manpower = -1	
-			}
-									add_government_power = {
-                                        mechanic_type = szlachtapower_mechanic
-                                        power_type = polska_adm_power
-					value = -50
+				if = {
+					limit = { ai = yes }
+					add_yearly_manpower = -2
+					random_owned_province = {
+						limit = {
+							development = 8
+							has_estate = estate_nobles
+						}
+						spawn_rebels = {
+							type = polish_noble_rebels
+							size = 1
+						}
+					}
+					random_owned_province = {
+						limit = {
+							development = 8
+							has_estate = estate_nobles
+						}
+						spawn_rebels = {
+							type = polish_noble_rebels
+							size = 1
+						}
+					}
 				}
-			}	
-			cooldown_years = 5
-					ai_chance = {
+				add_government_power = {
+					mechanic_type = szlachtapower_mechanic
+					power_type = polska_adm_power
+					value = -40
+				}
+				add_estate_loyalty = {
+					estate = estate_nobles
+					loyalty = -10
+				}
+				add_absolutism = 3
+			}
+			cooldown_years = 8
+			ai_chance = {
 				factor = 0
 				modifier = {
-					factor = 10
-                    manpower_percentage = 0.75	
+					factor = 30
+					manpower_percentage = 0.6
 					has_government_power = {
-                        mechanic_type = szlachtapower_mechanic
-                        power_type = polska_adm_power
-	value = 100
-}
+						mechanic_type = szlachtapower_mechanic
+						power_type = polska_adm_power
+						value = 85
+					}
+				}
+				modifier = {
+					factor = 80
+					manpower_percentage = 0.8
+					has_government_power = {
+						mechanic_type = szlachtapower_mechanic
+						power_type = polska_adm_power
+						value = 95
+					}
+					army_tradition = 40
+				}
+			}
+		}
+		
+		royal_decree = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_polskamechanika4
+			trigger = {
+				legitimacy = 80
+				adm_power = 300
+				dip_power = 200
+				NOT = { has_country_modifier = royal_decree_cooldown }
+			}
+			effect = {
+				add_adm_power = -300
+				add_dip_power = -200
+				add_government_power = {
+					mechanic_type = szlachtapower_mechanic
+					power_type = polska_adm_power
+					value = -50
+				}
+				add_estate_loyalty = {
+					estate = estate_nobles
+					loyalty = -15
+				}
+				add_absolutism = 5
+				add_country_modifier = {
+					name = royal_authority_strengthened
+					duration = 3650
+				}
+				add_country_modifier = {
+					name = royal_decree_cooldown
+					duration = 7300
+					hidden = yes
+				}
+			}
+			cooldown_years = 20
+			ai_chance = {
+				factor = 0
+				modifier = {
+					factor = 100
+					has_government_power = {
+						mechanic_type = szlachtapower_mechanic
+						power_type = polska_adm_power
+						value = 90
+					}
+					legitimacy = 90
+					adm_power = 400
+				}
+			}
+		}
+		
+		compromise_with_magnates = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_polskamechanika5
+			trigger = {
+				dip_power = 150
+				estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 40
+				}
+			}
+			effect = {
+				add_dip_power = -150
+				add_government_power = {
+					mechanic_type = szlachtapower_mechanic
+					power_type = polska_adm_power
+					value = 15
+				}
+				add_estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 10
+				}
+				add_stability = -1
+				add_absolutism = -3
+				random_owned_province = {
+					add_local_autonomy = 10
+				}
+			}
+			cooldown_years = 10
+			ai_chance = {
+				factor = 5
+				modifier = {
+					factor = 0
+					has_government_power = {
+						mechanic_type = szlachtapower_mechanic
+						power_type = polska_adm_power
+						value = 40
+					}
+				}
+				modifier = {
+					factor = 50
+					stability = -2
+				}
+				modifier = {
+					factor = 20
+					estate_loyalty = {
+						estate = estate_nobles
+						loyalty = 30
+					}
+				}
+			}
+		}
+		
+		establish_magnate_census = {
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_polskamechanika13
+			trigger = {
+				adm_power = 350
+				dip_power = 200
+				adm_tech = 8
+				treasury = 600
+				NOT = { has_country_modifier = magnate_census_ongoing }
+			}
+			effect = {
+				add_adm_power = -350
+				add_dip_power = -200
+				add_treasury = -600
+				add_government_power = {
+					mechanic_type = szlachtapower_mechanic
+					power_type = polska_adm_power
+					value = -45
+				}
+				add_country_modifier = {
+					name = magnate_census_ongoing
+					duration = 1825
+				}
+				# Major administrative overhaul
+				random_owned_province = {
+					limit = { development = 15 }
+					add_base_tax = 2
+					add_base_production = 1
+				}
+				random_owned_province = {
+					limit = { development = 15 }
+					add_base_tax = 2
+					add_base_production = 1
+				}
+				random_owned_province = {
+					limit = { development = 15 }
+					add_base_tax = 1
+					add_base_manpower = 1
+				}
+				add_estate_loyalty = {
+					estate = estate_nobles
+					loyalty = -20
+				}
+				add_absolutism = 8
+				change_government_reform_progress = 75
+			}
+			cooldown_years = 25
+			ai_chance = {
+				factor = 5
+				modifier = {
+					factor = 80
+					has_government_power = {
+						mechanic_type = szlachtapower_mechanic
+						power_type = polska_adm_power
+						value = 90
+					}
+					adm_tech = 10
+					treasury = 800
+				}
+				modifier = {
+					factor = 0
+					estate_loyalty = {
+						estate = estate_nobles
+						loyalty = 35
+					}
 				}
 			}
 		}
 	}
 }
+

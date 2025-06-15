@@ -165,3 +165,43 @@ POL_ideas = {
 		land_morale = 0.15
 	}
 }
+PLC_ideas = {
+	start = {
+		nobles_loyalty_modifier = 0.1
+		num_accepted_cultures = 2 
+	}
+	
+	bonus = {
+		tolerance_heretic = 3
+	}
+	
+	trigger = {
+		always = no
+		NOT = { has_country_flag = is_LPC_flag }
+	}
+	free = yes
+	
+	plc_prosperous_folwarks = { #Same for all of them
+		global_trade_goods_size_modifier = 0.10
+	}
+	pol_jagiellonian_university = {
+		idea_cost = -0.10
+	}
+	plc_the_obrona_potoczna = { #Same for all of them
+		drill_gain_modifier = 0.25
+		army_tradition = 1
+	}
+	winged_hussars = { 
+		cavalry_power = 0.3
+		can_recruit_hussars = yes
+	}
+	plc_refine_our_golden_liberty = { #Same for all of them
+		country_admin_power = 1 
+	}
+	pol_royal_guards = {
+		infantry_power = 0.15
+	}
+	plc_tempered_by_neighbors = { #Same for all of them
+		discipline = 0.05
+	}
+}

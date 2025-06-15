@@ -351,9 +351,9 @@ native_aggressiveness = {
 }
 
 core = {
-	local_tax_modifier = 0.75				#90% more in a core
-	local_manpower_modifier = 0.75			#75% more in a core
-	local_sailors_modifier = 0.75
+	local_tax_modifier = 0.7				#90% more in a core
+	local_manpower_modifier = 0.7			#75% more in a core
+	local_sailors_modifier = 0.7
 }
 
 non_core = {
@@ -370,12 +370,12 @@ colonial_core = {
 }
 
 territory_core = {
-	local_tax_modifier = 0.75				#90% more in a core
-	local_manpower_modifier = 0.75			#75% more in a core
-	local_sailors_modifier = 0.75
+	local_tax_modifier = 0.7				#90% more in a core
+	local_manpower_modifier = 0.7			#75% more in a core
+	local_sailors_modifier = 0.7
 	local_missionary_strength = -0.02
 	min_local_autonomy = 90
-	local_governing_cost = -0.75
+	local_governing_cost = -0.7
 }
 
 territory_non_core = {
@@ -966,7 +966,7 @@ army_tradition = {
 	recover_army_morale_speed = 0.1
 	land_morale = 0.25
 	manpower_recovery_speed = 0.1
-	siege_ability = 0.05
+	siege_ability = 0.1
 	temples_influence = 0.1
 	mr_aristocrats_influence = 0.1
 	rr_girondists_influence = 0.1
@@ -1231,9 +1231,6 @@ recovery_motivation = {
 
 luck = {
 	#core
-	global_missionary_strength = 0.01
-	stability_cost_modifier = -0.10
-	global_institution_spread = 0.1
 	monthly_splendor = 1
 
 	#economy
@@ -1275,7 +1272,7 @@ over_extension = {
 
 prestige = {
 	global_trade_power = 0.15			#+15/-15 total bonus from prestige.
-	land_morale = 0.1
+	army_tradition = 1
 	naval_morale = 0.1
 	global_spy_defence = 0.1				#+10/-10
 	legitimacy = 1.0
@@ -2475,7 +2472,6 @@ ruler_adm = {
 	tolerance_own = 0.15
 	governing_capacity_modifier = 0.05
 	yearly_corruption = -0.015
-	monthly_egyptian_westernization = 0.05
 	monthly_splendor = 0.005
 	monthly_divine_authority = 0.01
 }
@@ -2493,7 +2489,7 @@ ruler_dip = {
 
 ruler_mil = {
 	discipline = 0.005
-	land_morale = 0.005
+	army_tradition = 0.1
 	global_manpower_modifier = 0.025
 	leader_cost = -0.025
 	monthly_council_consensus = 0.1

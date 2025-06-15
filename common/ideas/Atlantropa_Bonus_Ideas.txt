@@ -1666,12 +1666,13 @@ visigothic_exiles = {
 venedian_ideas = {
 	start = {
 		diplomatic_reputation = 1
-		development_cost = -10
+		development_cost = -0.15
 	}
 	
 	bonus = {
 		discipline = 0.05
-		stability_cost_modifier = -10
+		stability_cost_modifier = -0.1
+
 	}
 	
 	trigger = {
@@ -1691,28 +1692,73 @@ venedian_ideas = {
 	
 	venedian_nobility = {
 		land_forcelimit_modifier = 0.25
-		manpower_recovery_speed = 0.2
 	}
 	
 	nova_res_publica = {
-		administrative_efficiency = 0.05
 		governing_capacity_modifier = 0.1
 	}
 	
 	pax_venedica = {
-		diplomatic_upkeep = 1
 		improve_relation_modifier = 0.25
-		ae_impact = -10
 	}
 	
 	romanized_land_law = {
-		global_unrest = -1
 		manpower_recovery_speed = 0.15
 	}
 	
 	imperium_slavorum = {
 		prestige = 1
 		imperial_authority = 0.1
-		diplomatic_annexation_cost = -15
+	}
+}
+
+plc_venedian_ideas = {
+	start = {
+		diplomatic_reputation = 2
+	}
+	
+	bonus = {
+		prestige_decay = -0.01
+	}
+	
+	trigger = {
+		tag = PLC
+	}
+	
+	free = yes
+	
+	venedian_dual_crown = {
+		diplomatic_annexation_cost = -0.15
+		culture_conversion_cost = -0.25
+	}
+	
+	venedian_enlightened_monarchy = {
+		idea_cost = -0.10
+		embracement_cost = -0.15
+	}
+	
+	venedian_magnate_estates = {
+		governing_capacity_modifier = 0.15
+		state_maintenance_modifier = -0.15
+	}
+	
+	venedian_winged_hussars = {
+		cavalry_power = 0.15
+		cavalry_cost = -0.10
+	}
+	
+	venedian_atlantic_empire = {
+		colonist_placement_chance = 0.05
+		global_trade_power = 0.15
+	}
+	
+	venedian_cultural_union = {
+		num_accepted_cultures = 2
+		promote_culture_cost = -0.25
+	}
+	
+	venedian_fortified_realm = {
+		fort_maintenance_modifier = -0.20
+		defensiveness = 0.15
 	}
 }

@@ -2716,7 +2716,7 @@ NDefines = {
 		SELECT_HEIR_FROM_HAREM_AT_MONARCH_AGE = 30, -- The age in years when an heir is selected if the government "has_harem" flag is set.
 
 		TRIBAL_ALLEGIANCE_HUMILIATE = 30.0, -- TA gained from doing Humiliate or Show Strength in a war.
-		GOVERNMENT_REFORM_BASE_COST = 100.0,
+		GOVERNMENT_REFORM_BASE_COST = 300.0,
 		GOVERNMENT_REFORM_COST_INCREASE = 40.0,
 		GOVERNMENT_REFORM_YEARLY_BASE_PROGRESS = 10.0,
 		GOVERNMENT_REFORM_HISTORIC_AUTONOMY = 0.25,
