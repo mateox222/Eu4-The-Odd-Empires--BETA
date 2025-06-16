@@ -1,0 +1,229 @@
+# Agenda 1: Expand Tribal Lands
+estate_tribals_expand_tribal_lands = {
+    can_select = {
+        has_estate = estate_tribals
+        estate_loyalty = {
+            estate = estate_tribals
+            loyalty = 30
+        }
+        any_neighbor_country = {
+            NOT = { alliance_with = ROOT }
+            NOT = { government = tribal }
+        }
+    }
+    
+    selection_weight = {
+        factor = 10
+    }
+    
+    task_requirements = {
+        if = {
+            limit = {
+                has_estate_agenda_auto_completion = {
+                    estate = estate_tribals
+                }
+            }
+            has_estate_agenda_auto_completion = {
+                estate = estate_tribals
+            }
+        }
+        else = {
+            grown_by_states = 1
+
+        }
+    }
+    
+    task_completed_effect = {
+        add_estate_loyalty = {
+            estate = estate_tribals
+            loyalty = 15
+        }
+        add_years_of_income = 0.25
+    }
+    
+    failing_effect = {
+        add_estate_loyalty_modifier = {
+            estate = estate_tribals
+            desc = EST_VAL_FAILED_AGENDA
+            loyalty = -5
+            duration = 7300
+        }
+    }
+}
+
+# Agenda 2: Conduct Tribal Raids
+estate_tribals_conduct_raids = {
+    can_select = {
+        has_estate = estate_tribals
+        estate_loyalty = {
+            estate = estate_tribals
+            loyalty = 30
+        }
+        any_rival_country = {
+            any_owned_province = {
+                any_neighbor_province = {
+                    owned_by = ROOT
+                }
+            }
+        }
+    }
+    
+    selection_weight = {
+        factor = 8
+    }
+    
+    task_requirements = {
+        if = {
+            limit = {
+                has_estate_agenda_auto_completion = {
+                    estate = estate_tribals
+                }
+            }
+            has_estate_agenda_auto_completion = {
+                estate = estate_tribals
+            }
+        }
+        else = {
+            custom_trigger_tooltip = {
+                tooltip = estate_tribals_conduct_raids_task_tooltip
+                war_exhaustion = 3
+            }
+        }
+    }
+    
+    task_completed_effect = {
+        add_estate_loyalty = {
+            estate = estate_tribals
+            loyalty = 10
+        }
+        add_mil_power = 50
+        add_treasury = 50
+    }
+    
+    failing_effect = {
+        add_estate_loyalty_modifier = {
+            estate = estate_tribals
+            desc = EST_VAL_FAILED_AGENDA
+            loyalty = -5
+            duration = 7300
+        }
+    }
+}
+
+# Agenda 3: Build Tribal Settlements
+estate_tribals_build_settlements = {
+    can_select = {
+        has_estate = estate_tribals
+        estate_loyalty = {
+            estate = estate_tribals
+            loyalty = 40
+        }
+        any_owned_province = {
+            has_estate = estate_tribals
+            NOT = { has_building = temple }
+            NOT = { has_building = workshop }
+        }
+    }
+    
+    selection_weight = {
+        factor = 6
+    }
+    
+    task_requirements = {
+        if = {
+            limit = {
+                has_estate_agenda_auto_completion = {
+                    estate = estate_tribals
+                }
+            }
+            has_estate_agenda_auto_completion = {
+                estate = estate_tribals
+            }
+        }
+        else = {
+            any_owned_province = {
+                custom_trigger_tooltip = {
+                    tooltip = estate_tribals_build_settlements_task_tooltip
+                    has_estate = estate_tribals
+                    OR = {
+                        has_building = temple
+                        has_building = workshop
+                    }
+                }
+            }
+        }
+    }
+    
+    task_completed_effect = {
+        add_estate_loyalty = {
+            estate = estate_tribals
+            loyalty = 12
+        }
+        add_adm_power = 25
+    }
+    
+    failing_effect = {
+        add_estate_loyalty_modifier = {
+            estate = estate_tribals
+            desc = EST_VAL_FAILED_AGENDA
+            loyalty = -5
+            duration = 7300
+        }
+    }
+}
+
+# Agenda 4: Recruit Tribal Warriors
+estate_tribals_recruit_warriors = {
+    can_select = {
+        has_estate = estate_tribals
+        estate_loyalty = {
+            estate = estate_tribals
+            loyalty = 35
+        }
+        manpower_percentage = 0.6
+    }
+    
+    selection_weight = {
+        factor = 7
+        modifier = {
+            factor = 1.5
+            is_at_war = yes
+        }
+    }
+    
+    task_requirements = {
+        if = {
+            limit = {
+                has_estate_agenda_auto_completion = {
+                    estate = estate_tribals
+                }
+            }
+            has_estate_agenda_auto_completion = {
+                estate = estate_tribals
+            }
+        }
+        else = {
+            custom_trigger_tooltip = {
+                tooltip = estate_tribals_recruit_warriors_task_tooltip
+                army_size_percentage = 0.8
+            }
+        }
+    }
+    
+    task_completed_effect = {
+        add_estate_loyalty = {
+            estate = estate_tribals
+            loyalty = 10
+        }
+        add_yearly_manpower = 0.5
+    }
+    
+    failing_effect = {
+        add_estate_loyalty_modifier = {
+            estate = estate_tribals
+            desc = EST_VAL_FAILED_AGENDA
+            loyalty = -5
+            duration = 7300
+        }
+    }
+}

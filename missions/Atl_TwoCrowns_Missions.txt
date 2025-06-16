@@ -128,7 +128,7 @@ two_crowns_missions_1 = {
 				has_reform = parliamentary_reform
 				has_reform = royal_absolutism
 			}
-			NOT = { has_disaster = polish_magnate_rebellion } 
+			stability = 3
 			adm_tech = 12
 		}
 
@@ -471,7 +471,7 @@ two_crowns_missions_2 = {
 		}
 	}
 
-	pol_manufactory_boom = {
+	pol_atlantropa_factory_boom = {
 		icon = mission_early_game_buildings
 		position = 6
 		required_missions = { pol_economic_powerhouse } 
@@ -483,7 +483,7 @@ two_crowns_missions_2 = {
 					has_building = mills
 					has_building = farm_estate
 					has_building = tradecompany
-					has_building = plantation
+					has_building = plantations
 					has_building = textile
 					has_building = weapons
 					has_building = wharf
@@ -498,7 +498,7 @@ two_crowns_missions_2 = {
 					has_building = mills
 					has_building = farm_estate
 					has_building = tradecompany
-					has_building = plantation
+					has_building = plantations
 					has_building = textile
 					has_building = weapons
 					has_building = wharf
@@ -523,9 +523,9 @@ two_crowns_missions_2 = {
 			random_owned_province = {
 				limit = {
 					development = 15
-					NOT = { has_building = manufactory } 
+					NOT = { has_building = atlantropa_factory } 
 				}
-				add_building = manufactory
+				add_building = atlantropa_factory
 			}
 		}
 	}
@@ -533,7 +533,7 @@ two_crowns_missions_2 = {
 	pol_economic_powerhouse = {
 		icon = mission_high_income
 		position = 7
-		required_missions = { pol_manufactory_boom } 
+		required_missions = { pol_atlantropa_factory_boom } 
 		provinces_to_highlight = {  } 
 
 		trigger = {
@@ -554,20 +554,20 @@ two_crowns_missions_2 = {
 		}
 	}
 
-	pol_manufactory_expansion = {
+	pol_atlantropa_factory_expansion = {
 		icon = dominant_economy
 		position = 10
 		required_missions = { pol_gallic_ambitions } 
 		provinces_to_highlight = {
 			owned_by = ROOT
-			NOT = { has_building = manufactory } 
+			NOT = { has_building = atlantropa_factory } 
 			development = 15
 		}
 
 		trigger = {
 			num_of_owned_provinces_with = {
 				value = 15
-				has_building = manufactory
+				has_building = atlantropa_factory
 			}
 			treasury = 3000
 			production_income_percentage = 0.4
@@ -580,7 +580,7 @@ two_crowns_missions_2 = {
 			}
 			random_owned_province = {
 				limit = {
-					has_building = manufactory
+					has_building = atlantropa_factory
 					NOT = { has_building = furnace } 
 				}
 				add_building = furnace
@@ -597,7 +597,7 @@ two_crowns_missions_2 = {
 	pol_trade_empire = {
 		icon = mission_dominate_home_trade_node
 		position = 12
-		required_missions = { pol_manufactory_expansion } 
+		required_missions = { pol_atlantropa_factory_expansion } 
 		provinces_to_highlight = {  } 
 
 		trigger = {
@@ -1442,8 +1442,6 @@ two_crowns_missions_5 = {
 
 		trigger = {
 			is_emperor = yes
-			hre_reform_passed = emperor_reichsreform
-			num_of_princes_in_hre = 7
 		}
 
 		effect = {
@@ -1452,7 +1450,7 @@ two_crowns_missions_5 = {
 				duration = -1
 			}
 			add_prestige = 75
-			add_imperial_authority = 25
+			add_authority = 25
 			add_country_modifier = {
 				name = "pol_imperial_administration"
 				duration = -1

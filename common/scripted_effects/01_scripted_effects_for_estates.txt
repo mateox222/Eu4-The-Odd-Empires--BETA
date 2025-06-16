@@ -3752,6 +3752,16 @@ spawn_rebels_from_unhappy_estate = {
 
 pick_random_estate_if_present = {
 	random_list = {
+						1 = { 
+			trigger = {
+				has_estate = estate_tribals
+				NOT = { has_country_flag = estate_tribals_$flag$ }
+			}
+			set_country_flag = estate_tribals_$flag$
+			[[estate_action]
+			$estate_action$ = estate_tribals
+			]
+		}
 				1 = { 
 			trigger = {
 				has_estate = estate_urban_patricians

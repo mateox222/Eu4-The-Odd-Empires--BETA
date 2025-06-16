@@ -4,14 +4,13 @@ venedian_missions_1 = {
 	ai = yes
 	potential = {
 		tag = POL
-
 	}
 	has_country_shield = yes
 
 	# First Mission - Victory over Bohemia
 	ven_bohemian_triumph = {
 		position = 1
-		icon =  mission_pol_varna_aftermath
+		icon = mission_pol_varna_aftermath
 		required_missions = { }
 		trigger = {
 			is_at_war = no
@@ -32,71 +31,72 @@ venedian_missions_1 = {
 			}
 		}
 	}
+	
 	vnd_deal_mazovia = {
-					icon = mission_pol_deal_mazovia
-					required_missions = { ven_bohemian_triumph }
-					provinces_to_highlight = {
-						province_id = 172
-						NOT = {
-							owned_by = ROOT
-						}
+		icon = mission_pol_deal_mazovia
+		required_missions = { ven_bohemian_triumph }
+		provinces_to_highlight = {
+			province_id = 172
+			NOT = {
+				owned_by = ROOT
+			}
+		}
+		trigger = {
+			owns_core_province = 172
+		}
+		effect = {
+			172 = { # Mazovia
+				change_culture = polish
+				add_core = ROOT
+			}
+			add_country_modifier = {
+				name = "polish_ambition"
+				duration = 5475
+			}
+			add_prestige = 10
+			add_adm_power = 50
+			add_mil_power = 50
+			add_dip_power = 50
+		}
+	}
+	
+	vnd_protect_hungary = {
+		icon = atlantropa_meropisfall
+		required_missions = { vnd_deal_mazovia }
+		position = 2
+		provinces_to_highlight = {
+			owned_by = VOL
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		trigger = {
+			OR = {
+				owns_core_province = 183
+				VOL = { is_subject_of = ROOT }
+				VOL = {
+					alliance_with = ROOT
+					has_opinion = {
+						who = ROOT
+						value = 170
 					}
-					trigger = {
-						owns_core_province = 172
-					}
-
-					effect = {
-						172 = { # Mazovia
-							change_culture = polish
-							add_core = ROOT
-						}
-						
-						add_country_modifier = {
-							name = "polish_ambition"
-							duration = 5475
-						}
-						add_prestige = 10
-						add_adm_power = 50
-						add_mil_power = 50
-						add_dip_power = 50
-					}
+					is_at_war = no
+					NOT = { total_development = ROOT }
+					NOT = { army_size = ROOT }
 				}
-								vnd_protect_hungary = {
-					icon = atlantropa_meropisfall
-					required_missions = { vnd_deal_mazovia }
-					position = 2
-					provinces_to_highlight = {
-						owned_by = VOL
-						NOT = { country_or_non_sovereign_subject_holds = ROOT }
-					}
-					trigger = {
-						OR = {
-							owns_core_province = 183
-							VOL = { is_subject_of = ROOT }
-							VOL = {
-								alliance_with = ROOT
-								has_opinion = {
-									who = ROOT
-									value = 170
-								}
-								is_at_war = no
-								NOT = { total_development = ROOT }
-								NOT = { army_size = ROOT }
-							}
-						}
-					}
-					effect = {
-						vassalize = VOL
-						add_adm_power = 100
-						if = {
-							limit = {
-								VOL = { is_subject_of = ROOT }
-							}
-							VOL = { add_liberty_desire = -20 }
-						}
-						set_country_flag = volholynian_country_crown_flag
-					}
+			}
+		}
+		effect = {
+			vassalize = VOL
+			add_adm_power = 100
+			if = {
+				limit = {
+					VOL = { is_subject_of = ROOT }
 				}
+				VOL = { add_liberty_desire = -20 }
+			}
+			set_country_flag = volholynian_country_crown_flag
+		}
+	}
+	
 	ven_fortified_borders = {
 		position = 3
 		icon = mission_assemble_an_army
@@ -109,12 +109,10 @@ venedian_missions_1 = {
 			184 = {
 				fort_level = 2
 				has_building = barracks
-			
+			}
 			army_size_percentage = 0.9
 		}
-		}
 		effect = {
-
 			add_mil_power = 50
 			picardy_area = {
 				limit = { NOT = { is_core = ROOT } }
@@ -134,7 +132,6 @@ venedian_missions_2 = {
 	ai = yes
 	potential = {
 		tag = POL
-
 	}
 	has_country_shield = yes
 
@@ -148,7 +145,7 @@ venedian_missions_2 = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-					num_of_allies = 2
+			num_of_allies = 2
 			army_size_percentage = 0.8
 			FRA = {
 				OR = {
@@ -186,7 +183,6 @@ venedian_missions_2 = {
 				limit = { NOT = { is_core = ROOT } }
 				add_permanent_claim = ROOT
 			}
-
 			holland_area = {
 				limit = { NOT = { is_core = ROOT } }
 				add_permanent_claim = ROOT
@@ -201,11 +197,11 @@ venedian_missions_2 = {
 		required_missions = { ven_northern_frontier }
 		provinces_to_highlight = {
 			OR = {
-			province_id = 4385
-			province_id = 5904
-			province_id = 168		
-			province_id = 5781
-		}
+				province_id = 4385
+				province_id = 5904
+				province_id = 168		
+				province_id = 5781
+			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
@@ -213,7 +209,6 @@ venedian_missions_2 = {
 			owns = 5904
 			owns = 168
 			owns = 5781
-
 			is_at_war = no
 		}
 		effect = {
@@ -228,12 +223,11 @@ venedian_missions_2 = {
 				add_core = ROOT
 			}
 			add_mil_power = 100
-
 		}
 	}
 
 	# Consolidate Southern Holdings
-	vnd_fra_end_hyw  = {
+	vnd_fra_end_hyw = {
 		position = 4
 		icon = the_hundred_years_war
 		required_missions = { ven_aquitaine_campaign }
@@ -253,28 +247,27 @@ venedian_missions_2 = {
 						num_of_provinces_owned_or_owned_by_subjects_with = {
 							value = 1
 							region = france_region
-						}}
-						A59 = {
-							num_of_provinces_owned_or_owned_by_subjects_with = {
-								value = 1
-								region = france_region
-							}}}
 						}
-						if = {
-							limit = {
-								exists = FRA
-							}
-							NOT = { war_with = FRA }
+					}
+					A59 = {
+						num_of_provinces_owned_or_owned_by_subjects_with = {
+							value = 1
+							region = france_region
 						}
-					
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists = FRA
+				}
+				NOT = { war_with = FRA }
+			}
 		}
 		effect = {
 			add_adm_power = 100
 			add_prestige = 20
 			add_mil_power = 50
-
-
-
 			france_region = {
 				limit = { NOT = { is_core = ROOT } }
 				add_permanent_claim = ROOT
@@ -289,7 +282,6 @@ venedian_missions_3 = {
 	ai = yes
 	potential = {
 		tag = POL
-
 	}
 	has_country_shield = yes
 
@@ -310,11 +302,11 @@ venedian_missions_3 = {
 			}
 		}
 		effect = {
-			GUY = {
-				limit = { 
-					if = { is_subject_of = ROOT }
-					add_liberty_desire = -15
+			if = {
+				limit = {
+					GUY = { is_subject_of = ROOT }
 				}
+				GUY = { add_liberty_desire = -15 }
 			}
 			add_country_modifier = {
 				name = "ven_integrated_nobility"
@@ -331,7 +323,7 @@ venedian_missions_3 = {
 		}
 	}
 
-	# make 
+	# Norman Legacy
 	ven_norman_legacy = {
 		position = 3
 		icon = mission_monarch_in_throne_room
@@ -344,21 +336,23 @@ venedian_missions_3 = {
 			dip_power = 100
 			diplomatic_reputation = 3
 			stability = 2
+			GUY = {
 			has_opinion = {
-				who = GUY
+				who = ROOT
 				value = 150
 			}
-							GUY = {
-					is_subject_of = ROOT
-				}
+			}
+			GUY = {
+				is_subject_of = ROOT
+			}
 		}
 		effect = {
 			add_dip_power = -100
-				GUY = {
-				limit = { 
-					if = { is_subject_of = ROOT }
-					add_liberty_desire = -15
+			if = {
+				limit = {
+					GUY = { is_subject_of = ROOT }
 				}
+				GUY = { add_liberty_desire = -15 }
 			}
 			add_prestige = 10
 			179 = {
@@ -369,7 +363,6 @@ venedian_missions_3 = {
 			GUY = { 
 				add_accepted_culture = polish
 			}
-
 		}
 	}
 
@@ -392,9 +385,11 @@ venedian_missions_3 = {
 		}
 		effect = {
 			add_dip_power = -200
-									GUY = {
-				limit = { is_subject_of = ROOT }
-				add_liberty_desire = -15
+			if = {
+				limit = {
+					GUY = { is_subject_of = ROOT }
+				}
+				GUY = { add_liberty_desire = -15 }
 			}
 			174 = { # Paris
 				add_province_modifier = {
@@ -406,15 +401,15 @@ venedian_missions_3 = {
 				name = "ven_crowned_in_paris"
 				duration = -1
 			}
-			GUY = {
-				limit = { NOT = { is_core = ROOT } }
+			every_owned_province = {
+				limit = {
+					is_core = GUY
+					NOT = { is_core = ROOT }
+				}
 				add_permanent_claim = ROOT
 			}
 		}
 	}
-
-	# Prepare for Union
-
 }
 
 venedian_missions_4 = {
@@ -423,7 +418,6 @@ venedian_missions_4 = {
 	ai = yes
 	potential = {
 		tag = POL
-
 	}
 	has_country_shield = yes
 
@@ -443,7 +437,6 @@ venedian_missions_4 = {
 				name = "ven_merchant_privileges"
 				duration = 7300
 			}
-	
 		}
 	}
 
@@ -477,11 +470,6 @@ venedian_missions_4 = {
 			}
 		}
 	}
-
-	# Central Highlands
-
-
-	
 }
 
 venedian_missions_5 = {
@@ -490,7 +478,6 @@ venedian_missions_5 = {
 	ai = yes
 	potential = {
 		tag = POL
-
 	}
 	has_country_shield = yes
 
@@ -500,11 +487,10 @@ venedian_missions_5 = {
 		icon = mission_european_church
 		required_missions = { ven_bohemian_triumph }
 		trigger = {
-			religion = catholic
+
 			stability = 2
 			religious_unity = 0.9
-			papal_influence = 50
-			num_of_cardinals = 1
+
 		}
 		effect = {
 			add_country_modifier = {
@@ -555,8 +541,6 @@ venedian_missions_5 = {
 			}
 		}
 	}
-
-
 }
 
 venedian_missions_6 = {
@@ -565,15 +549,14 @@ venedian_missions_6 = {
 	ai = yes
 	potential = {
 		tag = POL
-
 	}
 	has_country_shield = yes
 
-	# Final Mission - Union with GUYonaise (Two Crowns Commonwealth)
-		ven_diplomatic_preparations = {
+	# Final Mission - Union with Guyenne (Two Crowns Commonwealth)
+	ven_diplomatic_preparations = {
 		position = 5
 		icon = mission_diplomatic_relation
-		required_missions = { ven_parisian_crown ven_fortified_borders ven_atlantic_dominance}
+		required_missions = { ven_parisian_crown ven_fortified_borders ven_atlantic_dominance }
 		trigger = {
 			dip_power = 400
 			num_of_royal_marriages = 3
@@ -582,9 +565,9 @@ venedian_missions_6 = {
 			NOT = { war_with = GUY }
 			OR = {
 				alliance_with = GUY
-				GUY = {
+				ROOT = {
 					has_opinion = {
-						who = ROOT
+						who = GUY
 						value = 150
 					}
 				}
@@ -596,9 +579,9 @@ venedian_missions_6 = {
 				name = "ven_diplomatic_summit"
 				duration = 3650
 			}
-			country_event = { id = venedian_events.1 } # Union negotiations
 		}
 	}
+	
 	ven_two_crowns_union = {
 		position = 6
 		icon = mission_plc_proclaim_polish_hegemony
@@ -616,9 +599,9 @@ venedian_missions_6 = {
 							value = 200
 						}
 					}
-					has_country_flag = GUY_union_accepted
 				}
 			}
+			adm_tech = 10
 			stability = 3
 			legitimacy = 95
 			prestige = 75
@@ -627,7 +610,7 @@ venedian_missions_6 = {
 			if = {
 				limit = {
 					exists = GUY
-					NOT = { GUY = { is_subject_of = ROOT } }
+					 GUY = { is_subject_of = ROOT } 
 				}
 				inherit = GUY
 			}

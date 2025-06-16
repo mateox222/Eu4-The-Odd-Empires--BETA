@@ -16,13 +16,6 @@ country_event = {
         NOT = { has_country_flag = atlantropa_merchant_discovery_flag }
     }
 
-    mean_time_to_happen = {
-        months = 120
-        modifier = {
-            factor = 0.8
-            dip_power = 100
-        }
-    }
 
     option = {
         name = "ATLANTROPA_MERCHANT_DISCOVERY_A"
@@ -57,13 +50,6 @@ country_event = {
         NOT = { has_country_flag = atlantropa_recent_plague }
     }
 
-    mean_time_to_happen = {
-        months = 180
-        modifier = {
-            factor = 0.7
-            NOT = { adm_tech = 10 }
-        }
-    }
 
     option = {
         name = "ATLANTROPA_PLAGUE_OUTBREAK_A"
@@ -110,13 +96,7 @@ country_event = {
         }
     }
 
-    mean_time_to_happen = {
-        months = 150
-        modifier = {
-            factor = 0.9
-            prestige = 50
-        }
-    }
+
 
     option = {
         name = "ATLANTROPA_ROYAL_MARRIAGE_PROPOSAL_A"
@@ -156,13 +136,7 @@ country_event = {
         adm_power = 75
     }
 
-    mean_time_to_happen = {
-        months = 200
-        modifier = {
-            factor = 0.8
-            innovativeness = 30
-        }
-    }
+
 
     option = {
         name = "ATLANTROPA_SCHOLARS_BREAKTHROUGH_A"
@@ -197,13 +171,7 @@ country_event = {
         NOT = { has_country_modifier = atlantropa_increased_patrols }
     }
 
-    mean_time_to_happen = {
-        months = 100
-        modifier = {
-            factor = 1.5
-            stability = 2
-        }
-    }
+ 
 
     option = {
         name = "ATLANTROPA_BANDIT_RAIDS_A"
@@ -245,13 +213,7 @@ country_event = {
         }
     }
 
-    mean_time_to_happen = {
-        months = 140
-        modifier = {
-            factor = 0.9
-            diplomatic_reputation = 3
-        }
-    }
+
 
     option = {
         name = "ATLANTROPA_DIPLOMATIC_SUCCESS_A"
@@ -295,13 +257,7 @@ country_event = {
         NOT = { has_country_flag = atlantropa_recent_harvest_festival }
     }
 
-    mean_time_to_happen = {
-        months = 60
-        modifier = {
-            factor = 0.8
-            stability = 1
-        }
-    }
+
 
     option = {
         name = "ATLANTROPA_HARVEST_FESTIVAL_A"
@@ -337,13 +293,6 @@ country_event = {
         dip_power = 50
     }
 
-    mean_time_to_happen = {
-        months = 180
-        modifier = {
-            factor = 0.8
-            spy_ideas = 3
-        }
-    }
 
     option = {
         name = "ATLANTROPA_SPY_NETWORK_A"
@@ -383,13 +332,6 @@ country_event = {
         treasury = 100
     }
 
-    mean_time_to_happen = {
-        months = 160
-        modifier = {
-            factor = 0.9
-            religious_unity = 95
-        }
-    }
 
     option = {
         name = "ATLANTROPA_RELIGIOUS_PILGRIMAGE_A"
@@ -420,14 +362,6 @@ country_event = {
         government = monarchy #Zamiast przestarzałego is_monarchy
         NOT = { legitimacy = 95 }
         adm_power = 50
-    }
-
-    mean_time_to_happen = {
-        months = 120
-        modifier = {
-            factor = 1.5
-            legitimacy = 75
-        }
     }
 
     option = {
@@ -461,7 +395,6 @@ country_event = {
 
     trigger = {
         any_owned_province = {
-            NOT = { trade_company = yes } #Zamiast przestarzałego is_in_trade_company_region
             OR = {
                 trade_goods = silk
                 trade_goods = spices
@@ -471,13 +404,6 @@ country_event = {
         treasury = 75
     }
 
-    mean_time_to_happen = {
-        months = 80
-        modifier = {
-            factor = 0.8
-            mercantilism = 25
-        }
-    }
 
     option = {
         name = "ATLANTROPA_TRADE_CARAVAN_A"
@@ -512,13 +438,6 @@ country_event = {
         NOT = { has_country_flag = atlantropa_recent_disaster }
     }
 
-    mean_time_to_happen = {
-        months = 300
-        modifier = {
-            factor = 0.7
-            num_of_cities = 15
-        }
-    }
 
     option = {
         name = "ATLANTROPA_NATURAL_DISASTER_A"
@@ -566,13 +485,7 @@ country_event = {
         is_at_war = no
     }
 
-    mean_time_to_happen = {
-        months = 120
-        modifier = {
-            factor = 0.8
-            army_tradition = 60
-        }
-    }
+
 
     option = {
         name = "ATLANTROPA_MILITARY_PARADE_A"
@@ -608,14 +521,6 @@ country_event = {
         dip_power = 100
     }
 
-    mean_time_to_happen = {
-        months = 200
-        modifier = {
-            factor = 0.8
-            prestige = 60
-        }
-    }
-
     option = {
         name = "ATLANTROPA_ARTISTIC_RENAISSANCE_A"
         add_dip_power = -100
@@ -645,14 +550,6 @@ country_event = {
         corruption = 5
         NOT = { has_country_modifier = atlantropa_anti_corruption_campaign }
         treasury = 150
-    }
-
-    mean_time_to_happen = {
-        months = 100
-        modifier = {
-            factor = 0.8
-            corruption = 10
-        }
     }
 
     option = {

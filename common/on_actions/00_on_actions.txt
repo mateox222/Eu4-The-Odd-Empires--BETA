@@ -515,7 +515,18 @@ on_battle_won_country = {
 		set_country_flag = hun_won_battle
 		from = { set_country_flag = hun_lost_battle }
 		}
+	
+	if = {
+		limit = {
+			religion_group = pagan
 
+		}
+       add_government_power = {
+                mechanic_type = toe_tribal_fervor
+                power_type = toe_tribal_fervor
+                value = 1
+            }
+	}
 	if = {
 		limit = {
 			ROOT = {
@@ -4417,7 +4428,18 @@ on_province_religion_converted = {
 		}
 		change_culture = FROM
 	}
-
+	if = {
+		limit = {
+			owner = {
+				religion_group = pagan
+			}
+		}
+		          add_government_power = {
+                mechanic_type = toe_tribal_fervor
+                power_type = toe_tribal_fervor
+                value = 3
+            }
+	}
 
 	if = {
 		limit = {

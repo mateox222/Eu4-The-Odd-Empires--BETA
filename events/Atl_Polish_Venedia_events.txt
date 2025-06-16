@@ -588,7 +588,10 @@ country_event = {
 			}
 			trigger = {
 				tag = POL
+				OR = {
 				is_year = 6503
+				POL = { is_at_war = NO }
+				}
 				NOT = {
 					has_global_flag = POLSKAWOJNAOUTCOME
 				}
