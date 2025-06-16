@@ -314,16 +314,13 @@ two_crowns_missions_2 = {
 		position = 2
 		required_missions = { poland_united_crown } 
 		provinces_to_highlight = {
-			area = bohemia_area
+			owned_by = BOH
 			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
 		}
 
 		trigger = {
 			OR = {
-				bohemia_area = {
-					type = all
-					owned_by = ROOT
-				}
+				owns_core_province = 187
 				ROOT = { is_subject_of = BOH } 
 				BOH = { is_subject_of = ROOT } 
 				AND = {
@@ -358,6 +355,11 @@ two_crowns_missions_2 = {
 				limit = { NOT = { owned_by = ROOT }  } 
 				add_permanent_claim = ROOT
 			}
+					add_casus_belli = {
+					type = cb_restore_personal_union
+					months = 300
+					target = BOH
+				}
 		}
 	}
 
