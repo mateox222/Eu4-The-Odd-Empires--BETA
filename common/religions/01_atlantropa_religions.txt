@@ -90,7 +90,7 @@ pagan = {
 	}
 	baltic_pagan_reformed = {
 		icon = 32
-		color = { 34 79 0 }
+		color = { 188 95 26}
 		country = {
 			fort_maintenance_modifier = -0.1
 			tolerance_own = 1
@@ -350,7 +350,7 @@ christian = {
 	# Pustelnicze Braterstwo Świętego Antoniego - monastycyzm pustelniczy
 	hermit_monasticism = {
 		potential_invite_scholar = {
-			has_global_flag = chrzescijanstwosierozpadlo
+			
 			religion = united_christianity
 		}
 
@@ -401,7 +401,7 @@ christian = {
 	# Wspólnota Dwunastu Apostołów - wspólnotowość apostolska
 	apostolic_community = {
 		potential_invite_scholar = {
-			has_global_flag = chrzescijanstwosierozpadlo
+			
 			religion = united_christianity
 		}
 
@@ -445,7 +445,7 @@ christian = {
 	# Zakon Wiecznego Światła - mistycyzm kontemplacyjny
 	contemplative_mysticism = {
 		potential_invite_scholar = {
-			has_global_flag = chrzescijanstwosierozpadlo
+			
 			religion = united_christianity
 		}
 
@@ -491,7 +491,7 @@ christian = {
 	# Rycerze Świętego Miecza - chrześcijaństwo wojownicze
 	militant_christianity = {
 		potential_invite_scholar = {
-			has_global_flag = chrzescijanstwosierozpadlo
+			
 			religion = united_christianity
 		}
 
@@ -536,7 +536,7 @@ christian = {
 	# Uczona Kongregacja Świętego Tomasza - scholastyka ludowa
 	folk_scholasticism = {
 		potential_invite_scholar = {
-			has_global_flag = chrzescijanstwosierozpadlo
+			
 			religion = united_christianity
 		}
 
@@ -583,7 +583,7 @@ christian = {
 	# Bractwo Błogosławionego Handlu - teologia kupiecka
 	merchant_theology = {
 		potential_invite_scholar = {
-			has_global_flag = chrzescijanstwosierozpadlo
+			
 			religion = united_christianity
 		}
 
@@ -628,7 +628,7 @@ christian = {
 	# Zakon Błogosławionej Ziemi - chrześcijaństwo rolnicze
 	agrarian_christianity = {
 		potential_invite_scholar = {
-			has_global_flag = chrzescijanstwosierozpadlo
+			
 			religion = united_christianity
 		}
 
@@ -675,7 +675,7 @@ christian = {
 	# Kościół Świętych Wizji - prorocka odnowa
 	prophetic_renewal = {
 		potential_invite_scholar = {
-			has_global_flag = chrzescijanstwosierozpadlo
+			
 			religion = united_christianity
 		}
 
@@ -719,7 +719,7 @@ christian = {
 	# Cech Chrześcijańskich Rzemieślników - bractwa rzemieślnicze
 	craftsmen_brotherhood = {
 		potential_invite_scholar = {
-			has_global_flag = chrzescijanstwosierozpadlo
+			
 			religion = united_christianity
 		}
 
@@ -766,7 +766,7 @@ christian = {
 	# Zakon Niepokalanego Serca - maryjny kult
 	marian_devotion = {
 		potential_invite_scholar = {
-			has_global_flag = chrzescijanstwosierozpadlo
+			
 			religion = united_christianity
 		}
 
@@ -810,7 +810,7 @@ christian = {
 	# Braterstwo Świętej Drogi - pielgrzymkowe chrześcijaństwo
 	pilgrimage_faith = {
 		potential_invite_scholar = {
-			has_global_flag = chrzescijanstwosierozpadlo
+			
 			religion = united_christianity
 		}
 
@@ -856,7 +856,7 @@ christian = {
 	# Wspólnota Prawdziwego Słowa - fundamentalizm biblijny
 	biblical_fundamentalism = {
 		potential_invite_scholar = {
-			has_global_flag = chrzescijanstwosierozpadlo
+			
 			religion = united_christianity
 		}
 
@@ -903,7 +903,7 @@ christian = {
 	# Zakon Miłosierdzia Boskiego - chrześcijaństwo społeczne
 	divine_mercy_order = {
 		potential_invite_scholar = {
-			has_global_flag = chrzescijanstwosierozpadlo
+			
 			religion = united_christianity
 		}
 
@@ -949,7 +949,7 @@ christian = {
 	# Stowarzyszenie Świętej Trójcy - trynitarne chrześcijaństwo
 	trinitarian_fellowship = {
 		potential_invite_scholar = {
-			has_global_flag = chrzescijanstwosierozpadlo
+			
 			religion = united_christianity
 		}
 
@@ -990,239 +990,6 @@ christian = {
 		papal_influence = 1
 	}
 
-
-#old
-		constantinople_pentarch = {
-			potential_invite_scholar = {
-				OR = {
-					knows_of_scholar_country_capital_trigger = yes
-				}
-				religion = united_christianity
-
-			}
-
-			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
-			can_invite_scholar = {
-				NOT = { has_country_flag = christianityforever }
-
-				NOT = { has_country_modifier = constantinople_pentarch_modifier }
-				OR = {
-					capital_scope = {  continent = asia }
-					capital_scope = { superregion = eastern_europe_superregion }
-					culture_group = byzantine
-				}
-
-				NOT = { TAG = KIE }
-				NOT = { culture_group = latin  }
-				NOT = { culture_group = french  }
-			}
-
-			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
-			on_invite_scholar = {
-				clear_atlantis_scholar_modifiers_effect = yes
-				set_country_flag = awiecwybieraszbizantyjczykareligieok
-				set_religious_school = {
-					group = christian
-					school = constantinople_pentarch
-				}
-				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = constantinople_pentarch_modifier duration = 73000 }
-				if = {	#Ensures that the AI doesn't waste all of their ADM power on inviting scholars should they be able to invite them baseline
-					limit = {
-						ai = yes
-					}
-					set_country_flag = christianityforever
-					add_country_modifier = { name = has_invited_scholar_recently duration = 73000 hidden = yes }
-				}
-			}
-
-			# If you don't set this it will expand on_invite_scholar effect which might be super big
-			invite_scholar_modifier_display = constantinople_pentarch_modifier
-
-			picture = "GFX_icon_constantinople_school"
-
-			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			global_unrest = -1
-		}
-
-		alexandria_pentarch = {
-			potential_invite_scholar = {
-				OR = {
-					knows_of_scholar_country_capital_trigger = yes
-				}
-				religion = united_christianity
-			}
-
-			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
-			can_invite_scholar = {
-				NOT = { TAG = CYP }
-				NOT = { TAG = TEU }
-				NOT = { has_country_flag = christianityforever }
-				capital_scope = { continent = africa }
-				NOT = { culture_group = byzantine }
-				NOT = { has_country_modifier = alexandria_pentarch_modifier }
-			}
-
-			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
-			on_invite_scholar = {
-				clear_atlantis_scholar_modifiers_effect = yes
-				set_religious_school = {
-					group = christian
-					school = alexandria_pentarch
-				}
-				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = alexandria_pentarch_modifier duration = 73000 }
-				if = {	#Ensures that the AI doesn't waste all of their ADM power on inviting scholars should they be able to invite them baseline
-					limit = {
-						ai = yes
-					}
-					set_country_flag = christianityforever
-					add_country_modifier = { name = has_invited_scholar_recently duration = 73000 hidden = yes }
-				}
-			}
-
-			# If you don't set this it will expand on_invite_scholar effect which might be super big
-			invite_scholar_modifier_display = alexandria_pentarch_modifier
-
-			picture = "GFX_icon_alexandria_school"
-
-			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			global_unrest = -1
-		}
-		rome_pentarch = {
-			potential_invite_scholar = {
-				OR = {
-					knows_of_scholar_country_capital_trigger = yes
-				}
-				religion = united_christianity
-			}
-
-			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
-			can_invite_scholar = {
-				NOT = { has_country_flag = christianityforever }
-				OR = {
-					NOT = {
-						capital_scope = { 	continent = asia }
-						capital_scope = { 	continent = africa }
-						capital_scope = { superregion = eastern_europe_superregion }
-
-					}
-					culture_group = french
-				}
-				NOT = { culture_group = byzantine }
-				NOT = { has_country_modifier = rome_pentarch_modifier }
-			}
-
-			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
-			on_invite_scholar = {
-				clear_atlantis_scholar_modifiers_effect = yes
-				set_religious_school = {
-					group = christian
-					school = rome_pentarch
-				}
-				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = rome_pentarch_modifier duration = 73000 }
-				if = {	#Ensures that the AI doesn't waste all of their ADM power on inviting scholars should they be able to invite them baseline
-					limit = {
-						ai = yes
-					}
-					set_country_flag = christianityforever
-					add_country_modifier = { name = has_invited_scholar_recently duration = 73000 hidden = yes }
-				}
-			}
-
-			# If you don't set this it will expand on_invite_scholar effect which might be super big
-			invite_scholar_modifier_display = rome_pentarch_modifier
-
-			picture = "GFX_icon_rome_school"
-
-			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			global_unrest = -1
-		}
-		antioch_pentarch = {
-			potential_invite_scholar = {
-				always = no
-			}
-
-			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
-			can_invite_scholar = {
-				NOT = { has_country_flag = christianityforever }
-				capital_scope = {  continent = asia }
-				NOT = { culture_group = byzantine }
-				NOT = { culture_group = latin  }
-				NOT = { culture_group = french  }
-				NOT = { has_country_modifier = antioch_pentarch_modifier }
-			}
-
-			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
-			on_invite_scholar = {
-
-				clear_atlantis_scholar_modifiers_effect = yes
-				set_religious_school = {
-					group = christian
-					school = antioch_pentarch
-				}
-				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = antioch_pentarch_modifier duration = 73000 }
-				if = {	#Ensures that the AI doesn't waste all of their ADM power on inviting scholars should they be able to invite them baseline
-					limit = {
-						ai = yes
-					}
-					set_country_flag = christianityforever
-					add_country_modifier = { name = has_invited_scholar_recently duration = 73000 hidden = yes }
-				}
-			}
-
-			# If you don't set this it will expand on_invite_scholar effect which might be super big
-			invite_scholar_modifier_display = antioch_pentarch_modifier
-
-			picture = "GFX_icon_antioch_school"
-
-			# religion_sub_modifier = no is possible, will hide icon in religious screen
-
-			global_unrest = -1
-		}
-		jerusalem_pentarch = {
-			potential_invite_scholar = {
-				always = no
-			}
-
-			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
-			can_invite_scholar = {
-				NOT = { has_country_flag = christianityforever }
-				capital_scope = { continent = asia }
-				NOT = { culture_group = byzantine }
-				NOT = { culture_group = latin  }
-				NOT = { culture_group = french  }
-				NOT = { has_country_modifier = jerusalem_pentarch_modifier }
-			}
-
-			# THIS = Nation wanting to invite the scholar, FORM = Nation that sends scholar
-			on_invite_scholar = {
-				clear_atlantis_scholar_modifiers_effect = yes
-				set_religious_school = {
-					group = christian
-					school = jerusalem_pentarch
-				}
-				custom_tooltip = INVITE_SCHOLAR_COUNTRY_TEXT
-				add_country_modifier = { name = jerusalem_pentarch_modifier duration = 73000 }
-				if = {	#Ensures that the AI doesn't waste all of their ADM power on inviting scholars should they be able to invite them baseline
-					limit = {
-						ai = yes
-					}
-					set_country_flag = christianityforever
-					add_country_modifier = { name = has_invited_scholar_recently duration = 73000 hidden = yes }
-				}
-			}
-
-			# If you don't set this it will expand clear_atlantis_scholar_modifiers_effect = yeseffect which might be super big
-			invite_scholar_modifier_display = jerusalem_pentarch_modifier
-
-			picture = "GFX_icon_jerusalem_school"
-
-			# religion_sub_modifier = no is possible, will hide icon in religious screen
-			global_unrest = -1
-		}
 
 	}
 	united_christianity = {

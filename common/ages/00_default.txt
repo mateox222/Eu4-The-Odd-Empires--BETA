@@ -438,7 +438,21 @@ age_of_reformation = {
 	start = 6639
 	
 	can_start = {
-		is_religion_enabled = protestant
+		OR = {
+			any_country = {
+				NOT = { culture_group = ROOT }
+				is_neighbor_of = ROOT
+				total_development = 50
+			}
+			any_country = {
+				OR = {
+					has_idea_group = diplomatic_ideas
+					has_idea_group = humanist_ideas
+					has_idea_group = administrative_ideas
+				}
+				total_development = 100
+			}
+		}
 		is_year = 6589
 	}
 	
@@ -448,10 +462,12 @@ age_of_reformation = {
 	objectives = {
 		obj_christian_convert = {
 			OR = {
-				religion = protestant
-				religion = reformed
-				religion = anglican
-				religion = hussite
+				has_idea_group = diplomatic_ideas
+				has_idea_group = administrative_ideas
+				custom_trigger_tooltip = {
+					tooltip = obj_cultural_unity_tooltip
+					dominant_culture = ROOT
+				}
 			}
 		}
 		
@@ -464,8 +480,8 @@ age_of_reformation = {
 		
 		obj_convert_10_provinces = {
 			custom_trigger_tooltip = {
-				tooltip = obj_convert_10_provinces_tooltip
-				check_variable = { which = num_converted_religion value = 10 }
+				tooltip = obj_cultural_expansion_tooltip
+				check_variable = { which = num_converted_culture value = 10 }
 			}
 		}
 		
@@ -475,8 +491,8 @@ age_of_reformation = {
 		
 		obj_force_converted = {
 			custom_trigger_tooltip = {
-				tooltip = obj_force_converted_tooltip
-				has_country_flag = force_converted
+				tooltip = obj_diplomatic_dominance_tooltip
+				has_country_flag = diplomatic_dominance
 			}
 		}
 		
@@ -510,8 +526,8 @@ age_of_reformation = {
 	abilities = {
 		ab_allow_religion_enforced = {
 			effect = {
-				custom_tooltip = religion_enforced_edict
-				set_country_flag = religion_enforced_edict
+				custom_tooltip = cultural_enforcement_edict
+				set_country_flag = cultural_enforcement_edict
 			}
 			ai_will_do = {
 				factor = 0
@@ -535,7 +551,7 @@ age_of_reformation = {
 		
 		ab_warscore_vs_religion = {
 			modifier = {
-				warscore_cost_vs_other_religion = -0.15
+				ae_impact = -0.15
 			}
 			ai_will_do = {
 				factor = 10
@@ -562,7 +578,7 @@ age_of_reformation = {
 		
 		ab_institution_spread_from_true_faith = {
 			modifier = {
-				institution_spread_from_true_faith = 0.3
+				embracement_cost = -0.15
 			}
 			ai_will_do = {
 				factor = 10
@@ -571,7 +587,7 @@ age_of_reformation = {
 
 		ab_prestige_per_development_from_conversion = {
 			modifier = {
-				prestige_per_development_from_conversion = 0.2
+				prestige_from_land = 0.5
 			}
 			ai_will_do = {
 				factor = 10
@@ -630,7 +646,6 @@ age_of_reformation = {
 		}
 	}
 }
-
 age_of_absolutism = {
 	start = 6729
 	
