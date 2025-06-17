@@ -1,0 +1,110 @@
+border_tensions = {
+	potential = {
+		NOT = { has_ruler_flag = had_border_tensions }
+		any_neighbor_country = {
+			OR = {
+				is_enemy = ROOT
+				ROOT = { is_enemy = PREV }
+			}
+		}
+		num_of_cities = 4
+		NOT = { government_rank = 3 }
+	}
+	
+	can_start = {
+        NOT = { stability = 3 }
+		has_any_disaster = no
+         is_at_war = no
+		NOT = { manpower_percentage = 0.5 }
+		any_neighbor_country = {
+			is_enemy = ROOT
+			army_size = ROOT
+		}
+	}
+	
+	can_stop = {
+        OR = {
+        is_at_war = yes
+		has_any_disaster = yes
+        manpower_percentage = 0.9
+        }
+	}
+	
+	progress = {
+		modifier = {
+			factor = 2
+			any_neighbor_country = {
+				is_enemy = ROOT
+				army_size = ROOT
+			}
+		}
+		modifier = {
+			factor = 5
+			any_neighbor_country = {
+				is_enemy = ROOT
+				total_development = ROOT
+			}
+		}
+		modifier = {
+			factor = 3
+			any_owned_province = {
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					owner = {
+						is_enemy = ROOT
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 2
+			NOT = { manpower_percentage = 0.3 }
+		}
+		modifier = {
+			factor = 3
+			any_neighbor_country = {
+				has_claim = ROOT
+                is_enemy = ROOT
+			}
+		}
+	}
+	
+	can_end = {
+		had_country_flag = { flag = tensions_resolved days = 500 }
+		OR = {
+			manpower_percentage = 0.7
+			AND = {
+				stability = 1
+				NOT = {
+					any_neighbor_country = {
+						is_enemy = ROOT
+						army_size = ROOT
+					}
+				}
+			}
+		}
+	}
+	
+	modifier = {
+		global_unrest = 2
+		fort_maintenance_modifier = 0.25
+		land_maintenance_modifier = 0.15
+		diplomatic_reputation = -1
+		improve_relation_modifier = -0.2
+	}
+	
+	on_start = border_tensions.1
+	on_end = border_tensions.2
+	
+	on_monthly = {
+		events = {
+		}
+		random_events = {
+			1800 = 0
+			50 = border_tensions.3
+			50 = border_tensions.4
+			50 = border_tensions.5
+			50 = border_tensions.6
+		}
+	}
+}

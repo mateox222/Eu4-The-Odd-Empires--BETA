@@ -1372,3 +1372,86 @@ A2R_center_of_learning = {
 	idea_cost = -0.15
 	advisor_cost = -0.20
 }
+
+# PROVINCE MODIFIERS
+
+trade_disruption = {
+	local_production_efficiency = -0.25
+	trade_value_modifier = -0.3
+	local_unrest = 2
+}
+
+merchant_bailout = {
+	local_production_efficiency = 0.15
+	trade_value_modifier = 0.2
+	local_unrest = -1
+}
+
+military_escort = {
+	trade_value_modifier = 0.1
+	local_unrest = -2
+	local_hostile_attrition = 1
+}
+
+fortified_villages = {
+	local_defensiveness = 0.25
+	local_unrest = -3
+	local_hostile_attrition = 1
+}
+
+judicial_reform = {
+	local_unrest = -2
+	local_state_maintenance_modifier = -0.2
+	local_tax_modifier = 0.1
+}
+
+# COUNTRY MODIFIERS
+
+religious_tensions = {
+	stability_cost_modifier = 0.25
+	tolerance_heretic = -1
+	tolerance_heathen = -1
+	global_unrest = 2
+}
+
+religious_reconciliation = {
+	stability_cost_modifier = -0.15
+	tolerance_heretic = 2
+	tolerance_heathen = 1
+	diplomatic_reputation = 1
+}
+
+religious_orthodoxy = {
+	missionary_strength = 0.02
+	tolerance_heretic = -2
+	global_unrest = 1
+	papal_influence = 1
+}
+
+economic_recovery = {
+	global_tax_modifier = 0.15
+	production_efficiency = 0.1
+	trade_efficiency = 0.1
+	inflation_reduction = 0.02
+}
+
+restored_order = {
+	global_unrest = -2
+	trade_efficiency = 0.1
+	land_maintenance_modifier = -0.1
+}
+
+administrative_reform = {
+	stability_cost_modifier = -0.25
+	core_creation = -0.15
+	advisor_cost = -0.15
+	all_power_cost = -0.05
+}
+
+increased_patrols = {
+	land_maintenance_modifier = 0.1
+	hostile_attrition = 1
+	global_unrest = -1
+}
+
+# OPINION MODIFIERS

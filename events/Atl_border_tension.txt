@@ -1,0 +1,224 @@
+namespace = border_tensions
+
+# Border Tensions Begin
+country_event = {
+	id = border_tensions.1
+	title = border_tensions.1.t
+	desc = border_tensions.1.d
+	picture = BORDER_TENSION_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_country_flag = tensions_resolved
+	}
+	
+	option = {
+		name = border_tensions.1.a
+		add_stability = -1
+		add_mil_power = -25
+	}
+}
+
+# Border Tensions End
+country_event = {
+	id = border_tensions.2
+	title = border_tensions.2.t
+	desc = border_tensions.2.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_country_flag = tensions_resolved
+		set_ruler_flag = had_border_tensions
+	}
+	
+	option = {
+		name = border_tensions.2.a
+		add_prestige = 10
+		add_army_tradition = 5
+        
+	}
+}
+
+# Border Skirmish
+country_event = {
+	id = border_tensions.3
+	title = border_tensions.3.t
+	desc = border_tensions.3.d
+	picture = BORDER_TENSION_eventPicture
+	
+	trigger = {
+		has_disaster = border_tensions
+		any_neighbor_country = {
+			is_enemy = ROOT
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	option = {
+		name = border_tensions.3.a # Retaliate
+		random_neighbor_country = {
+			limit = {
+				is_enemy = ROOT
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = border_skirmish
+			}
+		}
+		add_army_tradition = 3
+		add_mil_power = -25
+	}
+	
+	option = {
+		name = border_tensions.3.b # Ignore provocation
+		add_prestige = -5
+	}
+}
+
+# Refugee Crisis
+country_event = {
+	id = border_tensions.4
+	title = border_tensions.4.t
+	desc = border_tensions.4.d
+	picture = REFUGEES_eventPicture
+	
+	trigger = {
+		has_disaster = border_tensions
+		any_neighbor_country = {
+			is_at_war = yes
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 30
+	}
+	
+	option = {
+		name = border_tensions.4.a # Accept refugees
+		add_years_of_income = -0.25
+		random_owned_province = {
+			limit = {
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+				}
+			}
+			add_base_manpower = 1
+			add_unrest = 2
+		}
+	}
+	
+	option = {
+		name = border_tensions.4.b # Close borders
+		add_prestige = -10
+		random_neighbor_country = {
+			limit = {
+				is_at_war = yes
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = closed_borders
+			}
+		}
+	}
+}
+
+# Fortification Demands
+country_event = {
+	id = border_tensions.5
+	title = border_tensions.5.t
+	desc = border_tensions.5.d
+	picture = FORT_eventPicture
+	
+	trigger = {
+		has_disaster = border_tensions
+		any_owned_province = {
+			any_neighbor_province = {
+				NOT = { owned_by = ROOT }
+				owner = {
+					is_enemy = ROOT
+				}
+			}
+			NOT = { has_building = fort_15th }
+			NOT = { has_building = fort_16th }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 150
+	}
+	
+	option = {
+		name = border_tensions.5.a # Build fortifications
+        random_list = {
+	20 = {
+		random_owned_province = {
+			limit = {
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					owner = {
+						is_enemy = ROOT
+					}
+				}
+				NOT = { has_building = fort_15th }
+			}
+			add_building = fort_15th
+		}
+		add_years_of_income = -0.5
+	}
+    20 = { add_presitge = 5 }
+    60 = { add_mil_power = 25 }
+
+        }
+    }
+	
+	option = {
+		name = border_tensions.5.b # Rely on diplomacy
+		add_dip_power = -50
+		add_prestige = -5
+	}
+}
+
+# Intelligence Reports
+country_event = {
+	id = border_tensions.6
+	title = border_tensions.6.t
+	desc = border_tensions.6.d
+	picture = SPY_eventPicture
+	
+	trigger = {
+		has_disaster = border_tensions
+		any_rival_country = {
+			is_neighbor_of = ROOT
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+	}
+	
+	option = {
+		name = border_tensions.6.a # Increase espionage
+		add_years_of_income = -0.2
+		random_rival_country = {
+			limit = {
+				is_neighbor_of = ROOT
+			}
+			add_spy_network_from = {
+				who = ROOT
+				value = 25
+			}
+		}
+	}
+	
+	option = {
+		name = border_tensions.6.b # Focus on defense
+		add_mil_power = 25
+		add_army_tradition = 2
+	}
+}
