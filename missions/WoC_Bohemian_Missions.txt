@@ -566,7 +566,7 @@ woc_boh_first_branch = {
 			}
 			if = {
 				limit = {
-					NOT = { religion = catholic }
+					NOT = { religion = united_christianity }
 				}
 				custom_tooltip = boh_unlock_hussite_branching_tt_yes
 				tooltip = {
@@ -589,7 +589,7 @@ woc_boh_first_branch = {
 			}
 			if = {
 				limit = {
-					religion = catholic 
+					religion = united_christianity 
 				}
 				custom_tooltip = boh_unlock_catholic_branching_tt_yes
 				tooltip = {
@@ -613,7 +613,7 @@ woc_boh_first_branch = {
 			hidden_effect = {
 				if = {
 					limit = {
-						religion = catholic 
+						religion = united_christianity 
 					}
 					clr_country_flag = boh_hussite_missions
 					clr_country_flag = boh_catholic_missions
@@ -785,7 +785,7 @@ boh_first_unlocked_catholic = {
 		effect = {
 			if = {
 				limit = {
-					religion = catholic
+					religion = united_christianity
 				}
 				custom_tooltip = boh_unlock_catholic_branching_tt_yes
 				tooltip = {
@@ -817,7 +817,7 @@ boh_first_unlocked_catholic = {
 			if = { #fallback reward
 				limit = {
 					NOT = {
-						religion = catholic
+						religion = united_christianity
 					}
 				}
 				custom_tooltip = boh_empty
@@ -850,7 +850,7 @@ boh_first_unlocked_catholic = {
 			hidden_effect = {
 				if = {
 					limit = {
-						religion = catholic
+						religion = united_christianity
 					}
 					add_reform_desire = -0.02
 					add_papal_influence = 20
@@ -904,7 +904,7 @@ boh_first_unlocked_catholic = {
 		effect = {
 			if = {
 				limit = {
-					religion = catholic
+					religion = united_christianity
 				}
 				custom_tooltip = boh_unlock_catholic_branching_tt_yes
 				tooltip = {
@@ -928,7 +928,7 @@ boh_first_unlocked_catholic = {
 			if = { #fallback reward
 				limit = {
 					NOT = {
-						religion = catholic
+						religion = united_christianity
 					}
 				}
 				custom_tooltip = boh_not_catholic_tt_yes
@@ -951,7 +951,7 @@ boh_first_unlocked_catholic = {
 			hidden_effect = {
 				if = {
 					limit = {
-						religion = catholic
+						religion = united_christianity
 					}
 					set_country_flag = hun_empower_religious_diplomats
 					add_country_modifier = {
@@ -1041,7 +1041,7 @@ boh_first_unlocked_catholic = {
 		effect = {
 			if = {
 				limit = {
-					religion = catholic
+					religion = united_christianity
 				}
 				custom_tooltip = boh_unlock_catholic_branching_tt_yes
 				tooltip = {
@@ -1065,7 +1065,7 @@ boh_first_unlocked_catholic = {
 			if = { #fallback reward
 				limit = {
 					NOT = {
-						religion = catholic
+						religion = united_christianity
 					}
 				}
 				custom_tooltip = boh_not_catholic_tt_yes
@@ -1086,7 +1086,7 @@ boh_first_unlocked_catholic = {
 			hidden_effect = {
 				if = {
 					limit = {
-						religion = catholic
+						religion = united_christianity
 					}
 					set_country_flag = boh_empower_diplo_advisors
 					add_country_modifier = {
@@ -1337,7 +1337,7 @@ boh_first_unlocked_hussite = {
 					has_dlc = "Art of War"
 					hre_size = 1
 					OR = {
-						religion = catholic
+						religion = united_christianity
 						religion = protestant
 						religion = hussite
 					}
@@ -1360,7 +1360,7 @@ boh_first_unlocked_hussite = {
 				limit = {
 					hre_size = 1
 					OR = {
-						religion = catholic
+						religion = united_christianity
 						religion = protestant
 					}
 				}

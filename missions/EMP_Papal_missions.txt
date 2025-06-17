@@ -272,15 +272,15 @@ emp_pap_slot_1 = {
 				province_id = 295
 			}
 			owner = {
-				NOT = { religion = catholic }
+				NOT = { religion = united_christianity }
 			}
 		}
 
 		trigger = {
 			OR = {
 				AND = {
-					151 = { owner = { religion = catholic } }
-					295 = { owner = { religion = catholic } }
+					151 = { owner = { religion = united_christianity } }
+					295 = { owner = { religion = united_christianity } }
 				}
 				custom_trigger_tooltip = {
 					tooltip = catholics_healed_schism_tt
@@ -313,18 +313,18 @@ emp_pap_slot_1 = {
 			if = {
 				limit = {
 					151 = {
-						NOT = { religion = catholic }
+						NOT = { religion = united_christianity }
 					}
 				}
-				151 = { change_religion = catholic }
+				151 = { change_religion = united_christianity }
 			}
 			if = {
 				limit = {
 					295 = {
-						NOT = { religion = catholic }
+						NOT = { religion = united_christianity }
 					}
 				}
-				295 = { change_religion = catholic }
+				295 = { change_religion = united_christianity }
 			}
 		}
 	}
@@ -430,7 +430,7 @@ emp_pap_slot_2 = {
 			any_ally = {
 				custom_trigger_tooltip = {
 					tooltip = faux_is_catholic
-					religion = catholic
+					religion = united_christianity
 				}
 				is_great_power = yes
 			}
@@ -444,7 +444,7 @@ emp_pap_slot_2 = {
 			}
 			else = {
 				every_ally = {
-					limit = { religion = catholic }
+					limit = { religion = united_christianity }
 					add_country_modifier = {
 						name = "pap_papal_military_aid"
 						duration = 3650
@@ -466,7 +466,7 @@ emp_pap_slot_2 = {
 		provinces_to_highlight = {
 			region = mashriq_region
 			owner = {
-				NOT = { religion = catholic }
+				NOT = { religion = united_christianity }
 			}
 		}
 
@@ -477,7 +477,7 @@ emp_pap_slot_2 = {
 				all_province = {
 					region = mashriq_region
 					owner = {
-						religion = catholic
+						religion = united_christianity
 					}
 				}
 			}
@@ -486,7 +486,7 @@ emp_pap_slot_2 = {
 			if = {
 				limit = {
 					exists = KOJ
-					KOJ = { religion = catholic }
+					KOJ = { religion = united_christianity }
 				}
 				KOJ = {
 					add_country_modifier = {
@@ -499,14 +499,14 @@ emp_pap_slot_2 = {
 				limit = {
 					379 = {
 						owner = {
-							religion = catholic
+							religion = united_christianity
 						}
 					}
 				}
 				379 = {
 					if = {
-						limit = { NOT = { religion = catholic } }
-						change_religion = catholic
+						limit = { NOT = { religion = united_christianity } }
+						change_religion = united_christianity
 					}
 					add_province_modifier = {
 						name = pap_latin_patriarch_of_jerusalem
@@ -551,7 +551,7 @@ emp_pap_slot_2 = {
 						region = north_china_region
 						region = south_china_region
 					}
-					owner = { religion = catholic }
+					owner = { religion = united_christianity }
 				}
 				amount = 4 # Taiwan is three provinces, so at least one non-Taiwanese province must be taken
 			}
@@ -566,9 +566,9 @@ emp_pap_slot_2 = {
 							region = south_china_region
 						}
 						owner = {
-							religion = catholic
+							religion = united_christianity
 						}
-						NOT = { religion = catholic }
+						NOT = { religion = united_christianity }
 					}
 					add_province_modifier = {
 						name = pap_chinese_jesuits_noncatholic
@@ -585,9 +585,9 @@ emp_pap_slot_2 = {
 							region = south_china_region
 						}
 						owner = {
-							religion = catholic
+							religion = united_christianity
 						}
-						religion = catholic
+						religion = united_christianity
 					}
 					add_province_modifier = {
 						name = pap_chinese_jesuits_catholic
@@ -681,7 +681,7 @@ emp_pap_slot_3 = {
 				tooltip = emp_pap_catholic_alliances_tt
 				calc_true_if = {
 					all_ally = {
-						religion = catholic
+						religion = united_christianity
 					}
 					amount = 3
 				}
@@ -928,7 +928,7 @@ emp_pap_slot_3 = {
 				desc = emp_pap_mission_to_japan_tt2
 				all_province = {
 					region = japan_region
-					owner = { religion = catholic }
+					owner = { religion = united_christianity }
 				}
 				amount = 3
 			}
@@ -939,7 +939,7 @@ emp_pap_slot_3 = {
 					capital_scope = {
 						region = japan_region
 					}
-					religion = catholic
+					religion = united_christianity
 				}
 				add_country_modifier = {
 					name = pap_japanese_jesuits
@@ -957,9 +957,9 @@ emp_pap_slot_3 = {
 								tag = SPA
 								tag = ARA
 							}
-							religion = catholic
+							religion = united_christianity
 						}
-						religion = catholic
+						religion = united_christianity
 					}
 				}
 				4182 = {
@@ -979,9 +979,9 @@ emp_pap_slot_3 = {
 								tag = SPA
 								tag = ARA
 							}
-							religion = catholic
+							religion = united_christianity
 						}
-						NOT = { religion = catholic }
+						NOT = { religion = united_christianity }
 					}
 				}
 				4182 = {
@@ -997,7 +997,7 @@ emp_pap_slot_3 = {
 					exists = JAP 
 					NOT = { has_dlc = "Mandate of Heaven" }
 					JAP = { 
-						NOT = { religion = catholic }
+						NOT = { religion = united_christianity }
 						has_country_flag = western_trade_flag 
 						NOT = { has_country_flag = kirishitan_have_appeared }
 					}
@@ -1021,7 +1021,7 @@ emp_pap_slot_3 = {
 			else_if = {
 				limit = { 
 					exists = JAP 
-					JAP = { NOT = { religion = catholic } }
+					JAP = { NOT = { religion = united_christianity } }
 				}
 				JAP = {
 					country_event = { id = flavor_pap.15 }
@@ -1037,7 +1037,7 @@ emp_pap_slot_3 = {
 							has_reform = shogunate
 							owns = 1020
 						}
-						NOT = { religion = catholic }
+						NOT = { religion = united_christianity }
 						has_country_flag = western_trade_flag 
 						NOT = { has_country_flag = kirishitan_have_appeared }
 					}
@@ -1060,7 +1060,7 @@ emp_pap_slot_3 = {
 							has_reform = shogunate
 							owns = 1020
 						}
-						NOT = { religion = catholic }
+						NOT = { religion = united_christianity }
 						is_incident_possible = incident_spread_of_christianity
 					}
 					has_dlc = "Mandate of Heaven"
@@ -1083,7 +1083,7 @@ emp_pap_slot_3 = {
 							has_reform = shogunate
 							owns = 1020
 						}
-						NOT = { religion = catholic }
+						NOT = { religion = united_christianity }
 					}
 				}
 				every_country = {
@@ -1149,7 +1149,7 @@ emp_pap_slot_4 = {
 			hidden_effect = {
 				every_country = {
 					limit = {
-						religion = catholic
+						religion = united_christianity
 						NOT = { tag = ROOT }
 					}
 					add_country_modifier = {
@@ -1291,7 +1291,7 @@ emp_pap_slot_5 = {
 				limit = {
 					exists = LIT
 					LIT = {
-						religion = catholic
+						religion = united_christianity
 					}
 				}
 				owned_by = LIT
@@ -1301,7 +1301,7 @@ emp_pap_slot_5 = {
 					NOT = { exists = LIT }
 					exists = POL
 					POL = {
-						religion = catholic
+						religion = united_christianity
 					}
 				}
 				owned_by = POL
@@ -1312,14 +1312,14 @@ emp_pap_slot_5 = {
 					NOT = { exists = POL }
 					exists = PLC
 					PLC = {
-						religion = catholic
+						religion = united_christianity
 					}
 				}
 				owned_by = PLC
 			}
 			else = {
 				region = ruthenia_region
-				NOT = { religion = catholic }
+				NOT = { religion = united_christianity }
 			}
 		}
 
@@ -1328,7 +1328,7 @@ emp_pap_slot_5 = {
 				limit = {
 					exists = LIT
 					LIT = {
-						religion = catholic
+						religion = united_christianity
 					}
 				}
 				LIT = {
@@ -1343,7 +1343,7 @@ emp_pap_slot_5 = {
 					NOT = { exists = LIT }
 					exists = POL
 					POL = {
-						religion = catholic
+						religion = united_christianity
 					}
 				}
 				POL = {
@@ -1359,7 +1359,7 @@ emp_pap_slot_5 = {
 					NOT = { exists = POL }
 					exists = PLC
 					PLC = {
-						religion = catholic
+						religion = united_christianity
 					}
 				}
 				PLC = {
@@ -1372,7 +1372,7 @@ emp_pap_slot_5 = {
 			else = {
 				ruthenia_region = {
 					type = all
-					religion = catholic
+					religion = united_christianity
 				}
 			}
 		}
@@ -1381,7 +1381,7 @@ emp_pap_slot_5 = {
 				limit = {
 					exists = LIT
 					LIT = {
-						religion = catholic
+						religion = united_christianity
 					}
 				}
 				LIT = {
@@ -1394,7 +1394,7 @@ emp_pap_slot_5 = {
 					exists = POL
 					NOT = { exists = LIT }
 					POL = {
-						religion = catholic
+						religion = united_christianity
 					}
 				}
 				POL = {
@@ -1408,7 +1408,7 @@ emp_pap_slot_5 = {
 					NOT = { exists = POL }
 					NOT = { exists = LIT }
 					POL = {
-						religion = catholic
+						religion = united_christianity
 					}
 				}
 				PLC = {
@@ -1497,19 +1497,19 @@ emp_pap_slot_5 = {
 						is_emperor = yes
 					}
 				}
-				in_league = catholic
+				in_league = united_christianity
 			}
 			else_if = {
 				limit = { any_country = { is_emperor = yes } }
 				is_religion_enabled = protestant
 				any_ally = {
-					religion = catholic
+					religion = united_christianity
 					is_part_of_hre = yes
 				}
 			}
 			else = {
 				any_ally = {
-					religion = catholic
+					religion = united_christianity
 					capital_scope = {
 						OR = {
 							region = north_german_region
@@ -1523,14 +1523,14 @@ emp_pap_slot_5 = {
 			if = {
 				limit = { 
 					has_dlc = "Art of War" 
-					in_league = catholic
+					in_league = united_christianity
 					any_country = {
 						is_emperor = yes
 					}
 					NOT = {
 						hre_religion_locked = yes
 						hre_religion_treaty = yes
-						NOT = { hre_religion = catholic }
+						NOT = { hre_religion = united_christianity }
 					}
 				}
 				custom_tooltip = emp_pap_back_the_catholic_powers_league_tt
@@ -1538,7 +1538,7 @@ emp_pap_slot_5 = {
 					every_country = {
 						limit = {
 							NOT = { tag = ROOT }
-							in_league = catholic
+							in_league = united_christianity
 							NOT = { has_country_modifier = pap_papal_military_aid }
 						}
 						add_country_modifier = {
@@ -1556,7 +1556,7 @@ emp_pap_slot_5 = {
 				}
 				every_ally = {
 					limit = {
-						religion = catholic
+						religion = united_christianity
 						is_part_of_hre = yes
 					}
 					add_country_modifier = {
@@ -1568,7 +1568,7 @@ emp_pap_slot_5 = {
 			else = {
 				every_ally = {
 					limit = {
-						religion = catholic
+						religion = united_christianity
 						capital_scope = {
 							OR = {
 								region = north_german_region
@@ -1598,7 +1598,7 @@ emp_pap_slot_5 = {
 				is_defender_of_faith_of_tier = 4
 				AND = {
 					hre_religion_locked = yes
-					hre_religion = catholic
+					hre_religion = united_christianity
 				}
 			}	
 		}
@@ -1624,7 +1624,7 @@ emp_pap_slot_5 = {
 		provinces_to_highlight = {
 			is_part_of_hre = yes
 			owner = {
-				NOT = { religion = catholic }
+				NOT = { religion = united_christianity }
 			}
 		}
 
@@ -1639,7 +1639,7 @@ emp_pap_slot_5 = {
 						any_province = {
 							is_part_of_hre = yes
 							owner = {
-								NOT = { religion = catholic }
+								NOT = { religion = united_christianity }
 							}
 						}
 					}
@@ -1651,7 +1651,7 @@ emp_pap_slot_5 = {
 					NOT = {
 						any_country = {
 							culture_group = germanic
-							NOT = { religion = catholic }
+							NOT = { religion = united_christianity }
 						}
 					}
 				}

@@ -2,7 +2,10 @@ country_decisions = {
 POL_royal_decree_decision = {
 	color = { 227 102 120 }
 	potential = {
+				OR = {
 		tag = POL
+		tag = PLC
+		}
 		has_government_mechanic = szlachtapower_mechanic
         		NOT = { has_country_modifier = royal_decree_cooldown }
 		NOT = { has_ruler_flag = POL_royal_decree_taken }
@@ -66,7 +69,10 @@ POL_royal_decree_decision = {
 POL_establish_magnate_census_decision = {
 	color = { 227 102 120 }
 	potential = {
+				OR = {
 		tag = POL
+		tag = PLC
+		}
 		has_government_mechanic = szlachtapower_mechanic
         		NOT = { has_country_modifier = magnate_census_ongoing }
 		NOT = { has_ruler_flag = POL_magnate_census_taken }
@@ -151,7 +157,10 @@ POL_establish_magnate_census_decision = {
 POL_compromise_with_magnates_decision = {
 	color = { 227 102 120 }
 	potential = {
+				OR = {
 		tag = POL
+		tag = PLC
+		}
 		has_government_mechanic = szlachtapower_mechanic
         NOT = { has_ruler_flag = POL_compromise_census_taken }
 	}

@@ -169,7 +169,7 @@ kongo_fetishist_missions_slot = {
 	}
 }
 
-#First slot -> Religion - Catholic slot
+#First slot -> Religion - united_christianity slot
 kongo_catholic_missions_slot = {
 	slot = 1
 	generic = no
@@ -190,13 +190,13 @@ kongo_catholic_missions_slot = {
 		required_missions = {  }
 		position = 1
 		provinces_to_highlight = {
-			NOT = { religion = catholic }
+			NOT = { religion = united_christianity }
 			owned_by = ROOT
 		}
 		trigger = {
-			religion = catholic
-			dominant_religion = catholic
-			ruler_religion = catholic
+			religion = united_christianity
+			dominant_religion = united_christianity
+			ruler_religion = united_christianity
 		}
 		effect = {
 			if = {
@@ -210,7 +210,7 @@ kongo_catholic_missions_slot = {
 			add_prestige = 25
 		}
 		ai_weight = {
-			factor = 500	#Catholic Kongo is historical
+			factor = 500	#united_christianity Kongo is historical
 		}
 	}
 
@@ -221,15 +221,15 @@ kongo_catholic_missions_slot = {
 		provinces_to_highlight = {
 			owned_by = ROOT
 			OR = {
-				NOT = { religion = catholic }
+				NOT = { religion = united_christianity }
 				has_tax_building_trigger = no
 			}
 		}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			calc_true_if = {
 				all_owned_province = {
-					religion = catholic
+					religion = united_christianity
 					has_tax_building_trigger = yes
 				}
 				amount = 10
@@ -243,7 +243,7 @@ kongo_catholic_missions_slot = {
 			add_papal_influence = 100
 		}
 		ai_weight = {
-			factor = 500	#Catholic Kongo is historical
+			factor = 500	#united_christianity Kongo is historical
 		}
 	}
 
@@ -255,7 +255,7 @@ kongo_catholic_missions_slot = {
 		position = 4
 		provinces_to_highlight = {
 			owner = {
-				religion = catholic
+				religion = united_christianity
 				capital_scope = {
 					continent = europe
 				}
@@ -266,7 +266,7 @@ kongo_catholic_missions_slot = {
 			}
 		}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			OR = {
 				custom_trigger_tooltip = {
 					tooltip = kon_gain_cardinal_at
@@ -282,7 +282,7 @@ kongo_catholic_missions_slot = {
 							tag = PAP
 							num_of_cardinals = 1
 						}
-						religion = catholic
+						religion = united_christianity
 					}
 				}
 				custom_trigger_tooltip = {
@@ -298,7 +298,7 @@ kongo_catholic_missions_slot = {
 				}
 			}
 			capital_scope = {
-				religion = catholic
+				religion = united_christianity
 				development = 25
 			}
 			treasury = 1000
@@ -323,7 +323,7 @@ kongo_catholic_missions_slot = {
 								tag = PAP
 								num_of_cardinals = 1
 							}
-							religion = catholic
+							religion = united_christianity
 						}
 					}
 					country_event = {
@@ -355,14 +355,14 @@ kongo_catholic_missions_slot = {
 				superregion = africa_superregion
 				superregion = southern_africa_superregion
 			}
-			NOT = { religion = catholic }
+			NOT = { religion = united_christianity }
 		}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			calc_true_if = {
 				all_province = {
 					continent = africa
-					religion = catholic
+					religion = united_christianity
 				}
 				amount = 100
 			}
@@ -451,7 +451,7 @@ kongo_choose_path_missions_slot = {
 			change_government_to_monarchy = yes
 		}
 		ai_weight = {
-			factor = 500	#They became a proper monarchy after becoming Catholic. Though, you could argue that the tribal version is also a monarchy too...
+			factor = 500	#They became a proper monarchy after becoming united_christianity. Though, you could argue that the tribal version is also a monarchy too...
 		}
 	}
 

@@ -1624,3 +1624,36 @@ lechia_pagan_empire = {
 		}
 	}
 }
+
+A2R_pharaonic_kingdom = {
+	icon = "pharaoh"
+	allow_normal_conversion = no
+	potential = {
+		tag = A2R
+		religion = kemetism
+	}
+	valid_for_nation_designer = no
+	lock_level_when_selected = yes
+	legacy_equivalent = despotic_monarchy
+	
+	modifiers = {
+		monarch_lifespan = 0.25
+		legitimacy = 1.5
+		max_absolutism = 25
+		yearly_absolutism = 0.5
+		culture_conversion_cost = -0.25
+		same_culture_advisor_cost = -0.20
+		reform_progress_growth = 0.15
+		governing_capacity = 250
+		all_estate_influence_modifier = -0.10
+	}
+	
+	custom_attributes = {
+		enables_divine_idea_group = yes
+		enables_aristocratic_idea_group = no
+	}
+	
+	ai = {
+		factor = 100
+	}
+}

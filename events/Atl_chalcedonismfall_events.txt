@@ -128,6 +128,7 @@ country_event = {
 		clr_global_flag = chalcedonismwillfallin30years
 		set_global_flag = popevictorybecausebyzantiumfall
 		set_global_flag = chrzescijanstwosierozpadlo
+
 	}
 	trigger = {
 		NOT = { has_global_flag = chrzescijanstwosierozpadlo }
@@ -151,7 +152,6 @@ country_event = {
 	}
 	option = {
 		name = "chalcedonism_fall.6.a"
-		set_hre_religion = catholic
 
 
 		custom_tooltip = CHRISTIANSCHISMAISCOMING
@@ -307,17 +307,17 @@ country_event = {
 				limit = {
 					religion = christian_change_religion_for_debug
 				}
-				change_religion = catholic
+				change_religion = united_christianity
 			}
 			every_country = {
 				limit = {
 					religion = christian_change_religion_for_debug
 				}
-				change_religion = catholic
+				change_religion = united_christianity
 
 			}
 			LAE = {
-				change_religion = catholic
+				change_religion = united_christianity
 			}
 			every_country = {
 				limit = {
@@ -329,7 +329,7 @@ country_event = {
 				change_religion = orthodox
 				every_owned_province = {
 					limit = {
-						religion = catholic
+						religion = united_christianity
 					}
 					change_religion = orthodox
 				}
@@ -341,42 +341,14 @@ country_event = {
 				remove_country_modifier = jerusalem_pentarch_modifier
 				remove_country_modifier = constantinople_pentarch_modifier
 			}
-			118 = {
-				add_core = PAP
-				cede_province = PAP
-				remove_core = X46
-			}
-			add_reform_desire = 95
-			PAP = {
-				hidden_effect = {
+			
+				initialize_atlantis_schools_effect_new = yes
+		distribute_christian_schools_effect = yes
 
-
-					random_subject_country = {
-						limit = {
-							is_elector = yes
-						}
-						elector = no
-						hidden_effect = {
-							country_event = {
-								id = hre_event.14
-							}
-						}
-					}
-				}
-				elector = yes
-			}
 
 
 		}
-		random_country = {
-			limit = {	religion = catholic
-				ai = yes
-				NOT = { total_development = 100 }
-			}
-			country_event = {
-				id = 2001
-			}
-		}
+	
 	}
 }
 
@@ -392,6 +364,7 @@ country_event = {
 		clr_global_flag = chalcedonismwillfallin30years
 		set_global_flag = byzantinevictoryoverpope
 		set_global_flag = chrzescijanstwosierozpadlo
+
 	}
 
 
@@ -421,7 +394,6 @@ country_event = {
 	option = {
 		name = "chalcedonism_fall.7.a"
 
-		set_hre_religion = catholic
 
 
 		custom_tooltip = CHRISTIANSCHISMAISCOMING
@@ -538,7 +510,7 @@ country_event = {
 					NOT = { superregion = tartary_superregion }
 					NOT = { superregion = far_east_superregion }
 				}
-				change_religion = catholic
+				change_religion = united_christianity
 			}
 			every_country = {
 				limit = {
@@ -555,7 +527,7 @@ country_event = {
 						}
 					}
 				}
-				change_religion = catholic
+				change_religion = united_christianity
 
 			}
 			every_province = {
@@ -614,7 +586,7 @@ country_event = {
 					OR = {
 						continent = africa
 					}
-					religion = catholic
+					religion = united_christianity
 				}
 				change_religion = monophysite
 			}
@@ -627,11 +599,7 @@ country_event = {
 				remove_country_modifier = jerusalem_pentarch_modifier
 				remove_country_modifier = constantinople_pentarch_modifier
 			}
-			118 = {
-				add_core = PAP
-				cede_province = PAP
-				REMOVE_CORE = X46
-			}
+		
 			add_reform_desire = 100
 			every_country = {
 				limit = {
@@ -642,22 +610,16 @@ country_event = {
 				change_religion = orthodox
 				every_owned_province = {
 					limit = {
-						religion = catholic
+						religion = united_christianity
 					}
 					change_religion = orthodox
 				}
 			}
+					initialize_atlantis_schools_effect_new = yes
+		distribute_christian_schools_effect = yes
 
 		}
-		random_country = {
-			limit = {	religion = catholic
-				ai = yes
-				NOT = { total_development = 100 }
-			}
-			country_event = {
-				id = 2001
-			}
-		}
+	
 	}
 
 }

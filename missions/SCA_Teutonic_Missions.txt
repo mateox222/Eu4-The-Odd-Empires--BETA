@@ -827,7 +827,7 @@ teu_pru_dummy_hre_mission_slot_1 = {
 									hre_religion_locked = yes
 								}
 								AND = {
-									religion = catholic
+									religion = united_christianity
 									custom_trigger_tooltip = {
 										tooltip = swe_catholic_30_years_war_ct
 										OR = {
@@ -920,7 +920,7 @@ teu_pru_dummy_hre_mission_slot_1 = {
 				}
 				custom_tooltip = teu_diplomacy_hre_path_effects_tt
 				if = {
-					limit = { religion = catholic }
+					limit = { religion = united_christianity }
 					add_papal_influence = 100
 				}
 				else_if = {
@@ -2107,7 +2107,7 @@ teu_pru_diplomatic_hre_mission_slot = {
 						hre_religion_locked = yes
 					}
 					AND = {
-						religion = catholic
+						religion = united_christianity
 						custom_trigger_tooltip = {
 							tooltip = swe_catholic_30_years_war_ct
 							OR = {
@@ -2166,7 +2166,7 @@ teu_pru_diplomatic_hre_mission_slot = {
 		}
 		effect = {
 			if = {
-				limit = { religion = catholic }
+				limit = { religion = united_christianity }
 				add_papal_influence = 100
 			}
 			else_if = {
@@ -4515,7 +4515,7 @@ teu_crusader_russia_mission_slot = {
 		required_missions = { teu_livonian_alliance }
 		provinces_to_highlight = {}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			if = {
 				limit = {
 					has_estate = estate_church
@@ -4578,7 +4578,7 @@ teu_crusader_russia_mission_slot = {
 			}
 			NOT = {
 				owner = {
-					religion = catholic
+					religion = united_christianity
 					OR = {
 						tag = ROOT
 						alliance_with = ROOT
@@ -4588,9 +4588,9 @@ teu_crusader_russia_mission_slot = {
 			}
 		}
 		trigger = {
-			religion = catholic
-			33 = { owner = { religion = catholic } }
-			310 = { owner = { religion = catholic } }
+			religion = united_christianity
+			33 = { owner = { religion = united_christianity } }
+			310 = { owner = { religion = united_christianity } }
 			calc_true_if = {
 				all_province = {
 					OR = {
@@ -4599,7 +4599,7 @@ teu_crusader_russia_mission_slot = {
 						area = novgorod_area
 					}
 					owner = {
-						religion = catholic
+						religion = united_christianity
 						OR = {
 							tag = ROOT
 							alliance_with = ROOT
@@ -4655,7 +4655,7 @@ teu_crusader_russia_mission_slot = {
 						owned_by = ROOT
 					}
 					owner = {
-						religion = catholic
+						religion = united_christianity
 						alliance_with = ROOT
 					}
 				}
@@ -4674,7 +4674,7 @@ teu_crusader_russia_mission_slot = {
 				limit = {
 					295 = {
 						owner = {
-							religion = catholic
+							religion = united_christianity
 							alliance_with = ROOT
 						}
 					}
@@ -4706,25 +4706,25 @@ teu_crusader_russia_mission_slot = {
 			}
 		}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			OR = {
 				AND = {
 					295 = {
-						owner = { religion = catholic }
+						owner = { religion = united_christianity }
 						religion = ROOT
 					}
 					33 = {
-						owner = { religion = catholic }
+						owner = { religion = united_christianity }
 						religion = ROOT
 					}
 					310 = {
-						owner = { religion = catholic }
+						owner = { religion = united_christianity }
 						religion = ROOT
 					}
 					calc_true_if = {
 						all_province = {
 							region = russia_region
-							religion = catholic
+							religion = united_christianity
 							owner = {
 								religion = ROOT
 								OR = {
@@ -4780,7 +4780,7 @@ teu_crusader_russia_mission_slot = {
 			}
 		}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			num_of_owned_provinces_with = {
 				religion = ROOT
 				has_tax_building_trigger = yes
@@ -4812,7 +4812,7 @@ teu_crusader_russia_mission_slot = {
 			NOT = { has_building = cathedral }
 		}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			cathedral = 10
 			theologian = 3
 		}
@@ -4860,7 +4860,7 @@ teu_crusader_more_conquest_mission_slot = {
 			}
 		}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				OR = {
 					area = samogitia_area
@@ -4920,7 +4920,7 @@ teu_crusader_more_conquest_mission_slot = {
 			}
 		}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				region = crimea_region
 				religion = ROOT
@@ -4980,7 +4980,7 @@ teu_crusader_more_conquest_mission_slot = {
 			}
 		}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			owns_or_non_sovereign_subject_of = 463
 			owns_or_non_sovereign_subject_of = 4306
 			463 = {
@@ -5022,7 +5022,7 @@ teu_crusader_more_conquest_mission_slot = {
 			is_capital_of = TUR
 		}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			OR = {
 				NOT = { exists = TUR }
 				has_won_war_against = {
@@ -5074,7 +5074,7 @@ teu_crusader_eastern_conquest_mission_slot = {
 			}
 		}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				region = poland_region
 				religion = ROOT
@@ -5127,7 +5127,7 @@ teu_crusader_eastern_conquest_mission_slot = {
 			}
 		}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				region = ruthenia_region
 				religion = ROOT
@@ -5171,7 +5171,7 @@ teu_crusader_eastern_conquest_mission_slot = {
 			}
 		}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				region = ural_region
 				religion = ROOT
@@ -5203,7 +5203,7 @@ teu_crusader_eastern_conquest_mission_slot = {
 			}
 		}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 				region = central_asia_region
 				religion = ROOT
@@ -5249,7 +5249,7 @@ teu_crusader_eastern_conquest_mission_slot = {
 		}
 		provinces_to_highlight = {}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			religious_unity = 0.8
 			num_of_cities = 100
 			cavalry_fraction = 0.5
@@ -5282,7 +5282,7 @@ teu_crusader_military_mission_slot = {
 		required_missions = { teu_build_to_force_limit }
 		provinces_to_highlight = {}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			custom_trigger_tooltip = {
 				tooltip = teu_crusader_mil_reform_1_tt
 				check_variable = {
@@ -5309,7 +5309,7 @@ teu_crusader_military_mission_slot = {
 		}
 		provinces_to_highlight = {}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			if = {
 				limit = {
 					has_dlc = "Cradle of Civilization"
@@ -5348,7 +5348,7 @@ teu_crusader_military_mission_slot = {
 		}
 		provinces_to_highlight = {}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			num_of_generals = 2
 			has_completed_idea_group_of_category = {
 				mil_ideas = yes
@@ -5392,7 +5392,7 @@ teu_crusader_military_mission_slot = {
 			}
 		}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			OR = {
 				barracks = 8
 				training_fields = 8
@@ -5442,7 +5442,7 @@ teu_crusader_development_mission_slot = {
 			is_capital_of = PAP
 		}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			if = {
 				limit = {
 					exists = PAP
@@ -5493,7 +5493,7 @@ teu_crusader_development_mission_slot = {
 		required_missions = { teu_crusader_secure_papal_alliance }
 		provinces_to_highlight = {}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			OR = {
 				full_idea_group = religious_ideas
 				full_idea_group = theocracy_gov_ideas
@@ -5536,7 +5536,7 @@ teu_crusader_development_mission_slot = {
 		required_missions = { teu_crusader_embrace_religious_ideas }
 		provinces_to_highlight = {}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			custom_trigger_tooltip = {
 				tooltip = teu_crusader_convert_provinces_tt
 				check_variable = {
@@ -5559,7 +5559,7 @@ teu_crusader_development_mission_slot = {
 		required_missions = { }
 		provinces_to_highlight = {}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			share_of_starting_income = 2
 			is_in_deficit = no
 			NOT = { num_of_loans = 1 }
@@ -5595,7 +5595,7 @@ teu_crusader_development_mission_slot = {
 			NOT = { province_has_current_tech_fort_trigger = yes }
 		}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			num_of_owned_provinces_with = {
 				province_has_current_tech_fort_trigger = yes
 				value = 25
@@ -5624,7 +5624,7 @@ teu_crusader_development_mission_slot = {
 			}
 		}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			religious_unity = 0.9
 			NOT = { current_age = age_of_discovery }
 			NOT = {
@@ -5670,7 +5670,7 @@ teu_crusader_development_mission_slot = {
 			}
 		}
 		trigger = {
-			religion = catholic
+			religion = united_christianity
 			NOT = { current_age = age_of_discovery }
 			OR = {
 				NOT = { current_age = age_of_reformation }
@@ -5775,7 +5775,7 @@ teu_dummy_mission_slot_1 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					if = {
 						limit = {
 							has_estate = estate_church
@@ -5866,9 +5866,9 @@ teu_dummy_mission_slot_1 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
-					33 = { owner = { religion = catholic } }
-					310 = { owner = { religion = catholic } }
+					religion = united_christianity
+					33 = { owner = { religion = united_christianity } }
+					310 = { owner = { religion = united_christianity } }
 					calc_true_if = {
 						all_province = {
 							OR = {
@@ -5877,7 +5877,7 @@ teu_dummy_mission_slot_1 = {
 								area = novgorod_area
 							}
 							owner = {
-								religion = catholic
+								religion = united_christianity
 								OR = {
 									tag = ROOT
 									alliance_with = ROOT
@@ -5952,7 +5952,7 @@ teu_dummy_mission_slot_1 = {
 								owned_by = ROOT
 							}
 							owner = {
-								religion = catholic
+								religion = united_christianity
 								alliance_with = ROOT
 							}
 						}
@@ -5976,7 +5976,7 @@ teu_dummy_mission_slot_1 = {
 				limit = {
 					295 = {
 						owner = {
-							religion = catholic
+							religion = united_christianity
 							alliance_with = ROOT
 						}
 					}
@@ -6022,25 +6022,25 @@ teu_dummy_mission_slot_1 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					OR = {
 						AND = {
 							295 = {
-								owner = { religion = catholic }
+								owner = { religion = united_christianity }
 								religion = ROOT
 							}
 							33 = {
-								owner = { religion = catholic }
+								owner = { religion = united_christianity }
 								religion = ROOT
 							}
 							310 = {
-								owner = { religion = catholic }
+								owner = { religion = united_christianity }
 								religion = ROOT
 							}
 							calc_true_if = {
 								all_province = {
 									region = russia_region
-									religion = catholic
+									religion = united_christianity
 									owner = {
 										religion = ROOT
 										OR = {
@@ -6115,7 +6115,7 @@ teu_dummy_mission_slot_1 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					num_of_owned_provinces_with = {
 						religion = ROOT
 						has_tax_building_trigger = yes
@@ -6169,7 +6169,7 @@ teu_dummy_mission_slot_1 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					cathedral = 10
 					theologian = 3
 				}
@@ -6224,7 +6224,7 @@ teu_dummy_mission_slot_2 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 						OR = {
 							area = samogitia_area
@@ -6303,7 +6303,7 @@ teu_dummy_mission_slot_2 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 						region = crimea_region
 						religion = ROOT
@@ -6378,7 +6378,7 @@ teu_dummy_mission_slot_2 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					owns_or_non_sovereign_subject_of = 463
 					owns_or_non_sovereign_subject_of = 4306
 					463 = {
@@ -6443,7 +6443,7 @@ teu_dummy_mission_slot_2 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					OR = {
 						NOT = { exists = TUR }
 						has_won_war_against = {
@@ -6525,7 +6525,7 @@ teu_dummy_mission_slot_3 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 						region = poland_region
 						religion = ROOT
@@ -6606,7 +6606,7 @@ teu_dummy_mission_slot_3 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 						region = ruthenia_region
 						religion = ROOT
@@ -6700,7 +6700,7 @@ teu_dummy_mission_slot_3 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 						region = ural_region
 						religion = ROOT
@@ -6751,7 +6751,7 @@ teu_dummy_mission_slot_3 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
 						region = central_asia_region
 						religion = ROOT
@@ -6834,7 +6834,7 @@ teu_dummy_mission_slot_3 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					religious_unity = 0.8
 					num_of_cities = 100
 					cavalry_fraction = 0.5
@@ -6911,7 +6911,7 @@ teu_dummy_mission_slot_4 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					custom_trigger_tooltip = {
 						tooltip = teu_crusader_mil_reform_1_tt
 						check_variable = {
@@ -6989,7 +6989,7 @@ teu_dummy_mission_slot_4 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					if = {
 						limit = {
 							has_dlc = "Cradle of Civilization"
@@ -7084,7 +7084,7 @@ teu_dummy_mission_slot_4 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					num_of_generals = 2
 					has_completed_idea_group_of_category = {
 						mil_ideas = yes
@@ -7156,7 +7156,7 @@ teu_dummy_mission_slot_4 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					OR = {
 						barracks = 8
 						training_fields = 8
@@ -7243,7 +7243,7 @@ teu_dummy_mission_slot_5 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					if = {
 						limit = {
 							exists = PAP
@@ -7341,7 +7341,7 @@ teu_dummy_mission_slot_5 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					OR = {
 						full_idea_group = religious_ideas
 						full_idea_group = theocracy_gov_ideas
@@ -7402,7 +7402,7 @@ teu_dummy_mission_slot_5 = {
 				tooltip = teu_crusader_path_tt
 				always = no
 			}
-			religion = catholic
+			religion = united_christianity
 			custom_trigger_tooltip = {
 				tooltip = teu_crusader_convert_provinces_tt
 				check_variable = {
@@ -7448,7 +7448,7 @@ teu_dummy_mission_slot_5 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					share_of_starting_income = 2
 					is_in_deficit = no
 					NOT = { num_of_loans = 1 }
@@ -7510,7 +7510,7 @@ teu_dummy_mission_slot_5 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					num_of_owned_provinces_with = {
 						province_has_current_tech_fort_trigger = yes
 						value = 25
@@ -7569,7 +7569,7 @@ teu_dummy_mission_slot_5 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					religious_unity = 0.9
 					NOT = { current_age = age_of_discovery }
 					NOT = {
@@ -7630,7 +7630,7 @@ teu_dummy_mission_slot_5 = {
 						tooltip = teu_crusader_path_tt
 						always = no
 					}
-					religion = catholic
+					religion = united_christianity
 					NOT = { current_age = age_of_discovery }
 					OR = {
 						NOT = { current_age = age_of_reformation }

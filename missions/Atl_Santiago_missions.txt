@@ -46,7 +46,7 @@ s00_foundation = {
 		trigger = {
 			OR = {
 				AND = {
-					religion = catholic
+					religion = united_christianity
 					papal_influence = 50
 					PAP = {
 						has_opinion = {
@@ -56,7 +56,7 @@ s00_foundation = {
 					}
 				}
 				AND = {
-					NOT = { religion = catholic }
+					NOT = { religion = united_christianity }
 					OR = {
 						NOT = { exists = PAP }
 						PAP = {
@@ -88,7 +88,7 @@ s00_foundation = {
 		effect = {
 			if = {
 				limit = {
-					religion = catholic
+					religion = united_christianity
 				}
 				add_reform_desire = -0.02
 				add_papal_influence = 100
@@ -141,7 +141,7 @@ s00_worship_and_god = {
 		effect = {
 			if = {
 				limit = {
-					religion = catholic
+					religion = united_christianity
 				}
 				add_papal_influence = 50
 			}

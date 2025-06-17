@@ -398,7 +398,7 @@ emp_germany_hlr_2_hlr = {
 				if = {
 					limit = {
 						ROOT = {
-							NOT = { religion = catholic }
+							NOT = { religion = united_christianity }
 						}
 						NOT = {
 							is_permanent_claim = ROOT
@@ -437,7 +437,7 @@ emp_germany_hlr_2_hlr = {
 			}
 			if = {
 				limit = {
-					religion = catholic
+					religion = united_christianity
 				}
 				is_papal_controller = yes
 			}
@@ -448,7 +448,7 @@ emp_germany_hlr_2_hlr = {
 		effect = {
 			if = {
 				limit = {
-					religion = catholic
+					religion = united_christianity
 					government = monarchy
 				}
 				country_event = { id = emp_mission_events.5 }

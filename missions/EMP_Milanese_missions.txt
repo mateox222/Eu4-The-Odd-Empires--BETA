@@ -725,7 +725,7 @@ emp_mlo_security_branch = {
 				AND = {
 					owned_by = PAP
 					is_capital = yes
-					ROOT = { religion = catholic }
+					ROOT = { religion = united_christianity }
 					NOT = {
 						PAP = {
 							has_opinion = {
@@ -737,7 +737,7 @@ emp_mlo_security_branch = {
 				}
 				AND = {
 					is_capital = yes
-					ROOT = { NOT = { religion = catholic } }
+					ROOT = { NOT = { religion = united_christianity } }
 					owner = {
 						religion = root
 						is_defender_of_faith = yes
@@ -784,7 +784,7 @@ emp_mlo_security_branch = {
 				}
 			}
 			if = {
-				limit = { religion = catholic }
+				limit = { religion = united_christianity }
 				OR = {
 					PAP = {
 						has_opinion = {
@@ -1444,12 +1444,12 @@ emp_mlo_papal_branch = {
 		provinces_to_highlight = {
 			province_id = 118
 			NOT = { country_or_non_sovereign_subject_holds = root }
-			NOT = { root = { religion = catholic } }
+			NOT = { root = { religion = united_christianity } }
 		}
 		trigger = {
 			if = {
 				limit = {
-					religion = catholic
+					religion = united_christianity
 				}
 				is_papal_controller = yes
 			}
@@ -1460,7 +1460,7 @@ emp_mlo_papal_branch = {
 		effect = {
 			if = {
 				limit = {
-					religion = catholic
+					religion = united_christianity
 				}
 				add_country_modifier = {
 					name = mlo_controls_pope
