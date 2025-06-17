@@ -1,0 +1,113 @@
+bandit_plague = {
+	potential = {
+		NOT = { has_country_flag = had_bandit_plague }
+		num_of_cities = 6
+		NOT = { government_rank = 3 }
+		any_owned_province = {
+			OR = {
+				has_terrain = hills
+				has_terrain = mountain
+				has_terrain = forest
+				has_terrain = woods
+			}
+		}
+	}
+	
+	can_start = {
+		has_any_disaster = no
+		OR = {
+			NOT = { stability = 0 }
+			war_exhaustion = 4
+			average_unrest = 2
+		}
+		any_owned_province = {
+			local_unrest = 3
+			NOT = { has_building = fort_15th }
+			NOT = { has_building = fort_16th }
+			NOT = { has_building = fort_17th }
+			NOT = { has_building = fort_18th }
+		}
+	}
+	
+	can_stop = {
+		has_any_disaster = yes
+	}
+	
+	progress = {
+		modifier = {
+			factor = 2
+			NOT = { stability = -1 }
+		}
+		modifier = {
+			factor = 1
+			war_exhaustion = 6
+		}
+		modifier = {
+			factor = 1
+			average_unrest = 4
+		}
+		modifier = {
+			factor = 2
+			any_owned_province = {
+				local_unrest = 5
+				OR = {
+					has_terrain = hills
+					has_terrain = mountain
+					has_terrain = forest
+				}
+			}
+		}
+		modifier = {
+			factor = 1
+			NOT = { manpower_percentage = 0.4 }
+		}
+		modifier = {
+			factor = 1
+			num_of_rebel_controlled_provinces = 1
+		}
+		modifier = {
+			factor = 2
+			is_at_war = yes
+			war_exhaustion = 3
+		}
+	}
+	
+	can_end = {
+		had_country_flag = { flag = bandits_suppressed days = 1825 }
+		stability = 1
+		NOT = { average_unrest = 1 }
+		OR = {
+			AND = {
+				manpower_percentage = 0.6
+				NOT = { war_exhaustion = 2 }
+			}
+			had_country_flag = { flag = bandit_leaders_eliminated days = 365 }
+		}
+	}
+	
+	modifier = {
+		global_unrest = 3
+		global_tax_modifier = -0.2
+		production_efficiency = -0.15
+		trade_efficiency = -0.1
+		local_development_cost = 0.2
+		movement_speed = -0.1
+		hostile_attrition = 1
+	}
+	
+	on_start = bandit_plague.1
+	on_end = bandit_plague.2
+	
+	on_monthly = {
+		events = {
+		}
+		random_events = {
+			3000 = 0
+			175 = bandit_plague.3
+			150 = bandit_plague.4
+			125 = bandit_plague.5
+			75 = bandit_plague.6
+			50 = bandit_plague.7
+		}
+	}
+}
