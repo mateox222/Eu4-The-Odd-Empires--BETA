@@ -17,10 +17,22 @@ country_event = {
 	}
 	
 	major = yes
-	trigger = {
+		trigger = {
+		NOT = { is_religion_enabled = protestant }
+		religion = united_christianity
 		is_institution_enabled = renaissance
+		is_defender_of_faith = no	
+		NOT = { has_reform = papacy_reform }
+		capital_scope = {
+			continent = europe
+		}
+		any_owned_province = {
+			can_have_center_of_reformation_trigger = {
+				RELIGION = protestant
+			}
+		}
 	}
-	is_triggered_only = yes
+	
 
 	option = {
 		name = "EVTOPTA2001"

@@ -20,8 +20,6 @@ christian = {
 		color = { 43 74 26 }
 		icon = 47
 		allowed_conversion = {
-			reformed
-			protestant
 		}
 		country = {
 			tolerance_own = 1
@@ -85,7 +83,6 @@ christian = {
             harsh = {
                 relation_with_heretics = -15
                 global_heretic_missionary_strength = 0.025
-                monthly_fervor = 0.25
             }
             concilatory = {
                 relation_with_heretics = 10
@@ -399,15 +396,15 @@ christian = {
 	}
 
 	protestant = {
-		color = { 255 201 10 }
+		color = { 12 14 78 }
 		icon = 2
 
 		allowed_conversion = {
 			reformed
-			catholic
+			united_christianity
 		}
 		allowed_center_conversion = {
-			catholic
+			united_christianity
 		}
 		country = {
 			improve_relation_modifier = 0.15
@@ -417,26 +414,7 @@ christian = {
 		country_as_secondary = {
 			idea_cost = -0.1
 		}
-
-		uses_church_power = yes				# Uses church power/aspect mechanics
-		aspects = {
-			organised_through_bishops_aspect
-			priests_may_marry_aspect
-			adult_baptism_aspect
-			holy_sacraments_aspect
-			saints_accept_prayers_aspect
-			icons_images_aspect
-			legalised_divorces_aspect
-			heretics_deported_aspect
-			parish_registers_aspect
-			individual_creeds_aspect
-			allow_usury_aspect
-			translated_bibles_aspect
-			justified_religious_war_aspect
-			war_preaches_aspect
-			head_of_the_church_aspect
-		}
-		aspects_name = PROTESTANT_ASPECTS
+		fervor = yes
 
 		hre_heretic_religion = yes
 
@@ -459,6 +437,20 @@ christian = {
 			remove_country_modifier = the_declaration_of_indulgence
 			remove_country_modifier = de_heretico_comburendo
 			remove_country_modifier = the_conventicle_act
+			remove_country_modifier = hermit_monasticism_modifier
+remove_country_modifier = apostolic_community_modifier
+remove_country_modifier = contemplative_mysticism_modifier
+remove_country_modifier = militant_christianity_modifier
+remove_country_modifier = folk_scholasticism_modifier
+remove_country_modifier = merchant_theology_modifier
+remove_country_modifier = agrarian_christianity_modifier
+remove_country_modifier = prophetic_renewal_modifier
+remove_country_modifier = craftsmen_brotherhood_modifier
+remove_country_modifier = marian_devotion_modifier
+remove_country_modifier = pilgrimage_faith_modifier
+remove_country_modifier = biblical_fundamentalism_modifier
+remove_country_modifier = divine_mercy_modifier
+remove_country_modifier = trinitarian_fellowship_modifier
 
 			if = {
 				limit = {
