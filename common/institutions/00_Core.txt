@@ -420,7 +420,6 @@ gunpowder_warfare = {
 	start_chance = 5
 		on_start = new_institutions.2
     can_embrace = {
-        mil_tech = 11
 		is_year = 6550
     }
 		ai_will_do = { #Cost of embracing institution must be lower than this factor * last month's regular income, and higher if loans are needed. (Or it has a more than long term goal...)
@@ -449,14 +448,14 @@ gunpowder_warfare = {
 	}
 
 	embracement_speed = {
-						modifier = {
+		modifier = {
 			scale = yes
 			factor = 0.6
-			custom_trigger_tooltip = {
+
 				any_friendly_coast_border_province = {
 					gunpowder_warfare = 100
 				}
-			}
+			
 		}
 		modifier = {
 			factor = 0.3
@@ -468,19 +467,11 @@ gunpowder_warfare = {
 					}
 				}
 			}
-			
+
 				any_neighbor_province = {
 					NOT = { owned_by = ROOT }
 					gunpowder_warfare = 100
-				
-			}
-		}
-		modifier = {
-			factor = 0.6
-			scale = yes
-		
-					NOT = { owned_by = ROOT }
-					gunpowder_warfare = 100
+				}
 			
 		}
 		modifier = {
@@ -488,6 +479,20 @@ gunpowder_warfare = {
 			scale = yes
 			
 				has_building = fort_15th
+			
+		}
+				modifier = {
+			factor = 2
+			scale = yes
+			
+				has_building = fort_16th
+			
+		}
+						modifier = {
+			factor = 3
+			scale = yes
+			
+				has_building = fort_17th
 			
 		}
 		modifier = {
@@ -498,38 +503,21 @@ gunpowder_warfare = {
 		modifier = {
 			factor = 1.3
 			scale = yes
-			potential = {
 				owner = {
 					OR = {
 						technology_group = chinese
 						technology_group = muslim
 					}
 				}
-			}
-			custom_trigger_tooltip = {
-				tooltip = tooltip_chinese_muslim_tech_group
-				owner = {
-					OR = {
-						technology_group = chinese
-						technology_group = muslim
-					}
-				}
-			}
 		}
 		modifier = {
 			factor = 2
 			scale = yes
-			potential = {
+			
 				owner = {
 					has_institution = gunpowder_warfare
 				}
-			}
-			custom_trigger_tooltip = {
-				tooltip = tooltip_gunpowder_embraced
-				owner = {
-					has_institution = gunpowder_warfare
-				}
-			}
+			
 		}
 	}
 }
