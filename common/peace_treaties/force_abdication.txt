@@ -17,32 +17,22 @@ force_ruler_abdication = {
 			NOT = { government = merchant_republic }
 			NOT = { government = oligarchy }
 			NOT = { government = tribal_federation }
-			ruler_age = 25
-			legitimacy = 50
+
 		}
-		OR = {
-			is_rival = FROM
-			has_casus_belli = {
-				target = FROM
-				type = cb_restore_personal_union
-			}
-			has_casus_belli = {
-				target = FROM
-				type = cb_succession_war
-			}
-		}
+		 
 	}
 	
 	is_allowed = {
 		FROM = {
 			legitimacy = 30
 			NOT = { ruler_age = 70 }
-			NOT = { has_heir = no }
+			
 		}
 		OR = {
 			prestige = FROM
 			army_tradition = 40
 			is_great_power = yes
+			
 		}
 	}
 	
@@ -141,10 +131,5 @@ force_ruler_abdication = {
 		}
 	}
 	
-	ai_weight = { # Defaults to always evaluate to 0
-		export_to_variable = {
-			variable_name = ai_value # Mandatory to have entry called "ai_value". Its value at the end of the ai_weight scope is what will be used
-			value = 50
-		}
+
 	}
-}

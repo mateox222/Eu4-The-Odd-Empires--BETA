@@ -1005,20 +1005,7 @@ spawn_new_nation = {
 distribute_christian_schools_effect = {
 	# PENTARCHY SCHOOLS - przypisane do specyficznych regionów
 	 
-	
-	random_country = {
-		limit = {
-			religion = united_christianity
-			ai = yes
-			capital_scope = { superregion = italy_superregion }
-			NOT = { has_country_flag = has_christian_school }
-		}
-		set_religious_school = {
-			group = christian
  
-		}
-		set_country_flag = has_christian_school
-	}
 
 	# HERMIT MONASTICISM - górzysty teren
 	random_country = {
@@ -1758,100 +1745,6 @@ distribute_christian_schools_effect = {
 		}
 	}
 
-	# LOSOWE PRZYPISANIE dla pozostałych krajów
-	every_country = {
-		limit = {
-			religion = united_christianity
-			ai = yes
-			NOT = { has_country_flag = has_christian_school }
-		}
-		random_list = {
-			10 = {
-				set_religious_school = {
-					group = christian
-					school = hermit_monasticism
-				}
-			}
-			10 = {
-				set_religious_school = {
-					group = christian
-					school = apostolic_community
-				}
-			}
-			10 = {
-				set_religious_school = {
-					group = christian
-					school = contemplative_mysticism
-				}
-			}
-			10 = {
-				set_religious_school = {
-					group = christian
-					school = militant_christianity
-				}
-			}
-			10 = {
-				set_religious_school = {
-					group = christian
-					school = folk_scholasticism
-				}
-			}
-			10 = {
-				set_religious_school = {
-					group = christian
-					school = merchant_theology
-				}
-			}
-			10 = {
-				set_religious_school = {
-					group = christian
-					school = agrarian_christianity
-				}
-			}
-			10 = {
-				set_religious_school = {
-					group = christian
-					school = prophetic_renewal
-				}
-			}
-			10 = {
-				set_religious_school = {
-					group = christian
-					school = craftsmen_brotherhood
-				}
-			}
-			10 = {
-				set_religious_school = {
-					group = christian
-					school = marian_devotion
-				}
-			}
-			5 = {
-				set_religious_school = {
-					group = christian
-					school = pilgrimage_faith
-				}
-			}
-			5 = {
-				set_religious_school = {
-					group = christian
-					school = biblical_fundamentalism
-				}
-			}
-			5 = {
-				set_religious_school = {
-					group = christian
-					school = divine_mercy_order
-				}
-			}
-			5 = {
-				set_religious_school = {
-					group = christian
-					school = trinitarian_fellowship
-				}
-			}
-		}
-		set_country_flag = has_christian_school
-	}
+	
 
 }
