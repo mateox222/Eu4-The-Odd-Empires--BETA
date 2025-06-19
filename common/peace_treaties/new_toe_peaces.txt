@@ -1,0 +1,64 @@
+colonial_restrictions = {
+	category = 6
+	power_projection = humiliated_rival
+	power_cost_base = 1.5
+	prestige_base = 0.6
+	ae_base = 1.8
+	warscore_cost = {
+		no_provinces = 18.0
+	}
+	warscore_cap = 25
+	requires_is_allowed = no
+	
+	is_visible = {
+		OR = {
+			num_of_colonists = 1
+			 range = FROM
+		}
+		FROM = {
+			OR = {
+				num_of_colonists = 1
+				any_subject_country = {
+					is_colonial_nation = yes
+				}
+			}
+		}
+	}
+	
+	is_allowed = {
+		OR = {
+			num_of_colonists = 2
+			has_idea_group = exploration_ideas
+		}
+	}
+	
+	effect = {
+		FROM = {
+			add_country_modifier = {
+				name = "colonial_ban_imposed"
+				duration = 5475
+			}
+		}
+		ROOT = {
+			add_prestige = 15
+			add_dip_power = 100
+		}
+	}
+	
+	ai_weight = {
+		export_to_variable = {
+			variable_name = ai_value
+			value = 45
+		}
+		limit = {
+			FROM = { num_of_colonists = 1 }
+			num_of_colonists = 1
+		}
+	}
+}
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+force_government_reforms = {
+	category = 6
+	power_projection = humiliated_rival
+	power_cost_base = 1.7
+	prestige_base = 0.6
+	ae_base = 1.6
+	warscore_cost = {
+		no_provinces = 20.0
+	}
+	warscore_cap = 45
+	requires_is_allowed = no
+	
+	is_visible = {
+		OR = {
+			adm_tech = FROM
+		}
+		FROM = {
+			government_reform_progress = 30
+		}
+	}
+	
+	is_allowed = {
+		adm_tech = FROM
+		FROM = {
+			government_reform_progress = 50
+		}
+	}
+	
+	effect = {
+		FROM = {
+			change_government_reform_progress  = -80
+			add_country_modifier = {
+				name = "forced_governmental_reforms"
+				duration = 3650
+			}
+		}
+		ROOT = {
+			change_government_reform_progress  = 40
+			add_adm_power = 80
+		}
+	}
+	
+	ai_weight = {
+		export_to_variable = {
+			variable_name = ai_value
+			value = 35
+		}
+		limit = {
+			FROM = { government_reform_progress = 100 }
+		}
+	}
+}

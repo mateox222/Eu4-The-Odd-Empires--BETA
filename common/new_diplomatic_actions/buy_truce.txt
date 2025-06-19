@@ -297,54 +297,16 @@ buy_truce = {
     
     # Kiedy AI będzie używać tej akcji
     ai_will_do = {
-        factor = 1
-        
-        # AI używa tylko gdy graniczy z celem
-        modifier = {
-            factor = 0
-            NOT = {
-                any_owned_province = {
                     any_neighbor_province = {
                         owned_by = FROM
                     }
-                }
-            }
-        }
-        
-        # Gdy przeciwnik jest silniejszy
-        modifier = {
-            factor = 2
-            FROM = {
                 army_strength = {
                     who = ROOT
                     value = 1.5
                 }
+                   NOT = { years_of_income = 1 }
             }
-        }
-        
-        # Wysokie wyczerpanie wojną
-        modifier = {
-            factor = 3
-            war_exhaustion = 5
-        }
-        
-        # Gdy ma mało pieniędzy
-        modifier = {
-            factor = 0.1
-            NOT = { years_of_income = 1 }
-        }
-        
-        # Gdy przeciwnik jest słaby (nie używa)
-        modifier = {
-            factor = 0
-            FROM = {
-                NOT = { 
-                    army_strength = {
-                        who = ROOT
-                        value = 0.8
-                    }
-                }
+         
+
+      
             }
-        }
-    }
-}

@@ -1,0 +1,53 @@
+diplomatic_isolation = {
+	category = 6
+	power_projection = humiliated_rival
+	power_cost_base = 1.3
+	prestige_base = 0.5
+	ae_base = 1.2
+	warscore_cost = {
+		no_provinces = 16.0
+	}
+	warscore_cap = 50
+	requires_is_allowed = no
+	
+	is_visible = {
+		diplomatic_reputation = 2
+		FROM = {
+			num_of_allies = 2
+		}
+	}
+	
+	is_allowed = {
+		diplomatic_reputation = 3
+		FROM = {
+			num_of_allies = 1
+		}
+	}
+	
+	effect = {
+		FROM = {
+			add_country_modifier = {
+				name = "diplomatic_isolation_imposed"
+				duration = 5475
+			}
+			every_ally = {
+				limit = { NOT = { is_subject_of = FROM } }
+				FROM = { break_alliance = PREV }
+			}
+		}
+		ROOT = {
+			add_dip_power = 120
+			add_prestige = 12
+		}
+	}
+	
+	ai_weight = {
+		export_to_variable = {
+			variable_name = ai_value
+			value = 40
+		}
+		limit = {
+			FROM = { num_of_allies = 3 }
+		}
+	}
+}

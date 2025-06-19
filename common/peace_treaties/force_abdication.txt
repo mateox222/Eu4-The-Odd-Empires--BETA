@@ -1,0 +1,150 @@
+force_ruler_abdication = {
+	category = 6  # Political treaties
+	power_projection = humiliated_rival
+	power_cost_base = 2.5
+	prestige_base = 1.2
+	ae_base = 3.0
+	warscore_cost = {
+		no_provinces = 30.0
+	}
+	warscore_cap = 75
+	requires_is_allowed = no
+	
+	is_visible = {
+		FROM = {
+			is_monarch_leader = yes
+			NOT = { government = republic }
+			NOT = { government = merchant_republic }
+			NOT = { government = oligarchy }
+			NOT = { government = tribal_federation }
+			ruler_age = 25
+			legitimacy = 50
+		}
+		OR = {
+			is_rival = FROM
+			has_casus_belli = {
+				target = FROM
+				type = cb_restore_personal_union
+			}
+			has_casus_belli = {
+				target = FROM
+				type = cb_succession_war
+			}
+		}
+	}
+	
+	is_allowed = {
+		FROM = {
+			legitimacy = 30
+			NOT = { ruler_age = 70 }
+			NOT = { has_heir = no }
+		}
+		OR = {
+			prestige = FROM
+			army_tradition = 40
+			is_great_power = yes
+		}
+	}
+	
+	effect = {
+		FROM = {
+			# Obecny władca abdykuje
+			kill_ruler = yes
+			
+			# Następca wstępuje na tron
+		 
+			 
+				define_ruler = {
+					dynasty = ROOT
+				}
+			 
+			
+			# Skutki polityczne abdykacji
+			add_country_modifier = {
+				name = "forced_abdication_crisis"
+				duration = 5475  # 15 lat
+			}
+			add_legitimacy = -30
+			add_prestige = -25
+			add_stability = -2
+			
+			# Możliwe powstania pretendentów
+			random_owned_province = {
+				limit = { 
+					is_capital = no
+					development = 10
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 2
+				}
+			}
+			
+			# Reakcja szlachty
+			if = {
+				limit = { has_estate = estate_nobles }
+				add_estate_loyalty = {
+					estate = estate_nobles
+					loyalty = -15
+				}
+			}
+		}
+		
+		ROOT = {
+			add_prestige = 30
+			add_legitimacy = 15
+			add_power_projection = humiliated_rival
+
+		}
+		
+		# Reakcja międzynarodowa
+		every_known_country = {
+			limit = {
+				NOT = { tag = ROOT }
+				NOT = { tag = FROM }
+				same_continent = FROM
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = forced_abdication_opinion
+			}
+		}
+		
+		# Specjalne efekty dla różnych typów rządów
+		FROM = {
+			if = {
+				limit = { government = monarchy }
+				add_country_modifier = {
+					name = "monarchist_instability"
+					duration = 1825  # 5 lat
+				}
+			}
+			if = {
+				limit = { 
+					OR = {
+						government = despotic_monarchy
+						government = absolute_monarchy
+					}
+				}
+				add_country_modifier = {
+					name = "absolute_authority_questioned"
+					duration = 2555  # 7 lat
+				}
+			}
+			if = {
+				limit = { government = constitutional_monarchy }
+				add_country_modifier = {
+					name = "constitutional_crisis"
+					duration = 1460  # 4 lata
+				}
+			}
+		}
+	}
+	
+	ai_weight = { # Defaults to always evaluate to 0
+		export_to_variable = {
+			variable_name = ai_value # Mandatory to have entry called "ai_value". Its value at the end of the ai_weight scope is what will be used
+			value = 50
+		}
+	}
+}

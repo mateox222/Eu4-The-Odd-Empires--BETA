@@ -190,6 +190,11 @@ country_event = {
 				name = "atlantropapagan1"
 				duration = -1
 			}
+			       add_government_power = {
+                        mechanic_type = toe_tribal_fervor
+                        power_type = toe_tribal_fervor
+                        value = 5
+                    }
 	add_years_of_income = -0.25	
 
 }
@@ -201,6 +206,11 @@ country_event = {
 				duration = -1
 			}
 	add_yearly_manpower = -0.1
+	       add_government_power = {
+                        mechanic_type = toe_tribal_fervor
+                        power_type = toe_tribal_fervor
+                        value = 5
+                    }
 }
 		option = {
 	name = "restorationkosciol_events.4.ac" 
@@ -209,6 +219,11 @@ country_event = {
 				name = "atlantropapagan1"
 				duration = -1
 			}
+			       add_government_power = {
+                        mechanic_type = toe_tribal_fervor
+                        power_type = toe_tribal_fervor
+                        value = 10
+                    }
 	add_yearly_manpower = -1
 		add_legitimacy = 10	
 		 add_horde_unity = 10	
@@ -216,12 +231,30 @@ country_event = {
 		option = {
 	name = "restorationkosciol_events.4.b" 
 	set_ruler_flag = zpoganizowany
-		add_ruler_modifier = {
+	random_list = {
+	75 = {
+		  add_government_power = {
+                        mechanic_type = toe_tribal_fervor
+                        power_type = toe_tribal_fervor
+                        value = 30
+                    }
+			add_ruler_modifier = {
 				name = "atlantropapagan2"
 				duration = -1
 			}
 	add_legitimacy = 25	
-    add_horde_unity = 25		
+    add_horde_unity = 25	
+	}	
+	25 = {
+		kill_ruler = yes
+		  add_government_power = {
+                        mechanic_type = toe_tribal_fervor
+                        power_type = toe_tribal_fervor
+                        value = -5
+                    }
+	}
+	}
+	     
 }
 		option = {
 	name = "restorationkosciol_events.4.c" 
@@ -235,13 +268,22 @@ country_event = {
 	set_ruler_flag = zpoganizowany
 	add_legitimacy = 30
 	kill_heir = { allow_new_heir = no }	
+	  add_government_power = {
+                        mechanic_type = toe_tribal_fervor
+                        power_type = toe_tribal_fervor
+                        value = 20
+                    }
 }
 		option = {
 	name = "restorationkosciol_events.4.e" 
 			trigger = {
 			has_countrY_modifier = humansacrifices }
 
-		
+		  add_government_power = {
+                        mechanic_type = toe_tribal_fervor
+                        power_type = toe_tribal_fervor
+                        value = 20
+                    }
 	set_ruler_flag	= zpoganizowany
 	add_legitimacy = -10
 					add_ruler_modifier = {

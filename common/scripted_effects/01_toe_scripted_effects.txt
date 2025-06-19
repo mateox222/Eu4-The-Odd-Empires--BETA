@@ -1004,30 +1004,18 @@ spawn_new_nation = {
 
 distribute_christian_schools_effect = {
 	# PENTARCHY SCHOOLS - przypisane do specyficznych regionów
-	random_country = {
-		limit = {
-			religion = united_christianity
-			NOT = { is_ai = no }
-			capital_scope = { superregion = balkan_superregion }
-			NOT = { has_country_flag = has_christian_school }
-		}
-		set_religious_school = {
-			group = christian
-			school = constantinople_pentarch
-		}
-		set_country_flag = has_christian_school
-	}
+	 
 	
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			capital_scope = { superregion = italy_superregion }
 			NOT = { has_country_flag = has_christian_school }
 		}
 		set_religious_school = {
 			group = christian
-			school = rome_pentarch
+ 
 		}
 		set_country_flag = has_christian_school
 	}
@@ -1036,7 +1024,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			capital_scope = { 
 				OR = {
 					has_terrain = mountain
@@ -1055,7 +1043,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			capital_scope = { superregion = eastern_europe_superregion }
 			NOT = { has_country_flag = has_christian_school }
 		}
@@ -1070,7 +1058,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			government = republic
 			NOT = { has_country_flag = has_christian_school }
 		}
@@ -1084,7 +1072,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			has_reform = peasants_republic
 			NOT = { has_country_flag = has_christian_school }
 		}
@@ -1099,7 +1087,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			num_of_owned_provinces_with = {
 				value = 3
 				has_building = temple
@@ -1117,7 +1105,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			army_tradition = 30
 			NOT = { has_country_flag = has_christian_school }
 		}
@@ -1131,7 +1119,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			capital_scope = { superregion = iberia_superregion }
 			NOT = { has_country_flag = has_christian_school }
 		}
@@ -1146,7 +1134,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			culture_group = germanic
 			NOT = { has_country_flag = has_christian_school }
 		}
@@ -1160,7 +1148,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			culture_group = west_slavic
 			NOT = { has_country_flag = has_christian_school }
 		}
@@ -1175,7 +1163,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			government = merchant_republic
 			NOT = { has_country_flag = has_christian_school }
 		}
@@ -1189,7 +1177,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			trade_income_percentage = 0.3
 			NOT = { has_country_flag = has_christian_school }
 		}
@@ -1204,7 +1192,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			base_production = 30
 			NOT = { has_country_flag = has_christian_school }
 		}
@@ -1218,7 +1206,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			capital_scope = { superregion = eastern_europe_superregion }
 			NOT = { capital_scope = { is_city = yes } }
 			NOT = { has_country_flag = has_christian_school }
@@ -1234,7 +1222,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			government = theocracy
 			NOT = { has_country_flag = has_christian_school }
 		}
@@ -1248,7 +1236,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			legitimacy = 80
 			NOT = { has_country_flag = has_christian_school }
 		}
@@ -1263,7 +1251,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			culture_group = germanic
 			num_of_owned_provinces_with = {
 				value = 2
@@ -1281,7 +1269,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			capital_scope = { superregion = germany_superregion }
 			NOT = { has_country_flag = has_christian_school }
 		}
@@ -1296,7 +1284,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			culture_group = latin
 			NOT = { has_country_flag = has_christian_school }
 		}
@@ -1310,7 +1298,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			culture_group = iberian
 			NOT = { has_country_flag = has_christian_school }
 		}
@@ -1325,7 +1313,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			capital_scope = { superregion = iberia_superregion }
 			NOT = { has_country_flag = has_christian_school }
 		}
@@ -1339,7 +1327,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			num_of_owned_provinces_with = {
 				value = 2
 				has_building = cathedral
@@ -1357,7 +1345,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			culture_group = germanic
 			num_of_owned_provinces_with = {
 				value = 3
@@ -1376,7 +1364,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			num_of_owned_provinces_with = {
 				value = 3
 				has_building = temple
@@ -1394,7 +1382,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			culture_group = byzantine
 			NOT = { has_country_flag = has_christian_school }
 		}
@@ -1408,7 +1396,7 @@ distribute_christian_schools_effect = {
 	random_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			capital_scope = { superregion = balkan_superregion }
 			NOT = { has_country_flag = has_christian_school }
 		}
@@ -1434,7 +1422,7 @@ distribute_christian_schools_effect = {
 		random_country = {
 			limit = {
 				religion = united_christianity
-				NOT = { is_ai = no }
+				ai = yes
 				NOT = { has_country_flag = has_christian_school }
 			}
 			set_religious_school = {
@@ -1459,7 +1447,7 @@ distribute_christian_schools_effect = {
 		random_country = {
 			limit = {
 				religion = united_christianity
-				NOT = { is_ai = no }
+				ai = yes
 				NOT = { has_country_flag = has_christian_school }
 			}
 			set_religious_school = {
@@ -1484,7 +1472,7 @@ distribute_christian_schools_effect = {
 		random_country = {
 			limit = {
 				religion = united_christianity
-				NOT = { is_ai = no }
+				ai = yes
 				NOT = { has_country_flag = has_christian_school }
 			}
 			set_religious_school = {
@@ -1509,7 +1497,7 @@ distribute_christian_schools_effect = {
 		random_country = {
 			limit = {
 				religion = united_christianity
-				NOT = { is_ai = no }
+				ai = yes
 				NOT = { has_country_flag = has_christian_school }
 			}
 			set_religious_school = {
@@ -1534,7 +1522,7 @@ distribute_christian_schools_effect = {
 		random_country = {
 			limit = {
 				religion = united_christianity
-				NOT = { is_ai = no }
+				ai = yes
 				NOT = { has_country_flag = has_christian_school }
 			}
 			set_religious_school = {
@@ -1559,7 +1547,7 @@ distribute_christian_schools_effect = {
 		random_country = {
 			limit = {
 				religion = united_christianity
-				NOT = { is_ai = no }
+				ai = yes
 				NOT = { has_country_flag = has_christian_school }
 			}
 			set_religious_school = {
@@ -1584,7 +1572,7 @@ distribute_christian_schools_effect = {
 		random_country = {
 			limit = {
 				religion = united_christianity
-				NOT = { is_ai = no }
+				ai = yes
 				NOT = { has_country_flag = has_christian_school }
 			}
 			set_religious_school = {
@@ -1609,7 +1597,7 @@ distribute_christian_schools_effect = {
 		random_country = {
 			limit = {
 				religion = united_christianity
-				NOT = { is_ai = no }
+				ai = yes
 				NOT = { has_country_flag = has_christian_school }
 			}
 			set_religious_school = {
@@ -1634,7 +1622,7 @@ distribute_christian_schools_effect = {
 		random_country = {
 			limit = {
 				religion = united_christianity
-				NOT = { is_ai = no }
+				ai = yes
 				NOT = { has_country_flag = has_christian_school }
 			}
 			set_religious_school = {
@@ -1659,7 +1647,7 @@ distribute_christian_schools_effect = {
 		random_country = {
 			limit = {
 				religion = united_christianity
-				NOT = { is_ai = no }
+				ai = yes
 				NOT = { has_country_flag = has_christian_school }
 			}
 			set_religious_school = {
@@ -1684,7 +1672,7 @@ distribute_christian_schools_effect = {
 		random_country = {
 			limit = {
 				religion = united_christianity
-				NOT = { is_ai = no }
+				ai = yes
 				NOT = { has_country_flag = has_christian_school }
 			}
 			set_religious_school = {
@@ -1709,7 +1697,7 @@ distribute_christian_schools_effect = {
 		random_country = {
 			limit = {
 				religion = united_christianity
-				NOT = { is_ai = no }
+				ai = yes
 				NOT = { has_country_flag = has_christian_school }
 			}
 			set_religious_school = {
@@ -1734,7 +1722,7 @@ distribute_christian_schools_effect = {
 		random_country = {
 			limit = {
 				religion = united_christianity
-				NOT = { is_ai = no }
+				ai = yes
 				NOT = { has_country_flag = has_christian_school }
 			}
 			set_religious_school = {
@@ -1759,7 +1747,7 @@ distribute_christian_schools_effect = {
 		random_country = {
 			limit = {
 				religion = united_christianity
-				NOT = { is_ai = no }
+				ai = yes
 				NOT = { has_country_flag = has_christian_school }
 			}
 			set_religious_school = {
@@ -1774,7 +1762,7 @@ distribute_christian_schools_effect = {
 	every_country = {
 		limit = {
 			religion = united_christianity
-			NOT = { is_ai = no }
+			ai = yes
 			NOT = { has_country_flag = has_christian_school }
 		}
 		random_list = {
