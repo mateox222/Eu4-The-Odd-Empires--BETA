@@ -2,20 +2,20 @@
 # Centers of Reformation and the "Propagate Religion" Trading Policy
 
 propagate_religion_policy = {
-
+	
 	trading_policy = yes # Religion is taken from country using the trading policy.	max_distance is not used.
 
 	map_icon = GFX_religious_conversion_center_trading_policy
 
 	base_conversion_speed = 2.0
-
+	
 	target_province_weights = {
-
+	
 		#Will only target provinces within same node
 		#From Scope is country using the trading policy
-
+		
 		factor = 5
-
+		
 		modifier = {
 			factor = 0
 			religion = hinduism
@@ -23,9 +23,10 @@ propagate_religion_policy = {
 				mission_completed = mnd_maj_porch_of_mecca
 			}
 		}
-
+		
 		modifier = {
 			factor = 0
+			has_owner_religion = yes
 			owner = {
 				has_country_flag = immunity_against_propogate_religion
 			}
@@ -73,7 +74,7 @@ propagate_religion_policy = {
 		}
 		modifier = {
 			factor = 10
-			religion = catholic
+			religion = united_christianity
 			FROM = {
 				#has_government_attribute = can_spread_the_reformation
 				has_reform = reformer_state_reform
@@ -124,7 +125,7 @@ propagate_religion_policy = {
 # Will only target provinces on same continent
 
 hussite_center_of_reformation = {
-
+	
 	religion = hussite
 
 	map_icon = GFX_religious_conversion_center_protestant
@@ -134,7 +135,7 @@ hussite_center_of_reformation = {
 
 	target_province_weights = {
 		factor = 2
-
+		
 		modifier = {
 			factor = 0
 			is_empty = yes
@@ -228,7 +229,7 @@ hussite_center_of_reformation = {
 		modifier = {
 			factor = 0.01
 			religion = coptic
-		}
+		}		
 		modifier = {
 			factor = 0.01
 			religion = orthodox
@@ -249,7 +250,7 @@ hussite_center_of_reformation = {
 }
 
 anglican_center_of_reformation = {
-
+	
 	religion = anglican
 
 	map_icon = GFX_religious_conversion_center_protestant
@@ -259,7 +260,7 @@ anglican_center_of_reformation = {
 
 	target_province_weights = {
 		factor = 2
-
+		
 		modifier = {
 			factor = 0
 			is_empty = yes
@@ -356,7 +357,7 @@ anglican_center_of_reformation = {
 		modifier = {
 			factor = 0.01
 			religion = coptic
-		}
+		}		
 		modifier = {
 			factor = 0.01
 			religion = orthodox
@@ -377,7 +378,7 @@ anglican_center_of_reformation = {
 }
 
 protestant_center_of_reformation = {
-
+	
 	religion = protestant
 
 	map_icon = GFX_religious_conversion_center_protestant
@@ -387,7 +388,7 @@ protestant_center_of_reformation = {
 
 	target_province_weights = {
 		factor = 2
-
+		
 		modifier = {
 			factor = 0
 			is_empty = yes
@@ -409,15 +410,15 @@ protestant_center_of_reformation = {
 			has_province_modifier = religious_zeal_at_conv
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0
 			religion = reformed
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0
 			religion = anglican
 		}
 		modifier = {
-			factor = 0.5
+			factor = 0
 			religion = hussite
 		}
 		modifier = {
@@ -477,11 +478,11 @@ protestant_center_of_reformation = {
 		modifier = {
 			factor = 0.01
 			religion = coptic
-		}
+		}		
 		modifier = {
 			factor = 0.01
 			religion = orthodox
-		}
+		}		
 		modifier = {
 			factor = 0.5
 			has_state_edict = edict_religion_enforced
@@ -500,7 +501,7 @@ protestant_center_of_reformation = {
 reformed_center_of_reformation = {
 
 	religion = reformed
-
+	
 	map_icon = GFX_religious_conversion_center_protestant
 
 	max_distance = 150.0 # From Center of Reformation center province (default is NDefines::NReligion::MAX_RELIGIOUS_CENTER_SPREAD_DISTANCE).
@@ -508,7 +509,7 @@ reformed_center_of_reformation = {
 
 	target_province_weights = {
 		factor = 2
-
+		
 		modifier = {
 			factor = 0
 			has_missionary = yes
@@ -598,11 +599,11 @@ reformed_center_of_reformation = {
 		modifier = {
 			factor = 0.01
 			religion = coptic
-		}
+		}		
 		modifier = {
 			factor = 0.01
 			religion = orthodox
-		}
+		}		
 		modifier = {
 			factor = 0.5
 			has_state_edict = edict_religion_enforced
@@ -621,7 +622,7 @@ reformed_center_of_reformation = {
 catholic_center_of_reformation = {
 
 	religion = catholic
-
+	
 	map_icon = GFX_religious_conversion_center_protestant
 
 	max_distance = 150.0 # From Center of Reformation center province (default is NDefines::NReligion::MAX_RELIGIOUS_CENTER_SPREAD_DISTANCE).
@@ -629,7 +630,7 @@ catholic_center_of_reformation = {
 
 	target_province_weights = {
 		factor = 2
-
+		
 		modifier = {
 			factor = 0
 			has_missionary = yes
@@ -718,11 +719,11 @@ catholic_center_of_reformation = {
 		modifier = {
 			factor = 0.1
 			religion = coptic
-		}
+		}		
 		modifier = {
 			factor = 0.5
 			religion = orthodox
-		}
+		}		
 		modifier = {
 			factor = 0.5
 			has_state_edict = edict_religion_enforced
@@ -736,13 +737,13 @@ catholic_center_of_reformation = {
 			}
 		}
 	}
-
+	
 }
-
+	
 coptic_center_of_reformation = {
 
 	religion = coptic
-
+	
 	map_icon = GFX_religious_conversion_center_protestant
 
 	max_distance = 150.0 # From Center of Reformation center province (default is NDefines::NReligion::MAX_RELIGIOUS_CENTER_SPREAD_DISTANCE).
@@ -750,7 +751,7 @@ coptic_center_of_reformation = {
 
 	target_province_weights = {
 		factor = 2
-
+		
 		modifier = {
 			factor = 0
 			has_missionary = yes
@@ -843,11 +844,11 @@ coptic_center_of_reformation = {
 		modifier = {
 			factor = 0
 			religion = coptic
-		}
+		}		
 		modifier = {
 			factor = 0.5
 			religion = orthodox
-		}
+		}		
 		modifier = {
 			factor = 0.5
 			has_state_edict = edict_religion_enforced

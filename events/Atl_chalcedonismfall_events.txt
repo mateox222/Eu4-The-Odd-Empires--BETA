@@ -157,106 +157,6 @@ country_event = {
 		custom_tooltip = CHRISTIANSCHISMAISCOMING
 		hidden_effect = {
 
-			every_province = {
-				limit = {
-					religion = united_christianity
-				}
-				change_religion = christian_change_religion_for_debug
-			}
-			every_country = {
-				limit = {
-					religion = united_christianity
-				}
-				change_religion = christian_change_religion_for_debug
-
-			}
-
-
-
-
-			if = {
-				limit = {
-					NOT = { has_global_flag = chalcedonismjerusalemfall }
-				}
-				every_province = {
-					limit = {
-						religion = christian_change_religion_for_debug
-						OR = {
-							area = palestine_area
-							area = trans_jordan_area
-						}
-
-					}
-					change_religion = assyrianchurch
-				}
-				every_country = {
-					limit = {
-						capital_scope = {
-							OR = {
-								area = palestine_area
-								area = trans_jordan_area
-							}
-						}
-						religion = christian_change_religion_for_debug
-					}
-					change_religion = assyrianchurch
-				}
-
-			}
-			if = {
-				limit = {
-					NOT = { has_global_flag = chalcedonismantiochfall }
-				}
-				every_province = {
-					limit = {
-						religion = christian_change_religion_for_debug
-						OR = {
-							area = cukurova_area
-							area = aleppo_area
-							area = syria_area
-						}
-
-					}
-					change_religion = assyrianchurch
-				}
-				every_country = {
-					limit = {
-						capital_scope = {
-							OR = {
-								area = cukurova_area
-								area = aleppo_area
-								area = syria_area
-							}
-						}
-						religion = christian_change_religion_for_debug
-					}
-					change_religion = assyrianchurch
-				}
-
-			}
-			if = {
-				limit = {
-					NOT = { has_global_flag = chalcedonismalexandriafall }
-				}
-				every_province = {
-					limit = {
-						religion = christian_change_religion_for_debug
-						region = egypt_region
-
-					}
-					change_religion = monophysitetrue
-				}
-
-				every_country = {
-					limit = {
-						capital_scope = {
-							region = egypt_region
-						}
-						religion = christian_change_religion_for_debug
-					}
-					change_religion = monophysitetrue
-				}
-			}
 			if = {
 				limit = {
 					OR = {
@@ -303,19 +203,7 @@ country_event = {
 					}
 				}
 			}
-			every_province = {
-				limit = {
-					religion = christian_change_religion_for_debug
-				}
-				change_religion = united_christianity
-			}
-			every_country = {
-				limit = {
-					religion = christian_change_religion_for_debug
-				}
-				change_religion = united_christianity
 
-			}
 			LAE = {
 				change_religion = united_christianity
 			}
