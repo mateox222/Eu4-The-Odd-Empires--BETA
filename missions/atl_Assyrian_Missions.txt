@@ -1,0 +1,991 @@
+ASY_column_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = A78
+		NOT = { map_setup = map_setup_random } 
+	}
+
+	ASY_revive_trade = {
+		icon = mission_dominate_home_trade_node
+		position = 1
+		provinces_to_highlight = {
+			province_id = 4295
+			OR = {
+				NOT = { owned_by = ROOT } 
+				NOT = { has_building = marketplace } 
+			}
+		}
+
+		trigger = {
+			4295 = {
+				owned_by = ROOT
+				has_building = marketplace
+			}
+			home_trade_node = {
+				trade_share = {
+					country = ROOT
+					share = 20
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "assyrian_merchant_tradition"
+				duration = 7300
+			}
+			add_mercantilism = 2
+			capital_scope = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 7300
+					power = 15
+					key = assyrian_trade_revival
+				}
+			}
+		}
+	}
+
+	ASY_fortify_nineveh = {
+		icon = atlantropa_tripoli
+		position = 2
+		required_missions = { ASY_revive_trade } 
+		provinces_to_highlight = {
+			province_id = 4295
+			OR = {
+				NOT = { owned_by = ROOT } 
+				NOT = { fort_level = 2 } 
+			}
+		}
+
+		trigger = {
+			4295 = {
+				owned_by = ROOT
+				fort_level = 2
+				base_manpower = 5
+			}
+		}
+
+		effect = {
+			4295 = {
+				add_province_modifier = {
+					name = "walls_of_nineveh"
+					duration = -1
+				}
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+		}
+	}
+
+	ASY_diplomatic_flexibility = {
+		icon = mission_gharbianss
+		position = 3
+		required_missions = { ASY_fortify_nineveh } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_allies = 2
+			diplomatic_reputation = 1
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "assyrian_diplomacy"
+				duration = 10950
+			}
+			add_dip_power = 100
+		}
+	}
+
+	ASY_balance_of_power = {
+		icon = mission_viceroyalty_of_the_deccan
+		position = 4
+		required_missions = {
+			ASY_diplomatic_flexibility
+			ASY_mesopotamian_rivalry
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			total_development = 150
+			army_size = 25
+			any_rival_country = { NOT = { army_size = ROOT }  } 
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "regional_power_status"
+				duration = -1
+			}
+			add_prestige = 25
+			add_power_projection = {
+				type = 25_permanent_power_projection
+				amount = 25
+			}
+		}
+	}
+
+	ASY_fertile_crescent_hegemon = {
+		icon = prosperity_for_all
+		position = 5
+		required_missions = {
+			ASY_balance_of_power
+			ASY_control_the_rivers
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = syrian_desert_area
+				area = aleppo_area
+				area = syria_area
+				area = trans_jordan_area
+				area = palestine_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			syrian_desert_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			aleppo_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			syria_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			trans_jordan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			palestine_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		effect = {
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			add_country_modifier = {
+				name = "master_of_mesopotamia"
+				duration = -1
+			}
+			tabuk_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+			delta_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+			vostani_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT`
+			}
+		}
+	}
+
+	ASY_challenge_the_ptolemies = {
+		icon = mission_egyptian_mamluk_soldier
+		position = 6
+		required_missions = {
+			ASY_fertile_crescent_hegemon
+			ASY_trojan_rivalry
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			OR = {
+				army_size = EGY
+				NOT = { exists = EGY } 
+				syria_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+			is_great_power = yes
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "assyrian_imperial_ambition"
+				duration = -1
+			}
+			palestine_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+			trans_jordan_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+ASY_column_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = A78
+		NOT = { map_setup = map_setup_random } 
+	}
+
+	ASY_ancient_knowledge = {
+		icon = mission_metropolis_of_the_deccan
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			stability = 2
+			has_advisor = yes
+			years_of_income = 0.5
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "cuneiform_archives"
+				duration = 10950
+			}
+			add_adm_power = 50
+			add_prestige = 10
+		}
+	}
+
+	ASY_reclaim_assyrian_heartland = {
+		icon = mission_conquer_50_development
+		position = 2
+		required_missions = {
+			ASY_ancient_knowledge
+			ASY_survive_the_chaos
+		}
+		provinces_to_highlight = {
+			area = al_jazira_area
+			NOT = { owned_by = ROOT } 
+		}
+
+		trigger = {
+			al_jazira_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+
+		effect = {
+			al_jazira_area = {
+				add_province_modifier = {
+					name = "assyrian_restoration"
+					duration = 10950
+				}
+			}
+			north_kurdistan_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	ASY_mesopotamian_rivalry = {
+		icon = atlantropa_moderncrusade
+		position = 3
+		required_missions = {
+			ASY_reclaim_assyrian_heartland
+			ASY_fortify_nineveh
+			ASY_restore_the_library
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			OR = {
+				NOT = { exists = MES } 
+				AND = {
+					army_size = MES
+					prestige = MES
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "assyrian_ascendancy"
+				duration = 10950
+			}
+			if = {
+				limit = { exists = MES } 
+				add_casus_belli = {
+					target = MES
+					type = cb_vassalize_mission
+					months = 300
+				}
+			}
+			iraq_arabi_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	ASY_control_the_rivers = {
+		icon = mission_advance_to_the_dnieper
+		position = 4
+		required_missions = { ASY_mesopotamian_rivalry } 
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2313
+				province_id = 406
+				province_id = 5955
+				province_id = 2303
+				province_id = 4290
+			}
+			NOT = { owned_by = ROOT } 
+		}
+
+		trigger = {
+			owns = 2313
+			owns = 406
+			owns = 5955
+			owns = 2303
+			owns = 4290
+			navy_size = 15
+			num_of_galley = 10
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "twin_rivers_control"
+				duration = -1
+			}
+			4290 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = -1
+					power = 20
+					key = assyrian_gulf_access
+				}
+			}
+		}
+	}
+
+	ASY_trojan_rivalry = {
+		icon = mission_pf_soldier
+		position = 5
+		required_missions = {
+			ASY_control_the_rivers
+			ASY_persian_threat
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			OR = {
+				any_rival_country = { tag = TRO } 
+				NOT = { exists = TRO } 
+				num_of_provinces_owned_or_owned_by_subjects_with = { value = 40 } 
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "anti_trojan_sentiment"
+				duration = 10950
+			}
+			dulkadir_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+			erzurum_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+ASY_column_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = A78
+		NOT = { map_setup = map_setup_random } 
+	}
+
+	ASY_survive_the_chaos = {
+		icon = mission_humiliate_lubeck
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_size_percentage = 1
+			manpower_percentage = 0.6
+			stability = 1
+			NOT = { num_of_loans = 3 } 
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "assyrian_resilience"
+				duration = 7300
+			}
+			add_mil_power = 50
+			add_prestige = 15
+		}
+	}
+
+	ASY_restore_the_library = {
+		icon = mission_asian_trader
+		position = 2
+		required_missions = { ASY_survive_the_chaos } 
+		provinces_to_highlight = {
+			province_id = 4295
+			OR = {
+				NOT = { owned_by = ROOT } 
+				NOT = { development = 15 } 
+			}
+		}
+
+		trigger = {
+			treasury = 200
+			4295 = {
+				owned_by = ROOT
+				development = 15
+			}
+			adm_power = 200
+		}
+
+		effect = {
+			add_adm_power = -200
+			add_treasury = -200
+			add_adm_tech = 1
+			4295 = {
+				add_next_institution_embracement = 50
+				add_building = temple
+			}
+			add_country_modifier = {
+				name = "library_of_ashurbanipal"
+				duration = -1
+			}
+		}
+	}
+
+	ASY_babylonian_mathematics = {
+		icon = mission_scholar_officials
+		position = 3
+		required_missions = { ASY_restore_the_library } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				has_building = temple
+			}
+			natural_scientist = 2
+			innovativeness = 10
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "mesopotamian_scholarship"
+				duration = -1
+			}
+			change_innovativeness = 5
+			change_government_reform_progress = 50
+		}
+	}
+
+	ASY_persian_threat = {
+		icon = mission_persian_soldiers
+		position = 4
+		required_missions = {
+			ASY_babylonian_mathematics
+			ASY_armenian_question
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			any_owned_province = { area = azerbaijan_area } 
+			mil_tech = 8
+			OR = {
+				NOT = { exists = MAM } 
+				army_size = MAM
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bulwark_against_persia"
+				duration = 10950
+			}
+			azerbaijan_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+			luristan_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	ASY_restore_assyrian_empire = {
+		icon = atlantropa_czarnesloneczko
+		position = 6
+		required_missions = {
+			ASY_trojan_rivalry
+			ASY_eastern_ambitions
+			ASY_persian_threat
+		}
+		provinces_to_highlight = {
+			OR = {
+				region = anatolia_region
+				region = mashriq_region
+				region = persia_region
+			}
+			NOT = { owned_by = ROOT } 
+		}
+
+		trigger = {
+			total_development = 500
+			num_of_owned_provinces_with = {
+				value = 75
+				OR = {
+					region = anatolia_region
+					region = mashriq_region
+					region = persia_region
+				}
+			}
+			prestige = 80
+			legitimacy = 95
+		}
+
+		effect = {
+			add_prestige = 50
+			add_country_modifier = {
+				name = "neo_assyrian_empire"
+				duration = -1
+			}
+			override_country_name = "ASSYRIAN_EMPIRE"
+			set_government_rank = 3
+			anatolia_region = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+ASY_column_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = A78
+		NOT = { map_setup = map_setup_random } 
+	}
+
+	ASY_kurdish_relations = {
+		icon = mission_din_i_llahi
+		position = 1
+		provinces_to_highlight = {
+			culture = kurdish
+			NOT = { owned_by = ROOT } 
+		}
+
+		trigger = {
+			OR = {
+				accepted_culture = kurdish
+				num_of_owned_provinces_with = {
+					value = 3
+					culture = kurdish
+				}
+				any_subject_country = { primary_culture = kurdish } 
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "kurdish_integration"
+				duration = 10950
+			}
+			north_kurdistan_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	ASY_mountain_defenses = {
+		icon = mission_great_wall
+		position = 2
+		required_missions = {
+			ASY_kurdish_relations
+			ASY_survive_the_chaos
+		}
+		provinces_to_highlight = {
+			area = north_kurdistan_area
+			OR = {
+				NOT = { owned_by = ROOT } 
+				NOT = { fort_level = 1 } 
+			}
+		}
+
+		trigger = {
+			north_kurdistan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			any_owned_province = {
+				area = north_kurdistan_area
+				fort_level = 2
+			}
+		}
+
+		effect = {
+			north_kurdistan_area = {
+				add_province_modifier = {
+					name = "mountain_fortresses"
+					duration = -1
+				}
+			}
+			armenia_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+			erzurum_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	ASY_armenian_question = {
+		icon = mission_unite_the_princes
+		position = 3
+		required_missions = { ASY_mountain_defenses } 
+		provinces_to_highlight = {
+			OR = {
+			area = armenia_area
+			area = erzurum_area
+		}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			armenia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			erzurum_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		effect = {
+			add_accepted_culture = armenian
+			armenia_area = {
+				add_province_modifier = {
+					name = "armenian_loyalty"
+					duration = 10950
+				}
+			}
+			erzurum_area = {
+				add_province_modifier = {
+					name = "armenian_loyalty"
+					duration = 10950
+				}
+			}
+			add_yearly_manpower = 2
+		}
+	}
+
+	ASY_eastern_ambitions = {
+		icon = mission_arabian_fort
+		position = 5
+		required_missions = { ASY_armenian_question } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			treasury = 500
+			num_of_owned_provinces_with = {
+				value = 25
+				region = mashriq_region
+			}
+			has_mil_advisor = yes
+		}
+
+		effect = {
+			add_treasury = -500
+			add_country_modifier = {
+				name = "assyrian_expansionism"
+				duration = 10950
+			}
+			persia_region = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+			caucasia_region = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+ASY_column_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = A78
+		NOT = { map_setup = map_setup_random } 
+	}
+
+	ASY_chaldean_diplomacy = {
+		icon = mission_religious
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			OR = {
+				alliance_with = CH3
+				CH3 = {
+					has_opinion = {
+						who = ROOT
+						value = 100
+					}
+				}
+				NOT = { exists = CH3 } 
+			}
+		}
+
+		effect = {
+			shahrizor_area = { add_permanent_claim = ROOT } 
+			add_country_modifier = {
+				name = "mesopotamian_cooperation"
+				duration = 7300
+			}
+			if = {
+				limit = { exists = CH3 } 
+				CH3 = {
+					add_opinion = {
+						who = ROOT
+						modifier = mesopotamian_brotherhood
+						multiplier = 25
+					}
+				}
+			}
+			add_dip_power = 50
+		}
+	}
+
+	ASY_secure_the_gulf = {
+		icon = mission_secure_hajj_ports
+		position = 2
+		required_missions = {
+			ASY_chaldean_diplomacy
+			ASY_kurdish_relations
+		}
+		provinces_to_highlight = {
+			area = shahrizor_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			num_of_ports = 2
+			navy_size_percentage = 0.9
+			OR = {
+				shahrizor_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				408 = {
+					trade_share = {
+						country = ROOT
+						share = 25
+					}
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "gulf_trade_access"
+				duration = 10950
+			}
+			add_navy_tradition = 20
+			408 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 10950
+					power = 10
+					key = assyrian_gulf_trade
+				}
+			}
+		}
+	}
+
+	ASY_chaldean_hegemony = {
+		icon = mission_conquer_lower_burma_ori
+		position = 3
+		required_missions = { ASY_secure_the_gulf } 
+		provinces_to_highlight = {
+			OR = {
+				owned_by = CH3
+				owned_by = CH2
+				owned_by = CH1
+				owned_by = CH4
+				owned_by = CH5
+				owned_by = CH6
+				owned_by = BSR
+			}
+		}
+
+		trigger = {
+			army_size = 50
+			total_development = 300
+			if = {
+				limit = { exists = CH3 } 
+				CH3 = {
+					has_opinion = {
+						who = ROOT
+						value = 150
+					}
+					NOT = { army_size = ROOT } 
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						exists = CH1
+						exists = CH2
+						exists = CH4
+						exists = CH5
+						exists = CH6
+						exists = BSR
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = ASY_chaldean_states_weaker_tooltip
+					NOT = {
+						any_country = {
+							OR = {
+								tag = CH1
+								tag = CH2
+								tag = CH4
+								tag = CH5
+								tag = CH6
+								tag = BSR
+							}
+							army_size = ROOT
+						}
+					}
+				}
+			}
+		}
+
+		effect = {
+			add_prestige = 25
+			add_dip_power = 100
+			if = {
+				limit = { exists = CH3 } 
+				create_subject = {
+					subject_type = atlantis_chaldean_confederation
+					subject = CH3
+				}
+				CH3 = {
+					add_liberty_desire = -25
+					add_country_modifier = {
+						name = "chaldean_confederation_member"
+						duration = -1
+					}
+				}
+			}
+			custom_tooltip = ASY_chaldean_confederation_tooltip
+			hidden_effect = {
+				every_country = {
+					limit = {
+						OR = {
+							tag = CH1
+							tag = CH2
+							tag = CH4
+							tag = CH5
+							tag = CH6
+							tag = BSR
+						}
+						exists = yes
+						is_subject = no
+					}
+					country_event = {
+						id = assyrian_events.11
+						days = 30
+					}
+				}
+			}
+			add_country_modifier = {
+				name = "leader_of_chaldean_confederation"
+				duration = -1
+			}
+		}
+	}
+}

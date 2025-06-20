@@ -1,0 +1,118 @@
+# Assyrian Legacy of Ashurbanipal Government Mechanic - Simplified
+# Location: common/government_mechanics/assyrian_legacy_mechanic.txt
+
+assyrian_legacy_mechanic = {
+	alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 15
+	
+	available = {
+		tag = A78
+		OR = {
+			has_reform = assyrian_kingdom
+ 
+		}
+	}
+
+	powers = {
+		# Main Power Bar
+		ashurbanipal_legacy = {
+			min = 0
+			max = 100
+			default = 0
+			base_monthly_growth = 0.25
+			development_scaled_monthly_growth = -0.2
+ 
+			
+			scaled_modifier = {
+				modifier = {
+					technology_cost = -0.1
+					idea_cost = -0.1
+				}
+			}
+			
+			
+			
+			on_max_reached = {
+				country_event = { id = assyrian_events.31 }
+			}
+			
+			is_good = yes
+		}
+	}
+	
+	interactions = {
+		# Button 1: Archaeological Expedition
+                afrnchshadowmechanic = { #Improvemandate
+			cooldown_years = 10
+			
+			potential = {
+				always = no
+			}
+			trigger = {
+                
+			}
+			effect = { 
+           
+
+			}
+			ai_chance = {
+				factor = 0
+			}
+		}
+		assyrian_archaeology = {
+	 
+			icon = GFX_assyrian_ability
+			cost_type = ashurbanipal_legacy
+ 
+			trigger = {
+				adm_power = 50
+                dip_power = 50
+                mil_power = 50
+                years_of_income = 1
+				is_at_war = no
+			}
+			effect = {
+                		add_government_power = {
+							mechanic_type = assyrian_legacy_mechanic
+							power_type = ashurbanipal_legacy
+							value = 10
+						}
+				adm_power = -50
+                dip_power = -50
+                mil_power = -50
+                years_of_income = -1
+				random_list = {
+					50 = {
+						# Military discovery
+						add_mil_power = 125
+						add_army_tradition = 20
+						add_country_modifier = {
+							name = "ancient_military_tactics"
+							duration = 3650
+						}
+					}
+					50 = {
+						# Administrative discovery
+						add_adm_power = 125
+						add_legitimacy_equivalent = 20
+						add_country_modifier = {
+							name = "cuneiform_administration"
+							duration = 3650
+						}
+					}
+		
+				}
+			}
+			cooldown_years = 10
+			ai_chance = {
+				factor = 10
+				modifier = {
+					factor = 0
+					NOT = { treasury = 500 }
+				}
+			}
+		}
+		
+	
+	}
+}

@@ -1,0 +1,155 @@
+namespace = assyrian_events
+country_event = {
+	id = assyrian_events.11
+	title = "assyrian_events.11.t"
+	desc = "assyrian_events.11.d"
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "assyrian_events.11.a" # Accept confederation
+		ai_chance = {
+			factor = 75
+			modifier = {
+				factor = 1.5
+				has_opinion = {
+					who = A78
+					value = 100
+				}
+			}
+			modifier = {
+				factor = 0.5
+				army_size = 20
+			}
+			modifier = {
+				factor = 0
+				is_rival = A78
+			}
+		}
+		
+		A78 = {
+			create_subject = {
+				subject_type = atlantis_chaldean_confederation
+				subject = ROOT
+			}
+		}
+		add_liberty_desire = -50
+		add_country_modifier = {
+			name = "chaldean_confederation_member"
+			duration = -1
+		}
+		add_opinion = {
+			who = A78
+			modifier = joined_confederation
+		}
+		
+		# Relations boost with other confederation members
+		every_country = {
+			limit = {
+				is_subject_of = A78
+				is_subject_of_type = atlantis_chaldean_confederation
+				NOT = { tag = ROOT }
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = fellow_confederation_member
+			}
+			reverse_add_opinion = {
+				who = ROOT
+				modifier = fellow_confederation_member
+			}
+		}
+	}
+	
+	option = {
+		name = "assyrian_events.11.b" # Refuse
+		ai_chance = {
+			factor = 25
+		}
+		grant_independence = yes	
+		add_prestige = 10
+		A78 = {
+			add_opinion = {
+				who = ROOT
+				modifier = refused_confederation
+			}
+			add_casus_belli = {
+				target = ROOT
+				type = cb_vassalize_mission
+				months = 120
+			}
+		}
+	}
+}
+
+country_event = {
+	id = assyrian_events.30
+	title = "assyrian_events.30.t"
+	desc = "assyrian_events.30.d"
+	picture = GREAT_BUILDING_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "assyrian_events.30.a"
+		add_adm_power = 200
+		add_dip_power = 200
+		add_mil_power = 200
+		add_country_modifier = {
+			name = "apex_of_assyrian_civilization"
+			duration = 10950
+		}
+		change_innovativeness = 10
+	}
+}
+
+# Epic Archaeological Discovery
+country_event = {
+	id = assyrian_events.31
+	title = "assyrian_events.31.t"
+	desc = "assyrian_events.31.d"
+	picture = IMPORTANT_STATUE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "assyrian_events.31.a" # Military focus
+		add_army_professionalism = 0.05
+		add_mil_tech = 1
+		add_mil_power = 200
+			add_government_power = {
+							mechanic_type = assyrian_legacy_mechanic
+							power_type = ashurbanipal_legacy
+							value = -100
+						}
+	}
+	
+	option = {
+		name = "assyrian_events.31.b" # Administrative focus
+		add_adm_tech = 1
+		add_adm_power = 200
+		change_government_reform_progress = 100
+					add_government_power = {
+							mechanic_type = assyrian_legacy_mechanic
+							power_type = ashurbanipal_legacy
+							value = -100
+						}
+	}
+	
+	option = {
+		name = "assyrian_events.31.c" # Economic focus
+		add_years_of_income = 2
+		add_mercantilism = 5
+		add_dip_power = 200
+					add_government_power = {
+							mechanic_type = assyrian_legacy_mechanic
+							power_type = ashurbanipal_legacy
+							value = -100
+						}
+		capital_scope = {
+			add_base_production = 3
+			add_base_tax = 3
+		}
+	}
+}

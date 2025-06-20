@@ -252,31 +252,33 @@ buy_truce = {
                 with = THIS
             }
         }
+        		add_entry = {
+			name = OPINION
+			export_to_variable = {
+				variable_name = ai_value
+				value = opinion
+				who = FROM
+				with = ROOT
+			}
+			multiply_variable = {
+				which = ai_value 
+				value = 0.5
+			}
+		}
         
-        # Złe stosunki (negatywny wpływ)
-        add_entry = {
-            name = AI_BUY_TRUCE_BAD_RELATIONS
-            limit = {
-                FROM = {
-                    NOT = {
-                        has_opinion = {
-                            who = ROOT
-                            value = -50
-                        }
-                    }
-                }
-            }
-            export_to_variable = {
-                variable_name = ai_value
-                value = opinion
-                who = FROM
-                with = ROOT
-            }
-            multiply_variable = {
-                which = ai_value
-                value = 0.3
-            }
-        }
+      	add_entry = {
+			name = diplomatic_reputation
+			limit = { }
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:diplomatic_reputation
+			}
+			#1 rep = 2
+			multiply_variable = {
+				which = ai_value
+				value = 2
+			}
+		}
         
         # Wysoki prestiż (negatywny wpływ)
         add_entry = {

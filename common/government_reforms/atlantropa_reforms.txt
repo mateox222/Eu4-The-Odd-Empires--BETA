@@ -1657,3 +1657,46 @@ A2R_pharaonic_kingdom = {
 		factor = 100
 	}
 }
+assyrian_kingdom = {
+	icon = "assyrian_crown"
+	allow_normal_conversion = yes
+	potential = {
+		OR = {
+			tag = A78
+  
+  
+		}
+ 
+	}
+	trigger = {
+		OR = {
+			tag = A78
+	 
+		}
+	 
+	}
+	valid_for_nation_designer = yes
+	lock_level_when_selected = yes
+	legacy_equivalent = despotic_monarchy
+	
+	modifiers = {
+		governing_capacity = 100
+		max_absolutism = 10
+		yearly_absolutism = 0.5
+		culture_conversion_cost = -0.25
+		defensiveness = 0.15
+		all_estate_influence_modifier =  0.10
+	}
+	
+	custom_attributes = {
+ 
+	}
+	
+	government_abilities = {
+		assyrian_legacy_mechanic
+	}
+	
+	ai = {
+		factor = 100
+	}
+}

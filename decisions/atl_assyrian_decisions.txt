@@ -1,0 +1,295 @@
+country_decisions = {
+	
+	ASY_establish_nestorian_patriarchate = {
+		major = yes
+		potential = {
+			tag = A78
+
+			NOT = { has_country_flag = established_patriarchate }
+		}
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 410 # Baghdad/Ctesiphon
+				province_id = 411 # Mosul/Nineveh
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			stability = 2
+			religious_unity = 0.9
+			owns_core_province = 410
+			owns_core_province = 411
+			410 = {
+				has_building = cathedral
+			}
+			treasury = 1000
+			legitimacy = 90
+		}
+		
+		effect = {
+			set_country_flag = established_patriarchate
+			add_treasury = -1000
+			add_country_modifier = {
+				name = "nestorian_ecumenical_church"
+				duration = -1
+			}
+			add_prestige = 50
+			add_legitimacy = 10
+			
+			custom_tooltip = ASY_patriarch_tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+			
+						continent = asia
+					}
+					add_province_modifier = {
+						name = "patriarchal_authority"
+						duration = 10950
+					}
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ASY_restore_assyrian_empire = {
+		color = { 255  247  0}
+		major = yes
+		potential = {
+			tag = A78
+			NOT = { has_country_flag = restored_assyria }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 50
+				}
+			}
+		}
+		
+		 
+		
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			stability = 3
+			total_development = 500
+			prestige = 75
+			legitimacy = 100
+			 has_mission = ASY_restore_assyrian_empire
+		}
+		
+		effect = {
+			set_country_flag = restored_assyria
+			
+
+			add_country_modifier = {
+				name = "restored_assyrian_empire"
+				duration = -1
+			}
+			
+			add_prestige = 100
+			add_legitimacy = 50
+			add_adm_power = 200
+			add_dip_power = 200
+			add_mil_power = 200
+			
+			anatolia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			
+			persia_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			
+			egypt_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			
+			set_government_rank = 3
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ASY_syriac_literary_renaissance = {
+		potential = {
+			tag = A78
+			NOT = { has_country_modifier = syriac_renaissance_modifier }
+		}
+		
+		allow = {
+			has_institution = printing_press
+			innovativeness = 50
+			treasury = 500
+			adm_power = 100
+			num_of_owned_provinces_with = {
+				value = 5
+				has_building = university
+			}
+		}
+		
+		effect = {
+			add_treasury = -500
+			add_adm_power = -100
+			add_country_modifier = {
+				name = "syriac_renaissance_modifier"
+				duration = -1
+			}
+			add_innovativeness = 10
+			
+			every_owned_province = {
+				limit = {
+					has_building = university
+				}
+				add_base_production = 1
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { treasury = 1000 }
+			}
+		}
+	}
+	
+	ASY_unite_nestorian_churches = {
+		potential = {
+			tag = A78
+
+			has_country_flag = established_patriarchate
+			NOT = { has_country_flag = united_churches }
+		}
+		
+		allow = {
+			custom_trigger_tooltip = {
+				tooltip = ASY_control_holy_sites_tooltip
+				calc_true_if = {
+					all_province = {
+						OR = {
+							province_id = 410 # Baghdad
+							province_id = 411 # Mosul
+							province_id = 377 # Aleppo
+							province_id = 2311 # Diyarbakir
+							province_id = 424 # Hamadan
+						}
+						owned_by = ROOT
+			
+					}
+					amount = 4
+				}
+			}
+			is_defender_of_faith = yes
+			religious_unity = 1
+			treasury = 2000
+		}
+		
+		effect = {
+			set_country_flag = united_churches
+			add_treasury = -2000
+			
+			add_country_modifier = {
+				name = "united_nestorian_church"
+				duration = -1
+			}
+			
+			custom_tooltip = ASY_unite_churches_tooltip
+			hidden_effect = {
+				every_country = {
+					limit = {
+			
+						NOT = { tag = ROOT }
+					}
+					add_opinion = {
+						who = ROOT
+						modifier = nestorian_unity
+					}
+				}
+			}
+			
+			add_papal_influence = 50
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	ASY_establish_silk_road_dominance = {
+		potential = {
+			tag = A78
+			NOT = { has_country_modifier = silk_road_monopoly }
+		}
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 410 # Baghdad
+				province_id = 377 # Aleppo
+				province_id = 454 # Samarkand
+			}
+			NOT = { owned_by = ROOT }
+		}
+		
+		allow = {
+			owns = 410 # Baghdad
+			owns = 377 # Aleppo
+			owns = 454 # Samarkand
+			trade_efficiency = 0.5
+			num_of_merchants = 4
+			treasury = 3000
+		}
+		
+		effect = {
+			add_treasury = -3000
+			add_country_modifier = {
+				name = "silk_road_monopoly"
+				duration = -1
+			}
+			add_mercantilism = 10
+			
+			410 = {
+				add_center_of_trade_level = 1
+			}
+			377 = {
+				add_center_of_trade_level = 1
+			}
+			
+			add_years_of_income = 1
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { treasury = 5000 }
+			}
+		}
+	}
+}
