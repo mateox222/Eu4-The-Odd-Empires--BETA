@@ -43,7 +43,7 @@ assyrian_legacy_mechanic = {
 	interactions = {
 		# Button 1: Archaeological Expedition
                 afrnchshadowmechanic = { #Improvemandate
-			cooldown_years = 10
+			cooldown_years = 5
 			
 			potential = {
 				always = no
@@ -65,9 +65,9 @@ assyrian_legacy_mechanic = {
 			cost_type = ashurbanipal_legacy
  
 			trigger = {
-				adm_power = 50
-                dip_power = 50
-                mil_power = 50
+				adm_power = 25
+                dip_power = 25
+                mil_power = 25
                 years_of_income = 1
 				is_at_war = no
 			}
@@ -75,11 +75,11 @@ assyrian_legacy_mechanic = {
                 		add_government_power = {
 							mechanic_type = assyrian_legacy_mechanic
 							power_type = ashurbanipal_legacy
-							value = 10
+							value = 5
 						}
-				adm_power = -50
-                dip_power = -50
-                mil_power = -50
+				adm_power = -25
+                dip_power = -25
+                mil_power = -25
                 years_of_income = -1
 				random_list = {
 					50 = {
@@ -100,6 +100,26 @@ assyrian_legacy_mechanic = {
 							duration = 3650
 						}
 					}
+										50 = {
+					add_government_power = {
+							mechanic_type = assyrian_legacy_mechanic
+							power_type = ashurbanipal_legacy
+							value = 10
+						}
+					}
+														50 = {
+					add_years_of_income = 1
+					add_prestige = 5
+					}
+						50 = {
+					add_prestige = -5
+					}
+					50 = {
+				add_adm_power = 75
+                add_dip_power = 75
+                add_mil_power = 75
+					}
+
 		
 				}
 			}

@@ -481,25 +481,24 @@ ASY_column_3 = {
 		}
 
 		trigger = {
-			treasury = 200
+			treasury = 500
 			4295 = {
 				owned_by = ROOT
 				development = 15
 			}
-			adm_power = 200
+			adm_power = 500
 		}
 
 		effect = {
 			add_adm_power = -200
 			add_treasury = -200
-			add_adm_tech = 1
+
 			4295 = {
 				add_next_institution_embracement = 50
-				add_building = temple
-			}
-			add_country_modifier = {
-				name = "library_of_ashurbanipal"
-				duration = -1
+							add_great_project = {
+    type = library_of_ashurbanipal
+    instant = no 
+}
 			}
 		}
 	}
