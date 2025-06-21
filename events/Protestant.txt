@@ -37,6 +37,13 @@ country_event = {
 	option = {
 		name = "EVTOPTA2001"
 		enable_religion = protestant
+		363 = {
+			change_religion = protestant
+			add_permanent_province_modifier = {
+				name = "religious_zeal_at_conv"
+				duration = 9000
+			}
+		}
 		random_owned_province = {
 			limit = {
 				can_have_center_of_reformation_trigger = {

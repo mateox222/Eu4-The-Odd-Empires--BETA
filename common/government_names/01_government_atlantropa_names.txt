@@ -419,3 +419,57 @@ synthetic_nation2 = {
 		
 	}
 }
+}
+
+
+assyrian_monarchy = {
+	rank = {
+		1 = ASSYRIAN_KINGDOM
+		2 = ASSYRIAN_GREAT_KINGDOM
+		3 = ASSYRIAN_EMPIRE
+	}
+
+	ruler_male = {
+		1 = ISSI_AKKI
+		2 = SHARRU
+		3 = SHARRU_RABU
+	}
+
+	ruler_female = {
+		1 = ISSI_AKKAT
+		2 = SHARRATU
+		3 = SHARRATU_RABITU
+	}
+	
+	consort_male = {
+		1 = PRINCE_CONSORT_ASSYRIAN
+		2 = PRINCE_CONSORT_ASSYRIAN
+		3 = IMPERIAL_CONSORT_ASSYRIAN
+	}
+
+	consort_female = {
+		1 = SHEGALLU
+		2 = SHEGALLU_RABITU
+		3 = SHEGALLU_SHARRATI
+	}
+
+	heir_male = {
+		1 = MAR_SHARRI
+		2 = MAR_SHARRI
+		3 = APAL_SHARRI
+	}
+
+	heir_female = {
+		1 = MARAT_SHARRI
+		2 = MARAT_SHARRI
+		3 = APALTU_SHARRI
+	}
+	
+	trigger = {
+		government = monarchy
+		OR = {
+			primary_culture = assyrian
+			tag = A78
+		}
+	}
+}

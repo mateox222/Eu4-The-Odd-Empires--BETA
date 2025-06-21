@@ -1,0 +1,587 @@
+namespace = religious_conflict
+
+# The Rise of Platonic Philosophy
+country_event = {
+	id = religious_conflict.1
+	title = religious_conflict.1.t
+	desc = religious_conflict.1.d
+	picture = RELIGION_eventPicture
+	
+	trigger = {
+            has_global_flag = reformation_started
+		religion = united_christianity
+		any_owned_province = {
+			has_building = university
+		}
+		NOT = { has_country_flag = platonic_movement_started }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		
+		modifier = {
+			factor = 0.8
+			advisor = philosopher
+		}
+		modifier = {
+			factor = 0.7
+			innovativeness_ideas = 3
+		}
+		modifier = {
+			factor = 1.2
+			religious_unity = 0.8
+		}
+	}
+	
+	immediate = {
+		set_country_flag = platonic_movement_started
+	}
+	
+	option = {
+		name = religious_conflict.1.a
+		ai_chance = { factor = 60 }
+		add_country_modifier = {
+			name = "platonic_tolerance"
+			duration = 3650
+		}
+        random_owned_province = {
+    limit = { religion = united_christianity }
+    change_religion = protestant
+            }
+		random_owned_province = {
+			limit = { has_building = university }
+			spawn_rebels = {
+				type = religious_rebels
+				size = 1
+			}
+		}
+	}
+	
+	option = {
+		name = religious_conflict.1.b
+		ai_chance = { factor = 40 }
+		add_stability = -1
+		add_country_modifier = {
+			name = "suppressed_philosophy"
+			duration = 1825
+		}
+	}
+}
+
+# Platonic Academies Established
+country_event = {
+	id = religious_conflict.2
+	title = religious_conflict.2.t
+	desc = religious_conflict.2.d
+	picture = UNIVERSITY_eventPicture
+	
+	trigger = {
+            has_global_flag = reformation_started
+		religion = united_christianity
+		has_country_flag = platonic_movement_started
+		NOT = { has_country_modifier = suppressed_philosophy }
+		any_owned_province = {
+			development = 15
+		}
+		NOT = { has_country_flag = platonic_academies_established }
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+		
+		modifier = {
+			factor = 0.8
+			has_country_modifier = platonic_tolerance
+		}
+		modifier = {
+			factor = 1.5
+			religious_unity = 0.9
+		}
+	}
+	
+	immediate = {
+		set_country_flag = platonic_academies_established
+	}
+	
+	option = {
+		name = religious_conflict.2.a
+		ai_chance = { factor = 50 }
+		random_owned_province = {
+			limit = { development = 15 }
+			add_province_modifier = {
+				name = "platonic_academy"
+				duration = -1
+			}
+    change_religion = protestant
+            
+		}
+		add_country_modifier = {
+			name = "philosophical_enlightenment"
+			duration = 5475
+		}
+	}
+	
+	option = {
+		name = religious_conflict.2.b
+		ai_chance = { factor = 50 }
+		add_papal_influence = 10
+		add_country_modifier = {
+			name = "christian_orthodoxy_reinforced"
+			duration = 3650
+		}
+	}
+}
+
+# The Great Theological Debate
+country_event = {
+	id = religious_conflict.3
+	title = religious_conflict.3.t
+	desc = religious_conflict.3.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+            has_global_flag = reformation_started
+		religion = united_christianity
+		has_country_flag = platonic_academies_established
+		advisor = theologian
+		NOT = { has_country_flag = great_debate_held }
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+		
+		modifier = {
+			factor = 0.7
+			has_idea_group = humanist_ideas
+		}
+	}
+	
+	immediate = {
+		set_country_flag = great_debate_held
+	}
+	
+	option = {
+		name = religious_conflict.3.a
+		ai_chance = { factor = 40 }
+		add_adm_power = 50
+		add_country_modifier = {
+			name = "platonic_christian_synthesis"
+			duration = 7300
+		}
+		random_list = {
+			70 = { add_stability = 1 }
+			30 = { spawn_rebels = { type = religious_rebels size = 2 } }
+		}
+	}
+	
+	option = {
+		name = religious_conflict.3.b
+		ai_chance = { factor = 35 }
+		add_dip_power = 50
+		add_country_modifier = {
+			name = "traditional_christian_values"
+			duration = 5475
+		}
+		add_religious_unity = 0.1
+	}
+	
+	option = {
+		name = religious_conflict.3.c
+		ai_chance = { factor = 25 }
+		add_mil_power = 50
+		add_country_modifier = {
+			name = "religious_persecution"
+			duration = 3650
+		}
+		every_owned_province = {
+			limit = { has_province_modifier = platonic_academy }
+			remove_province_modifier = platonic_academy
+			add_unrest = 5
+		}
+	}
+}
+
+# Platonic Missionary Movement
+country_event = {
+	id = religious_conflict.4
+	title = religious_conflict.4.t
+	desc = religious_conflict.4.d
+	picture = MISSIONARIES_eventPicture
+	
+	trigger = {
+            has_global_flag = reformation_started
+		religion = united_christianity
+		has_country_modifier = philosophical_enlightenment
+		any_neighbor_country = {
+			NOT = { religion = united_christianity }
+			NOT = { religion = protestant }
+		}
+		NOT = { has_country_flag = platonic_missionaries_sent }
+	}
+	
+	mean_time_to_happen = {
+		months = 48
+	}
+	
+	immediate = {
+		set_country_flag = platonic_missionaries_sent
+	}
+	
+	option = {
+		name = religious_conflict.4.a
+		ai_chance = { factor = 60 }
+		add_treasury = -100
+		random_neighbor_country = {
+			limit = { 
+				NOT = { religion = united_christianity }
+				NOT = { religion = protestant }
+			}
+			country_event = { id = religious_conflict.5 days = 30 }
+		}
+		add_country_modifier = {
+			name = "platonic_missionary_zeal"
+			duration = 1825
+		}
+	}
+	
+	option = {
+		name = religious_conflict.4.b
+		ai_chance = { factor = 40 }
+		add_stability = 1
+		add_legitimacy = 10
+	}
+}
+
+# Foreign Platonic Influence (Triggered Event)
+country_event = {
+	id = religious_conflict.5
+	title = religious_conflict.5.t
+	desc = religious_conflict.5.d
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = religious_conflict.5.a
+		ai_chance = { factor = 30 }
+		random_owned_province = {
+			limit = { development = 10 }
+			change_religion = protestant
+		}
+		add_country_modifier = {
+			name = "foreign_philosophical_influence"
+			duration = 1825
+		}
+	}
+	
+	option = {
+		name = religious_conflict.5.b
+		ai_chance = { factor = 70 }
+		add_stability = -1
+		add_country_modifier = {
+			name = "rejected_foreign_philosophy"
+			duration = 1095
+		}
+	}
+}
+
+# The Platonic Reformation
+country_event = {
+	id = religious_conflict.6
+	title = religious_conflict.6.t
+	desc = religious_conflict.6.d
+	picture = PROTESTANT_CATHOLIC_eventPicture
+	
+	trigger = {
+            has_global_flag = reformation_started
+		religion = united_christianity
+		has_country_modifier = platonic_christian_synthesis
+ 
+		any_owned_province = {
+			has_province_modifier = platonic_academy
+		}
+		NOT = { has_country_flag = platonic_reformation }
+	}
+	
+	mean_time_to_happen = {
+		months = 24
+		
+		modifier = {
+			factor = 0.8
+			NOT = { religious_unity = 0.7 }
+		}
+		modifier = {
+			factor = 1.3
+			stability = 2
+		}
+	}
+	
+	immediate = {
+		set_country_flag = platonic_reformation
+	}
+	
+	option = {
+		name = religious_conflict.6.a
+		ai_chance = { factor = 40 }
+		change_religion = protestant
+		add_stability = -2
+		every_owned_province = {
+			limit = { religion = united_christianity }
+			add_unrest = 3
+		}
+		add_country_modifier = {
+			name = "platonic_reformation_zeal"
+			duration = 5475
+		}
+	}
+	
+	option = {
+		name = religious_conflict.6.b
+		ai_chance = { factor = 60 }
+		add_stability = -1
+		spawn_rebels = {
+			type = religious_rebels
+			size = 3
+		}
+		add_country_modifier = {
+			name = "resisted_reformation"
+			duration = 3650
+		}
+	}
+}
+
+# Bishop's Condemnation of protestant
+country_event = {
+	id = religious_conflict.7
+	title = religious_conflict.7.t
+	desc = religious_conflict.7.d
+	picture = RELIGIOUS_WARS_eventPicture
+	
+	trigger = {
+            has_global_flag = reformation_started
+		religion = united_christianity
+		has_country_flag = platonic_movement_started
+		advisor = theologian
+		religious_unity = 0.6
+		NOT = { has_country_flag = bishops_condemnation }
+	}
+	
+	mean_time_to_happen = {
+		months = 72
+		
+		modifier = {
+			factor = 0.7
+			has_country_modifier = philosophical_enlightenment
+		}
+		modifier = {
+			factor = 1.5
+			has_country_modifier = traditional_christian_values
+		}
+	}
+	
+	immediate = {
+		set_country_flag = bishops_condemnation
+	}
+	
+	option = {
+		name = religious_conflict.7.a
+		ai_chance = { factor = 50 }
+		add_stability = -1
+		every_owned_province = {
+			limit = { has_province_modifier = platonic_academy }
+			add_unrest = 4
+		}
+		add_country_modifier = {
+			name = "ecclesiastical_opposition"
+			duration = 2555
+		}
+	}
+	
+	option = {
+		name = religious_conflict.7.b
+		ai_chance = { factor = 30 }
+		remove_advisor = theologian
+		add_stability = 1
+		add_country_modifier = {
+			name = "philosophical_freedom"
+			duration = 3650
+		}
+                random_owned_province = {
+    limit = { religion = united_christianity }
+    change_religion = protestant
+            }
+	}
+	
+	option = {
+		name = religious_conflict.7.c
+		ai_chance = { factor = 20 }
+		add_treasury = -200
+		add_papal_influence = 15
+		add_country_modifier = {
+			name = "church_appeasement"
+			duration = 1825
+		}
+                random_owned_province = {
+    limit = { religion = united_christianity }
+    change_religion = protestant
+            }
+	}
+}
+
+# The Syncretic Movement
+country_event = {
+	id = religious_conflict.8
+	title = religious_conflict.8.t
+	desc = religious_conflict.8.d
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	trigger = {
+            has_global_flag = reformation_started
+		religion = united_christianity
+		has_country_modifier = platonic_christian_synthesis
+	 
+		NOT = { has_country_flag = syncretic_movement }
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	immediate = {
+		set_country_flag = syncretic_movement
+	}
+	
+	option = {
+		name = religious_conflict.8.a
+		ai_chance = { factor = 50 }
+		add_country_modifier = {
+			name = "christian_platonic_syncretism"
+			duration = 3600
+		}
+		        random_owned_province = {
+    limit = { religion = united_christianity }
+    change_religion = protestant
+            }
+		random_owned_province = {
+			add_province_modifier = {
+				name = "syncretic_temple"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = religious_conflict.8.b
+		ai_chance = { factor = 50 }
+		add_stability = 1
+		add_legitimacy = 15
+		add_country_modifier = {
+			name = "pure_christian_doctrine"
+			duration = 5475
+		}
+	}
+}
+
+# Platonic Persecution
+country_event = {
+	id = religious_conflict.9
+	title = religious_conflict.9.t
+	desc = religious_conflict.9.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	trigger = {
+            has_global_flag = reformation_started
+		religion = united_christianity
+		has_country_modifier = religious_persecution
+		any_owned_province = {
+			local_unrest = 3
+		}
+		NOT = { has_country_flag = platonic_persecution }
+	}
+	
+	mean_time_to_happen = {
+		months = 18
+	}
+	
+	immediate = {
+		set_country_flag = platonic_persecution
+	}
+	
+	option = {
+		name = religious_conflict.9.a
+		ai_chance = { factor = 30 }
+		add_years_of_income = -0.5
+		every_owned_province = {
+			limit = { local_unrest = 3 }
+			add_unrest = -3
+		}
+		add_country_modifier = {
+			name = "inquisition_established"
+			duration = 3650
+		}
+	}
+	
+	option = {
+		name = religious_conflict.9.b
+		ai_chance = { factor = 70 }
+		add_stability = -1
+		spawn_rebels = {
+			type = religious_rebels
+			size = 2
+		}
+                random_owned_province = {
+    limit = { religion = united_christianity }
+    change_religion = protestant
+            }
+		remove_country_modifier = religious_persecution
+	}
+}
+
+# The Philosophical Universities
+country_event = {
+	id = religious_conflict.10
+	title = religious_conflict.10.t
+	desc = religious_conflict.10.d
+	picture = UNIVERSITY_eventPicture
+	
+	trigger = {
+            has_global_flag = reformation_started
+		religion = protestant
+ 
+		any_owned_province = {
+			has_building = university
+		}
+		NOT = { has_country_flag = philosophical_universities }
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+	}
+	
+	immediate = {
+		set_country_flag = philosophical_universities
+	}
+	
+	option = {
+		name = religious_conflict.10.a
+		ai_chance = { factor = 80 }
+		every_owned_province = {
+			limit = { has_building = university }
+			add_province_modifier = {
+				name = "philosophical_university"
+				duration = -1
+			}
+		}
+		add_country_modifier = {
+			name = "platonic_enlightenment"
+			duration = -1
+		}
+	}
+	
+	option = {
+		name = religious_conflict.10.b
+		ai_chance = { factor = 20 }
+		add_treasury = 200
+		add_legitimacy = 10
+	}
+}

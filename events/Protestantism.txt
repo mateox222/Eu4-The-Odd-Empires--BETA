@@ -14,6 +14,7 @@ country_event = {
 	picture = PROTESTANT_GREAT_REFORMER_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
@@ -134,6 +135,7 @@ country_event = {
 	picture = PROTESTANT_GREAT_REFORMER_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		
@@ -205,6 +207,7 @@ country_event = {
 	picture = PROTESTANT_RELIGIOUS_DOUBTS_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
@@ -253,6 +256,7 @@ province_event = {
 	picture = PROTESTANT_RELIGIOUS_TENSIONS_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		owner = { religion = protestant }
 		has_dlc = "Common Sense"
@@ -343,6 +347,7 @@ country_event = {
 	picture = PROTESTANT_PRINTED_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
@@ -422,7 +427,7 @@ country_event = {
 	}
 }
 
-#Message for the Faithful (Böndagsplakat)
+#Message for the Faithful (Bï¿½ndagsplakat)
 #A peculiarity of the Swedish State Church but is used to cover the general use of the state Church to further internal propaganda.
 country_event = {
 	id = protestantism_events.9
@@ -431,6 +436,7 @@ country_event = {
 	picture = PROTESTANT_GREAT_REFORMER_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
@@ -448,7 +454,8 @@ country_event = {
 	
 	option = {
 		name = protestantism_events.9.a #Gratefulness for the Peace we now enjoy.
-		trigger = { is_at_war = no }
+		trigger = {
+            always = no is_at_war = no }
 		ai_chance = {
 			factor = 1
 			modifier = {
@@ -534,6 +541,7 @@ province_event = {
 	picture = PROTESTANT_RELIGIOUS_TENSIONS_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		owner = {
@@ -642,6 +650,7 @@ country_event = {
 	picture = PROTESTANT_GREAT_REFORMER_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
@@ -725,6 +734,7 @@ country_event = {
 	picture = PROTESTANT_RELIGIOUS_DOUBTS_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
@@ -818,6 +828,7 @@ country_event = {
 	picture = PROTESTANT_RELIGIOUS_DOUBTS_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
@@ -923,6 +934,7 @@ country_event = {
 	picture = PROTESTANT_RELIGIOUS_DOUBTS_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
@@ -981,6 +993,7 @@ country_event = {
 	picture = PROTESTANT_RELIGIOUS_DOUBTS_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		is_religion_enabled = protestant
@@ -1022,6 +1035,7 @@ country_event = {
 	picture = PROTESTANT_RELIGIOUS_DOUBTS_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		is_religion_enabled = protestant
@@ -1089,6 +1103,7 @@ country_event = {
 	picture = PROTESTANT_RELIGIOUS_DOUBTS_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		is_religion_enabled = protestant
@@ -1205,6 +1220,7 @@ country_event = {
 	picture = PROTESTANT_GREAT_REFORMER_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
@@ -1281,6 +1297,7 @@ country_event = {
 	picture = RELIGION_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
@@ -1352,6 +1369,7 @@ country_event = {
 	picture = CITY_DEVELOPMENT_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
@@ -1539,6 +1557,7 @@ country_event = {
 	picture = PROTESTANT_PRINTED_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
@@ -1582,6 +1601,7 @@ country_event = {
 	picture = PROTESTANT_RELIGIOUS_DOUBTS_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
@@ -1615,7 +1635,8 @@ country_event = {
 	
 	option = {
 		name = protestantism_events.25.b #If it was good enough for the Patriarchs, it's good enough for me.
-		trigger = { NOT = { has_country_flag = allowed_bigamy } }
+		trigger = {
+            always = no NOT = { has_country_flag = allowed_bigamy } }
 		ai_chance = {
 			factor = 10
 			modifier = {
@@ -1648,7 +1669,8 @@ country_event = {
 	
 	option = {
 		name = protestantism_events.25.c #If it was good enough for my predecessors it's good enough for me.
-		trigger = { has_country_flag = allowed_bigamy }
+		trigger = {
+            always = no has_country_flag = allowed_bigamy }
 		ai_chance = {
 			factor = 10
 			modifier = {
@@ -1700,6 +1722,7 @@ country_event = {
 	picture = PROTESTANT_PRINTED_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		always = no #Removed
@@ -1772,6 +1795,7 @@ country_event = {
 	picture = PROTESTANT_GREAT_REFORMER_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
@@ -1816,7 +1840,8 @@ country_event = {
 	
 	option = {
 		name = protestantism_events.27.c #Loyalty and Tradition, these are the values needed for a leader of our Church.
-		trigger = { NOT = { num_of_aspects = 3 } }
+		trigger = {
+            always = no NOT = { num_of_aspects = 3 } }
 		add_country_modifier = {
 			name = "stern_theologian_leader"
 			duration = 3650
@@ -1841,6 +1866,7 @@ country_event = {
 	picture = PROTESTANT_GREAT_REFORMER_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
@@ -1859,13 +1885,15 @@ country_event = {
 	
 	option = {
 		name = protestantism_events.28.b #This smells of Calvinism
-		trigger = { is_religion_enabled = reformed }
+		trigger = {
+            always = no is_religion_enabled = reformed }
 		add_adm_power = -10
 	}
 	
 	option = {
 		name = protestantism_events.28.c #Attempt to limit the spread
-		trigger = { NOT = { is_religion_enabled = reformed } }
+		trigger = {
+            always = no NOT = { is_religion_enabled = reformed } }
 		add_adm_power = -25
 	}
 }
@@ -1878,6 +1906,7 @@ country_event = {
 	picture = PROTESTANT_GREAT_REFORMER_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
@@ -1965,6 +1994,7 @@ province_event = {
 	picture = PROTESTANT_RELIGIOUS_TENSIONS_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { has_province_modifier = local_witch_hunts }
@@ -2040,6 +2070,7 @@ country_event = {
 	picture = PROTESTANT_PRINTED_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
@@ -2076,6 +2107,7 @@ country_event = {
 	picture = BIG_BOOK_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
@@ -2128,6 +2160,7 @@ country_event = {
 	picture = PROTESTANT_GREAT_REFORMER_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
@@ -2206,6 +2239,7 @@ province_event = {
 	picture = PROTESTANT_RELIGIOUS_TENSIONS_eventPicture
 	
 	trigger = {
+            always = no
 		religion = protestant
 		owner = { religion = protestant }
 		is_capital = no
@@ -2248,6 +2282,7 @@ province_event = {
 	picture = PROTESTANT_GREAT_REFORMER_eventPicture
 	
 	trigger = {
+            always = no
 		has_dlc = "Common Sense"
 		
 		NOT = { has_province_modifier = patriot_preacher }
@@ -2306,6 +2341,7 @@ province_event = {
 	picture = PROTESTANT_RELIGIOUS_TENSIONS_eventPicture
 	
 	trigger = {
+            always = no
 		has_dlc = "Common Sense"
 		
 		NOT = { has_province_modifier = colonial_religious_tensions }
@@ -2386,6 +2422,7 @@ province_event = {
 	picture = PROTESTANT_GREAT_REFORMER_eventPicture
 	
 	trigger = {
+            always = no
 		has_dlc = "Common Sense"
 		
 		NOT = { has_province_modifier = loyalist_preacher }
@@ -2473,6 +2510,7 @@ country_event = {
 	picture = PROTESTANT_RELIGIOUS_TENSIONS_eventPicture
 	
 	trigger = {
+            always = no
 		has_dlc = "Common Sense"
 		
 		religion = protestant
@@ -2606,6 +2644,7 @@ country_event = {
 	picture = PROTESTANT_RELIGIOUS_TENSIONS_eventPicture
 	
 	trigger = {
+            always = no
 		has_dlc = "Common Sense"
 		NOT = { num_of_aspects = 3 }
 		religion = protestant
@@ -2659,6 +2698,7 @@ country_event = {
 	picture = DEATH_OF_HEIR_eventPicture
 	
 	trigger = {
+            always = no
 		has_dlc = "Common Sense"
 		has_ruler_flag = heir_catholic
 		has_heir = no

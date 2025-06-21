@@ -762,21 +762,7 @@ polans_final_mission = {
 			# Flaga dla eventów
 			set_country_flag = great_lechia_formed
 			
-			# Casus belli na wszystkich chrześcijan
-			every_known_country = {
-				limit = {
-					OR = {
-						religion = united_christianity
-						religion = orthodox
-					}
-					NOT = { is_subject_of = ROOT }
-				}
-				add_casus_belli = {
-					target = ROOT
-					type = cb_religious_enemy
-					months = 600
-				}
-			}
+		
 		}
 	}
 }

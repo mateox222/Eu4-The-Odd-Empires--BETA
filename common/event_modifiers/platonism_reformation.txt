@@ -1,0 +1,277 @@
+# Religious Conflict Event Modifiers
+# Country Modifiers
+
+platonic_tolerance = {
+	tolerance_heathen = 1
+	idea_cost = -0.02
+}
+
+suppressed_philosophy = {
+	idea_cost = 0.02
+	global_unrest = 1
+	technology_cost = 0.02
+}
+
+philosophical_enlightenment = {
+	technology_cost = -0.02
+	idea_cost = -0.02
+	prestige = 0.1
+}
+
+christian_orthodoxy_reinforced = {
+	papal_influence = 0.25
+	tolerance_own = 1
+	legitimacy = 0.1
+}
+
+platonic_christian_synthesis = {
+	tolerance_heathen = 1
+	idea_cost = -0.05
+	technology_cost = -0.02
+	stability_cost_modifier = -0.02
+}
+
+traditional_christian_values = {
+	tolerance_own = 1
+	papal_influence = 0.25
+	global_missionary_strength = 0.01
+	legitimacy = 0.25
+}
+
+religious_persecution = {
+	tolerance_heathen = -1
+	global_unrest = 1
+	spy_offence = 0.05
+	global_missionary_strength = 0.01
+	diplomatic_reputation = -1
+}
+
+platonic_missionary_zeal = {
+	global_missionary_strength = 0.01
+	missionaries = 1
+	prestige = 0.1
+}
+
+foreign_philosophical_influence = {
+	idea_cost = -0.02
+	technology_cost = -0.02
+	global_unrest = 1
+}
+
+rejected_foreign_philosophy = {
+	tolerance_own = 1
+	diplomatic_reputation = -1
+}
+
+platonic_reformation_zeal = {
+	tolerance_heathen = 1
+	idea_cost = -0.05
+	technology_cost = -0.05
+	prestige = 0.25
+}
+
+resisted_reformation = {
+	tolerance_own = 1
+	legitimacy = 0.25
+	papal_influence = 0.5
+	global_unrest = 1
+}
+
+ecclesiastical_opposition = {
+	papal_influence = 0.5
+	tolerance_own = 1
+	global_unrest = 1
+}
+
+philosophical_freedom = {
+	idea_cost = -0.05
+	technology_cost = -0.02
+	tolerance_heathen = 1
+}
+
+church_appeasement = {
+	papal_influence = 1
+	tolerance_own = 1
+	legitimacy = 0.1
+	yearly_corruption = -0.02
+}
+
+christian_platonic_syncretism = {
+	tolerance_heathen = 1
+	tolerance_own = 1
+	idea_cost = -0.02
+	stability_cost_modifier = -0.05
+	prestige = 0.25
+}
+
+pure_christian_doctrine = {
+	tolerance_own = 1
+	papal_influence = 0.5
+	global_missionary_strength = 0.01
+	legitimacy = 0.25
+}
+
+inquisition_established = {
+	tolerance_heathen = -2
+	global_missionary_strength = 0.02
+	spy_offence = 0.10
+	global_unrest = -1
+	yearly_corruption = -0.05
+	diplomatic_reputation = -1
+}
+
+platonic_enlightenment = {
+	idea_cost = -0.05
+	technology_cost = -0.05
+	tolerance_heathen = 1
+	prestige = 0.25
+}
+
+# Province Modifiers
+
+platonic_academy = {
+	local_development_cost = -0.05
+	local_institution_spread = 0.10
+	local_unrest = 1
+	province_trade_power_value = 2
+}
+
+syncretic_temple = {
+	local_missionary_strength = -0.01
+	local_unrest = -1
+	local_development_cost = -0.02
+	local_tax_modifier = 0.05
+}
+
+philosophical_university = {
+	local_development_cost = -0.10
+	local_institution_spread = 0.15
+	province_trade_power_value = 3
+	local_tax_modifier = 0.02
+}
+philosophical_center = {
+	local_development_cost = -0.10
+	local_institution_spread = 0.20
+	province_trade_power_value = 3
+	local_unrest = 1
+}
+
+religious_upheaval = {
+	local_unrest = 2
+	local_tax_modifier = -0.10
+	local_missionary_strength = -0.02
+}
+
+rejected_philosophy = {
+	local_unrest = 1
+	local_development_cost = 0.05
+	local_missionary_strength = 0.01
+}
+
+grassroots_conversion = {
+	local_unrest = -1
+	local_tax_modifier = 0.05
+	local_missionary_strength = -0.01
+}
+
+suppressed_heresy = {
+	local_unrest = -2
+	local_missionary_strength = 0.02
+	local_development_cost = 0.05
+}
+
+missionary_influence = {
+	local_missionary_strength = -0.02
+	local_unrest = 1
+	province_trade_power_value = 2
+}
+
+resisted_missionaries = {
+	local_missionary_strength = 0.02
+	local_unrest = 1
+	local_tax_modifier = -0.05
+}
+
+restored_orthodoxy = {
+	local_unrest = -2
+	local_missionary_strength = 0.03
+	local_tax_modifier = 0.05
+}
+
+philosophical_resistance = {
+	local_unrest = 3
+	local_development_cost = 0.10
+	local_missionary_strength = -0.03
+}
+
+platonic_university = {
+	local_development_cost = -0.15
+	local_institution_spread = 0.25
+	province_trade_power_value = 5
+	local_tax_modifier = 0.05
+}
+
+folk_christianity = {
+	local_unrest = -2
+	local_missionary_strength = 0.02
+	local_manpower_modifier = 0.10
+}
+
+suppressed_revival = {
+	local_unrest = 2
+	local_manpower_modifier = -0.05
+	local_tax_modifier = -0.05
+}
+
+commercial_philosophy = {
+	province_trade_power_value = 4
+	local_tax_modifier = 0.10
+	local_production_efficiency = 0.05
+}
+
+restricted_trade = {
+	province_trade_power_value = -2
+	local_tax_modifier = -0.05
+	local_unrest = 1
+}
+
+enlightened_nobility = {
+	local_tax_modifier = 0.10
+	local_development_cost = -0.05
+	province_trade_power_value = 3
+	local_unrest = -1
+}
+
+reformed_monastery = {
+	local_unrest = -2
+	local_missionary_strength = 0.03
+	local_tax_modifier = 0.05
+	local_manpower_modifier = 0.05
+}
+
+philosophical_society = {
+	local_development_cost = -0.10
+	local_institution_spread = 0.15
+	province_trade_power_value = 2
+	local_tax_modifier = 0.05
+}
+
+banned_society = {
+	local_unrest = 2
+	local_development_cost = 0.05
+	local_institution_spread = -0.10
+}
+
+foreign_influence = {
+	local_unrest = 1
+	local_missionary_strength = -0.02
+	province_trade_power_value = 2
+	local_development_cost = -0.05
+}
+
+border_resistance = {
+	local_unrest = 1
+	local_missionary_strength = 0.02
+	local_manpower_modifier = 0.05
+	province_trade_power_value = -1
+}

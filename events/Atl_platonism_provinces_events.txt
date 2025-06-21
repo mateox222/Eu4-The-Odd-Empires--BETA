@@ -1,0 +1,736 @@
+namespace = province_conversion
+
+# Philosophical Scholar Arrives
+province_event = {
+	id = province_conversion.1
+	title = province_conversion.1.t
+	desc = province_conversion.1.d
+	picture = UNIVERSITY_eventPicture
+	
+	trigger = {
+		has_global_flag = reformation_started
+		religion = united_christianity
+		development = 10
+		OR = {
+			has_building = university
+			has_building = temple
+		}
+		owner = {
+			has_country_flag = platonic_movement_started
+		}
+		NOT = { has_province_flag = scholar_arrived }
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+		
+		modifier = {
+			factor = 0.8
+			has_building = university
+		}
+		modifier = {
+			factor = 0.7
+			development = 15
+		}
+		modifier = {
+			factor = 1.5
+			owner = { has_country_modifier = suppressed_philosophy }
+		}
+	}
+	
+	immediate = {
+		set_province_flag = scholar_arrived
+	}
+	
+	option = {
+		name = province_conversion.1.a
+		change_religion = protestant
+		add_permanent_province_modifier = {
+			name = "philosophical_center"
+			duration = -1
+		}
+		add_province_modifier = {
+			name = "religious_upheaval"
+			duration = 1825
+		}
+	}
+	
+	option = {
+		name = province_conversion.1.b
+		add_unrest = 3
+		add_province_modifier = {
+			name = "rejected_philosophy"
+			duration = 1095
+		}
+	}
+}
+
+# Popular Platonic Movement
+province_event = {
+	id = province_conversion.2
+	title = province_conversion.2.t
+	desc = province_conversion.2.d
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	trigger = {
+		has_global_flag = reformation_started
+		religion = united_christianity
+		development = 8
+		any_neighbor_province = {
+			religion = protestant
+		}
+		owner = {
+			NOT = { has_country_modifier = religious_persecution }
+		}
+		NOT = { has_province_flag = popular_movement }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		
+		modifier = {
+			factor = 0.7
+			num_of_times_improved = 3
+		}
+		modifier = {
+			factor = 0.8
+			owner = { has_country_modifier = platonic_tolerance }
+		}
+		modifier = {
+			factor = 1.3
+			unrest = 3
+		}
+	}
+	
+	immediate = {
+		set_province_flag = popular_movement
+	}
+	
+	option = {
+		name = province_conversion.2.a
+		change_religion = protestant
+		add_unrest = -2
+		add_province_modifier = {
+			name = "grassroots_conversion"
+			duration = 1095
+		}
+	}
+	
+	option = {
+		name = province_conversion.2.b
+		add_unrest = 4
+		owner = {
+			add_country_modifier = {
+				name = "suppressed_heresy"
+				duration = 730
+			}
+		}
+	}
+}
+
+# Traveling Platonic Missionary
+province_event = {
+	id = province_conversion.3
+	title = province_conversion.3.t
+	desc = province_conversion.3.d
+	picture = MISSIONARIES_eventPicture
+	
+	trigger = {
+		has_global_flag = reformation_started
+		religion = united_christianity
+		development = 6
+		OR = {
+			owner = { religion = protestant }
+			any_neighbor_country = {
+				religion = protestant
+				has_country_modifier = platonic_missionary_zeal
+			}
+		}
+		NOT = { has_province_flag = platonic_missionary_visited }
+	}
+	
+	mean_time_to_happen = {
+		months = 150
+		
+		modifier = {
+			factor = 0.6
+			owner = { religion = protestant }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { has_country_modifier = ecclesiastical_opposition }
+		}
+	}
+	
+	immediate = {
+		set_province_flag = platonic_missionary_visited
+	}
+	
+	option = {
+		name = province_conversion.3.a
+		change_religion = protestant
+		add_province_modifier = {
+			name = "missionary_influence"
+			duration = 1460
+		}
+	}
+	
+	option = {
+		name = province_conversion.3.b
+		add_unrest = 2
+		add_province_modifier = {
+			name = "resisted_missionaries"
+			duration = 730
+		}
+	}
+}
+
+# Bishop's Counter-Reformation
+province_event = {
+	id = province_conversion.4
+	title = province_conversion.4.t
+	desc = province_conversion.4.d
+	picture = RELIGIOUS_WARS_eventPicture
+	
+	trigger = {
+		has_global_flag = reformation_started
+		religion = protestant
+		development = 8
+		owner = {
+			religion = united_christianity
+			OR = {
+				has_country_modifier = traditional_christian_values
+				has_country_modifier = ecclesiastical_opposition
+				has_country_modifier = inquisition_established
+			}
+		}
+		NOT = { has_province_flag = bishop_intervention }
+	}
+	
+	mean_time_to_happen = {
+		months = 100
+		
+		modifier = {
+			factor = 0.7
+			owner = { has_country_modifier = inquisition_established }
+		}
+		modifier = {
+			factor = 0.8
+			owner = { has_country_modifier = ecclesiastical_opposition }
+		}
+		modifier = {
+			factor = 1.4
+			owner = { has_country_modifier = philosophical_freedom }
+		}
+	}
+	
+	immediate = {
+		set_province_flag = bishop_intervention
+	}
+	
+	option = {
+		name = province_conversion.4.a
+		change_religion = united_christianity
+		add_province_modifier = {
+			name = "restored_orthodoxy"
+			duration = 1825
+		}
+		add_unrest = -1
+	}
+	
+	option = {
+		name = province_conversion.4.b
+		add_unrest = 5
+		spawn_rebels = {
+			type = religious_rebels
+			size = 1
+		}
+		add_province_modifier = {
+			name = "philosophical_resistance"
+			duration = 1095
+		}
+	}
+}
+
+# University Conversion
+province_event = {
+	id = province_conversion.5
+	title = province_conversion.5.t
+	desc = province_conversion.5.d
+	picture = UNIVERSITY_eventPicture
+	
+	trigger = {
+		has_global_flag = reformation_started
+		religion = united_christianity
+		has_building = university
+		development = 12
+		owner = {
+			OR = {
+				has_country_modifier = philosophical_enlightenment
+				has_country_modifier = platonic_christian_synthesis
+			}
+		}
+		NOT = { has_province_flag = university_converted }
+	}
+	
+	mean_time_to_happen = {
+		months = 80
+		
+		modifier = {
+			factor = 0.7
+			owner = { has_country_modifier = philosophical_enlightenment }
+		}
+		modifier = {
+			factor = 0.8
+			development = 20
+		}
+	}
+	
+	immediate = {
+		set_province_flag = university_converted
+	}
+	
+	option = {
+		name = province_conversion.5.a
+		change_religion = protestant
+		add_permanent_province_modifier = {
+			name = "platonic_university"
+			duration = -1
+		}
+		owner = {
+			add_prestige = 5
+		}
+	}
+	
+	option = {
+		name = province_conversion.5.b
+		add_unrest = 2
+		owner = {
+			add_stability = -1
+		}
+	}
+}
+
+# Rural Christian Revival
+province_event = {
+	id = province_conversion.6
+	title = province_conversion.6.t
+	desc = province_conversion.6.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	trigger = {
+		has_global_flag = reformation_started
+		religion = protestant
+		development = 5
+		NOT = { development = 12 }
+		owner = {
+			religion = united_christianity
+			NOT = { has_country_modifier = platonic_reformation_zeal }
+		}
+		NOT = { has_province_flag = rural_revival }
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+		
+		modifier = {
+			factor = 0.8
+			owner = { has_country_modifier = traditional_christian_values }
+		}
+		modifier = {
+			factor = 0.7
+			base_tax = 2
+		}
+		modifier = {
+			factor = 1.5
+			development = 10
+		}
+	}
+	
+	immediate = {
+		set_province_flag = rural_revival
+	}
+	
+	option = {
+		name = province_conversion.6.a
+		change_religion = united_christianity
+		add_province_modifier = {
+			name = "folk_christianity"
+			duration = 1460
+		}
+		add_unrest = -2
+	}
+	
+	option = {
+		name = province_conversion.6.b
+		add_unrest = 3
+		add_province_modifier = {
+			name = "suppressed_revival"
+			duration = 730
+		}
+	}
+}
+
+# Merchant Conversion
+province_event = {
+	id = province_conversion.7
+	title = province_conversion.7.t
+	desc = province_conversion.7.d
+	picture = MERCHANTS_TALKING_eventPicture
+	
+	trigger = {
+		has_global_flag = reformation_started
+		religion = united_christianity
+		OR = {
+			has_building = marketplace
+			has_building = trade_depot
+			has_building = stock_exchange
+			center_of_trade = 1
+		}
+		any_trade_node_member_province = {
+			religion = protestant
+		}
+		NOT = { has_province_flag = merchant_conversion }
+	}
+	
+	mean_time_to_happen = {
+		months = 160
+		
+		modifier = {
+			factor = 0.8
+			center_of_trade = 2
+		}
+		modifier = {
+			factor = 0.7
+			owner = { has_country_modifier = foreign_philosophical_influence }
+		}
+		modifier = {
+			factor = 1.3
+			owner = { has_country_modifier = rejected_foreign_philosophy }
+		}
+	}
+	
+	immediate = {
+		set_province_flag = merchant_conversion
+	}
+	
+	option = {
+		name = province_conversion.7.a
+		change_religion = protestant
+		add_province_modifier = {
+			name = "commercial_philosophy"
+			duration = 1095
+		}
+		add_base_production = 1
+	}
+	
+	option = {
+		name = province_conversion.7.b
+		add_unrest = 2
+		add_province_modifier = {
+			name = "restricted_trade"
+			duration = 730
+		}
+	}
+}
+
+# Noble Court Conversion
+province_event = {
+	id = province_conversion.8
+	title = province_conversion.8.t
+	desc = province_conversion.8.d
+	picture = COURT_eventPicture
+	
+	trigger = {
+		has_global_flag = reformation_started
+		religion = united_christianity
+		development = 15
+		OR = {
+			has_building = courthouse
+			has_building = town_hall
+		}
+		owner = {
+			OR = {
+				has_country_modifier = platonic_christian_synthesis
+				advisor = philosopher
+			}
+		}
+		NOT = { has_province_flag = noble_conversion }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+		
+		modifier = {
+			factor = 0.7
+			owner = { advisor = philosopher }
+		}
+		modifier = {
+			factor = 0.8
+			development = 20
+		}
+		modifier = {
+			factor = 1.4
+			owner = { has_country_modifier = ecclesiastical_opposition }
+		}
+	}
+	
+	immediate = {
+		set_province_flag = noble_conversion
+	}
+	
+	option = {
+		name = province_conversion.8.a
+		change_religion = protestant
+		add_province_modifier = {
+			name = "enlightened_nobility"
+			duration = 1825
+		}
+		owner = {
+			add_prestige = 5
+		}
+	}
+	
+	option = {
+		name = province_conversion.8.b
+		add_unrest = 3
+		owner = {
+			add_legitimacy = -5
+		}
+	}
+}
+
+# Monastic Reform Movement
+province_event = {
+	id = province_conversion.9
+	title = province_conversion.9.t
+	desc = province_conversion.9.d
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	trigger = {
+		has_global_flag = reformation_started
+		religion = protestant
+		has_building = temple
+		owner = {
+			religion = united_christianity
+			OR = {
+				has_country_modifier = pure_christian_doctrine
+				has_country_modifier = church_appeasement
+			}
+		}
+		NOT = { has_province_flag = monastic_reform }
+	}
+	
+	mean_time_to_happen = {
+		months = 140
+		
+		modifier = {
+			factor = 0.8
+			owner = { has_country_modifier = pure_christian_doctrine }
+		}
+		modifier = {
+			factor = 0.9
+			has_building = cathedral
+		}
+		modifier = {
+			factor = 1.5
+			owner = { has_country_modifier = philosophical_freedom }
+		}
+	}
+	
+	immediate = {
+		set_province_flag = monastic_reform
+	}
+	
+	option = {
+		name = province_conversion.9.a
+		change_religion = united_christianity
+		add_province_modifier = {
+			name = "reformed_monastery"
+			duration = 1825
+		}
+		add_unrest = -1
+	}
+	
+	option = {
+		name = province_conversion.9.b
+		add_unrest = 4
+		spawn_rebels = {
+			type = religious_rebels
+			size = 1
+		}
+	}
+}
+
+# Philosophical Society Formation
+province_event = {
+	id = province_conversion.10
+	title = province_conversion.10.t
+	desc = province_conversion.10.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	trigger = {
+		has_global_flag = reformation_started
+		religion = united_christianity
+		development = 12
+		OR = {
+			owner = { has_country_modifier = philosophical_enlightenment }
+			any_neighbor_province = {
+				has_province_modifier = platonic_academy
+			}
+		}
+		NOT = { has_province_flag = philosophical_society }
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+		
+		modifier = {
+			factor = 0.7
+			owner = { has_country_modifier = philosophical_freedom }
+		}
+		modifier = {
+			factor = 0.8
+			any_neighbor_province = { religion = protestant }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { has_country_modifier = suppressed_philosophy }
+		}
+	}
+	
+	immediate = {
+		set_province_flag = philosophical_society
+	}
+	
+	option = {
+		name = province_conversion.10.a
+		change_religion = protestant
+		add_permanent_province_modifier = {
+			name = "philosophical_society"
+			duration = -1
+		}
+		owner = {
+			add_adm_power = 25
+		}
+	}
+	
+	option = {
+		name = province_conversion.10.b
+		add_unrest = 2
+		add_province_modifier = {
+			name = "banned_society"
+			duration = 1095
+		}
+	}
+}
+
+# Syncretic Temple Establishment
+province_event = {
+	id = province_conversion.11
+	title = province_conversion.11.t
+	desc = province_conversion.11.d
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	trigger = {
+		has_global_flag = reformation_started
+		OR = {
+			religion = united_christianity
+			religion = protestant
+		}
+		has_building = temple
+		owner = {
+			has_country_modifier = christian_platonic_syncretism
+		}
+		NOT = { has_province_flag = syncretic_temple_built }
+	}
+	
+	mean_time_to_happen = {
+		months = 100
+		
+		modifier = {
+			factor = 0.8
+			development = 15
+		}
+		modifier = {
+			factor = 0.7
+			has_building = cathedral
+		}
+	}
+	
+	immediate = {
+		set_province_flag = syncretic_temple_built
+	}
+	
+	option = {
+		name = province_conversion.11.a
+		add_permanent_province_modifier = {
+			name = "syncretic_temple"
+			duration = -1
+		}
+		add_unrest = -2
+		owner = {
+			add_prestige = 5
+		}
+	}
+}
+
+# Border Province Influence
+province_event = {
+	id = province_conversion.12
+	title = province_conversion.12.t
+	desc = province_conversion.12.d
+	picture = BORDER_TENSION_eventPicture
+	
+	trigger = {
+		has_global_flag = reformation_started
+		religion = united_christianity
+		any_neighbor_country = {
+			religion = protestant
+			border_distance = {
+				who = ROOT
+				distance = 1
+			}
+		}
+		NOT = { has_province_flag = border_influence }
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+		
+		modifier = {
+			factor = 0.8
+			any_neighbor_country = {
+				religion = protestant
+				has_country_modifier = platonic_missionary_zeal
+			}
+		}
+		modifier = {
+			factor = 1.3
+			owner = { has_country_modifier = ecclesiastical_opposition }
+		}
+	}
+	
+	immediate = {
+		set_province_flag = border_influence
+	}
+	
+	option = {
+		name = province_conversion.12.a
+		change_religion = protestant
+		add_province_modifier = {
+			name = "foreign_influence"
+			duration = 1095
+		}
+		add_unrest = 1
+	}
+	
+	option = {
+		name = province_conversion.12.b
+		add_unrest = 2
+		add_province_modifier = {
+			name = "border_resistance"
+			duration = 730
+		}
+	}
+}
