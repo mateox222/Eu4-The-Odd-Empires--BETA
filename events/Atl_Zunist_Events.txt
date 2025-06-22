@@ -1,77 +1,16 @@
 namespace = nepal_zunist
 
-# The Sacred Flame Awakens
-nepal_zunist.1 = {
-	type = country_event
-	placement = ROOT
-	
-	title = nepal_zunist.1.t
-	desc = nepal_zunist.1.d
-	picture = RELIGION_eventPicture
-	
-	is_triggered_only = yes
-	
-	immediate = {
-		hidden_effect = {
-			set_country_flag = npl_zunist_awakening
-		}
-	}
-	
-	trigger = {
-		tag = NPL
-		NOT = { religion = zunist }
-		NOT = { has_country_flag = npl_zunist_awakening }
-	}
-	
-	option = {
-		name = nepal_zunist.1.a
-		ai_chance = { factor = 80 }
-		
-		change_religion = zunist
-		add_stability = -2
-		add_country_modifier = {
-			name = "npl_religious_upheaval"
-			duration = 1825
-		}
-		random_owned_province = {
-			limit = { is_capital = yes }
-			change_religion = zunist
-		}
-		
-		every_owned_province = {
-			limit = { 
-				NOT = { religion = zunist }
-				NOT = { is_capital = yes }
-			}
-			add_local_autonomy = 25
-		}
-	}
-	
-	option = {
-		name = nepal_zunist.1.b
-		ai_chance = { factor = 20 }
-		
-		add_stability = 1
-		add_legitimacy = 10
-		add_country_modifier = {
-			name = "npl_traditional_faith"
-			duration = 3650
-		}
-	}
-}
 
 # The Mountain Pilgrimage
-nepal_zunist.2 = {
-	type = country_event
-	placement = ROOT
-	
+country_event = {
+	id = nepal_zunist.2
 	title = nepal_zunist.2.t
 	desc = nepal_zunist.2.d
-	picture = PILGRIMAGE_eventPicture
+	picture = RELIGION_eventPicture
 	
 	trigger = {
 		tag = NPL
-		religion = zunist
+		religion = ibadi
 		NOT = { has_country_flag = npl_mountain_pilgrimage }
 		owns = 557
 	}
@@ -113,17 +52,15 @@ nepal_zunist.2 = {
 }
 
 # The Fire Prophet
-nepal_zunist.3 = {
-	type = country_event
-	placement = ROOT
-	
+country_event = {
+	id = nepal_zunist.3
 	title = nepal_zunist.3.t
 	desc = nepal_zunist.3.d
 	picture = ADVISOR_eventPicture
 	
 	trigger = {
 		tag = NPL
-		religion = zunist
+		religion = ibadi
 		NOT = { has_country_flag = npl_fire_prophet }
 		NOT = { advisor = theologian }
 	}
@@ -146,7 +83,7 @@ nepal_zunist.3 = {
 			type = theologian
 			name = "Sacred Flame Prophet"
 			culture = ROOT
-			religion = zunist
+			religion = ibadi
 			skill = 3
 			cost_multiplier = 0.5
 		}
