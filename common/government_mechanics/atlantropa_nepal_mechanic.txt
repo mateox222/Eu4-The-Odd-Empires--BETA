@@ -1,0 +1,101 @@
+nepal_sacred_flame_mechanic = {
+	alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 0
+	
+	available = {
+		tag = NPL
+	}
+
+	interactions = {
+		# Focus 1: Sacred Meditation (Admin boost)
+		sacred_meditation_focus = {
+            icon = GFX_nepal_meditation_focus
+			trigger = {
+				adm_power = 100
+				NOT = { has_country_modifier = npl_meditation_focus }
+                NOT = { has_country_modifier = npl_holy_war_focus }
+                NOT = { has_country_modifier = npl_trade_focus }
+			}
+			effect = {
+				add_adm_power = -100
+				add_country_modifier = {
+					name = npl_meditation_focus
+					duration = 1825  # 5 years
+				}
+				add_fervor = 5
+			}
+			cooldown_years = 5
+			ai_chance = {
+				factor = 50
+				modifier = {
+					factor = 2
+					adm_power = 200
+				}
+			}
+		}
+		
+		# Focus 2: Holy War Preparation (Military boost)
+		holy_war_focus = {
+            icon = GFX_nepal_holy_war_focus
+			trigger = {
+				mil_power = 100
+				NOT = { has_country_modifier = npl_meditation_focus }
+                NOT = { has_country_modifier = npl_holy_war_focus }
+                NOT = { has_country_modifier = npl_trade_focus }
+			}
+			effect = {
+				add_mil_power = -100
+				add_country_modifier = {
+					name = npl_holy_war_focus
+					duration = 1825  # 5 years
+				}
+				add_fervor = 5
+			}
+			cooldown_years = 5
+			ai_chance = {
+				factor = 60
+				modifier = {
+					factor = 3
+					is_at_war = yes
+				}
+				modifier = {
+					factor = 2
+					any_neighbor_country = {
+						NOT = { religion = zunist }
+					}
+				}
+			}
+		}
+		
+		# Focus 3: Mountain Trade (Economic boost)
+		mountain_trade_focus = {
+            icon = GFX_nepal_trade_focus
+			trigger = {
+				dip_power = 100
+				NOT = { has_country_modifier = npl_meditation_focus }
+                NOT = { has_country_modifier = npl_holy_war_focus }
+                NOT = { has_country_modifier = npl_trade_focus }
+			}
+			effect = {
+				add_dip_power = -100
+				add_country_modifier = {
+					name = npl_trade_focus
+					duration = 1825  # 5 years
+				}
+				add_fervor = 5
+			}
+			cooldown_years = 5
+			ai_chance = {
+				factor = 40
+				modifier = {
+					factor = 2
+					trade_income_percentage = 0.3
+				}
+				modifier = {
+					factor = 2
+					treasury = 1000
+				}
+			}
+		}
+	}
+}

@@ -1700,3 +1700,38 @@ assyrian_kingdom = {
 		factor = 100
 	}
 }
+
+npl_mountain_kingdom = {
+	icon = "king"
+	allow_normal_conversion = yes
+	potential = {
+		tag = NPL
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 15
+	legacy_equivalent = despotic_monarchy
+	
+	modifiers = {
+		land_attrition = -0.15
+		defensiveness = 0.10
+		hostile_attrition = 0.5
+		fort_maintenance_modifier = -0.15
+	}
+		government_abilities = {
+		nepal_sacred_flame_mechanic
+	}
+	custom_attributes = {
+		
+	}
+	
+	conditional = {
+		allow = { has_dlc = "Dharma" }
+		government_abilities = {
+ 
+		}
+	}
+	
+	ai = {
+		factor = 10
+	}
+}
