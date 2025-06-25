@@ -9,32 +9,15 @@ country_event = {
 	desc = pol_faction_conflict.1.d
 	picture = COURT_eventPicture
 	
-	trigger = {
+	is_triggered_only = yes
+trigger = {
+
 		tag = PLC
         NOT = { mission_completed = pol_abolish_liberum_veto }
 
 		NOT = { has_ruler_flag = recent_reformer_event }
 	}
-	
-	mean_time_to_happen = {
-		months = 24
-		
-		modifier = {
-			factor = 0.7
-			faction_influence = {
-				faction = pl_reformaci
-				influence = 60
-			}
-		}
-		
-		modifier = {
-			factor = 1.5
-			faction_influence = {
-				faction = pl_magnaci
-				influence = 60
-			}
-		}
-	}
+ 
 	
 	immediate = {
 		set_ruler_flag = recent_reformer_event
@@ -114,7 +97,9 @@ country_event = {
 	desc = pol_faction_conflict.2.d
 	picture = NOBLES_DISCUSSING_eventPicture
 	
-	trigger = {
+	is_triggered_only = yes
+trigger = {
+
 		tag = PLC
 
 		faction_influence = {
@@ -128,26 +113,7 @@ country_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 18
-		
-		modifier = {
-			factor = 0.6
-			faction_influence = {
-				faction = pl_magnaci
-				influence = 70
-			}
-		}
-		
-		modifier = {
-			factor = 0.8
-			has_government_power = {
-				mechanic_type = szlachtapower_mechanic
-				power_type = polska_adm_power
-				value = 50
-			}
-		}
-	}
+ 
 	
 	option = {
 		name = pol_faction_conflict.2.a
@@ -222,7 +188,9 @@ country_event = {
 	desc = pol_faction_conflict.3.d
 	picture = PARLIAMENT_eventPicture
 	
-	trigger = {
+	is_triggered_only = yes
+trigger = {
+
 		tag = PLC
 
 		has_government_power = {
@@ -240,18 +208,7 @@ country_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 15
-		
-		modifier = {
-			factor = 0.7
-			has_government_power = {
-				mechanic_type = szlachtapower_mechanic
-				power_type = polska_adm_power
-				value = 60
-			}
-		}
-	}
+ 
 	
 	option = {
 		name = pol_faction_conflict.3.a
@@ -322,7 +279,9 @@ country_event = {
 	desc = pol_faction_conflict.4.d
 	picture = ANGRY_MOB_eventPicture
 	
-	trigger = {
+	is_triggered_only = yes
+trigger = {
+
 		tag = PLC
 
 		has_government_power = {
@@ -336,26 +295,17 @@ country_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 12
-		
-		modifier = {
-			factor = 0.5
-			has_government_power = {
-				mechanic_type = szlachtapower_mechanic
-				power_type = polska_adm_power
-				value = 85
-			}
-		}
-	}
+ 
 	
 	immediate = {
+		hidden_effect = {
 		random_owned_province = {
 			limit = { 
 				development = 15
 				NOT = { is_capital = yes }
 			}
 			save_event_target_as = confederation_province
+		}
 		}
 	}
 	
@@ -469,7 +419,9 @@ country_event = {
 	desc = pol_faction_conflict.5.d
 	picture = GOOD_WITH_MONARCH_eventPicture
 	
-	trigger = {
+	is_triggered_only = yes
+trigger = {
+
 		tag = PLC
 
 		faction_influence = {
@@ -483,17 +435,7 @@ country_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 20
-		
-		modifier = {
-			factor = 0.8
-			faction_influence = {
-				faction = pl_reformaci
-				influence = 70
-			}
-		}
-	}
+ 
 	
 	immediate = {
 		random_owned_province = {
@@ -575,7 +517,9 @@ country_event = {
 	desc = pol_faction_conflict.6.d
 	picture = CIVIL_WAR_eventPicture
 	
-	trigger = {
+	is_triggered_only = yes
+trigger = {
+
 		tag = PLC
 
 		has_government_power = {
@@ -584,20 +528,7 @@ country_event = {
 			value = 80
 		}
 	}
-	
-	mean_time_to_happen = {
-		months = 8
-		
-		modifier = {
-			factor = 0.6
-			has_government_power = {
-				mechanic_type = szlachtapower_mechanic
-				power_type = polska_adm_power
-				value = 95
-			}
-		}
-	}
-	
+ 
 	option = {
 		name = pol_faction_conflict.6.a
 		ai_chance = { factor = 40 }
@@ -645,7 +576,9 @@ country_event = {
 	desc = pol_faction_conflict.7.d
 	picture = CORRUPTION_eventPicture
 	
-	trigger = {
+	is_triggered_only = yes
+trigger = {
+
 		tag = PLC
 
 		has_government_power = {
@@ -658,18 +591,7 @@ country_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 12
-		
-		modifier = {
-			factor = 0.8
-			has_government_power = {
-				mechanic_type = szlachtapower_mechanic
-				power_type = polska_adm_power
-				value = 75
-			}
-		}
-	}
+ 
 	
 	immediate = {
 		random_owned_province = {
@@ -720,7 +642,9 @@ country_event = {
 	desc = pol_faction_conflict.8.d
 	picture = BANKRUPTCY_eventPicture
 	
-	trigger = {
+	is_triggered_only = yes
+trigger = {
+
 		tag = PLC
 
 		has_government_power = {
@@ -731,14 +655,7 @@ country_event = {
 		num_of_loans = 1
 	}
 	
-	mean_time_to_happen = {
-		months = 15
-		
-		modifier = {
-			factor = 0.7
-			num_of_loans = 3
-		}
-	}
+ 
 	
 	option = {
 		name = pol_faction_conflict.8.a
@@ -781,7 +698,9 @@ country_event = {
 	desc = pol_faction_conflict.9.d
 	picture = DIPLOMACY_eventPicture
 	
-	trigger = {
+	is_triggered_only = yes
+trigger = {
+
 		tag = PLC
 
 		has_government_power = {
@@ -797,14 +716,7 @@ country_event = {
 		stability = 1
 	}
 	
-	mean_time_to_happen = {
-		months = 36
-		
-		modifier = {
-			factor = 0.8
-			stability = 2
-		}
-	}
+ 
 	
 	option = {
 		name = pol_faction_conflict.9.a
@@ -850,7 +762,9 @@ country_event = {
 	desc = pol_faction_conflict.10.d
 	picture = BAD_WITH_MONARCH_eventPicture
 	
-	trigger = {
+	is_triggered_only = yes
+trigger = {
+
 		tag = PLC
 
 		has_government_power = {
@@ -861,18 +775,7 @@ country_event = {
 		legitimacy = 60
 	}
 	
-	mean_time_to_happen = {
-		months = 10
-		
-		modifier = {
-			factor = 0.5
-			has_government_power = {
-				mechanic_type = szlachtapower_mechanic
-				power_type = polska_adm_power
-				value = 100
-			}
-		}
-	}
+ 
 	
 	option = {
 		name = pol_faction_conflict.10.a
@@ -973,7 +876,9 @@ country_event = {
 	desc = pol_faction_conflict.11.d
 	picture = CIVIL_WAR_eventPicture
 	
-	trigger = {
+	is_triggered_only = yes
+trigger = {
+
 				tag = PLC
         NOT = { mission_completed = pol_abolish_liberum_veto }
 
@@ -990,23 +895,7 @@ country_event = {
 		army_tradition = 25
 	}
 	
-	mean_time_to_happen = {
-		months = 6
-		
-		modifier = {
-			factor = 0.5
-			has_government_power = {
-				mechanic_type = szlachtapower_mechanic
-				power_type = polska_adm_power
-				value = 95
-			}
-		}
-		
-		modifier = {
-			factor = 0.7
-			legitimacy = 20
-		}
-	}
+ 
 	
 	option = {
 		name = pol_faction_conflict.11.a
@@ -1069,7 +958,9 @@ country_event = {
 		name = pol_faction_conflict.11.c
 		ai_chance = { factor = 20 }
 		
-		trigger = {
+		is_triggered_only = yes
+trigger = {
+
 			treasury = 500
 			dip_power = 150
 		}
@@ -1104,7 +995,9 @@ country_event = {
 	desc = pol_faction_conflict.12.d
 	picture = COURT_eventPicture
 	
-	trigger = {
+	is_triggered_only = yes
+trigger = {
+
 				tag = PLC
         NOT = { mission_completed = pol_abolish_liberum_veto }
 
@@ -1120,22 +1013,7 @@ country_event = {
 		NOT = { legitimacy = 40 }
 	}
 	
-	mean_time_to_happen = {
-		months = 12
-		
-		modifier = {
-			factor = 0.7
-			faction_influence = {
-				faction = pl_reformaci
-				influence = 85
-			}
-		}
-		
-		modifier = {
-			factor = 0.8
-			has_institution = enlightenment
-		}
-	}
+	 
 	
 	option = {
 		name = pol_faction_conflict.12.a
@@ -1222,7 +1100,9 @@ country_event = {
 	desc = pol_faction_conflict.13.d
 	picture = DIPLOMACY_eventPicture
 	
-	trigger = {
+	is_triggered_only = yes
+trigger = {
+
 				tag = PLC
         NOT = { mission_completed = pol_abolish_liberum_veto }
 
@@ -1239,20 +1119,7 @@ country_event = {
 		legitimacy = 25
 	}
 	
-	mean_time_to_happen = {
-		months = 18
-		
-		modifier = {
-			factor = 0.6
-			any_neighbor_country = {
-				is_great_power = yes
-				has_opinion = {
-					who = ROOT
-					value = -100
-				}
-			}
-		}
-	}
+ 
 	
 	immediate = {
 		random_neighbor_country = {
@@ -1320,7 +1187,9 @@ country_event = {
 		name = pol_faction_conflict.13.c
 		ai_chance = { factor = 25 }
 		
-		trigger = {
+		is_triggered_only = yes
+trigger = {
+
 			army_tradition = 50
 			manpower_percentage = 0.6
 		}

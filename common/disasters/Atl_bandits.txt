@@ -73,16 +73,11 @@ bandit_plague = {
 	}
 	
 	can_end = {
-		had_country_flag = { flag = bandits_suppressed days = 1825 }
-		stability = 1
+		stability = 2
 		NOT = { average_unrest = 1 }
-		OR = {
-			AND = {
-				manpower_percentage = 0.6
-				NOT = { war_exhaustion = 2 }
-			}
-			had_country_flag = { flag = bandit_leaders_eliminated days = 365 }
-		}
+		manpower_percentage = 0.6
+		NOT = { war_exhaustion = 2 }
+		
 	}
 	
 	modifier = {
@@ -107,7 +102,7 @@ bandit_plague = {
 			150 = bandit_plague.4
 			125 = bandit_plague.5
 			75 = bandit_plague.6
-			50 = bandit_plague.7
+			5 = bandit_plague.7
 		}
 	}
 }
