@@ -1,3 +1,5 @@
+# EUROPEJSKIE TWIERDZE
+
 atlantis_castle_bihar = {
 	start = 157
 	date = 6448.01.01
@@ -7,120 +9,76 @@ atlantis_castle_bihar = {
 	move_days_per_unit_distance = 10
 	starting_tier = 0
 	type = monument
-	build_trigger = {
-		always = no
-	}
-
-	on_built = {
-	}
-
-	on_destroyed = {
-	}
-
-	can_use_modifiers_trigger = {
-
-	}
-
-	can_upgrade_trigger = {
-
-	}
-
-	keep_trigger = {
-	}
+	build_trigger = { always = no }
+	on_built = { }
+	on_destroyed = { }
+	can_use_modifiers_trigger = { }
+	can_upgrade_trigger = { }
+	keep_trigger = { }
 
 	tier_0 = {
-		upgrade_time = {
-			months = 0
-		}
-		cost_to_upgrade = {
-			factor = 0
-		}
-		province_modifiers = {
-		}
-		area_modifier = {
-		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		upgrade_time = { months = 0 }
+		cost_to_upgrade = { factor = 0 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_1 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 2000
-		}
+		upgrade_time = { months = 120 }
+		cost_to_upgrade = { factor = 2000 }
 		province_modifiers = {
-			local_defensiveness = 0.2
+			local_defensiveness = 0.15
 			fort_level = 1
 			local_regiment_cost = -0.10
 			supply_limit = 1
-			local_garrison_size = 0.10
-
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.1
-
+			local_friendly_movement_speed = 0.05
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_2 = {
-		upgrade_time = {
-			months = 240
-		}
-		cost_to_upgrade = {
-			factor = 2500
-		}
+		upgrade_time = { months = 240 }
+		cost_to_upgrade = { factor = 2500 }
 		province_modifiers = {
-			local_defensiveness = 0.3
+			local_defensiveness = 0.25
 			fort_level = 2
 			local_regiment_cost = -0.15
 			supply_limit = 2
-			local_garrison_size = 0.20
-
+			local_development_cost = -0.10
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.15
-
+			local_friendly_movement_speed = 0.10
+			local_manpower_modifier = 0.10
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_3 = {
-		upgrade_time = {
-			months = 480
-		}
-		cost_to_upgrade = {
-			factor = 5000
-		}
+		upgrade_time = { months = 480 }
+		cost_to_upgrade = { factor = 5000 }
 		province_modifiers = {
-			local_defensiveness = 0.3
+			local_defensiveness = 0.35
 			fort_level = 3
-			local_regiment_cost = -0.30
+			local_regiment_cost = -0.25
 			supply_limit = 3
-			local_garrison_size = 0.30
-
+			local_development_cost = -0.20
+			local_production_efficiency = 0.15
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.3
-
+			local_friendly_movement_speed = 0.15
+			local_manpower_modifier = 0.20
+			local_tax_modifier = 0.10
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 }
-
 
 atlantis_castle_Sardars = {
 	start = 419
@@ -131,121 +89,79 @@ atlantis_castle_Sardars = {
 	move_days_per_unit_distance = 10
 	starting_tier = 0
 	type = monument
-	build_trigger = {
-		always = no
-	}
-
-	on_built = {
-	}
-
-	on_destroyed = {
-	}
-
-	can_use_modifiers_trigger = {
-
-	}
-
-	can_upgrade_trigger = {
-
-	}
-
-	keep_trigger = {
-	}
+	build_trigger = { always = no }
+	on_built = { }
+	on_destroyed = { }
+	can_use_modifiers_trigger = { }
+	can_upgrade_trigger = { }
+	keep_trigger = { }
 
 	tier_0 = {
-		upgrade_time = {
-			months = 0
-		}
-		cost_to_upgrade = {
-			factor = 0
-		}
-		province_modifiers = {
-		}
-		area_modifier = {
-		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		upgrade_time = { months = 0 }
+		cost_to_upgrade = { factor = 0 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_1 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 2000
-		}
+		upgrade_time = { months = 120 }
+		cost_to_upgrade = { factor = 2000 }
 		province_modifiers = {
-			local_defensiveness = 0.2
+			local_defensiveness = 0.20
 			fort_level = 1
-			local_regiment_cost = -0.10
+			local_hostile_attrition = 1
 			supply_limit = 1
-			local_garrison_size = 0.15
-
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.05
-
+			local_unrest = -1
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_2 = {
-		upgrade_time = {
-			months = 240
-		}
-		cost_to_upgrade = {
-			factor = 2500
-		}
+		upgrade_time = { months = 240 }
+		cost_to_upgrade = { factor = 2500 }
 		province_modifiers = {
-			local_defensiveness = 0.5
+			local_defensiveness = 0.40
 			fort_level = 2
-			local_regiment_cost = -0.15
+			local_hostile_attrition = 2
 			supply_limit = 2
-			local_garrison_size = 0.25
-
+			local_garrison_size = 0.20
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.10
-
+			local_unrest = -2
+			local_autonomy = -0.05
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_3 = {
-		upgrade_time = {
-			months = 480
-		}
-		cost_to_upgrade = {
-			factor = 5000
-		}
+		upgrade_time = { months = 480 }
+		cost_to_upgrade = { factor = 5000 }
 		province_modifiers = {
-			local_defensiveness = 0.75
-			fort_level = 5
-			local_regiment_cost = -0.30
+			local_defensiveness = 0.60
+			fort_level = 4
+			local_hostile_attrition = 3
 			supply_limit = 3
-			local_garrison_size = 0.50
-
+			local_garrison_size = 0.40
+			local_garrison_damage = 0.50
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.15
-
+			local_unrest = -3
+			local_autonomy = -0.10
+			local_governing_cost = -0.15
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 }
-atlantis_castle_nassau = {
-	start = 482
+
+atlantis_castle_calais = {
+	start = 87
 	date = 1348.01.01
 	time = { months = 0 }
 	build_cost = 0
@@ -253,121 +169,161 @@ atlantis_castle_nassau = {
 	move_days_per_unit_distance = 10
 	starting_tier = 0
 	type = monument
-	build_trigger = {
-		always = no
-	}
-
-	on_built = {
-	}
-
-	on_destroyed = {
-	}
-
-	can_use_modifiers_trigger = {
-
-	}
-
-	can_upgrade_trigger = {
-
-	}
-
-	keep_trigger = {
-	}
+	build_trigger = { always = no }
+	on_built = { }
+	on_destroyed = { }
+	can_use_modifiers_trigger = { }
+	can_upgrade_trigger = { }
+	keep_trigger = { }
 
 	tier_0 = {
-		upgrade_time = {
-			months = 0
-		}
-		cost_to_upgrade = {
-			factor = 0
-		}
-		province_modifiers = {
-		}
-		area_modifier = {
-		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		upgrade_time = { months = 0 }
+		cost_to_upgrade = { factor = 0 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_1 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 2000
-		}
+		upgrade_time = { months = 120 }
+		cost_to_upgrade = { factor = 2000 }
 		province_modifiers = {
-			local_defensiveness = 0.2
+			local_defensiveness = 0.15
 			fort_level = 1
-			local_regiment_cost = -0.10
-			supply_limit = 1
-			local_garrison_size = 0.15
-
+			province_trade_power_modifier = 0.15
+			local_ship_repair = 0.20
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.05
-
+			trade_goods_size_modifier = 0.05
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_2 = {
-		upgrade_time = {
-			months = 240
-		}
-		cost_to_upgrade = {
-			factor = 2500
-		}
+		upgrade_time = { months = 240 }
+		cost_to_upgrade = { factor = 2500 }
 		province_modifiers = {
-			local_defensiveness = 0.5
+			local_defensiveness = 0.25
 			fort_level = 2
-			local_regiment_cost = -0.15
-			supply_limit = 2
-			local_garrison_size = 0.25
-
+			province_trade_power_modifier = 0.25
+			local_ship_repair = 0.35
+			blockade_force_required = 0.50
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.10
-
+			trade_goods_size_modifier = 0.10
+			local_ship_cost = -0.10
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_3 = {
-		upgrade_time = {
-			months = 480
-		}
-		cost_to_upgrade = {
-			factor = 5000
-		}
+		upgrade_time = { months = 480 }
+		cost_to_upgrade = { factor = 5000 }
 		province_modifiers = {
-			local_defensiveness = 0.75
-			fort_level = 5
-			local_regiment_cost = -0.30
-			supply_limit = 3
-			local_garrison_size = 0.50
-
+			local_defensiveness = 0.40
+			fort_level = 3
+			province_trade_power_modifier = 0.40
+			local_ship_repair = 0.50
+			blockade_force_required = 0.75
+			local_sailors_modifier = 0.25
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.15
-
+			trade_goods_size_modifier = 0.20
+			local_ship_cost = -0.20
+			ship_recruit_speed = -0.25
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 }
-atlantis_castle_arad = {
-	start = 396
+
+# AZJATYCKIE TWIERDZE
+
+atlantis_castle_beijing = {
+	start = 1816
+	date = 1348.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 1
+	type = monument
+	build_trigger = { always = no }
+	on_built = { }
+	on_destroyed = { }
+	can_use_modifiers_trigger = { }
+	can_upgrade_trigger = { }
+	keep_trigger = { }
+
+	tier_0 = {
+		upgrade_time = { months = 0 }
+		cost_to_upgrade = { factor = 0 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = { }
+		on_upgraded = { }
+	}
+
+	tier_1 = {
+		upgrade_time = { months = 120 }
+		cost_to_upgrade = { factor = 2000 }
+		province_modifiers = {
+			local_defensiveness = 0.25
+			fort_level = 2
+			local_tax_modifier = 0.20
+			local_governing_cost = -0.20
+		}
+		area_modifier = {
+			local_development_cost = -0.10
+		}
+		country_modifiers = { }
+		on_upgraded = { }
+	}
+
+	tier_2 = {
+		upgrade_time = { months = 240 }
+		cost_to_upgrade = { factor = 2500 }
+		province_modifiers = {
+			local_defensiveness = 0.40
+			fort_level = 3
+			local_tax_modifier = 0.35
+			local_governing_cost = -0.35
+			local_institution_spread = 0.25
+		}
+		area_modifier = {
+			local_development_cost = -0.20
+			local_culture_conversion_cost = -0.25
+		}
+		country_modifiers = { }
+		on_upgraded = { }
+	}
+
+	tier_3 = {
+		upgrade_time = { months = 480 }
+		cost_to_upgrade = { factor = 5000 }
+		province_modifiers = {
+			local_defensiveness = 0.60
+			fort_level = 4
+			local_tax_modifier = 0.50
+			local_governing_cost = -0.50
+			local_institution_spread = 0.50
+			allowed_num_of_buildings = 2
+		}
+		area_modifier = {
+			local_development_cost = -0.30
+			local_culture_conversion_cost = -0.50
+			statewide_governing_cost = -0.20
+		}
+		country_modifiers = { }
+		on_upgraded = { }
+	}
+}
+
+atlantis_castle_delhi = {
+	start = 522
 	date = 1348.01.01
 	time = { months = 0 }
 	build_cost = 0
@@ -375,121 +331,81 @@ atlantis_castle_arad = {
 	move_days_per_unit_distance = 10
 	starting_tier = 0
 	type = monument
-	build_trigger = {
-		always = no
-	}
-
-	on_built = {
-	}
-
-	on_destroyed = {
-	}
-
-	can_use_modifiers_trigger = {
-
-	}
-
-	can_upgrade_trigger = {
-
-	}
-
-	keep_trigger = {
-	}
+	build_trigger = { always = no }
+	on_built = { }
+	on_destroyed = { }
+	can_use_modifiers_trigger = { }
+	can_upgrade_trigger = { }
+	keep_trigger = { }
 
 	tier_0 = {
-		upgrade_time = {
-			months = 0
-		}
-		cost_to_upgrade = {
-			factor = 0
-		}
-		province_modifiers = {
-		}
-		area_modifier = {
-		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		upgrade_time = { months = 0 }
+		cost_to_upgrade = { factor = 0 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_1 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 2000
-		}
+		upgrade_time = { months = 120 }
+		cost_to_upgrade = { factor = 2000 }
 		province_modifiers = {
-			local_defensiveness = 0.2
+			local_defensiveness = 0.20
 			fort_level = 1
-			local_regiment_cost = -0.10
-			supply_limit = 1
-			local_garrison_size = 0.15
-
+			local_tax_modifier = 0.15
+			trade_value = 3
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.05
-
+			local_missionary_strength = 0.02
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_2 = {
-		upgrade_time = {
-			months = 240
-		}
-		cost_to_upgrade = {
-			factor = 2500
-		}
+		upgrade_time = { months = 240 }
+		cost_to_upgrade = { factor = 2500 }
 		province_modifiers = {
-			local_defensiveness = 0.5
+			local_defensiveness = 0.35
 			fort_level = 2
-			local_regiment_cost = -0.15
-			supply_limit = 2
-			local_garrison_size = 0.25
-
+			local_tax_modifier = 0.25
+			trade_value = 5
+			local_culture_conversion_cost = -0.25
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.10
-
+			local_missionary_strength = 0.03
+			local_tolerance_of_heathens = 1
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_3 = {
-		upgrade_time = {
-			months = 480
-		}
-		cost_to_upgrade = {
-			factor = 5000
-		}
+		upgrade_time = { months = 480 }
+		cost_to_upgrade = { factor = 5000 }
 		province_modifiers = {
-			local_defensiveness = 0.75
-			fort_level = 5
-			local_regiment_cost = -0.30
-			supply_limit = 3
-			local_garrison_size = 0.50
-
+			local_defensiveness = 0.50
+			fort_level = 3
+			local_tax_modifier = 0.40
+			trade_value = 8
+			local_culture_conversion_cost = -0.50
+			local_religious_conversion_resistance = -0.25
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.15
-
+			local_missionary_strength = 0.05
+			local_tolerance_of_heathens = 2
+			local_governing_cost = -0.15
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 }
-atlantis_castle_awal = {
-	start = 4477
+
+# BLISKOWSCHODNIE TWIERDZE
+
+atlantis_castle_damascus = {
+	start = 382
 	date = 1348.01.01
 	time = { months = 0 }
 	build_cost = 0
@@ -497,121 +413,81 @@ atlantis_castle_awal = {
 	move_days_per_unit_distance = 10
 	starting_tier = 0
 	type = monument
-	build_trigger = {
-		always = no
-	}
-
-	on_built = {
-	}
-
-	on_destroyed = {
-	}
-
-	can_use_modifiers_trigger = {
-
-	}
-
-	can_upgrade_trigger = {
-
-	}
-
-	keep_trigger = {
-	}
+	build_trigger = { always = no }
+	on_built = { }
+	on_destroyed = { }
+	can_use_modifiers_trigger = { }
+	can_upgrade_trigger = { }
+	keep_trigger = { }
 
 	tier_0 = {
-		upgrade_time = {
-			months = 0
-		}
-		cost_to_upgrade = {
-			factor = 0
-		}
-		province_modifiers = {
-		}
-		area_modifier = {
-		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		upgrade_time = { months = 0 }
+		cost_to_upgrade = { factor = 0 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_1 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 2000
-		}
+		upgrade_time = { months = 120 }
+		cost_to_upgrade = { factor = 2000 }
 		province_modifiers = {
-			local_defensiveness = 0.2
+			local_defensiveness = 0.20
 			fort_level = 1
-			local_regiment_cost = -0.10
-			supply_limit = 1
-			local_garrison_size = 0.15
-
+			trade_goods_size_modifier = 0.25
+			province_trade_power_value = 5
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.05
-
+			trade_value_modifier = 0.10
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_2 = {
-		upgrade_time = {
-			months = 240
-		}
-		cost_to_upgrade = {
-			factor = 2500
-		}
+		upgrade_time = { months = 240 }
+		cost_to_upgrade = { factor = 2500 }
 		province_modifiers = {
-			local_defensiveness = 0.5
+			local_defensiveness = 0.35
 			fort_level = 2
-			local_regiment_cost = -0.15
-			supply_limit = 2
-			local_garrison_size = 0.25
-
+			trade_goods_size_modifier = 0.40
+			province_trade_power_value = 8
+			local_institution_spread = 0.20
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.10
-
+			trade_value_modifier = 0.20
+			local_development_cost = -0.15
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_3 = {
-		upgrade_time = {
-			months = 480
-		}
-		cost_to_upgrade = {
-			factor = 5000
-		}
+		upgrade_time = { months = 480 }
+		cost_to_upgrade = { factor = 5000 }
 		province_modifiers = {
-			local_defensiveness = 0.75
-			fort_level = 5
-			local_regiment_cost = -0.30
-			supply_limit = 3
-			local_garrison_size = 0.50
-
+			local_defensiveness = 0.50
+			fort_level = 3
+			trade_goods_size_modifier = 0.60
+			province_trade_power_value = 12
+			local_institution_spread = 0.40
+			local_center_of_trade_upgrade_cost = -0.50
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.15
-
+			trade_value_modifier = 0.35
+			local_development_cost = -0.25
+			province_trade_power_modifier = 0.15
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 }
-atlantis_castle_narbonnais = {
-	start = 2753
+
+# AFRYKAŃSKIE TWIERDZE
+
+atlantis_castle_iskandryia = {
+	start = 358
 	date = 1348.01.01
 	time = { months = 0 }
 	build_cost = 0
@@ -619,121 +495,81 @@ atlantis_castle_narbonnais = {
 	move_days_per_unit_distance = 10
 	starting_tier = 0
 	type = monument
-	build_trigger = {
-		always = no
-	}
-
-	on_built = {
-	}
-
-	on_destroyed = {
-	}
-
-	can_use_modifiers_trigger = {
-
-	}
-
-	can_upgrade_trigger = {
-
-	}
-
-	keep_trigger = {
-	}
+	build_trigger = { always = no }
+	on_built = { }
+	on_destroyed = { }
+	can_use_modifiers_trigger = { }
+	can_upgrade_trigger = { }
+	keep_trigger = { }
 
 	tier_0 = {
-		upgrade_time = {
-			months = 0
-		}
-		cost_to_upgrade = {
-			factor = 0
-		}
-		province_modifiers = {
-		}
-		area_modifier = {
-		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		upgrade_time = { months = 0 }
+		cost_to_upgrade = { factor = 0 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_1 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 2000
-		}
+		upgrade_time = { months = 120 }
+		cost_to_upgrade = { factor = 2000 }
 		province_modifiers = {
-			local_defensiveness = 0.2
+			local_defensiveness = 0.15
 			fort_level = 1
-			local_regiment_cost = -0.10
-			supply_limit = 1
-			local_garrison_size = 0.15
-
+			local_institution_spread = 0.30
+			local_sailors_modifier = 0.25
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.05
-
+			local_ship_cost = -0.10
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_2 = {
-		upgrade_time = {
-			months = 240
-		}
-		cost_to_upgrade = {
-			factor = 2500
-		}
+		upgrade_time = { months = 240 }
+		cost_to_upgrade = { factor = 2500 }
 		province_modifiers = {
-			local_defensiveness = 0.5
+			local_defensiveness = 0.25
 			fort_level = 2
-			local_regiment_cost = -0.15
-			supply_limit = 2
-			local_garrison_size = 0.25
-
+			local_institution_spread = 0.50
+			local_sailors_modifier = 0.40
+			local_naval_engagement_modifier = 0.20
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.10
-
+			local_ship_cost = -0.20
+			institution_growth = 2
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_3 = {
-		upgrade_time = {
-			months = 480
-		}
-		cost_to_upgrade = {
-			factor = 5000
-		}
+		upgrade_time = { months = 480 }
+		cost_to_upgrade = { factor = 5000 }
 		province_modifiers = {
-			local_defensiveness = 0.75
-			fort_level = 5
-			local_regiment_cost = -0.30
-			supply_limit = 3
-			local_garrison_size = 0.50
-
+			local_defensiveness = 0.40
+			fort_level = 3
+			local_institution_spread = 0.75
+			local_sailors_modifier = 0.60
+			local_naval_engagement_modifier = 0.40
+			allowed_num_of_buildings = 1
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.15
-
+			local_ship_cost = -0.35
+			institution_growth = 4
+			local_production_efficiency = 0.15
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 }
-atlantis_castle_labourd = {
-	start = 197
+
+# AMERYKAŃSKIE TWIERDZE
+
+atlantis_castle_mexico = {
+	start = 852
 	date = 1348.01.01
 	time = { months = 0 }
 	build_cost = 0
@@ -741,121 +577,81 @@ atlantis_castle_labourd = {
 	move_days_per_unit_distance = 10
 	starting_tier = 0
 	type = monument
-	build_trigger = {
-		always = no
-	}
-
-	on_built = {
-	}
-
-	on_destroyed = {
-	}
-
-	can_use_modifiers_trigger = {
-
-	}
-
-	can_upgrade_trigger = {
-
-	}
-
-	keep_trigger = {
-	}
+	build_trigger = { always = no }
+	on_built = { }
+	on_destroyed = { }
+	can_use_modifiers_trigger = { }
+	can_upgrade_trigger = { }
+	keep_trigger = { }
 
 	tier_0 = {
-		upgrade_time = {
-			months = 0
-		}
-		cost_to_upgrade = {
-			factor = 0
-		}
-		province_modifiers = {
-		}
-		area_modifier = {
-		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		upgrade_time = { months = 0 }
+		cost_to_upgrade = { factor = 0 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_1 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 2000
-		}
+		upgrade_time = { months = 120 }
+		cost_to_upgrade = { factor = 2000 }
 		province_modifiers = {
-			local_defensiveness = 0.2
+			local_defensiveness = 0.20
 			fort_level = 1
-			local_regiment_cost = -0.10
-			supply_limit = 1
-			local_garrison_size = 0.15
-
+			local_gold_depletion_chance_modifier = -0.25
+			trade_value = 5
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.05
-
+			local_production_efficiency = 0.10
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_2 = {
-		upgrade_time = {
-			months = 240
-		}
-		cost_to_upgrade = {
-			factor = 2500
-		}
+		upgrade_time = { months = 240 }
+		cost_to_upgrade = { factor = 2500 }
 		province_modifiers = {
-			local_defensiveness = 0.5
+			local_defensiveness = 0.35
 			fort_level = 2
-			local_regiment_cost = -0.15
-			supply_limit = 2
-			local_garrison_size = 0.25
-
+			local_gold_depletion_chance_modifier = -0.50
+			trade_value = 8
+			local_colonial_growth = 15
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.10
-
+			local_production_efficiency = 0.20
+			local_missionary_strength = 0.02
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_3 = {
-		upgrade_time = {
-			months = 480
-		}
-		cost_to_upgrade = {
-			factor = 5000
-		}
+		upgrade_time = { months = 480 }
+		cost_to_upgrade = { factor = 5000 }
 		province_modifiers = {
-			local_defensiveness = 0.75
-			fort_level = 5
-			local_regiment_cost = -0.30
-			supply_limit = 3
-			local_garrison_size = 0.50
-
+			local_defensiveness = 0.50
+			fort_level = 3
+			local_gold_depletion_chance_modifier = -0.75
+			trade_value = 12
+			local_colonial_growth = 25
+			trade_goods_size = 1.0
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.15
-
+			local_production_efficiency = 0.35
+			local_missionary_strength = 0.03
+			local_culture_conversion_cost = -0.25
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 }
-atlantis_castle_zaragoza = {
-	start = 5706
+
+# SPECJALNE TWIERDZE HANDLOWE
+
+atlantis_castle_hormuz = {
+	start = 2999
 	date = 1348.01.01
 	time = { months = 0 }
 	build_cost = 0
@@ -863,241 +659,79 @@ atlantis_castle_zaragoza = {
 	move_days_per_unit_distance = 10
 	starting_tier = 0
 	type = monument
-	build_trigger = {
-		always = no
-	}
-
-	on_built = {
-	}
-
-	on_destroyed = {
-	}
-
-	can_use_modifiers_trigger = {
-
-	}
-
-	can_upgrade_trigger = {
-
-	}
-
-	keep_trigger = {
-	}
+	build_trigger = { always = no }
+	on_built = { }
+	on_destroyed = { }
+	can_use_modifiers_trigger = { }
+	can_upgrade_trigger = { }
+	keep_trigger = { }
 
 	tier_0 = {
-		upgrade_time = {
-			months = 0
-		}
-		cost_to_upgrade = {
-			factor = 0
-		}
-		province_modifiers = {
-		}
-		area_modifier = {
-		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		upgrade_time = { months = 0 }
+		cost_to_upgrade = { factor = 0 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_1 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 2000
-		}
+		upgrade_time = { months = 120 }
+		cost_to_upgrade = { factor = 2000 }
 		province_modifiers = {
-			local_defensiveness = 0.2
+			local_defensiveness = 0.15
 			fort_level = 1
-			local_regiment_cost = -0.10
-			supply_limit = 1
-			local_garrison_size = 0.15
-
+			province_trade_power_modifier = 0.35
+			local_sailors_modifier = 0.20
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.05
-
+			trade_goods_size_modifier = 0.15
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_2 = {
-		upgrade_time = {
-			months = 240
-		}
-		cost_to_upgrade = {
-			factor = 2500
-		}
+		upgrade_time = { months = 240 }
+		cost_to_upgrade = { factor = 2500 }
 		province_modifiers = {
-			local_defensiveness = 0.5
+			local_defensiveness = 0.25
 			fort_level = 2
-			local_regiment_cost = -0.15
-			supply_limit = 2
-			local_garrison_size = 0.25
-
+			province_trade_power_modifier = 0.60
+			local_sailors_modifier = 0.35
+			blockade_force_required = 0.50
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.10
-
+			trade_goods_size_modifier = 0.25
+			province_trade_power_modifier = 0.15
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_3 = {
-		upgrade_time = {
-			months = 480
-		}
-		cost_to_upgrade = {
-			factor = 5000
-		}
+		upgrade_time = { months = 480 }
+		cost_to_upgrade = { factor = 5000 }
 		province_modifiers = {
-			local_defensiveness = 0.75
-			fort_level = 5
-			local_regiment_cost = -0.30
-			supply_limit = 3
-			local_garrison_size = 0.50
-
+			local_defensiveness = 0.40
+			fort_level = 3
+			province_trade_power_modifier = 0.90
+			local_sailors_modifier = 0.50
+			blockade_force_required = 0.75
+			local_center_of_trade_upgrade_cost = -0.75
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.15
-
+			trade_goods_size_modifier = 0.40
+			province_trade_power_modifier = 0.25
+			trade_value_modifier = 0.20
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 }
-atlantis_castle_toledo = {
-	start = 4556
-	date = 1348.01.01
-	time = { months = 0 }
-	build_cost = 0
-	can_be_moved = no
-	move_days_per_unit_distance = 10
-	starting_tier = 0
-	type = monument
-	build_trigger = {
-		always = no
-	}
 
-	on_built = {
-	}
+# TWIERDZE PRZYGRANICZNE
 
-	on_destroyed = {
-	}
-
-	can_use_modifiers_trigger = {
-
-	}
-
-	can_upgrade_trigger = {
-
-	}
-
-	keep_trigger = {
-	}
-
-	tier_0 = {
-		upgrade_time = {
-			months = 0
-		}
-		cost_to_upgrade = {
-			factor = 0
-		}
-		province_modifiers = {
-		}
-		area_modifier = {
-		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
-	}
-
-	tier_1 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 2000
-		}
-		province_modifiers = {
-			local_defensiveness = 0.2
-			fort_level = 1
-			local_regiment_cost = -0.10
-			supply_limit = 1
-			local_garrison_size = 0.15
-
-		}
-		area_modifier = {
-			local_friendly_movement_speed = 0.05
-
-		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
-	}
-
-	tier_2 = {
-		upgrade_time = {
-			months = 240
-		}
-		cost_to_upgrade = {
-			factor = 2500
-		}
-		province_modifiers = {
-			local_defensiveness = 0.5
-			fort_level = 2
-			local_regiment_cost = -0.15
-			supply_limit = 2
-			local_garrison_size = 0.25
-
-		}
-		area_modifier = {
-			local_friendly_movement_speed = 0.10
-
-		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
-	}
-
-	tier_3 = {
-		upgrade_time = {
-			months = 480
-		}
-		cost_to_upgrade = {
-			factor = 5000
-		}
-		province_modifiers = {
-			local_defensiveness = 0.75
-			fort_level = 5
-			local_regiment_cost = -0.30
-			supply_limit = 3
-			local_garrison_size = 0.50
-
-		}
-		area_modifier = {
-			local_friendly_movement_speed = 0.15
-
-		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
-	}
-}
 atlantis_castle_gibraltar = {
 	start = 343
 	date = 1348.01.01
@@ -1107,119 +741,76 @@ atlantis_castle_gibraltar = {
 	move_days_per_unit_distance = 10
 	starting_tier = 0
 	type = monument
-	build_trigger = {
-		always = no
-	}
-
-	on_built = {
-	}
-
-	on_destroyed = {
-	}
-
-	can_use_modifiers_trigger = {
-
-	}
-
-	can_upgrade_trigger = {
-
-	}
-
-	keep_trigger = {
-	}
+	build_trigger = { always = no }
+	on_built = { }
+	on_destroyed = { }
+	can_use_modifiers_trigger = { }
+	can_upgrade_trigger = { }
+	keep_trigger = { }
 
 	tier_0 = {
-		upgrade_time = {
-			months = 0
-		}
-		cost_to_upgrade = {
-			factor = 0
-		}
-		province_modifiers = {
-		}
-		area_modifier = {
-		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		upgrade_time = { months = 0 }
+		cost_to_upgrade = { factor = 0 }
+		province_modifiers = { }
+		area_modifier = { }
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_1 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 2000
-		}
+		upgrade_time = { months = 120 }
+		cost_to_upgrade = { factor = 2000 }
 		province_modifiers = {
-			local_defensiveness = 0.2
-			fort_level = 1
-			local_regiment_cost = -0.10
-			supply_limit = 1
-			local_garrison_size = 0.15
-
+			local_defensiveness = 0.25
+			fort_level = 2
+			local_hostile_attrition = 2
+			blockade_force_required = 0.50
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.05
-
+			local_naval_engagement_modifier = 0.20
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_2 = {
-		upgrade_time = {
-			months = 240
-		}
-		cost_to_upgrade = {
-			factor = 2500
-		}
+		upgrade_time = { months = 240 }
+		cost_to_upgrade = { factor = 2500 }
 		province_modifiers = {
-			local_defensiveness = 0.5
-			fort_level = 2
-			local_regiment_cost = -0.15
-			supply_limit = 2
-			local_garrison_size = 0.25
-
+			local_defensiveness = 0.45
+			fort_level = 3
+			local_hostile_attrition = 3
+			blockade_force_required = 0.75
+			local_own_coast_naval_combat_bonus = 1.0
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.10
-
+			local_naval_engagement_modifier = 0.35
+			hostile_fleet_attrition = 2
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
 
 	tier_3 = {
-		upgrade_time = {
-			months = 480
-		}
-		cost_to_upgrade = {
-			factor = 5000
-		}
+		upgrade_time = { months = 480 }
+		cost_to_upgrade = { factor = 5000 }
 		province_modifiers = {
-			local_defensiveness = 0.75
-			fort_level = 5
-			local_regiment_cost = -0.30
-			supply_limit = 3
-			local_garrison_size = 0.50
-
+			local_defensiveness = 0.70
+			fort_level = 4
+			local_hostile_attrition = 4
+			blockade_force_required = 1.0
+			local_own_coast_naval_combat_bonus = 2.0
+			local_garrison_damage = 1.0
 		}
 		area_modifier = {
-			local_friendly_movement_speed = 0.15
-
+			local_naval_engagement_modifier = 0.50
+			hostile_fleet_attrition = 4
+			local_ship_repair = 0.25
 		}
-		country_modifiers = {
-		}
-		on_upgraded = {
-		}
+		country_modifiers = { }
+		on_upgraded = { }
 	}
-}
+}  #here
 atlantis_castle_ceuta = {
 	start = 1751
 	date = 1348.01.01

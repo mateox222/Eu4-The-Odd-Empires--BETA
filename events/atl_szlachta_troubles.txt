@@ -1,0 +1,1345 @@
+namespace = pol_faction_conflict
+
+# Faction Conflict Events
+
+# The Reformers Gain Ground
+country_event = {
+	id = pol_faction_conflict.1
+	title = pol_faction_conflict.1.t
+	desc = pol_faction_conflict.1.d
+	picture = COURT_eventPicture
+	
+	trigger = {
+		tag = PLC
+        NOT = { mission_completed = pol_abolish_liberum_veto }
+
+		NOT = { has_ruler_flag = recent_reformer_event }
+	}
+	
+	mean_time_to_happen = {
+		months = 24
+		
+		modifier = {
+			factor = 0.7
+			faction_influence = {
+				faction = pl_reformaci
+				influence = 60
+			}
+		}
+		
+		modifier = {
+			factor = 1.5
+			faction_influence = {
+				faction = pl_magnaci
+				influence = 60
+			}
+		}
+	}
+	
+	immediate = {
+		set_ruler_flag = recent_reformer_event
+		clr_ruler_flag = recent_reformer_event
+	}
+	
+	option = {
+		name = pol_faction_conflict.1.a
+		ai_chance = { factor = 60 }
+		
+		add_faction_influence = {
+			faction = pl_reformaci
+			influence = 10
+		}
+		add_faction_influence = {
+			faction = pl_magnaci
+			influence = -5
+		}
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -15
+		}
+		add_country_modifier = {
+			name = "pol_administrative_reform"
+			duration = 1825
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.1.b
+		ai_chance = { factor = 30 }
+		
+		add_faction_influence = {
+			faction = pl_magnaci
+			influence = 8
+		}
+		add_stability = 1
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 10
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.1.c
+		ai_chance = { factor = 10 }
+		
+
+		
+		add_adm_power = -100
+		add_faction_influence = {
+			faction = pl_reformaci
+			influence = 15
+		}
+		add_faction_influence = {
+			faction = pl_magnaci
+			influence = -10
+		}
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -25
+		}
+		add_country_modifier = {
+			name = "pol_forced_modernization"
+			duration = 2555
+		}
+	}
+}
+
+# Magnate Conspiracy
+country_event = {
+	id = pol_faction_conflict.2
+	title = pol_faction_conflict.2.t
+	desc = pol_faction_conflict.2.d
+	picture = NOBLES_DISCUSSING_eventPicture
+	
+	trigger = {
+		tag = PLC
+
+		faction_influence = {
+			faction = pl_magnaci
+			influence = 45
+		}
+		has_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 30
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 18
+		
+		modifier = {
+			factor = 0.6
+			faction_influence = {
+				faction = pl_magnaci
+				influence = 70
+			}
+		}
+		
+		modifier = {
+			factor = 0.8
+			has_government_power = {
+				mechanic_type = szlachtapower_mechanic
+				power_type = polska_adm_power
+				value = 50
+			}
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.2.a
+		ai_chance = { factor = 40 }
+		
+		add_faction_influence = {
+			faction = pl_magnaci
+			influence = 12
+		}
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 20
+		}
+		add_country_modifier = {
+			name = "pol_magnate_privileges"
+			duration = 1825
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.2.b
+		ai_chance = { factor = 45 }
+		
+		add_faction_influence = {
+			faction = pl_reformaci
+			influence = 8
+		}
+		add_faction_influence = {
+			faction = pl_magnaci
+			influence = -8
+		}
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -10
+		}
+		add_mil_power = -50
+		random_owned_province = {
+			limit = { unrest = 2 }
+			add_unrest = 3
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.2.c
+		ai_chance = { factor = 15 }
+		
+
+		
+		add_mil_power = -100
+		add_faction_influence = {
+			faction = pl_magnaci
+			influence = -15
+		}
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -30
+		}
+		add_country_modifier = {
+			name = "pol_suppressed_conspiracy"
+			duration = 3650
+		}
+	}
+}
+
+# Sejm Paralysis
+country_event = {
+	id = pol_faction_conflict.3
+	title = pol_faction_conflict.3.t
+	desc = pol_faction_conflict.3.d
+	picture = PARLIAMENT_eventPicture
+	
+	trigger = {
+		tag = PLC
+
+		has_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 40
+		}
+		faction_influence = {
+			faction = pl_reformaci
+			influence = 30
+		}
+		faction_influence = {
+			faction = pl_magnaci
+			influence = 30
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 15
+		
+		modifier = {
+			factor = 0.7
+			has_government_power = {
+				mechanic_type = szlachtapower_mechanic
+				power_type = polska_adm_power
+				value = 60
+			}
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.3.a
+		ai_chance = { factor = 35 }
+		
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 15
+		}
+		add_country_modifier = {
+			name = "pol_sejm_deadlock"
+			duration = 1095
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.3.b
+		ai_chance = { factor = 40 }
+		
+		add_faction_influence = {
+			faction = pl_reformaci
+			influence = 10
+		}
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -20
+		}
+		add_adm_power = -75
+		add_country_modifier = {
+			name = "pol_forced_consensus"
+			duration = 1460
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.3.c
+		ai_chance = { factor = 25 }
+	
+		add_adm_power = -200
+        add_stability = -1
+		add_legitimacy = -10
+		add_faction_influence = {
+			faction = pl_reformaci
+			influence = 15
+		}
+		add_faction_influence = {
+			faction = pl_magnaci
+			influence = -10
+		}
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -35
+		}
+		add_country_modifier = {
+			name = "pol_royal_intervention"
+			duration = 2190
+		}
+	}
+}
+
+# Noble Confederation Forms
+country_event = {
+	id = pol_faction_conflict.4
+	title = pol_faction_conflict.4.t
+	desc = pol_faction_conflict.4.d
+	picture = ANGRY_MOB_eventPicture
+	
+	trigger = {
+		tag = PLC
+
+		has_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 70
+		}
+		faction_influence = {
+			faction = pl_magnaci
+			influence = 50
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+		
+		modifier = {
+			factor = 0.5
+			has_government_power = {
+				mechanic_type = szlachtapower_mechanic
+				power_type = polska_adm_power
+				value = 85
+			}
+		}
+	}
+	
+	immediate = {
+		random_owned_province = {
+			limit = { 
+				development = 15
+				NOT = { is_capital = yes }
+			}
+			save_event_target_as = confederation_province
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.4.a
+		ai_chance = { factor = 30 }
+		
+		add_faction_influence = {
+			faction = pl_magnaci
+			influence = 15
+		}
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 25
+		}
+		add_country_modifier = {
+			name = "pol_noble_confederation"
+			duration = 1825
+		}
+    random_list = {
+        30 = {
+            		random_owned_province = {
+			limit = { development = 10 }
+			spawn_rebels = {
+				type = noble_rebels
+				size = 2
+			}
+		}
+        }
+
+30 = {
+		event_target:confederation_province = {
+			add_unrest = 5
+			add_local_autonomy = 25
+		}
+	}
+    30 = {
+                    		random_owned_province = {
+			limit = { development = 10 }
+			spawn_rebels = {
+				type = noble_rebels
+				size = 2
+			}
+		}
+		event_target:confederation_province = {
+			add_unrest = 5
+			add_local_autonomy = 25
+		}
+	}
+        }
+	}
+	
+	option = {
+		name = pol_faction_conflict.4.b
+		ai_chance = { factor = 50 }
+		
+		add_mil_power = -100
+		add_faction_influence = {
+			faction = pl_magnaci
+			influence = -10
+		}
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -15
+		}
+		event_target:confederation_province = {
+			add_unrest = 8
+		}
+                            		random_owned_province = {
+			limit = { development = 10 }
+			spawn_rebels = {
+				type = noble_rebels
+				size = 2
+			}
+		}
+		add_country_modifier = {
+			name = "pol_confederation_resistance"
+			duration = 1095
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.4.c
+		ai_chance = { factor = 20 }
+		
+	
+		
+		add_treasury = -200
+		add_faction_influence = {
+			faction = pl_magnaci
+			influence = 8
+		}
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 10
+		}
+		add_country_modifier = {
+			name = "pol_bought_peace"
+			duration = 730
+		}
+	}
+}
+
+# Reformer Victory in Local Assembly
+country_event = {
+	id = pol_faction_conflict.5
+	title = pol_faction_conflict.5.t
+	desc = pol_faction_conflict.5.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		tag = PLC
+
+		faction_influence = {
+			faction = pl_reformaci
+			influence = 55
+		}
+		has_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 20
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 20
+		
+		modifier = {
+			factor = 0.8
+			faction_influence = {
+				faction = pl_reformaci
+				influence = 70
+			}
+		}
+	}
+	
+	immediate = {
+		random_owned_province = {
+			limit = { 
+				development = 12
+				has_estate = estate_nobles
+			}
+			save_event_target_as = reform_province
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.5.a
+		ai_chance = { factor = 60 }
+		
+		add_faction_influence = {
+			faction = pl_reformaci
+			influence = 25
+		}
+      
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -20
+		}
+		event_target:reform_province = {
+			add_province_modifier = {
+				name = "pol_local_reform"
+				duration = 2555
+			}
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.5.b
+		ai_chance = { factor = 25 }
+		
+		add_faction_influence = {
+			faction = pl_magnaci
+			influence = 25
+		}
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 5
+		}
+		add_stability = 1
+	}
+	
+	option = {
+		name = pol_faction_conflict.5.c
+		ai_chance = { factor = 15 }
+		
+	
+		add_dip_power = -75
+		add_faction_influence = {
+			faction = pl_reformaci
+			influence = 12
+		}
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -30
+		}
+		add_country_modifier = {
+			name = "pol_reform_momentum"
+			duration = 1825
+		}
+          add_stability = -1
+	}
+}
+
+# Chaos Events - High Szlachta Power
+
+# Noble Anarchy
+country_event = {
+	id = pol_faction_conflict.6
+	title = pol_faction_conflict.6.t
+	desc = pol_faction_conflict.6.d
+	picture = CIVIL_WAR_eventPicture
+	
+	trigger = {
+		tag = PLC
+
+		has_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 80
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 8
+		
+		modifier = {
+			factor = 0.6
+			has_government_power = {
+				mechanic_type = szlachtapower_mechanic
+				power_type = polska_adm_power
+				value = 95
+			}
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.6.a
+		ai_chance = { factor = 40 }
+		
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 10
+		}
+		add_country_modifier = {
+			name = "pol_noble_anarchy"
+			duration = 1460
+		}
+		random_owned_province = {
+			limit = { development = 10 }
+			spawn_rebels = {
+				type = noble_rebels
+				size = 2
+			}
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.6.b
+		ai_chance = { factor = 60 }
+		
+		add_mil_power = -150
+		add_treasury = -100
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -25
+		}
+		add_country_modifier = {
+			name = "pol_suppressed_anarchy"
+			duration = 1095
+		}
+	}
+}
+
+# Provincial Autonomy Crisis
+country_event = {
+	id = pol_faction_conflict.7
+	title = pol_faction_conflict.7.t
+	desc = pol_faction_conflict.7.d
+	picture = CORRUPTION_eventPicture
+	
+	trigger = {
+		tag = PLC
+
+		has_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 60
+		}
+		any_owned_province = {
+			local_autonomy = 25
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+		
+		modifier = {
+			factor = 0.8
+			has_government_power = {
+				mechanic_type = szlachtapower_mechanic
+				power_type = polska_adm_power
+				value = 75
+			}
+		}
+	}
+	
+	immediate = {
+		random_owned_province = {
+			limit = { local_autonomy = 25 }
+			save_event_target_as = autonomous_province
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.7.a
+		ai_chance = { factor = 50 }
+		
+		event_target:autonomous_province = {
+			add_local_autonomy = 15
+		}
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 15
+		}
+		add_country_modifier = {
+			name = "pol_autonomy_concessions"
+			duration = 1095
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.7.b
+		ai_chance = { factor = 50 }
+		
+		add_adm_power = -100
+		event_target:autonomous_province = {
+			add_local_autonomy = -10
+			add_unrest = 5
+		}
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -20
+		}
+	}
+}
+
+# Economic Disruption
+country_event = {
+	id = pol_faction_conflict.8
+	title = pol_faction_conflict.8.t
+	desc = pol_faction_conflict.8.d
+	picture = BANKRUPTCY_eventPicture
+	
+	trigger = {
+		tag = PLC
+
+		has_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 70
+		}
+		num_of_loans = 1
+	}
+	
+	mean_time_to_happen = {
+		months = 15
+		
+		modifier = {
+			factor = 0.7
+			num_of_loans = 3
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.8.a
+		ai_chance = { factor = 60 }
+		add_stability = 1
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 20
+		}
+		add_country_modifier = {
+			name = "pol_economic_chaos"
+			duration = 1825
+		}
+		add_inflation = 2
+	}
+	
+	option = {
+		name = pol_faction_conflict.8.b
+		ai_chance = { factor = 40 }
+		
+		add_years_of_income = -3
+        add_stability = -1
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -15
+		}
+		add_country_modifier = {
+			name = "pol_emergency_measures"
+			duration = 1095
+		}
+	}
+}
+
+# Rare Positive Event - Noble Compromise
+country_event = {
+	id = pol_faction_conflict.9
+	title = pol_faction_conflict.9.t
+	desc = pol_faction_conflict.9.d
+	picture = DIPLOMACY_eventPicture
+	
+	trigger = {
+		tag = PLC
+
+		has_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 50
+		}
+
+		faction_influence = {
+			faction = pl_magnaci
+			influence = 40
+		}
+		stability = 1
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+		
+		modifier = {
+			factor = 0.8
+			stability = 2
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.9.a
+		ai_chance = { factor = 80 }
+		
+		add_faction_influence = {
+			faction = pl_reformaci
+			influence = 10
+		}
+		add_faction_influence = {
+			faction = pl_magnaci
+			influence = 10
+		}
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -30
+		}
+		add_country_modifier = {
+			name = "pol_noble_compromise"
+			duration = 2555
+		}
+		add_stability = 1
+	}
+	
+	option = {
+		name = pol_faction_conflict.9.b
+		ai_chance = { factor = 20 }
+		
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 10
+		}
+		add_prestige = 10
+	}
+}
+
+# Crisis of Authority
+country_event = {
+	id = pol_faction_conflict.10
+	title = pol_faction_conflict.10.t
+	desc = pol_faction_conflict.10.d
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		tag = PLC
+
+		has_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 90
+		}
+		legitimacy = 60
+	}
+	
+	mean_time_to_happen = {
+		months = 10
+		
+		modifier = {
+			factor = 0.5
+			has_government_power = {
+				mechanic_type = szlachtapower_mechanic
+				power_type = polska_adm_power
+				value = 100
+			}
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.10.a
+		ai_chance = { factor = 30 }
+		
+		add_legitimacy = -20
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 20
+		}
+		add_country_modifier = {
+			name = "pol_royal_weakness"
+			duration = 2190
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.10.b
+		ai_chance = { factor = 50 }
+		
+		add_legitimacy = -10
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -40
+		}
+		add_mil_power = -200
+		add_country_modifier = {
+			name = "pol_authority_restored"
+			duration = 1825
+		}
+        		random_owned_province = {
+			limit = { development = 10 }
+			spawn_rebels = {
+				type = noble_rebels
+				size = 3
+			}
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.10.c
+		ai_chance = { factor = 20 }
+		
+
+		
+		add_legitimacy = 10
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -60
+		}
+		add_mil_power = -300
+		add_army_tradition = -10
+		add_country_modifier = {
+			name = "pol_military_intervention"
+			duration = 3650
+		}
+		random_owned_province = {
+			limit = { development = 10 }
+			spawn_rebels = {
+				type = noble_rebels
+				size = 1
+			}
+		}
+ 		random_owned_province = {
+			limit = { development = 10 }
+			spawn_rebels = {
+				type = noble_rebels
+				size = 2
+			}
+		}
+
+        random_list = {
+    10 = {
+        add_stability = -1
+    }
+    5 = {
+        kill_ruler = yes
+    }
+    85 = {
+        		random_owned_province = {
+			limit = { development = 10 }
+			spawn_rebels = {
+				type = noble_rebels
+				size = 3
+			}
+		}
+    }
+	}
+}
+}
+
+country_event = {
+	id = pol_faction_conflict.11
+	title = pol_faction_conflict.11.t
+	desc = pol_faction_conflict.11.d
+	picture = CIVIL_WAR_eventPicture
+	
+	trigger = {
+				tag = PLC
+        NOT = { mission_completed = pol_abolish_liberum_veto }
+
+		has_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 85
+		}
+		faction_influence = {
+			faction = pl_magnaci
+			influence = 70
+		}
+		legitimacy = 30
+		army_tradition = 25
+	}
+	
+	mean_time_to_happen = {
+		months = 6
+		
+		modifier = {
+			factor = 0.5
+			has_government_power = {
+				mechanic_type = szlachtapower_mechanic
+				power_type = polska_adm_power
+				value = 95
+			}
+		}
+		
+		modifier = {
+			factor = 0.7
+			legitimacy = 20
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.11.a
+		ai_chance = { factor = 30 }
+		
+		add_legitimacy = -50
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -30
+		}
+		add_country_modifier = {
+			name = "pol_magnate_regency"
+			duration = 3650
+		}
+		add_faction_influence = {
+			faction = pl_magnaci
+			influence = 20
+		}
+		add_faction_influence = {
+			faction = pl_reformaci
+			influence = -25
+		}
+		define_ruler = {
+			dynasty = ROOT
+			adm = 2
+			dip = 4
+			mil = 2
+			age = 35
+			claim = 15
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.11.b
+		ai_chance = { factor = 50 }
+		
+		add_mil_power = -200
+		add_manpower = -5
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 20
+		}
+		add_legitimacy = 20
+		add_country_modifier = {
+			name = "pol_royal_resistance"
+			duration = 1825
+		}
+		random_owned_province = {
+			limit = { development = 15 }
+			spawn_rebels = {
+				type = noble_rebels
+				size = 3
+			}
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.11.c
+		ai_chance = { factor = 20 }
+		
+		trigger = {
+			treasury = 500
+			dip_power = 150
+		}
+		
+		add_treasury = -500
+		add_dip_power = -150
+		add_legitimacy = -20
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 15
+		}
+		add_country_modifier = {
+			name = "pol_negotiated_transition"
+			duration = 2555
+		}
+		define_ruler = {
+			dynasty = ROOT
+			adm = 4
+			dip = 5
+			mil = 3
+			age = 45
+			claim = 35
+		}
+	}
+}
+
+# The Reformer Coup
+country_event = {
+	id = pol_faction_conflict.12
+	title = pol_faction_conflict.12.t
+	desc = pol_faction_conflict.12.d
+	picture = COURT_eventPicture
+	
+	trigger = {
+				tag = PLC
+        NOT = { mission_completed = pol_abolish_liberum_veto }
+
+		faction_influence = {
+			faction = pl_reformaci
+			influence = 75
+		}
+		has_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 80
+		}
+		NOT = { legitimacy = 40 }
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+		
+		modifier = {
+			factor = 0.7
+			faction_influence = {
+				faction = pl_reformaci
+				influence = 85
+			}
+		}
+		
+		modifier = {
+			factor = 0.8
+			has_institution = enlightenment
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.12.a
+		ai_chance = { factor = 40 }
+		add_stability = -3
+		add_legitimacy = -30
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -60
+		}
+		add_ruler_modifier = {
+			name = "pol_enlightened_monarchy"
+			duration = -1
+		}
+		add_faction_influence = {
+			faction = pl_reformaci
+			influence = 25
+		}
+		add_faction_influence = {
+			faction = pl_magnaci
+			influence = -40
+		}
+		define_ruler = {
+			adm = 6
+		}
+	}
+	
+	option = {
+		add_stability = -2
+		name = pol_faction_conflict.12.b
+		ai_chance = { factor = 45 }
+		
+		add_faction_influence = {
+			faction = pl_reformaci
+			influence = 15
+		}
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -40
+		}
+		add_legitimacy = 10
+		add_country_modifier = {
+			name = "pol_constitutional_reforms"
+			duration = -1
+		}
+		define_ruler = {
+			dynasty = ROOT
+			adm = 5
+			dip = 5
+			mil = 3
+			age = 42
+			claim = 40
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.12.c
+		ai_chance = { factor = 15 }
+		add_stability = 1
+		add_mil_power = -50
+		add_legitimacy = -10
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 20
+		}
+		add_country_modifier = {
+			name = "pol_suppressed_coup"
+			duration = 2190
+		}
+		add_faction_influence = {
+			faction = pl_reformaci
+			influence = -30
+		}
+	}
+}
+
+# The Foreign-Backed Pretender
+country_event = {
+	id = pol_faction_conflict.13
+	title = pol_faction_conflict.13.t
+	desc = pol_faction_conflict.13.d
+	picture = DIPLOMACY_eventPicture
+	
+	trigger = {
+				tag = PLC
+        NOT = { mission_completed = pol_abolish_liberum_veto }
+
+		has_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 100
+		}
+		any_neighbor_country = {
+			is_great_power = yes
+			army_size = ROOT
+			NOT = { truce_with = ROOT }
+		}
+		legitimacy = 25
+	}
+	
+	mean_time_to_happen = {
+		months = 18
+		
+		modifier = {
+			factor = 0.6
+			any_neighbor_country = {
+				is_great_power = yes
+				has_opinion = {
+					who = ROOT
+					value = -100
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		random_neighbor_country = {
+			limit = {
+				is_great_power = yes
+				army_size = 40
+				NOT = { truce_with = ROOT }
+			}
+			save_event_target_as = foreign_backer
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.13.a
+		ai_chance = { factor = 35 }
+		
+		event_target:foreign_backer = {
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_restore_personal_union
+			}
+		}
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 25
+		}
+		add_country_modifier = {
+			name = "pol_foreign_invasion"
+			duration = 1825
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.13.b
+		ai_chance = { factor = 40 }
+		
+		add_legitimacy = -40
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -50
+		}
+		add_country_modifier = {
+			name = "pol_foreign_puppet"
+			duration = 5475
+		}
+		define_ruler = {
+			dynasty = ROOT
+			adm = 3
+			dip = 5
+			mil = 4
+			age = 28
+			claim = 5
+		}
+		event_target:foreign_backer = {
+			add_opinion = {
+				who = ROOT
+				modifier = opinion_alliance
+			}
+		}
+	}
+	
+	option = {
+		name = pol_faction_conflict.13.c
+		ai_chance = { factor = 25 }
+		
+		trigger = {
+			army_tradition = 50
+			manpower_percentage = 0.6
+		}
+		
+		add_country_modifier = {
+			name = "pol_defiant_resistance"
+			duration = 3650
+		}
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = -30
+		}
+		event_target:foreign_backer = {
+			add_opinion = {
+				who = ROOT
+				modifier = opinion_outraged_insult
+			}
+		}
+	}
+}
+

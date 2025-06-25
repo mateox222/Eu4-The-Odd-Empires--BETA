@@ -79,6 +79,13 @@ two_crowns_missions_1 = {
 		}
 
 		trigger = {
+						NOT = {
+				has_government_power = {
+					mechanic_type = szlachtapower_mechanic
+					power_type = polska_adm_power
+					value = 30
+				}
+			}
 			adm_power = 200
 			if = {
 				limit = { has_parliament = yes } 
@@ -129,10 +136,22 @@ two_crowns_missions_1 = {
 				has_reform = royal_absolutism
 			}
 			stability = 3
-			adm_tech = 12
+			adm_power = 750
+			NOT = {
+					has_government_power = {
+	mechanic_type = szlachtapower_mechanic
+	power_type = polska_adm_power
+	value = 10
+}
+
+
+			}
 		}
 
 		effect = {
+			add_adm_power = -750
+			remove_faction = pl_magnaci
+			remove_faction = pl_reformaci
 			add_prestige = 15
 			add_government_power = {
 				mechanic_type = szlachtapower_mechanic
@@ -216,13 +235,7 @@ two_crowns_missions_1 = {
 				duration = 7300
 			}
 			add_prestige = 25
-			every_owned_province = {
-				limit = { has_building = university } 
-				add_province_modifier = {
-					name = "pol_centers_of_learning"
-					duration = 7300
-				}
-			}
+
 		}
 	}
 

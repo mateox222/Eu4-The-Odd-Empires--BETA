@@ -1,0 +1,403 @@
+namespace = generic_war
+
+
+country_event = {
+	id = generic_war.1
+	title = generic_war.1.t
+	desc = generic_war.1.d
+	picture = MILITARY_CAMP_eventPicture
+	
+		is_triggered_only = yes
+trigger = {
+		is_at_war = yes
+		num_of_generals = 1
+		NOT = { has_country_flag = deserter_officer_flag }
+	}
+
+	
+	immediate = {
+		set_country_flag = deserter_officer_flag
+	}
+	
+	after = {
+		clr_country_flag = deserter_officer_flag
+	}
+	
+	option = {
+		name = generic_war.1.a # Ścigaj dezertera
+		add_mil_power = -25
+		add_army_tradition = 2
+		ai_chance = { factor = 60 }
+	}
+	
+	option = {
+		name = generic_war.1.b # Pozwól mu odejść
+		add_war_exhaustion = 1
+		ai_chance = { factor = 40 }
+	}
+}
+
+# Bohaterski żołnierz
+country_event = {
+	id = generic_war.2
+	title = generic_war.2.t
+	desc = generic_war.2.d
+	picture = BATTLE_eventPicture
+	
+		is_triggered_only = yes
+trigger = {
+		is_at_war = yes
+		NOT = { has_country_flag = heroic_soldier_flag }
+	}
+	
+
+	
+	immediate = {
+		set_country_flag = heroic_soldier_flag
+	}
+	
+	after = {
+		clr_country_flag = heroic_soldier_flag
+	}
+	
+	option = {
+		name = generic_war.2.a # Wyróżnij bohatera
+		add_army_tradition = 3
+		add_prestige = 5
+		add_years_of_income = -0.25
+		ai_chance = { factor = 70 }
+	}
+	
+	option = {
+		name = generic_war.2.b # To tylko jego obowiązek
+		add_mil_power = 15
+		add_army_tradition = 1
+		ai_chance = { factor = 30 }
+	}
+}
+
+# Szpieg wroga
+country_event = {
+	id = generic_war.3
+	title = generic_war.3.t
+	desc = generic_war.3.d
+	picture = SPY_eventPicture
+	
+		is_triggered_only = yes
+trigger = {
+		is_at_war = yes
+		NOT = { has_country_flag = enemy_spy_flag }
+	}
+	
+
+	
+	immediate = {
+		set_country_flag = enemy_spy_flag
+	}
+	
+	after = {
+		clr_country_flag = enemy_spy_flag
+	}
+	
+	option = {
+		name = generic_war.3.a # Przeprowadź śledztwo
+		add_dip_power = -30
+		ai_chance = { factor = 55 }
+	}
+	
+	option = {
+		name = generic_war.3.b # Zwiększ bezpieczeństwo
+		add_years_of_income = -0.5	
+		add_country_modifier = {
+			name = "increased_security"
+			duration = 730
+		}
+		ai_chance = { factor = 45 }
+	}
+}
+
+# Dostawa zbroi opóźniona
+country_event = {
+	id = generic_war.4
+	title = generic_war.4.t
+	desc = generic_war.4.d
+	picture = TRADEGOODS_eventPicture
+	
+		is_triggered_only = yes
+trigger = {
+		is_at_war = yes
+		NOT = { has_country_flag = delayed_weapons_flag }
+	}
+	
+
+	
+	immediate = {
+		set_country_flag = delayed_weapons_flag
+	}
+	
+	after = {
+		clr_country_flag = delayed_weapons_flag
+	}
+	
+	option = {
+		name = generic_war.4.a # Zapłać podwójnie za szybką dostawę
+		add_years_of_income = -1
+		add_army_tradition = 2
+		ai_chance = { 
+			factor = 40
+			modifier = {
+				factor = 2
+				treasury = 500
+			}
+		}
+	}
+	
+	option = {
+		name = generic_war.4.b # Czekaj na normalną dostawę
+		add_country_modifier = {
+			name = "delayed_equipment"
+			duration = 365
+		}
+		ai_chance = { factor = 60 }
+	}
+}
+
+# Epidemia w wojsku
+country_event = {
+	id = generic_war.5
+	title = generic_war.5.t
+	desc = generic_war.5.d
+	picture = PLAGUE_eventPicture
+	
+		is_triggered_only = yes
+trigger = {
+		is_at_war = yes
+		NOT = { has_country_flag = army_plague_flag }
+	}
+	
+
+	
+	immediate = {
+		set_country_flag = army_plague_flag
+	}
+	
+	after = {
+		clr_country_flag = army_plague_flag
+	}
+	
+	option = {
+		name = generic_war.5.a # Kwarantanna i leczenie
+		add_years_of_income = -1
+		add_yearly_manpower = -0.5	
+		ai_chance = { factor = 75 }
+	}
+	
+	option = {
+		name = generic_war.5.b # Ignoruj problem
+		add_yearly_manpower = -1.5	
+		add_war_exhaustion = 2
+		add_country_modifier = {
+			name = "army_disease"
+			duration = 1095
+		}
+		ai_chance = { factor = 25 }
+	}
+}
+
+# Zbuntowani najemnicy
+country_event = {
+	id = generic_war.6
+	title = generic_war.6.t
+	desc = generic_war.6.d
+	picture = ANGRY_MOB_eventPicture
+	
+		is_triggered_only = yes
+trigger = {
+		is_at_war = yes
+		has_mercenaries = yes
+		NOT = { has_country_flag = mercenary_revolt_flag }
+	}
+	
+
+	immediate = {
+		set_country_flag = mercenary_revolt_flag
+	}
+	
+	after = {
+		clr_country_flag = mercenary_revolt_flag
+	}
+	
+	option = {
+		name = generic_war.6.a # Zapłać zaległe żołdy
+		add_years_of_income = -1.5
+		add_yearly_manpower = 0.5	
+		ai_chance = { 
+			factor = 70
+			modifier = {
+				factor = 0.3
+				NOT = { treasury = 300 }
+			}
+		}
+	}
+	
+	option = {
+		name = generic_war.6.b # Rozpraw się z buntownikami
+		add_mil_power = -40
+		add_army_tradition = -3
+		add_yearly_manpower = -0.5	
+		ai_chance = { factor = 30 }
+	}
+}
+
+# Nowy dowódca powstaje
+country_event = {
+	id = generic_war.7
+	title = generic_war.7.t
+	desc = generic_war.7.d
+	picture = MILITARY_CAMP_eventPicture
+	
+		is_triggered_only = yes
+trigger = {
+		is_at_war = yes
+		NOT = { has_country_flag = rising_commander_flag }
+	}
+	
+
+	
+	immediate = {
+		set_country_flag = rising_commander_flag
+	}
+	
+	after = {
+		clr_country_flag = rising_commander_flag
+	}
+	
+	option = {
+		name = generic_war.7.a # Promuj go na generała
+		create_general = yes
+		add_army_tradition = -5
+		ai_chance = { factor = 80 }
+	}
+	
+	option = {
+		name = generic_war.7.b # Niech pozostanie szeregowcem
+		add_army_tradition = 2
+		add_mil_power = 25
+		ai_chance = { factor = 20 }
+	}
+}
+
+# Zdobyta flaga wroga
+country_event = {
+	id = generic_war.8
+	title = generic_war.8.t
+	desc = generic_war.8.d
+	picture = BATTLE_eventPicture
+	
+		is_triggered_only = yes
+trigger = {
+		is_at_war = yes
+		NOT = { has_country_flag = captured_banner_flag }
+	}
+	
+
+	
+	after = {
+		clr_country_flag = captured_banner_flag
+	}
+	
+	option = {
+		name = generic_war.8.a # Wystaw w stolicy
+		add_prestige = 8
+		add_legitimacy = 5
+		ai_chance = { factor = 60 }
+	}
+	
+	option = {
+		name = generic_war.8.b # Zwróć za okupem
+		add_years_of_income = -0.75
+		add_dip_power = 15
+		ai_chance = { factor = 40 }
+	}
+}
+
+# Problemy z zaopatrzeniem
+country_event = {
+	id = generic_war.9
+	title = generic_war.9.t
+	desc = generic_war.9.d
+	picture = FAMINE_eventPicture
+	
+		is_triggered_only = yes
+trigger = {
+		is_at_war = yes
+		NOT = { has_country_flag = supply_problems_flag }
+	}
+	
+
+	immediate = {
+		set_country_flag = supply_problems_flag
+	}
+	
+	after = {
+		clr_country_flag = supply_problems_flag
+	}
+	
+	option = {
+		name = generic_war.9.a # Zreorganizuj logistykę
+		add_adm_power = -50
+		add_country_modifier = {
+			name = "improved_logistics"
+			duration = 1825
+		}
+		ai_chance = { factor = 45 }
+	}
+	
+	option = {
+		name = generic_war.9.b # Żywi się z kraju
+		add_war_exhaustion = 1
+		add_country_modifier = {
+			name = "foraging_army"
+			duration = 730
+		}
+		ai_chance = { factor = 55 }
+	}
+}
+
+# Weterani wojny
+country_event = {
+	id = generic_war.10
+	title = generic_war.10.t
+	desc = generic_war.10.d
+	picture = MILITARY_CAMP_eventPicture
+	
+		is_triggered_only = yes
+trigger = {
+		is_at_war = yes
+		war_exhaustion = 5
+		NOT = { has_country_flag = war_veterans_flag }
+	}
+	
+
+	
+	immediate = {
+		set_country_flag = war_veterans_flag
+	}
+	
+	after = {
+		clr_country_flag = war_veterans_flag
+	}
+	
+	option = {
+		name = generic_war.10.a # Nagrodź weteranów
+		add_years_of_income = -1
+		add_army_tradition = 5
+		ai_chance = { factor = 60 }
+	}
+	
+	option = {
+		name = generic_war.10.b # Tylko ich obowiązek
+		add_mil_power = 30
+		ai_chance = { factor = 40 }
+	}
+}
