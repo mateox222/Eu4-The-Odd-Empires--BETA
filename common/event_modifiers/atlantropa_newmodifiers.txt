@@ -118,6 +118,7 @@ polans_lechitic_expansion = {
 	core_creation = -0.10
 	culture_conversion_cost = -0.20
 }
+
 polans_slavic_hegemony = {
 	diplomatic_reputation = 2
 	vassal_income = 0.25
@@ -158,12 +159,14 @@ great_lechia_empire = {
 	culture_conversion_cost = -0.25
 	diplomatic_reputation = 3
 }
+
 polans_pagan_holy_city = {
 	local_tax_modifier = 0.25
 	local_missionary_strength = 0.05
 	local_institution_spread = 0.50
 	allowed_num_of_buildings = 1
 }
+
 polans_restored_temple = {
 	local_tax_modifier = 0.15
 	local_missionary_strength = 0.03
@@ -186,16 +189,18 @@ polans_venedia_campaign = {
 	war_exhaustion = -0.03
 	ae_impact = -0.15
 }
+
 polans_lechitic_renaissance = {
 	idea_cost = -0.15
 	technology_cost = -0.15
 	development_cost = -0.10
 }
+
 polans_ancient_calendar = {  
-    legitimacy = 0.5                
-    stability_cost_modifier = -0.10        
-    tolerance_own = 1                        
-    prestige_decay = -0.01                 
+	legitimacy = 0.5                
+	stability_cost_modifier = -0.10        
+	tolerance_own = 1                        
+	prestige_decay = -0.01                 
 } 
 
 gtr_realm_consolidated = {
@@ -373,8 +378,6 @@ grand_festival_memory = {
 	local_tax_modifier = 0.05
 	local_manpower_modifier = 0.1
 }
-# Economic Crisis Modifiers for EU4
-# Place in common/event_modifiers/
 
 # Anti-Corruption Modifiers
 anti_corruption_drive = {
@@ -485,31 +488,32 @@ economic_stimulus = {
 }
 
 commune_militia_training = {
-    local_manpower_modifier = 0.25
+	local_manpower_modifier = 0.25
 }
 
 commune_war_recovery = {
-    manpower_recovery_speed = 0.15
+	manpower_recovery_speed = 0.15
 }
 
 commune_agricultural_expansion = {
-    local_production_efficiency = 0.10
-    local_manpower_modifier = 0.15
+	local_production_efficiency = 0.10
+	local_manpower_modifier = 0.15
 }
+
 patrician_development_bonus = {
-   development_cost_modifier = -0.10
+	development_cost = -0.10
 }
 
 # Education/Technology Modifier
 patrician_learning_patronage = {
-   global_institution_spread = 0.1	
-    technology_cost = -0.05
+	global_institution_spread = 0.1	
+	technology_cost = -0.05
 }
 
 # Financial/Trade Modifier
 patrician_financial_expertise = {
-    global_trade_power = 0.10
-    interest = -0.5	
+	global_trade_power = 0.10
+	interest = -0.5	
 }
 
 ven_gniesdow_aftermath = {
@@ -574,11 +578,13 @@ ven_religious_fervor = {
 	papal_influence = 1
 	church_power_modifier = 0.25
 }
+
 polishpope = {
 	tolerance_own = 3
 	papal_influence = 1.5
 	church_power_modifier = 0.25
 }
+
 ven_cultural_flowering = {
 	idea_cost = -0.10
 	prestige = 0.5
@@ -677,7 +683,7 @@ venedia_great_library = {
 
 venedia_military_academy = {
 	local_manpower_modifier = 0.5
-	regiment_recruit_speed = -0.25
+ 
 }
 
 venedia_strategic_fortress = {
@@ -692,14 +698,12 @@ venedia_new_world_prosperity = {
 }
 
 # Two Crowns Modifiers
-# Country Modifiers
-
 pol_magnate_submission = {
 	stability_cost_modifier = -0.15
 	harsh_treatment_cost = -0.25
 	nobles_loyalty_modifier = 0.10
 	max_absolutism = 5
-	monthly_polska_adm_power = -0.1
+	country_admin_power = -0.1
 }
 
 pol_noble_registration = {
@@ -707,7 +711,7 @@ pol_noble_registration = {
 	administrative_efficiency = 0.05
 	reform_progress_growth = 0.15
 	nobles_influence_modifier = -0.10
-	monthly_polska_adm_power = -0.1
+	country_admin_power = -0.1
 }
 
 pol_centralized_authority = {
@@ -715,35 +719,35 @@ pol_centralized_authority = {
 	administrative_efficiency = 0.025
 	governing_capacity_modifier = 0.05
 	state_maintenance_modifier = -0.05
-	monthly_polska_adm_power = -0.5
+	country_admin_power = -0.5
 }
 
 pol_efficient_administration = {
 	administrative_efficiency = 0.05
 	advisor_cost = -0.15
 	stability_cost_modifier = -0.10
-	monthly_polska_adm_power = -0.05
+	country_admin_power = -0.05
 }
 
 pol_enlightened_rule = {
 	idea_cost = -0.05
 	institution_spread_from_true_faith = 0.25
 	monthly_splendor = 2
-	monthly_polska_adm_power = -0.05
+	country_admin_power = -0.05
 }
 
 pol_dual_crown_authority = {
 	prestige_decay = -0.01
 	diplomatic_reputation = 1
 	legitimacy = 0.5
-	monthly_polska_adm_power = -0.05
+	country_admin_power = -0.05
 }
 
 pol_french_integration = {
 	culture_conversion_cost = -0.25
 	religious_unity = 0.15
 	global_autonomy = -0.05
-	monthly_polska_adm_power = 0.1
+	country_admin_power = 0.1
 }
 
 pol_gallic_resurgence = {
@@ -779,7 +783,7 @@ pol_guild_privileges = {
 	trade_efficiency = 0.10
 	global_trade_power = 0.15
 	inflation_reduction = 0.05
-	monthly_polska_adm_power = -0.05
+	country_admin_power = -0.05
 }
 
 pol_trade_dominance = {
@@ -879,7 +883,6 @@ pol_holy_roman_emperor = {
 }
 
 # Province Modifiers
-
 pol_integrated_territories = {
 	local_unrest = -2
 	local_autonomy = -0.05
@@ -900,131 +903,132 @@ pol_plantation_economy = {
 	local_colonial_growth = 15
 	local_development_cost = -0.15
 }
+
 atlantropa_new_trade_routes = {
-    trade_efficiency = 0.15
-    merchants = 1
+	trade_efficiency = 0.15
+	merchants = 1
 }
 
 atlantropa_plague_devastation = {
-    manpower_recovery_speed = -0.25
-    development_cost = 0.20
-    land_maintenance_modifier = 0.10
+	manpower_recovery_speed = -0.25
+	development_cost = 0.20
+	land_maintenance_modifier = 0.10
 }
 
 atlantropa_medical_response = {
-    development_cost = -0.10
-    global_unrest = -1
+	development_cost = -0.10
+	global_unrest = -1
 }
 
 atlantropa_scientific_advancement = {
-    technology_cost = -0.10
-    idea_cost = -0.05
-    innovativeness_gain = 0.25
+	technology_cost = -0.10
+	idea_cost = -0.05
+	innovativeness_gain = 0.25
 }
 
 atlantropa_increased_patrols = {
-    global_unrest = -2
-    land_maintenance_modifier = 0.15
-    hostile_attrition = 1
+	global_unrest = -2
+	land_maintenance_modifier = 0.15
+	hostile_attrition = 1
 }
 
 atlantropa_diplomatic_expertise = {
-    diplomatic_reputation = 1
-    improve_relation_modifier = 0.20
-    diplomatic_upkeep = 1
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.20
+	diplomatic_upkeep = 1
 }
 
 atlantropa_bountiful_harvest = {
-    global_tax_modifier = 0.15
-    global_unrest = -1
-    stability_cost_modifier = -0.10
+	global_tax_modifier = 0.15
+	global_unrest = -1
+	stability_cost_modifier = -0.10
 }
 
 atlantropa_intelligence_network = {
-    spy_offence = 0.25
-    diplomatic_reputation = 1
-    ae_impact = -0.05
+	spy_offence = 0.25
+	diplomatic_reputation = 1
+	ae_impact = -0.05
 }
 
 atlantropa_divine_blessing = {
-    legitimacy = 1
-    religious_unity = 0.15
-    global_missionary_strength = 0.02
-    stability_cost_modifier = -0.15
+	legitimacy = 1
+	religious_unity = 0.15
+	global_missionary_strength = 0.02
+	stability_cost_modifier = -0.15
 }
 
 atlantropa_court_stability = {
-    legitimacy = 0.5
-    administrative_efficiency = 0.05
-    global_unrest = -1
+	legitimacy = 0.5
+	administrative_efficiency = 0.05
+	global_unrest = -1
 }
 
 atlantropa_political_instability = {
-    legitimacy = -1
-    administrative_efficiency = -0.10
-    global_unrest = 2
-    stability_cost_modifier = 0.25
+	legitimacy = -1
+	administrative_efficiency = -0.10
+	global_unrest = 2
+	stability_cost_modifier = 0.25
 }
 
 atlantropa_trade_prosperity = {
-    trade_steering = 0.15
+	trade_steering = 0.15
 	global_trade_power = 0.1
 }
 
 atlantropa_disaster_recovery = {
-    development_cost = 0.15
-    build_cost = 0.20
-    global_tax_modifier = -0.10
+	development_cost = 0.15
+	build_cost = 0.20
+	global_tax_modifier = -0.10
 }
 
 atlantropa_military_prestige = {
-    prestige = 0.5
-    army_tradition = 0.25
-    military_tactics = 0.05
-    war_exhaustion = -0.02
+	prestige = 0.5
+	army_tradition = 0.25
+	military_tactics = 0.05
+	war_exhaustion = -0.02
 }
 
 atlantropa_cultural_flowering = {
-    prestige = 1
-    diplomatic_reputation = 2
-    idea_cost = -0.10
-    advisor_cost = -0.15
+	prestige = 1
+	diplomatic_reputation = 2
+	idea_cost = -0.10
+	advisor_cost = -0.15
 }
 
 atlantropa_anti_corruption_campaign = {
-    yearly_corruption = -0.10
-    administrative_efficiency = 0.025
-    advisor_cost = -0.10
+	yearly_corruption = -0.10
+	administrative_efficiency = 0.025
+	advisor_cost = -0.10
 }
 
 atlantropa_endemic_corruption = {
-    yearly_corruption = 0.05
-    administrative_efficiency = -0.05
-    global_tax_modifier = -0.15
-    advisor_cost = 0.25
+	yearly_corruption = 0.05
+	administrative_efficiency = -0.05
+	global_tax_modifier = -0.15
+	advisor_cost = 0.25
 }
 
 # Province Modifiers
 atlantropa_quarantine_measures = {
-    local_development_cost = -0.10
-    local_unrest = -2
-    local_tax_modifier = -0.15
+	local_development_cost = -0.10
+	local_unrest = -2
+	local_tax_modifier = -0.15
 }
 
 atlantropa_disaster_relief = {
-    local_development_cost = -0.25
-    local_tax_modifier = 0.10
-    local_manpower_modifier = 0.15
-    local_unrest = -3
+	local_development_cost = -0.25
+	local_tax_modifier = 0.10
+	local_manpower_modifier = 0.15
+	local_unrest = -3
 }
-
 
 pol_imperial_administration = {
 	diplomatic_upkeep = 2
 	governing_capacity_modifier = 0.25
 	administrative_efficiency = 0.10
-	monthly_polska_adm_power = -0.25
+	country_admin_power = -0.25
 }
+
 venedia_colonial_support = {
 	local_colonial_growth = 75
 	local_development_cost = -0.25
@@ -1047,7 +1051,6 @@ royal_progress_modifier = {
 	diplomatic_reputation = 0.5
 	burghers_loyalty_modifier = 0.05
 	global_unrest = -0.5
-	
 }
 
 magnate_census_ongoing = {
@@ -1060,96 +1063,96 @@ magnate_census_ongoing = {
 	# But long-term benefits start showing
 	global_tax_modifier = 0.05
 	monthly_reform_progress_modifier = 0.10
-		monthly_polska_adm_power = -0.1
+	country_admin_power = -0.1
 }
 
 sacred_hunt_blessing = {
-    land_morale = 0.10
-    shock_damage = 0.05
-    loot_amount = 0.25
-    prestige_decay = -0.01
+	land_morale = 0.10
+	shock_damage = 0.05
+	loot_amount = 0.25
+	prestige_decay = -0.01
 }
 
 great_festival_unity = {
-    stability_cost_modifier = -0.15
-    global_unrest = -1
-    tolerance_own = 1
-    legitimacy = 0.25
-    devotion = 0.25
-    horde_unity = 0.25
+	stability_cost_modifier = -0.15
+	global_unrest = -1
+	tolerance_own = 1
+	legitimacy = 0.25
+	devotion = 0.25
+	horde_unity = 0.25
 }
 
 shamanic_wisdom_admin = {
-    administrative_efficiency = 0.05
-    stability_cost_modifier = -0.10
-    advisor_cost = -0.15
-    technology_cost = -0.05
+	administrative_efficiency = 0.05
+	stability_cost_modifier = -0.10
+	advisor_cost = -0.15
+	technology_cost = -0.05
 }
 
 shamanic_wisdom_diplo = {
-    diplomatic_reputation = 1
-    improve_relation_modifier = 0.15
-    diplomatic_annexation_cost = -0.10
-    envoy_travel_time = -0.25
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.15
+	diplomatic_annexation_cost = -0.10
+	envoy_travel_time = -0.25
 }
 
 shamanic_wisdom_military = {
-    army_tradition = 0.5
-    general_cost = -0.15
-    discipline = 0.025
-    manpower_recovery_speed = 0.10
+	army_tradition = 0.5
+	general_cost = -0.15
+	discipline = 0.025
+	manpower_recovery_speed = 0.10
 }
 
 ancestor_spirits_blessing = {
-    land_morale = 0.10
-    shock_damage = 0.10
-    army_tradition_decay = -0.02
-    war_exhaustion = -0.05
-    reinforce_speed = 0.25
+	land_morale = 0.10
+	shock_damage = 0.10
+	army_tradition_decay = -0.02
+	war_exhaustion = -0.05
+	reinforce_speed = 0.25
 }
 
 divine_favor_blessing = {	
-    prestige = 1
-    legitimacy = 0.5
-    devotion = 0.5
-    horde_unity = 0.5
-   global_missionary_strength = 0.02
-    tolerance_own = 2
-    global_unrest = -2
-    stability_cost_modifier = -0.25
+	prestige = 1
+	legitimacy = 0.5
+	devotion = 0.5
+	horde_unity = 0.5
+	global_missionary_strength = 0.02
+	tolerance_own = 2
+	global_unrest = -2
+	stability_cost_modifier = -0.25
 }
 
 divine_displeasure = {
-    prestige = -0.5
-    legitimacy = -0.5
-    devotion = -0.5
-    horde_unity = -0.5
-    global_missionary_strength = -0.02
-    tolerance_own = -1
-    global_unrest = 2
-    stability_cost_modifier = 0.25
-    war_exhaustion = 0.05
+	prestige = -0.5
+	legitimacy = -0.5
+	devotion = -0.5
+	horde_unity = -0.5
+	global_missionary_strength = -0.02
+	tolerance_own = -1
+	global_unrest = 2
+	stability_cost_modifier = 0.25
+	war_exhaustion = 0.05
 }
 
 sacred_festival_site = {
-    local_tax_modifier = 0.25
-    local_manpower_modifier = 0.15
-    local_missionary_strength = 0.02
-    local_unrest = -2
-    province_trade_power_modifier = 0.15
+	local_tax_modifier = 0.25
+	local_manpower_modifier = 0.15
+	local_missionary_strength = 0.02
+	local_unrest = -2
+	province_trade_power_modifier = 0.15
 }
 
 purified_sacred_site = {
-    local_missionary_strength = 0.05
-    local_tax_modifier = 0.15
-    local_unrest = -1
-    tolerance_own = 1
+	local_missionary_strength = 0.05
+	local_tax_modifier = 0.15
+	local_unrest = -1
+	tolerance_own = 1
 }
 
 guild_sponsored_workshop = {
-   	local_production_efficiency = 0.15
-
+	local_production_efficiency = 0.15
 }
+
 estate_conflict_cooldown = {
 	# Hidden modifier to prevent event spam
 }
@@ -1185,7 +1188,7 @@ balanced_financial_system = {
 rural_tax_relief = {
 	production_efficiency = 0.10
 	global_tax_modifier = -0.10
-	local_unrest = -1
+	global_unrest = -1
 }
 
 fair_taxation_system = {
@@ -1213,7 +1216,7 @@ harmonious_estates = {
 	all_estate_influence_modifier = -0.05
 }
 
-# Province Modifiers (would go in common/event_modifiers)
+# Restoration Modifiers
 A2R_preparing_restoration = {
 	land_morale = 0.10
 	ae_impact = -0.10
@@ -1331,7 +1334,7 @@ A2R_god_king = {
 }
 
 A2R_masters_of_desert = {
-	attrition = -0.25
+	land_attrition = -0.25
 	movement_speed = 0.15
 	hostile_attrition = 1
 }
@@ -1379,8 +1382,7 @@ A2R_center_of_learning = {
 	advisor_cost = -0.20
 }
 
-# PROVINCE MODIFIERS
-
+# Event Modifiers
 trade_disruption = {
 	local_production_efficiency = -0.25
 	trade_value_modifier = -0.3
@@ -1405,14 +1407,7 @@ fortified_villages = {
 	local_hostile_attrition = 1
 }
 
-judicial_reform = {
-	local_unrest = -2
-	local_state_maintenance_modifier = -0.2
-	local_tax_modifier = 0.1
-}
-
-# COUNTRY MODIFIERS
-
+# Religious Modifiers
 religious_tensions = {
 	stability_cost_modifier = 0.25
 	tolerance_heretic = -1
@@ -1428,7 +1423,7 @@ religious_reconciliation = {
 }
 
 religious_orthodoxy = {
-	missionary_strength = 0.02
+	global_missionary_strength = 0.02
 	tolerance_heretic = -2
 	global_unrest = 1
 	papal_influence = 1
@@ -1460,22 +1455,21 @@ increased_patrols = {
 	global_unrest = -1
 }
 
- 
 bought_truce = {
-    diplomatic_reputation = -0.25
+	diplomatic_reputation = -0.25
 }
 
 sold_truce = {
-    diplomatic_reputation = 0.25
+	diplomatic_reputation = 0.25
 }
 
+# Punishment Modifiers
 enforced_trade_monopoly = {
 	trade_efficiency = -0.25
 	merchants = -1
 	global_trade_power = -0.15
 	production_efficiency = -0.10
 }
-
 
 forced_religious_conversion = {
 	tolerance_own = -2
@@ -1512,7 +1506,6 @@ naval_restrictions_imposed = {
 }
 
 economic_exploitation_imposed = {
- 
 	global_tax_modifier = -0.15
 	trade_efficiency = -0.12
 	development_cost = 0.30
@@ -1530,7 +1523,6 @@ fortress_restrictions = {
 	fort_maintenance_modifier = 0.50   
 	defensiveness = -0.15
 	garrison_size = -0.25
-	 
 }
 
 mercenary_employment_ban = {
@@ -1562,7 +1554,7 @@ educational_restrictions = {
 	technology_cost = 0.15
 	idea_cost = 0.15
 	embracement_cost = 0.25
-	institution_spread = -0.25
+	global_institution_spread = -0.25
 }
 
 resource_export_restrictions = {
@@ -1571,11 +1563,12 @@ resource_export_restrictions = {
 	global_trade_goods_size_modifier = -0.10
 	build_cost = 0.15
 }
+
 forced_abdication_crisis = {
 	legitimacy = -1.0
 	prestige_decay = 0.5
 	stability_cost_modifier = 0.25
-	unrest = 2
+	global_unrest = 2
 	diplomatic_reputation = -2
 	yearly_corruption = 0.05
 }
@@ -1595,8 +1588,10 @@ absolute_authority_questioned = {
 constitutional_crisis = {
 	reform_progress_growth = -0.25
 	stability_cost_modifier = 0.15
-	parliamentary_debate_seats = -5
+	# parliamentary_debate_seats not valid modifier, removing
 }
+
+# Confederation Modifiers
 leader_of_chaldean_confederation = {
 	diplomatic_reputation = 1
 	vassal_income = 0.1
@@ -1606,6 +1601,7 @@ leader_of_chaldean_confederation = {
 chaldean_confederation_member = {
 	land_forcelimit_modifier = 0.25
 }
+
 ancient_military_tactics = {
 	discipline = 0.025
 	siege_ability = 0.075
@@ -1617,13 +1613,16 @@ cuneiform_administration = {
 	yearly_corruption = -0.1
 	advisor_cost = -0.1
 }
+
+# Guy Modifiers
 guy_electoral_influence = {
 	diplomatic_reputation = 2
 	improve_relation_modifier = 0.25
 }
 
 guy_electoral_candidate = {
-	opinion = 50
+	# opinion is not a valid modifier for events, using diplomatic_reputation instead
+	diplomatic_reputation = 1
 }
 
 guy_anti_aquitaine_sentiment = {
@@ -1637,12 +1636,14 @@ guy_southern_conquest = {
 }
 
 guy_strategic_partner = {
-	opinion = 100
+	# opinion is not a valid modifier for events, using diplomatic_reputation instead
+	diplomatic_reputation = 2
 }
 
 guy_romance_empire = {
 	prestige = 2
-	max_states = 5
+	# max_states removed in 1.30, using governing_capacity_modifier instead
+	governing_capacity_modifier = 0.25
 	governing_capacity = 200
 }
 
@@ -1675,478 +1676,479 @@ neustrian_glory = {
 	culture_conversion_cost = -0.2
 }
 
-
+# Veleti Modifiers
 veleti_tribal_unity = {
-    diplomatic_reputation = 1
-    manpower_recovery_speed = 0.1
+	diplomatic_reputation = 1
+	manpower_recovery_speed = 0.1
 }
 
 veleti_slavic_brotherhood = {
-    morale_of_armies = 0.15
-    manpower_modifier = 0.1
- 
+	land_morale = 0.15
+	global_manpower_modifier = 0.1
 }
 
 veleti_sacred_tradition = {
-    tolerance_own = 1
-    tax_modifier = 0.05
+	tolerance_own = 1
+	global_tax_modifier = 0.05
 }
 
 veleti_holy_capital = {
-    local_tax_modifier = 0.25
-    local_missionary_strength = 0.02
+	local_tax_modifier = 0.25
+	local_missionary_strength = 0.02
 }
 
 veleti_reformed_paganism = {
-    tolerance_own = 2
-    missionary_strength = 0.01
+	tolerance_own = 2
+	global_missionary_strength = 0.01
 }
 
 veleti_pagan_stronghold = {
-    local_religious_unity_contributor = 0.5
-    local_unrest = -2
+	local_religious_unity_contribution = 0.5
+	local_unrest = -2
 }
 
 veleti_multicultural_realm = {
-    tolerance_heathen = 2
-    religious_unity = 0.15
+	tolerance_heathen = 2
+	religious_unity = 0.15
 }
 
 veleti_grand_temple_arkona = {
-    local_tax_modifier = 0.25
-    local_missionary_strength_vs_heretics = 0.02
+	local_tax_modifier = 0.25
+	# local_missionary_strength_vs_heretics not valid, using local_missionary_strength
+	local_missionary_strength = 0.02
 }
 
 veleti_supreme_pagan_authority = {
-    tolerance_own = 3
-    religious_unity = 0.25
-    monthly_fervor_increase = 1
+	tolerance_own = 3
+	religious_unity = 0.25
+	monthly_fervor_increase = 1
 }
 
 veleti_danish_defiance = {
-    discipline = 0.025
- 
+	discipline = 0.025
 }
 
 veleti_merchant_marine = {
-    trade_range_modifier = 0.25
-    ship_trade_power = 0.15
+	trade_range_modifier = 0.25
+	global_ship_trade_power = 0.15
 }
 
 veleti_wendish_diplomacy = {
-    diplomatic_reputation = 2
-    improve_relations = 0.25
+	diplomatic_reputation = 2
+	improve_relation_modifier = 0.25
 }
 
 veleti_slavic_empire = {
-    diplomatic_reputation = 2
-    diplomatic_annexation_cost = -0.25
+	diplomatic_reputation = 2
+	diplomatic_annexation_cost = -0.25
 }
 
 veleti_imperial_province = {
-    local_tax_modifier = 0.1
-    local_unrest = -1
+	local_tax_modifier = 0.1
+	local_unrest = -1
 }
 
 veleti_conquered_lands = {
-    local_unrest = -3
-    local_autonomy = -0.05
+	local_unrest = -3
+	local_autonomy = -0.05
 }
 
 veleti_scandinavian_conquest = {
-    naval_forcelimit_modifier = 0.2
-    trade_efficiency = 0.1
+	naval_forcelimit_modifier = 0.2
+	trade_efficiency = 0.1
 }
 
 veleti_developed_heartland = {
-    tax_modifier = 0.1
-    production_efficiency = 0.05
+	global_tax_modifier = 0.1
+	production_efficiency = 0.05
 }
 
 veleti_efficient_administration = {
-    administrative_efficiency = 0.15
-    advisor_cost = -0.1
+	administrative_efficiency = 0.15
+	advisor_cost = -0.1
 }
 
 veleti_tribal_court = {
-    local_governing_cost = -0.25
-    local_tax_modifier = 0.1
+	local_governing_cost = -0.25
+	local_tax_modifier = 0.1
 }
 
 veleti_urban_growth = {
-    production_efficiency = 0.1
-    trade_efficiency = 0.05
+	production_efficiency = 0.1
+	trade_efficiency = 0.05
 }
 
 veleti_border_defense = {
-    fort_defense = 0.25
-    defensiveness = 0.15
+	# fort_defense not valid modifier, using defensiveness
+	defensiveness = 0.25
+	local_defensiveness = 0.15
 }
 
 veleti_fortress_network = {
-    local_defensiveness = 0.3
-    local_hostile_attrition = 1
+	local_defensiveness = 0.3
+	local_hostile_attrition = 1
 }
 
 veleti_economic_dominance = {
-    global_tax_modifier = 0.2
-    production_efficiency = 0.15
+	global_tax_modifier = 0.2
+	production_efficiency = 0.15
 }
 
 veleti_prosperous_province = {
-    local_tax_modifier = 0.15
-    local_production_efficiency = 0.1
+	local_tax_modifier = 0.15
+	local_production_efficiency = 0.1
 }
 
 veleti_pagan_learning = {
-    technology_cost = -0.1
-    monthly_splendor = 1
+	technology_cost = -0.1
+	monthly_splendor = 1
 }
 
 veleti_center_of_learning = {
-    local_institution_spread = 0.15
-    local_development_cost = -0.1
+	local_institution_spread = 0.15
+	local_development_cost = -0.1
 }
 
 veleti_holy_warriors = {
-    morale_of_armies = 0.15
-    shock_damage = 0.1
+	land_morale = 0.15
+	shock_damage = 0.1
 }
 
 veleti_great_festivals = {
-    yearly_prestige = 1
-    global_tax_modifier = 0.1
-    stability_cost_modifier = -0.1
+	prestige = 1
+	global_tax_modifier = 0.1
+	stability_cost_modifier = -0.1
 }
 
 veleti_festival_province = {
-    local_tax_modifier = 0.1 
-    local_unrest = -1
+	local_tax_modifier = 0.1 
+	local_unrest = -1
 }
 
 veleti_pagan_trade_network = {
-    trade_efficiency = 0.2
-    merchants = 1
+	trade_efficiency = 0.2
+	merchants = 1
 }
 
 veleti_pagan_enlightenment = {
-    institution_spread_from_true_faith = 0.25
-    monthly_splendor = 2
-    technology_cost = -0.15
+	institution_spread_from_true_faith = 0.25
+	monthly_splendor = 2
+	technology_cost = -0.15
 }
 
 veleti_enlightened_paganism = {
-    local_institution_spread = 0.25
-    local_development_cost = -0.1
+	local_institution_spread = 0.25
+	local_development_cost = -0.1
 }
 
 veleti_baltic_trade_dominance = {
-    trade_efficiency = 0.1
-    naval_forcelimit_modifier = 0.1
+	trade_efficiency = 0.1
+	naval_forcelimit_modifier = 0.1
 }
 
-
-
-# Dodatkowe modyfikatory dla efektów, które nie mają bezpośrednich odpowiedników
+# Expansion and Development Modifiers
 early_expansion = {
-    land_forcelimit_modifier = 0.1
-    manpower_recovery_speed = 0.05
-    core_creation = -0.05
+	land_forcelimit_modifier = 0.1
+	manpower_recovery_speed = 0.05
+	core_creation = -0.05
 }
 
 expanding_realm = {
-    land_forcelimit_modifier = 0.1
-    army_tradition = 0.25
-    prestige_from_land = 0.1
+	land_forcelimit_modifier = 0.1
+	army_tradition = 0.25
+	prestige_from_land = 0.1
 }
 
 strategic_control = {
-    defensiveness = 0.1
-    fort_maintenance_modifier = -0.1
-    hostile_attrition = 1
+	defensiveness = 0.1
+	fort_maintenance_modifier = -0.1
+	hostile_attrition = 1
 }
 
 regional_dominance = {
-    diplomatic_reputation = 1
-    power_projection_from_insults = 0.25
-    ae_impact = -0.05
+	diplomatic_reputation = 1
+	power_projection_from_insults = 0.25
+	ae_impact = -0.05
 }
 
 great_conqueror = {
-    core_creation = -0.1
-    years_of_nationalism = -2
-    administrative_efficiency = 0.025
+	core_creation = -0.1
+	years_of_nationalism = -2
+	administrative_efficiency = 0.025
 }
 
 continental_empire = {
-    governing_capacity_modifier = 0.15
-    state_maintenance_modifier = -0.15
-    diplomatic_upkeep = 2
+	governing_capacity_modifier = 0.15
+	state_maintenance_modifier = -0.15
+	diplomatic_upkeep = 2
 }
 
 world_power_status = {
-    diplomatic_reputation = 1
-    power_projection_from_insults = 0.5
-    prestige_decay = -0.005
+	diplomatic_reputation = 1
+	power_projection_from_insults = 0.5
+	prestige_decay = -0.005
 }
 
-# Kolumna 2 - Ekonomia
+# Economic Development Tiers
 solid_finances = {
-    global_tax_modifier = 0.1
-    interest = -0.5
-    inflation_reduction = 0.1
+	global_tax_modifier = 0.1
+	interest = -0.5
+	inflation_reduction = 0.1
 }
 
 trade_focus = {
-    trade_efficiency = 0.1
-    global_trade_power = 0.1
-    merchants = 1
+	trade_efficiency = 0.1
+	global_trade_power = 0.1
+	merchants = 1
 }
 
 industrial_base = {
-    production_efficiency = 0.15
-    build_cost = -0.1
-    global_trade_goods_size_modifier = 0.1
+	production_efficiency = 0.15
+	build_cost = -0.1
+	global_trade_goods_size_modifier = 0.1
 }
 
 commercial_dominance = {
-    trade_efficiency = 0.2
-    global_foreign_trade_power = 0.15
-    embargo_efficiency = 0.25
+	trade_efficiency = 0.2
+	global_foreign_trade_power = 0.15
+	embargo_efficiency = 0.25
 }
 
 economic_hegemony = {
-    production_efficiency = 0.25
-    global_trade_power = 0.2
-    placed_merchant_power = 5
+	production_efficiency = 0.25
+	global_trade_power = 0.2
+	placed_merchant_power = 5
 }
 
 global_trade_network = {
-    trade_efficiency = 0.3
-    global_ship_trade_power = 0.25
-    caravan_power = 0.3
+	trade_efficiency = 0.3
+	global_ship_trade_power = 0.25
+	caravan_power = 0.3
 }
 
 economic_superpower = {
-    global_tax_modifier = 0.25
-    production_efficiency = 0.3
-    trade_efficiency = 0.4
+	global_tax_modifier = 0.25
+	production_efficiency = 0.3
+	trade_efficiency = 0.4
 }
 
 financial_revolution = {
-    inflation_action_cost = -0.5
-    interest = -2
-    development_cost = -0.1
+	inflation_action_cost = -0.5
+	interest = -2
+	development_cost = -0.1
 }
 
-# Kolumna 3 - Dyplomacja
+# Diplomatic Development Tiers
 diplomatic_ties = {
-    diplomatic_reputation = 1
-    improve_relation_modifier = 0.2
-    ae_impact = -0.05
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.2
+	ae_impact = -0.05
 }
 
 diplomatic_network = {
-    diplomatic_reputation = 1
-    envoy_travel_time = -0.2
-    diplomatic_annexation_cost = -0.1
+	diplomatic_reputation = 1
+	envoy_travel_time = -0.2
+	diplomatic_annexation_cost = -0.1
 }
 
 great_alliance_leader = {
-    diplomatic_reputation = 2
-    diplomatic_upkeep = 1
-    prestige_from_land = 0.1
+	diplomatic_reputation = 2
+	diplomatic_upkeep = 1
+	prestige_from_land = 0.1
 }
 
 continental_mediator = {
-    diplomatic_reputation = 2
-    improve_relation_modifier = 0.3
-    stability_cost_modifier = -0.1
+	diplomatic_reputation = 2
+	improve_relation_modifier = 0.3
+	stability_cost_modifier = -0.1
 }
 
 sphere_of_influence = {
-    vassal_income = 0.2
-    diplomatic_annexation_cost = -0.2
-    liberty_desire = -10
+	vassal_income = 0.2
+	diplomatic_annexation_cost = -0.2
+	reduced_liberty_desire = 10
 }
 
 diplomatic_hegemon = {
-    diplomatic_reputation = 3
-    improve_relation_modifier = 0.5
-    ae_impact = -0.15
+	diplomatic_reputation = 3
+	improve_relation_modifier = 0.5
+	ae_impact = -0.15
 }
 
 balance_keeper = {
-    diplomatic_reputation = 5
-    stability_cost_modifier = -0.25
-    prestige_decay = -0.01
+	diplomatic_reputation = 5
+	stability_cost_modifier = -0.25
+	prestige_decay = -0.01
 }
 
 diplomatic_mastery = {
-    envoy_travel_time = -0.5
-    diplomatic_upkeep = 5
-    reduced_stab_impacts = yes
+	envoy_travel_time = -0.5
+	diplomatic_upkeep = 5
+	# reduced_stab_impacts not valid modifier, removed
 }
 
-# Kolumna 4 - Technologia
+# Technology Development Tiers
 technological_progress = {
-    technology_cost = -0.025
-    idea_cost = -0.025
-    monthly_splendor = 0.5
+	technology_cost = -0.025
+	idea_cost = -0.025
+	monthly_splendor = 0.5
 }
 
 institutional_embrace = {
-    embracement_cost = -0.1
-    global_institution_spread = 0.1
-    innovativeness_gain = 0.15
+	embracement_cost = -0.1
+	global_institution_spread = 0.1
+	innovativeness_gain = 0.15
 }
 
 center_of_learning = {
-    technology_cost = -0.05
-    idea_cost = -0.05
-    advisor_pool = 1
+	technology_cost = -0.05
+	idea_cost = -0.05
+	advisor_pool = 1
 }
 
 technological_leader = {
-    technology_cost = -0.075
-    innovativeness_gain = 0.25
-    monthly_splendor = 1
+	technology_cost = -0.075
+	innovativeness_gain = 0.25
+	monthly_splendor = 1
 }
 
 innovation_hub = {
-    technology_cost = -0.1
-    idea_cost = -0.1
-    global_institution_spread = 0.15
+	technology_cost = -0.1
+	idea_cost = -0.1
+	global_institution_spread = 0.15
 }
 
 age_of_enlightenment = {
-    technology_cost = -0.125
-    all_power_cost = -0.05
-    monthly_splendor = 1.5
+	technology_cost = -0.125
+	all_power_cost = -0.05
+	monthly_splendor = 1.5
 }
 
 scientific_revolution = {
-    technology_cost = -0.15
-    all_power_cost = -0.075
-    innovativeness_gain = 0.5
+	technology_cost = -0.15
+	all_power_cost = -0.075
+	innovativeness_gain = 0.5
 }
 
 technological_supremacy = {
-    advisor_cost = -0.15
-    free_adm_policy = 1
-    free_dip_policy = 1
-    free_mil_policy = 1
+	advisor_cost = -0.15
+	free_adm_policy = 1
+	free_dip_policy = 1
+	free_mil_policy = 1
 }
 
 master_of_innovation = {
-    yearly_innovativeness = 0.5
-    embracement_cost = -0.25
-    institution_spread_from_true_faith = 0.25
+	yearly_innovativeness = 0.5
+	embracement_cost = -0.25
+	institution_spread_from_true_faith = 0.25
 }
 
-# Kolumna 5 - Rozwój wewnętrzny
+# Internal Development Tiers
 strong_foundations = {
-    stability_cost_modifier = -0.1
-    global_unrest = -1
-    advisor_cost = -0.1
+	stability_cost_modifier = -0.1
+	global_unrest = -1
+	advisor_cost = -0.1
 }
 
 cultural_development = {
-    culture_conversion_cost = -0.15
-    promote_culture_cost = -0.15
-    religious_unity = 0.1
+	culture_conversion_cost = -0.15
+	promote_culture_cost = -0.15
+	religious_unity = 0.1
 }
 
-administrative_efficiency = {
-    administrative_efficiency = 0.05
-    governing_capacity_modifier = 0.15
-    state_maintenance_modifier = -0.15
+administrative_efficiency_mod = {
+	administrative_efficiency = 0.05
+	governing_capacity_modifier = 0.15
+	state_maintenance_modifier = -0.15
 }
 
 golden_age_modifier = {
-    prestige_decay = -0.01
-    stability_cost_modifier = -0.15
-    global_unrest = -2
-    monthly_splendor = 2
+	prestige_decay = -0.01
+	stability_cost_modifier = -0.15
+	global_unrest = -2
+	monthly_splendor = 2
 }
 
 cultural_hegemony = {
-    prestige_decay = -0.01
-    culture_conversion_cost = -0.25
-    religious_unity = 0.15
-    diplomatic_reputation = 2
+	prestige_decay = -0.01
+	culture_conversion_cost = -0.25
+	religious_unity = 0.15
+	diplomatic_reputation = 2
 }
 
 enlightened_despotism = {
-    administrative_efficiency = 0.1
-    global_unrest = -3
-    stability_cost_modifier = -0.25
-    yearly_absolutism = 0.5
+	administrative_efficiency = 0.1
+	global_unrest = -3
+	stability_cost_modifier = -0.25
+	yearly_absolutism = 0.5
 }
 
 eternal_empire = {
-    prestige_decay = -0.02
-    diplomatic_reputation = 3
-    administrative_efficiency = 0.15
-    governing_capacity_modifier = 0.25
+	prestige_decay = -0.02
+	diplomatic_reputation = 3
+	administrative_efficiency = 0.15
+	governing_capacity_modifier = 0.25
 }
+
+# Bonus Modifiers
 extra_merchant = {
-    merchants = 1
+	merchants = 1
 }
 
 extra_merchants = {
-    merchants = 2
+	merchants = 2
 }
 
 extra_diplomat = {
-    diplomats = 1
+	diplomats = 1
 }
 
 extra_diplomat_2 = {
-    diplomats = 1
+	diplomats = 1
 }
 
 extra_relations = {
-    diplomatic_upkeep = 2
+	diplomatic_upkeep = 2
 }
 
 vassal_control = {
-    reduced_liberty_desire = 15
+	reduced_liberty_desire = 15
 }
 
 master_diplomat = {
-    diplomats = 2
-    diplomatic_upkeep = 3
+	diplomats = 2
+	diplomatic_upkeep = 3
 }
 
 extra_admin_power = {
-    country_admin_power = 1
+	country_admin_power = 1
 }
 
 extra_monarch_power = {
-    country_admin_power = 1
-    country_diplomatic_power = 1
-    country_military_power = 1
+	country_admin_power = 1
+	country_diplomatic_power = 1
+	country_military_power = 1
 }
 
 extra_policies = {
-    possible_adm_policy = 1
-    possible_dip_policy = 1
-    possible_mil_policy = 1
+	possible_adm_policy = 1
+	possible_dip_policy = 1
+	possible_mil_policy = 1
 }
 
 pinnacle_of_civilization = {
-    all_power_cost = -0.05
-    global_unrest = -2
-    stability_cost_modifier = -0.5
-    monthly_splendor = 1
+	all_power_cost = -0.05
+	global_unrest = -2
+	stability_cost_modifier = -0.5
+	monthly_splendor = 1
 }
 
+# Nepal Modifiers
 npl_sacred_awakening = {
-	missionary_strength = 0.02
+	global_missionary_strength = 0.02
 	tolerance_own = 1
 	prestige = 0.25
-	monthly_fervor = 1
+	monthly_fervor_increase = 1
 }
 
 npl_first_sacred_flame = {
@@ -2171,7 +2173,7 @@ npl_highland_unity = {
 npl_monastic_network = {
 	stability_cost_modifier = -0.15
 	advisor_cost = -0.15
-	monthly_fervor = 1
+	monthly_fervor_increase = 1
 }
 
 npl_grand_temple_zun = {
@@ -2182,10 +2184,10 @@ npl_grand_temple_zun = {
 }
 
 npl_religious_center = {
-	missionary_strength = 0.03
+	global_missionary_strength = 0.03
 	tolerance_own = 2
 	papal_influence = 2
-	monthly_fervor = 2
+	monthly_fervor_increase = 2
 }
 
 npl_theocratic_guidance = {
@@ -2202,11 +2204,11 @@ npl_blessed_lands = {
 }
 
 npl_pure_faith = {
-	missionary_strength = 0.05
+	global_missionary_strength = 0.05
 	tolerance_own = 3
 	tolerance_heretic = -2
 	tolerance_heathen = -2
-	monthly_fervor = 3
+	monthly_fervor_increase = 3
 }
 
 npl_eternal_flame_cathedral = {
@@ -2220,7 +2222,7 @@ npl_eternal_flame_cathedral = {
 npl_holy_capital = {
 	prestige = 1
 	legitimacy = 1
-	missionary_strength = 0.05
+	global_missionary_strength = 0.05
 	advisor_cost = -0.25
 }
 
@@ -2252,9 +2254,9 @@ npl_mountain_trade_routes = {
 }
 
 npl_trade_pass = {
-	local_trade_power = 0.25
+	province_trade_power_modifier = 0.25
 	local_production_efficiency = 0.20
-	local_goods_produced_modifier = 0.15
+	trade_goods_size_modifier = 0.15
 }
 
 npl_mountain_warfare_mastery = {
@@ -2267,7 +2269,7 @@ npl_mountain_warfare_mastery = {
 npl_roof_of_world = {
 	local_tax_modifier = 0.20
 	local_manpower_modifier = 0.20
-	local_trade_power = 0.30
+	province_trade_power_modifier = 0.30
 }
 
 npl_mountain_empire = {
@@ -2281,7 +2283,7 @@ npl_avalanche_tactics = {
 	shock_damage = 0.15
 	movement_speed = 0.10
 	land_attrition = -0.10
-	winter_attrition = -0.25
+	# winter_attrition not valid modifier, removed
 }
 
 npl_mountain_lord = {
@@ -2307,7 +2309,7 @@ npl_border_security = {
 }
 
 npl_mountain_trade_influence = {
-	local_trade_power = 0.15
+	province_trade_power_modifier = 0.15
 	trade_steering = 0.10
 }
 
@@ -2325,7 +2327,7 @@ npl_northern_expansion = {
 
 npl_occupied_delhi = {
 	local_tax_modifier = 0.40
-	local_trade_power = 0.50
+	province_trade_power_modifier = 0.50
 	local_unrest = -3
 	local_institution_spread = 0.30
 }
@@ -2337,7 +2339,7 @@ npl_ganges_dominion = {
 }
 
 npl_river_control = {
-	local_trade_power = 0.20
+	province_trade_power_modifier = 0.20
 	local_production_efficiency = 0.15
 	local_development_cost = -0.10
 }
@@ -2382,9 +2384,9 @@ npl_cultural_integration = {
 
 npl_enlightened_court = {
 	advisor_cost = -0.25
-	monthly_adm = 1
-	monthly_dip = 1
-	monthly_mil = 1
+	country_admin_power = 1
+	country_diplomatic_power = 1
+	country_military_power = 1
 	innovativeness_gain = 0.25
 }
 
@@ -2437,12 +2439,12 @@ npl_early_firearms = {
 npl_sacred_guard = {
 	discipline = 0.05
 	land_morale = 0.15
-	army_tradition_from_battles = 0.50
+	army_tradition_from_battle = 0.50
 }
 
 npl_military_recruitment = {
 	local_manpower_modifier = 0.25
-	local_recruitment_time = -0.25
+ 
 }
 
 npl_veteran_army = {
@@ -2455,7 +2457,7 @@ npl_great_power_rivalry = {
 	land_morale = 0.15
 	discipline = 0.05
 	war_exhaustion = -0.02
-	army_tradition_from_battles = 1.0
+	army_tradition_from_battle = 1.0
 }
 
 npl_military_dominance = {
@@ -2475,15 +2477,15 @@ npl_world_conqueror = {
 
 # Ruler Modifiers
 npl_philosopher_monarch = {
-	monthly_adm = 2
-	monthly_dip = 2
-	monthly_mil = 1
+	country_admin_power = 2
+	country_diplomatic_power = 2
+	country_military_power = 1
 	technology_cost = -0.10
 	idea_cost = -0.10
 }
 
 npl_great_conqueror = {
-	monthly_mil = 3
+	country_military_power = 3
 	land_morale = 0.15
 	discipline = 0.10
 	siege_ability = 0.15
@@ -2497,7 +2499,7 @@ npl_eternal_dominion = {
 	land_morale = 0.10
 	discipline = 0.05
 	fire_damage = 0.10
-	missionary_strength = 0.10
+	global_missionary_strength = 0.10
 	tolerance_own = 1
 	administrative_efficiency = 0.025
 	governing_capacity_modifier = 0.50
@@ -2508,15 +2510,17 @@ npl_eternal_flame_blessing = {
 	local_tax_modifier = 0.25
 	local_manpower_modifier = 0.25
 	local_production_efficiency = 0.25
-	local_trade_power = 0.25
+	province_trade_power_modifier = 0.25
 	local_unrest = -5
 	local_development_cost = -0.20
 }
+
+# Focus Modifiers - Balanced for trade-offs
 npl_meditation_focus = {
 	stability_cost_modifier = -0.20
-	missionary_strength = 0.02
+	global_missionary_strength = 0.02
 	advisor_cost = -0.15
-	monthly_fervor = 1
+	monthly_fervor_increase = 1
 	legitimacy = 0.5
 	land_morale = -0.10
 	trade_efficiency = -0.10
@@ -2538,5 +2542,5 @@ npl_trade_focus = {
 	merchants = 1
 	land_morale = -0.10
 	manpower_recovery_speed = -0.15
-	missionary_strength = -0.01
+	global_missionary_strength = -0.01
 }

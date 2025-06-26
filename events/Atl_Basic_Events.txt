@@ -456,106 +456,92 @@ province_event = {
 
 
 
-				country_event = {
-					id = atlantropa_basic_event.300
-					title = "atlantropa_basic_event.5.t"
-					desc = "atlantropa_basic_event.5.d"
-					picture = HARBOUR_eventPicture
+					country_event = {
+						id = atlantropa_basic_event.300
+						title = "atlantropa_basic_event.5.t"
+						desc = "atlantropa_basic_event.5.d"
+						picture = HARBOUR_eventPicture
 
-					trigger = {
-						religion = united_christianity
-						has_religious_school = no
-
-					}
-
-					is_triggered_only = yes
-
-					option = {
-						name = "atlantropa_basic_event.6.a"
 						trigger = {
+						always = no
+							religion = united_christianity
+							has_religious_school = no
 
 						}
-					}
-					option = {
-						name = "atlantropa_basic_event.6.a"
-						trigger = {
 
-							capital_scope = { continent = africa }
-							NOT = { culture_group = byzantine }
-							NOT = { culture_group = latin  }
-						}
-						set_religious_school = {
-							group = christian
-							school = alexandria_pentarch
-						}
-					}
-					option = {
-						name = "atlantropa_basic_event.6.a"
-						trigger = {
+						is_triggered_only = yes
 
-							OR = {
-								capital_scope = {  continent = asia }
-								capital_scope = { superregion = eastern_europe_superregion }
-								culture_group = byzantine
+						option = {
+							name = "atlantropa_basic_event.6.a"
+							trigger = {
+
 							}
-							NOT = { culture_group = latin  }
-							NOT = { culture_group = french  }
+						}
+						option = {
+							name = "atlantropa_basic_event.6.a"
+							trigger = {
 
+								capital_scope = { continent = africa }
+								NOT = { culture_group = byzantine }
+								NOT = { culture_group = latin  }
+							}
+						 
 						}
-						set_religious_school = {
-							group = christian
-							school = constantinople_pentarch
-						}
-					}
-					option = {
-						name = "atlantropa_basic_event.6.a"
-						trigger = {
+						option = {
+							name = "atlantropa_basic_event.6.a"
+							trigger = {
 
-							capital_scope = {  continent = asia }
-							NOT = { culture_group = byzantine }
-							NOT = { culture_group = latin  }
-							NOT = { culture_group = french  }
-						}
-						set_religious_school = {
-							group = christian
-							school = antioch_pentarch
-						}
-					}
-					option = {
-						name = "atlantropa_basic_event.6.a"
-						trigger = {
-
-							capital_scope = { continent = asia }
-							NOT = { culture_group = byzantine }
-							NOT = { culture_group = latin  }
-							NOT = { culture_group = french  }
-						}
-						set_religious_school = {
-							group = christian
-							school = jerusalem_pentarch
-						}
-					}
-					option = {
-						name = "atlantropa_basic_event.6.a"
-						trigger = {
-							OR = {
-								NOT = {
-									capital_scope = { 	continent = asia }
-									capital_scope = { 	continent = africa }
+								OR = {
+									capital_scope = {  continent = asia }
+									capital_scope = { superregion = eastern_europe_superregion }
+									culture_group = byzantine
 								}
-								culture_group = latin
-								culture_group = french
+								NOT = { culture_group = latin  }
+								NOT = { culture_group = french  }
+
 							}
-							NOT = { culture_group = byzantine }
+							 
+						}
+						option = {
+							name = "atlantropa_basic_event.6.a"
+							trigger = {
 
+								capital_scope = {  continent = asia }
+								NOT = { culture_group = byzantine }
+								NOT = { culture_group = latin  }
+								NOT = { culture_group = french  }
+							}
+						 
 						}
-						set_religious_school = {
-							group = christian
-							school = rome_pentarch
+						option = {
+							name = "atlantropa_basic_event.6.a"
+							trigger = {
+
+								capital_scope = { continent = asia }
+								NOT = { culture_group = byzantine }
+								NOT = { culture_group = latin  }
+								NOT = { culture_group = french  }
+							}
+						 
 						}
+						option = {
+							name = "atlantropa_basic_event.6.a"
+							trigger = {
+								OR = {
+									NOT = {
+										capital_scope = { 	continent = asia }
+										capital_scope = { 	continent = africa }
+									}
+									culture_group = latin
+									culture_group = french
+								}
+								NOT = { culture_group = byzantine }
+
+							}
+						 
+						}
+
 					}
-
-				}
 
 
 

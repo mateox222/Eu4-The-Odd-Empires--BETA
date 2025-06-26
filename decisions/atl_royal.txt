@@ -347,20 +347,22 @@ country_decisions = {
 	religious_tolerance_edict = {
 		color = { 117 95 25 }
 		potential = {
-			adm_tech = 15
+			adm_tech = 20
 			NOT = { has_country_flag = tolerance_edict_cooldown }
 			religious_unity = 0.5
 		}
 		
 		allow = {
 			treasury = 200
-			stability = 1
+			years_of_income = 1
+			stability = 3
 			NOT = { num_of_rebel_armies = 1 }
 		}
 		
 		effect = {
 			add_treasury = -200
-			add_stability = -1
+			add_years_of_income = -1
+			add_stability = -2
 			add_country_modifier = {
 				name = "religious_harmony"
 				duration = 5475

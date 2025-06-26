@@ -214,7 +214,7 @@ country_event = {
 		is_triggered_only = yes
 trigger = {
 		is_at_war = yes
-		has_mercenaries = yes
+		num_of_mercenaries = 1
 		NOT = { has_country_flag = mercenary_revolt_flag }
 	}
 	
@@ -274,7 +274,7 @@ trigger = {
 	
 	option = {
 		name = generic_war.7.a # Promuj go na generała
-		create_general = yes
+		create_general = { tradition = 25 }	
 		add_army_tradition = -5
 		ai_chance = { factor = 80 }
 	}

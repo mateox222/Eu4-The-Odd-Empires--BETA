@@ -182,7 +182,7 @@ country_event = {
 			name = "traditional_christian_values"
 			duration = 5475
 		}
-		add_religious_unity = 0.1
+ 
 	}
 	
 	option = {
@@ -494,7 +494,7 @@ country_event = {
 		religion = united_christianity
 		has_country_modifier = religious_persecution
 		any_owned_province = {
-			local_unrest = 3
+			 unrest = 3
 		}
 		NOT = { has_country_flag = platonic_persecution }
 	}
@@ -512,7 +512,7 @@ country_event = {
 		ai_chance = { factor = 30 }
 		add_years_of_income = -0.5
 		every_owned_province = {
-			limit = { local_unrest = 3 }
+			limit = {  unrest = 3 }
 			add_unrest = -3
 		}
 		add_country_modifier = {

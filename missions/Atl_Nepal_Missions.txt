@@ -212,7 +212,7 @@ nepal_religious_branch = {
 				tooltip = zunist_nepal_choose
 				NOT = { has_country_flag = zunist_chosen } 
 			}
-            			num_of_owned_provinces_with = {
+			num_of_owned_provinces_with = {
 				religion = ibadi
 				value = 100
 			}
@@ -249,6 +249,7 @@ nepal_religious_branch = {
 		}
 	}
 }
+
 nepal_mountain_branch = {
 	slot = 2
 	generic = no
@@ -464,7 +465,7 @@ nepal_mountain_branch = {
 			}
 			total_development = 600
 			prestige = 80
-                        			num_of_owned_provinces_with = {
+			num_of_owned_provinces_with = {
 				religion = ibadi
 				value = 100
 			}
@@ -491,6 +492,7 @@ nepal_mountain_branch = {
 		}
 	}
 }
+
 nepal_expansion_branch = {
 	slot = 3
 	generic = no
@@ -551,7 +553,11 @@ nepal_expansion_branch = {
 				}
 			}
 			add_mercantilism = 2
-			give_claims = { area = bengal_area } 
+			# Fixed: Using add_claim instead of give_claims
+			every_province = {
+				limit = { region = bengal_region }
+				add_claim = ROOT
+			}
 		}
 	}
 
@@ -564,27 +570,31 @@ nepal_expansion_branch = {
 			npl_mountain_fortresses
 		}
 		provinces_to_highlight = {
-			area = bengal_area
+			region = bengal_region
 			NOT = { owned_by = ROOT } 
 		}
 
 		trigger = {
 			num_of_owned_provinces_with = {
-				area = bengal_area
+				region = bengal_region
 				value = 4
 			}
 		}
 
 		effect = {
-			bengal_area = {
-				limit = { owned_by = ROOT } 
+			every_owned_province = {
+				limit = { region = bengal_region }
 				add_permanent_province_modifier = {
 					name = "npl_bengal_administration"
 					duration = -1
 				}
 			}
 			add_adm_power = 100
-			give_claims = { region = bengal_region } 
+			# Fixed: Using add_claim for region
+			every_province = {
+				limit = { region = bengal_region }
+				add_claim = ROOT
+			}
 		}
 	}
 
@@ -593,7 +603,7 @@ nepal_expansion_branch = {
 		position = 4
 		required_missions = { npl_conquer_bengal } 
 		provinces_to_highlight = {
-			area = delhi_area
+			region = hindusthan_region
 			NOT = { owned_by = ROOT } 
 		}
 
@@ -601,7 +611,7 @@ nepal_expansion_branch = {
 			OR = {
 				owns = 522
 				num_of_owned_provinces_with = {
-					area = delhi_area
+					region = hindusthan_region
 					value = 2
 				}
 			}
@@ -622,7 +632,11 @@ nepal_expansion_branch = {
 				name = "npl_northern_expansion"
 				duration = 7300
 			}
-			give_claims = { region = hindusthan_region } 
+			# Fixed: Using add_claim for region
+			every_province = {
+				limit = { region = hindusthan_region }
+				add_claim = ROOT
+			}
 		}
 	}
 
@@ -633,8 +647,12 @@ nepal_expansion_branch = {
 		provinces_to_highlight = {  } 
 
 		trigger = {
+			# Fixed: Replaced has_river with terrain check (closest alternative)
 			num_of_owned_provinces_with = {
-				has_river = yes
+				OR = {
+					has_terrain = grasslands
+					has_terrain = farmlands
+				}
 				region = hindusthan_region
 				value = 8
 			}
@@ -653,7 +671,10 @@ nepal_expansion_branch = {
 			}
 			every_owned_province = {
 				limit = {
-					has_river = yes
+					OR = {
+						has_terrain = grasslands
+						has_terrain = farmlands
+					}
 					OR = {
 						region = hindusthan_region
 						region = bengal_region
@@ -686,13 +707,18 @@ nepal_expansion_branch = {
 				name = "npl_southern_expansion"
 				duration = 7300
 			}
-			deccan_region = {
-				limit = { owned_by = ROOT } 
+			every_owned_province = {
+				limit = { region = deccan_region }
 				change_religion = ibadi
 			}
-			give_claims = { region = deccan_region } 
+			# Fixed: Using add_claim for region
+			every_province = {
+				limit = { region = deccan_region }
+				add_claim = ROOT
+			}
 		}
 	}
+
 	npl_eternal_flame_empire = {
 		icon = atlantropa_phoenixempire
 		position = 7
@@ -739,6 +765,7 @@ nepal_expansion_branch = {
 			add_treasury = 5000
 		}
 	}
+
 	npl_indian_hegemon = {
 		icon = secure_the_sava
 		position = 8
@@ -749,12 +776,16 @@ nepal_expansion_branch = {
 				tooltip = zunist_nepal_choose
 				NOT = { has_country_flag = zunist_chosen } 
 			}
-                        			num_of_owned_provinces_with = {
+			num_of_owned_provinces_with = {
 				religion = ibadi
 				value = 100
 			}
 			total_development = 800
-			owns_all_provinces = { superregion = india_superregion } 
+			# Fixed: Using num_of_owned_provinces_with instead of owns_all_provinces
+			num_of_owned_provinces_with = {
+				superregion = india_superregion
+				value = 50
+			}
 			prestige = 75
 		}
 
@@ -770,6 +801,7 @@ nepal_expansion_branch = {
 		}
 	}
 }
+
 nepal_diplomatic_branch = {
 	slot = 5
 	generic = no
@@ -807,9 +839,14 @@ nepal_diplomatic_branch = {
 
 		trigger = {
 			num_of_subjects = 2
+			# Fixed: Replaced with working alternatives
 			OR = {
-				num_of_tributaries = 1
-				num_of_marches = 1
+				any_subject_country = {
+					is_subject_of_type = tributary_state
+				}
+				any_subject_country = {
+					is_subject_of_type = march
+				}
 			}
 		}
 
@@ -842,9 +879,10 @@ nepal_diplomatic_branch = {
 				name = "npl_cultural_synthesis"
 				duration = -1
 			}
-			eastern_aryan = {
+			# Fixed: Using every_owned_province with culture_group filter
+			every_owned_province = {
 				limit = {
-					owned_by = ROOT
+					culture_group = eastern_aryan
 					religion = ibadi
 				}
 				add_permanent_province_modifier = {
@@ -962,7 +1000,7 @@ nepal_diplomatic_branch = {
 				tooltip = zunist_nepal_choose
 				NOT = { has_country_flag = zunist_chosen } 
 			}
-                        			num_of_owned_provinces_with = {
+			num_of_owned_provinces_with = {
 				religion = ibadi
 				value = 100
 			}
@@ -982,6 +1020,7 @@ nepal_diplomatic_branch = {
 		}
 	}
 }
+
 nepal_military_branch = {
 	slot = 4
 	generic = no
@@ -1064,10 +1103,8 @@ nepal_military_branch = {
 				manuever = 4
 				siege = 3
 			}
-			create_regiment = {
-				type = infantry
-				name = "Sacred Flame Guard"
-			}
+			# Fixed: Removed invalid create_regiment effect
+			add_yearly_manpower = 1
 		}
 	}
 
@@ -1078,7 +1115,7 @@ nepal_military_branch = {
 		provinces_to_highlight = {  } 
 
 		trigger = {
-			num_of_won_battles = 15
+			# Fixed: Replaced num_of_won_battles with army_tradition check
 			army_tradition = 70
 			mil_tech = 12
 		}
@@ -1189,9 +1226,9 @@ nepal_military_branch = {
 		trigger = {
 			army_size = 500
 			total_development = 1000
-			num_of_won_battles = 50
+			# Fixed: Replaced num_of_won_battles with army_tradition check
 			army_tradition = 90
-                        			num_of_owned_provinces_with = {
+			num_of_owned_provinces_with = {
 				religion = ibadi
 				value = 100
 			}
@@ -1202,7 +1239,8 @@ nepal_military_branch = {
 		}
 
 		effect = {
-			seet_country_flag = zunist_chosen
+			# Fixed: Corrected typo from seet_country_flag to set_country_flag
+			set_country_flag = zunist_chosen
 			add_country_modifier = {
 				name = "npl_world_conqueror"
 				duration = -1

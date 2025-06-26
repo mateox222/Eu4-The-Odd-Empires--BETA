@@ -1,6 +1,5 @@
 increased_security = {
-	spy_defence = 0.15
-	global_spy_defence = 0.10
+	global_spy_defence = 0.25
 }
 
 delayed_equipment = {
@@ -20,11 +19,11 @@ improved_logistics = {
 
 foraging_army = {
 	land_attrition = -0.10
-	devastation = 0.05
+	global_monthly_devastation = 0.05
 }
-
-# Two Crowns Faction Event Modifiers
-
+administrative_efficiency = {
+	administrative_efficiency = 0.05
+}
 pol_administrative_reform = {
 	administrative_efficiency = 0.05
 	nobles_influence_modifier = -0.15
@@ -141,6 +140,7 @@ pol_military_intervention = {
 	max_absolutism = 20
 	nobles_influence_modifier = -0.40
 }
+
 pol_magnate_regency = {
 	nobles_loyalty_modifier = 0.25
 	global_autonomy = 0.08
@@ -148,7 +148,17 @@ pol_magnate_regency = {
 	global_tax_modifier = -0.25
 	max_absolutism = -25
 }
+absolutism_boost = {
+	max_absolutism = 10
+}
+religious_turmoil = {
+	global_unrest = 4
+}
+recently_developed_province = {}
 
+apex_of_assyrian_civilization = {
+	prestige = 1
+}
 pol_royal_resistance = {
 	global_unrest = 4
 	legitimacy = 1
@@ -224,7 +234,7 @@ pol_bought_merchants = {
 }
 
 pol_merchant_capital = {
-	local_trade_power = 0.30
+	province_trade_power_modifier = 0.30
 	trade_value_modifier = 0.25
 	local_production_efficiency = 0.020
 	local_development_cost = -0.15
@@ -248,6 +258,7 @@ pol_civilian_control = {
 	administrative_efficiency = 0.025
 	army_tradition_decay = 0.01
 }
+
 kri_crystal_heart_awakening = {
 	local_development_cost = -0.1
 	local_tax_modifier = 0.15
@@ -318,8 +329,8 @@ kri_fog_masters = {
 }
 
 kri_atlantean_blood = {
-	land_leader_shock = 1
-	naval_leader_fire = 1
+	leader_land_shock = 1
+	leader_naval_fire = 1
 	prestige_decay = -0.01
 }
 
@@ -331,7 +342,7 @@ kri_legend_awakens = {
 
 kri_atlantic_mastery = {
 	colonists = 1
-	colonial_range = 0.25
+	range = 0.25
 	global_colonial_growth = 15
 }
 
@@ -355,13 +366,13 @@ kri_crystal_prosperity = {
 
 kri_awakened_stone = {
 	local_missionary_strength = 0.03
-	local_religious_unity_contributor = 0.1
+	local_religious_unity_contribution = 0.1
 	local_unrest = -1
 }
 
 kri_sacred_network = {
 	religious_unity = 0.25
-	missionary_strength = 0.03
+	global_missionary_strength = 0.03
 	tolerance_own = 2
 }
 
@@ -386,8 +397,8 @@ kri_far_sight = {
 kri_new_wisdom = {
 	advisor_cost = -0.15
 	advisor_pool = 2
-	monthly_adm = 1
-	monthly_dip = 1
+	country_admin_power = 1
+	country_diplomatic_power = 1
 }
 
 kri_atlantean_restoration = {
@@ -409,6 +420,7 @@ kri_albion_conquest = {
 	land_morale = 0.1
 	siege_ability = 0.15
 }
+
 kri_crystal_might = {
 	land_morale = 0.15
 	discipline = 0.05
@@ -430,7 +442,7 @@ kri_celtic_brotherhood = {
 kri_irish_integration = {
 	diplomatic_annexation_cost = -0.15
 	culture_conversion_cost = -0.25
-	accepted_culture_threshold = -0.1
+	num_accepted_cultures = 1
 }
 
 kri_cultural_dominance = {
@@ -458,12 +470,12 @@ kri_colonial_wisdom = {
 
 kri_western_calling = {
 	colonists = 1
-	colonial_range = 0.5
+	range = 0.5
 	treasure_fleet_income = 0.25
 }
 
 kri_ancient_paths = {
-	local_movement_speed = 0.25
+	local_friendly_movement_speed = 0.25
 	local_defensiveness = 0.2
 	local_missionary_strength = 0.02
 }
@@ -499,7 +511,7 @@ kri_eternal_blessing = {
 
 celtic_sacred_grove = {
 	local_missionary_strength = 0.05
-	local_religious_unity_contributor = 0.2
+	local_religious_unity_contribution = 0.2
 	local_unrest = -1
 }
 
@@ -538,7 +550,6 @@ celtic_monastic_school = {
 	local_institution_spread = 0.25
 }
 
-# Cultural & Social Modifiers
 celtic_bardic_tradition = {
 	prestige = 0.5
 	diplomatic_reputation = 1
@@ -548,7 +559,7 @@ celtic_bardic_tradition = {
 celtic_clan_unity = {
 	land_morale = 0.1
 	manpower_recovery_speed = 0.1
-	national_unrest = -1
+	global_unrest = -1
 }
 
 celtic_warrior_spirit = {
@@ -563,9 +574,8 @@ celtic_kinship_ties = {
 	ae_impact = -0.05
 }
 
-# Economic & Trade Modifiers
 celtic_cattle_fair = {
-	local_trade_goods_size_modifier = 0.25
+	trade_goods_size_modifier = 0.25
 	local_production_efficiency = 0.1
 }
 
@@ -585,7 +595,6 @@ celtic_amber_routes = {
 	trade_efficiency = 0.15
 }
 
-# Military & Warfare Modifiers
 celtic_fianna_tradition = {
 	land_morale = 0.1
 	shock_damage = 0.05
@@ -599,9 +608,9 @@ celtic_hill_fort = {
 }
 
 celtic_highland_defense = {
-	fort_defense = 0.15
+	local_defensiveness = 0.15
 	hostile_attrition = 1
-	movement_speed_in_friendly_territory = 0.1
+ 
 }
 
 celtic_galloglass_levy = {
@@ -610,7 +619,6 @@ celtic_galloglass_levy = {
 	mercenary_cost = -0.15
 }
 
-# Political & Diplomatic Modifiers
 celtic_tanistry_law = {
 	legitimacy = -0.5
 	heir_chance = -0.1
@@ -618,7 +626,6 @@ celtic_tanistry_law = {
 	all_estate_loyalty_equilibrium = 0.05
 }
 
-# Exploration & Knowledge Modifiers
 celtic_sea_legends = {
 	naval_morale = 0.1
 	trade_range_modifier = 0.15
@@ -636,3 +643,225 @@ celtic_stone_circle = {
 	local_unrest = -2
 	local_institution_spread = 0.3
 }
+
+prj_cultural_center = {
+	local_development_cost = -0.15
+	local_institution_spread = 0.25
+	local_missionary_strength = 0.02
+}
+
+prj_pristav_integration = {
+	discipline = 0.05
+	land_morale = 0.1
+	ae_impact = -0.1
+}
+
+prj_pannonian_hegemony = {
+	diplomatic_reputation = 2
+	stability_cost_modifier = -0.15
+	num_accepted_cultures = 1
+}
+
+prj_pannonian_administration = {
+	local_unrest = -2
+	local_tax_modifier = 0.15
+	local_manpower_modifier = 0.1
+}
+
+prj_cultural_revival = {
+	culture_conversion_cost = -0.25
+	religious_unity = 0.25
+	monthly_splendor = 2
+}
+
+prj_state_stability = {
+	stability_cost_modifier = -0.2
+	global_unrest = -1
+	legitimacy = 1
+}
+
+prj_independence_spirit = {
+	land_morale = 0.15
+	fort_maintenance_modifier = -0.25
+	hostile_attrition = 2
+}
+
+prj_silesian_riches = {
+	global_trade_goods_size_modifier = 0.1
+	production_efficiency = 0.15
+	inflation_reduction = 0.05
+}
+
+prj_vistula_dominance = {
+	land_forcelimit_modifier = 0.2
+	army_tradition_decay = -0.01
+	manpower_recovery_speed = 0.15
+}
+
+prj_baltic_trade_control = {
+	trade_efficiency = 0.15
+	naval_forcelimit_modifier = 0.25
+	light_ship_cost = -0.2
+}
+
+prj_baltic_port = {
+	local_ship_cost = -0.25
+	local_sailors_modifier = 0.5
+	province_trade_power_modifier = 0.25
+}
+
+prj_great_ruthenian_empire = {
+	diplomatic_reputation = 3
+	prestige_decay = -0.01
+	land_forcelimit_modifier = 0.25
+	naval_forcelimit_modifier = 0.25
+	all_power_cost = -0.05
+}
+
+prj_imperial_administration = {
+	local_autonomy = -0.1
+	local_tax_modifier = 0.1
+	local_manpower_modifier = 0.1
+}
+
+prj_austrian_conquest = {
+	land_morale = 0.1
+	prestige = 1
+}
+
+prj_alpine_dominance = {
+	movement_speed = 0.15
+	siege_ability = 0.1
+	hostile_attrition = 1
+}
+
+prj_alpine_crossing_glory = {
+	army_tradition = 1
+	prestige = 1
+	land_morale = 0.05
+}
+
+prj_italian_dominance = {
+	diplomatic_reputation = 1
+	trade_efficiency = 0.1
+	mercantilism_cost = -0.25
+}
+
+prj_ecclesiastical_infrastructure = {
+	stability_cost_modifier = -0.1
+	tolerance_own = 2
+	global_missionary_strength = 0.02
+}
+
+prj_religious_diplomacy = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.25
+	papal_influence = 2
+}
+
+prj_religious_zealotry = {
+	global_missionary_strength = 0.03
+	tolerance_own = 2
+	tolerance_heretic = -1
+}
+
+prj_guardian_of_faith = {
+	global_missionary_strength = 0.02
+	prestige = 1
+	papal_influence = 3
+}
+
+prj_trade_network = {
+	trade_efficiency = 0.1
+	caravan_power = 0.2
+	merchants = 1
+}
+
+prj_mining_boom = {
+	production_efficiency = 0.2
+	global_trade_goods_size_modifier = 0.05
+	global_tax_income = 5
+}
+
+prj_proto_industrialization = {
+	production_efficiency = 0.15
+	technology_cost = -0.05
+	global_tax_income = 8
+}
+
+prj_industrial_efficiency = {
+	local_production_efficiency = 0.2
+	local_development_cost = -0.1
+}
+
+prj_economic_hegemony = {
+	global_tax_modifier = 0.15
+	interest = -1
+	inflation_reduction = 0.1
+}
+guy_belgian_poetry = {
+	diplomatic_reputation = 1
+	advisor_cost = -0.05
+}
+
+guy_merchant_guilds = {
+	trade_efficiency = 0.1
+	global_trade_power = 0.05
+}
+celtic_galloglass_cooldown = {}
+veleti_slavic_relations_bonus = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.15
+	relation_with_same_culture_group = 10
+}
+
+kri_hidden_harbors = {
+	privateer_efficiency = 0.15
+	naval_attrition = -0.1
+	blockade_efficiency = 0.1
+}
+
+nestorian_ecumenical_church = {
+	tolerance_heretic = 1
+	diplomatic_reputation = 1
+	global_missionary_strength = 0.02
+}
+
+patriarchal_authority = {
+	papal_influence = 1
+	legitimacy = 0.5
+	stability_cost_modifier = -0.1
+}
+
+restored_assyrian_empire = {
+	prestige = 1
+	legitimacy = 1
+	administrative_efficiency = 0.05
+	land_forcelimit_modifier = 0.15
+}
+
+united_nestorian_church = {
+	religious_unity = 0.15
+	global_missionary_strength = 0.02
+	tolerance_own = 1
+	papal_influence = 2
+}
+
+silk_road_monopoly = {
+	trade_efficiency = 0.15
+	caravan_power = 0.25
+	global_trade_power = 0.1
+	production_efficiency = 0.1
+}
+
+celtic_amber_expedition_cooldown = {}
+celtic_clan_gathering_cooldown = {}
+npl_sacred_pilgrimage_site = {
+	local_tax_modifier = 0.15
+	local_missionary_strength = 0.02
+	prestige = 0.25
+	papal_influence = 0.5
+}
+
+celtic_peace_ritual_cooldown = {}
+celtic_voyage_cooldown = {}

@@ -140,7 +140,7 @@ A2R_missions_1 = {
 		trigger = {
 			OR = {
 				has_great_project = {
-					type = pyramids_of_giza
+					type = pyramid_of_cheops
 					tier = 3
 				}
 				num_of_owned_provinces_with = {
@@ -661,10 +661,7 @@ A2R_missions_5 = {
 			legitimacy_equivalent = 90
 			has_heir = yes
 			heir_claim = 80
-			if = {
-				limit = { has_dlc = "Rights of Man" } 
-				dynasty_prestige = 50
-			}
+		 
 		}
 
 		effect = {
@@ -742,15 +739,15 @@ A2R_missions_5 = {
 			}
 			capital_scope = {
 				if = {
-					limit = { NOT = { has_great_project = { type = pyramids_of_giza }  }  } 
+					limit = { NOT = { has_great_project = { type = pyramid_of_cheops }  }  } 
 					add_great_project = {
-						type = pyramids_of_giza
+						type = pyramid_of_cheops
 						instant = yes
 					}
 				}
 				else = {
 					add_great_project_tier = {
-						type = pyramids_of_giza
+						type = pyramid_of_cheops
 						tier = 1
 					}
 				}
