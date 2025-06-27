@@ -214,9 +214,8 @@ ASY_column_1 = {
 
 		trigger = {
 			OR = {
-				army_size = EGY
-				NOT = { exists = EGY } 
-				syria_area = {
+				army_size = 100
+				egypt_region = {
 					type = all
 					country_or_non_sovereign_subject_holds = ROOT
 				}
@@ -228,6 +227,13 @@ ASY_column_1 = {
 			add_country_modifier = {
 				name = "assyrian_imperial_ambition"
 				duration = -1
+			}
+						egypt_region = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
 			}
 			palestine_area = {
 				limit = {

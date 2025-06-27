@@ -1,0 +1,705 @@
+country_decisions = {
+	pahlagonian_ultimatum = {
+                color = { 121  37  130 }
+	major = yes
+		potential = { 
+			tag = A52
+			
+			has_global_flag = pahlagonianultimatumglobalflag
+			exists = CND
+			NOT = { has_country_flag = paphlagoniawillanswer }
+		}
+		allow = {
+		army_size = 20
+		owns_core_province = 325
+}
+		effect = {
+		CND = {
+		country_event = { 
+		id = nikean_empire.6
+}}
+		set_country_flag = paphlagoniawillanswer
+}
+		ai_will_do = {
+			factor = 1
+}
+}
+	mesotopolis_ultimatum = {
+	major = yes
+		potential = { 
+			tag = A52
+			has_global_flag = pahlagonianultimatumglobalflag
+			exists = TU2
+			NOT = { has_country_flag = paphlagoniawillanswer }
+		}
+		allow = {
+		army_size = 20
+		owns_core_province = 2348
+}
+		effect = {
+		TU2 = {
+		country_event = { 
+		id = nikean_empire.8
+}}
+		set_country_flag = paphlagoniawillanswer
+}
+ai_will_do = {
+	factor = 1
+}
+}
+
+
+Byzantinevarnagiaguarddec = {
+            color = { 121  37  130 }
+major = yes
+potential = {
+		has_country_flag = varnagiaguard
+        NOT = { has_country_flag = varnagiaguard2 }
+	}
+		allow = {
+	stability = 1
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 4977
+}
+		effect = {
+            custom_tooltip = varnagiatooltip
+		add_prestige = 5
+        					add_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = -10
+				}
+                set_country_flag = varnagiaguard2
+
+}
+		ai_will_do = {
+			factor = 1
+}
+}
+	deport_hungarians = {
+        color = { 121  37  130 }
+		potential = {
+            OR = {
+            tag = BYZ
+            tag = A52
+            tag = LAE
+            }
+               any_owned_province = {
+	OR = {
+        culture = turkic
+        culture = second_turkish
+    }
+}
+		}
+		allow = {
+			dip_power = 100
+            NOT = { has_country_modifier = hungdeport
+        }
+		}
+		effect = {
+            add_country_modifier = { 
+                name = hungdeport
+                duration = 3600
+            }
+           random_owned_province = {
+    limit = { 
+        culture = second_turkish
+
+     }
+   change_culture = anatolian
+   change_religion = ROOT
+   add_dip_power = -100	
+   add_base_tax = -1	
+   add_base_production = -1	
+   add_base_manpower = -1	
+   add_devastation = 10	
+}
+}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	atl_nicene_advisor = {
+                color = { 121  37  130 }
+	major = yes
+		potential = { 
+			OR = {
+			tag = A52
+			tag = BYZ
+			}
+			NOT = { has_ruler_flag = advisorrecrutibyz }
+		}
+		allow = {
+		years_of_income = 0.4
+		legitimacy = 10
+
+}
+		effect = {
+			add_years_of_income = -0.4
+			add_legitimacy = -10
+		define_advisor = {
+    type = addadministrator4byz_tod
+    skill = 3
+    discount = yes
+    culture = ROOT
+}
+		set_ruler_flag = advisorrecrutibyz
+}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 1
+				years_of_income = 2
+			}
+		}
+
+}
+
+
+drift_europeans_port_byz = {
+      color = { 121  37  130 }
+	major = yes
+		potential = { 
+			OR = {
+			NOT = {
+				tag = VEN
+			}
+			NOT = {
+				tag = X44
+			}
+			}
+			owns_core_province = 151
+			NOT = { has_global_flag = WENECJANIEWYJEBANI }
+		}
+		allow = {
+			owns_core_province = 151
+			GEN = {
+NOT = { 
+	num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+	value = 0
+	region = balkan_region
+}}}
+VEN = {
+NOT = { 
+	num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+	value = 0
+	region = balkan_region
+}}}
+X44 = {
+NOT = { 
+	num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+	value = 0
+	region = balkan_region
+}}}
+}
+		effect = {
+			set_global_flag = WENECJANIEWYJEBANI
+			add_years_of_income = 1
+			151 = {
+				remove_province_modifier = atlantropa_genoese_port
+				remove_province_modifier = atlantropa_venice_port
+			}
+}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+}
+
+}
+
+
+country_decisions = {
+
+	# Organize Public Games - Organizacja igrzysk publicznych
+	organize_public_games = {
+		color = { 121 37 130 }
+		
+		potential = {
+			OR = {
+				tag = BYZ
+				tag = A52
+				tag = TRE
+			}
+			owns_core_province = 151	# Constantinople
+			NOT = { has_ruler_flag = public_games_cooldown }
+		}
+		
+		allow = {
+			years_of_income = 0.5
+			adm_power = 50
+			NOT = { war_exhaustion = 5 }
+		}
+		
+		effect = {
+			add_years_of_income = -0.5
+			add_adm_power = -50
+			add_prestige = 5
+			capital_scope = {
+				add_unrest = -2
+			}
+			add_government_power = {
+				mechanic_type = nikaeanbyzantine_mechanic
+				power_type = byz_adm_power
+				value = -10
+			}
+			set_ruler_flag = public_games_cooldown
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 3
+				has_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = 30
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 1.5 }
+			}
+			
+		}
+	}
+
+	# Imperial Procession - Cesarska procesja
+	imperial_procession = {
+		color = { 121 37 130 }
+		
+		potential = {
+			OR = {
+				tag = BYZ
+				tag = A52
+				tag = TRE
+			}
+			NOT = { has_ruler_flag = distribute_grain_cooldown }
+		}
+		
+		allow = {
+			years_of_income = 0.4
+			legitimacy = 50
+			NOT = { war_exhaustion = 3 }
+		}
+		
+		effect = {
+			add_years_of_income = -0.4
+			add_legitimacy = 5
+			add_prestige = 3
+			random_owned_province = {
+				limit = { unrest = 1 }
+				add_unrest = -1
+			}
+			add_government_power = {
+				mechanic_type = nikaeanbyzantine_mechanic
+				power_type = byz_adm_power
+				value = -8
+			}
+			set_ruler_flag = distribute_grain_cooldown
+
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				has_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = 25
+				}
+			}
+
+		}
+	}
+
+	# Distribute Grain to the People - Rozdawanie zboża ludowi
+	distribute_grain = {
+		color = { 121 37 130 }
+		
+		potential = {
+			OR = {
+				tag = BYZ
+				tag = A52
+				tag = TRE
+			}
+			NOT = { has_ruler_flag = military_parade_cooldown }
+		}
+		
+		allow = {
+			years_of_income = 0.25
+			NOT = { inflation = 5 }
+		}
+		
+		effect = {
+			add_years_of_income = -0.25
+			add_years_of_income = 0.1
+			capital_scope = {
+				add_unrest = -1
+			}
+			add_government_power = {
+				mechanic_type = nikaeanbyzantine_mechanic
+				power_type = byz_adm_power
+				value = -5
+			}
+			set_ruler_flag = military_parade_cooldown
+ 
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				capital_scope = { unrest = 2 }
+			}
+
+		}
+	}
+
+	# Send Diplomatic Missions - Wysyłanie misji dyplomatycznych
+	send_diplomatic_missions = {
+		color = { 121 37 130 }
+		
+		potential = {
+			OR = {
+				tag = BYZ
+				tag = A52
+				tag = TRE
+			}
+			NOT = { has_ruler_flag = emergency_taxation_cooldown }
+		}
+		
+		allow = {
+			dip_power = 75
+			years_of_income = 0.5
+			NOT = { num_of_enemies = 3 }
+		}
+		
+		effect = {
+			add_dip_power = -75
+			add_years_of_income = -0.5
+			add_prestige = 5
+			set_ruler_flag = emergency_taxation_cooldown
+			random_known_country = {
+				limit = { 
+					NOT = { war_with = ROOT }
+					NOT = { alliance_with = ROOT }
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = diplomatic_mission
+				}
+			}
+			add_government_power = {
+				mechanic_type = nikaeanbyzantine_mechanic
+				power_type = byz_adm_power
+				value = -5
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 1.5 }
+			}
+		}
+	}
+
+	# Enforce Religious Orthodoxy - Egzekwowanie ortodoksji religijnej
+	enforce_orthodoxy = {
+		color = { 121 37 130 }
+		
+		potential = {
+			OR = {
+				tag = BYZ
+				tag = A52
+				tag = TRE
+			}
+			religion = orthodox
+			NOT = { has_ruler_flag = enforce_orthodoxy_cooldown }
+		}
+		
+		allow = {
+			adm_power = 100
+			religious_unity = 0.8
+		}
+		
+		effect = {
+			add_adm_power = -100
+			add_legitimacy = 3
+			random_owned_province = {
+				limit = { 
+					NOT = { religion = orthodox }
+					NOT = { has_province_modifier = "forced_conversion" }
+				}
+				add_province_modifier = {
+					name = "forced_conversion"
+					duration = 1825
+				}
+			}
+			add_government_power = {
+				mechanic_type = nikaeanbyzantine_mechanic
+				power_type = byz_adm_power
+				value = 5
+			}
+			set_ruler_flag = enforce_orthodoxy_cooldown
+ 
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				religious_unity = 0.95
+			}
+		}
+	}
+
+	# Military Parade - Parada wojskowa
+	military_parade = {
+		color = { 121 37 130 }
+		
+		potential = {
+			OR = {
+				tag = BYZ
+				tag = A52
+				tag = TRE
+			}
+			NOT = { has_ruler_flag = military_parade_cooldown2 }
+		}
+		
+		allow = {
+			mil_power = 75
+			army_tradition = 20
+			manpower_percentage = 0.5
+		}
+		
+		effect = {
+			add_mil_power = -75
+			add_army_tradition = 2
+			add_prestige = 3
+			capital_scope = {
+				add_unrest = -1
+			}
+			add_government_power = {
+				mechanic_type = nikaeanbyzantine_mechanic
+				power_type = byz_adm_power
+				value = -7
+			}
+			set_ruler_flag = military_parade_cooldown2
+ 
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				army_tradition = 50
+			}
+		}
+	}
+
+	# Consult the Patriarch - Konsultacja z Patriarchą
+	consult_patriarch = {
+		color = { 121 37 130 }
+		
+		potential = {
+			OR = {
+				tag = BYZ
+				tag = A52
+				tag = TRE
+			}
+			religion = orthodox
+			NOT = { has_ruler_flag = consult_patriarch_cooldown }
+		}
+		
+		allow = {
+			dip_power = 50
+			NOT = { patriarch_authority = 0.9 }
+		}
+		
+		effect = {
+			add_dip_power = -50
+			add_patriarch_authority = 0.1
+			add_legitimacy = 2
+			add_government_power = {
+				mechanic_type = nikaeanbyzantine_mechanic
+				power_type = byz_adm_power
+				value = -3
+			}
+			set_ruler_flag = consult_patriarch_cooldown
+ 
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				patriarch_authority = 0.8
+			}
+		}
+	}
+
+	# Suppress Rival Factions - Tłumienie rywalizujących frakcji
+	suppress_rival_factions = {
+		color = { 121 37 130 }
+		
+		potential = {
+			OR = {
+				tag = BYZ
+				tag = A52
+				tag = TRE
+			}
+			has_government_power = {
+				mechanic_type = nikaeanbyzantine_mechanic
+				power_type = byz_adm_power
+				value = 40
+			}
+			NOT = { has_ruler_flag = suppress_factions_cooldown }
+		}
+		
+		allow = {
+			mil_power = 100
+			has_government_power = {
+				mechanic_type = nikaeanbyzantine_mechanic
+				power_type = byz_adm_power
+				value = 40
+			}
+		}
+		
+		effect = {
+			add_mil_power = -100
+			add_legitimacy = 5
+			random_list = {
+				60 = {
+					add_government_power = {
+						mechanic_type = nikaeanbyzantine_mechanic
+						power_type = byz_adm_power
+						value = -20
+					}
+				}
+				40 = {
+					add_government_power = {
+						mechanic_type = nikaeanbyzantine_mechanic
+						power_type = byz_adm_power
+						value = -10
+					}
+					add_unrest = 2
+				}
+			}
+			set_ruler_flag = suppress_factions_cooldown
+ 
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 5
+				has_government_power = {
+					mechanic_type = nikaeanbyzantine_mechanic
+					power_type = byz_adm_power
+					value = 60
+				}
+			}
+		}
+	}
+
+	# Reform Provincial Administration - Reforma administracji prowincjonalnej
+	reform_administration = {
+		color = { 121 37 130 }
+		
+		potential = {
+			OR = {
+				tag = BYZ
+				tag = A52
+				tag = TRE
+				NOT = { has_ruler_flag = military_add2 }
+			}
+		}
+		
+		allow = {
+			adm_power = 125
+			years_of_income = 0.75
+			stability = 1
+		}
+		
+		effect = {
+			set_ruler_flag = military_add2
+			add_adm_power = -125
+			add_years_of_income = -0.75
+			random_owned_province = {
+				limit = { NOT = { has_province_modifier = "reformed_administration" } }
+				add_province_modifier = {
+					name = "reformed_administration"
+					duration = 3650
+				}
+			}
+			add_government_power = {
+				mechanic_type = nikaeanbyzantine_mechanic
+				power_type = byz_adm_power
+				value = -8
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 2.0 }
+			}
+		}
+	}
+
+	# Emergency Tax Collection - Nadzwyczajne pobory podatkowe
+	emergency_taxation = {
+		color = { 121 37 130 }
+		
+		potential = {
+			OR = {
+				tag = BYZ
+				tag = A52
+				tag = TRE
+			}
+			NOT = { has_ruler_flag = emergency_taxation_cooldown22 }
+		}
+		
+		allow = {
+			NOT = { years_of_income = 0.5 }
+			NOT = { inflation = 8 }
+		}
+		
+		effect = {
+			add_years_of_income = 0.25
+			add_inflation = 1
+			capital_scope = {
+				add_unrest = 1
+			}
+			add_government_power = {
+				mechanic_type = nikaeanbyzantine_mechanic
+				power_type = byz_adm_power
+				value = 10
+			}
+			set_ruler_flag = emergency_taxation_cooldown22
+ 
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				years_of_income = 0.25
+			}
+			modifier = {
+				factor = 3
+				NOT = { years_of_income = 0.125 }
+			}
+		}
+	}
+
+}
