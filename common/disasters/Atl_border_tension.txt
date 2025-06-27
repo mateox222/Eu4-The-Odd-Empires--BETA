@@ -70,9 +70,10 @@ border_tensions = {
 	}
 	
 	can_end = {
-		had_country_flag = { flag = tensions_resolved days = 500 }
+		
 		OR = {
-			manpower_percentage = 0.7
+			had_country_flag = { flag = tensions_resolved days = 500 }
+			manpower_percentage = 0.95
 			AND = {
 				stability = 1
 				NOT = {
@@ -103,7 +104,7 @@ border_tensions = {
 			1800 = 0
 			50 = border_tensions.3
 			50 = border_tensions.4
-			50 = border_tensions.5
+			5 = border_tensions.5
 			50 = border_tensions.6
 		}
 	}

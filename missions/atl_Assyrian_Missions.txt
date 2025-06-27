@@ -325,10 +325,10 @@ ASY_column_2 = {
 
 		trigger = {
 			OR = {
-				NOT = { exists = MES } 
+				NOT = { exists = QAR } 
 				AND = {
-					army_size = MES
-					prestige = MES
+					army_size = QAR
+					prestige = QAR
 				}
 			}
 		}
@@ -339,9 +339,9 @@ ASY_column_2 = {
 				duration = 10950
 			}
 			if = {
-				limit = { exists = MES } 
+				limit = { exists = QAR } 
 				add_casus_belli = {
-					target = MES
+					target = QAR
 					type = cb_vassalize_mission
 					months = 300
 				}
