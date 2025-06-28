@@ -283,12 +283,12 @@ province_razed = {
 }
 
 development = {
-	local_build_cost = 0.025
-	local_build_time = 0.025
+	local_build_cost = 0.0125
+	local_build_time = 0.0125
 	allowed_num_of_buildings = 0.1
 	supply_limit_modifier = 0.01
 	local_missionary_strength = -0.001
-	land_forcelimit	= 0.1			# special case, affected by autonomy
+	land_forcelimit = 0.1			# special case, affected by autonomy
 	naval_forcelimit = 0.1			# special case, affected by autonomy & set to 0 by code if not port
 	local_sailors = 60			# special case, affected by autonomy & set to 0 by code if not port
 	province_trade_power_value = 0.2
@@ -613,7 +613,6 @@ base_values = {
 	leader_cost = 0.075
 	military_tactics = -0.06
 	army_tradition_decay = 0.015
-	discipline = -0.015
 	production_efficiency = -0.045
 	unjustified_demands = 0.05
 	ae_impact = -0.05
@@ -778,13 +777,13 @@ cancelled_loan = {
 }
 
 bank_loan = {
-	build_cost = 0.1
-	build_time = 0.1
+	inflation_reduction = -0.1
 }
 
 inflation = {
 	monthly_byz_adm_power  = 0.01
-	all_power_cost = 0.0025
+	land_maintenance_modifier = 0.01	
+	naval_maintenance_modifier = 0.01
 	build_cost = 0.01									#1% for each inflation step.
 	infantry_cost = 0.01								#1% for each inflation step
 	cavalry_cost = 0.01									#1% for each inflation step
@@ -853,7 +852,7 @@ war = {
 	administrative_efficiency = -0.025
 	global_unrest = 1
 	war_exhaustion = 0.0075
-	inflation_reduction = -0.1
+	inflation_reduction = -0.15
 	monarch_diplomatic_power = -1
 	monarch_admin_power = -1
 	monarch_military_power = 1
@@ -866,6 +865,7 @@ war = {
 }
 
 peace = {
+	inflation_reduction = 0.05
 	war_exhaustion = -0.1
 	monthly_fervor_increase = 1
 	global_autonomy = -0.1
@@ -1020,6 +1020,7 @@ negative_piety = { #As of 1.23 Mysticism
 }
 
 defender_of_faith = {
+	all_power_cost = -0.05
 	monthly_byz_adm_power  = -0.25
 	land_morale = 0.05
 	naval_morale = 0.05
@@ -1048,14 +1049,14 @@ emperor = {
 }
 
 states_in_hre = {							#bonuses for each non-free city with capital in HRE.. as emperor
-	land_forcelimit	= 0.5					#each state increases forcelimit by 0.5
+	land_forcelimit = 0.5					#each state increases forcelimit by 0.5
 	global_manpower = 0.5					#each gives 0.5 MP to the emperor.
 }
 
 free_cities_in_hre = {							#bonuses for each free city in the HRE.. as emperor
 	global_tax_income = 2
 	global_manpower = 1
-	land_forcelimit	= 0.5
+	land_forcelimit = 0.5
 }
 
 free_city_in_hre = {
@@ -1185,6 +1186,7 @@ low_meritocracy = {
 corruption = {
 	monthly_byz_adm_power  = 0.025
 	monthly_niflheim_ruler_authority = -0.025
+	monthly_polska_adm_power = 0.025
 	global_spy_defence = -0.25
 	spy_offence = -0.50
 	all_power_cost = 1.0
@@ -1515,6 +1517,7 @@ in_golden_era = {
 }
 
 absolutism = {
+	inflation_reduction = -0.1
 	administrative_efficiency = 0.3
 	discipline = 0.05
 	monthly_phoenix_power = 0.025
@@ -1526,9 +1529,11 @@ absolutism = {
 low_army_professionalism = {
 	mercenary_cost = -0.25
 	mercenary_manpower = 0.15
+	discipline = -0.05
 }
 
 high_army_professionalism = {
+	discipline = 0.05
 	fire_damage = 0.1
 	shock_damage = 0.1
 	siege_ability = 0.2
@@ -1696,13 +1701,13 @@ union_subject = {
 
 all_nations = {
 	global_tax_income = 12
-	land_forcelimit	= 6
+	land_forcelimit = 6
 	naval_forcelimit = 12
 }
 
 subject_nation = {
 	global_tax_income = -6
-	land_forcelimit	= -3
+	land_forcelimit = -3
 	naval_forcelimit = -6
 	monthly_byz_adm_power  = 1
 }
@@ -1736,7 +1741,7 @@ same_religion_subject_bonus_mod = {
 
 eyalet_modifier = {
 	global_manpower = -5
-	land_forcelimit	= -5
+	land_forcelimit = -5
 }
 
 #scales to amount of up-to-date forts compared to total development
@@ -1746,6 +1751,7 @@ maintained_forts = {
 }
 
 gov_rank_1 = {
+	prestige = -1
 	
 }
 
@@ -1889,8 +1895,8 @@ support_loyalists = {
 }
 
 send_officers = {
-	discipline = 0.05
-	land_morale = 0.2
+	discipline = 0.025
+	land_morale = 0.1
 }
 
 divert_trade = {
@@ -1922,7 +1928,7 @@ invasion_nation = {
 	manpower_recovery_speed = 1
 	sailors_recovery_speed = 1
 	global_tax_income = 600
-	land_forcelimit	= 100
+	land_forcelimit = 100
 	naval_forcelimit = 100
 	global_manpower = 100.0
 	global_sailors = 10000
@@ -2323,7 +2329,7 @@ revolutionary_guard_regiment = {
 }
 
 innovativeness = {
-	all_power_cost	= -0.1
+	all_power_cost = -0.1
 	army_tradition_decay = -0.01
 	navy_tradition_decay = -0.01
 }
@@ -2386,6 +2392,7 @@ over_governing_capacity_modifier = {
 	global_unrest = 2.0
 	inflation_reduction = -0.15
 	monthly_byz_adm_power  = 0.1
+	monthly_polska_adm_power = 0.1
 }
 
 # At 1000% below capacity, this modifier will be fully used
@@ -2401,12 +2408,13 @@ under_governing_capacity_modifier = {
 	stability_cost_modifier = 0.25
 	inflation_reduction = -0.15
 	monthly_byz_adm_power  = 0.05
+	
 }
 reverse_under_governing_capacity_modifier = {
 }
 
 lost_hegemony = {
-	all_power_cost	= 0.10
+	all_power_cost = 0.10
 }
 
 at_peace_revolutionary = { # Applied if at peace while reactionaries are bordering you
@@ -2458,9 +2466,11 @@ tolerance_own = {
 }
 
 tolerance_heretic = {
+	stability_cost_modifier = -0.05
 }
 
 tolerance_heathen = {
+	stability_cost_modifier = -0.05
 }
 
 num_accepted_cultures = {
@@ -2484,7 +2494,6 @@ ruler_adm = {
 
 ruler_dip = {
 	monthly_council_consensus = 0.1
-	diplomatic_reputation = 0.05
 	ae_impact = -0.025
 	unjustified_demands = -0.025
 	production_efficiency = 0.015
@@ -2507,32 +2516,44 @@ ruler_mil = {
 }
 
 heir_adm = {
+	all_power_cost = -0.005
 }
 
 heir_dip = {
+		diplomatic_reputation = 0.025
+	
 }
 
 heir_mil = {
+	discipline = 0.0025
+	
 }
 
 consort_adm = {
+	all_power_cost = -0.005
 }
 
 consort_dip = {
+		diplomatic_reputation = 0.025
 }
 
 consort_mil = {
+		discipline = 0.0025
+	
 }
 
 mandate = {
+	all_power_cost = -0.10
 
 }
 
 imperial_authority_emperor = {
+	all_power_cost = -0.10
 
 }
 
 imperial_authority_member = {
+	all_power_cost = -0.05
 
 }
 
@@ -2633,10 +2654,11 @@ culturally_influenced_country = {
 }
 
 manpower_percentage = {
-
+  land_attrition = -0.10	
 }
 
 reverse_manpower_percentage = {
+	land_morale = -0.10	
 
 }
 

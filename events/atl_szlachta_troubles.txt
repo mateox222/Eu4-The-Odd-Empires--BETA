@@ -1212,3 +1212,54 @@ trigger = {
 	}
 }
 
+country_event = {
+	id = pol_faction_conflict.16
+	title = pol_faction_conflict.16.t
+	desc = pol_faction_conflict.16.d
+	picture = PARLIAMENT_eventPicture
+	
+	trigger = {
+		tag = PLC
+        NOT = { mission_completed = pol_abolish_liberum_veto }
+		has_parliament = yes
+		OR = {
+		is_backing_current_issue = yes
+		has_active_debate = yes
+		}
+		NOT = { has_country_modifier = pol_liberum_veto_chaos }
+		has_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 30
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	}
+	option = {
+		name = pol_faction_conflict.16.a
+		remove_enacted_issue = yes	
+		cancel_current_debate = yes	
+		add_government_power = {
+			mechanic_type = szlachtapower_mechanic
+			power_type = polska_adm_power
+			value = 5
+		}
+		add_faction_influence = {
+			faction = pl_magnaci
+			influence = 15
+		}
+		add_country_modifier = {
+			name = "pol_liberum_veto_chaos"
+			duration = 1825
+		}
+		random_list = {
+			10 = { add_stability = -1 }
+			90 = { add_prestige = -5 }
+		}
+	
+	}
+	
+	
+	}

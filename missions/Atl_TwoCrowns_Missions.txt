@@ -130,12 +130,12 @@ two_crowns_missions_1 = {
 		provinces_to_highlight = {  } 
 
 		trigger = {
-			absolutism = 70
 			OR = {
-				has_reform = parliamentary_reform
+			absolutism = 70
+			adm_power = 750
 			}
 			stability = 3
-			adm_power = 750
+			
 			NOT = {
 					has_government_power = {
 	mechanic_type = szlachtapower_mechanic
@@ -148,7 +148,13 @@ two_crowns_missions_1 = {
 		}
 
 		effect = {
-			add_adm_power = -750
+			if = {
+				limit = {
+					NOT = { absolutism = 70 }
+				}
+				add_adm_power = -750
+			}
+			
 			remove_faction = pl_magnaci
 			remove_faction = pl_reformaci
 			add_prestige = 15
