@@ -6547,6 +6547,13 @@ on_hre_dismantled = {
 	}
 }
 on_new_age = {
+	if = {
+		limit = {
+			has_government_mechanic = feudal_authority_mechanic
+		}
+		regenerate_government_mechanics = yes	
+
+	}
 	events = {
 		flavor_rus.44 #Update the Russian mission tree
 		flavor_gbr.122 #Assign Religious Chaos to England

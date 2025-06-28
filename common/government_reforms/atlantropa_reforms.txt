@@ -145,6 +145,10 @@ satrapia = {
 		relation_with_other_culture = -10
 		prestige = 0.25
 	}
+			government_abilities = {
+		feudal_authority_mechanic
+		state_centralization_mechanic
+	}
 	custom_attributes = {
 		locked_government_type = yes
 	}
@@ -507,6 +511,10 @@ balatonianmonarchy = {
 	custom_attributes = {
 		locked_government_type = yes
 	}
+			government_abilities = {
+		feudal_authority_mechanic
+		state_centralization_mechanic
+	}
 	ai = {
 		factor = 100
 	}
@@ -741,7 +749,10 @@ vandalic_monarchy = {
 		galley_power = 0.15
 		coast_raid_range = 1
 	}
-
+		government_abilities = {
+		feudal_authority_mechanic
+		state_centralization_mechanic
+	}
 	conditional = {
 	}
 	custom_attributes = {
@@ -974,6 +985,10 @@ kristaperioan_empire = {
 	fixed_rank = 3
 	conditional = {
 	}
+			government_abilities = {
+		feudal_authority_mechanic
+		state_centralization_mechanic
+	}
 	custom_attributes = {
 		locked_government_type = yes
 		maintain_dynasty = yes
@@ -1002,6 +1017,10 @@ bulgarian_monarchy = {
 		defensiveness = 0.15
 		max_absolutism = 20
 		reduced_liberty_desire = 10
+	}
+			government_abilities = {
+		feudal_authority_mechanic
+		state_centralization_mechanic
 	}
 	ai = {
 		factor = 100
@@ -1178,6 +1197,10 @@ armenian_monarchy = {
 			tag = ARM
 		}
 	}
+			government_abilities = {
+		feudal_authority_mechanic
+		state_centralization_mechanic
+	}
 	modifiers = {
 		max_absolutism = 15
 		tolerance_heretic = -1
@@ -1207,6 +1230,10 @@ epirus_monarchy = {
 	monarchy = yes
 	potential = {
 		tag = EPI
+	}
+			government_abilities = {
+		feudal_authority_mechanic
+		state_centralization_mechanic
 	}
 	modifiers = {
 		local_culture_conversion_cost = -0.25
@@ -1379,6 +1406,9 @@ magyar_government = {
 			has_harem_events = yes
 			enables_estate_janissaries = yes
 		}
+	}
+			government_abilities = {
+		state_centralization_mechanic
 	}
 	conditional = {
 		allow = {
@@ -1588,6 +1618,10 @@ african_autocracy_reform = {
 		prestige = 0.5
 		global_unrest = -1
 	}
+			government_abilities = {
+		feudal_authority_mechanic
+		state_centralization_mechanic
+	}
 	conditional = {
 		custom_attributes = {
 			civil_war_on_every_new_ruler = yes
@@ -1635,7 +1669,10 @@ A2R_pharaonic_kingdom = {
 	valid_for_nation_designer = no
 	lock_level_when_selected = yes
 	legacy_equivalent = despotic_monarchy
-	
+			government_abilities = {
+		feudal_authority_mechanic
+		state_centralization_mechanic
+	}
 	modifiers = {
 		monarch_lifespan = 0.25
 		legitimacy = 1.5
