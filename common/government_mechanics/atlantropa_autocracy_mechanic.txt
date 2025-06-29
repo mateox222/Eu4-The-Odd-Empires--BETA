@@ -1,0 +1,247 @@
+royal_autocracy_mechanic = {
+	alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 15
+	available = {
+		 OR = {
+		current_age = medieval_age
+        current_age = age_of_discovery
+        }
+	}
+
+	powers = {
+		royal_authority = {
+			max = 100
+			min = 0
+			default = 50
+			reset_on_new_ruler = yes
+			base_monthly_growth = -0.2
+			development_scaled_monthly_growth = 0.1
+			monarch_power = adm
+			is_good = yes
+			
+			# Scaled modifiers based on royal authority
+			scaled_modifier = {
+				start_value = 0
+				end_value = 100
+				modifier = {
+					global_tax_modifier = 0.1
+					harsh_treatment_cost = -0.30
+					stability_cost_modifier = -0.25
+					core_creation = -0.1
+					global_unrest = -3
+				}
+			}
+			
+			# Range modifiers for different authority levels
+	
+	}
+    }
+	
+	interactions = {
+		royal_decree = {
+             icon = GFX_royal_decree
+			cost_type = royal_authority
+			cost = 0
+			trigger = {
+				adm_power = 75
+				NOT = { has_country_modifier = recent_royal_decree }
+				has_government_power = {
+					mechanic_type = royal_autocracy_mechanic
+					power_type = royal_authority
+					value = 30
+				}
+			}
+			effect = {
+				add_adm_power = -75
+				add_government_power = {
+					mechanic_type = royal_autocracy_mechanic
+					power_type = royal_authority
+					value = 18
+				}
+				random_list = {
+					50 = {
+						# Successful decree - economic focus
+						add_country_modifier = {
+							name = successful_royal_decree_economic
+							duration = 1825 # 5 years
+						}
+					}
+					50 = {
+						# Successful decree - administrative focus
+						add_country_modifier = {
+							name = successful_royal_decree_administrative
+							duration = 1825 # 5 years
+						}
+					}
+				}
+				add_country_modifier = {
+					name = recent_royal_decree
+					duration = 1095 # 3 years
+				}
+			}
+			cooldown_years = 3
+			ai_chance = {
+				factor = 80
+				modifier = {
+					factor = 2
+					has_government_power = {
+						mechanic_type = royal_autocracy_mechanic
+						power_type = royal_authority
+						value = 40
+					}
+					NOT = {
+						has_government_power = {
+							mechanic_type = royal_autocracy_mechanic
+							power_type = royal_authority
+							value = 70
+						}
+					}
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { legitimacy = 75 }
+				}
+			}
+		}
+		
+		royal_justice = {
+             icon = GFX_royal_justice
+			cost_type = royal_authority
+			cost = 12
+			trigger = {
+				mil_power = 50
+				NOT = { has_country_modifier = recent_royal_justice }
+				OR = {
+					num_of_rebel_armies = 1
+					average_unrest = 3
+					any_owned_province = {
+						unrest = 5
+					}
+				}
+			}
+			effect = {
+				add_mil_power = -50
+				add_government_power = {
+					mechanic_type = royal_autocracy_mechanic
+					power_type = royal_authority
+					value = 10
+				}
+				random_list = {
+					70 = {
+						# Swift and decisive justice
+						add_country_modifier = {
+							name = royal_justice_fear
+							duration = 2190 # 6 years
+						}
+						random_owned_province = {
+							limit = { unrest = 2 }
+							add_local_autonomy = -15
+							add_province_modifier = {
+								name = example_made
+								duration = 1825
+							}
+						}
+					}
+					30 = {
+						# Harsh but destabilizing
+						add_country_modifier = {
+							name = royal_justice_harsh
+							duration = 1095 # 3 years
+						}
+						add_stability = -1
+					}
+				}
+				add_country_modifier = {
+					name = recent_royal_justice
+					duration = 730 # 2 years
+				}
+			}
+			cooldown_years = 2
+			ai_chance = {
+				factor = 75
+				modifier = {
+					factor = 2
+					OR = {
+						num_of_rebel_armies = 2
+						average_unrest = 5
+					}
+				}
+				modifier = {
+					factor = 1.5
+					has_government_power = {
+						mechanic_type = royal_autocracy_mechanic
+						power_type = royal_authority
+						value = 60
+					}
+				}
+			}
+		}
+		
+		personal_campaign = {
+            icon = GFX_royal_authority
+			cost_type = royal_authority
+			cost = 20
+			trigger = {
+				mil_power = 100
+				is_at_war = yes
+				NOT = { has_country_modifier = monarch_campaign_exhaustion }
+				has_government_power = {
+					mechanic_type = royal_autocracy_mechanic
+					power_type = royal_authority
+					value = 40
+				}
+			}
+			effect = {
+				add_mil_power = -100
+				add_government_power = {
+					mechanic_type = royal_autocracy_mechanic
+					power_type = royal_authority
+					value = 15
+				}
+				add_country_modifier = {
+					name = monarch_leads_personally
+					duration = 1095 # 3 years
+				}
+				add_country_modifier = {
+					name = monarch_campaign_exhaustion
+					duration = 2555 # 7 years
+				}
+				random_list = {
+					60 = {
+						# Victorious campaign
+						add_prestige = 15
+						add_army_tradition = 10
+					}
+					30 = {
+						# Modest success
+						add_prestige = 8
+						add_army_tradition = 5
+					}
+					10 = {
+						# Campaign goes poorly
+						add_prestige = -5
+						add_war_exhaustion = 2
+					}
+				}
+			}
+			cooldown_years = 7
+			ai_chance = {
+				factor = 60
+				modifier = {
+					factor = 2
+					is_in_war = {
+						attacker_leader = THIS
+					}
+				}
+				modifier = {
+					factor = 1.5
+					army_tradition = 40
+				}
+				modifier = {
+					factor = 0.3
+					war_exhaustion = 8
+				}
+			}
+		}
+	}
+}

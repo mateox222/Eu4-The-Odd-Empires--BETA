@@ -4,10 +4,7 @@ estate_guilds = {
 	
 	trigger = {
 		NOT = { government = tribal }
-		OR = {
-						current_age = medieval_age 
-			current_age = age_of_discovery
-		}
+
 		
 		NOT = { has_reform = steppe_horde }
 			OR = {
@@ -120,7 +117,17 @@ estate_guilds = {
 			}
 		}
 	}
-	
+
+				custom_name = {
+		desc = EST_SZLACHTAZAGRODOWA23
+		trigger = {
+			OR = {
+				tag = POL
+				tag = PLC	
+				tag = MAZ		
+			}
+		}
+	}	
 	contributes_to_curia_treasury = no
 
 	privileges = {

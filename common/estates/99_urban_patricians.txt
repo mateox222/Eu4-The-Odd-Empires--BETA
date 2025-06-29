@@ -13,10 +13,7 @@ estate_urban_patricians = {
 			religion_group = christian
 			religion = jewish
 		}
-				OR = {
-						current_age = medieval_age 
-			current_age = age_of_discovery
-		}
+
 		num_of_cities = 5
 	}
 
@@ -115,6 +112,15 @@ estate_urban_patricians = {
 		trigger = {
 			OR = {
 				culture_group = latin
+			}
+		}
+	}
+			custom_name = {
+		desc = EST_SZLACHTAZAGRODOWA
+		trigger = {
+			OR = {
+				tag = POL
+				tag = PLC			
 			}
 		}
 	}

@@ -1,0 +1,299 @@
+republican_governance_mechanic = {
+	alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 22
+	available = {
+		
+	}
+
+	powers = {
+		civic_influence = {
+			max = 100
+			min = 0
+			default = 60
+			reset_on_new_ruler = no
+			base_monthly_growth = 0.1
+			development_scaled_monthly_growth = 0.08
+			is_good = yes
+			
+			# Scaled modifiers based on civic influence
+			scaled_modifier = {
+				start_value = 0
+				end_value = 100
+				modifier = {
+					republican_tradition = 0.5
+					global_trade_power = 0.10
+					production_efficiency = 0.10
+					build_cost = -0.10
+					technology_cost = -0.05
+				}
+			}
+			
+			# Range modifiers for different influence levels
+			range_modifier = {
+				start_value = 80
+				end_value = 100
+				modifier = {
+					prestige = 0.5
+					innovativeness_gain = 0.15
+					diplomatic_reputation = 1
+					global_trade_goods_size_modifier = 0.10
+					institution_spread_from_true_faith = 0.15
+				}
+			}
+			
+			range_modifier = {
+				start_value = 60
+				end_value = 79
+				modifier = {
+					prestige = 0.25
+					innovativeness_gain = 0.10
+					global_trade_goods_size_modifier = 0.05
+					institution_spread_from_true_faith = 0.10
+				}
+			}
+			
+			range_modifier = {
+				start_value = 40
+				end_value = 59
+				modifier = {
+					# Neutral range - basic republican functioning
+				}
+			}
+			
+			range_modifier = {
+				start_value = 20
+				end_value = 39
+				modifier = {
+					republican_tradition = -0.25
+					global_unrest = 1
+					stability_cost_modifier = 0.10
+					corruption = 0.025
+				}
+			}
+			
+			range_modifier = {
+				start_value = 0
+				end_value = 19
+				modifier = {
+					republican_tradition = -0.5
+					global_unrest = 2
+					stability_cost_modifier = 0.20
+					diplomatic_reputation = -1
+					corruption = 0.05
+					global_trade_power = -0.10
+					technology_cost = 0.10
+				}
+			}
+			
+			# Events triggered at critical points
+
+		}
+	}
+	
+	interactions = {
+		promote_civic_virtue = {
+             icon = GFX_promote_civic_virtue
+			cost_type = civic_influence
+			cost = 0
+			trigger = {
+				adm_power = 100
+				NOT = { has_country_modifier = recent_civic_promotion }
+				republican_tradition = 25
+			}
+			effect = {
+				add_adm_power = -100
+				add_government_power = {
+					mechanic_type = republican_governance_mechanic
+					power_type = civic_influence
+					value = 20
+				}
+				add_republican_tradition = 5
+				add_country_modifier = {
+					name = civic_virtue_campaign
+					duration = 2555 # 7 years
+				}
+				add_country_modifier = {
+					name = recent_civic_promotion
+					duration = 1095 # 3 years
+				}
+				random_owned_province = {
+					limit = {
+						development = 10
+						is_capital = no
+					}
+					add_province_modifier = {
+						name = civic_education_center
+						duration = 3650 # 10 years
+					}
+				}
+			}
+			cooldown_years = 3
+			ai_chance = {
+				factor = 75
+				modifier = {
+					factor = 2
+					has_government_power = {
+						mechanic_type = republican_governance_mechanic
+						power_type = civic_influence
+						value = 40
+					}
+					NOT = {
+						has_government_power = {
+							mechanic_type = republican_governance_mechanic
+							power_type = civic_influence
+							value = 80
+						}
+					}
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { republican_tradition = 60 }
+				}
+			}
+		}
+		
+		commercial_investment = {
+            icon = GFX_commercial_investment
+			cost_type = civic_influence
+			cost = 15
+			trigger = {
+				dip_power = 125
+				NOT = { has_country_modifier = recent_commercial_investment }
+				years_of_income = 1.0
+				num_of_merchants = 2
+			}
+			effect = {
+				add_dip_power = -125
+				add_years_of_income = -1.0
+				add_government_power = {
+					mechanic_type = republican_governance_mechanic
+					power_type = civic_influence
+					value = 12
+				}
+				random_list = {
+					60 = {
+						# Successful commercial expansion
+						add_country_modifier = {
+							name = successful_commercial_expansion
+							duration = 2190 # 6 years
+						}
+						add_mercantilism = 2
+						random_owned_province = {
+							limit = {
+								has_port = yes
+								base_production = 4
+							}
+							add_province_modifier = {
+								name = thriving_commercial_hub
+								duration = 3650 # 10 years
+							}
+						}
+					}
+					40 = {
+						# Market oversaturation
+						add_country_modifier = {
+							name = commercial_oversaturation
+							duration = 1095 # 3 years
+						}
+						add_inflation = 2
+					}
+				}
+				add_country_modifier = {
+					name = recent_commercial_investment
+					duration = 1825 # 5 years
+				}
+			}
+			cooldown_years = 5
+			ai_chance = {
+				factor = 65
+				modifier = {
+					factor = 2
+					num_of_merchants = 4
+				}
+				modifier = {
+					factor = 1.5
+					years_of_income = 2.0
+				}
+				modifier = {
+					factor = 0.5
+					inflation = 5
+				}
+			}
+		}
+		
+		republican_reforms = {
+            icon = GFX_republican_reforms
+			cost_type = civic_influence
+			cost = 25
+			trigger = {
+				mil_power = 150
+				NOT = { has_country_modifier = recent_republican_reforms }
+				has_government_power = {
+					mechanic_type = republican_governance_mechanic
+					power_type = civic_influence
+					value = 50
+				}
+				republican_tradition = 40
+			}
+			effect = {
+				add_mil_power = -150
+				add_government_power = {
+					mechanic_type = republican_governance_mechanic
+					power_type = civic_influence
+					value = 18
+				}
+				add_republican_tradition = 8
+				random_list = {
+					50 = {
+						# Constitutional reforms succeed
+						add_country_modifier = {
+							name = constitutional_reforms
+							duration = 3650 # 10 years
+						}
+						add_stability = 1
+					}
+					30 = {
+						# Administrative improvements
+						add_country_modifier = {
+							name = administrative_efficiency_reforms
+							duration = 2555 # 7 years
+						}
+					}
+					20 = {
+						# Reforms face resistance
+						add_country_modifier = {
+							name = reform_resistance
+							duration = 1825 # 5 years
+						}
+						add_republican_tradition = -3
+						add_stability = -1
+					}
+				}
+				add_country_modifier = {
+					name = recent_republican_reforms
+					duration = 2555 # 7 years
+				}
+			}
+			cooldown_years = 7
+			ai_chance = {
+				factor = 70
+				modifier = {
+					factor = 2
+					has_government_power = {
+						mechanic_type = republican_governance_mechanic
+						power_type = civic_influence
+						value = 70
+					}
+				}
+				modifier = {
+					factor = 1.5
+					republican_tradition = 60
+				}
+				modifier = {
+					factor = 0.3
+					NOT = { stability = 1 }
+				}
+			}
+		}
+	}
+}

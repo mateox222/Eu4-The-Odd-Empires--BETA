@@ -568,6 +568,7 @@ national_defense = {
 	local_friendly_movement_speed = 0.1
 	local_hostile_movement_speed = -0.1
 	local_unrest = -5
+	land_morale = 0.05
 }
 
 
@@ -671,7 +672,7 @@ ai_nation = {
 	diplomats = 1 							# ai has to reserve a diplomat for short term action so it gets an extra to put it on equal footing with player
 	free_leader_pool = 1					# ai needs to have enough pool for 1 general & 1 admiral
 	sailors_recovery_speed = 0.25
-	build_cost = -1
+	build_cost = -0.25
 	inflation_reduction = 0.1	
 }
 
@@ -777,7 +778,7 @@ cancelled_loan = {
 }
 
 bank_loan = {
-	inflation_reduction = -0.1
+	inflation_reduction = -0.25
 }
 
 inflation = {
@@ -941,6 +942,8 @@ authority = {
 }
 
 regency_council = {
+	prestige = -1
+	legitimacy = -1
 	monthly_byz_adm_power  = 1
 	stability_cost_modifier = 0.25
 }
@@ -1529,7 +1532,7 @@ absolutism = {
 low_army_professionalism = {
 	mercenary_cost = -0.25
 	mercenary_manpower = 0.15
-	discipline = -0.01
+	discipline = -0.025
 }
 
 high_army_professionalism = {
@@ -1596,13 +1599,14 @@ power_projection = {
 
 power_projection_25 = {
 	free_leader_pool = 1
+	land_morale = 0.05
+	land_forcelimit = 0.1
 }
 
 #100 Land Forcelimit = 1
 land_forcelimit = {
 	free_land_leader_pool = 1.25 #80 Army forcelimit -> +1 free leader
-	land_morale = 0.025
-	prestige = 0.05`
+	prestige = 0.05
 	army_tradition_decay = -0.01
 	num_of_pronoiars = 1
 	monthly_mechanoids_power  = -0.2
@@ -1614,7 +1618,6 @@ naval_forcelimit = {
 	free_navy_leader_pool = 1.25 #80 Naval Forcelimit -> +1 Free Leader
 	max_flagships = 1
 	navy_tradition_decay = -0.01
-	naval_morale = 0.025
 	prestige = 0.05
 	heavy_ship_cost = -0.025
 	transport_cost = -0.025

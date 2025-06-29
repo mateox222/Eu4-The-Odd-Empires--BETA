@@ -5,10 +5,7 @@ estate_rural_communes = {
 	trigger = {
 		NOT = { government = tribal }
 		NOT = { has_reform = steppe_horde }
-				OR = {
-						current_age = medieval_age 
-			current_age = age_of_discovery
-		}
+
 		OR = {
 		technology_group = western
 		technology_group = muslim
@@ -126,6 +123,15 @@ estate_rural_communes = {
 			OR = {
 				tag = SWI
 				primary_culture = swiss
+			}
+		}
+	}
+				custom_name = {
+		desc = EST_SZLACHTAZAGRODOWA2
+		trigger = {
+			OR = {
+				tag = POL
+				tag = PLC			
 			}
 		}
 	}
