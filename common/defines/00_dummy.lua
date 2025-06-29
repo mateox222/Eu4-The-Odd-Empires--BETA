@@ -1295,7 +1295,7 @@ NDefines = {
 		UNLOAD_COST_FRIENDLY = 12,						-- cost to unload to friendly territory
 		UNLOAD_COST_ENEMY = 36,							-- cost to hostile.
 		LEADER_MAINTENANCE_COST = 1,					-- how much mil power each leader costs.
-		GARRISON_SIZE = 1000, 							-- GARRISON_SIZE
+		GARRISON_SIZE = 500, 							-- GARRISON_SIZE
 		SIEGE_FORCE_NEEDED_MULTIPLIER = 3,				-- x times garrison to be able to siege.
 		MAX_BREACH = 3,
 		SIEGE_GARRISON_SURRENDER = 200,					-- A siege ends when there is less than 100 defenders left.
@@ -1305,7 +1305,7 @@ NDefines = {
 		ASSAULT_DICE_MODIFIER = 5, 						-- _MDEF_ASSAULT_DICE_MODIFIER_
 		INF_REGIMENT_MANPOWER_COST = 1.0, 				-- 1 = 1000 men in cost.
 		CAV_REGIMENT_MANPOWER_COST = 1.0, 				-- 1 = 1000 men in cost.
-		ART_REGIMENT_MANPOWER_COST = 1.0, 				-- 1 = 1000 men in cost.
+		ART_REGIMENT_MANPOWER_COST = 0.5, 				-- 1 = 1000 men in cost.
 		HEAVY_SHIP_SAILORS_COST = 200,					-- 1 = 1 men in cost.
 		LIGHT_SHIP_SAILORS_COST = 50,					-- 1 = 1 men in cost.
 		GALLEY_SHIP_SAILORS_COST = 50,					-- 1 = 1 men in cost.
@@ -1646,7 +1646,7 @@ NDefines = {
 		NOMINAL_ARMY_SIZE_MULTIPLIER = 1.1, -- This will multiply with the AI's desired regiment count per unit. Does not affect total size of all armies
 		MIN_CAV_PERCENTAGE = 5, --AI will always try to have at least this many % of their army as cav, regardless of time in the game.
 		MAX_CAV_PERCENTAGE = 50, -- For modding, actual ratio is dynamically computed but will be no higher than this.
-		FOG_OF_WAR_FORGET_CHANCE = 1, --Daily percentage chance of AI forgetting a unit that's hidden in Fog of War.
+		FOG_OF_WAR_FORGET_CHANCE = 10, --Daily percentage chance of AI forgetting a unit that's hidden in Fog of War.
 		DIPLOMATIC_ACTION_ABANDON_UNION_BASE_FACTOR = 60, --AI scoring to abandoning Personal Union (given high enough LD and strength).
 		DIPLOMATIC_ACTION_ABANDON_UNION_STRENGTH_THRESHOLD = 2.5, --Threshold in relative strength for AI to give up on Personal Union.
 		DEVELOP_IN_SUBJECTS_PREFERENCE = 0.5, -- At 1, AI likes developing subjects approximately the same as its own provinces (more or less depending on their Liberty Desire).
