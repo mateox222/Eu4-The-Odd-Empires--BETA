@@ -58,77 +58,239 @@ assyrian_legacy_mechanic = {
 				factor = 0
 			}
 		}
-		assyrian_archaeology = {
-	 
-			icon = GFX_assyrian_ability
-			cost_type = ashurbanipal_legacy
- 
-			trigger = {
-				adm_power = 25
-                dip_power = 25
-                mil_power = 25
-                years_of_income = 1
-				is_at_war = no
-			}
-			effect = {
-                		add_government_power = {
-							mechanic_type = assyrian_legacy_mechanic
-							power_type = ashurbanipal_legacy
-							value = 5
-						}
-				add_adm_power = -25
-                add_dip_power = -25
-                add_mil_power = -25
-                add_years_of_income = -1
-				random_list = {
-					50 = {
-						# Military discovery
-						add_mil_power = 125
-						add_country_modifier = {
-							name = "ancient_military_tactics"
-							duration = 3650
-						}
-					}
-					50 = {
-						# Administrative discovery
-						add_adm_power = 125
-						add_country_modifier = {
-							name = "cuneiform_administration"
-							duration = 3650
-						}
-					}
-										50 = {
-					add_government_power = {
-							mechanic_type = assyrian_legacy_mechanic
-							power_type = ashurbanipal_legacy
-							value = 10
-						}
-					}
-														50 = {
-					add_years_of_income = 1
-					add_prestige = 5
-					}
-						50 = {
-					add_prestige = -5
-					}
-					50 = {
-				add_adm_power = 75
-                add_dip_power = 75
-                add_mil_power = 75
-					}
-
+	assyrian_archaeology = {
+	icon = GFX_assyrian_ability
+	cost_type = ashurbanipal_legacy
+	
+	trigger = {
+		adm_power = 50
+		dip_power = 50
+		mil_power = 50
+		years_of_income = 2
+		is_at_war = no
+		stability = 0
+		NOT = { has_country_modifier = ongoing_excavation }
+	}
+	
+	effect = {
+		# Visible costs
+		add_adm_power = -50
+		add_dip_power = -50
+		add_mil_power = -50
+		add_years_of_income = -2
 		
-				}
-			}
-			cooldown_years = 10
-			ai_chance = {
-				factor = 10
-				modifier = {
-					factor = 0
-					NOT = { treasury = 500 }
-				}
-			}
+		# Base reward
+		add_government_power = {
+			mechanic_type = assyrian_legacy_mechanic
+			power_type = ashurbanipal_legacy
+			value = 10
 		}
+		
+		add_country_modifier = {
+			name = "ongoing_excavation"
+			duration = 365 # 1 year
+		}
+		
+		# Epic custom tooltip
+		custom_tooltip = assyrian_archaeology_expedition_tooltip
+		
+		# Hidden complex RNG system
+		hidden_effect = {
+			# Determine expedition leader quality
+			random_list = {
+				10 = { set_country_flag = legendary_archaeologist }
+				30 = { set_country_flag = experienced_archaeologist }
+				40 = { set_country_flag = competent_archaeologist }
+				20 = { set_country_flag = novice_archaeologist }
+			}
+			
+			# Main outcome determination
+			random_list = {
+				# LEGENDARY DISCOVERIES (5% total) - Trigger events
+				1 = {
+					# Library of Ashurbanipal
+					modifier = {
+						factor = 3
+						has_country_flag = legendary_archaeologist
+					}
+					modifier = {
+						factor = 0
+						has_country_flag = found_ashurbanipal_library
+					}
+					country_event = { id = assyrian_arch.1 days = 30 }
+				}
+				
+				1 = {
+					# Sargon's Throne Room
+					modifier = {
+						factor = 3
+						has_country_flag = legendary_archaeologist
+					}
+					modifier = {
+						factor = 0
+						has_country_flag = found_sargon_throne
+					}
+					country_event = { id = assyrian_arch.2 days = 30 }
+				}
+				
+				1 = {
+					# Royal Treasury
+					modifier = {
+						factor = 2
+						has_country_flag = experienced_archaeologist
+					}
+					modifier = {
+						factor = 0
+						has_country_flag = found_royal_treasury
+					}
+					country_event = { id = assyrian_arch.3 days = 30 }
+				}
+				
+				1 = {
+					# Military Engineering Manuals
+					modifier = {
+						factor = 2
+						mil = 5
+					}
+					modifier = {
+						factor = 0
+						has_country_flag = found_military_codex
+					}
+					country_event = { id = assyrian_arch.4 days = 30 }
+				}
+				
+				1 = {
+					# Diplomatic Archives
+					modifier = {
+						factor = 0
+						has_country_flag = found_diplomatic_archives
+					}
+					country_event = { id = assyrian_arch.5 days = 30 }
+				}
+				
+				# MAJOR DISCOVERIES (15% total)
+				5 = {
+					# Administrative Reforms
+					modifier = {
+						factor = 2
+						has_country_flag = experienced_archaeologist
+					}
+					country_event = { id = assyrian_arch.20 days = 30 }
+				}
+				
+				5 = {
+					# Military Tactics
+					modifier = {
+						factor = 2
+						has_country_flag = experienced_archaeologist
+					}
+					country_event = { id = assyrian_arch.21 days = 30 }
+				}
+				
+				5 = {
+					# Trade Maps
+					country_event = { id = assyrian_arch.22 days = 30 }
+				}
+				
+				# SIGNIFICANT DISCOVERIES (25% total)
+				10 = {
+					# Religious Texts
+					country_event = { id = assyrian_arch.30 days = 30 }
+				}
+				
+				10 = {
+					# Astronomical Observations
+					modifier = {
+						factor = 1.5
+						innovativeness = 25
+					}
+					country_event = { id = assyrian_arch.31 days = 30 }
+				}
+				
+				5 = {
+					# Ancient Weapons
+					country_event = { id = assyrian_arch.32 days = 30 }
+				}
+				
+				# MODERATE DISCOVERIES (35% total)
+				35 = {
+					# Standard Administrative
+					country_event = { id = assyrian_arch.40 days = 30 }
+				}
+				
+				20 = {
+					# Standard Military
+					country_event = { id = assyrian_arch.41 days = 30 }
+				}
+				
+				20 = {
+					# Standard Economic
+					country_event = { id = assyrian_arch.42 days = 30 }
+				}
+				
+				# FAILURES AND DISASTERS (20% total)
+				20 = {
+					# Empty Tomb
+					modifier = {
+						factor = 2
+						has_country_flag = novice_archaeologist
+					}
+					country_event = { id = assyrian_arch.11 days = 30 }
+				}
+				
+				5 = {
+					# Cursed Artifact
+					modifier = {
+						factor = 2
+						NOT = { luck = yes }
+					}
+					modifier = {
+						factor = 2
+						has_country_flag = novice_archaeologist
+					}
+					country_event = { id = assyrian_arch.10 days = 30 }
+				}
+				
+				3 = {
+					# Tomb Collapse
+					modifier = {
+						factor = 3
+						has_country_flag = novice_archaeologist
+					}
+					country_event = { id = assyrian_arch.50 days = 30 }
+				}
+				
+				2 = {
+					# International Incident
+					country_event = { id = assyrian_arch.51 days = 30 }
+				}
+			}
+			
+			# Cleanup flags
+			clr_country_flag = legendary_archaeologist
+			clr_country_flag = experienced_archaeologist
+			clr_country_flag = competent_archaeologist
+			clr_country_flag = novice_archaeologist
+		}
+	}
+	
+	cooldown_years = 10
+	ai_chance = {
+		factor = 10
+		modifier = {
+			factor = 0
+			NOT = { years_of_income = 5 }
+		}
+		modifier = {
+			factor = 2
+			innovativeness = 50
+		}
+		modifier = {
+			factor = 3
+			government_rank = 3
+		}
+	}
+}
 		
 	
 	}

@@ -26,27 +26,34 @@ country_decisions = {
                 power_type = toe_tribal_fervor
                 value = 5
             }
-            random_list = {
-                33 = {
-                    add_country_modifier = {
-                        name = "shamanic_wisdom_admin"
-                        duration = 730
-                    }
-                }
-                33 = {
-                    add_country_modifier = {
-                        name = "shamanic_wisdom_diplo"
-                        duration = 730
-                    }
-                }
-                34 = {
-                    add_country_modifier = {
-                        name = "shamanic_wisdom_military"
-                        duration = 730
-                    }
-                }
+            tooltip = {
+                custom_tooltip = shamanic_consultation_outcomes_tooltip
             }
-            set_country_flag = pagan_shamans_cooldown
+            hidden_effect = {
+                random_list = {
+                    33 = {
+                        add_country_modifier = {
+                            name = "shamanic_wisdom_admin"
+                            duration = 730
+                        }
+                    }
+                    33 = {
+                        add_country_modifier = {
+                            name = "shamanic_wisdom_diplo"
+                            duration = 730
+                        }
+                    }
+                    34 = {
+                        add_country_modifier = {
+                            name = "shamanic_wisdom_military"
+                            duration = 730
+                        }
+                    }
+                }
+                set_country_flag = pagan_shamans_cooldown
+                clr_country_flag = pagan_shamans_cooldown
+                set_country_flag = pagan_shamans_cooldown
+            }
         }
         
         ai_will_do = {
@@ -91,23 +98,30 @@ country_decisions = {
                 power_type = toe_tribal_fervor
                 value = 10
             }
-            random_owned_province = {
-                limit = {
-                    NOT = { religion = ROOT }
-                    OR = {
-                        has_building = temple
-                        has_building = cathedral
-                        base_tax = 3
+            tooltip = {
+                custom_tooltip = sacred_site_purification_tooltip
+            }
+            hidden_effect = {
+                random_owned_province = {
+                    limit = {
+                        NOT = { religion = ROOT }
+                        OR = {
+                            has_building = temple
+                            has_building = cathedral
+                            base_tax = 3
+                        }
+                    }
+                    change_religion = ROOT
+                    add_province_modifier = {
+                        name = "purified_sacred_site"
+                        duration = 1825
                     }
                 }
-                change_religion = ROOT
-                add_province_modifier = {
-                    name = "purified_sacred_site"
-                    duration = 1825
-                }
+                add_prestige = 10
+                set_ruler_flag = pagan_purify_cooldown
+                clr_ruler_flag = pagan_purify_cooldown
+                set_ruler_flag = pagan_purify_cooldown
             }
-            add_prestige = 10
-            set_ruler_flag = pagan_purify_cooldown
         }
         
         ai_will_do = {
@@ -152,16 +166,23 @@ country_decisions = {
                 name = "ancestor_spirits_blessing"
                 duration = 1095
             }
-            random_owned_province = {
-                limit = { controlled_by = ROOT }
-                spawn_rebels = {
-                    type = zealots
-                    size = 1
-                    friend = ROOT
-                    leader = "Duch Przodka"
-                }
+            tooltip = {
+                custom_tooltip = ancestor_summoning_effects_tooltip
             }
-            set_country_flag = pagan_ancestors_cooldown
+            hidden_effect = {
+                random_owned_province = {
+                    limit = { controlled_by = ROOT }
+                    spawn_rebels = {
+                        type = zealots
+                        size = 1
+                        friend = ROOT
+                        leader = "Duch Przodka"
+                    }
+                }
+                set_country_flag = pagan_ancestors_cooldown
+                clr_country_flag = pagan_ancestors_cooldown
+                set_country_flag = pagan_ancestors_cooldown
+            }
         }
         
         ai_will_do = {
@@ -198,44 +219,50 @@ country_decisions = {
                 tooltip = pagan_trial_legitimacy_tt
                 legitimacy = 50
             }
-
         }
         
         effect = {
-            random_list = {
-                60 = {
-                    add_government_power = {
-                        mechanic_type = toe_tribal_fervor
-                        power_type = toe_tribal_fervor
-                        value = 25
-                    }
-                    add_legitimacy = 20
-                    add_devotion = 20
-                    add_horde_unity = 20
-                    add_prestige = 25
-                    add_country_modifier = {
-                        name = "divine_favor_blessing"
-                        duration = 1825
-                    }
-                }
-                40 = {
-                    add_government_power = {
-                        mechanic_type = toe_tribal_fervor
-                        power_type = toe_tribal_fervor
-                        value = -15
-                    }
-                    add_stability = -1
-                    add_legitimacy = -15
-                    add_devotion = -15
-                    add_horde_unity = -15
-                    add_prestige = -15
-                    add_country_modifier = {
-                        name = "divine_displeasure"
-                        duration = 1095
-                    }
-                }
+            tooltip = {
+                custom_tooltip = divine_trial_outcomes_tooltip
             }
-            set_country_flag = pagan_trial_cooldown
+            hidden_effect = {
+                random_list = {
+                    60 = { # Divine favor
+                        add_government_power = {
+                            mechanic_type = toe_tribal_fervor
+                            power_type = toe_tribal_fervor
+                            value = 25
+                        }
+                        add_legitimacy = 20
+                        add_devotion = 20
+                        add_horde_unity = 20
+                        add_prestige = 25
+                        add_country_modifier = {
+                            name = "divine_favor_blessing"
+                            duration = 1825
+                        }
+                    }
+                    40 = { # Divine displeasure
+                        add_government_power = {
+                            mechanic_type = toe_tribal_fervor
+                            power_type = toe_tribal_fervor
+                            value = -15
+                        }
+                        add_stability = -1
+                        add_legitimacy = -15
+                        add_devotion = -15
+                        add_horde_unity = -15
+                        add_prestige = -15
+                        add_country_modifier = {
+                            name = "divine_displeasure"
+                            duration = 1095
+                        }
+                    }
+                }
+                set_country_flag = pagan_trial_cooldown
+                clr_country_flag = pagan_trial_cooldown
+                set_country_flag = pagan_trial_cooldown
+            }
         }
         
         ai_will_do = {

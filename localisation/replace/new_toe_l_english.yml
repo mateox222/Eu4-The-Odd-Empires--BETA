@@ -4992,7 +4992,953 @@ MAZ_ideas: "Pommeranian Ideas"
  legendary_spartan_expedition: "Legendary Spartan Expedition"
  expedition_glory: "Expedition Glory"
  expedition_plunder: "Expedition Plunder"
-
+ 
  flavor_boh.15.d:"The Gnostic Wars have come to an end. The conflict, marked by religious strife and rebellion, concluded with the defeat of the Gnostic factions. Under the firm rule of Queen Maria II, a devout Christian monarch, the remaining Gnostic followers were pacified and brought under control by the royal court."
  flavor_boh.15.t:"The End of Gnostic Wars"
  boh_starting_event_devastation:0 "The lands of the §YVangionean§! crown were devastated during the §YGnostic Wars§! and have not recovered yet. Our provinces in §VVangionea§! start with increased §RDevastation§!."
+ impose_imperial_tax_title:0 "Impose Imperial Tax"
+ convene_imperial_diet_title:0 "Convene Imperial Diet"
+ call_imperial_levy_title:0 "Call Imperial Levy"
+ establish_imperial_tribunal_title:0 "Establish Imperial Tribunal"
+ 
+ # Decision Descriptions
+ impose_imperial_tax_desc:0 "The Empire requires funds for its administration and defense. By imposing a special tax on all Imperial territories, we can gather resources - though such measures may breed resentment among the princes and free cities who value their autonomy."
+ 
+ convene_imperial_diet_desc:0 "A grand assembly of the Imperial Diet can strengthen our authority and resolve pressing issues facing the Empire. However, giving voice to the princes also risks organized opposition to our policies, and some may use the occasion to air grievances."
+ 
+ call_imperial_levy_desc:0 "In times of war, the Emperor may call upon the feudal obligations of Imperial vassals. While this can provide much-needed military support, it also reminds the princes of their nominal independence and may strengthen their desire for greater autonomy."
+ 
+ establish_imperial_tribunal_desc:0 "An Imperial Tribunal can help maintain law and order throughout the Empire while strengthening our judicial authority. Yet many princes will view this as an infringement on their traditional rights and local jurisdiction."
+ 
+ # Modifier Names
+ imperial_tax_collection:0 "Imperial Tax Collection"
+ imperial_resistance:0 "Imperial Resistance"
+ tax_collector_efficiency:0 "Tax Collector Efficiency"
+ imperial_diet_session:0 "Imperial Diet Session"
+ successful_diet:0 "Successful Diet"
+ diet_controversy:0 "Diet Controversy"
+ imperial_levy_called:0 "Imperial Levy Called"
+ imperial_unity:0 "Imperial Unity"
+ levy_resistance:0 "Levy Resistance"
+ imperial_justice_tribunal:0 "Imperial Justice Tribunal"
+ imperial_law_and_order:0 "Imperial Law and Order"
+ tribunal_controversy:0 "Tribunal Controversy"
+ imperial_high_court:0 "Imperial High Court"
+ 
+ # Modifier Descriptions
+ imperial_tax_collection_desc:0 "Our tax collection efforts are generating revenue and authority, but also diplomatic tensions."
+ imperial_resistance_desc:0 "Imperial subjects are resisting our taxation policies, leading to unrest and political opposition."
+ tax_collector_efficiency_desc:0 "Our tax collectors have proven remarkably efficient in gathering Imperial revenues."
+ imperial_diet_session_desc:0 "The Imperial Diet is in session, providing a forum for Imperial politics and diplomacy."
+ successful_diet_desc:0 "Our Imperial Diet session has been highly successful, strengthening our authority and legitimacy."
+ diet_controversy_desc:0 "The recent Imperial Diet has generated significant controversy and political opposition."
+ imperial_levy_called_desc:0 "Imperial military levies have been called, increasing our military capacity but straining feudal relationships."
+ imperial_unity_desc:0 "The success of our military levy has demonstrated and strengthened Imperial unity."
+ levy_resistance_desc:0 "Resistance to our military levy has weakened Imperial cohesion and increased separatist tendencies."
+ imperial_justice_tribunal_desc:0 "Our Imperial Tribunal is working to maintain law and order throughout the Empire."
+ imperial_law_and_order_desc:0 "The Imperial Tribunal has successfully established law and order, strengthening our authority."
+ tribunal_controversy_desc:0 "Our Imperial Tribunal has sparked controversy and resistance among the Imperial estates."
+ imperial_high_court_desc:0 "The Imperial High Court serves as the supreme judicial authority in this region."
+ 
+ # Decision Tooltips
+ impose_imperial_tax_tooltip:0 "§GGains Imperial Authority and income from:§!\n• Electors: 60% comply, 30% protest, 10% refuse\n• Other HRE members: 70% pay, 25% pay reduced, 5% refuse\n§RWarning: May cause resistance, rebels, or diplomatic penalties!§!"
+ 
+ convene_imperial_diet_tooltip:0 "§GElector responses:§!\n• 40% support agenda (+0.25 Authority)\n• 35% neutral participation (+0.1 Authority)\n• 15% oppose agenda (-5 Prestige)\n• 10% boycott (-10 Prestige, -0.1 Authority)\n§RWarning: Controversial outcomes possible!§!"
+ 
+ call_imperial_levy_tooltip:0 "§GElector military support:§!\n• 50% provide troops (+2 Infantry, +0.1 Authority)\n• 30% reduced support (+1 Infantry, +0.05 Authority)\n• 20% refuse (-5 Prestige, +0.5 War Exhaustion)\n§RWarning: Only usable during war!§!"
+ 
+ establish_imperial_tribunal_tooltip:0 "§GHRE member reactions:§!\n• 40% accept authority (+0.15 Authority)\n• 35% grudging acceptance (+0.08 Authority)\n• 15% protest (-3 Prestige)\n• 10% reject authority (-8 Prestige, -0.1 Authority)\n§RWarning: May cause significant controversy!§!"
+ 
+ # Requirement Tooltips
+ imperial_tax_requirements:0 "§YRequirements:§!\n• Must be Holy Roman Emperor\n• At least §Y2.0§! years of income\n• At least §Y150§! Administrative Power\n• At least §Y25§! Imperial Authority\n• At least §Y1§! Stability\n• No active rebel armies"
+ 
+ imperial_diet_requirements:0 "§YRequirements:§!\n• Must be Holy Roman Emperor\n• Diplomatic Technology §Y12§!\n• At least §Y3.0§! years of income\n• At least §Y200§! Diplomatic Power\n• At least §Y25§! Prestige\n• At least §Y2§! Diplomatic Reputation"
+ 
+ imperial_levy_requirements:0 "§YRequirements:§!\n• Must be Holy Roman Emperor\n• Currently at war\n• At least §Y1.5§! years of income\n• At least §Y100§! Military Power\n• At least §Y20§! Imperial Authority\n• At least §Y3§! War Exhaustion"
+ 
+ imperial_tribunal_requirements:0 "§YRequirements:§!\n• Must be Holy Roman Emperor\n• Administrative Technology §Y15§!\n• At least §Y2.5§! years of income\n• At least §Y200§! Administrative Power\n• At least §Y30§! Imperial Authority\n• Theologian Advisor"
+ 
+ # Cooldown Messages
+ imperial_tax_cooldown:0 "The Empire is still recovering from our recent tax collection efforts."
+ imperial_diet_cooldown:0 "Too little time has passed since our last Imperial Diet session."
+ imperial_levy_cooldown:0 "Imperial vassals need time to recover from the recent military levy."
+ imperial_tribunal_cooldown:0 "Our Imperial Tribunal establishment is still being consolidated."
+ 
+ # Special Event Text
+ elector_compliance_high:0 "The Elector of [From.GetName] has complied with our Imperial tax, though with evident reluctance."
+ elector_compliance_low:0 "The Elector of [From.GetName] has provided only token payment, openly protesting our taxation policies."
+ elector_refusal:0 "The Elector of [From.GetName] has brazenly refused to pay the Imperial tax, citing ancient privileges."
+ 
+ prince_cooperation:0 "The Prince of [From.GetName] has dutifully paid the Imperial tax."
+ prince_resistance:0 "The Prince of [From.GetName] has paid a reduced amount, claiming financial hardship."
+ prince_defiance:0 "The Prince of [From.GetName] has refused to acknowledge our taxation authority."
+ 
+ diet_success:0 "The Imperial Diet has concluded successfully, with broad support for our agenda."
+ diet_opposition:0 "Significant opposition emerged during the Imperial Diet, hampering our initiatives."
+ diet_boycott:0 "Several major princes boycotted the Imperial Diet, undermining its legitimacy."
+ 
+ levy_support:0 "Imperial vassals have answered our call to arms with commendable loyalty."
+ levy_halfhearted:0 "The military levy has met with mixed success - some support our cause, others drag their feet."
+ levy_rebellion:0 "Our military levy has sparked open resistance among some Imperial territories."
+ 
+ tribunal_acceptance:0 "The Imperial Tribunal has been established with broad acceptance among the princes."
+ tribunal_resistance:0 "Significant resistance has emerged to our Imperial Tribunal's authority."
+ tribunal_rejection:0 "Several major princes have rejected the jurisdiction of our Imperial Tribunal."
+ 
+ # Warning Messages
+ authority_cost_warning:0 "§RWarning:§! This action will initially reduce Imperial Authority before generating gains."
+ diplomatic_consequences_warning:0 "§RWarning:§! This action may significantly worsen relations with Imperial estates."
+ rebellion_risk_warning:0 "§RWarning:§! This action carries a risk of spawning rebellions in Imperial territories."
+ stability_risk_warning:0 "§RWarning:§! This action may reduce stability and increase unrest."
+ convene_noble_assembly_title:0 "Convene Noble Assembly"
+ negotiate_with_guilds_title:0 "Negotiate with Guilds"
+ convene_religious_synod_title:0 "Convene Religious Synod"
+ fortify_border_regions_title:0 "Fortify Border Regions"
+ manage_court_intrigue_title:0 "Manage Court Intrigue"
+ promote_humanist_learning_title:0 "Promote Humanist Learning"
+ 
+ # Decision Descriptions
+ convene_noble_assembly_desc:0 "The nobility remains a powerful force in our realm, wielding ancient privileges and commanding local loyalty. By convening a formal assembly, we can attempt to secure their cooperation - though such gatherings can also provide a platform for opposition and demands for greater autonomy."
+ 
+ negotiate_with_guilds_desc:0 "Urban guilds control much of our realm's production and commerce, jealously guarding their monopolies and privileges. Through careful negotiation, we can seek their cooperation in expanding production - but they may demand concessions that could harm our broader economic interests."
+ 
+ convene_religious_synod_desc:0 "Religious unity is essential for a stable realm, yet theological disputes and varying interpretations of doctrine can divide our subjects. A synod of church leaders may help resolve such issues, though it risks exposing deeper schisms within our faith."
+ 
+ fortify_border_regions_desc:0 "Our borders face potential threats from neighboring powers. A comprehensive fortification campaign can strengthen our defenses and deter invasion, but such massive construction projects strain our treasury and manpower reserves."
+ 
+ manage_court_intrigue_desc:0 "The royal court is a web of competing interests, secret alliances, and hidden agendas. By actively managing these intrigues, we can gather valuable intelligence and counter foreign influence - though such activities carry their own risks of scandal and exposure."
+ 
+ promote_humanist_learning_desc:0 "The new humanist philosophy emphasizes reason, classical learning, and human potential. Promoting such ideas can advance our realm's intellectual development, but may also challenge traditional religious and social authorities."
+ 
+ # Modifier Names
+ noble_assembly_session:0 "Noble Assembly Session"
+ noble_loyalty:0 "Noble Loyalty"
+ noble_privileges:0 "Noble Privileges"
+ noble_compromise:0 "Noble Compromise"
+ guild_negotiations:0 "Guild Negotiations"
+ guild_cooperation:0 "Guild Cooperation"
+ guild_monopolies:0 "Guild Monopolies"
+ guild_compromise:0 "Guild Compromise"
+ guild_strikes:0 "Guild Strikes"
+ religious_synod_session:0 "Religious Synod Session"
+ orthodox_consensus:0 "Orthodox Consensus"
+ religious_tolerance:0 "Religious Tolerance"
+ religious_schism:0 "Religious Schism"
+ church_reforms:0 "Church Reforms"
+ border_fortification_project:0 "Border Fortification Project"
+ fortified_borders:0 "Fortified Borders"
+ costly_fortifications:0 "Costly Fortifications"
+ limited_fortifications:0 "Limited Fortifications"
+ fortification_delays:0 "Fortification Delays"
+ border_fortress:0 "Border Fortress"
+ defensive_works:0 "Defensive Works"
+ court_intrigue_management:0 "Court Intrigue Management"
+ effective_spy_network:0 "Effective Spy Network"
+ court_scandals:0 "Court Scandals"
+ counter_intelligence:0 "Counter Intelligence"
+ diplomatic_intelligence:0 "Diplomatic Intelligence"
+ humanist_movement:0 "Humanist Movement"
+ humanist_enlightenment:0 "Humanist Enlightenment"
+ religious_conservative_backlash:0 "Religious Conservative Backlash"
+ cultural_renaissance:0 "Cultural Renaissance"
+ social_upheaval:0 "Social Upheaval"
+ 
+ # Modifier Descriptions
+ noble_assembly_session_desc:0 "A noble assembly is currently in session, providing a forum for aristocratic participation in governance."
+ noble_loyalty_desc:0 "The nobility has pledged renewed loyalty to the crown, strengthening our military and administrative capacity."
+ noble_privileges_desc:0 "Concessions granted to the nobility have secured their cooperation at the cost of some royal authority."
+ noble_compromise_desc:0 "A mutually acceptable compromise has been reached with the noble estates."
+ guild_negotiations_desc:0 "Ongoing negotiations with craft guilds are affecting production and trade arrangements."
+ guild_cooperation_desc:0 "The guilds have agreed to cooperate with our economic policies, boosting production efficiency."
+ guild_monopolies_desc:0 "Expanded guild monopolies have increased production but also driven up prices."
+ guild_compromise_desc:0 "A balanced agreement with the guilds provides modest benefits to both sides."
+ guild_strikes_desc:0 "Guild strikes and work stoppages are disrupting production across our realm."
+ religious_synod_session_desc:0 "A religious synod is addressing matters of doctrine and church organization."
+ orthodox_consensus_desc:0 "The synod has achieved a strong orthodox consensus, unifying religious practice."
+ religious_tolerance_desc:0 "Policies of religious tolerance have reduced sectarian tensions throughout the realm."
+ religious_schism_desc:0 "The synod has exposed deep religious divisions, leading to increased tensions."
+ church_reforms_desc:0 "Comprehensive church reforms have improved clerical discipline and missionary effectiveness."
+ border_fortification_project_desc:0 "A major fortification campaign is underway along our vulnerable frontiers."
+ fortified_borders_desc:0 "Our border fortifications provide excellent defense against potential invasions."
+ costly_fortifications_desc:0 "Our fortifications are effective but have proven more expensive than anticipated."
+ limited_fortifications_desc:0 "Modest defensive improvements have been completed along our borders."
+ fortification_delays_desc:0 "Construction delays and cost overruns are hampering our fortification efforts."
+ border_fortress_desc:0 "This powerful fortress anchors our border defenses in this strategic region."
+ defensive_works_desc:0 "These defensive works provide additional protection for this border province."
+ court_intrigue_management_desc:0 "Active management of court politics has enhanced our intelligence capabilities."
+ effective_spy_network_desc:0 "Our court intrigues have created an effective network of spies and informants."
+ court_scandals_desc:0 "Court intrigues have backfired, exposing embarrassing scandals that damage our reputation."
+ counter_intelligence_desc:0 "Our intelligence operations have successfully uncovered and neutralized foreign spies."
+ diplomatic_intelligence_desc:0 "Court intrigues have provided valuable intelligence on foreign diplomatic activities."
+ humanist_movement_desc:0 "The promotion of humanist learning is advancing education and intellectual development."
+ humanist_enlightenment_desc:0 "Humanist philosophy has created an intellectual renaissance in our realm."
+ religious_conservative_backlash_desc:0 "Traditional religious authorities are resisting humanist reforms and new ideas."
+ cultural_renaissance_desc:0 "A flowering of arts and culture has enhanced our realm's prestige and sophistication."
+ social_upheaval_desc:0 "Rapid social changes have created instability and unrest among our subjects."
+ 
+ # Decision Tooltips
+ convene_noble_assembly_tooltip:0 "§GPossible outcomes:§!\n• 35% - Nobles support crown (+15 Legitimacy, +1 Stability)\n• 30% - Nobles demand concessions (+Noble Privileges, +10% Local Autonomy)\n• 25% - Compromise reached (+10 Prestige)\n• 10% - Noble rebellion (-10 Legitimacy, -1 Stability, Noble Rebels)"
+ 
+ negotiate_with_guilds_tooltip:0 "§GPossible outcomes:§!\n• 40% - Guild cooperation (+Production Efficiency, +1 Base Production)\n• 30% - Guild monopolies (+Production but +1 Inflation)\n• 20% - Compromise (+modest benefits)\n• 10% - Guild strikes (-Production Efficiency, +3 Unrest)"
+ 
+ convene_religious_synod_tooltip:0 "§GPossible outcomes:§!\n• 35% - Orthodox consensus (+1 Stability, +15 Papal Influence)\n• 25% - Religious tolerance (+1 Tolerance of Heretics/Heathens)\n• 25% - Religious schism (-1 Stability, +2 Unrest in heretic provinces)\n• 15% - Church reforms (+50 Church Power, +10 Devotion)"
+ 
+ fortify_border_regions_tooltip:0 "§GPossible outcomes:§!\n• 40% - Successful fortification (Fort built, +Fortified Borders modifier)\n• 30% - Costly but effective (+2 Inflation, +Border Fortress modifier)\n• 20% - Limited success (+Defensive Works modifier)\n• 10% - Construction problems (+1 War Exhaustion)"
+ 
+ manage_court_intrigue_tooltip:0 "§GPossible outcomes:§!\n• 30% - Effective spy network (+0.25 Spy Offense, -10 Opinion from rivals)\n• 25% - Court scandals (-5 Legitimacy, -10 Prestige)\n• 25% - Counter-intelligence success (+0.2 Spy Defense, +5 Prestige)\n• 20% - Diplomatic intelligence (+1 Diplomatic Reputation, +20 Spy Network)"
+ 
+ promote_humanist_learning_tooltip:0 "§GPossible outcomes:§!\n• 35% - Humanist enlightenment (+3 Innovativeness, University built)\n• 30% - Religious backlash (-1 Stability, -25 Church Power)\n• 25% - Cultural renaissance (+15 Prestige, +10 Legitimacy)\n• 10% - Social upheaval (-Particularist Rebels spawned)"
+ 
+ # Requirement Tooltips
+ noble_assembly_outcomes_tooltip:0 "§GPossible outcomes from the Noble Assembly:§!\n§Y35%§! - §GNobles Support Crown§!: +15 Legitimacy, +1 Stability, Noble Loyalty modifier for 10 years\n§Y30%§! - §YNobles Demand Concessions§!: +5 Legitimacy, Noble Privileges modifier for 8 years, +10% Local Autonomy in one province\n§Y25%§! - §BAssembly Compromise§!: +10 Prestige, Noble Compromise modifier for 7 years\n§Y10%§! - §RNobles Rebel§!: -10 Legitimacy, -1 Stability, Noble Rebels spawn in developed province"
+ 
+ guild_negotiation_outcomes_tooltip:0 "§GPossible outcomes from Guild Negotiations:§!\n§Y40%§! - §GGuild Cooperation§!: Guild Cooperation modifier for 10 years, +1 Base Production in workshop province\n§Y30%§! - §YGuild Monopolies§!: Guild Monopolies modifier for 8 years, +1 Inflation\n§Y20%§! - §BGuild Compromise§!: Guild Compromise modifier for 6 years, +0.5 years of income\n§Y10%§! - §RGuild Strikes§!: Guild Strikes modifier for 3 years, +3 Unrest in production province"
+ 
+ religious_synod_outcomes_tooltip:0 "§GPossible outcomes from Religious Synod:§!\n§Y35%§! - §GOrthodox Consensus§!: +1 Stability, +15 Papal Influence, Orthodox Consensus modifier for 15 years\n§Y25%§! - §BReligious Tolerance§!: +1 Tolerance of Heretics/Heathens, Religious Tolerance modifier for 10 years\n§Y25%§! - §RReligious Schism§!: -1 Stability, Religious Schism modifier for 8 years, +2 Unrest in heretic provinces\n§Y15%§! - §GChurch Reforms§!: +50 Church Power, +10 Devotion, Church Reforms modifier for 20 years"
+ 
+ border_fortification_outcomes_tooltip:0 "§GPossible outcomes from Border Fortification:§!\n§Y40%§! - §GSuccessful Fortification§!: Fort built in border province, Fortified Borders modifier for 30 years\n§Y30%§! - §YCostly Fortifications§!: +2 Inflation, Costly Fortifications modifier for 10 years, Border Fortress modifier in one province\n§Y20%§! - §BLimited Success§!: Limited Fortifications modifier for 8 years, Defensive Works modifier in one province\n§Y10%§! - §RConstruction Problems§!: +1 War Exhaustion, Fortification Delays modifier for 5 years"
+ 
+ court_intrigue_outcomes_tooltip:0 "§GPossible outcomes from Court Intrigue:§!\n§Y30%§! - §GEffective Spy Network§!: +0.25 Spy Offense, Effective Spy Network modifier for 10 years, -10 Opinion from rivals\n§Y25%§! - §RCourt Scandals§!: -5 Legitimacy, -10 Prestige, Court Scandals modifier for 6 years\n§Y25%§! - §GCounter Intelligence§!: +0.2 Spy Defense, +5 Prestige, Counter Intelligence modifier for 8 years\n§Y20%§! - §BDiplomatic Intelligence§!: +1 Diplomatic Reputation, +20 Spy Network vs European nation, Diplomatic Intelligence modifier for 7 years"
+ 
+ humanist_learning_outcomes_tooltip:0 "§GPossible outcomes from Humanist Learning:§!\n§Y35%§! - §GHumanist Enlightenment§!: +3 Innovativeness, University built in capital, Humanist Enlightenment modifier for 20 years\n§Y30%§! - §RReligious Backlash§!: -1 Stability, -25 Church Power, Religious Conservative Backlash modifier for 8 years\n§Y25%§! - §GCultural Renaissance§!: +15 Prestige, +10 Legitimacy, Cultural Renaissance modifier for 15 years\n§Y10%§! - §RSocial Upheaval§!: Particularist Rebels spawn in developed province, Social Upheaval modifier for 5 years"
+ convene_noble_assembly_tooltip:0 "§GPossible outcomes:§!\n• 35% - Nobles support crown (+15 Legitimacy, +1 Stability)\n• 30% - Nobles demand concessions (+Noble Privileges, +10% Local Autonomy)\n• 25% - Compromise reached (+10 Prestige)\n• 10% - Noble rebellion (-10 Legitimacy, -1 Stability, Noble Rebels)"
+ 
+ negotiate_with_guilds_tooltip:0 "§GPossible outcomes:§!\n• 40% - Guild cooperation (+Production Efficiency, +1 Base Production)\n• 30% - Guild monopolies (+Production but +1 Inflation)\n• 20% - Compromise (+modest benefits)\n• 10% - Guild strikes (-Production Efficiency, +3 Unrest)"
+ 
+ convene_religious_synod_tooltip:0 "§GPossible outcomes:§!\n• 35% - Orthodox consensus (+1 Stability, +15 Papal Influence)\n• 25% - Religious tolerance (+1 Tolerance of Heretics/Heathens)\n• 25% - Religious schism (-1 Stability, +2 Unrest in heretic provinces)\n• 15% - Church reforms (+50 Church Power, +10 Devotion)"
+ 
+ fortify_border_regions_tooltip:0 "§GPossible outcomes:§!\n• 40% - Successful fortification (Fort built, +Fortified Borders modifier)\n• 30% - Costly but effective (+2 Inflation, +Border Fortress modifier)\n• 20% - Limited success (+Defensive Works modifier)\n• 10% - Construction problems (+1 War Exhaustion)"
+ 
+ manage_court_intrigue_tooltip:0 "§GPossible outcomes:§!\n• 30% - Effective spy network (+0.25 Spy Offense, -10 Opinion from rivals)\n• 25% - Court scandals (-5 Legitimacy, -10 Prestige)\n• 25% - Counter-intelligence success (+0.2 Spy Defense, +5 Prestige)\n• 20% - Diplomatic intelligence (+1 Diplomatic Reputation, +20 Spy Network)"
+ 
+ promote_humanist_learning_tooltip:0 "§GPossible outcomes:§!\n• 35% - Humanist enlightenment (+3 Innovativeness, University built)\n• 30% - Religious backlash (-1 Stability, -25 Church Power)\n• 25% - Cultural renaissance (+15 Prestige, +10 Legitimacy)\n• 10% - Social upheaval (-Particularist Rebels spawned)"
+ 
+ # Requirement Tooltips
+ noble_assembly_requirements:0 "§YRequirements:§!\n• Government: Monarchy\n• Capital in Europe\n• At least §Y8§! cities\n• At least §Y1.5§! years of income\n• At least §Y100§! Diplomatic Power\n• At least §Y40§! Legitimacy\n• No active rebel armies"
+ 
+ guild_negotiation_requirements:0 "§YRequirements:§!\n• Capital in Europe\n• Administrative Technology §Y8§!\n• At least §Y10§! cities\n• At least §Y1.0§! years of income\n• At least §Y75§! Administrative Power\n• At least §Y0§! Stability"
+ 
+ religious_synod_requirements:0 "§YRequirements:§!\n• Capital in Europe\n• Christian Religion Group\n• At least §Y1.25§! years of income\n• At least §Y100§! Administrative Power\n• At least §Y1§! Stability\n• At least §Y70%§! Religious Unity\n• Theologian Advisor"
+ 
+ border_fortification_requirements:0 "§YRequirements:§!\n• Capital in Europe\n• Military Technology §Y12§!\n• At least §Y3.0§! years of income\n• At least §Y150§! Military Power\n• At least §Y50%§! Manpower\n• Neighbor without alliance or truce"
+ 
+ court_intrigue_requirements:0 "§YRequirements:§!\n• Government: Monarchy\n• Capital in Europe\n• Diplomatic Technology §Y10§!\n• At least §Y1.0§! years of income\n• At least §Y75§! Diplomatic Power\n• At least §Y1§! Spy Offense"
+ 
+ humanist_learning_requirements:0 "§YRequirements:§!\n• Capital in Europe\n• Diplomatic Technology §Y15§!\n• At least §Y2.0§! years of income\n• At least §Y150§! Diplomatic Power\n• At least §Y10§! Innovativeness\n• At least §Y30§! Prestige\n• Philosopher Advisor"
+
+ # Cooldown Messages
+ noble_assembly_cooldown:0 "The effects of our recent noble assembly are still being felt throughout the realm."
+ guild_negotiation_cooldown:0 "Our recent guild negotiations need time to be fully implemented and accepted."
+ religious_synod_cooldown:0 "The church hierarchy is still processing the decisions of our recent synod."
+ fortification_campaign_cooldown:0 "Our border fortification campaign requires time to complete current projects."
+ court_intrigue_cooldown:0 "Our court intrigue operations need time to develop new networks and contacts."
+ humanism_promotion_cooldown:0 "The humanist movement we promoted needs time to take root and spread."
+ 
+ # Special Event Text
+ nobles_support_crown:0 "The assembled nobles have pledged their loyalty and support to the crown's policies."
+ nobles_demand_concessions:0 "The noble assembly has agreed to cooperate, but only after securing significant privileges."
+ noble_rebellion_brewing:0 "The noble assembly has ended in discord, with some lords openly challenging royal authority."
+ 
+ guilds_embrace_cooperation:0 "The merchant and craft guilds have embraced our proposals for economic cooperation."
+ guilds_demand_monopolies:0 "The guilds will cooperate, but only if granted expanded monopolistic privileges."
+ guild_strikes_erupting:0 "Our negotiations have failed, leading to work stoppages and guild strikes across major cities."
+ 
+ synod_orthodox_victory:0 "The synod has successfully established orthodox doctrine and unified church practice."
+ synod_tolerance_prevails:0 "The synod has adopted policies of religious tolerance and moderation."
+ synod_creates_schism:0 "The synod has exposed irreconcilable theological differences, deepening religious divisions."
+ 
+ fortification_success:0 "Our border fortification campaign has been remarkably successful and cost-effective."
+ fortification_expensive:0 "Our fortifications are effective but have proven far more costly than anticipated."
+ fortification_problems:0 "Construction delays and engineering problems have hampered our fortification efforts."
+ 
+ spy_network_effective:0 "Our court intrigue operations have created an effective intelligence network."
+ court_scandals_exposed:0 "Our intrigue operations have backfired, exposing embarrassing court scandals."
+ foreign_spies_caught:0 "Our counter-intelligence efforts have successfully identified and captured foreign agents."
+ 
+ humanist_renaissance:0 "The promotion of humanist learning has sparked an intellectual and cultural renaissance."
+ religious_backlash:0 "Traditional religious authorities are mounting strong resistance to humanist ideas."
+ social_revolution:0 "Rapid social changes inspired by humanist thought are causing widespread upheaval."
+ 
+ # Warning Messages
+ noble_rebellion_risk:0 "§RWarning:§! This action carries a risk of noble rebellion and loss of legitimacy."
+ guild_strike_risk:0 "§RWarning:§! Failed negotiations may result in disruptive guild strikes."
+ religious_schism_risk:0 "§RWarning:§! Religious synods can sometimes deepen rather than heal theological divisions."
+ fortification_cost_risk:0 "§RWarning:§! Major fortification projects are extremely expensive and may cause inflation."
+ court_scandal_risk:0 "§RWarning:§! Court intrigue operations can backfire and damage royal reputation."
+ social_upheaval_risk:0 "§RWarning:§! Promoting radical new ideas may cause social instability and unrest."
+ 
+ # Success Messages
+ european_stability_achieved:0 "Our careful management of internal affairs has strengthened the realm's stability."
+ european_prosperity_gained:0 "Our policies have enhanced both our economic prosperity and political influence."
+ european_influence_expanded:0 "Our diplomatic and cultural initiatives have expanded our influence across Europe."
+
+  implement_military_reforms_title:0 "Implement Military Reforms"
+ establish_elite_guard_title:0 "Establish Elite Guard"
+ integrate_veterans_title:0 "Integrate Veterans"
+ establish_engineering_corps_title:0 "Establish Engineering Corps"
+ reform_military_supply_title:0 "Reform Military Supply"
+ integrate_mercenary_companies_title:0 "Integrate Mercenary Companies"
+ 
+ # Decision Descriptions
+ implement_military_reforms_desc:0 "Our military must evolve to meet the challenges of modern warfare. Through comprehensive reforms - new training methods, updated equipment, and improved organization - we can forge a more effective fighting force, though such changes may face resistance from traditionalist officers."
+ 
+ establish_elite_guard_desc:0 "An elite guard unit can serve as both a symbol of royal power and a core of military excellence. However, creating such a force requires careful consideration - elite units can become powerful political actors in their own right."
+ 
+ integrate_veterans_desc:0 "Our battle-hardened veterans possess invaluable experience that should not be wasted in peacetime. By integrating them into society through training roles, militias, or settlement programs, we can benefit from their expertise while easing their transition to civilian life."
+ 
+ establish_engineering_corps_desc:0 "Modern warfare increasingly depends on engineering expertise - fortification, siege craft, and military construction. A dedicated engineering corps can provide these specialized skills, though such technical units require significant investment and training."
+ 
+ reform_military_supply_desc:0 "An army marches on its stomach, and proper supply lines are crucial for military success. Reforming our logistics system can reduce costs and improve efficiency, but may also create opportunities for corruption and profiteering."
+ 
+ integrate_mercenary_companies_desc:0 "Professional mercenary companies possess valuable military experience and skills. By formally integrating them into our military structure, we can harness their expertise, though mercenaries' primary loyalty is often to coin rather than crown."
+ 
+ # Modifier Names
+ military_reform_campaign:0 "Military Reform Campaign"
+ modernized_military:0 "Modernized Military"
+ professional_officer_corps:0 "Professional Officer Corps"
+ costly_military_reforms:0 "Costly Military Reforms"
+ military_conservatism:0 "Military Conservatism"
+ elite_guard_formation:0 "Elite Guard Formation"
+ royal_guard:0 "Royal Guard"
+ political_guard:0 "Political Guard"
+ costly_elite_forces:0 "Costly Elite Forces"
+ guard_disloyalty:0 "Guard Disloyalty"
+ guard_barracks:0 "Guard Barracks"
+ veteran_integration:0 "Veteran Integration"
+ veteran_trainers:0 "Veteran Trainers"
+ veteran_militia:0 "Veteran Militia"
+ veteran_pensions:0 "Veteran Pensions"
+ veteran_discontent:0 "Veteran Discontent"
+ veteran_settlement:0 "Veteran Settlement"
+ engineering_corps_established:0 "Engineering Corps Established"
+ military_engineering:0 "Military Engineering"
+ siege_specialists:0 "Siege Specialists"
+ military_infrastructure:0 "Military Infrastructure"
+ engineering_failures:0 "Engineering Failures"
+ supply_reform_program:0 "Supply Reform Program"
+ efficient_logistics:0 "Efficient Logistics"
+ improved_supply_lines:0 "Improved Supply Lines"
+ supply_depot_network:0 "Supply Depot Network"
+ supply_corruption:0 "Supply Corruption"
+ military_supply_depot:0 "Military Supply Depot"
+ mercenary_integration_program:0 "Mercenary Integration Program"
+ integrated_mercenaries:0 "Integrated Mercenaries"
+ loyal_mercenaries:0 "Loyal Mercenaries"
+ professional_mercenaries:0 "Professional Mercenaries"
+ mercenary_revolt:0 "Mercenary Revolt"
+ 
+ # Modifier Descriptions
+ military_reform_campaign_desc:0 "A comprehensive military reform program is underway, modernizing our armed forces."
+ modernized_military_desc:0 "Our military has been successfully modernized with improved training and equipment."
+ professional_officer_corps_desc:0 "A professional officer corps has been established, improving military leadership quality."
+ costly_military_reforms_desc:0 "Our military reforms are effective but more expensive than anticipated."
+ military_conservatism_desc:0 "Traditional military elements are resisting modernization efforts."
+ elite_guard_formation_desc:0 "An elite guard unit is being formed to serve as the pinnacle of military excellence."
+ royal_guard_desc:0 "The Royal Guard serves as an elite military unit and symbol of royal authority."
+ political_guard_desc:0 "Our elite guard has become a significant political force supporting royal power."
+ costly_elite_forces_desc:0 "Our elite forces are highly effective but expensive to maintain."
+ guard_disloyalty_desc:0 "Concerning signs of disloyalty have emerged within our elite guard units."
+ guard_barracks_desc:0 "These elite barracks house our finest soldiers and serve as a training center."
+ veteran_integration_desc:0 "A program is underway to integrate war veterans into peacetime society."
+ veteran_trainers_desc:0 "Experienced veterans are serving as trainers, passing on their combat knowledge."
+ veteran_militia_desc:0 "Veterans have formed local militias, providing security and military experience."
+ veteran_pensions_desc:0 "Veteran pension programs have improved morale and reduced social unrest."
+ veteran_discontent_desc:0 "Veteran integration efforts have failed, leading to unrest among former soldiers."
+ veteran_settlement_desc:0 "This area has been settled by military veterans, creating a defensible community."
+ engineering_corps_established_desc:0 "A dedicated military engineering corps has been established."
+ military_engineering_desc:0 "Advanced military engineering capabilities have been developed."
+ siege_specialists_desc:0 "Specialized siege engineers have mastered the art of fortress warfare."
+ military_infrastructure_desc:0 "Military infrastructure development has improved our defensive capabilities."
+ engineering_failures_desc:0 "Engineering projects have suffered setbacks and cost overruns."
+ supply_reform_program_desc:0 "A comprehensive reform of military supply systems is underway."
+ efficient_logistics_desc:0 "Streamlined logistics have reduced military maintenance costs and improved mobility."
+ improved_supply_lines_desc:0 "Enhanced supply lines have reduced attrition and improved army effectiveness."
+ supply_depot_network_desc:0 "A network of supply depots supports military operations across our territory."
+ supply_corruption_desc:0 "Corruption in the supply system is increasing costs and reducing efficiency."
+ military_supply_depot_desc:0 "This military supply depot supports operations and hinders enemy movement."
+ mercenary_integration_program_desc:0 "Professional mercenary companies are being integrated into our military structure."
+ integrated_mercenaries_desc:0 "Successfully integrated mercenaries have enhanced our military capabilities."
+ loyal_mercenaries_desc:0 "Mercenary companies have pledged loyalty to our cause, reducing costs and improving availability."
+ professional_mercenaries_desc:0 "Professional mercenary units have been formally incorporated into our military."
+ mercenary_revolt_desc:0 "Mercenary integration has failed, leading to unrest and disloyalty among hired troops."
+ 
+ # Custom Tooltips for Hidden Effects
+ military_reform_outcomes_tooltip:0 "§GPossible outcomes from Military Reforms:§!\n§Y35%§! - §GModernized Military§!: +15 Army Tradition, Training Fields built in capital, Modernized Military modifier for 15 years\n§Y30%§! - §BProfessional Officer Corps§!: +10 Army Tradition, +1 yearly Manpower, Professional Officer Corps modifier for 20 years\n§Y25%§! - §YCostly Reforms§!: +8 Army Tradition, +1 Inflation, Costly Military Reforms modifier for 10 years\n§Y10%§! - §RMilitary Resistance§!: -5 Army Tradition, Noble Rebels spawn, Military Conservatism modifier for 7 years"
+ 
+ elite_guard_outcomes_tooltip:0 "§GPossible outcomes from Elite Guard:§!\n§Y40%§! - §GRoyal Guard§!: 3 Infantry spawned in capital, Guard Barracks built, Royal Guard modifier for 20 years\n§Y30%§! - §BPolitical Guard§!: +15 Legitimacy, +5 Max Absolutism, Political Guard modifier for 15 years\n§Y20%§! - §YCostly Elite Forces§!: +12 Army Tradition, -0.5 years income, Costly Elite Forces modifier for 10 years\n§Y10%§! - §RGuard Disloyalty§!: -15 Legitimacy, -1 Stability, Guard Disloyalty modifier for 8 years"
+ 
+ veteran_integration_outcomes_tooltip:0 "§GPossible outcomes from Veteran Integration:§!\n§Y40%§! - §GVeteran Trainers§!: -0.01 Army Tradition Decay, +0.5 yearly Manpower, Veteran Trainers modifier for 15 years\n§Y30%§! - §BVeteran Militia§!: Veteran Settlement built in province, Veteran Militia modifier for 10 years\n§Y20%§! - §BVeteran Pensions§!: +1 Stability, -0.25 years income, Veteran Pensions modifier for 20 years\n§Y10%§! - §RVeteran Discontent§!: Particularist Rebels spawn, Veteran Discontent modifier for 6 years"
+ 
+ engineering_corps_outcomes_tooltip:0 "§GPossible outcomes from Engineering Corps:§!\n§Y35%§! - §GMilitary Engineering§!: Fort upgraded in province, Military Engineering modifier for 20 years\n§Y30%§! - §BSiege Specialists§!: +0.15 Siege Ability, Siege Specialists modifier for 15 years\n§Y25%§! - §BMilitary Infrastructure§!: Fort built in province, Military Infrastructure modifier for 10 years\n§Y10%§! - §REngineering Failures§!: Fort destroyed in province, Engineering Failures modifier for 6 years"
+ 
+ supply_reform_outcomes_tooltip:0 "§GPossible outcomes from Supply Reform:§!\n§Y40%§! - §GEfficient Logistics§!: -15% Land Maintenance, Efficient Logistics modifier for 15 years\n§Y30%§! - §BImproved Supply Lines§!: -20% Land Attrition, Improved Supply Lines modifier for 10 years\n§Y20%§! - §BSupply Depot Network§!: Military Supply Depot built, Supply Depot Network modifier for 20 years\n§Y10%§! - §RSupply Corruption§!: +1 Corruption, +15% Land Maintenance, Supply Corruption modifier for 8 years"
+ 
+ mercenary_integration_outcomes_tooltip:0 "§GPossible outcomes from Mercenary Integration:§!\n§Y35%§! - §GIntegrated Mercenaries§!: +0.05 Mercenary Discipline, +2 Possible Condottieri, Integrated Mercenaries modifier for 15 years\n§Y30%§! - §BLoyal Mercenaries§!: -15% Mercenary Cost, +25% Mercenary Manpower, Loyal Mercenaries modifier for 10 years\n§Y25%§! - §BProfessional Mercenaries§!: 2 Infantry spawned in capital, Professional Mercenaries modifier for 20 years\n§Y10%§! - §RMercenary Revolt§!: Noble Rebels spawn, Mercenary Revolt modifier for 6 years"
+ 
+ # Requirement Tooltips
+ military_reform_requirements:0 "§YRequirements:§!\n• Military Technology §Y8§!\n• At least §Y10§! Army size\n• At least §Y2.0§! years of income\n• At least §Y150§! Military Power\n• At least §Y20§! Army Tradition\n• At least §Y60%§! Manpower"
+ 
+ elite_guard_requirements:0 "§YRequirements:§!\n• Military Technology §Y12§!\n• At least §Y30§! Army Tradition\n• At least §Y50§! Legitimacy\n• At least §Y1.5§! years of income\n• At least §Y100§! Military Power\n• At least §Y40§! Army Tradition\n• At least §Y70%§! Manpower"
+ 
+ veteran_integration_requirements:0 "§YRequirements:§!\n• At least §Y15§! Army Tradition\n• Not currently at war\n• At least §Y1.0§! years of income\n• At least §Y75§! Administrative Power\n• At least §Y25§! Army Tradition\n• At least §Y2§! War Exhaustion"
+ 
+ engineering_corps_requirements:0 "§YRequirements:§!\n• Military Technology §Y14§!\n• Own province with Fort\n• At least §Y2.5§! years of income\n• At least §Y200§! Military Power\n• Fortification Expert Advisor\n• At least §Y15§! cities"
+ 
+ supply_reform_requirements:0 "§YRequirements:§!\n• Military Technology §Y10§!\n• At least §Y20§! Army size\n• At least §Y1.5§! years of income\n• At least §Y100§! Administrative Power\n• At least §Y75§! Military Power\n• Quartermaster Advisor"
+ 
+ mercenary_integration_requirements:0 "§YRequirements:§!\n• At least §Y3§! Mercenary regiments\n• At least §Y10%§! Mercenary Manpower\n• At least §Y1.75§! years of income\n• At least §Y100§! Diplomatic Power\n• At least §Y50§! Military Power\n• At least §Y15%§! Mercenary Manpower"
+ 
+ # Cooldown Messages
+ military_reform_cooldown:0 "Our military reform program is still being implemented throughout the armed forces."
+ elite_guard_cooldown:0 "Our elite guard formation efforts need time to properly train and organize new units."
+ veteran_integration_cooldown:0 "Our veteran integration program is still processing former soldiers into civilian roles."
+ engineering_corps_cooldown:0 "Our engineering corps establishment requires time to recruit and train specialists."
+ supply_reform_cooldown:0 "Our supply system reforms are still being implemented across military units."
+ mercenary_integration_cooldown:0 "Our mercenary integration efforts need time to properly incorporate professional companies."
+ 
+ # Success Messages
+ military_modernization_success:0 "Our military modernization efforts have significantly enhanced our armed forces' capabilities."
+ elite_guard_success:0 "The establishment of elite guard units has created a powerful symbol of military excellence."
+ veteran_program_success:0 "Our veteran integration program has successfully utilized experienced soldiers' skills."
+ engineering_advancement:0 "Military engineering advances have greatly improved our siege and fortification capabilities."
+ logistics_improvement:0 "Supply system reforms have streamlined military operations and reduced costs."
+ mercenary_professionalization:0 "Mercenary integration has created a more professional and loyal fighting force."
+ 
+ # Warning Messages
+ military_resistance_risk:0 "§RWarning:§! Military reforms may face resistance from traditionalist officers."
+ guard_loyalty_risk:0 "§RWarning:§! Elite guards can become powerful political actors with their own agendas."
+ veteran_unrest_risk:0 "§RWarning:§! Failed veteran integration may lead to social unrest among former soldiers."
+ engineering_failure_risk:0 "§RWarning:§! Complex engineering projects carry risks of costly failures."
+ supply_corruption_risk:0 "§RWarning:§! Supply reforms may create opportunities for corruption and profiteering."
+ mercenary_rebellion_risk:0 "§RWarning:§! Mercenary loyalty is often conditional and may not survive poor treatment."
+ establish_naval_academy_title:0 "Establish Naval Academy"
+ authorize_privateer_fleets_title:0 "Authorize Privateer Fleets"
+ expand_naval_shipyards_title:0 "Expand Naval Shipyards"
+ launch_exploration_initiative_title:0 "Launch Exploration Initiative"
+ establish_coastal_defenses_title:0 "Establish Coastal Defenses"
+ establish_naval_intelligence_title:0 "Establish Naval Intelligence"
+ 
+ # Decision Descriptions
+ establish_naval_academy_desc:0 "Professional naval education is essential for developing skilled officers and advancing maritime knowledge. A naval academy can train competent commanders and improve our fleet's effectiveness, though establishing such an institution requires significant investment and may face resistance from traditional naval officers."
+ 
+ authorize_privateer_fleets_desc:0 "Privateers can serve as an extension of naval power, harassing enemy commerce while generating profits for the realm. However, authorizing privateering carries diplomatic risks and may provoke retaliation from affected nations."
+ 
+ expand_naval_shipyards_desc:0 "Our growing naval ambitions require expanded shipbuilding capacity. By investing in larger, more advanced shipyards, we can build more powerful vessels and maintain our fleet more effectively, though such projects demand substantial resources and technical expertise."
+ 
+ launch_exploration_initiative_desc:0 "The seas hold untold opportunities for discovery, trade, and colonization. A coordinated exploration initiative can extend our reach to distant shores and new markets, but oceanic ventures are fraught with danger and uncertainty."
+ 
+ establish_coastal_defenses_desc:0 "Our coastline represents both an opportunity and a vulnerability. Comprehensive coastal fortifications can protect our ports and shipping from enemy attack, though such defenses require careful planning and substantial investment to be effective."
+ 
+ establish_naval_intelligence_desc:0 "Knowledge of enemy naval movements and capabilities is crucial for maritime success. A dedicated naval intelligence network can provide valuable information about rival fleets and trade routes, but espionage activities carry inherent risks of exposure and diplomatic complications."
+ 
+ # Modifier Names
+ naval_academy_establishment:0 "Naval Academy Establishment"
+ prestigious_naval_academy:0 "Prestigious Naval Academy"
+ professional_naval_officers:0 "Professional Naval Officers"
+ costly_naval_training:0 "Costly Naval Training"
+ naval_conservatism:0 "Naval Conservatism"
+ naval_academy_port:0 "Naval Academy Port"
+ privateer_authorization:0 "Privateer Authorization"
+ profitable_privateering:0 "Profitable Privateering"
+ privateer_dominance:0 "Privateer Dominance"
+ privateer_complications:0 "Privateer Complications"
+ privateer_mutiny:0 "Privateer Mutiny"
+ shipyard_expansion_project:0 "Shipyard Expansion Project"
+ advanced_shipbuilding:0 "Advanced Shipbuilding"
+ naval_innovation:0 "Naval Innovation"
+ naval_mass_production:0 "Naval Mass Production"
+ shipyard_delays:0 "Shipyard Delays"
+ exploration_initiative:0 "Exploration Initiative"
+ age_of_exploration:0 "Age of Exploration"
+ new_trade_routes:0 "New Trade Routes"
+ colonial_opportunities:0 "Colonial Opportunities"
+ exploration_disasters:0 "Exploration Disasters"
+ coastal_defense_project:0 "Coastal Defense Project"
+ fortified_coastline:0 "Fortified Coastline"
+ coastal_artillery:0 "Coastal Artillery"
+ harbor_defenses:0 "Harbor Defenses"
+ coastal_defense_failures:0 "Coastal Defense Failures"
+ coastal_fortress:0 "Coastal Fortress"
+ fortified_harbor:0 "Fortified Harbor"
+ naval_intelligence_network:0 "Naval Intelligence Network"
+ naval_spy_network:0 "Naval Spy Network"
+ maritime_intelligence:0 "Maritime Intelligence"
+ naval_counter_intelligence:0 "Naval Counter Intelligence"
+ naval_intelligence_failure:0 "Naval Intelligence Failure"
+ 
+ # Modifier Descriptions
+ naval_academy_establishment_desc:0 "A naval academy is being established to train professional officers and advance maritime knowledge."
+ prestigious_naval_academy_desc:0 "Our prestigious naval academy produces highly skilled officers and advances naval science."
+ professional_naval_officers_desc:0 "Professional naval officers trained in modern techniques lead our fleets with expertise."
+ costly_naval_training_desc:0 "Our naval training programs are effective but more expensive than anticipated."
+ naval_conservatism_desc:0 "Traditional naval officers are resisting modern training methods and innovations."
+ naval_academy_port_desc:0 "This port serves as the home of our naval academy, training the next generation of officers."
+ privateer_authorization_desc:0 "Authorized privateers are operating under our flag, harassing enemy commerce."
+ profitable_privateering_desc:0 "Our privateer operations are generating substantial profits and naval experience."
+ privateer_dominance_desc:0 "Our privateers dominate key shipping lanes, disrupting enemy trade."
+ privateer_complications_desc:0 "Privateer activities have created diplomatic complications with foreign powers."
+ privateer_mutiny_desc:0 "Privateer crews have mutinied, undermining our naval authority and reputation."
+ shipyard_expansion_project_desc:0 "Major shipyard expansion projects are underway to increase our naval capacity."
+ advanced_shipbuilding_desc:0 "Advanced shipbuilding techniques have improved our naval construction capabilities."
+ naval_innovation_desc:0 "Naval innovations have enhanced our shipbuilding technology and maritime knowledge."
+ naval_mass_production_desc:0 "Mass production techniques have increased our shipbuilding output and efficiency."
+ shipyard_delays_desc:0 "Shipyard expansion has suffered delays and cost overruns, hampering naval development."
+ exploration_initiative_desc:0 "A coordinated exploration program is expanding our knowledge of distant waters."
+ age_of_exploration_desc:0 "We have entered a golden age of exploration, discovery, and maritime expansion."
+ new_trade_routes_desc:0 "New trade routes discovered by our explorers have expanded commercial opportunities."
+ colonial_opportunities_desc:0 "Exploration has revealed promising opportunities for colonial expansion."
+ exploration_disasters_desc:0 "Exploration expeditions have suffered disasters, damaging our maritime reputation."
+ coastal_defense_project_desc:0 "Comprehensive coastal fortification projects are strengthening our maritime defenses."
+ fortified_coastline_desc:0 "Our coastline is now heavily fortified, providing excellent protection against naval attacks."
+ coastal_artillery_desc:0 "Coastal artillery batteries guard our shores against enemy fleets."
+ harbor_defenses_desc:0 "Our harbors are well-defended against naval attack and blockade attempts."
+ coastal_defense_failures_desc:0 "Coastal defense projects have failed, leaving our shores vulnerable to attack."
+ coastal_fortress_desc:0 "This powerful coastal fortress protects the harbor and surrounding waters."
+ fortified_harbor_desc:0 "This fortified harbor provides excellent protection for our naval vessels."
+ naval_intelligence_network_desc:0 "A dedicated naval intelligence network monitors enemy maritime activities."
+ naval_spy_network_desc:0 "Our naval spies provide valuable intelligence on enemy fleet movements and capabilities."
+ maritime_intelligence_desc:0 "Our maritime intelligence operations have enhanced our knowledge of sea routes and trade."
+ naval_counter_intelligence_desc:0 "Counter-intelligence efforts have protected our naval secrets from foreign spies."
+ naval_intelligence_failure_desc:0 "Naval intelligence operations have failed, exposing our agents and damaging relations."
+ 
+ # Custom Tooltips for Hidden Effects
+ naval_academy_outcomes_tooltip:0 "§GPossible outcomes from Naval Academy:§!\n§Y40%§! - §GPrestigious Naval Academy§!: +15 Navy Tradition, Dock built in port, Naval Academy Port modifier for 20 years\n§Y30%§! - §BProfessional Naval Officers§!: +10 Navy Tradition, +1 Free Navy Leader, Professional Naval Officers modifier for 15 years\n§Y20%§! - §YCostly Naval Training§!: +8 Navy Tradition, +1 Inflation, Costly Naval Training modifier for 10 years\n§Y10%§! - §RNaval Conservatism§!: -5 Navy Tradition, +2 Unrest in port, Naval Conservatism modifier for 8 years"
+ 
+ privateer_authorization_outcomes_tooltip:0 "§GPossible outcomes from Privateer Authorization:§!\n§Y35%§! - §GProfitable Privateering§!: +12 Navy Tradition, +0.75 years income, -15 Opinion from rivals, Profitable Privateering modifier for 10 years\n§Y30%§! - §BPrivateer Dominance§!: +25% Privateer Efficiency, +20 Trade Power in node, Privateer Dominance modifier for 8 years\n§Y25%§! - §YPrivateer Complications§!: +8 Navy Tradition, -1 Diplomatic Reputation, Trade War CB from rival, Privateer Complications modifier for 6 years\n§Y10%§! - §RPrivateer Mutiny§!: -8 Navy Tradition, Noble Rebels spawn in port, Privateer Mutiny modifier for 4 years"
+ 
+ shipyard_expansion_outcomes_tooltip:0 "§GPossible outcomes from Shipyard Expansion:§!\n§Y40%§! - §GAdvanced Shipbuilding§!: Shipyard upgraded to Grand Shipyard, Advanced Shipbuilding modifier for 20 years\n§Y25%§! - §BNaval Innovation§!: +10 Navy Tradition, +1 Innovativeness, Naval Innovation modifier for 15 years\n§Y25%§! - §BNaval Mass Production§!: Shipyard built in port, Naval Mass Production modifier for 10 years\n§Y10%§! - §RShipyard Delays§!: +2 Inflation, -5 Navy Tradition, Shipyard Delays modifier for 6 years"
+ 
+ exploration_initiative_outcomes_tooltip:0 "§GPossible outcomes from Exploration Initiative:§!\n§Y35%§! - §GAge of Exploration§!: +15 Navy Tradition, +20 Prestige, 2 Light Ships spawned, Age of Exploration modifier for 15 years\n§Y25%§! - §BNew Trade Routes§!: +0.25 Range, +1 Merchant, New Trade Routes modifier for 10 years\n§Y25%§! - §BColonial Opportunities§!: +5% Colonist Placement Chance, +15 Global Colonial Growth, Colonial Opportunities modifier for 20 years\n§Y15%§! - §RExploration Disasters§!: -10 Navy Tradition, -15 Prestige, Exploration Disasters modifier for 5 years"
+ 
+ coastal_defense_outcomes_tooltip:0 "§GPossible outcomes from Coastal Defense:§!\n§Y40%§! - §GFortified Coastline§!: Coastal Defence built, Coastal Fortress modifier in province, Fortified Coastline modifier for 30 years\n§Y30%§! - §BCoastal Artillery§!: +1.0 Own Coast Naval Combat Bonus, Coastal Artillery modifier for 15 years\n§Y20%§! - §BHarbor Defenses§!: Fortified Harbor modifier in all ports, Harbor Defenses modifier for 20 years\n§Y10%§! - §RDefense Failures§!: +1 War Exhaustion, -10 Prestige, Coastal Defense Failures modifier for 7 years"
+ 
+ naval_intelligence_outcomes_tooltip:0 "§GPossible outcomes from Naval Intelligence:§!\n§Y35%§! - §GNaval Spy Network§!: +0.25 Spy Offense, +25 Spy Network vs rivals, Naval Spy Network modifier for 15 years\n§Y30%§! - §BMaritime Intelligence§!: +0.5 Navy Tradition from Trade, +20% Privateer Efficiency, Maritime Intelligence modifier for 10 years\n§Y25%§! - §BNaval Counter Intelligence§!: +0.25 Spy Defense, +8 Prestige, Naval Counter Intelligence modifier for 8 years\n§Y10%§! - §RIntelligence Failure§!: -0.15 Spy Offense, -12 Prestige, -20 Opinion from rivals, Naval Intelligence Failure modifier for 4 years"
+ 
+ # Requirement Tooltips
+ naval_academy_requirements:0 "§YRequirements:§!\n• Diplomatic Technology §Y9§!\n• At least §Y10§! Navy size\n• Own province with port\n• At least §Y1.75§! years of income\n• At least §Y125§! Diplomatic Power\n• At least §Y20§! Navy Tradition\n• Naval Reformer Advisor"
+ 
+ privateer_authorization_requirements:0 "§YRequirements:§!\n• Diplomatic Technology §Y7§!\n• At least §Y5§! Light Ships\n• Rival with ports\n• At least §Y1.25§! years of income\n• At least §Y100§! Diplomatic Power\n• At least §Y15§! Navy Tradition\n• At least §Y10§! Light Ships"
+ 
+ shipyard_expansion_requirements:0 "§YRequirements:§!\n• Diplomatic Technology §Y11§!\n• Own province with Shipyard\n• At least §Y2.25§! years of income\n• At least §Y100§! Administrative Power\n• At least §Y75§! Diplomatic Power\n• At least §Y12§! cities"
+ 
+ exploration_initiative_requirements:0 "§YRequirements:§!\n• Diplomatic Technology §Y9§!\n• At least §Y1§! Colonist\n• At least §Y8§! Navy size\n• At least §Y1.5§! years of income\n• At least §Y150§! Diplomatic Power\n• At least §Y0.5§! Range\n• Navigator Advisor"
+ 
+ coastal_defense_requirements:0 "§YRequirements:§!\n• Military Technology §Y12§!\n• At least §Y3§! ports\n• Rival with §Y15+§! Navy size\n• At least §Y2.0§! years of income\n• At least §Y150§! Military Power\n• At least §Y100§! Diplomatic Power\n• At least §Y60%§! Manpower"
+ 
+ naval_intelligence_requirements:0 "§YRequirements:§!\n• Diplomatic Technology §Y14§!\n• At least §Y25§! Navy Tradition\n• At least §Y1§! Spy Offense\n• At least §Y1.25§! years of income\n• At least §Y125§! Diplomatic Power\n• At least §Y2§! Spy Offense\n• At least §Y8§! Light Ships"
+ 
+ # Cooldown Messages
+ naval_academy_cooldown:0 "Our naval academy establishment is still developing proper curriculum and facilities."
+ privateer_authorization_cooldown:0 "Our privateer operations need time to establish networks and recruit crews."
+ shipyard_expansion_cooldown:0 "Our shipyard expansion projects are still under construction and require more time."
+ exploration_initiative_cooldown:0 "Our exploration initiative is still organizing expeditions and training navigators."
+ coastal_defense_cooldown:0 "Our coastal defense projects are still under construction and require completion time."
+ naval_intelligence_cooldown:0 "Our naval intelligence network needs time to establish contacts and gather information."
+ 
+ # Success Messages
+ naval_academy_success:0 "Our naval academy has successfully enhanced the quality and professionalism of our fleet officers."
+ privateer_success:0 "Authorized privateers have proven effective at disrupting enemy commerce and generating profits."
+ shipyard_success:0 "Expanded shipyards have significantly increased our naval construction and maintenance capabilities."
+ exploration_success:0 "Our exploration initiative has opened new horizons and opportunities for maritime expansion."
+ coastal_defense_success:0 "Coastal fortifications have created a formidable barrier against potential naval invasions."
+ naval_intelligence_success:0 "Our naval intelligence network provides valuable insights into enemy maritime activities."
+ 
+ # Warning Messages
+ naval_tradition_risk:0 "§RWarning:§! Naval initiatives may face resistance from traditionalist officers and sailors."
+ privateer_diplomatic_risk:0 "§RWarning:§! Privateer activities can provoke diplomatic incidents and retaliation."
+ shipyard_cost_risk:0 "§RWarning:§! Major shipyard projects are extremely expensive and may cause inflation."
+ exploration_danger_risk:0 "§RWarning:§! Oceanic exploration is dangerous and expeditions may be lost at sea."
+ coastal_defense_complexity_risk:0 "§RWarning:§! Coastal defense projects are complex and may suffer engineering failures."
+ intelligence_exposure_risk:0 "§RWarning:§! Intelligence operations carry risks of exposure and diplomatic complications."
+
+ #Localisation file for Economic Decisions
+#Place in localisation/english/
+
+l_english:
+ 
+ # Decision Names
+ establish_banking_system_title:0 "Establish Banking System"
+ promote_manufacturing_title:0 "Promote Manufacturing"
+ expand_commercial_networks_title:0 "Expand Commercial Networks"
+ reform_tax_collection_title:0 "Reform Tax Collection"
+ invest_in_infrastructure_title:0 "Invest in Infrastructure"
+ reform_market_regulations_title:0 "Reform Market Regulations"
+ 
+ # Decision Descriptions
+ establish_banking_system_desc:0 "Modern banking institutions can provide credit, manage currency, and facilitate large-scale commerce. Establishing a sophisticated banking system will enhance our economic capabilities, though such financial innovations carry risks of speculation and economic instability."
+ 
+ promote_manufacturing_desc:0 "Encouraging domestic manufacturing can reduce dependence on foreign goods while creating employment and wealth. By supporting workshops, skilled craftsmen, and industrial innovation, we can strengthen our productive capacity and economic independence."
+ 
+ expand_commercial_networks_desc:0 "Extending our trading relationships and commercial reach can unlock new markets and sources of wealth. However, aggressive commercial expansion may provoke competition and conflict with rival trading powers."
+ 
+ reform_tax_collection_desc:0 "Our tax collection system requires modernization to improve efficiency and reduce corruption. Reformed taxation can increase revenue and administrative effectiveness, but changes to established practices may provoke resistance from taxpayers and tax collectors alike."
+ 
+ invest_in_infrastructure_desc:0 "Roads, bridges, markets, and other infrastructure are the foundation of economic prosperity. Major infrastructure investments can stimulate trade and development, though such projects require enormous resources and careful management to avoid waste and corruption."
+ 
+ reform_market_regulations_desc:0 "Market regulations shape how commerce operates within our realm. Reforming these rules can either promote free trade and competition or establish greater government control over economic activity, each approach carrying distinct advantages and risks."
+ 
+ # Modifier Names
+ banking_system_establishment:0 "Banking System Establishment"
+ advanced_banking:0 "Advanced Banking"
+ credit_system:0 "Credit System"
+ banking_speculation:0 "Banking Speculation"
+ banking_crisis:0 "Banking Crisis"
+ financial_center:0 "Financial Center"
+ manufacturing_development:0 "Manufacturing Development"
+ proto_industrialization:0 "Proto-Industrialization"
+ skilled_craftsmen:0 "Skilled Craftsmen"
+ manufacturing_guilds:0 "Manufacturing Guilds"
+ production_bottlenecks:0 "Production Bottlenecks"
+ commercial_expansion:0 "Commercial Expansion"
+ expanded_trade_network:0 "Expanded Trade Network"
+ international_commerce:0 "International Commerce"
+ commercial_competition:0 "Commercial Competition"
+ trade_disputes:0 "Trade Disputes"
+ tax_collection_reform:0 "Tax Collection Reform"
+ efficient_taxation:0 "Efficient Taxation"
+ tax_farming:0 "Tax Farming"
+ expanded_bureaucracy:0 "Expanded Bureaucracy"
+ tax_rebellion:0 "Tax Rebellion"
+ infrastructure_development:0 "Infrastructure Development"
+ improved_roads:0 "Improved Roads"
+ urban_development:0 "Urban Development"
+ regional_improvements:0 "Regional Improvements"
+ infrastructure_corruption:0 "Infrastructure Corruption"
+ major_trade_hub:0 "Major Trade Hub"
+ improved_infrastructure:0 "Improved Infrastructure"
+ market_regulation_reform:0 "Market Regulation Reform"
+ free_market_economy:0 "Free Market Economy"
+ regulated_commerce:0 "Regulated Commerce"
+ market_consolidation:0 "Market Consolidation"
+ market_disruption:0 "Market Disruption"
+ 
+ # Modifier Descriptions
+ banking_system_establishment_desc:0 "A modern banking system is being established to facilitate commerce and finance."
+ advanced_banking_desc:0 "Our advanced banking system provides credit, manages currency, and facilitates economic growth."
+ credit_system_desc:0 "A sophisticated credit system enables large-scale investments and commercial ventures."
+ banking_speculation_desc:0 "Banking innovations have led to speculation and financial instability."
+ banking_crisis_desc:0 "Our banking system has collapsed, causing economic turmoil and inflation."
+ financial_center_desc:0 "This city has become a major financial center, attracting merchants and bankers."
+ manufacturing_development_desc:0 "Government support for manufacturing is expanding our productive capacity."
+ proto_industrialization_desc:0 "Early industrial development is transforming our manufacturing capabilities."
+ skilled_craftsmen_desc:0 "Skilled craftsmen are improving the quality and efficiency of our production."
+ manufacturing_guilds_desc:0 "Manufacturing guilds are organizing production and trade in our industrial centers."
+ production_bottlenecks_desc:0 "Manufacturing expansion has created bottlenecks and supply chain problems."
+ commercial_expansion_desc:0 "Our commercial networks are expanding to reach new markets and trading partners."
+ expanded_trade_network_desc:0 "An extensive trade network connects our merchants to markets across the known world."
+ international_commerce_desc:0 "International trade relationships have enhanced our diplomatic and economic standing."
+ commercial_competition_desc:0 "Aggressive commercial expansion has intensified competition with rival trading powers."
+ trade_disputes_desc:0 "Commercial conflicts have damaged our trading relationships and diplomatic standing."
+ tax_collection_reform_desc:0 "Tax collection reforms are improving efficiency and reducing administrative corruption."
+ efficient_taxation_desc:0 "An efficient tax system maximizes revenue while minimizing corruption and resistance."
+ tax_farming_desc:0 "Tax farming arrangements provide steady revenue but may increase corruption."
+ expanded_bureaucracy_desc:0 "An expanded bureaucracy improves administration but increases government costs."
+ tax_rebellion_desc:0 "Tax reforms have provoked widespread resistance and rebellion among taxpayers."
+ infrastructure_development_desc:0 "Major infrastructure investments are improving transportation and commerce."
+ improved_roads_desc:0 "Improved roads and transportation networks facilitate trade and communication."
+ urban_development_desc:0 "Urban development projects are enhancing the prosperity of our cities."
+ regional_improvements_desc:0 "Infrastructure improvements are benefiting communities throughout our realm."
+ infrastructure_corruption_desc:0 "Infrastructure projects have been plagued by corruption and cost overruns."
+ major_trade_hub_desc:0 "This city has become a major trade hub connecting multiple commercial routes."
+ improved_infrastructure_desc:0 "Local infrastructure improvements have enhanced economic development in this region."
+ market_regulation_reform_desc:0 "Market regulations are being reformed to improve commercial efficiency."
+ free_market_economy_desc:0 "Free market policies have enhanced trade efficiency and economic growth."
+ regulated_commerce_desc:0 "Regulated commerce provides stability and government control over markets."
+ market_consolidation_desc:0 "Market consolidation has created more efficient commercial structures."
+ market_disruption_desc:0 "Market reforms have caused disruption and instability in commercial activities."
+ 
+ # Custom Tooltips for Hidden Effects
+ banking_system_outcomes_tooltip:0 "§GPossible outcomes from Banking System:§!\n§Y35%§! - §GAdvanced Banking§!: -2 Inflation, Stock Exchange built in capital, Financial Center modifier for 30 years\n§Y30%§! - §BCredit System§!: -1 Interest, +1.0 years income, Credit System modifier for 20 years\n§Y25%§! - §YBanking Speculation§!: +1 Inflation, +1.5 years income, Banking Speculation modifier for 10 years\n§Y10%§! - §RBanking Crisis§!: +3 Inflation, -1.0 years income, -1 Stability, Banking Crisis modifier for 7 years"
+ 
+ manufacturing_promotion_outcomes_tooltip:0 "§GPossible outcomes from Manufacturing Promotion:§!\n§Y40%§! - §GProto-Industrialization§!: Counting House and Workshop built, Proto-Industrialization modifier for 20 years\n§Y30%§! - §BSkilled Craftsmen§!: +1 Base Production in workshop provinces, Skilled Craftsmen modifier for 15 years\n§Y20%§! - §BManufacturing Guilds§!: +0.75 years income, +0.5 Inflation, Manufacturing Guilds modifier for 10 years\n§Y10%§! - §RProduction Bottlenecks§!: +2 Inflation, +3 Unrest in workshop province, Production Bottlenecks modifier for 6 years"
+ 
+ commercial_expansion_outcomes_tooltip:0 "§GPossible outcomes from Commercial Expansion:§!\n§Y35%§! - §GExpanded Trade Network§!: +1 Merchant, +3 Mercantilism, +25 Trade Power in node, Expanded Trade Network modifier for 15 years\n§Y30%§! - §BInternational Commerce§!: +1 Diplomatic Reputation, +10% Global Trade Power, International Commerce modifier for 10 years\n§Y25%§! - §YCommercial Competition§!: +15% Trade Efficiency, -20 Opinion from trade rivals, Commercial Competition modifier for 8 years\n§Y10%§! - §RTrade Disputes§!: -1 Diplomatic Reputation, Trade War CB from rival, Trade Disputes modifier for 5 years"
+ 
+ tax_reform_outcomes_tooltip:0 "§GPossible outcomes from Tax Reform:§!\n§Y40%§! - §GEfficient Taxation§!: -2 Corruption, Courthouses built, Efficient Taxation modifier for 20 years\n§Y30%§! - §BTax Farming§!: +1.0 years income, +1 Corruption, Tax Farming modifier for 15 years\n§Y20%§! - §BExpanded Bureaucracy§!: +5% Administrative Efficiency, +10% Advisor Cost, Expanded Bureaucracy modifier for 10 years\n§Y10%§! - §RTax Rebellion§!: -1 Stability, Particularist Rebels spawn, Tax Rebellion modifier for 7 years"
+ 
+ infrastructure_investment_outcomes_tooltip:0 "§GPossible outcomes from Infrastructure Investment:§!\n§Y35%§! - §GImproved Roads§!: Marketplaces built, Major Trade Hub modifier in province, Improved Roads modifier for 30 years\n§Y30%§! - §BUrban Development§!: +1 Tax/Production in capital and province, Urban Development modifier for 20 years\n§Y25%§! - §BRegional Improvements§!: Improved Infrastructure modifier in developed provinces, Regional Improvements modifier for 15 years\n§Y10%§! - §RInfrastructure Corruption§!: +2 Corruption, +1 Inflation, Infrastructure Corruption modifier for 10 years"
+ 
+ market_regulation_outcomes_tooltip:0 "§GPossible outcomes from Market Regulation:§!\n§Y35%§! - §GFree Market Economy§!: +15% Trade Efficiency, -1 Inflation, +10% Global Trade Power, Free Market Economy modifier for 15 years\n§Y30%§! - §BRegulated Commerce§!: +1 Stability, +2 Mercantilism, -1 Global Unrest, Regulated Commerce modifier for 10 years\n§Y25%§! - §BMarket Consolidation§!: +0.5 years income, Trade Depot built, Market Consolidation modifier for 8 years\n§Y10%§! - §RMarket Disruption§!: +2 Inflation, +2 Global Unrest, -1 Stability, Market Disruption modifier for 6 years"
+ 
+ # Requirement Tooltips
+ banking_system_requirements:0 "§YRequirements:§!\n• Administrative Technology §Y12§!\n• At least §Y15§! cities\n• Own province with §Y20+§! development\n• At least §Y2.5§! years of income\n• At least §Y150§! Administrative Power\n• At least §Y100§! Diplomatic Power\n• Treasurer Advisor"
+ 
+ manufacturing_promotion_requirements:0 "§YRequirements:§!\n• Administrative Technology §Y15§!\n• Own province with Workshop and §Y4+§! Base Production\n• At least §Y2.0§! years of income\n• At least §Y125§! Administrative Power\n• Master of Mint Advisor\n• At least §Y12§! cities"
+ 
+ commercial_expansion_requirements:0 "§YRequirements:§!\n• Diplomatic Technology §Y10§!\n• At least §Y2§! Merchants\n• At least §Y10§! Mercantilism\n• At least §Y1.75§! years of income\n• At least §Y125§! Diplomatic Power\n• At least §Y8§! Light Ships\n• At least §Y15§! Global Trade Power"
+ 
+ tax_reform_requirements:0 "§YRequirements:§!\n• Administrative Technology §Y8§!\n• At least §Y10§! cities\n• At least §Y1.5§! years of income\n• At least §Y100§! Administrative Power\n• At least §Y3§! Corruption\n• Treasurer Advisor"
+ 
+ infrastructure_investment_requirements:0 "§YRequirements:§!\n• Administrative Technology §Y11§!\n• At least §Y8§! cities\n• At least §Y3.0§! years of income\n• At least §Y150§! Administrative Power\n• At least §Y75§! Military Power\n• Master of Mint Advisor"
+ 
+ market_regulation_requirements:0 "§YRequirements:§!\n• Diplomatic Technology §Y13§!\n• At least §Y10§! Global Trade Power\n• Own province with Marketplace\n• At least §Y1.25§! years of income\n• At least §Y100§! Diplomatic Power\n• At least §Y75§! Administrative Power\n• At least §Y1§! Stability"
+ 
+ # Cooldown Messages
+ banking_system_cooldown:0 "Our banking system establishment requires time to develop proper institutions and practices."
+ manufacturing_promotion_cooldown:0 "Our manufacturing promotion efforts need time to train craftsmen and establish production."
+ commercial_expansion_cooldown:0 "Our commercial network expansion requires time to establish new trade relationships."
+ tax_reform_cooldown:0 "Our tax collection reforms are still being implemented throughout the administration."
+ infrastructure_investment_cooldown:0 "Our infrastructure development projects require years to complete and show results."
+ market_regulation_cooldown:0 "Our market regulation reforms need time to be accepted and implemented by merchants."
+ 
+ # Success Messages
+ banking_success:0 "Our banking system has successfully modernized financial practices and enhanced economic growth."
+ manufacturing_success:0 "Manufacturing promotion has significantly increased our productive capacity and industrial development."
+ commercial_success:0 "Commercial network expansion has opened new markets and enhanced our trading position."
+ taxation_success:0 "Tax collection reforms have improved efficiency while reducing corruption and administrative waste."
+ infrastructure_success:0 "Infrastructure investments have created lasting improvements to transportation and commerce."
+ market_regulation_success:0 "Market regulation reforms have enhanced commercial efficiency and economic stability."
+ 
+ # Warning Messages
+ banking_crisis_risk:0 "§RWarning:§! Banking innovations carry risks of speculation and financial instability."
+ manufacturing_disruption_risk:0 "§RWarning:§! Rapid manufacturing changes may create bottlenecks and labor unrest."
+ commercial_conflict_risk:0 "§RWarning:§! Aggressive commercial expansion may provoke trade wars with rivals."
+ tax_resistance_risk:0 "§RWarning:§! Tax reforms may face resistance from taxpayers and established interests."
+ infrastructure_corruption_risk:0 "§RWarning:§! Large infrastructure projects are vulnerable to corruption and cost overruns."
+ market_instability_risk:0 "§RWarning:§! Market regulation changes can cause economic disruption and instability."
+ shamanic_consultation_outcomes_tooltip:0 "§GThe shamans will provide one of three types of wisdom:§!\n§Y33%§! - §GAdministrative Wisdom§!: Shamanic Wisdom (Admin) modifier for 2 years\n§Y33%§! - §GDiplomatic Wisdom§!: Shamanic Wisdom (Diplo) modifier for 2 years\n§Y34%§! - §GMilitary Wisdom§!: Shamanic Wisdom (Military) modifier for 2 years\n\n§GAll outcomes also provide +5 Tribal Fervor§!"
+ 
+ sacred_site_purification_tooltip:0 "§GEffects of Sacred Site Purification:§!\n• Random foreign religion province with temple/cathedral or 3+ base tax will be converted to our faith\n• That province will receive 'Purified Sacred Site' modifier for 5 years\n• +10 Prestige\n• +10 Tribal Fervor\n\n§BThis action can only be taken once per ruler§!"
+ 
+ ancestor_summoning_effects_tooltip:0 "§GEffects of Summoning Ancestor Spirits:§!\n• Friendly Zealot rebels spawn in one of our provinces (representing ancestor spirits)\n• These spirit warriors will fight for us in the current war\n• Ancestor Spirits Blessing modifier for 3 years\n• +20 Tribal Fervor\n• §Y-10 Army Tradition (cost of the ritual)§!"
+ 
+ divine_trial_outcomes_tooltip:0 "§GPossible outcomes from the Divine Trial:§!\n§Y60%§! - §GDivine Favor§!: +25 Tribal Fervor, +20 Legitimacy/Devotion/Horde Unity, +25 Prestige, Divine Favor Blessing modifier for 5 years\n§Y40%§! - §RDivine Displeasure§!: -15 Tribal Fervor, -1 Stability, -15 Legitimacy/Devotion/Horde Unity, -15 Prestige, Divine Displeasure modifier for 3 years"
+ hunnic_start_ideas:"Hunnic ideas"
+
+ l_english:
+ # Main Interaction
+ assyrian_archaeology: "Fund Archaeological Expedition"
+ assyrian_archaeology_desc: "Organize a major archaeological expedition to uncover the lost treasures and knowledge of ancient Assyria. Our archaeologists will excavate ancient sites throughout Mesopotamia in search of artifacts, texts, and technologies from our glorious past."
+ 
+ # Main Tooltip
+ assyrian_archaeology_expedition_tooltip: "§YThe ancient sands of Mesopotamia hunger for disturbance...§!\n\n§gThe Fates have whispered their prophecies:§!\n\n§G✦ LEGENDARY REVELATIONS ✦§!\n§YOne in twenty expeditions§! §g(~5%)§! §Yshall uncover treasures beyond mortal comprehension§!\nThe Library of Eternal Knowledge... The Throne of the First King... The Forbidden Treasury...\nThe Codex of Iron and Blood... The Scrolls of Hidden Truths...\n§YBut each legend can be claimed but once...§!\n\n§B◆ MAJOR DISCOVERIES ◆§!\n§YThree in twenty ventures§! §b(~15%)§! §Yshall yield significant power§!\nAdministrative wisdom of fallen empires... Tactics that toppled nations... Maps to forgotten wealth...\n\n§Y▲ SIGNIFICANT FINDINGS ▲§!\n§YFive in twenty searches§! §Y(~25%)§! §Yshall grant useful knowledge§!\nSacred texts... Celestial observations... Caches of ancient war...\n\n§W● MODEST REWARDS ●§!\n§YSeven in twenty attempts§! §W(~35%)§! §Yshall return with minor artifacts§!\nDusty scrolls... Faded records... Merchant tallies of bygone days...\n\n§R☠ DOOM AND DISASTER ☠§!\n§YFour in twenty expeditions§! §R(~20%)§! §Yshall awaken that which should remain buried§!\n§REmpty tombs mock the greedy§! §r(~10%)§!\n§RCurses devour the unworthy§! §r(~5%)§!\n§RThe earth swallows the foolish§! §r(~3%)§!\n§RNeighbors rage at sacrilege§! §r(~2%)§!\n\n§Y⚠ The Threads of Fate ⚠§!\n§YSuccess favors those with:§!\n• §YA legendary archaeologist's touch§! §g(Rare are such blessed souls...)§!\n• §YWisdom and stability in the realm§!\n• §YThe favor of forgotten gods§!\n• §YOr perhaps... merely fortune's fickle smile§!\n\n§RBeware: He who disturbs the sleep of kings may find his own rest eternal...§!"
+ 
+ # === LEGENDARY DISCOVERY EVENTS ===
+ 
+ # Library of Ashurbanipal
+ assyrian_arch.1.t: "The Library of Ashurbanipal Discovered!"
+ assyrian_arch.1.d: "Our archaeologists have made the discovery of the millennium! Deep beneath the ruins of Nineveh, they have found the legendary Library of Ashurbanipal intact, with thousands of cuneiform tablets perfectly preserved. This collection represents the sum of all human knowledge from the ancient world - texts on astronomy, mathematics, medicine, theology, and statecraft. How shall we focus our translation efforts?"
+ assyrian_arch.1.a: "Prioritize scientific and mathematical texts."
+ assyrian_arch.1.b: "Focus on administrative and legal codes."
+ assyrian_arch.1.c: "Translate the religious manuscripts first."
+ 
+ # Sargon's Throne
+ assyrian_arch.2.t: "The Throne of Sargon the Great!"
+ assyrian_arch.2.d: "In a hidden chamber beneath the ancient palace, our expedition has discovered the legendary throne room of Sargon of Akkad, the first ruler to unite all of Mesopotamia! The throne itself is intact, covered in gold and lapis lazuli, with inscriptions proclaiming the divine right of Assyrian kings to rule the world. This discovery legitimizes our claim to restore the ancient empire!"
+ assyrian_arch.2.a: "I shall sit upon this throne as divinely appointed!"
+ assyrian_arch.2.b: "Study its military inscriptions for strategic wisdom."
+ assyrian_arch.2.c: "Display it publicly as proof of our heritage."
+ sargon_throne_divine_tooltip: "Your ruler gains divine legitimacy from the ancient throne"
+ 
+ # Royal Treasury
+ assyrian_arch.3.t: "The Lost Royal Treasury of Assyria!"
+ assyrian_arch.3.d: "Behind a series of cunning traps that claimed several workers' lives, we have discovered the emergency treasury of the last Assyrian kings! Vast stores of gold, silver, and precious gems fill chamber after chamber. Ancient tablets indicate this wealth was hidden during the final siege of Nineveh, meant to fund the empire's restoration. That day has finally come!"
+ assyrian_arch.3.a: "Empty the vaults immediately!"
+ assyrian_arch.3.b: "Use it to rebuild our infrastructure."
+ assyrian_arch.3.c: "Establish a royal bank with this capital."
+ 
+ # Military Manuals
+ assyrian_arch.4.t: "Assyrian Military Engineering Codex!"
+ assyrian_arch.4.d: "We have uncovered the complete military archives of the Assyrian war machine! Detailed manuals describe siege engines that could breach any wall, the secrets of Assyrian iron working that gave them weapons superior to all enemies, and the organizational structures that allowed them to field the ancient world's most disciplined armies. This knowledge will revolutionize warfare!"
+ assyrian_arch.4.a: "Master the art of siege warfare!"
+ assyrian_arch.4.b: "Revive Assyrian metallurgy!"
+ assyrian_arch.4.c: "Perfect our defensive architecture!"
+ 
+ # Diplomatic Archives
+ assyrian_arch.5.t: "The Secret Diplomatic Archives!"
+ assyrian_arch.5.d: "In a sealed chamber, we've discovered the complete diplomatic correspondence of the Assyrian Empire! These tablets contain spy reports on every ancient kingdom, secret treaties, blackmail material on long-dead kings, and detailed intelligence gathering methods. Most remarkably, many modern nations are descendants of these ancient kingdoms, and some of these secrets still apply!"
+ assyrian_arch.5.a: "Use this intelligence against our rivals!"
+ assyrian_arch.5.b: "Restore ancient friendships and alliances."
+ assyrian_arch.5.c: "Claim ancient trade privileges."
+ assyrian_ancient_alliances_tooltip: "Nations in the Near East will remember ancient friendships"
+ 
+ # === MAJOR DISCOVERY EVENTS ===
+ 
+ # Administrative Codex
+ assyrian_arch.20.t: "Administrative Reform Codex Found!"
+ assyrian_arch.20.d: "Our expedition has uncovered a complete set of administrative manuals from the height of the Assyrian bureaucracy. These texts detail efficient tax collection methods, provincial governance systems, and corruption prevention techniques that were centuries ahead of their time. Implementing these reforms will greatly enhance our administrative capabilities."
+ assyrian_arch.20.a: "Implement these ancient wisdoms immediately!"
+ 
+ # Military Tactics
+ assyrian_arch.21.t: "Ancient Military Training Manuals!"
+ assyrian_arch.21.d: "We've discovered the training regimens and tactical doctrines of the elite Assyrian army! These scrolls contain detailed instructions for drilling soldiers, combined arms tactics, and the psychological warfare techniques that made Assyrian armies the terror of the ancient world. Our military will benefit greatly from this knowledge."
+ assyrian_arch.21.a: "Our armies shall be invincible once more!"
+ 
+ # Trade Maps
+ assyrian_arch.22.t: "Ancient Trade Route Maps Discovered!"
+ assyrian_arch.22.d: "Hidden in clay containers, we've found detailed maps of ancient trade routes spanning from India to Egypt! These documents include information about seasonal patterns, safe harbors, caravan stops, and even ancient trade agreements that may still hold legal weight. This discovery will revolutionize our commerce."
+ assyrian_arch.22.a: "Revive these ancient trade networks!"
+ 
+ # === SIGNIFICANT DISCOVERY EVENTS ===
+ 
+ # Religious Texts
+ assyrian_arch.30.t: "Sacred Religious Manuscripts Found"
+ assyrian_arch.30.d: "Our archaeologists have discovered a cache of religious texts mixing ancient Assyrian prayers with early Christian writings. These manuscripts provide unique insights into how our ancestors merged their traditional beliefs with the new faith, creating the distinctive Eastern Christianity we practice today."
+ assyrian_arch.30.a: "These will strengthen our theological position."
+ 
+ # Astronomical Observations
+ assyrian_arch.31.t: "Babylonian Astronomical Records"
+ assyrian_arch.31.d: "We've uncovered detailed astronomical observations spanning centuries! These clay tablets contain precise recordings of celestial movements, eclipse predictions, and mathematical calculations that rival modern astronomy. Our scholars are amazed by the accuracy of these ancient observations."
+ assyrian_arch.31.a: "The heavens themselves guide our destiny!"
+ 
+ # Ancient Weapons
+ assyrian_arch.32.t: "Cache of Ancient Iron Weapons"
+ assyrian_arch.32.d: "Workers have broken through into an ancient armory containing hundreds of well-preserved iron weapons! The quality of these ancient blades surpasses many modern weapons, and the forging techniques recorded on nearby tablets could revolutionize our metallurgy. Even better, many weapons are still serviceable!"
+ assyrian_arch.32.a: "Arm our troops with the weapons of their ancestors!"
+ 
+ # === MODERATE DISCOVERY EVENTS ===
+ 
+ # Administrative Scrolls
+ assyrian_arch.40.t: "Administrative Scrolls Uncovered"
+ assyrian_arch.40.d: "Our expedition has found a modest collection of administrative documents detailing tax records, census data, and bureaucratic procedures from a provincial Assyrian city. While not revolutionary, these texts provide useful insights into efficient governance."
+ assyrian_arch.40.a: "Every bit of ancient wisdom helps."
+ 
+ # Military Records
+ assyrian_arch.41.t: "Military Supply Records Found"
+ assyrian_arch.41.d: "We've discovered quartermaster records detailing how the Assyrian army supplied itself during long campaigns. These mundane but practical documents contain useful information about logistics, supply lines, and resource management that our generals find quite valuable."
+ assyrian_arch.41.a: "Ancient logistics for modern armies."
+ 
+ # Merchant Records
+ assyrian_arch.42.t: "Ancient Merchant Records"
+ assyrian_arch.42.d: "Clay tablets containing merchant transaction records have been unearthed. These detail trade goods, prices, and commercial practices from ancient times. Our merchants are studying these records to identify profitable trade opportunities that may have been forgotten."
+ assyrian_arch.42.a: "Ancient commerce yields modern profits."
+ 
+ # === DISASTER EVENTS ===
+ 
+ # Curse Event
+ assyrian_arch.10.t: "The Curse of the Violated Tomb!"
+ assyrian_arch.10.d: "Our archaeologists have made a terrible mistake! The tomb they opened was protected by ancient curses, and now a palpable aura of doom hangs over our court. Strange accidents plague our palace, nightmares torment all who participated in the excavation, and an ancient evil seems to have awakened. The curse demands a royal life as payment for our sacrilege!"
+ assyrian_arch.10.a: "The curse falls upon me..."
+ assyrian_arch.10.b: "My heir shall bear this burden!"
+ assyrian_arch.10.c: "We must break this curse at any cost!"
+ ruler_death_curse_tooltip: "The ancient curse claims your ruler's life"
+ heir_death_curse_tooltip: "The ancient curse claims your heir's life"
+ ruler_skills_cursed_tooltip: "Your ruler's abilities are permanently diminished"
+ 
+ # Empty Tomb
+ assyrian_arch.11.t: "The Tomb Was Already Plundered"
+ assyrian_arch.11.d: "After months of excavation and the expenditure of vast resources, our archaeologists have finally breached the ancient tomb... only to find it completely empty. Grave robbers in antiquity had already stripped it of all valuables, leaving only broken pottery and faded inscriptions. This public failure has made us a laughingstock!"
+ assyrian_arch.11.a: "Someone must be held responsible!"
+ assyrian_arch.11.b: "Cover up this embarrassment."
+ 
+ # Tomb Collapse
+ assyrian_arch.50.t: "Catastrophic Excavation Collapse!"
+ assyrian_arch.50.d: "Disaster has struck our archaeological expedition! The ancient tomb's ceiling, weakened by our excavations, has completely collapsed, burying workers and destroying priceless artifacts. The local population blames us for disturbing sacred ground, and the tragedy has shocked the nation."
+ assyrian_arch.50.a: "A terrible price for our ambitions..."
+ 
+ # International Incident
+ assyrian_arch.51.t: "International Archaeological Incident!"
+ assyrian_arch.51.d: "Our excavation has sparked an international incident! Neighboring rulers claim we have destroyed shared cultural heritage sites in our reckless pursuit of Assyrian artifacts. They demand compensation and threaten military action if we continue our archaeological activities near their borders."
+ assyrian_arch.51.a: "We must face the diplomatic consequences."
+ 
+ # === MODIFIERS ===
+ 
+ # Ongoing Excavation
+ ongoing_excavation: "Ongoing Archaeological Expedition"
+ ongoing_excavation_desc: "Resources and attention are being diverted to support a major archaeological excavation project. The kingdom eagerly awaits news of discoveries."
+ 
+ # Legendary Discovery Modifiers
+ library_of_ashurbanipal_scientific: "Library of Ashurbanipal - Scientific Focus"
+ library_of_ashurbanipal_scientific_desc: "The scientific texts from Ashurbanipal's library have revolutionized our understanding of mathematics, astronomy, and natural philosophy."
+ 
+ library_of_ashurbanipal_administrative: "Library of Ashurbanipal - Administrative Focus"
+ library_of_ashurbanipal_administrative_desc: "Ancient administrative wisdom from the world's first great library guides our bureaucracy to unprecedented efficiency."
+ 
+ library_of_ashurbanipal_religious: "Library of Ashurbanipal - Religious Focus"
+ library_of_ashurbanipal_religious_desc: "Sacred texts from the ancient library strengthen our theological authority and religious unity."
+ 
+ heir_of_sargon_divine: "Divine Heir of Sargon"
+ heir_of_sargon_divine_desc: "Blessed by sitting upon Sargon's throne, our ruler carries the divine mandate of the first emperor of the world."
+ 
+ heir_of_sargon_military: "Military Heir of Sargon"
+ heir_of_sargon_military_desc: "Inspired by Sargon's military genius, our ruler has mastered the art of ancient warfare."
+ 
+ sargon_throne_display: "Throne of Sargon on Display"
+ sargon_throne_display_desc: "The legendary throne of Sargon the Great is displayed here, awing all who behold it."
+ 
+ assyrian_royal_bank: "Royal Bank of Assyria"
+ assyrian_royal_bank_desc: "Founded with ancient royal treasures, this institution manages the realm's finances with time-tested methods."
+ 
+ assyrian_siege_mastery: "Masters of Siege Warfare"
+ assyrian_siege_mastery_desc: "Ancient engineering manuals have given us unparalleled expertise in siege warfare."
+ 
+ assyrian_iron_revolution: "Assyrian Iron Revolution"
+ assyrian_iron_revolution_desc: "Rediscovered techniques of Assyrian metallurgy produce weapons of legendary quality."
+ 
+ assyrian_fortress_design: "Ancient Fortress Architecture"
+ assyrian_fortress_design_desc: "Defensive innovations from the height of Assyrian power make our fortifications nearly impregnable."
+ 
+ upgraded_assyrian_fort: "Assyrian-Design Fortification"
+ upgraded_assyrian_fort_desc: "This fortress incorporates ancient Assyrian defensive innovations."
+ 
+ assyrian_intelligence_network: "Ancient Intelligence Network"
+ assyrian_intelligence_network_desc: "Using methods from ancient diplomatic archives, our spy network operates with unprecedented efficiency."
+ 
+ assyrian_diplomatic_traditions: "Restored Diplomatic Traditions"
+ assyrian_diplomatic_traditions_desc: "Ancient diplomatic wisdom guides our international relations."
+ 
+ assyrian_trade_privileges: "Ancient Trade Privileges"
+ assyrian_trade_privileges_desc: "Rediscovered trade agreements from antiquity grant us special commercial rights."
+ 
+ # Major Discovery Modifiers
+ advanced_cuneiform_administration: "Advanced Cuneiform Administration"
+ advanced_cuneiform_administration_desc: "Detailed administrative procedures from the height of the Assyrian Empire guide our bureaucracy."
+ 
+ elite_assyrian_tactics: "Elite Assyrian Military Doctrine"
+ elite_assyrian_tactics_desc: "Complete military manuals detailing the tactics that conquered the ancient world."
+ 
+ ancient_trade_knowledge: "Ancient Trade Route Knowledge"
+ ancient_trade_knowledge_desc: "Detailed maps of ancient trade routes provide immense commercial advantages."
+ 
+ # Significant Discovery Modifiers
+ religious_manuscripts_found: "Sacred Manuscripts Discovered"
+ religious_manuscripts_found_desc: "Ancient religious texts strengthen our theological position."
+ 
+ babylonian_astronomy: "Babylonian Astronomical Knowledge"
+ babylonian_astronomy_desc: "Precise astronomical observations from ancient Babylon advance our sciences."
+ 
+ assyrian_iron_weapons: "Cache of Assyrian Iron Weapons"
+ assyrian_iron_weapons_desc: "Ancient weapon stockpiles provide templates for superior armaments."
+ 
+ # Moderate Discovery Modifiers
+ minor_administrative_texts: "Minor Administrative Texts"
+ minor_administrative_texts_desc: "Useful bureaucratic documents from ancient provincial archives."
+ 
+ minor_military_manuals: "Basic Military Manuals"
+ minor_military_manuals_desc: "Standard military procedures from the Assyrian army."
+ 
+ ancient_merchant_records: "Ancient Commercial Records"
+ ancient_merchant_records_desc: "Trade documents revealing forgotten commercial opportunities."
+ 
+ # Failure/Curse Modifiers
+ archaeological_disappointment: "Archaeological Disappointment"
+ archaeological_disappointment_desc: "Recent failed excavations have dampened enthusiasm for further expeditions."
+ 
+ curse_of_assyria: "Curse of the Ancient Kings"
+ curse_of_assyria_desc: "A terrible curse has been unleashed by disturbing an ancient tomb!"
+ 
+ curse_of_greed: "Curse of Greed"
+ curse_of_greed_desc: "Taking the entire ancient treasury has brought a curse upon our realm."
+ 
+ cursed_ruler: "Personally Cursed"
+ cursed_ruler_desc: "This ruler bears a personal curse from disturbing sacred ground."
+ 
+ cursed_ground: "Cursed Ground"
+ cursed_ground_desc: "This land has been cursed by the disturbance of ancient tombs."
+ 
+ excavation_disaster: "Excavation Disaster Site"
+ excavation_disaster_desc: "A catastrophic excavation failure has devastated this province."
+ 
+ archaeological_tragedy: "National Archaeological Tragedy"
+ archaeological_tragedy_desc: "A recent excavation disaster has shaken the nation."
+ 
+ # Opinion Modifiers
+ discovered_ancient_library: "Discovered Ancient Library"
+ found_ancient_treasure: "Found Ancient Treasure"
+ ancient_friendship_restored: "Ancient Friendship Restored"
+ destroyed_cultural_heritage: "Destroyed Our Cultural Heritage"
+ 
+ # Additional Tooltips
+ assyrian_expedition_success_factors: "§YExpedition success depends on:§!\n• Quality of expedition leader\n• Ruler's skills\n• National stability\n• Pure luck"
+ assyrian_legendary_discoveries_tooltip: "§GEach legendary discovery can only be found once!§!"
+ assyrian_curse_warning_tooltip: "§RWarning: Disturbing ancient tombs may unleash terrible curses!§!"
