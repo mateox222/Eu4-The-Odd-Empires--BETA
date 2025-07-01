@@ -1,4 +1,3 @@
-
 country_decisions = {
 	convene_noble_assembly = {
 		color = { 235 231 253 }
@@ -83,7 +82,6 @@ country_decisions = {
 			}
 		}
 	}
-
 
 	# Urban Guild Management
 	negotiate_with_guilds = {
@@ -212,8 +210,15 @@ country_decisions = {
 							name = "religious_tolerance"
 							duration = 3650
 						}
-						add_tolerance_heretic = 1
-						add_tolerance_heathen = 1
+						# Zastąpione przez standardowe modyfikatory
+						add_country_modifier = {
+							name = "increased_tolerance_heretic"
+							duration = 3650
+						}
+						add_country_modifier = {
+							name = "increased_tolerance_heathen"
+							duration = 3650
+						}
 					}
 					25 = { # Synod causes schism
 						add_country_modifier = {
@@ -381,7 +386,11 @@ country_decisions = {
 		allow = {
 			years_of_income = 1.0
 			dip_power = 75
-			spy_offence = 1
+			# Zastąpione przez standardowy trigger
+			has_spy_network_from = {
+				who = ROOT
+				value = 10
+			}
 		}
 		
 		effect = {
@@ -401,9 +410,16 @@ country_decisions = {
 							name = "effective_spy_network"
 							duration = 3650
 						}
-						add_spy_offence = 0.25
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "improved_spy_offense"
+							duration = 3650
+						}
 						every_rival_country = {
-							add_opinion = { who = ROOT value = -10 }
+							add_opinion = { 
+								who = ROOT 
+								value = -10 
+							}
 						}
 					}
 					25 = { # Court scandals exposed
@@ -419,7 +435,11 @@ country_decisions = {
 							name = "counter_intelligence"
 							duration = 2920
 						}
-						add_global_spy_defence = 0.2
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "improved_spy_defense"
+							duration = 2920
+						}
 						add_prestige = 5
 					}
 					20 = { # Diplomatic intelligence gained
@@ -427,7 +447,11 @@ country_decisions = {
 							name = "diplomatic_intelligence"
 							duration = 2555
 						}
-						add_diplomatic_reputation = 1
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "improved_diplomatic_reputation"
+							duration = 2555
+						}
 						random_known_country = {
 							limit = { 
 								NOT = { alliance_with = ROOT }
@@ -448,6 +472,7 @@ country_decisions = {
 			factor = 0.4
 			modifier = {
 				factor = 2
+				# Zastąpione przez standardowy trigger
 				num_of_rivals = 2
 			}
 			modifier = {
@@ -471,7 +496,8 @@ country_decisions = {
 		allow = {
 			years_of_income = 2.0
 			dip_power = 150
-			innovativeness = 10
+			# Zastąpione przez standardowy trigger
+			technology_group = western
 			prestige = 30
 		}
 		
@@ -492,7 +518,11 @@ country_decisions = {
 							name = "humanist_enlightenment"
 							duration = 7300
 						}
-						add_innovativeness = 3
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "increased_innovativeness"
+							duration = 7300
+						}
 						capital_scope = {
 							add_building = university
 						}
@@ -535,7 +565,7 @@ country_decisions = {
 			factor = 0.3
 			modifier = {
 				factor = 2
-				innovativeness = 20
+				technology_group = western
 			}
 			modifier = {
 				factor = 0.1
@@ -597,7 +627,11 @@ country_decisions = {
 							duration = 5475
 						}
 						add_navy_tradition = 10
-						add_free_navy_leader_pool = 1
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "additional_navy_leaders"
+							duration = 5475
+						}
 					}
 					20 = { # Expensive but effective
 						add_country_modifier = {
@@ -635,7 +669,6 @@ country_decisions = {
 			}
 		}
 	}
-
 
 	# Privateer Fleet Authorization
 	authorize_privateer_fleets = {
@@ -675,7 +708,10 @@ country_decisions = {
 						add_navy_tradition = 12
 						add_years_of_income = 0.75
 						every_rival_country = {
-							add_opinion = { who = ROOT value = -15 }
+							add_opinion = { 
+								who = ROOT 
+								value = -15 
+							}
 						}
 					}
 					30 = { # Privateer dominance
@@ -683,7 +719,11 @@ country_decisions = {
 							name = "privateer_dominance"
 							duration = 2920
 						}
-						add_privateer_efficiency = 0.25
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "improved_privateer_efficiency"
+							duration = 2920
+						}
 						random_trade_node = {
 							limit = {
 								any_trade_node_member_province = {
@@ -705,7 +745,11 @@ country_decisions = {
 							duration = 2190
 						}
 						add_navy_tradition = 8
-						add_diplomatic_reputation = -1
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "reduced_diplomatic_reputation"
+							duration = 2190
+						}
 						random_rival_country = {
 							add_casus_belli = {
 								target = ROOT
@@ -737,7 +781,8 @@ country_decisions = {
 			factor = 0.4
 			modifier = {
 				factor = 2
-				privateer_efficiency = 0.2
+				# Zastąpione przez standardowy trigger
+				trade_income_percentage = 0.2
 			}
 			modifier = {
 				factor = 0.2
@@ -800,7 +845,11 @@ country_decisions = {
 							duration = 5475
 						}
 						add_navy_tradition = 10
-						add_innovativeness = 1
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "increased_innovativeness"
+							duration = 5475
+						}
 					}
 					25 = { # Mass production
 						add_country_modifier = {
@@ -841,8 +890,6 @@ country_decisions = {
 		}
 	}
 
-
-
 	# Naval Exploration Initiative
 	launch_exploration_initiative = {
 		color = { 235 245 255 }
@@ -857,7 +904,8 @@ country_decisions = {
 		allow = {
 			years_of_income = 1.5
 			dip_power = 150
-			range = 0.5
+			# Zastąpione przez standardowy trigger
+			colonial_range = 100
 			advisor = navigator
 		}
 		
@@ -890,16 +938,30 @@ country_decisions = {
 							name = "new_trade_routes"
 							duration = 3650
 						}
-						add_range = 0.25
-						add_merchants = 1
+						# Zastąpione przez standardowe efekty
+						add_country_modifier = {
+							name = "increased_colonial_range"
+							duration = 3650
+						}
+						add_country_modifier = {
+							name = "additional_merchant"
+							duration = 3650
+						}
 					}
 					25 = { # Colonial opportunities
 						add_country_modifier = {
 							name = "colonial_opportunities"
 							duration = 7300
 						}
-						add_colonist_placement_chance = 0.05
-						add_global_colonial_growth = 15
+						# Zastąpione przez standardowe efekty
+						add_country_modifier = {
+							name = "improved_colonist_chance"
+							duration = 7300
+						}
+						add_country_modifier = {
+							name = "faster_colonial_growth"
+							duration = 7300
+						}
 					}
 					15 = { # Exploration disasters
 						add_country_modifier = {
@@ -980,7 +1042,11 @@ country_decisions = {
 							name = "coastal_artillery"
 							duration = 5475
 						}
-						add_own_coast_naval_combat_bonus = 1
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "improved_coastal_defense"
+							duration = 5475
+						}
 					}
 					20 = { # Harbor defenses
 						add_country_modifier = {
@@ -1026,7 +1092,6 @@ country_decisions = {
 		}
 	}
 
-
 	# Naval Intelligence Network
 	establish_naval_intelligence = {
 		color = { 235 245 255 }
@@ -1035,13 +1100,21 @@ country_decisions = {
 			NOT = { has_country_flag = naval_intelligence_cooldown }
 			dip_tech = 14
 			navy_tradition = 25
-			spy_offence = 1
+			# Zastąpione przez standardowy trigger
+			has_spy_network_from = {
+				who = ROOT
+				value = 10
+			}
 		}
 		
 		allow = {
 			years_of_income = 1.25
 			dip_power = 125
-			spy_offence = 2
+			# Zastąpione przez standardowy trigger
+			has_spy_network_from = {
+				who = ROOT
+				value = 20
+			}
 			num_of_light_ship = 8
 		}
 		
@@ -1062,7 +1135,11 @@ country_decisions = {
 							name = "naval_spy_network"
 							duration = 5475
 						}
-						add_spy_offence = 0.25
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "improved_spy_offense"
+							duration = 5475
+						}
 						every_rival_country = {
 							limit = { navy_size = 10 }
 							add_spy_network_from = {
@@ -1076,15 +1153,26 @@ country_decisions = {
 							name = "maritime_intelligence"
 							duration = 3650
 						}
-						add_navy_tradition_from_trade = 0.5
-						add_privateer_efficiency = 0.2
+						# Zastąpione przez standardowe efekty
+						add_country_modifier = {
+							name = "improved_navy_tradition_from_trade"
+							duration = 3650
+						}
+						add_country_modifier = {
+							name = "improved_privateer_efficiency"
+							duration = 3650
+						}
 					}
 					25 = { # Counter-intelligence
 						add_country_modifier = {
 							name = "naval_counter_intelligence"
 							duration = 2920
 						}
-						add_global_spy_defence = 0.25
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "improved_spy_defense"
+							duration = 2920
+						}
 						add_prestige = 8
 					}
 					10 = { # Intelligence failure
@@ -1092,10 +1180,17 @@ country_decisions = {
 							name = "naval_intelligence_failure"
 							duration = 1460
 						}
-						add_spy_offence = -0.15
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "reduced_spy_offense"
+							duration = 1460
+						}
 						add_prestige = -12
 						every_rival_country = {
-							add_opinion = { who = ROOT value = -20 }
+							add_opinion = { 
+								who = ROOT 
+								value = -20 
+							}
 						}
 					}
 				}
@@ -1111,11 +1206,14 @@ country_decisions = {
 			}
 			modifier = {
 				factor = 0.2
-				spy_offence = 3
+				# Zastąpione przez standardowy trigger
+				has_spy_network_from = {
+					who = ROOT
+					value = 30
+				}
 			}
 		}
 	}
-
 
 	# Banking System Reform
 	establish_banking_system = {
@@ -1167,7 +1265,11 @@ country_decisions = {
 							name = "credit_system"
 							duration = 7300
 						}
-						add_interest = -1
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "reduced_interest"
+							duration = 7300
+						}
 						add_years_of_income = 1.0
 					}
 					25 = { # Banking speculation
@@ -1307,8 +1409,6 @@ country_decisions = {
 		}
 	}
 
-
-
 	# Commercial Network Expansion
 	expand_commercial_networks = {
 		color = { 255 255 235 }
@@ -1324,7 +1424,8 @@ country_decisions = {
 			years_of_income = 1.75
 			dip_power = 125
 			num_of_light_ship = 8
-			global_trade_power = 15
+			# Zastąpione przez standardowy trigger
+			trade_income_percentage = 0.15
 		}
 		
 		effect = {
@@ -1344,7 +1445,11 @@ country_decisions = {
 							name = "expanded_trade_network"
 							duration = 5475
 						}
-						add_merchants = 1
+						# Zastąpione przez standardowe efekty
+						add_country_modifier = {
+							name = "additional_merchant"
+							duration = 5475
+						}
 						add_mercantilism = 3
 						random_trade_node = {
 							limit = {
@@ -1365,18 +1470,32 @@ country_decisions = {
 							name = "international_commerce"
 							duration = 3650
 						}
-						add_diplomatic_reputation = 1
-						add_global_trade_power = 0.1
+						# Zastąpione przez standardowe efekty
+						add_country_modifier = {
+							name = "improved_diplomatic_reputation"
+							duration = 3650
+						}
+						add_country_modifier = {
+							name = "improved_global_trade_power"
+							duration = 3650
+						}
 					}
 					25 = { # Commercial competition
 						add_country_modifier = {
 							name = "commercial_competition"
 							duration = 2920
 						}
-						add_trade_efficiency = 0.15
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "improved_trade_efficiency"
+							duration = 2920
+						}
 						every_rival_country = {
 							limit = { trade_income_percentage = 0.2 }
-							add_opinion = { who = ROOT value = -20 }
+							add_opinion = { 
+								who = ROOT 
+								value = -20 
+							}
 						}
 					}
 					10 = { # Trade disputes
@@ -1384,9 +1503,16 @@ country_decisions = {
 							name = "trade_disputes"
 							duration = 1825
 						}
-						add_diplomatic_reputation = -1
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "reduced_diplomatic_reputation"
+							duration = 1825
+						}
 						random_rival_country = {
-							limit = { merchants = 3 }
+							limit = { 
+								# Zastąpione przez standardowy trigger
+								num_of_merchants = 3 
+							}
 							add_casus_belli = {
 								target = ROOT
 								type = cb_trade_war
@@ -1411,8 +1537,6 @@ country_decisions = {
 			}
 		}
 	}
-
-
 
 	# Tax Collection Reform
 	reform_tax_collection = {
@@ -1470,8 +1594,15 @@ country_decisions = {
 							name = "expanded_bureaucracy"
 							duration = 3650
 						}
-						add_administrative_efficiency = 0.05
-						add_advisor_cost = 0.1
+						# Zastąpione przez standardowe efekty
+						add_country_modifier = {
+							name = "improved_administrative_efficiency"
+							duration = 3650
+						}
+						add_country_modifier = {
+							name = "increased_advisor_cost"
+							duration = 3650
+						}
 					}
 					10 = { # Tax rebellion
 						add_country_modifier = {
@@ -1504,8 +1635,6 @@ country_decisions = {
 			}
 		}
 	}
-
-
 
 	# Infrastructure Development
 	invest_in_infrastructure = {
@@ -1623,7 +1752,8 @@ country_decisions = {
 		potential = {
 			NOT = { has_country_flag = market_regulation_cooldown }
 			dip_tech = 13
-			global_trade_power = 10
+			# Zastąpione przez standardowy trigger
+			trade_income_percentage = 0.1
 			any_owned_province = { has_building = marketplace }
 		}
 		
@@ -1652,9 +1782,16 @@ country_decisions = {
 							name = "free_market_economy"
 							duration = 5475
 						}
-						add_trade_efficiency = 0.15
+						# Zastąpione przez standardowe efekty
+						add_country_modifier = {
+							name = "improved_trade_efficiency"
+							duration = 5475
+						}
 						add_inflation = -1
-						add_global_trade_power = 0.1
+						add_country_modifier = {
+							name = "improved_global_trade_power"
+							duration = 5475
+						}
 					}
 					30 = { # Regulated commerce
 						add_country_modifier = {
@@ -1663,7 +1800,11 @@ country_decisions = {
 						}
 						add_stability = 1
 						add_mercantilism = 2
-						add_global_unrest = -1
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "reduced_global_unrest"
+							duration = 3650
+						}
 					}
 					25 = { # Market consolidation
 						add_country_modifier = {
@@ -1685,7 +1826,11 @@ country_decisions = {
 							duration = 2190
 						}
 						add_inflation = 2
-						add_global_unrest = 2
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "increased_global_unrest"
+							duration = 2190
+						}
 						add_stability = -1
 					}
 				}
@@ -1697,14 +1842,14 @@ country_decisions = {
 			factor = 0.4
 			modifier = {
 				factor = 2
-				trade_efficiency = 0.2
+				# Zastąpione przez standardowy trigger
+				trade_income_percentage = 0.2
 			}
 			modifier = {
 				factor = 0.2
-				global_unrest = 3
+				# Zastąpione przez standardowy trigger
+				average_unrest = 3
 			}
 		}
 	}
-
-
 }

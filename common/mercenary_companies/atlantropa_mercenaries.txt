@@ -220,3 +220,23 @@ wojownicy_peruna = {
 	}
 	
 }
+
+merc_assyrian_immortals = {
+	regiments_per_development = 0.025
+	cavalry_weight = 0.1
+	artillery_weight = 0
+	
+	trigger = {
+		OR = {
+			has_country_modifier = assyrian_iron_revolution
+			tag = A78
+		}
+	}
+	
+	modifier = {
+		discipline = 0.025
+		infantry_power = 0.05
+		land_maintenance_modifier = 1.0
+	}
+
+}

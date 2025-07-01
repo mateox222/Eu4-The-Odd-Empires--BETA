@@ -169,7 +169,7 @@ country_event = {
 	
 	option = {
 		name = "assyrian_arch.1.a" # Focus on scientific texts
-		add_innovativeness = 10
+		change_innovativeness = 10
 		add_adm_power = 500
 		change_innovativeness = 5
 		add_country_modifier = {
@@ -490,8 +490,7 @@ country_event = {
 	
 	option = {
 		name = "assyrian_arch.5.b" # Restore ancient alliances
-		add_dip_power = 400
-		add_dip_reputation = 3
+		add_dip_power = 200
 		custom_tooltip = assyrian_ancient_alliances_tooltip
 		hidden_effect = {
 			every_known_country = {
@@ -781,7 +780,7 @@ country_event = {
 	
 	option = {
 		name = "assyrian_arch.31.a"
-		add_innovativeness = 5
+		change_innovativeness = 5
 		add_country_modifier = {
 			name = "babylonian_astronomy"
 			duration = 5475
@@ -851,7 +850,7 @@ country_event = {
 # Moderate - Military
 country_event = {
 	id = assyrian_arch.41
-	title: "assyrian_arch.41.t"
+	title = "assyrian_arch.41.t"
 	desc = "assyrian_arch.41.d"
 	picture = GENERALS_DISCUSSING_eventPicture
 	
@@ -941,16 +940,11 @@ country_event = {
 				NOT = { war_with = ROOT }
 				NOT = { alliance_with = ROOT }
 			}
-			add_opinion = {
-				who = ROOT
-				modifier = destroyed_cultural_heritage
-			}
 			add_casus_belli = {
 				target = ROOT
 				type = cb_insult
 				months = 60
 			}
 		}
-		add_dip_reputation = -2
 	}
 }

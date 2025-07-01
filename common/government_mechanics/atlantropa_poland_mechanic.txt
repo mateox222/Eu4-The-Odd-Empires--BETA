@@ -32,225 +32,422 @@ szlachtapower_mechanic = {
 			}
 		}
 	}
-	
 	interactions = {
-		supportlocalsejmiki = {
-			gui = russian_mechanics_interaction_gui
-			icon = GFX_polskamechanika1
-			trigger = {
-				years_of_income = 1.5
-				stability = 1
-				NOT = { unrest = 2 }
+	supportlocalsejmiki = {
+		gui = russian_mechanics_interaction_gui
+		icon = GFX_polskamechanika1
+		trigger = {
+			years_of_income = 1.5
+			stability = 1
+			NOT = { unrest = 2 }
+		}
+		effect = { 
+			add_years_of_income = -1.5
+			
+			random_owned_province = {
+				limit = {
+					NOT = { has_seat_in_parliament = yes }
+					development = 10
+				}
+				set_seat_in_parliament = yes
 			}
-			effect = { 
-				add_years_of_income = -1.5
-				
-	
-
-				random_owned_province = {
-					limit = {
-						NOT = { has_seat_in_parliament = yes }
-						development = 10
+			add_government_power = {
+				mechanic_type = szlachtapower_mechanic
+				power_type = polska_adm_power
+				value = -20
+			}
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 5
+			}
+			
+			# Enhanced random outcomes with creative rewards and punishments
+			hidden_effect = {
+				random_list = {
+					15 = { 
+						# Golden Sejmik - Exceptional Success
+						add_stability = 1
+						add_prestige = 10
+						add_legitimacy = 5
+						capital_scope = {
+							add_base_tax = 1
+						}
 					}
-					set_seat_in_parliament = yes
-				}
-				add_government_power = {
-					mechanic_type = szlachtapower_mechanic
-					power_type = polska_adm_power
-					value = -20
-				}
-				add_estate_loyalty = {
-					estate = estate_nobles
-					loyalty = 5
-				}
-										random_list = {
-				30 = { 
-					add_stability = 1
-				}
-					30 = { 
-									add_government_power = {
-					mechanic_type = szlachtapower_mechanic
-					power_type = polska_adm_power
-					value = -10
-				}
-				}
-					30 = { 
-					add_stability = -1
-				}
+					20 = { 
+						# Harmonious Assembly
+						add_government_power = {
+							mechanic_type = szlachtapower_mechanic
+							power_type = polska_adm_power
+							value = -15
+						}
+						add_reform_progress = 10
+					}
+					15 = {
+						# Magnate Bribery Exposed
+						add_corruption = 1
+						add_years_of_income = 0.5
+						random_owned_province = {
+							limit = { development = 12 }
+							add_unrest = 2
+						}
+					}
+					15 = {
+						# Sejmik Paralysis
+						add_stability = -1
+						add_government_power = {
+							mechanic_type = szlachtapower_mechanic
+							power_type = polska_adm_power
+							value = 10
+						}
+					}
+					10 = {
+						# Economic Disruption
+						add_inflation = 1
+						random_owned_province = {
+							limit = { 
+								OR = {
+									has_building = marketplace
+									has_building = trade_depot
+								}
 							}
-			}
-			cooldown_years = 5
-			ai_chance = {
-				factor = 0
-				modifier = {
-					factor = 50
-					has_government_power = {
-						mechanic_type = szlachtapower_mechanic
-						power_type = polska_adm_power
-						value = 75
-					}
-					stability = 1
-				}
-				modifier = {
-					factor = 100
-					has_government_power = {
-						mechanic_type = szlachtapower_mechanic
-						power_type = polska_adm_power
-						value = 90
-					}
-				}
-			}
-		}
-		
-		supportlocalsejmiki2 = {
-			gui = russian_mechanics_interaction_gui
-			icon = GFX_polskamechanika2
-			trigger = {
-				adm_power = 250
-				prestige = 25
-				NOT = { num_of_rebel_armies = 1 }
-			}
-			effect = {
-				add_prestige = 10
-				add_adm_power = -250
-				change_government_reform_progress = 25
-				add_years_of_income = 0.75
-				add_government_power = {
-					mechanic_type = szlachtapower_mechanic
-					power_type = polska_adm_power
-					value = -35
-				}
-				add_estate_loyalty = {
-					estate = estate_nobles
-					loyalty = -5
-				}
-				add_absolutism = 2
-			}
-			cooldown_years = 15
-			ai_chance = {
-				factor = 5
-				modifier = {
-					factor = 20
-					has_government_power = {
-						mechanic_type = szlachtapower_mechanic
-						power_type = polska_adm_power
-						value = 80
-					}
-					adm_power = 300
-				}
-				modifier = {
-					factor = 50
-					has_government_power = {
-						mechanic_type = szlachtapower_mechanic
-						power_type = polska_adm_power
-						value = 95
-					}
-				}
-			}
-		}
-		
-		supportlocalsejmiki3 = {
-			gui = russian_mechanics_interaction_gui
-			icon = GFX_polskamechanika3
-			trigger = {
-				manpower_percentage = 0.25
-				mil_power = 200
-				army_tradition = 20
-			}
-			effect = {
-				add_mil_power = -200
-				if = {
-					limit = { ai = no }
-					add_yearly_manpower = -4
-					random_owned_province = {
-						limit = {
-							development = 8
-							has_estate = estate_nobles
+							add_province_modifier = {
+								name = "venedian_trade_disruption"
+								duration = 730
+							}
 						}
+					}
+					10 = {
+						# Military Recruitment Boost
+						add_yearly_manpower = 2
+						add_army_tradition = 5
+					}
+					5 = {
+						# Complete Disaster
+						add_stability = -2
+						add_legitimacy = -10
 						spawn_rebels = {
-							type = polish_noble_rebels
+							type = noble_rebels
 							size = 2
 						}
 					}
-					random_owned_province = {
-						limit = {
-							development = 8
-							has_estate = estate_nobles
-						}
-						spawn_rebels = {
-							type = polish_noble_rebels
-							size = 2
-						}
-					}
-					random_owned_province = {
-						limit = {
-							development = 8
-							has_estate = estate_nobles
-						}
-						spawn_rebels = {
-							type = polish_noble_rebels
-							size = 1
-						}
-					}
 				}
-				if = {
-					limit = { ai = yes }
-					add_yearly_manpower = -2
-					random_owned_province = {
-						limit = {
-							development = 8
-							has_estate = estate_nobles
-						}
-						spawn_rebels = {
-							type = polish_noble_rebels
-							size = 1
-						}
-					}
-					random_owned_province = {
-						limit = {
-							development = 8
-							has_estate = estate_nobles
-						}
-						spawn_rebels = {
-							type = polish_noble_rebels
-							size = 1
-						}
-					}
-				}
-				add_government_power = {
+			}
+			custom_tooltip = venedian_sejmik_random_outcomes
+		}
+		cooldown_years = 5
+		ai_chance = {
+			factor = 0
+			modifier = {
+				factor = 50
+				has_government_power = {
 					mechanic_type = szlachtapower_mechanic
 					power_type = polska_adm_power
-					value = -40
+					value = 75
 				}
-				add_estate_loyalty = {
-					estate = estate_nobles
-					loyalty = -10
-				}
-				add_absolutism = 3
+				stability = 1
 			}
-			cooldown_years = 8
-			ai_chance = {
-				factor = 0
-				modifier = {
-					factor = 30
-					manpower_percentage = 0.6
-					has_government_power = {
-						mechanic_type = szlachtapower_mechanic
-						power_type = polska_adm_power
-						value = 85
-					}
-				}
-				modifier = {
-					factor = 80
-					manpower_percentage = 0.8
-					has_government_power = {
-						mechanic_type = szlachtapower_mechanic
-						power_type = polska_adm_power
-						value = 95
-					}
-					army_tradition = 40
+			modifier = {
+				factor = 100
+				has_government_power = {
+					mechanic_type = szlachtapower_mechanic
+					power_type = polska_adm_power
+					value = 90
 				}
 			}
 		}
 	}
+	
+	supportlocalsejmiki2 = {
+		gui = russian_mechanics_interaction_gui
+		icon = GFX_polskamechanika2
+		trigger = {
+			adm_power = 250
+			prestige = 25
+			NOT = { num_of_rebel_armies = 1 }
+		}
+		effect = {
+			add_prestige = 10
+			add_adm_power = -250
+			change_government_reform_progress = 25
+			add_years_of_income = 0.75
+			add_government_power = {
+				mechanic_type = szlachtapower_mechanic
+				power_type = polska_adm_power
+				value = -35
+			}
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = -5
+			}
+			add_absolutism = 2
+			
+			# Enhanced random outcomes for royal intervention
+			hidden_effect = {
+				random_list = {
+					25 = {
+						# Royal Authority Triumph
+						add_legitimacy = 15
+						add_absolutism = 5
+						add_country_modifier = {
+							name = "venedian_royal_authority"
+							duration = 1825
+						}
+					}
+					20 = {
+						# Bureaucratic Efficiency
+						add_country_modifier = {
+							name = "venedian_efficient_administration"
+							duration = 1460
+						}
+						capital_scope = {
+							add_base_tax = 1
+						}
+					}
+					20 = {
+						# Noble Compromise
+						add_estate_loyalty = {
+							estate = estate_nobles
+							loyalty = 10
+						}
+						add_government_power = {
+							mechanic_type = szlachtapower_mechanic
+							power_type = polska_adm_power
+							value = -10
+						}
+					}
+					10 = {
+						# Urban Uprising
+						random_owned_province = {
+							limit = { 
+								development = 15
+								has_estate = estate_burghers
+							}
+							spawn_rebels = {
+								type = nobles
+								size = 1
+							}
+						}
+						add_estate_loyalty = {
+							estate = estate_burghers
+							loyalty = -10
+						}
+					}
+					10 = {
+						# Administrative Backfire
+						add_corruption = 1
+						add_government_power = {
+							mechanic_type = szlachtapower_mechanic
+							power_type = polska_adm_power
+							value = 15
+						}
+					}
+				}
+			}
+			custom_tooltip = venedian_royal_random_outcomes
+		}
+		cooldown_years = 15
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 20
+				has_government_power = {
+					mechanic_type = szlachtapower_mechanic
+					power_type = polska_adm_power
+					value = 80
+				}
+				adm_power = 300
+			}
+			modifier = {
+				factor = 50
+				has_government_power = {
+					mechanic_type = szlachtapower_mechanic
+					power_type = polska_adm_power
+					value = 95
+				}
+			}
+		}
+	}
+	
+	supportlocalsejmiki3 = {
+		gui = russian_mechanics_interaction_gui
+		icon = GFX_polskamechanika3
+		trigger = {
+			manpower_percentage = 0.25
+			mil_power = 200
+			army_tradition = 20
+		}
+		effect = {
+			add_mil_power = -200
+			if = {
+				limit = { ai = no }
+				add_yearly_manpower = -4
+				random_owned_province = {
+					limit = {
+						development = 8
+						has_estate = estate_nobles
+					}
+					spawn_rebels = {
+						type = polish_noble_rebels
+						size = 2
+					}
+				}
+				random_owned_province = {
+					limit = {
+						development = 8
+						has_estate = estate_nobles
+					}
+					spawn_rebels = {
+						type = polish_noble_rebels
+						size = 2
+					}
+				}
+				random_owned_province = {
+					limit = {
+						development = 8
+						has_estate = estate_nobles
+					}
+					spawn_rebels = {
+						type = polish_noble_rebels
+						size = 1
+					}
+				}
+			}
+			if = {
+				limit = { ai = yes }
+				add_yearly_manpower = -2
+				random_owned_province = {
+					limit = {
+						development = 8
+						has_estate = estate_nobles
+					}
+					spawn_rebels = {
+						type = polish_noble_rebels
+						size = 1
+					}
+				}
+				random_owned_province = {
+					limit = {
+						development = 8
+						has_estate = estate_nobles
+					}
+					spawn_rebels = {
+						type = polish_noble_rebels
+						size = 1
+					}
+				}
+			}
+			add_government_power = {
+				mechanic_type = szlachtapower_mechanic
+				power_type = polska_adm_power
+				value = -40
+			}
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = -10
+			}
+			add_absolutism = 3
+			
+			# Enhanced random outcomes for military intervention
+			hidden_effect = {
+				random_list = {
+					15 = {
+						# Iron Fist Victory
+						add_army_tradition = 15
+						add_legitimacy = 20
+						add_country_modifier = {
+							name = "venedian_iron_discipline"
+							duration = 2555
+						}
+					}
+					20 = {
+						# Military Loyalty Secured
+						add_country_modifier = {
+							name = "venedian_loyal_army"
+							duration = 1825
+						}
+						create_general = { tradition = 50 }
+					}
+					15 = {
+						# Successful Suppression
+						every_owned_province = {
+							limit = { unrest = 3 }
+							add_unrest = -2
+						}
+						add_absolutism = 3
+					}
+					15 = {
+						# Foreign Military Advisors
+						add_mil_power = 100
+						add_country_modifier = {
+							name = "venedian_foreign_advisors"
+							duration = 1095
+						}
+					}
+					15 = {
+						# Noble Revenge
+						add_legitimacy = -15
+						random_owned_province = {
+							limit = { development = 12 }
+							add_devastation = 10
+						}
+						add_government_power = {
+							mechanic_type = szlachtapower_mechanic
+							power_type = polska_adm_power
+							value = 20
+						}
+					}
+					10 = {
+						# Military Coup Attempt
+						kill_ruler = yes
+						add_legitimacy = -30
+						add_stability = -2
+						spawn_rebels = {
+							type = pretender_rebels
+							size = 3
+						}
+					}
+					10 = {
+						# Economic Devastation
+						add_inflation = 2
+						add_war_exhaustion = 2
+						every_owned_province = {
+							limit = { 
+								OR = {
+									has_building = marketplace
+									has_building = workshop
+								}
+							}
+							add_devastation = 15
+						}
+					}
+				}
+			}
+			custom_tooltip = venedian_military_random_outcomes
+		}
+		cooldown_years = 8
+		ai_chance = {
+			factor = 0
+			modifier = {
+				factor = 30
+				manpower_percentage = 0.6
+				has_government_power = {
+					mechanic_type = szlachtapower_mechanic
+					power_type = polska_adm_power
+					value = 85
+				}
+			}
+			modifier = {
+				factor = 80
+				manpower_percentage = 0.8
+				has_government_power = {
+					mechanic_type = szlachtapower_mechanic
+					power_type = polska_adm_power
+					value = 95
+				}
+				army_tradition = 40
+			}
+		}
+	}
+}
+	
 }
