@@ -1,0 +1,2402 @@
+namespace = excavation_disasters
+namespace = excavation_minor  
+namespace = excavation_hyperwar
+namespace = excavation_ancient
+namespace = excavation_roman
+namespace = excavation_cursed
+namespace = excavation_beneficial
+namespace = excavation_ultra_rare
+
+# =================================
+# DISASTER EVENTS (10 events)
+# =================================
+
+# Cave-in
+country_event = {
+id = excavation_disasters.1  
+
+    title = "excavation_disasters.1.t"
+    desc = "excavation_disasters.1.d"
+    picture = NATURAL_DISASTER_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_disasters.1.a"
+        add_years_of_income = -0.5
+        add_country_modifier = {
+            name = excavation_casualties
+            duration = 1825
+        }
+    }
+}
+
+# Empty dig
+country_event = {
+id = excavation_disasters.2  
+
+    title = "excavation_disasters.2.t"
+    desc = "excavation_disasters.2.d"
+    picture = ADVISOR_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_disasters.2.a"
+        add_prestige = -5
+        add_adm_power = -25
+    }
+}
+
+# Thieves
+country_event = {
+id = excavation_disasters.3  
+
+    title = "excavation_disasters.3.t"
+    desc = "excavation_disasters.3.d"
+    picture = BANKRUPTCY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_disasters.3.a"
+       add_years_of_income = -0.5
+    }
+}
+
+# Toxic gas
+country_event = {
+id = excavation_disasters.4  
+
+    title = "excavation_disasters.4.t"
+    desc = "excavation_disasters.4.d"
+    picture = PLAGUE_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_disasters.4.a"
+        add_country_modifier = {
+            name = toxic_exposure
+            duration = 1825
+        }
+    }
+}
+
+# Flood
+country_event = {
+id = excavation_disasters.5  
+
+    title = "excavation_disasters.5.t"
+    desc = "excavation_disasters.5.d"
+    picture = NATURAL_DISASTER_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_disasters.5.a"
+       add_years_of_income = -0.5
+    }
+}
+
+# Workers flee
+country_event = {
+id = excavation_disasters.6  
+
+    title = "excavation_disasters.6.t"
+    desc = "excavation_disasters.6.d"
+    picture = ANGRY_MOB_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_disasters.6.a"
+        add_country_modifier = {
+            name = superstitious_workers
+            duration = 1825
+        }
+    }
+}
+
+# False alarm
+country_event = {
+id = excavation_disasters.7  
+
+    title = "excavation_disasters.7.t"
+    desc = "excavation_disasters.7.d"
+    picture = ADVISOR_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_disasters.7.a"
+        add_prestige = -10
+        add_legitimacy = -5
+    }
+}
+
+# Cursed ground
+country_event = {
+id = excavation_disasters.8  
+
+    title = "excavation_disasters.8.t"
+    desc = "excavation_disasters.8.d"
+    picture = Religious_TURMOIL_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_disasters.8.a"
+        add_country_modifier = {
+            name = cursed_ground
+            duration = 2190
+        }
+    }
+}
+
+# Collapse
+country_event = {
+id = excavation_disasters.9  
+
+    title = "excavation_disasters.9.t"
+    desc = "excavation_disasters.9.d"
+    picture = NATURAL_DISASTER_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_disasters.9.a"
+        add_years_of_income = -0.5
+        add_stability = -1
+    }
+}
+
+# Demon portal
+country_event = {
+id = excavation_disasters.10  
+
+    title = "excavation_disasters.10.t"
+    desc = "excavation_disasters.10.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_disasters.10.a"
+        add_stability = -1
+        add_country_modifier = {
+            name = demonic_incursion
+            duration = 3650
+        }
+    }
+    
+    option = {
+        name = "excavation_disasters.10.b"
+        add_adm_power = -100
+        add_papal_influence = -30
+    }
+}
+
+# =================================
+# MINOR FINDS EVENTS (20 events)
+# =================================
+
+# Old coins
+country_event = {
+id = excavation_minor.1  
+
+    title = "excavation_minor.1.t"
+    desc = "excavation_minor.1.d"
+    picture = TRADEGOODS_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.1.a"
+        add_years_of_income = 0.25
+        add_prestige = 2
+    }
+}
+
+# Pottery shards
+country_event = {
+id = excavation_minor.2  
+
+    title = "excavation_minor.2.t"
+    desc = "excavation_minor.2.d"
+    picture = CULTURE_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.2.a"
+        add_years_of_income = 0.25
+        add_prestige = 1
+    }
+}
+
+# Bone tools
+country_event = {
+id = excavation_minor.3  
+
+    title = "excavation_minor.3.t"
+    desc = "excavation_minor.3.d"
+    picture = NATIVES_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.3.a"
+        add_years_of_income = 0.1
+        add_adm_power = 50
+    }
+}
+
+# Rusty weapons
+country_event = {
+id = excavation_minor.4  
+
+    title = "excavation_minor.4.t"
+    desc = "excavation_minor.4.d"
+    picture = LAND_MILITARY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.4.a"
+        add_years_of_income = 0.15
+        add_army_tradition = 1
+    }
+}
+
+# Bronze trinkets
+country_event = {
+id = excavation_minor.5  
+
+    title = "excavation_minor.5.t"
+    desc = "excavation_minor.5.d"
+    picture = TRADEGOODS_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.5.a"
+       add_years_of_income = 0.15
+        add_prestige = 3
+    }
+}
+
+# Stone tablets
+country_event = {
+id = excavation_minor.6  
+
+    title = "excavation_minor.6.t"
+    desc = "excavation_minor.6.d"
+    picture = BIG_BOOK_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.6.a"
+        add_adm_power = 75
+        add_prestige = 2
+    }
+}
+
+# Amber jewelry
+country_event = {
+id = excavation_minor.7  
+
+    title = "excavation_minor.7.t"
+    desc = "excavation_minor.7.d"
+    picture = TRADEGOODS_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.7.a"
+        add_years_of_income = 0.25
+        add_legitimacy = 3
+    }
+}
+
+# Iron scraps
+country_event = {
+id = excavation_minor.8  
+
+    title = "excavation_minor.8.t"
+    desc = "excavation_minor.8.d"
+    picture = LAND_MILITARY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.8.a"
+        add_years_of_income = 0.15
+        add_mil_power = 50
+    }
+}
+
+# Glass beads
+country_event = {
+id = excavation_minor.9  
+
+    title = "excavation_minor.9.t"
+    desc = "excavation_minor.9.d"
+    picture = TRADEGOODS_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.9.a"
+        add_years_of_income = 0.15
+        add_prestige = 1
+    }
+}
+
+# Wooden country_event = {
+country_event = {
+id = excavation_minor.10  
+
+    title = "excavation_minor.10.t"
+    desc = "excavation_minor.10.d"
+    picture = Religious_TURMOIL_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.10.a"
+        add_years_of_income = 0.05
+        add_papal_influence = 5
+    }
+}
+
+# Animal bones
+country_event = {
+id = excavation_minor.11  
+
+    title = "excavation_minor.11.t"
+    desc = "excavation_minor.11.d"
+    picture = NATIVES_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.11.a"
+        add_years_of_income = 0.05
+        add_adm_power = 75
+    }
+}
+
+# Charcoal remains
+country_event = {
+id = excavation_minor.12  
+
+    title = "excavation_minor.12.t"
+    desc = "excavation_minor.12.d"
+    picture = excavation_spaceship_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.12.a"
+        add_years_of_income = 0.15
+        add_mil_power = 75
+    }
+}
+
+# Broken pottery
+country_event = {
+id = excavation_minor.13  
+
+    title = "excavation_minor.13.t"
+    desc = "excavation_minor.13.d"
+    picture = CULTURE_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.13.a"
+       add_years_of_income = 0.05
+        add_prestige = 1
+    }
+}
+
+# Cloth fragments
+country_event = {
+id = excavation_minor.14  
+
+    title = "excavation_minor.14.t"
+    desc = "excavation_minor.14.d"
+    picture = CULTURE_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.14.a"
+        add_years_of_income = 0.05
+        add_dip_power = 25
+    }
+}
+
+# Copper pieces
+country_event = {
+id = excavation_minor.15  
+
+    title = "excavation_minor.15.t"
+    desc = "excavation_minor.15.d"
+    picture = TRADEGOODS_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.15.a"
+        add_years_of_income = 0.25
+        add_prestige = 1
+    }
+}
+
+# Flint tools
+country_event = {
+id = excavation_minor.16  
+
+    title = "excavation_minor.16.t"
+    desc = "excavation_minor.16.d"
+    picture = NATIVES_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.16.a"
+        add_years_of_income = 0.05
+        add_mil_power = 25
+    }
+}
+
+# Leather scraps
+country_event = {
+id = excavation_minor.17  
+
+    title = "excavation_minor.17.t"
+    desc = "excavation_minor.17.d"
+    picture = CULTURE_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.17.a"
+        add_years_of_income = 0.05
+        add_dip_power = 50
+    }
+}
+
+# Carved stones
+country_event = {
+id = excavation_minor.18  
+
+    title = "excavation_minor.18.t"
+    desc = "excavation_minor.18.d"
+    picture = CULTURE_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.18.a"
+        add_years_of_income = 0.05
+        add_prestige = 2
+    }
+}
+
+# Wooden splinters
+country_event = {
+id = excavation_minor.19  
+
+    title = "excavation_minor.19.t"
+    desc = "excavation_minor.19.d"
+    picture = CULTURE_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.19.a"
+        add_years_of_income = 0.05
+        add_adm_power = 25
+    }
+}
+
+# Corroded metal
+country_event = {
+id = excavation_minor.20  
+
+    title = "excavation_minor.20.t"
+    desc = "excavation_minor.20.d"
+    picture = LAND_MILITARY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_minor.20.a"
+        add_years_of_income = 0.5
+        add_mil_power = 75
+    }
+}
+
+# =================================
+# HYPERWAR ARTIFACTS (45 events)
+# =================================
+
+# Plasma rifle
+country_event = {
+id = excavation_hyperwar.1  
+
+    title = "excavation_hyperwar.1.t"
+    desc = "excavation_hyperwar.1.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.1.a"
+        add_years_of_income = 1
+        add_prestige = 8
+    }
+    
+    option = {
+        name = "excavation_hyperwar.1.b"
+        add_legitimacy = 10
+        add_army_tradition = 3
+    }
+}
+
+# Quantum processor
+country_event = {
+id = excavation_hyperwar.2  
+
+    title = "excavation_hyperwar.2.t"
+    desc = "excavation_hyperwar.2.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.2.a"
+       add_years_of_income = 1
+        add_prestige = 5
+    }
+    
+    option = {
+        name = "excavation_hyperwar.2.b"
+        add_country_modifier = {
+            name = quantum_studies
+            duration = 1825
+        }
+    }
+}
+
+# Genetic modifier
+country_event = {
+id = excavation_hyperwar.3  
+
+    title = "excavation_hyperwar.3.t"
+    desc = "excavation_hyperwar.3.d"
+    picture = ADVISOR_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.3.a"
+        add_adm_power = 50
+        add_dip_power = 50
+        add_mil_power = 50
+    }
+    
+    option = {
+        name = "excavation_hyperwar.3.b"
+        add_country_modifier = {
+            name = genetic_experiments
+            duration = 2190
+        }
+    }
+}
+
+# Battle mech piece
+country_event = {
+id = excavation_hyperwar.4  
+
+    title = "excavation_hyperwar.4.t"
+    desc = "excavation_hyperwar.4.d"
+    picture = LAND_MILITARY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.4.a"
+        add_country_modifier = {
+            name = mech_engineering
+            duration = 3650
+        }
+    }
+    
+    option = {
+        name = "excavation_hyperwar.4.b"
+        add_years_of_income = 1
+        add_prestige = 8
+    }
+}
+
+# Temporal weapon
+country_event = {
+id = excavation_hyperwar.5  
+
+    title = "excavation_hyperwar.5.t"
+    desc = "excavation_hyperwar.5.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.5.a"
+        add_country_modifier = {
+            name = temporal_disturbances
+            duration = 2555
+        }
+    }
+    
+    option = {
+        name = "excavation_hyperwar.5.b"
+        add_years_of_income = 1
+        add_prestige = 12
+    }
+}
+
+# Nano-swarm container
+country_event = {
+id = excavation_hyperwar.6  
+
+    title = "excavation_hyperwar.6.t"
+    desc = "excavation_hyperwar.6.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.6.a"
+       add_years_of_income = 1
+        add_prestige = 4
+    }
+    
+    option = {
+        name = "excavation_hyperwar.6.b"
+        add_country_modifier = {
+            name = nano_infestation
+            duration = 1825
+        }
+    }
+}
+
+# Cyber implant
+country_event = {
+id = excavation_hyperwar.7  
+
+    title = "excavation_hyperwar.7.t"
+    desc = "excavation_hyperwar.7.d"
+    picture = ADVISOR_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.7.a"
+       add_years_of_income = 1
+        add_prestige = 4
+    }
+    
+    option = {
+        name = "excavation_hyperwar.7.b"
+        add_country_modifier = {
+            name = cyber_experiments
+            duration = 1825
+        }
+    }
+}
+
+# Neural interface
+country_event = {
+id = excavation_hyperwar.8  
+
+    title = "excavation_hyperwar.8.t"
+    desc = "excavation_hyperwar.8.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.8.a"
+        add_adm_power = 40
+        add_dip_power = 40
+        add_mil_power = 40
+    }
+    
+    option = {
+        name = "excavation_hyperwar.8.b"
+        add_years_of_income = 2
+        add_prestige = 5
+    }
+}
+
+# Fusion core
+country_event = {
+id = excavation_hyperwar.9  
+
+    title = "excavation_hyperwar.9.t"
+    desc = "excavation_hyperwar.9.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.9.a"
+        add_years_of_income = 1
+        add_prestige = 10
+    }
+    
+    option = {
+        name = "excavation_hyperwar.9.b"
+        add_country_modifier = {
+            name = fusion_experiments
+            duration = 2555
+        }
+    }
+}
+
+# Gravity generator
+country_event = {
+id = excavation_hyperwar.10  
+
+    title = "excavation_hyperwar.10.t"
+    desc = "excavation_hyperwar.10.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.10.a"
+        add_years_of_income = 1.5
+        add_prestige = 7
+    }
+    
+    option = {
+        name = "excavation_hyperwar.10.b"
+        add_country_modifier = {
+            name = gravity_anomalies
+            duration = 1825
+        }
+    }
+}
+
+# Shield projector
+country_event = {
+id = excavation_hyperwar.11  
+
+    title = "excavation_hyperwar.11.t"
+    desc = "excavation_hyperwar.11.d"
+    picture = LAND_MILITARY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.11.a"
+        add_country_modifier = {
+            name = shield_studies
+            duration = 1825
+        }
+    }
+    
+    option = {
+        name = "excavation_hyperwar.11.b"
+        add_years_of_income = 1
+        add_prestige = 6
+    }
+}
+
+# Mind control device
+country_event = {
+id = excavation_hyperwar.12  
+
+    title = "excavation_hyperwar.12.t"
+    desc = "excavation_hyperwar.12.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.12.a"
+        add_country_modifier = {
+            name = mind_control_research
+            duration = 2190
+        }
+    }
+    
+    option = {
+        name = "excavation_hyperwar.12.b"
+        add_years_of_income = 1
+        add_prestige = 8
+    }
+}
+
+# Teleportation pad
+country_event = {
+id = excavation_hyperwar.13  
+
+    title = "excavation_hyperwar.13.t"
+    desc = "excavation_hyperwar.13.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.13.a"
+       add_years_of_income = 1
+        add_prestige = 10
+    }
+    
+    option = {
+        name = "excavation_hyperwar.13.b"
+        add_country_modifier = {
+            name = teleportation_accidents
+            duration = 2555
+        }
+    }
+}
+
+# Weather machine
+country_event = {
+id = excavation_hyperwar.14  
+
+    title = "excavation_hyperwar.14.t"
+    desc = "excavation_hyperwar.14.d"
+    picture = NATURAL_DISASTER_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.14.a"
+        add_country_modifier = {
+            name = weather_experiments
+            duration = 2190
+        }
+    }
+    
+    option = {
+        name = "excavation_hyperwar.14.b"
+       add_years_of_income = 1
+        add_prestige = 9
+    }
+}
+
+# Reality anchor
+country_event = {
+id = excavation_hyperwar.15  
+
+    title = "excavation_hyperwar.15.t"
+    desc = "excavation_hyperwar.15.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.15.a"
+        add_country_modifier = {
+            name = reality_studies
+            duration = 3650
+        }
+    }
+    
+    option = {
+        name = "excavation_hyperwar.15.b"
+       add_years_of_income = 1
+        add_prestige = 12
+    }
+}
+
+# Dimensional key
+country_event = {
+id = excavation_hyperwar.16  
+
+    title = "excavation_hyperwar.16.t"
+    desc = "excavation_hyperwar.16.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.16.a"
+        add_country_modifier = {
+            name = dimensional_research
+            duration = 2555
+        }
+    }
+    
+    option = {
+        name = "excavation_hyperwar.16.b"
+        add_years_of_income = 1
+        add_prestige = 11
+    }
+}
+
+# Korean war banner
+country_event = {
+id = excavation_hyperwar.17  
+
+    title = "excavation_hyperwar.17.t"
+    desc = "excavation_hyperwar.17.d"
+    picture = LAND_MILITARY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.17.a"
+        add_army_tradition = 8
+        add_country_modifier = {
+            name = korean_tactics
+            duration = 3650
+        }
+    }
+}
+
+# Finnish battle armor
+country_event = {
+id = excavation_hyperwar.18  
+
+    title = "excavation_hyperwar.18.t"
+    desc = "excavation_hyperwar.18.d"
+    picture = LAND_MILITARY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.18.a"
+        add_country_modifier = {
+            name = finnish_armor_tech
+            duration = 3650
+        }
+    }
+}
+
+# Steampunk engine
+country_event = {
+id = excavation_hyperwar.19  
+
+    title = "excavation_hyperwar.19.t"
+    desc = "excavation_hyperwar.19.d"
+    picture = excavation_spaceship_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.19.a"
+        add_country_modifier = {
+            name = steampunk_tech
+            duration = 3650
+        }
+    }
+}
+
+# Hyperspace drive
+country_event = {
+id = excavation_hyperwar.20  
+
+    title = "excavation_hyperwar.20.t"
+    desc = "excavation_hyperwar.20.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.20.a"
+        add_years_of_income = 3
+        add_prestige = 15
+    }
+}
+
+# Matter compiler
+country_event = {
+id = excavation_hyperwar.21  
+
+    title = "excavation_hyperwar.21.t"
+    desc = "excavation_hyperwar.21.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.21.a"
+       add_years_of_income = 2
+        add_prestige = 13
+    }
+}
+
+# Psi amplifier
+country_event = {
+id = excavation_hyperwar.22  
+
+    title = "excavation_hyperwar.22.t"
+    desc = "excavation_hyperwar.22.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.22.a"
+        add_country_modifier = {
+            name = psi_research
+            duration = 2555
+        }
+    }
+}
+
+# Quantum entangler
+country_event = {
+id = excavation_hyperwar.23  
+
+    title = "excavation_hyperwar.23.t"
+    desc = "excavation_hyperwar.23.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.23.a"
+        add_years_of_income = 1
+        add_prestige = 9
+    }
+}
+
+# Vocountry_event = {
+country_event = {
+id = excavation_hyperwar.24  
+
+    title = "excavation_hyperwar.24.t"
+    desc = "excavation_hyperwar.24.d"
+    picture = LAND_MILITARY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.24.a"
+        add_years_of_income = 2
+        add_prestige = 14
+    }
+}
+
+# Time dilator
+country_event = {
+id = excavation_hyperwar.25  
+
+    title = "excavation_hyperwar.25.t"
+    desc = "excavation_hyperwar.25.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.25.a"
+        add_country_modifier = {
+            name = time_dilation_effects
+            duration = 2190
+        }
+    }
+}
+
+# Korean general helmet
+country_event = {
+id = excavation_hyperwar.26  
+
+    title = "excavation_hyperwar.26.t"
+    desc = "excavation_hyperwar.26.d"
+    picture = LAND_MILITARY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.26.a"
+        add_army_tradition = 5
+        add_legitimacy = 8
+    }
+}
+
+# Finnish sniper scope
+country_event = {
+id = excavation_hyperwar.27  
+
+    title = "excavation_hyperwar.27.t"
+    desc = "excavation_hyperwar.27.d"
+    picture = LAND_MILITARY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.27.a"
+        add_country_modifier = {
+            name = precision_weapons
+            duration = 2555
+        }
+    }
+}
+
+# Hyperwar propaganda
+country_event = {
+id = excavation_hyperwar.28  
+
+    title = "excavation_hyperwar.28.t"
+    desc = "excavation_hyperwar.28.d"
+    picture = CULTURE_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.28.a"
+        add_prestige = 12
+        add_legitimacy = 5
+    }
+}
+
+# Battle recordings
+country_event = {
+id = excavation_hyperwar.29  
+
+    title = "excavation_hyperwar.29.t"
+    desc = "excavation_hyperwar.29.d"
+    picture = LAND_MILITARY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.29.a"
+        add_army_tradition = 6
+        add_mil_power = 75
+    }
+}
+
+# Soldier diary
+country_event = {
+id = excavation_hyperwar.30  
+
+    title = "excavation_hyperwar.30.t"
+    desc = "excavation_hyperwar.30.d"
+    picture = BIG_BOOK_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.30.a"
+        add_prestige = 8
+        add_mil_power = 50
+    }
+}
+
+# War medal
+country_event = {
+id = excavation_hyperwar.31  
+
+    title = "excavation_hyperwar.31.t"
+    desc = "excavation_hyperwar.31.d"
+    picture = LAND_MILITARY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.31.a"
+        add_army_tradition = 4
+        add_prestige = 6
+    }
+}
+
+# Encrypted data
+country_event = {
+id = excavation_hyperwar.32  
+
+    title = "excavation_hyperwar.32.t"
+    desc = "excavation_hyperwar.32.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.32.a"
+        add_years_of_income = 1
+        add_prestige = 5
+    }
+}
+
+# Tactical computer
+country_event = {
+id = excavation_hyperwar.33  
+
+    title = "excavation_hyperwar.33.t"
+    desc = "excavation_hyperwar.33.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.33.a"
+        add_country_modifier = {
+            name = tactical_analysis
+            duration = 2190
+        }
+    }
+}
+
+# Communication device
+country_event = {
+id = excavation_hyperwar.34  
+
+    title = "excavation_hyperwar.34.t"
+    desc = "excavation_hyperwar.34.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.34.a"
+        add_dip_power = 100
+        add_prestige = 7
+    }
+}
+
+# Medical nanobots
+country_event = {
+id = excavation_hyperwar.35  
+
+    title = "excavation_hyperwar.35.t"
+    desc = "excavation_hyperwar.35.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.35.a"
+        add_country_modifier = {
+            name = medical_nanobots
+            duration = 3650
+        }
+    }
+}
+
+# Energy cell
+country_event = {
+id = excavation_hyperwar.36  
+
+    title = "excavation_hyperwar.36.t"
+    desc = "excavation_hyperwar.36.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.36.a"
+        add_years_of_income = 1
+        add_prestige = 8
+    }
+}
+
+# Holographic projector
+country_event = {
+id = excavation_hyperwar.37  
+
+    title = "excavation_hyperwar.37.t"
+    desc = "excavation_hyperwar.37.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.37.a"
+        add_prestige = 15
+        add_legitimacy = 10
+    }
+}
+
+# Stealth generator
+country_event = {
+id = excavation_hyperwar.38  
+
+    title = "excavation_hyperwar.38.t"
+    desc = "excavation_hyperwar.38.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.38.a"
+        add_country_modifier = {
+            name = stealth_technology
+            duration = 2555
+        }
+    }
+}
+
+# Particle accelerator
+country_event = {
+id = excavation_hyperwar.39  
+
+    title = "excavation_hyperwar.39.t"
+    desc = "excavation_hyperwar.39.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.39.a"
+        add_years_of_income = 1
+        add_prestige = 20
+    }
+}
+
+# Molecular assembler
+country_event = {
+id = excavation_hyperwar.40  
+
+    title = "excavation_hyperwar.40.t"
+    desc = "excavation_hyperwar.40.d"
+    picture = COMET_SIGHTED_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.40.a"
+        add_years_of_income = 2
+        add_prestige = 25
+    }
+}
+
+# Consciousness backup
+country_event = {
+id = excavation_hyperwar.41  
+
+    title = "excavation_hyperwar.41.t"
+    desc = "excavation_hyperwar.41.d"
+    picture = excavation_spaceship_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.41.a"
+        add_country_modifier = {
+            name = consciousness_studies
+            duration = 3650
+        }
+    }
+}
+
+# Terraforming seed
+country_event = {
+id = excavation_hyperwar.42  
+
+    title = "excavation_hyperwar.42.t"
+    desc = "excavation_hyperwar.42.d"
+    picture = excavation_spaceship_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.42.a"
+        add_country_modifier = {
+            name = terraforming_experiments
+            duration = 5475
+        }
+    }
+}
+
+# Space elevator cable
+country_event = {
+id = excavation_hyperwar.43  
+
+    title = "excavation_hyperwar.43.t"
+    desc = "excavation_hyperwar.43.d"
+    picture = excavation_spaceship_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.43.a"
+        add_years_of_income = 3
+        add_prestige = 25
+    }
+}
+
+# Antimatter containment
+country_event = {
+id = excavation_hyperwar.44  
+
+    title = "excavation_hyperwar.44.t"
+    desc = "excavation_hyperwar.44.d"
+    picture = excavation_spaceship_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.44.a"
+        add_years_of_income = 4
+        add_prestige = 30
+    }
+    
+    option = {
+        name = "excavation_hyperwar.44.b"
+        add_country_modifier = {
+            name = antimatter_catastrophe
+            duration = 7300
+        }
+    }
+}
+
+# Multiverse beacon
+country_event = {
+id = excavation_hyperwar.45  
+
+    title = "excavation_hyperwar.45.t"
+    desc = "excavation_hyperwar.45.d"
+    picture = excavation_spaceship_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_hyperwar.45.a"
+        add_country_modifier = {
+            name = multiverse_contact
+            duration = 10950
+        }
+    }
+}
+
+# =================================
+# ANCIENT TECHNOLOGY EVENTS (10 events)
+# =================================
+
+# Fire technology
+country_event = {
+id = excavation_ancient.1  
+
+    title = "excavation_ancient.1.t"
+    desc = "excavation_ancient.1.d"
+    picture = excavation_spaceship_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_ancient.1.a"
+        add_mil_tech = 1
+        add_prestige = 10
+    }
+}
+
+# Concrete knowledge
+country_event = {
+id = excavation_ancient.2  
+
+    title = "excavation_ancient.2.t"
+    desc = "excavation_ancient.2.d"
+    picture = excavation_spaceship_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_ancient.2.a"
+        add_adm_tech = 1
+        add_country_modifier = {
+            name = concrete_knowledge
+            duration = 5475
+        }
+    }
+}
+
+# Balloon plans
+country_event = {
+id = excavation_ancient.3  
+
+    title = "excavation_ancient.3.t"
+    desc = "excavation_ancient.3.d"
+    picture = excavation_spaceship_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_ancient.3.a"
+        add_dip_tech = 1
+        add_country_modifier = {
+            name = balloon_experiments
+            duration = 3650
+        }
+    }
+}
+
+# Water wheel
+country_event = {
+id = excavation_ancient.4  
+
+    title = "excavation_ancient.4.t"
+    desc = "excavation_ancient.4.d"
+    picture = excavation_spaceship_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_ancient.4.a"
+        add_country_modifier = {
+            name = water_wheel_tech
+            duration = 5475
+        }
+    }
+}
+
+# Compass
+country_event = {
+id = excavation_ancient.5  
+
+    title = "excavation_ancient.5.t"
+    desc = "excavation_ancient.5.d"
+    picture = excavation_spaceship_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_ancient.5.a"
+        add_dip_tech = 1
+        add_country_modifier = {
+            name = navigation_knowledge
+            duration = 3650
+        }
+    }
+}
+
+# Lens crafting
+country_event = {
+id = excavation_ancient.6  
+
+    title = "excavation_ancient.6.t"
+    desc = "excavation_ancient.6.d"
+    picture = excavation_spaceship_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_ancient.6.a"
+        add_country_modifier = {
+            name = lens_crafting
+            duration = 3650
+        }
+    }
+}
+
+# Metallurgy
+country_event = {
+id = excavation_ancient.7  
+
+    title = "excavation_ancient.7.t"
+    desc = "excavation_ancient.7.d"
+    picture = excavation_spaceship_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_ancient.7.a"
+        add_country_modifier = {
+            name = advanced_metallurgy
+            duration = 5475
+        }
+    }
+}
+
+# Gunpowder recipe
+country_event = {
+id = excavation_ancient.8  
+
+    title = "excavation_ancient.8.t"
+    desc = "excavation_ancient.8.d"
+    picture = excavation_spaceship_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_ancient.8.a"
+        add_mil_tech = 1
+        add_army_tradition = 5
+        add_prestige = 15
+    }
+}
+
+# Printing press
+country_event = {
+id = excavation_ancient.9  
+
+    title = "excavation_ancient.9.t"
+    desc = "excavation_ancient.9.d"
+    picture = excavation_spaceship_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_ancient.9.a"
+        add_adm_tech = 1
+        add_country_modifier = {
+            name = printing_technology
+            duration = 5475
+        }
+    }
+}
+
+# Clockwork
+country_event = {
+id = excavation_ancient.10  
+
+    title = "excavation_ancient.10.t"
+    desc = "excavation_ancient.10.d"
+    picture = excavation_spaceship_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_ancient.10.a"
+        add_country_modifier = {
+            name = clockwork_precision
+            duration = 3650
+        }
+    }
+}
+
+# =================================
+# ROMAN ERA ARTIFACTS (5 events)
+# =================================
+
+# Roman sword
+country_event = {
+id = excavation_roman.1  
+
+    title = "excavation_roman.1.t"
+    desc = "excavation_roman.1.d"
+    picture = LAND_MILITARY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_roman.1.a"
+        add_years_of_income = 0.5
+        add_army_tradition = 3
+        add_prestige = 5
+    }
+}
+
+# Aqueduct plans
+country_event = {
+id = excavation_roman.2  
+
+    title = "excavation_roman.2.t"
+    desc = "excavation_roman.2.d"
+    picture = INVENTION_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_roman.2.a"
+        add_country_modifier = {
+            name = roman_engineering
+            duration = 5475
+        }
+    }
+}
+
+# Roman coins
+country_event = {
+id = excavation_roman.3  
+
+    title = "excavation_roman.3.t"
+    desc = "excavation_roman.3.d"
+    picture = TRADEGOODS_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_roman.3.a"
+        add_years_of_income = 1
+        add_prestige = 8
+    }
+}
+
+# Legion standards
+country_event = {
+id = excavation_roman.4  
+
+    title = "excavation_roman.4.t"
+    desc = "excavation_roman.4.d"
+    picture = LAND_MILITARY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_roman.4.a"
+        add_army_tradition = 6
+        add_country_modifier = {
+            name = roman_discipline
+            duration = 3650
+        }
+    }
+}
+
+# Roman scrolls
+country_event = {
+id = excavation_roman.5  
+
+    title = "excavation_roman.5.t"
+    desc = "excavation_roman.5.d"
+    picture = BIG_BOOK_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_roman.5.a"
+        add_adm_power = 75
+        add_prestige = 10
+    }
+}
+
+# =================================
+# CURSED ARTIFACTS (15 events)
+# =================================
+
+# Cursed country_event = {
+country_event = {
+id = excavation_cursed.1  
+
+    title = "excavation_cursed.1.t"
+    desc = "excavation_cursed.1.d"
+    picture = Religious_TURMOIL_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_cursed.1.a"
+        add_stability = -1
+        add_country_modifier = {
+            name = cursed_idol_effects
+            duration = 3650
+        }
+    }
+    
+    option = {
+        name = "excavation_cursed.1.b"
+        add_adm_power = -25
+       add_years_of_income = 0.5
+    }
+}
+
+# Plague container
+country_event = {
+id = excavation_cursed.2  
+
+    title = "excavation_cursed.2.t"
+    desc = "excavation_cursed.2.d"
+    picture = PLAGUE_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_cursed.2.a"
+        add_country_modifier = {
+            name = ancient_plague
+            duration = 3650
+        }
+    }
+    
+    option = {
+        name = "excavation_cursed.2.b"
+        add_years_of_income = 0.25
+        add_country_modifier = {
+            name = plague_spread
+            duration = 1825
+        }
+    }
+}
+
+# Madness relic
+country_event = {
+id = excavation_cursed.3  
+
+    title = "excavation_cursed.3.t"
+    desc = "excavation_cursed.3.d"
+    picture = Religious_TURMOIL_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_cursed.3.a"
+        add_country_modifier = {
+            name = spreading_madness
+            duration = 2555
+        }
+    }
+}
+
+# Blood stone
+country_event = {
+id = excavation_cursed.4  
+
+    title = "excavation_cursed.4.t"
+    desc = "excavation_cursed.4.d"
+    picture = Religious_TURMOIL_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_cursed.4.a"
+        add_country_modifier = {
+            name = blood_magic
+            duration = 2190
+        }
+    }
+}
+
+# Soul gem
+country_event = {
+id = excavation_cursed.5  
+
+    title = "excavation_cursed.5.t"
+    desc = "excavation_cursed.5.d"
+    picture = Religious_TURMOIL_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_cursed.5.a"
+        add_country_modifier = {
+            name = soul_harvesting
+            duration = 3650
+        }
+    }
+    
+    option = {
+        name = "excavation_cursed.5.b"
+       add_years_of_income = 1
+        add_country_modifier = {
+            name = cursed_wealth
+            duration = 1825
+        }
+    }
+}
+
+# Necromantic tome
+country_event = {
+id = excavation_cursed.6  
+
+    title = "excavation_cursed.6.t"
+    desc = "excavation_cursed.6.d"
+    picture = Religious_TURMOIL_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_cursed.6.a"
+        add_country_modifier = {
+            name = necromantic_knowledge
+            duration = 2555
+        }
+    }
+}
+
+# Demon mask
+country_event = {
+id = excavation_cursed.7  
+
+    title = "excavation_cursed.7.t"
+    desc = "excavation_cursed.7.d"
+    picture = Religious_TURMOIL_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_cursed.7.a"
+        add_country_modifier = {
+            name = demonic_influence
+            duration = 2190
+        }
+    }
+}
+
+# Cursed crown
+country_event = {
+id = excavation_cursed.8  
+
+    title = "excavation_cursed.8.t"
+    desc = "excavation_cursed.8.d"
+    picture = Religious_TURMOIL_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_cursed.8.a"
+        add_legitimacy = 15
+        add_country_modifier = {
+            name = cursed_crown_effects
+            duration = 5475
+        }
+    }
+}
+
+# Shadow cloak
+country_event = {
+id = excavation_cursed.9  
+
+    title = "excavation_cursed.9.t"
+    desc = "excavation_cursed.9.d"
+    picture = Religious_TURMOIL_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_cursed.9.a"
+        add_country_modifier = {
+            name = shadow_magic
+            duration = 2190
+        }
+    }
+}
+
+# Void mirror
+country_event = {
+id = excavation_cursed.10  
+
+    title = "excavation_cursed.10.t"
+    desc = "excavation_cursed.10.d"
+    picture = Religious_TURMOIL_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_cursed.10.a"
+        add_country_modifier = {
+            name = void_visions
+            duration = 2555
+        }
+    }
+}
+
+# Bone throne
+country_event = {
+id = excavation_cursed.11  
+
+    title = "excavation_cursed.11.t"
+    desc = "excavation_cursed.11.d"
+    picture = Religious_TURMOIL_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_cursed.11.a"
+        add_legitimacy = 20
+        add_country_modifier = {
+            name = throne_of_bones
+            duration = 7300
+        }
+    }
+}
+
+# Death whistle
+country_event = {
+id = excavation_cursed.12  
+
+    title = "excavation_cursed.12.t"
+    desc = "excavation_cursed.12.d"
+    picture = Religious_TURMOIL_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_cursed.12.a"
+        add_country_modifier = {
+            name = death_whistle_effects
+            duration = 1825
+        }
+    }
+}
+
+# Sacrifice altar
+country_event = {
+id = excavation_cursed.13  
+
+    title = "excavation_cursed.13.t"
+    desc = "excavation_cursed.13.d"
+    picture = excavation_weird_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_cursed.13.a"
+        add_country_modifier = {
+            name = sacrifice_altar_effects
+            duration = 3650
+        }
+    }
+}
+
+# Haunted armor
+country_event = {
+id = excavation_cursed.14  
+
+    title = "excavation_cursed.14.t"
+    desc = "excavation_cursed.14.d"
+    picture = excavation_weird_eventPicture
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_cursed.14.a"
+        add_country_modifier = {
+            name = haunted_armor_effects
+            duration = 2555
+        }
+    }
+}
+
+# Cursed weapon
+country_event = {
+id = excavation_cursed.15  
+
+    title = "excavation_cursed.15.t"
+    desc = "excavation_cursed.15.d"
+    picture = excavation_weird_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_cursed.15.a"
+        add_country_modifier = {
+            name = cursed_weapon_effects
+            duration = 2190
+        }
+    }
+}
+
+# =================================
+# BENEFICIAL ODDITIES (10 events)
+# =================================
+
+# Healing spring
+country_event = {
+id = excavation_beneficial.1  
+
+    title = "excavation_beneficial.1.t"
+    desc = "excavation_beneficial.1.d"
+    picture = GOOD_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_beneficial.1.a"
+        add_country_modifier = {
+            name = healing_spring
+            duration = -1
+        }
+    }
+}
+
+# Wisdom crystal
+country_event = {
+id = excavation_beneficial.2  
+
+    title = "excavation_beneficial.2.t"
+    desc = "excavation_beneficial.2.d"
+    picture = BIG_BOOK_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_beneficial.2.a"
+        add_country_modifier = {
+            name = wisdom_crystal
+            duration = -1
+        }
+    }
+}
+
+# Luck charm
+country_event = {
+id = excavation_beneficial.3  
+
+    title = "excavation_beneficial.3.t"
+    desc = "excavation_beneficial.3.d"
+    picture = GOOD_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_beneficial.3.a"
+        add_country_modifier = {
+            name = luck_charm
+            duration = 5475
+        }
+    }
+}
+
+# Fertility statue
+country_event = {
+id = excavation_beneficial.4  
+
+    title = "excavation_beneficial.4.t"
+    desc = "excavation_beneficial.4.d"
+    picture = GOOD_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_beneficial.4.a"
+        add_country_modifier = {
+            name = fertility_blessing
+            duration = 7300
+        }
+    }
+}
+
+# Trade route map
+country_event = {
+id = excavation_beneficial.5  
+
+    title = "excavation_beneficial.5.t"
+    desc = "excavation_beneficial.5.d"
+    picture = TRADEGOODS_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_beneficial.5.a"
+        add_country_modifier = {
+            name = ancient_trade_routes
+            duration = 5475
+        }
+    }
+}
+
+# Diplomatic seal
+country_event = {
+id = excavation_beneficial.6  
+
+    title = "excavation_beneficial.6.t"
+    desc = "excavation_beneficial.6.d"
+    picture = DIPLOMACY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_beneficial.6.a"
+        add_country_modifier = {
+            name = diplomatic_seal
+            duration = 3650
+        }
+    }
+}
+
+# Royal regalia
+country_event = {
+id = excavation_beneficial.7  
+
+    title = "excavation_beneficial.7.t"
+    desc = "excavation_beneficial.7.d"
+    picture = GOOD_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_beneficial.7.a"
+        add_legitimacy = 15
+        add_prestige = 10
+    }
+}
+
+# Scholars library
+country_event = {
+id = excavation_beneficial.8  
+
+    title = "excavation_beneficial.8.t"
+    desc = "excavation_beneficial.8.d"
+    picture = BIG_BOOK_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_beneficial.8.a"
+        add_country_modifier = {
+            name = ancient_library
+            duration = 7300
+        }
+    }
+}
+
+# Merchant ledger
+country_event = {
+id = excavation_beneficial.9  
+
+    title = "excavation_beneficial.9.t"
+    desc = "excavation_beneficial.9.d"
+    picture = TRADEGOODS_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_beneficial.9.a"
+        add_country_modifier = {
+            name = merchant_wisdom
+            duration = 3650
+        }
+    }
+}
+
+# Military manual
+country_event = {
+id = excavation_beneficial.10  
+
+    title = "excavation_beneficial.10.t"
+    desc = "excavation_beneficial.10.d"
+    picture = LAND_MILITARY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_beneficial.10.a"
+        add_country_modifier = {
+            name = military_manual
+            duration = 3650
+        }
+    }
+}
+
+# =================================
+# ULTRA RARE FINDS (5 events)
+# =================================
+
+# Reality shard
+country_event = {
+id = excavation_ultra_rare.1  
+
+    title = "excavation_ultra_rare.1.t"
+    desc = "excavation_ultra_rare.1.d"
+    picture = excavation_weird_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_ultra_rare.1.a"
+        add_country_modifier = {
+            name = reality_shard
+            duration = -1
+        }
+    }
+    
+    option = {
+        name = "excavation_ultra_rare.1.b"
+        add_stability = -2
+        add_country_modifier = {
+            name = reality_breakdown
+            duration = 7300
+        }
+    }
+}
+
+# Time anomaly
+country_event = {
+id = excavation_ultra_rare.2  
+
+    title = "excavation_ultra_rare.2.t"
+    desc = "excavation_ultra_rare.2.d"
+    picture = excavation_weird_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_ultra_rare.2.a"
+        random_list = {
+            30 = {
+            add_adm_tech = 1
+            add_adm_power = -100
+            }
+                                    30 = {
+            add_mil_tech = 1
+            add_mil_power = -100
+            }
+                        30 = {
+            add_dip_tech = 1
+            add_dip_power = -100
+            }
+              30 = {
+            add_stability = -3
+            }
+        }
+        
+       
+        
+        
+    }
+    
+    option = {
+        name = "excavation_ultra_rare.2.b"
+        add_country_modifier = {
+            name = temporal_regression
+            duration = 5475
+        }
+    }
+}
+
+# Space tear
+country_event = {
+id = excavation_ultra_rare.3  
+
+    title = "excavation_ultra_rare.3.t"
+    desc = "excavation_ultra_rare.3.d"
+    picture = excavation_weird_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_ultra_rare.3.a"
+        add_country_modifier = {
+            name = dimensional_tear
+            duration = 7300
+        }
+    }
+}
+
+# Divine intervention
+country_event = {
+id = excavation_ultra_rare.4  
+
+    title = "excavation_ultra_rare.4.t"
+    desc = "excavation_ultra_rare.4.d"
+    picture = GOOD_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_ultra_rare.4.a"
+        add_stability = 2 
+        add_legitimacy = 25
+        add_country_modifier = {
+            name = divine_blessing
+            duration = 10950
+        }
+    }
+}
+
+# Philosopher's stone
+country_event = {
+id = excavation_ultra_rare.5  
+
+    title = "excavation_ultra_rare.5.t"
+    desc = "excavation_ultra_rare.5.d"
+    picture = excavation_weird_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = "excavation_ultra_rare.5.a"
+        add_country_modifier = {
+            name = philosophers_stone
+            duration = -1
+        }
+    }
+}

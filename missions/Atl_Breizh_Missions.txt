@@ -1,0 +1,838 @@
+BRI_Colonial_Missions = {
+	slot = 1
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = BRI
+		NOT = { map_setup = map_setup_random } 
+	}
+
+	bri_western_seas = {
+		icon = mission_establish_high_seas_navy
+		position = 1
+		provinces_to_highlight = {
+			OR = {
+				province_id = 170
+				province_id = 171
+				province_id = 169
+
+			}
+
+		}
+
+		trigger = { 
+							navy_size_percentage = 0.9
+				num_of_light_ship = 8
+				170 = { owned_by = ROOT } 
+				171 = { owned_by = ROOT } 
+			169 = { owned_by = ROOT } 	
+		 } 
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_masters_of_western_seas"
+				duration = 7300
+			}
+			170 = {
+				add_base_production = 1
+				add_province_modifier = {
+					name = "bri_naval_base"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	bri_atlantic_exploration = {
+		icon = mission_launch_a_flagship
+		position = 2
+		required_missions = { bri_western_seas } 
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1096
+				province_id = 1097
+				province_id = 1098
+			}
+		}
+
+		trigger = {
+			num_of_explorers = 1
+			OR = {
+				1096 = { has_discovered = ROOT } 
+				1097 = { has_discovered = ROOT } 
+				1098 = { has_discovered = ROOT } 
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_atlantic_pathfinders"
+				duration = 9125
+			}
+			add_dip_power = 100
+			create_explorer = { tradition = 40 } 
+		}
+	}
+
+	bri_new_world_discovery = {
+		icon = mission_colonize_the_caribbean
+		position = 3
+		required_missions = { bri_atlantic_exploration } 
+		provinces_to_highlight = {
+			OR = {
+				colonial_region = colonial_the_carribean
+				colonial_region = colonial_colombia
+				colonial_region = colonial_brazil
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = bri_discovered_new_world_tt
+				OR = {
+					colonial_the_carribean = { has_discovered = ROOT } 
+					colonial_colombia = { has_discovered = ROOT } 
+					colonial_brazil = { has_discovered = ROOT } 
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_new_world_pioneers"
+				duration = 10950
+			}
+			create_conquistador = { tradition = 50 } 
+			add_prestige = 25
+		}
+	}
+
+	bri_first_colony = {
+		icon = atlantropa_arthuriancolonist
+		position = 4
+		required_missions = { bri_new_world_discovery } 
+		provinces_to_highlight = {
+			OR = {
+				colonial_region = colonial_the_carribean
+				colonial_region = colonial_colombia
+				colonial_region = colonial_brazil
+				colonial_region = colonial_eastern_america
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = { num_of_colonies = 1 } 
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_colonial_enthusiasm"
+				duration = 7300
+			}
+			random_owned_province = {
+				limit = {
+					is_colony = yes
+					colonial_region = colonial_the_carribean
+				}
+				add_base_tax = 1
+				add_base_production = 1
+			}
+		}
+	}
+
+	bri_celtic_america = {
+		icon = mission_gain_mana
+		position = 5
+		required_missions = { bri_first_colony } 
+		provinces_to_highlight = {
+			OR = {
+				colonial_region = colonial_the_carribean
+				colonial_region = colonial_colombia
+				colonial_region = colonial_brazil
+				colonial_region = colonial_eastern_america
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			num_of_colonies = 5
+			OR = {
+				colonial_the_carribean = { country_or_non_sovereign_subject_holds = ROOT } 
+				colonial_colombia = { country_or_non_sovereign_subject_holds = ROOT } 
+				colonial_brazil = { country_or_non_sovereign_subject_holds = ROOT } 
+				colonial_eastern_america = { country_or_non_sovereign_subject_holds = ROOT } 
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_celtic_new_world"
+				duration = -1
+			}
+			add_prestige = 30
+			random_owned_province = {
+				limit = { colonial_region = colonial_the_carribean } 
+				add_province_modifier = {
+					name = "bri_celtic_settlement"
+					duration = -1
+				}
+			}
+		}
+	}
+}
+BRI_Colonial_Missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = BRI
+		NOT = { map_setup = map_setup_random } 
+	}
+
+	bri_strengthen_homeland = {
+		icon = mission_teutonic_lancer
+		position = 1
+		provinces_to_highlight = {
+			area = brittany_area
+			NOT = { development = 12 } 
+		}
+
+		trigger = {
+			brittany_area = {
+				type = all
+				owned_by = ROOT
+				development = 12
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_developed_homeland"
+				duration = 9125
+			}
+			brittany_area = { add_prosperity = 50 } 
+		}
+	}
+
+	bri_breton_fleet = {
+		icon = mission_galleys_in_port
+		position = 2
+		required_missions = { bri_strengthen_homeland } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			navy_size_percentage = 1.0
+			num_of_heavy_ship = 5
+			num_of_light_ship = 15
+			naval_forcelimit = 25
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_naval_supremacy"
+				duration = 9125
+			}
+			add_navy_tradition = 15
+			create_admiral = { tradition = 60 } 
+		}
+	}
+
+	bri_oceanic_trade = {
+		icon = mission_dominate_home_trade_node
+		position = 3
+		required_missions = { bri_breton_fleet } 
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1293
+				province_id = 1269
+			}
+		}
+
+		trigger = {
+			1293 = {
+				trade_share = {
+					country = ROOT
+					share = 15
+				}
+			}
+			1269 = {
+				trade_share = {
+					country = ROOT
+					share = 20
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_oceanic_traders"
+				duration = 10950
+			}
+			add_mercantilism = 3
+			1293 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = -1
+					power = 10
+					key = bri_bordeaux_trade
+				}
+			}
+		}
+	}
+
+	bri_colonial_trade_empire = {
+		icon = build_a_roman_navy
+		position = 5
+		required_missions = {
+			bri_oceanic_trade
+			bri_first_colony
+		}
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					colonial_region = colonial_the_carribean
+					is_city = yes
+				}
+				AND = {
+					colonial_region = colonial_colombia
+					is_city = yes
+				}
+			}
+		}
+
+		trigger = {
+			OR = {
+				colonial_the_carribean = {
+					trade_share = {
+						country = ROOT
+						share = 25
+					}
+				}
+				colonial_colombia = {
+					trade_share = {
+						country = ROOT
+						share = 25
+					}
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_colonial_trade_dominance"
+				duration = -1
+			}
+			add_years_of_income = 1.5
+			random_owned_province = {
+				limit = {
+					OR = {
+						colonial_region = colonial_the_carribean
+						colonial_region = colonial_colombia
+					}
+				}
+				add_base_production = 2
+			}
+		}
+	}
+
+	bri_sugar_islands = {
+		icon = mission_rb_colonise_spice_islands
+		position = 5
+		required_missions = { bri_colonial_trade_empire } 
+		provinces_to_highlight = {
+			colonial_region = colonial_the_carribean
+			trade_goods = sugar
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				colonial_region = colonial_the_carribean
+				trade_goods = sugar
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_sugar_monopoly"
+				duration = -1
+			}
+			add_years_of_income = 2
+			every_owned_province = {
+				limit = {
+					colonial_region = colonial_the_carribean
+					trade_goods = sugar
+				}
+				add_base_production = 1
+			}
+		}
+	}
+
+	bri_caribbean_domination = {
+		icon = mission_aragonese_navy
+		position = 6
+		required_missions = { bri_sugar_islands } 
+		provinces_to_highlight = {
+			colonial_region = colonial_the_carribean
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 15
+				colonial_region = colonial_the_carribean
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_caribbean_empire"
+				duration = -1
+			}
+			add_prestige = 50
+			colonial_the_carribean = {
+				limit = { owned_by = ROOT } 
+				add_base_tax = 1
+			}
+		}
+	}
+}
+BRI_Colonial_Missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = BRI
+		NOT = { map_setup = map_setup_random } 
+	}
+
+	bri_breton_culture = {
+		icon = mission_religious
+		position = 1
+		provinces_to_highlight = {
+			area = brittany_area
+			NOT = { culture = breton } 
+		}
+
+		trigger = {
+			stability = 3
+			brittany_area = {
+				type = all
+				owned_by = ROOT
+				culture = breton
+			}
+			accepted_culture = breton
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_celtic_identity"
+				duration = -1
+			}
+			add_prestige = 15
+			brittany_area = { add_base_manpower = 1 } 
+		}
+	}
+
+	bri_shipbuilding_industry = {
+		icon = atlantropa_jewishnavy
+		position = 2
+		required_missions = { bri_breton_culture } 
+		provinces_to_highlight = {
+			area = brittany_area
+			NOT = { has_building = shipyard } 
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 2
+				area = brittany_area
+				has_building = shipyard
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_shipbuilding_expertise"
+				duration = 10950
+			}
+			170 = {
+				if = {
+					limit = { has_building = shipyard } 
+					add_building = grand_shipyard
+				}
+				else = { add_building = shipyard } 
+			}
+		}
+	}
+
+	bri_colonial_company = {
+		icon = fra_grande_armee
+		position = 3
+		required_missions = { bri_shipbuilding_industry } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_merchants = 3
+			treasury = 500
+			num_of_colonies = 2
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_colonial_trading_company"
+				duration = -1
+			}
+			add_mercantilism = 2
+			add_merchant = 1
+		}
+	}
+
+	bri_colonial_development = {
+		icon = imperial_navy
+		position = 4
+		required_missions = { bri_colonial_company } 
+		provinces_to_highlight = {
+			OR = {
+				colonial_region = colonial_the_carribean
+				colonial_region = colonial_colombia
+				colonial_region = colonial_brazil
+			}
+			owned_by = ROOT
+			NOT = { development = 8 } 
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				OR = {
+					colonial_region = colonial_the_carribean
+					colonial_region = colonial_colombia
+					colonial_region = colonial_brazil
+				}
+				development = 8
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_colonial_prosperity"
+				duration = -1
+			}
+			random_owned_province = {
+				limit = {
+					OR = {
+						colonial_region = colonial_the_carribean
+						colonial_region = colonial_colombia
+					}
+					development = 8
+				}
+				add_building = marketplace
+			}
+		}
+	}
+
+	bri_breton_america = {
+		icon = mission_look_west
+		position = 5
+		required_missions = { bri_colonial_development } 
+		provinces_to_highlight = {
+			OR = {
+				colonial_region = colonial_the_carribean
+				colonial_region = colonial_colombia
+				colonial_region = colonial_brazil
+				colonial_region = colonial_eastern_america
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			OR = {
+				AND = {
+					colonial_the_carribean = { country_or_non_sovereign_subject_holds = ROOT } 
+					colonial_colombia = { country_or_non_sovereign_subject_holds = ROOT } 
+				}
+				AND = {
+					colonial_brazil = { country_or_non_sovereign_subject_holds = ROOT } 
+					colonial_eastern_america = { country_or_non_sovereign_subject_holds = ROOT } 
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_breton_new_world"
+				duration = -1
+			}
+			add_prestige = 40
+			add_legitimacy = 20
+			random_owned_province = {
+				limit = {
+					OR = {
+						colonial_region = colonial_the_carribean
+						colonial_region = colonial_colombia
+					}
+				}
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 1
+			}
+		}
+	}
+}
+BRI_Colonial_Missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = BRI
+		NOT = { map_setup = map_setup_random } 
+	}
+
+	bri_university_of_brittany = {
+		icon = the_great_school
+		position = 1
+		provinces_to_highlight = {
+			OR = {
+				province_id = 170
+				province_id = 171
+			}
+		}
+
+		trigger = {
+			OR = {
+				170 = { has_building = university } 
+				171 = { has_building = university } 
+			}
+			innovativeness = 5
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_center_of_learning"
+				duration = -1
+			}
+			add_adm_power = 100
+			add_dip_power = 100
+		}
+	}
+
+	bri_naval_innovations = {
+		icon = mission_launch_a_flagship
+		position = 3
+		required_missions = { bri_university_of_brittany } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			dip_tech = 9
+			has_idea_group = exploration_ideas
+			innovativeness = 10
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_naval_innovation"
+				duration = -1
+			}
+			add_navy_tradition = 10
+			create_flagship = {
+				name = "Breizh Arvor"
+				type = heavy_ship
+			}
+		}
+	}
+
+	bri_colonial_administration = {
+		icon = mission_found_havana
+		position = 4
+		required_missions = { bri_naval_innovations } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_colonial_subjects = 1
+			adm_tech = 10
+			has_idea_group = administrative_ideas
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_efficient_colonial_administration"
+				duration = -1
+			}
+			every_subject_country = {
+				limit = { is_colonial_nation = yes } 
+				add_liberty_desire = -20
+			}
+		}
+	}
+
+	bri_new_world_ports = {
+		icon = adriatic_access
+		position = 5
+		required_missions = { bri_colonial_administration } 
+		provinces_to_highlight = {
+			OR = {
+				colonial_region = colonial_the_carribean
+				colonial_region = colonial_colombia
+			}
+			owned_by = ROOT
+			NOT = { has_building = dock } 
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				OR = {
+					colonial_region = colonial_the_carribean
+					colonial_region = colonial_colombia
+				}
+				has_building = dock
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_colonial_ports"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = {
+					OR = {
+						colonial_region = colonial_the_carribean
+						colonial_region = colonial_colombia
+					}
+					has_building = dock
+				}
+				add_base_production = 1
+			}
+		}
+	}
+}
+BRI_Colonial_Missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = BRI
+		NOT = { map_setup = map_setup_random } 
+	}
+
+	bri_celtic_renaissance = {
+		icon = fortify_malta
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			has_institution = renaissance
+			has_institution = colonialism
+			prestige = 25
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_celtic_renaissance"
+				duration = 10950
+			}
+			add_prestige = 20
+			capital_scope = { add_base_tax = 2 } 
+		}
+	}
+
+	bri_atlantic_routes = {
+		icon = challenge_spanish_power
+		position = 3
+		required_missions = { bri_celtic_renaissance } 
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1096
+				province_id = 1097
+			}
+		}
+
+		trigger = {
+			OR = {
+				1096 = { country_or_non_sovereign_subject_holds = ROOT } 
+				1097 = { country_or_non_sovereign_subject_holds = ROOT } 
+			}
+			num_of_light_ship = 20
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_atlantic_routes"
+				duration = -1
+			}
+			add_years_of_income = 1
+			1096 = {
+				if = {
+					limit = { owned_by = ROOT } 
+					add_base_production = 2
+				}
+			}
+			1097 = {
+				if = {
+					limit = { owned_by = ROOT } 
+					add_base_production = 2
+				}
+			}
+		}
+	}
+
+	bri_colonial_wealth = {
+		icon = danubian_power
+		position = 4
+		required_missions = { bri_atlantic_routes } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			monthly_income = 25
+			num_of_colonial_subjects = 1
+			treasury = 1000
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_colonial_wealth"
+				duration = -1
+			}
+			add_years_of_income = 2
+			capital_scope = { add_building = stock_exchange } 
+		}
+	}
+
+	bri_breton_empire = {
+		icon = dominant_economy
+		position = 5
+		required_missions = { bri_colonial_wealth } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_colonial_subjects = 2
+			total_development = 300
+			prestige = 50
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "bri_breton_colonial_empire"
+				duration = -1
+			}
+			add_prestige = 50
+			add_legitimacy = 25
+			override_country_name = "BRETON_EMPIRE"
+			every_subject_country = {
+				limit = { is_colonial_nation = yes } 
+				add_country_modifier = {
+					name = "bri_loyal_colony"
+					duration = -1
+				}
+			}
+		}
+	}
+}

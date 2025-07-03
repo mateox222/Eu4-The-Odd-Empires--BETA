@@ -51,7 +51,7 @@ country_event = {
                     add_legitimacy = 5
                 }
                 20 = {
-                    lose_manpower = 2
+                    add_yearly_manpower = 2
                     add_years_of_income = -0.1
                 }
                 10 = {
@@ -109,7 +109,7 @@ country_event = {
                     }
                 }
                 20 = {
-                    lose_manpower = 3
+                    add_yearly_manpower = 3
                     add_years_of_income = -0.15
                 }
             }
@@ -152,7 +152,7 @@ country_event = {
                 name = atl_gnostic_inquisition_fervor
                 duration = 1825
             }
-            lose_legitimacy = 5
+            add_legitimacy = -5
             add_years_of_income = -0.3
             
             random_list = {
@@ -165,7 +165,6 @@ country_event = {
                     add_prestige = 5
                 }
                 30 = {
-                    add_spy_efficiency = 0.1
                     add_country_modifier = {
                         name = atl_gnostic_zealous_inquisition
                         duration = 1095
@@ -405,7 +404,7 @@ country_event = {
                 }
                 25 = {
                     add_legitimacy = -15
-                    lose_manpower = 4
+                    add_yearly_manpower = 4
                     random_owned_province = {
                         spawn_rebels = {
                             type = peasant_rebels
@@ -451,7 +450,7 @@ country_event = {
             random_list = {
                 35 = {
                     add_adm_tech = 1
-                    add_innovativeness = 2
+                    change_innovativeness = 2
                     define_advisor = {
                         type = natural_scientist
                         skill = 3
@@ -518,7 +517,7 @@ country_event = {
                 }
                 20 = {
                     add_prestige = 10
-                    add_innovativeness = 1
+                    change_innovativeness = 1
                 }
             }
         }
@@ -573,7 +572,7 @@ country_event = {
                     }
                 }
                 25 = {
-                    add_innovativeness = 3
+                    change_innovativeness = 3
                     capital_scope = {
                         add_institution_embracement = {
                             which = renaissance
@@ -751,7 +750,7 @@ country_event = {
                     }
                 }
                 20 = {
-                    add_innovativeness = 2
+                    change_innovativeness = 2
                     add_prestige = 10
                 }
                 10 = {
@@ -782,7 +781,7 @@ country_event = {
                     }
                 }
                 30 = {
-                    lose_legitimacy = 15
+                    add_legitimacy = -15
                     kill_advisor = theologian
                 }
                 20 = {
@@ -845,7 +844,7 @@ country_event = {
                 }
                 30 = {
                     add_adm_tech = 1
-                    add_innovativeness = 3
+                    change_innovativeness = 3
                     change_ruler_stat = {
                         type = adm
                         amount = 1
@@ -965,7 +964,7 @@ country_event = {
                 }
                 10 = {
                     add_treasury = -300
-                    lose_manpower = 6
+                    add_yearly_manpower = 6
                     add_stability = -2
                 }
             }
@@ -1037,7 +1036,7 @@ country_event = {
                     add_war_exhaustion = 5
                 }
                 20 = {
-                    lose_legitimacy = 40
+                    add_legitimacy = -40
                     add_treasury = -500
                     kill_advisor = theologian
                 }
