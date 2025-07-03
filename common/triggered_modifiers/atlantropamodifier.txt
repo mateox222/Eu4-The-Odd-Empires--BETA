@@ -307,3 +307,26 @@ zpoganizowanyidea = {
 		global_unrest = -50
 		reinforce_speed = 0.5
 	}
+
+
+
+	millenarian_panic = {
+	potential = {
+		OR = {
+		religion = united_christianity
+		religion = hussite
+		}
+	}
+
+	trigger = {
+		NOT = { is_year = 6505 }
+	}
+
+    global_unrest = 2
+    tolerance_own = -1
+    tolerance_heretic = -2
+    religious_unity = -0.15
+    idea_cost = -0.10
+    
+    # Tooltip: "The year 6508 approaches its end. Some whisper of the Seventh Millennium, when the Demiurge's grip shall finally break..."
+}

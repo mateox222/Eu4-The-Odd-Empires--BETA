@@ -30,117 +30,220 @@ nikaeanbyzantine_mechanic = {
 			}
 		}
 	}
-	
-	
-	interactions = {
-		improvepopularityruler = {
+		interactions = {
+		# Safe & Reliable Option
+		imperial_propaganda = {
 			gui = russian_mechanics_interaction_gui
 			icon = GFX_byzantine_ability_1
 			trigger = {
 				adm_power_cost = 100
 			}
-			effect = { 
-				adm_power_cost = 100
-				add_stability = 1	
-				add_faction_influence = {
-					faction = rr_prasina
-					influence = 33
-				}
-				add_government_power = {
-					mechanic_type = nikaeanbyzantine_mechanic
-					power_type = byz_adm_power
-					value = -10
+			effect = {
+				custom_tooltip = imperial_propaganda_tt
+				hidden_effect = {
+					adm_power_cost = 100
+					add_stability = 1
+					add_government_power = {
+						mechanic_type = nikaeanbyzantine_mechanic
+						power_type = byz_adm_power
+						value = -15
+					}
+					add_faction_influence = {
+						faction = rr_prasina
+						influence = 33
+					}
+					add_country_modifier = {
+						name = "imperial_propaganda_campaign"
+						duration = 1825 # 5 years
+					}
 				}
 			}
-
 			cooldown_years = 5
 			ai_chance = {
-				factor = 1
+				factor = 60
 				modifier = {
-					factor = 10
+					factor = 3
 					has_government_power = {
-	mechanic_type = nikaeanbyzantine_mechanic
-	power_type = byz_adm_power
-	value = 10
-}
+						mechanic_type = nikaeanbyzantine_mechanic
+						power_type = byz_adm_power
+						value = 40
+					}
 				}
 			}
 		}
 		
-		improvepopularityruler2 = {
+		# Expensive but Powerful Option
+		grand_spectacle = {
 			gui = russian_mechanics_interaction_gui
 			icon = GFX_byzantine_ability_2
 			trigger = {
-				adm_power_cost = 100
-				years_of_income = 1.0
+				dip_power_cost = 100
+				years_of_income = 1.5
 			}
 			effect = {
-				add_legitimacy = 10
-				add_prestige = 5
-				adm_power_cost = 100
-				add_years_of_income = -1
-								add_faction_influence = {
-					faction = rr_veneta
-					influence = 33
-				}
+				custom_tooltip = grand_spectacle_tt
+				hidden_effect = {
+					dip_power_cost = 100
+					add_years_of_income = -1.5
+					add_prestige = 25
+					add_legitimacy = 20
 					add_government_power = {
-					mechanic_type = nikaeanbyzantine_mechanic
-					power_type = byz_adm_power
-					value = -10
+						mechanic_type = nikaeanbyzantine_mechanic
+						power_type = byz_adm_power
+						value = -30
+					}
+					add_faction_influence = {
+						faction = rr_veneta
+						influence = 33
+					}
+					capital_scope = {
+						add_province_modifier = {
+							name = "grand_spectacle_memory"
+							duration = 3650 # 10 years
+						}
+					}
+					random_owned_province = {
+						limit = { 
+							NOT = { is_capital = yes }
+							development = 15
+						}
+						add_province_modifier = {
+							name = "imperial_glory_spread"
+							duration = 1825 # 5 years
+						}
+					}
 				}
-
 			}
-			cooldown_years = 5
-				ai_chance = {
-				factor = 1
+			cooldown_years = 8
+			ai_chance = {
+				factor = 25
 				modifier = {
-					factor = 10
+					factor = 4
+					years_of_income = 3
+				}
+				modifier = {
+					factor = 6
 					has_government_power = {
-	mechanic_type = nikaeanbyzantine_mechanic
-	power_type = byz_adm_power
-	value = 10
-}
+						mechanic_type = nikaeanbyzantine_mechanic
+						power_type = byz_adm_power
+						value = 70
+					}
 				}
 			}
 		}
 		
-		improvepopularityruler3 = {
+		# High Risk/High Reward Option
+		praetorian_gambit = {
 			gui = russian_mechanics_interaction_gui
 			icon = GFX_byzantine_ability_3
-					trigger = {
-				manpower_percentage = 0.15		
-				mil_power_cost = 100
-			}
-			effect = {
-				mil_power_cost = 100
-				capital_scope = {
-					cavalry = ROOT
-					cavalry = ROOT
-					cavalry = ROOT				
-				}
-				add_yearly_manpower = 1
-				add_faction_influence = {
-					faction = rr_praetorians
-					influence = 33
-				}
-									add_government_power = {
+			trigger = {
+				mil_power_cost = 150
+				manpower_percentage = 0.25
+				has_government_power = {
 					mechanic_type = nikaeanbyzantine_mechanic
 					power_type = byz_adm_power
-					value = 10
+					value = 30
 				}
 			}
-			cooldown_years = 5
-					ai_chance = {
-				factor = 1
+			effect = {
+				custom_tooltip = praetorian_gambit_tt
+				hidden_effect = {
+					mil_power_cost = 150
+					add_yearly_manpower = -1
+					random_list = {
+						50 = {
+							# Great Success - The gamble pays off spectacularly
+							add_government_power = {
+								mechanic_type = nikaeanbyzantine_mechanic
+								power_type = byz_adm_power
+								value = -50
+							}
+							add_army_tradition = 15
+							add_legitimacy = 30
+							add_prestige = 15
+							add_faction_influence = {
+								faction = rr_praetorians
+								influence = 50
+							}
+							capital_scope = {
+								heavy_cavalry = ROOT
+								heavy_cavalry = ROOT
+								heavy_cavalry = ROOT
+							}
+							add_country_modifier = {
+								name = "praetorian_loyalty"
+								duration = 3650 # 10 years
+							}
+							country_event = { id = nikean_empire.300 } # Success event
+						}
+						30 = {
+							# Partial Success - Some benefits but complications
+							add_government_power = {
+								mechanic_type = nikaeanbyzantine_mechanic
+								power_type = byz_adm_power
+								value = -20
+							}
+							add_army_tradition = 5
+							add_legitimacy = 10
+							add_faction_influence = {
+								faction = rr_praetorians
+								influence = 25
+							}
+							capital_scope = {
+								heavy_cavalry = ROOT
+							}
+							random_owned_province = {
+								limit = { NOT = { is_capital = yes } }
+								add_local_autonomy = 10
+							}
+						}
+						20 = {
+							# Catastrophic Failure - Everything goes wrong
+							add_government_power = {
+								mechanic_type = nikaeanbyzantine_mechanic
+								power_type = byz_adm_power
+								value = 30
+							}
+							add_stability = -2
+							add_legitimacy = -25
+							add_army_tradition = -10
+							random_owned_province = {
+								limit = { NOT = { is_capital = yes } }
+								spawn_rebels = {
+									type = pretender_rebels
+									size = 3
+								}
+							}
+							add_country_modifier = {
+								name = "praetorian_betrayal"
+								duration = 1825 # 5 years
+							}
+						}
+					}
+				}
+			}
+			cooldown_years = 10
+			ai_chance = {
+				factor = 15
 				modifier = {
-					factor = 10
+					factor = 0.2
+					NOT = { army_tradition = 40 }
+				}
+				modifier = {
+					factor = 8
 					has_government_power = {
-	mechanic_type = nikaeanbyzantine_mechanic
-	power_type = byz_adm_power
-	value = 10
-}
+						mechanic_type = nikaeanbyzantine_mechanic
+						power_type = byz_adm_power
+						value = 80
+					}
+				}
+				modifier = {
+					factor = 0.1
+					NOT = { manpower_percentage = 0.5 }
 				}
 			}
 		}
 	}
-}
+	
+	
+			}
