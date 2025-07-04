@@ -1104,7 +1104,7 @@ X07_ideas = {
     }
 
     trigger = {
-        tag = X07
+        tag = TOU
     }
     free = yes
 
@@ -1860,5 +1860,59 @@ NPL_empire_ideas = {
 	# Idea 7: Divine Mandate Administration
 	npl_divine_mandate = {
 		advisor_cost = -0.2
+	}
+}
+occitanian_ideas = {
+	start = {
+		diplomatic_reputation = 1
+		global_trade_power = 0.1
+	}
+	
+	bonus = {
+		idea_cost = -0.1
+	}
+	
+	trigger = {
+		tag = X07
+	}
+	free = yes
+	
+	# 1. Dziedzictwo Trubadurów (Legacy of Troubadours)
+	occitanian_troubadour_legacy = {
+		improve_relation_modifier = 0.25
+	}
+	
+	# 2. Porty Langwedocji (Languedoc Ports)
+	occitanian_languedoc_ports = {
+		global_ship_cost = -0.15
+	}
+	
+	# 3. Kupiecki Duch Prowansji (Merchant Spirit of Provence)
+	occitanian_merchant_spirit = {
+		merchants = 1
+		trade_efficiency = 0.15
+	}
+	
+	# 4. Miasta Katarów (Cathar Cities)
+	occitanian_cathar_cities = {
+		stability_cost_modifier = -0.15
+	}
+	
+	# 5. Universitas Montispessulani (University of Montpellier)
+	occitanian_montpellier_university = {
+
+		advisor_cost = -0.15
+
+	}
+	
+	# 6. Bastides i Fortyfikacje (Bastides and Fortifications)
+	occitanian_bastides = {
+		defensiveness = 0.15
+
+	}
+	
+	# 7. Langue d'Oc Renaissance
+	occitanian_cultural_renaissance = {
+		monthly_splendor = 1
 	}
 }
