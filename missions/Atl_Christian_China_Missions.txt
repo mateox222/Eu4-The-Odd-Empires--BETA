@@ -1,0 +1,1068 @@
+nestorian_qing_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = QNG
+		NOT = { map_setup = map_setup_random } 
+	}
+	potential_on_load = { has_dlc = "Mandate of Heaven" } 
+
+	qng_nestorian_patriarchate = {
+		icon = show_piety
+		position = 2
+		required_missions = { qng_mandate_of_heaven } 
+		provinces_to_highlight = {
+			province_id = 1816
+			NOT = { religion = nestorian } 
+		}
+
+		trigger = {
+			1816 = { religion = nestorian } 
+			num_of_owned_provinces_with = {
+				religion = nestorian
+				value = 15
+			}
+			treasury = 500
+		}
+
+		effect = {
+			add_treasury = -500
+			add_country_modifier = {
+				name = "qng_nestorian_patriarchate"
+				duration = -1
+			}
+			1816 = {
+				add_province_modifier = {
+					name = "qng_patriarch_seat"
+					duration = -1
+				}
+			}
+			add_imperial_influence = 15
+			add_papal_influence = 50
+			define_advisor = {
+				type = theologian
+				skill = 3
+				culture = manchu
+				religion = nestorian
+				cost_multiplier = 0.5
+			}
+		}
+	}
+
+	qng_cross_and_dragon = {
+		icon = mission_buddhist_monk_praying
+		position = 3
+		required_missions = { qng_nestorian_patriarchate } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			religious_unity = 0.8
+			stability = 2
+			NOT = { num_of_rebel_armies = 1 } 
+			num_of_owned_provinces_with = {
+				religion = nestorian
+				value = 30
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_cross_dragon_harmony"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = { religion = nestorian } 
+				add_province_modifier = {
+					name = "qng_blessed_lands"
+					duration = -1
+				}
+			}
+			add_imperial_influence = 20
+			add_legitimacy = 10
+		}
+	}
+
+	qng_missionary_expansion = {
+		icon = mission_japanese_fort
+		position = 4
+		required_missions = { qng_cross_and_dragon } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			has_missionary = 3
+			num_of_owned_provinces_with = {
+				religion = nestorian
+				value = 50
+			}
+			any_owned_province = {
+				region = tibet_region
+				religion = nestorian
+			}
+			any_owned_province = {
+				region = mongolia_region
+				religion = nestorian
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_missionary_zeal"
+				duration = -1
+			}
+			tibet_region = {
+				limit = {
+					owned_by = ROOT
+					religion = nestorian
+				}
+				add_province_modifier = {
+					name = "qng_mountain_monasteries"
+					duration = -1
+				}
+			}
+			mongolia_region = {
+				limit = {
+					owned_by = ROOT
+					religion = nestorian
+				}
+				add_province_modifier = {
+					name = "qng_steppe_churches"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	qng_eastern_guardian = {
+		icon = mission_hands_praying
+		position = 5
+		required_missions = { qng_missionary_expansion } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			owns_or_non_sovereign_subject_of = 151
+			OR = {
+				151 = { religion = nestorian } 
+				151 = { religion = orthodox } 
+			}
+			diplomatic_reputation = 3
+			num_of_allies = 3
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_eastern_protector"
+				duration = -1
+			}
+			151 = {
+				if = {
+					limit = { religion = orthodox } 
+					add_province_modifier = {
+						name = "qng_orthodox_protection"
+						duration = -1
+					}
+				}
+				else = {
+					add_province_modifier = {
+						name = "qng_nestorian_hagia_sophia"
+						duration = -1
+					}
+				}
+			}
+			add_prestige = 30
+			add_imperial_influence = 25
+		}
+	}
+
+	qng_capital_development = {
+		icon = mission_great_power_from_the_east
+		position = 6
+		required_missions = { qng_eastern_guardian } 
+		provinces_to_highlight = {
+			province_id = 1816
+			OR = {
+				NOT = { development = 30 } 
+				NOT = { has_building = cathedral } 
+			}
+		}
+
+		trigger = {
+			1816 = {
+				development = 30
+				has_building = cathedral
+				religion = nestorian
+			}
+			treasury = 1000
+		}
+
+		effect = {
+			add_treasury = -1000
+			1816 = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+				add_province_modifier = {
+					name = "qng_imperial_capital_glory"
+					duration = -1
+				}
+			}
+			add_country_modifier = {
+				name = "qng_capital_investment"
+				duration = 7300
+			}
+		}
+	}
+}
+nestorian_qing_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = QNG
+		NOT = { map_setup = map_setup_random } 
+	}
+	potential_on_load = { has_dlc = "Mandate of Heaven" } 
+
+	qng_banner_reformation = {
+		icon = mission_manchu_warrior
+		position = 2
+		required_missions = { qng_mandate_of_heaven } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_tradition = 50
+			manpower_percentage = 0.8
+			num_of_banners = 10
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_reformed_banners"
+				duration = -1
+			}
+			add_army_tradition = 10
+			add_mil_power = 100
+			every_owned_province = {
+				limit = { has_province_modifier = local_has_banners } 
+				add_province_modifier = {
+					name = "qng_banner_training_grounds"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	qng_northern_security = {
+		icon = mission_steppe_warriors
+		position = 2
+		required_missions = { qng_banner_reformation } 
+		provinces_to_highlight = {
+			region = mongolia_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			mongolia_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			NOT = { num_of_rebel_armies = 1 } 
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_northern_pacification"
+				duration = 7300
+			}
+			mongolia_region = {
+				limit = { owned_by = ROOT } 
+				add_province_modifier = {
+					name = "qng_frontier_security"
+					duration = -1
+				}
+			}
+			add_imperial_influence = 15
+		}
+	}
+
+	qng_heavenly_army = {
+		icon = atlantropa_stalzemsty
+		position = 3
+		required_missions = {
+			qng_northern_security
+			qng_cross_and_dragon
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_tradition = 70
+			mil_tech = 15
+			has_idea_group = quality_ideas
+			num_of_generals = 3
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_heavenly_warriors"
+				duration = -1
+			}
+			create_general = { tradition = 80 } 
+			add_yearly_manpower = 5
+			every_owned_province = {
+				limit = {
+					religion = nestorian
+					has_province_modifier = local_has_banners
+				}
+				add_province_modifier = {
+					name = "qng_blessed_banners"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	qng_dragon_shield = {
+		icon = mission_asian_cannon
+		position = 4
+		required_missions = { qng_heavenly_army } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_size_percentage = 1.0
+			num_of_artillery = 40
+			has_global_modifier_value = {
+				which = discipline
+				value = 0.15
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_imperial_discipline"
+				duration = -1
+			}
+			capital_scope = {
+				artillery = ROOT
+				artillery = ROOT
+				artillery = ROOT
+			}
+			add_imperial_influence = 20
+		}
+	}
+
+	qng_cross_mandate = {
+		icon = mission_empire
+		position = 5
+		required_missions = {
+			qng_dragon_shield
+			qng_eastern_guardian
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			imperial_influence = 75
+			prestige = 80
+			stability = 3
+			legitimacy = 90
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_mandate_of_cross"
+				duration = -1
+			}
+			add_imperial_influence = 25
+			set_government_rank = 3
+			add_prestige = 50
+			every_subject_country = { add_liberty_desire = -25 } 
+		}
+	}
+
+	qng_provincial_centers = {
+		icon = mission_chinese_general_riding
+		position = 7
+		required_missions = {
+			qng_cross_mandate
+			qng_capital_development
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				development = 20
+				value = 10
+			}
+			num_of_owned_provinces_with = {
+				OR = {
+					has_building = cathedral
+					has_building = temple
+				}
+				value = 15
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_provincial_development"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = {
+					development = 20
+					OR = {
+						has_building = cathedral
+						has_building = temple
+					}
+				}
+				add_province_modifier = {
+					name = "qng_blessed_province"
+					duration = -1
+				}
+			}
+			add_adm_power = 150
+		}
+	}
+}
+nestorian_qing_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = QNG
+		NOT = { map_setup = map_setup_random } 
+	}
+	potential_on_load = { has_dlc = "Mandate of Heaven" } 
+
+	qng_mandate_of_heaven = {
+		icon = atlantropa_cheonmathrone
+		position = 1
+		provinces_to_highlight = {
+			province_id = 1816
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			owns_core_province = 1816
+			is_emperor_of_china = yes
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_nestorian_mandate"
+				duration = 7300
+			}
+			add_imperial_influence = 25
+			add_prestige = 25
+			1816 = {
+				add_province_modifier = {
+					name = "qng_forbidden_city_restored"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	qng_southern_consolidation = {
+		icon = avoid_fragmentation
+		position = 2
+		required_missions = { qng_mandate_of_heaven } 
+		provinces_to_highlight = {
+			OR = {
+				region = south_china_region
+				region = xinan_region
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			south_china_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			xinan_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_southern_control"
+				duration = 7300
+			}
+			south_china_region = {
+				limit = { owned_by = ROOT } 
+				add_province_modifier = {
+					name = "qng_integrated_administration"
+					duration = -1
+				}
+			}
+			xinan_region = {
+				limit = { owned_by = ROOT } 
+				add_province_modifier = {
+					name = "qng_integrated_administration"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	qng_examination_reform = {
+		icon = mission_scholar_officials
+		position = 2
+		required_missions = { qng_southern_consolidation } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			adm_tech = 15
+			advisor = philosopher
+			advisor = treasurer
+			treasury = 1000
+		}
+
+		effect = {
+			add_treasury = -1000
+			add_country_modifier = {
+				name = "qng_christian_examination"
+				duration = -1
+			}
+			define_advisor = {
+				type = philosopher
+				skill = 3
+				culture = han
+				religion = nestorian
+				cost_multiplier = 0.5
+			}
+			add_adm_power = 150
+		}
+	}
+
+	qng_silk_road_revival = {
+		icon = balance_the_estates
+		position = 3
+		required_missions = { qng_examination_reform } 
+		provinces_to_highlight = {
+			has_province_modifier = silk_road_modifier
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				has_province_modifier = silk_road_modifier
+				value = 5
+			}
+			dip_tech = 15
+			num_of_merchants = 4
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_silk_road_dominance"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = { has_province_modifier = silk_road_modifier } 
+				add_province_modifier = {
+					name = "qng_christian_merchants"
+					duration = -1
+				}
+			}
+			add_mercantilism = 5
+		}
+	}
+
+	qng_imperial_workshops = {
+		icon = italian_riches
+		position = 4
+		required_missions = { qng_silk_road_revival } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				OR = {
+					has_building = mills
+					has_building = farm_estate
+					has_building = tradecompany
+				}
+				value = 20
+			}
+			production_leader = { trade_goods = silk } 
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_imperial_industry"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = {
+					OR = {
+						trade_goods = silk
+						trade_goods = chinaware
+						trade_goods = tea
+					}
+				}
+				add_province_modifier = {
+					name = "qng_blessed_production"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	qng_middle_kingdom_cross = {
+		icon = spread_piety
+		position = 7
+		required_missions = {
+			qng_imperial_workshops
+			qng_cross_mandate
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			total_development = 3000
+			num_of_cities = 100
+			monthly_income = 100
+			owns_core_province = 1816
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_middle_kingdom_of_cross"
+				duration = -1
+			}
+			1816 = {
+				add_base_tax = 3
+				add_base_production = 3
+				add_base_manpower = 3
+			}
+			add_prestige = 100
+			add_imperial_influence = 50
+		}
+	}
+
+	qng_great_infrastructure = {
+		icon = mission_great_wall
+		position = 8
+		required_missions = {
+			qng_middle_kingdom_cross
+			qng_provincial_centers
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				OR = {
+					has_building = road_network
+					has_building = canal
+				}
+				value = 20
+			}
+			adm_tech = 15
+			treasury = 2000
+		}
+
+		effect = {
+			add_treasury = -2000
+			add_country_modifier = {
+				name = "qng_grand_infrastructure"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = {
+					OR = {
+						has_building = road_network
+						has_building = canal
+					}
+				}
+				add_province_modifier = {
+					name = "qng_imperial_roads"
+					duration = -1
+				}
+			}
+			random_owned_province = {
+				limit = { region = north_china_region } 
+				add_building = canal
+			}
+		}
+	}
+}
+nestorian_qing_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = QNG
+		NOT = { map_setup = map_setup_random } 
+	}
+	potential_on_load = { has_dlc = "Mandate of Heaven" } 
+
+	qng_maritime_expeditions = {
+		icon = mission_junk_boat
+		position = 2
+		required_missions = { qng_mandate_of_heaven } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			navy_size = 50
+			dip_tech = 12
+			num_of_admirals = 2
+			any_owned_province = {
+				has_port = yes
+				region = south_china_region
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_maritime_revival"
+				duration = 7300
+			}
+			every_owned_province = {
+				limit = {
+					has_port = yes
+					region = south_china_region
+				}
+				add_province_modifier = {
+					name = "qng_blessed_ports"
+					duration = -1
+				}
+			}
+			create_admiral = { tradition = 70 } 
+		}
+	}
+
+	qng_nestorian_merchants = {
+		icon = mission_asian_trader
+		position = 5
+		required_missions = {
+			qng_maritime_expeditions
+			qng_silk_road_revival
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_merchants = 6
+			trade_income_percentage = 0.3
+			any_trade_node = {
+				trade_share = {
+					country = ROOT
+					share = 0.5
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_christian_trade_network"
+				duration = -1
+			}
+			random_trade_node = {
+				limit = {
+					trade_share = {
+						country = ROOT
+						share = 0.5
+					}
+				}
+				add_trade_modifier = {
+					who = ROOT
+					duration = -1
+					power = 25
+					key = qng_nestorian_dominance
+				}
+			}
+			add_dip_power = 150
+		}
+	}
+
+	qng_southern_seas = {
+		icon = danubian_power
+		position = 7
+		required_missions = { qng_nestorian_merchants } 
+		provinces_to_highlight = {
+			OR = { area = malacca_area } 
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			malacca_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			navy_size = 100
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_southern_seas_empire"
+				duration = -1
+			}
+			malacca_area = {
+				limit = { owned_by = ROOT } 
+				add_province_modifier = {
+					name = "qng_trade_hub"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	qng_christian_asia = {
+		icon = guardians_of_saint_sava
+		position = 8
+		required_missions = { qng_middle_kingdom_cross } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				continent = asia
+				value = 200
+			}
+			num_of_subjects = 5
+			prestige = 100
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_christian_asian_empire"
+				duration = -1
+			}
+			every_subject_country = {
+				limit = { capital_scope = { continent = asia }  } 
+				add_country_modifier = {
+					name = "qng_christian_vassal"
+					duration = -1
+				}
+			}
+			add_prestige = 50
+			set_government_rank = 3
+		}
+	}
+
+	qng_mandate_development = {
+		icon = jap_conquer_north_china
+		position = 9
+		required_missions = {
+			qng_christian_asia
+			qng_great_infrastructure
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			total_development = 2000
+			num_of_owned_provinces_with = {
+				development = 30
+				value = 15
+			}
+			monthly_income = 75
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_development_mandate"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = { development = 30 } 
+				add_province_modifier = {
+					name = "qng_prosperity_center"
+					duration = -1
+				}
+			}
+			add_imperial_influence = 25
+			add_years_of_income = 1.0
+		}
+	}
+}
+nestorian_qing_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = QNG
+		NOT = { map_setup = map_setup_random } 
+	}
+	potential_on_load = { has_dlc = "Mandate of Heaven" } 
+
+	qng_diplomatic_outreach = {
+		icon = mission_diplomatic_relation
+		position = 2
+		required_missions = { qng_mandate_of_heaven } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_allies = 3
+			diplomatic_reputation = 2
+			any_ally = { religion_group = christian } 
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_christian_diplomacy"
+				duration = 7300
+			}
+			every_ally = {
+				limit = { religion_group = christian } 
+				add_opinion = {
+					who = ROOT
+					modifier = qng_christian_brotherhood
+				}
+			}
+			add_dip_power = 100
+		}
+	}
+
+	qng_western_learning = {
+		icon = mission_to_china
+		position = 5
+		required_missions = { qng_diplomatic_outreach } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			innovativeness = 10
+			any_ally = {
+				OR = {
+					religion = catholic
+					religion = reformed
+					religion = protestant
+				}
+			}
+			adm_tech = 18
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_western_knowledge"
+				duration = -1
+			}
+			add_innovativeness = 5
+			random_ally = {
+				limit = {
+					OR = {
+						religion = catholic
+						religion = reformed
+						religion = protestant
+					}
+				}
+				ROOT = { steal_random_tech = PREV } 
+			}
+		}
+	}
+
+	qng_christian_network = {
+		icon = protectors_of_christendom
+		position = 7
+		required_missions = { qng_western_learning } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			any_ally = {
+				capital_scope = { continent = europe } 
+				religion_group = christian
+			}
+			any_ally = {
+				capital_scope = { continent = africa } 
+				religion_group = christian
+			}
+			diplomatic_reputation = 5
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_global_christian_network"
+				duration = -1
+			}
+            hidden_effect = {
+			every_ally = {
+				limit = { religion_group = christian } 
+				add_trust = {
+					who = ROOT
+					value = 25
+				}
+			}
+			add_papal_influence = 100
+		}
+        }
+	}
+
+	qng_protector_christians = {
+		icon = mission_hands_praying
+		position = 9
+		required_missions = {
+			qng_christian_network
+			qng_christian_asia
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_allies = 5
+			all_ally = { religion_group = christian } 
+			prestige = 100
+			papal_influence = 100
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_protector_of_christendom"
+				duration = -1
+			}
+              hidden_effect = {
+			every_country = {
+				limit = { religion_group = christian } 
+				add_opinion = {
+					who = ROOT
+					modifier = qng_defender_of_faith
+				}
+			}
+              }
+			override_country_name = "NESTORIAN_CHINESE_EMPIRE"
+			add_prestige = 100
+		}
+	}
+
+	qng_celestial_prosperity = {
+		icon = qng_balance_mandate
+		position = 10
+		required_missions = {
+			qng_protector_christians
+			qng_mandate_development
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			total_development = 3500
+			num_of_owned_provinces_with = {
+				development = 40
+				value = 10
+			}
+			monthly_income = 150
+			prestige = 100
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "qng_celestial_prosperity"
+				duration = -1
+			}
+			capital_scope = {
+				add_base_tax = 5
+				add_base_production = 5
+				add_base_manpower = 5
+			}
+			every_owned_province = {
+				limit = { development = 40 } 
+				add_province_modifier = {
+					name = "qng_jewel_of_empire"
+					duration = -1
+				}
+			}
+			add_prestige = 50
+			add_imperial_influence = 50
+		}
+	}
+}
