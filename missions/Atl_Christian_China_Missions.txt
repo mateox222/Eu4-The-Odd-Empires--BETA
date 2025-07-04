@@ -15,13 +15,13 @@ nestorian_qing_missions_1 = {
 		required_missions = { qng_mandate_of_heaven } 
 		provinces_to_highlight = {
 			province_id = 1816
-			NOT = { religion = nestorian } 
+			NOT = { religion = assyrianchurch } 
 		}
 
 		trigger = {
-			1816 = { religion = nestorian } 
+			1816 = { religion = assyrianchurch } 
 			num_of_owned_provinces_with = {
-				religion = nestorian
+				religion = assyrianchurch
 				value = 15
 			}
 			treasury = 500
@@ -45,7 +45,7 @@ nestorian_qing_missions_1 = {
 				type = theologian
 				skill = 3
 				culture = manchu
-				religion = nestorian
+				religion = assyrianchurch
 				cost_multiplier = 0.5
 			}
 		}
@@ -62,7 +62,7 @@ nestorian_qing_missions_1 = {
 			stability = 2
 			NOT = { num_of_rebel_armies = 1 } 
 			num_of_owned_provinces_with = {
-				religion = nestorian
+				religion = assyrianchurch
 				value = 30
 			}
 		}
@@ -73,7 +73,7 @@ nestorian_qing_missions_1 = {
 				duration = -1
 			}
 			every_owned_province = {
-				limit = { religion = nestorian } 
+				limit = { religion = assyrianchurch } 
 				add_province_modifier = {
 					name = "qng_blessed_lands"
 					duration = -1
@@ -93,16 +93,16 @@ nestorian_qing_missions_1 = {
 		trigger = {
 			has_missionary = 3
 			num_of_owned_provinces_with = {
-				religion = nestorian
+				religion = assyrianchurch
 				value = 50
 			}
 			any_owned_province = {
 				region = tibet_region
-				religion = nestorian
+				religion = assyrianchurch
 			}
 			any_owned_province = {
 				region = mongolia_region
-				religion = nestorian
+				religion = assyrianchurch
 			}
 		}
 
@@ -114,7 +114,7 @@ nestorian_qing_missions_1 = {
 			tibet_region = {
 				limit = {
 					owned_by = ROOT
-					religion = nestorian
+					religion = assyrianchurch
 				}
 				add_province_modifier = {
 					name = "qng_mountain_monasteries"
@@ -124,7 +124,7 @@ nestorian_qing_missions_1 = {
 			mongolia_region = {
 				limit = {
 					owned_by = ROOT
-					religion = nestorian
+					religion = assyrianchurch
 				}
 				add_province_modifier = {
 					name = "qng_steppe_churches"
@@ -143,7 +143,7 @@ nestorian_qing_missions_1 = {
 		trigger = {
 			owns_or_non_sovereign_subject_of = 151
 			OR = {
-				151 = { religion = nestorian } 
+				151 = { religion = assyrianchurch } 
 				151 = { religion = orthodox } 
 			}
 			diplomatic_reputation = 3
@@ -191,7 +191,7 @@ nestorian_qing_missions_1 = {
 			1816 = {
 				development = 30
 				has_building = cathedral
-				religion = nestorian
+				religion = assyrianchurch
 			}
 			treasury = 1000
 		}
@@ -312,7 +312,7 @@ nestorian_qing_missions_2 = {
 			add_yearly_manpower = 5
 			every_owned_province = {
 				limit = {
-					religion = nestorian
+					religion = assyrianchurch
 					has_province_modifier = local_has_banners
 				}
 				add_province_modifier = {
@@ -533,7 +533,7 @@ nestorian_qing_missions_3 = {
 				type = philosopher
 				skill = 3
 				culture = han
-				religion = nestorian
+				religion = assyrianchurch
 				cost_multiplier = 0.5
 			}
 			add_adm_power = 150
