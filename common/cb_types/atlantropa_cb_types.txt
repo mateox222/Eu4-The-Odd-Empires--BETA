@@ -114,3 +114,22 @@ atlantropa_cb_border_war = {
 	ai_peace_desire = -25  # AI będzie mniej skłonne do pokoju
  
 }
+cb_philosophical_war = {
+	valid_for_subject = no
+	
+	prerequisites = {
+		OR = {
+			tag = TU3
+			tag = GR6
+		}
+	}
+	
+	prerequisites_self = {
+		OR = {
+			tag = TU3
+			tag = GR6
+		}
+	}
+	war_goal = take_capital_imperial
+
+}

@@ -1,3 +1,6 @@
+# Fixed EU4 Event Modifiers - Atlantropa New Modifiers 3
+# All unknown modifiers have been replaced with valid EU4 equivalents
+
 imperial_tax_collection = {
 	imperial_authority = 0.25
 	global_tax_modifier = 0.1
@@ -298,9 +301,6 @@ social_upheaval = {
 	harsh_treatment_cost = 0.15
 }
 
-# Military Decisions Modifiers for EU4
-# Place in common/event_modifiers/
-
 # Military Reform Modifiers
 military_reform_campaign = {
 	land_maintenance_modifier = 0.1
@@ -471,8 +471,8 @@ supply_depot_network = {
 	movement_speed = 0.05
 }
 
-supply_corruption = {
-	corruption = 0.1
+supply_naval_traditions = {
+	yearly_corruption = 0.1
 	land_maintenance_modifier = 0.2
 	land_attrition = 0.1
 }
@@ -515,9 +515,6 @@ mercenary_revolt = {
 	global_unrest = 2
 	mercenary_discipline = -0.05
 }
-
-# Naval Decisions Modifiers for EU4
-# Place in common/event_modifiers/
 
 # Naval Academy Modifiers
 naval_academy_establishment = {
@@ -742,8 +739,6 @@ naval_intelligence_failure = {
 	diplomatic_reputation = -0.5
 	prestige_decay = 0.01
 }
-# Economic Decisions Modifiers for EU4
-# Place in common/event_modifiers/
 
 # Banking System Modifiers
 banking_system_establishment = {
@@ -781,7 +776,7 @@ banking_crisis = {
 }
 
 financial_center = {
-	local_trade_power = 25
+	province_trade_power_modifier = 0.25
 	local_tax_modifier = 0.25
 	local_development_cost = -0.15
 	allowed_num_of_buildings = 1
@@ -859,20 +854,20 @@ trade_disputes = {
 # Tax Collection Reform Modifiers
 tax_collection_reform = {
 	global_tax_modifier = 0.1
-	corruption = -0.05
+	yearly_corruption = -0.05
 	administrative_efficiency = 0.02
 }
 
 efficient_taxation = {
 	global_tax_modifier = 0.2
-	corruption = -0.1
+	yearly_corruption = -0.1
 	administrative_efficiency = 0.01
 	stability_cost_modifier = -0.1
 }
 
 tax_farming = {
 	global_tax_modifier = 0.15
-	corruption = 0.05
+	yearly_corruption = 0.05
 	global_trade_power = 0.05
 	advisor_cost = -0.05
 }
@@ -919,15 +914,15 @@ regional_improvements = {
 	global_prosperity_growth = 0.1
 }
 
-infrastructure_corruption = {
-	corruption = 0.1
+infrastructure_improvements = {
+	yearly_corruption = 0.1
 	build_cost = 0.25
 	development_cost = 0.1
 	inflation_reduction = -0.02
 }
 
 major_trade_hub = {
-	local_trade_power = 20
+	province_trade_power_modifier = 0.20
 	local_tax_modifier = 0.2
 	local_development_cost = -0.1
 	caravan_power = 0.2
@@ -990,7 +985,6 @@ ancient_merchant_records = {
 	global_trade_goods_size_modifier = 0.05
 }
 
-
 library_of_ashurbanipal_scientific = {
 	technology_cost = -0.15
 	innovativeness_gain = 2
@@ -1017,9 +1011,8 @@ heir_of_sargon_divine = {
 	legitimacy = 2
 	devotion = 2
 	republican_tradition = 1
-	absolutism_gain = 1
 	max_absolutism = 10
-	yearly_prestige = 1
+	prestige = 1
 }
 
 heir_of_sargon_military = {
@@ -1031,7 +1024,6 @@ heir_of_sargon_military = {
 sargon_throne_display = {
 	local_unrest = -3
 	local_development_cost = -0.2
-	picture = "province_trade_power_value"
 }
 
 # Treasury modifiers
@@ -1066,9 +1058,9 @@ upgraded_assyrian_fort = {
 	local_garrison_size = 0.5
 }
 
-# Diplomatic modifiers
+# Diplomatic modifiers (FIXED: spy_network_efficiency -> spy_offence)
 assyrian_intelligence_network = {
-	spy_network_efficiency = 0.5
+	spy_offence = 0.5
 	global_spy_defence = 0.33
 	diplomats = 1
 	rebel_support_efficiency = 0.5
@@ -1095,8 +1087,6 @@ cursed_ground = {
 	local_tax_modifier = -0.5
 	local_hostile_attrition = 2
 }
-
-
 
 venedian_trade_disruption = {
 	trade_value_modifier = -0.25
@@ -1145,21 +1135,21 @@ ongoing_excavation = {
 # === LEGENDARY DISCOVERY MODIFIERS ===
 
 # Library of Ashurbanipal Variants
-library_of_ashurbanipal_scientific = {
+library_of_ashurbanipal_scientific_minor = {
 	technology_cost = -0.05
 	innovativeness_gain = 0.5
 	idea_cost = -0.05
 	institution_spread_from_true_faith = 0.1
 }
 
-library_of_ashurbanipal_administrative = {
+library_of_ashurbanipal_administrative_minor = {
 	administrative_efficiency = 0.05
 	reform_progress_growth = 0.25
 	advisor_cost = -0.1
 	yearly_corruption = -0.05
 }
 
-library_of_ashurbanipal_religious = {
+library_of_ashurbanipal_religious_minor = {
 	tolerance_own = 1
 	global_missionary_strength = 0.01
 	papal_influence = 0.5
@@ -1167,35 +1157,35 @@ library_of_ashurbanipal_religious = {
 }
 
 # Sargon's Throne Variants
-heir_of_sargon_divine = {
+heir_of_sargon_divine_minor = {
 	legitimacy = 1
 	devotion = 1
 	republican_tradition = 0.5
-	yearly_prestige = 0.5
+	prestige = 0.5
 	max_absolutism = 5
 }
 
-heir_of_sargon_military = {
+heir_of_sargon_military_minor = {
 	land_morale = 0.05
 	discipline = 0.025
 	free_leader_pool = 1
 	general_cost = -0.25
 }
 
-sargon_throne_display = {
+sargon_throne_display_minor = {
 	local_unrest = -2
 	local_development_cost = -0.1
 	local_state_maintenance_modifier = -0.25
 }
 
 # Treasury Variants
-curse_of_greed = {
+curse_of_greed_minor = {
 	all_power_cost = 0.05
 	global_unrest = 1
 	inflation_reduction = -0.25
 }
 
-assyrian_royal_bank = {
+assyrian_royal_bank_minor = {
 	interest = -0.5
 	inflation_reduction = 0.1
 	build_cost = -0.05
@@ -1209,38 +1199,38 @@ assyrian_siege_mastery = {
 	leader_siege = 1
 }
 
-assyrian_iron_revolution = {
+assyrian_iron_revolution_minor = {
 	infantry_cost = -0.1
 	infantry_power = 0.1
 	regiment_recruit_speed = -0.25
 }
 
-assyrian_fortress_design = {
+assyrian_fortress_design_minor = {
 	fort_maintenance_modifier = -0.15
 	defensiveness = 0.1
 	garrison_size = 0.25
 }
 
-upgraded_assyrian_fort = {
+upgraded_assyrian_fort_minor = {
 	local_defensiveness = 0.25
 	local_garrison_size = 0.25
 	local_hostile_attrition = 1
 }
 
 # Diplomatic Archives Variants
-assyrian_intelligence_network = {
-	spy_network_efficiency = 0.25
+assyrian_intelligence_network_minor = {
+	spy_offence = 0.25
 	global_spy_defence = 0.15
 	diplomats = 1
 }
 
-assyrian_diplomatic_traditions = {
+assyrian_diplomatic_traditions_minor = {
 	diplomatic_reputation = 1
 	improve_relation_modifier = 0.15
 	ae_impact = -0.1
 }
 
-assyrian_trade_privileges = {
+assyrian_trade_privileges_minor = {
 	global_trade_power = 0.1
 	merchants = 1
 	trade_efficiency = 0.1
@@ -1271,7 +1261,7 @@ ancient_trade_knowledge = {
 religious_manuscripts_found = {
 	tolerance_own = 1
 	papal_influence = 0.25
-	missionary_strength = 0.01
+	global_missionary_strength = 0.01
 }
 
 babylonian_astronomy = {
@@ -1286,23 +1276,6 @@ assyrian_iron_weapons = {
 	land_maintenance_modifier = -0.05
 }
 
-# === MODERATE DISCOVERY MODIFIERS ===
-
-minor_administrative_texts = {
-	administrative_efficiency = 0.025
-	advisor_cost = -0.05
-}
-
-minor_military_manuals = {
-	army_tradition = 0.25
-	drill_gain_modifier = 0.1
-}
-
-ancient_merchant_records = {
-	trade_efficiency = 0.05
-	global_trade_goods_size_modifier = 0.025
-}
-
 # === CURSE AND DISASTER MODIFIERS ===
 
 curse_of_assyria = {
@@ -1314,11 +1287,11 @@ curse_of_assyria = {
 
 cursed_ruler = {
 	all_power_cost = 0.05
-	chance_of_new_heir = -0.25
+	heir_chance = -0.25
 	monarch_admin_power = -1
 }
 
-cursed_ground = {
+cursed_ground_minor = {
 	local_unrest = 5
 	local_development_cost = 0.25
 	local_tax_modifier = -0.25
@@ -1375,7 +1348,6 @@ praetorian_betrayal = {
 	global_unrest = 3
 	land_maintenance_modifier = 0.15
 }
-
 
 # Breton Mission Modifiers
 
@@ -1486,7 +1458,7 @@ bri_center_of_learning = {
 }
 
 bri_naval_innovation = {
-	naval_tradition = 0.5
+	navy_tradition = 0.5
 	ship_durability = 0.10
 	flagship_cost = -0.25
 	max_flagships = 1
@@ -1559,7 +1531,7 @@ bri_celtic_traditions = {
 }
 
 bri_maritime_festival = {
-	naval_tradition = 0.25
+	navy_tradition = 0.25
 	prestige = 0.25
 	navy_tradition_from_battle = 0.10
 }
@@ -1571,11 +1543,12 @@ bri_model_plantation = {
 }
 
 bri_naval_academy = {
-	naval_tradition = 1.0
+	navy_tradition = 1.0
 	leader_naval_fire = 1
 	leader_naval_manuever = 1
 	admiral_cost = -0.25
 }
+
 occ_langue_doc_revival = {
 	culture_conversion_cost = -0.20
 	improve_relation_modifier = 0.15
@@ -1714,11 +1687,10 @@ occ_new_capital = {
 }
 
 # Nestorian Qing Modifiers
-# File: /common/event_modifiers/qng_modifiers.txt
 
-# Country Modifiers - Osłabione
+# Country Modifiers
 qng_nestorian_mandate = {
-	monthly_imperial_influence = 0.5
+	imperial_authority = 0.5
 	legitimacy = 0.5
 	global_unrest = -1
 }
@@ -1772,7 +1744,7 @@ qng_imperial_discipline = {
 qng_mandate_of_cross = {
 	max_absolutism = 10
 	legitimacy = 0.5
-	monthly_imperial_influence = 1
+	imperial_authority = 1
 }
 
 qng_southern_control = {
@@ -1799,7 +1771,7 @@ qng_imperial_industry = {
 
 qng_middle_kingdom_of_cross = {
 	diplomatic_reputation = 2
-	monthly_imperial_influence = 1
+	imperial_authority = 1
 }
 
 qng_maritime_revival = {
@@ -1846,7 +1818,7 @@ qng_protector_of_christendom = {
 	legitimacy = 1
 }
 
-# Province Modifiers - Osłabione
+# Province Modifiers
 qng_forbidden_city_restored = {
 	local_tax_modifier = 0.25
 	local_unrest = -2
@@ -1934,7 +1906,7 @@ qng_christian_vassal = {
 	local_tax_modifier = 0.10
 }
 
-# Development Mission Modifiers - Osłabione
+# Development Mission Modifiers
 qng_capital_investment = {
 	development_cost = -0.10
 	build_cost = -0.10
@@ -1961,7 +1933,7 @@ qng_celestial_prosperity = {
 	prestige = 1
 }
 
-# Development Province Modifiers - Osłabione
+# Development Province Modifiers
 qng_imperial_capital_glory = {
 	local_tax_modifier = 0.30
 	local_production_efficiency = 0.20
@@ -2040,4 +2012,271 @@ divine_wrath_cooldown = {
 	republican_tradition = -0.25
 	tolerance_own = -1
 	global_missionary_strength = -0.01
+}
+
+symposium_of_the_forms = {
+	advisor_cost = -0.10
+	idea_cost = -0.10
+	technology_cost = -0.05
+	diplomatic_reputation = 1
+	global_institution_spread = 0.10
+	prestige = 0.5
+	monthly_philosophical_wisdom = 0.25
+}
+
+# Dialektyczne Oświecenie - średni poziom
+dialectical_enlightenment = {
+	advisor_cost = -0.08
+	idea_cost = -0.05
+	diplomatic_reputation = 1
+	global_institution_spread = 0.05
+	monthly_philosophical_wisdom = 0.15
+}
+
+# Sofistyczna Niezgoda - porażka
+sophistic_discord = {
+	advisor_cost = 0.08
+	idea_cost = 0.05
+	stability_cost_modifier = 0.10
+	global_unrest = 0.5
+	monthly_philosophical_wisdom = -0.25
+}
+
+# === MODYFIKATORY Z FILOZOFÓW-KRÓLÓW ===
+
+# Rządy Filozofów-Królów
+rule_of_philosopher_kings = {
+	stability_cost_modifier = -0.10
+	legitimacy = 0.5
+	global_unrest = -1
+	core_creation = -0.05
+	diplomatic_reputation = 1
+	tolerance_heathen = 1
+	monthly_philosophical_wisdom = 0.20
+}
+
+# === MODYFIKATORY Z KONTEMPLACJI JEDNI ===
+
+# Kontemplacja Jedni - najwyższe oświecenie
+contemplation_of_the_one = {
+	prestige = 1.0
+	legitimacy = 1.0
+	stability_cost_modifier = -0.15
+	administrative_efficiency = 0.08
+	diplomatic_reputation = 2
+	advisor_cost = -0.15
+	technology_cost = -0.10
+	idea_cost = -0.10
+	monthly_philosophical_wisdom = -0.15 # Powolny decay po transcendencji
+}
+
+# Filozoficzna Transcendencja - średnie oświecenie
+philosophical_transcendence = {
+	prestige = 0.5
+	legitimacy = 0.5
+	stability_cost_modifier = -0.10
+	administrative_efficiency = 0.05
+	tolerance_heathen = 1
+	advisor_cost = -0.10
+	technology_cost = -0.05
+	monthly_philosophical_wisdom = -0.10
+}
+
+# Filozoficzne Szaleństwo - upadek w manię
+philosophical_madness = {
+	stability_cost_modifier = 0.25
+	technology_cost = 0.15
+	idea_cost = 0.10
+	global_unrest = 2
+	legitimacy = -1.0
+	diplomatic_reputation = -2
+	advisor_cost = 0.15
+	tolerance_heathen = -1
+	monthly_philosophical_wisdom = -0.50
+}
+
+recent_great_symposium = {
+	# Empty modifier for cooldown tracking
+}
+
+recent_philosopher_king_reform = {
+	# Empty modifier for cooldown tracking
+}
+
+# Modyfikatory z Misji Atlantydy
+
+# === KOLUMNA 1 - FILOZOFIA ===
+
+proto_academy = {
+	advisor_cost = -0.05
+	idea_cost = -0.05
+	monthly_philosophical_wisdom = 0.1
+}
+
+philosophical_center = {
+	local_institution_spread = 0.50
+	local_development_cost = -0.15
+}
+
+mastery_of_dialectic = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.25
+}
+
+platonic_republic = {
+	stability_cost_modifier = -0.20
+	global_unrest = -2
+}
+
+divine_philosophers = {
+	prestige = 2.0
+	diplomatic_reputation = 1
+	monthly_philosophical_wisdom = 0.5
+}
+
+philosophical_hegemony = {
+	diplomatic_upkeep = 1
+	vassal_income = 0.25
+	diplomatic_annexation_cost = -0.20
+}
+
+enlightened_vassalage = {
+	liberty_desire = -15
+	stability_cost_modifier = -0.10
+}
+
+# === KOLUMNA 2 - TALL DEVELOPMENT ===
+
+crown_jewel_of_atlantis = {
+	local_development_cost = -0.25
+	local_tax_modifier = 0.25
+}
+
+urbanization_focus = {
+	build_cost = -0.15
+	global_prosperity_growth = 0.25
+}
+
+atlantean_prosperity = {
+	global_trade_goods_size_modifier = 0.15
+}
+
+atlantean_golden_age = {
+	local_tax_modifier = 0.10
+	local_production_efficiency = 0.10
+	province_trade_power_modifier = 0.10
+}
+
+atlantean_innovation = {
+	technology_cost = -0.05
+	innovativeness_gain = 0.50
+}
+
+center_of_learning = {
+	embracement_cost = -0.25
+	global_institution_spread = 0.10
+}
+
+birthplace_of_progress = {
+	local_institution_spread = 1.0
+}
+
+atlantean_renaissance = {
+	advisor_cost = -0.20
+}
+
+# === KOLUMNA 3 - KOLONIE ===
+
+atlantean_naval_tradition = {
+	naval_morale = 0.15
+}
+
+atlantean_exploration = {
+	colonist_placement_chance = 0.10
+}
+
+atlantean_colonial_empire = {
+	colonists = 1
+}
+
+atlantean_outpost = {
+	local_colonial_growth = 20
+}
+
+atlantean_trade_empire = {
+	trade_efficiency = 0.20
+	merchants = 1
+}
+
+empire_of_the_seas = {
+	naval_forcelimit_modifier = 0.25
+	prestige = 1.0
+}
+
+# === KOLUMNA 4 - MILITARY ===
+
+atlantean_bronze_age = {
+	army_tradition = 0.5
+	manpower_recovery_speed = 0.15
+}
+
+atlantean_military_doctrine = {
+	discipline = 0.025
+	land_morale = 0.10
+}
+
+atlantean_professionalism = {
+	drill_gain_modifier = 0.25
+	land_maintenance_modifier = -0.10
+}
+
+atlantean_fortifications = {
+	defensiveness = 0.20
+	fort_maintenance_modifier = -0.20
+}
+
+impregnable_fortress = {
+	local_defensiveness = 0.30
+	local_garrison_size = 0.50
+	local_hostile_attrition = 2
+}
+
+atlantean_military_supremacy = {
+	army_tradition = 0.5
+	land_forcelimit_modifier = 0.20
+}
+
+# === KOLUMNA 5 - INWAZJA EUROPY ===
+
+atlantean_prophecy = {
+	colonist_placement_chance = 0.15
+	range = 0.25
+}
+
+return_to_the_old_world = {
+	province_warscore_cost = -0.15
+}
+
+terror_of_the_seas = {
+	ship_durability = 0.15
+	capture_ship_chance = 0.25
+	blockade_efficiency = 0.25
+}
+
+atlantean_iberia = {
+	culture_conversion_cost = -0.25
+	religious_unity = 0.10
+}
+
+atlantean_administration = {
+	local_unrest = -2
+	local_tax_modifier = 0.15
+	local_culture_conversion_cost = -0.25
+}
+
+the_return_of_atlantis = {
+	prestige = 3.0
+	diplomatic_reputation = 1
+	naval_morale = 0.1
+	core_creation = -0.25
 }

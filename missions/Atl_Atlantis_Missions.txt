@@ -1,0 +1,739 @@
+atlantis_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = TU3 } 
+
+	establish_the_academy = {
+		icon = pontifical_universities
+		position = 1
+		provinces_to_highlight = {
+			is_capital = yes
+			owned_by = ROOT
+		}
+
+		trigger = {
+			capital_scope = { development = 30 } 
+			adm_tech = 8
+			has_advisor = philosopher
+		}
+
+		effect = {
+			custom_tooltip = academy_founded_tt
+			add_country_modifier = {
+				name = "proto_academy"
+				duration = 3650
+			}
+			capital_scope = {
+				add_province_modifier = {
+					name = "philosophical_center"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	perfect_the_dialectic = {
+		icon = nagyszombat_university
+		position = 1
+		required_missions = { establish_the_academy } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			has_government_power = {
+				mechanic_type = atlantis_philosopher_council
+				power_type = philosophical_wisdom
+				value = 75
+			}
+			has_country_modifier = symposium_of_the_forms
+		}
+
+		effect = {
+			custom_tooltip = dialectic_perfected_tt
+			add_country_modifier = {
+				name = "mastery_of_dialectic"
+				duration = -1
+			}
+			add_dip_power = 150
+			add_prestige = 25
+		}
+	}
+
+	philosopher_kings_established = {
+		icon = spa_universal_monarchy
+		position = 1
+		required_missions = { perfect_the_dialectic } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			has_country_modifier = rule_of_philosopher_kings
+			stability = 2
+			legitimacy = 80
+		}
+
+		effect = {
+			custom_tooltip = ideal_state_achieved_tt
+			add_government_reform = enlightened_despotism
+			add_country_modifier = {
+				name = "platonic_republic"
+				duration = -1
+			}
+			change_government = republic
+			add_government_reform = philosopher_republic
+		}
+	}
+
+	contemplate_the_divine = {
+		icon = mission_religious
+		position = 1
+		required_missions = { philosopher_kings_established } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			has_country_modifier = contemplation_of_the_one
+			prestige = 75
+			has_government_power = {
+				mechanic_type = atlantis_philosopher_council
+				power_type = philosophical_wisdom
+				value = 90
+			}
+		}
+
+		effect = {
+            add_dip_power = 150
+			custom_tooltip = divine_wisdom_achieved_tt
+			add_country_modifier = {
+				name = "divine_philosophers"
+				duration = -1
+			}
+		}
+	}
+
+	export_philosophy = {
+		icon = mission_diplomatic_relation
+		position = 1
+		required_missions = { contemplate_the_divine } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_subjects = 3
+			calc_true_if = {
+				all_subject_country = { has_country_modifier = atlantean_philosophical_influence } 
+				amount = 2
+			}
+		}
+
+		effect = {
+			custom_tooltip = philosophy_exported_tt
+			add_country_modifier = {
+				name = "philosophical_hegemony"
+				duration = -1
+			}
+			every_subject_country = {
+				add_country_modifier = {
+					name = "enlightened_vassalage"
+					duration = -1
+				}
+			}
+		}
+	}
+}
+atlantis_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = TU3 } 
+
+	develop_the_capital = {
+		icon = imperial_capitals
+		position = 1
+		provinces_to_highlight = {
+			is_capital = yes
+			owned_by = ROOT
+		}
+
+		trigger = {
+			capital_scope = {
+				development = 35
+				has_building = university
+				has_building = workshop
+			}
+		}
+
+		effect = {
+			capital_scope = {
+				add_province_modifier = {
+					name = "crown_jewel_of_atlantis"
+					duration = -1
+				}
+				add_building = courthouse
+			}
+			add_country_modifier = {
+				name = "urbanization_focus"
+				duration = 5475
+			}
+		}
+	}
+
+	prosperity_of_cities = {
+		icon = prosperity_for_all
+		position = 1
+		required_missions = { develop_the_capital } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			calc_true_if = {
+				all_owned_province = {
+					development = 25
+					prosperity = 100
+				}
+				amount = 5
+			}
+			production_income_percentage = 0.35
+		}
+
+		effect = {
+			custom_tooltip = prosperous_cities_tt
+			add_country_modifier = {
+				name = "atlantean_prosperity"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = {
+					development = 25
+					prosperity = 100
+				}
+				add_province_modifier = {
+					name = "atlantean_golden_age"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	technological_supremacy = {
+		icon = mission_university_of_copenhagen
+		position = 1
+		required_missions = { prosperity_of_cities } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+            OR = {
+                AND = {
+				adm_tech = 15
+				dip_tech = 15
+				mil_tech = 15
+                }
+				innovativeness = 60
+			}
+        }
+
+		effect = {
+			custom_tooltip = technological_leader_tt
+			add_country_modifier = {
+				name = "atlantean_innovation"
+				duration = -1
+			}
+			add_adm_power = 200
+			add_dip_power = 200
+			add_mil_power = 200
+		}
+	}
+
+	master_of_institutions = {
+		icon = florentine_renaissance
+		position = 1
+		required_missions = { technological_supremacy } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			stability = 3
+            adm_power = 250
+            dip_power = 250
+            mil_power = 250
+		}
+
+		effect = {
+			custom_tooltip = institutional_mastery_tt
+			add_country_modifier = {
+				name = "center_of_learning"
+				duration = -1
+			}
+			capital_scope = {
+				add_province_modifier = {
+					name = "birthplace_of_progress"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	atlantean_renaissance = {
+		icon = renaissance_city
+		position = 1
+		required_missions = { master_of_institutions } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			has_institution = renaissance
+			has_institution = printing_press
+            has_institution = enlightenment
+		}
+
+		effect = {
+			custom_tooltip = cultural_flowering_tt
+			add_country_modifier = {
+				name = "atlantean_renaissance"
+				duration = -1
+			}
+			add_splendor = 400
+		}
+	}
+}
+atlantis_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = TU3 } 
+
+	master_of_the_seas = {
+		icon = atlantropa_handelsbolag
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			navy_size = 20
+			naval_forcelimit = 25
+			num_of_admirals = 2
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "atlantean_naval_tradition"
+				duration = 7300
+			}
+			create_admiral = { tradition = 60 } 
+		}
+	}
+
+	explore_the_ocean = {
+		icon = atlantropa_flotaoceaniczna
+		position = 1
+		required_missions = { master_of_the_seas } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_conquistadors = 1
+			num_of_explorers = 1
+			dip_tech = 7
+		}
+
+		effect = {
+			custom_tooltip = oceanic_exploration_tt
+			add_country_modifier = {
+				name = "atlantean_exploration"
+				duration = 5475
+			}
+			create_conquistador = { tradition = 40 } 
+			create_explorer = { tradition = 40 } 
+		}
+	}
+
+	colonial_outposts = {
+		icon = mission_colonial
+		position = 1
+		required_missions = { explore_the_ocean } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_colonies = 3
+			colonial_range = 600
+		}
+
+		effect = {
+			custom_tooltip = colonial_network_tt
+			add_country_modifier = {
+				name = "atlantean_colonial_empire"
+				duration = -1
+			}
+			every_province = {
+				limit = {
+					is_colony = yes
+					owned_by = ROOT
+				}
+				add_province_modifier = {
+					name = "atlantean_outpost"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	trade_empire = {
+		icon = mission_trade_company_region_abroad
+		position = 1
+		required_missions = { colonial_outposts } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			trade_income_percentage = 0.4
+			num_of_merchants = 4
+			calc_true_if = {
+				all_trade_node = {
+					trade_share = {
+						country = ROOT
+						share = 30
+					}
+				}
+				amount = 3
+			}
+		}
+
+		effect = {
+			custom_tooltip = trade_dominance_tt
+			add_country_modifier = {
+				name = "atlantean_trade_empire"
+				duration = -1
+			}
+			add_mercantilism = 10
+		}
+	}
+
+	ocean_spanning_empire = {
+		icon = mission_naval_kingdom
+		position = 1
+		required_missions = { trade_empire } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_continents = 3
+			total_development = 1000
+			num_of_subjects = 5
+		}
+
+		effect = {
+			custom_tooltip = global_empire_tt
+			add_country_modifier = {
+				name = "empire_of_the_seas"
+				duration = -1
+			}
+			add_prestige = 50
+		}
+	}
+}
+atlantis_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = TU3 } 
+
+	forge_the_bronze = {
+		icon = mission_guns_of_urban
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_size = 15
+			mil_tech = 5
+			army_tradition = 30
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "atlantean_bronze_age"
+				duration = 5475
+			}
+			add_army_tradition = 10
+		}
+	}
+
+	discipline_of_warriors = {
+		icon = mission_modern_knight_army
+		position = 1
+		required_missions = { forge_the_bronze } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_tradition = 50
+			land_morale = 4.0
+			num_of_generals = 3
+		}
+
+		effect = {
+			custom_tooltip = warrior_discipline_tt
+			add_country_modifier = {
+				name = "atlantean_military_doctrine"
+				duration = -1
+			}
+			create_general = { tradition = 70 } 
+		}
+	}
+
+	professional_army = {
+		icon = gory_to_the_black_army
+		position = 1
+		required_missions = { discipline_of_warriors } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_professionalism = 0.6
+			has_global_modifier_value = {
+				which = discipline
+				value = 0.15
+			}
+		}
+
+		effect = {
+			custom_tooltip = professional_military_tt
+			add_country_modifier = {
+				name = "atlantean_professionalism"
+				duration = -1
+			}
+			add_army_professionalism = 0.1
+		}
+	}
+
+	fortify_the_realm = {
+		icon = fortify_malta
+		position = 1
+		required_missions = { professional_army } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+            OR = {
+			calc_true_if = {
+				all_owned_province = { fort_level = 2 } 
+				amount = 8
+			}
+			defensive_ideas = 4
+            }
+		}
+
+		effect = {
+			custom_tooltip = fortress_network_tt
+			add_country_modifier = {
+				name = "atlantean_fortifications"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = { fort_level = 2 } 
+				add_province_modifier = {
+					name = "impregnable_fortress"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	military_supremacy = {
+		icon = mission_swedish_military_advise
+		position = 1
+		required_missions = { fortify_the_realm } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_size = 100
+			is_great_power = yes
+			army_tradition = 80
+		}
+
+		effect = {
+			custom_tooltip = military_hegemony_tt
+			add_country_modifier = {
+				name = "atlantean_military_supremacy"
+				duration = -1
+			}
+			add_prestige = 25
+		}
+	}
+}
+atlantis_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = TU3 } 
+
+	ancient_prophecy = {
+		icon = atlantropa_waitingforantichrist
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			dip_tech = 9
+			has_idea_group = exploration_ideas
+			adm_power = 200
+		}
+
+		effect = {
+			custom_tooltip = prophecy_revealed_tt
+			add_country_modifier = {
+				name = "atlantean_prophecy"
+				duration = 7300
+			}
+			europa_superregion = { discover_country = ROOT } 
+		}
+	}
+
+	scouts_to_europe = {
+		icon = atlantropa_sunsetinvasion
+		position = 1
+		required_missions = { ancient_prophecy } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			any_owned_province = {
+				OR = {
+					region = iberia_region
+					region = france_region
+					region = british_isles_region
+					region = low_countries_region
+				}
+			}
+		}
+
+		effect = {
+			custom_tooltip = european_foothold_tt
+			add_country_modifier = {
+				name = "return_to_the_old_world"
+				duration = 5475
+			}
+			add_casus_belli = {
+				target = FRA
+				type = cb_philosophical_war
+				months = 1200
+			}
+			add_casus_belli = {
+				target = CAS
+				type = cb_philosophical_war
+				months = 1200
+			}
+			add_casus_belli = {
+				target = POR
+				type = cb_philosophical_war
+				months = 1200
+			}
+			add_casus_belli = {
+				target = A49
+				type = cb_philosophical_war
+				months = 1200
+			}
+			add_casus_belli = {
+				target = POL
+				type = cb_philosophical_war
+				months = 1200
+			}
+		}
+	}
+
+	terror_of_the_atlantic = {
+		icon = mission_sea_battles
+		position = 1
+		required_missions = { scouts_to_europe } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			navy_size = 50
+			num_of_heavy_ship = 30
+
+		}
+
+		effect = {
+			custom_tooltip = atlantic_terror_tt
+			add_country_modifier = {
+				name = "terror_of_the_seas"
+				duration = 7300
+			}
+			every_rival_country = {
+				limit = {
+					capital_scope = {
+						OR = {
+							region = iberia_region
+							region = france_region
+							region = british_isles_region
+						}
+					}
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = atlantean_threat
+				}
+			}
+		}
+	}
+
+	conquer_iberia = {
+		icon = atlantropa_chesziberian
+		position = 1
+		required_missions = { terror_of_the_atlantic } 
+		provinces_to_highlight = {
+			region = iberia_region
+			NOT = { owned_by = ROOT } 
+		}
+
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 15
+				region = iberia_region
+			}
+		}
+
+		effect = {
+			custom_tooltip = iberian_conquest_tt
+			add_country_modifier = {
+				name = "atlantean_iberia"
+				duration = -1
+			}
+			iberia_region = {
+				limit = { owned_by = ROOT } 
+				add_province_modifier = {
+					name = "atlantean_administration"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	the_return_complete = {
+		icon = a_roman_empire
+		position = 1
+		required_missions = { conquer_iberia } 
+		provinces_to_highlight = {
+			OR = {
+				region = france_region
+				region = british_isles_region
+				region = low_countries_region
+			}
+			NOT = { owned_by = ROOT } 
+		}
+
+		trigger = {
+			OR = {
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 20
+					region = france_region
+				}
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 15
+					region = british_isles_region
+				}
+			}
+			total_development = 1500
+		}
+
+		effect = {
+			custom_tooltip = atlantean_return_tt
+			add_country_modifier = {
+				name = "the_return_of_atlantis"
+				duration = -1
+			}
+			add_prestige = 100
+			change_tag = ATL
+			set_government_rank = 3
+		}
+	}
+}

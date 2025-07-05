@@ -1770,3 +1770,32 @@ npl_mountain_kingdom = {
 		factor = 10
 	}
 }
+
+philosopher_republic = {
+	icon = "philosophicalempire"
+	allow_normal_conversion = yes
+		has_term_election = no
+	potential = {
+		tag = TU3
+	}
+	trigger = {
+		tag = TU3
+	}
+	
+	modifiers = {
+		advisor_cost = -0.15
+		global_institution_spread = 0.15
+		stability_cost_modifier = -0.10
+		num_accepted_cultures = 1
+		tolerance_heathen = 1
+		republican_tradition = 0.5
+	}
+			government_abilities = {
+		atlantis_philosopher_council
+	}
+	
+	
+	ai = {
+		factor = 1000
+	}
+}
