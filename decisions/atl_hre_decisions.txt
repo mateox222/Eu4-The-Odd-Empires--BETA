@@ -5,7 +5,7 @@ country_decisions = {
 
 	# Imperial Tax Collection
 	impose_imperial_tax = {
-        color = { 252 255 253 }
+		color = { 252 255 253 }
 		potential = {
 			is_emperor = yes
 			NOT = { has_country_flag = imperial_tax_cooldown }
@@ -14,7 +14,7 @@ country_decisions = {
 		allow = {
 			years_of_income = 2.0
 			adm_power = 150
-			imperial_authority = 25
+			NOT = { authority = 25 }
 			stability = 1
 			NOT = { num_of_rebel_armies = 1 }
 		}
@@ -22,26 +22,23 @@ country_decisions = {
 		effect = {
 			add_years_of_income = -2.0
 			add_adm_power = -150
-			add_imperial_influence = -10
 			add_country_modifier = {
 				name = "imperial_tax_collection"
 				duration = 1825
 			}
 			hidden_effect = {
 				every_elector = {
-					add_opinion = { who = ROOT value = -15 }
+				
 					random_list = {
 						60 = { # Complies reluctantly
 							ROOT = {
 								add_years_of_income = 0.5
-									add_imperial_influence = 15
 							}
 						}
 						30 = { # Protests strongly
 							add_liberty_desire = 10
 							ROOT = {
 								add_years_of_income = 0.25
-									add_imperial_influence = 5
 							}
 						}
 						10 = { # Refuses payment
@@ -58,26 +55,23 @@ country_decisions = {
 						is_elector = no
 						NOT = { tag = ROOT }
 					}
-					add_opinion = { who = ROOT value = -10 }
+				
 					random_list = {
 						70 = { # Pays tax
 							ROOT = {
 								add_years_of_income = 0.3
-									add_imperial_influence = 1
 							}
 						}
 						25 = { # Pays reduced amount
 							add_liberty_desire = 5
 							ROOT = {
 								add_years_of_income = 0.15
-									add_imperial_influence = 5
 							}
 						}
 						5 = { # Refuses to pay
 							add_liberty_desire = 15
 							ROOT = {
 								add_prestige = -2
-								add_ae_impact = 0.02
 							}
 						}
 					}
@@ -117,7 +111,7 @@ country_decisions = {
 			factor = 0.3
 			modifier = {
 				factor = 2
-				NOT = { imperial_authority = 40 }
+				NOT = { authority = 40 }
 			}
 			modifier = {
 				factor = 0.5
@@ -128,11 +122,9 @@ country_decisions = {
 		}
 	}
 
-	# Remove Imperial Tax Cooldown
-
 	# Imperial Diet Assembly
 	convene_imperial_diet = {
-                color = { 252 255 253 }
+		color = { 252 255 253 }
 		potential = {
 			is_emperor = yes
 			NOT = { has_country_flag = imperial_diet_cooldown }
@@ -158,30 +150,28 @@ country_decisions = {
 				every_elector = {
 					random_list = {
 						40 = { # Supports imperial agenda
-							add_opinion = { who = ROOT value = 20 }
+		
 							ROOT = {
-									add_imperial_influence = 25
-								add_diplomatic_reputation = 0.1
+								add_prestige = 10
 							}
 						}
 						35 = { # Neutral participation
 							ROOT = {
-									add_imperial_influence = 1
+								add_prestige = 5
 							}
 						}
 						15 = { # Opposes agenda
-							add_opinion = { who = ROOT value = -10 }
+				
 							add_liberty_desire = 5
 							ROOT = {
 								add_prestige = -5
 							}
 						}
 						10 = { # Boycotts diet
-							add_opinion = { who = ROOT value = -25 }
+					
 							add_liberty_desire = 15
 							ROOT = {
 								add_prestige = -10
-									add_imperial_influence = -0.1
 							}
 						}
 					}
@@ -195,7 +185,7 @@ country_decisions = {
 					random_list = {
 						60 = { # Participates constructively
 							ROOT = {
-									add_imperial_influence = 5
+								add_prestige = 3
 							}
 						}
 						30 = { # Sends representative but uncommitted
@@ -230,7 +220,7 @@ country_decisions = {
 				25 = {
 					random_list = {
 						50 = {
-								add_imperial_influence = 5
+							add_prestige = 15
 						}
 						50 = {
 							every_elector = {
@@ -259,29 +249,25 @@ country_decisions = {
 		}
 	}
 
-	# Remove Imperial Diet Cooldown
-
 	# Imperial Military Levy
 	call_imperial_levy = {
-                color = { 252 255 253 }
+		color = { 252 255 253 }
 		potential = {
 			is_emperor = yes
 			NOT = { has_country_flag = imperial_levy_cooldown }
-			
 		}
 		
 		allow = {
-            is_at_war = yes
+			is_at_war = yes
 			years_of_income = 1.5
 			mil_power = 100
-			imperial_authority = 20
+			NOT = { authority = 20 }
 			war_exhaustion = 3
 		}
 		
 		effect = {
 			add_years_of_income = -1.5
 			add_mil_power = -100
-			add_imperial_influence = -8
 			add_country_modifier = {
 				name = "imperial_levy_called"
 				duration = 1095
@@ -293,20 +279,18 @@ country_decisions = {
 							ROOT = {
 								infantry = ROOT
 								infantry = ROOT
-									add_imperial_influence = 1
 							}
-							add_opinion = { who = ROOT value = -5 }
+			
 						}
 						30 = { # Provides reduced support
 							ROOT = {
 								infantry = ROOT
-									add_imperial_influence = 5
 							}
-							add_opinion = { who = ROOT value = -10 }
+					
 							add_liberty_desire = 5
 						}
 						20 = { # Refuses levy
-							add_opinion = { who = ROOT value = -20 }
+				
 							add_liberty_desire = 15
 							ROOT = {
 								add_prestige = -5
@@ -326,20 +310,18 @@ country_decisions = {
 						65 = { # Provides levy
 							ROOT = {
 								infantry = ROOT
-									add_imperial_influence = 5
 							}
-							add_opinion = { who = ROOT value = -3 }
+		
 						}
 						25 = { # Provides token force
 							ROOT = {
 								add_manpower = 2
-									add_imperial_influence = 2
 							}
-							add_opinion = { who = ROOT value = -8 }
+						
 							add_liberty_desire = 3
 						}
 						10 = { # Ignores call
-							add_opinion = { who = ROOT value = -15 }
+			
 							add_liberty_desire = 10
 							ROOT = {
 								add_prestige = -2
@@ -386,17 +368,14 @@ country_decisions = {
 			}
 			modifier = {
 				factor = 0.2
-				imperial_authority = 50
+				authority = 50
 			}
 		}
 	}
 
-	# Remove Imperial Levy Cooldown
-
-
 	# Imperial Justice Tribunal
 	establish_imperial_tribunal = {
-              color = { 252 255 253 }  
+		color = { 252 255 253 }
 		potential = {
 			is_emperor = yes
 			NOT = { has_country_flag = imperial_tribunal_cooldown }
@@ -406,14 +385,13 @@ country_decisions = {
 		allow = {
 			years_of_income = 2.5
 			adm_power = 200
-			imperial_authority = 30
+			NOT = { authority = 30 }
 			advisor = theologian
 		}
 		
 		effect = {
 			add_years_of_income = -2.5
 			add_adm_power = -200
-			add_imperial_influence = -5
 			add_country_modifier = {
 				name = "imperial_justice_tribunal"
 				duration = 5475
@@ -426,30 +404,29 @@ country_decisions = {
 					}
 					random_list = {
 						40 = { # Accepts tribunal authority
-							add_opinion = { who = ROOT value = 10 }
+
 							ROOT = {
-									add_imperial_influence = 15
-								add_stability = 0.25
+								add_prestige = 10
+								add_stability_or_adm_power = yes
 							}
 						}
 						35 = { # Grudgingly accepts
 							ROOT = {
-									add_imperial_influence = 8
+								add_prestige = 5
 							}
 						}
 						15 = { # Protests tribunal
-							add_opinion = { who = ROOT value = -15 }
+			
 							add_liberty_desire = 10
 							ROOT = {
 								add_prestige = -3
 							}
 						}
 						10 = { # Rejects tribunal authority
-							add_opinion = { who = ROOT value = -25 }
+						
 							add_liberty_desire = 20
 							ROOT = {
 								add_prestige = -8
-									add_imperial_influence = -0.1
 							}
 						}
 					}
@@ -474,7 +451,10 @@ country_decisions = {
 				}
 				20 = {
 					capital_scope = {
-						add_building = courthouse
+						if = {
+							limit = { NOT = { has_building = courthouse } }
+							add_building = courthouse
+						}
 						add_province_modifier = {
 							name = "imperial_high_court"
 							duration = 7300
@@ -497,7 +477,6 @@ country_decisions = {
 			}
 		}
 	}
-
 
 	implement_military_reforms = {
 		color = { 255 235 235 }
@@ -534,7 +513,10 @@ country_decisions = {
 						}
 						add_army_tradition = 15
 						capital_scope = {
-							add_building = training_fields
+							if = {
+								limit = { NOT = { has_building = training_fields } }
+								add_building = training_fields
+							}
 						}
 					}
 					30 = { # Officer corps reform
@@ -584,7 +566,6 @@ country_decisions = {
 			}
 		}
 	}
-
 
 	# Elite Guard Formation
 	establish_elite_guard = {
@@ -637,7 +618,6 @@ country_decisions = {
 							duration = 5475
 						}
 						add_legitimacy = 15
-						add_max_absolutism = 5
 					}
 					20 = { # Expensive but effective
 						add_country_modifier = {
@@ -672,8 +652,6 @@ country_decisions = {
 			}
 		}
 	}
-
-	# Remove Elite Guard Cooldown
 
 	# Veteran Integration Program
 	integrate_veterans = {
@@ -710,7 +688,6 @@ country_decisions = {
 							name = "veteran_trainers"
 							duration = 5475
 						}
-						add_army_tradition_decay = -0.01
 						add_yearly_manpower = 0.5
 					}
 					30 = { # Veterans form militia
@@ -765,9 +742,6 @@ country_decisions = {
 		}
 	}
 
-	# Remove Veteran Integration Cooldown
-
-
 	# Military Engineering Corps
 	establish_engineering_corps = {
 		color = { 255 235 235 }
@@ -816,7 +790,6 @@ country_decisions = {
 							name = "siege_specialists"
 							duration = 5475
 						}
-						add_siege_ability = 0.15
 					}
 					25 = { # Infrastructure development
 						add_country_modifier = {
@@ -825,7 +798,10 @@ country_decisions = {
 						}
 						random_owned_province = {
 							limit = { development = 12 }
-							add_building = fort_15th
+							if = {
+								limit = { NOT = { has_building = fort_15th } }
+								add_building = fort_15th
+							}
 						}
 					}
 					10 = { # Engineering disasters
@@ -856,8 +832,6 @@ country_decisions = {
 			}
 		}
 	}
-
-
 
 	# Military Supply Reform
 	reform_military_supply = {
@@ -894,14 +868,12 @@ country_decisions = {
 							name = "efficient_logistics"
 							duration = 5475
 						}
-						add_land_maintenance_modifier = -0.1
 					}
 					30 = { # Reduced attrition
 						add_country_modifier = {
 							name = "improved_supply_lines"
 							duration = 3650
 						}
-						add_land_attrition = -0.15
 					}
 					20 = { # Supply depots
 						add_country_modifier = {
@@ -918,11 +890,10 @@ country_decisions = {
 					}
 					10 = { # Supply corruption
 						add_country_modifier = {
-							name = "supply_corruption"
+							name = "supply_corruption_issues"
 							duration = 2920
 						}
 						add_corruption = 1
-						add_land_maintenance_modifier = 0.15
 					}
 				}
 				set_country_flag = supply_reform_cooldown
@@ -933,7 +904,7 @@ country_decisions = {
 			factor = 0.5
 			modifier = {
 				factor = 2
-				land_maintenance_modifier = 0.2
+				NOT = { manpower_percentage = 0.5 }
 			}
 			modifier = {
 				factor = 0.2
@@ -942,8 +913,6 @@ country_decisions = {
 		}
 	}
 
-
-
 	# Mercenary Company Integration
 	integrate_mercenary_companies = {
 		color = { 255 235 235 }
@@ -951,14 +920,12 @@ country_decisions = {
 		potential = {
 			NOT = { has_country_flag = mercenary_integration_cooldown }
 			num_of_mercenaries = 3
-			mercenary_manpower = 0.1
 		}
 		
 		allow = {
 			years_of_income = 1.75
 			dip_power = 100
 			mil_power = 50
-			mercenary_manpower = 0.15
 		}
 		
 		effect = {
@@ -985,7 +952,6 @@ country_decisions = {
 							name = "loyal_mercenaries"
 							duration = 3650
 						}
-
 					}
 					25 = { # Professional units
 						add_country_modifier = {
@@ -1019,7 +985,7 @@ country_decisions = {
 			factor = 0.4
 			modifier = {
 				factor = 2
-				mercenary_manpower = 0.3
+				num_of_mercenaries = 5
 			}
 			modifier = {
 				factor = 0.1
@@ -1027,7 +993,4 @@ country_decisions = {
 			}
 		}
 	}
-
-	# Remove Mercenary Integration Cooldown
-
 }

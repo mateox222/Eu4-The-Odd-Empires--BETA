@@ -972,3 +972,60 @@ TU3_ideas = {
 		administrative_efficiency = 0.025
 	}
 }
+
+GR6_ideas = {
+	start = {
+		discipline = 0.05
+	}
+	
+	bonus = {
+		land_forcelimit_modifier = 0.25
+	}
+	
+	trigger = {
+		tag = GR6
+	}
+	free = yes
+	
+	# 1. Dziedzictwo Lacedemonii
+	spartan_legacy = {
+		army_tradition = 1.0
+		prestige_from_land = 0.50
+	}
+	
+	# 2. Agoge - Spartańskie Szkolenie
+	spartan_agoge = {
+		manpower_recovery_speed = 0.25
+		land_morale = 0.10
+	}
+	
+	# 3. System Helotów
+	helot_system = {
+		global_manpower_modifier = 0.20
+		production_efficiency = 0.10
+	}
+	
+	# 4. Żelazna Dyscyplina
+	iron_discipline = {
+		discipline = 0.10
+		army_tradition_decay = -0.01
+	}
+	
+	# 5. Falanga Hoplitów
+	hoplite_phalanx = {
+		infantry_power = 0.15
+		shock_damage = 0.10
+	}
+	
+	# 6. Spartańska Flota
+	spartan_navy = {
+		naval_morale = 0.15
+		ship_durability = 0.10
+	}
+	
+	# 7. Militarne Kolonie
+	military_colonies = {
+		core_creation = -0.20
+		garrison_size = 0.25
+	}
+}

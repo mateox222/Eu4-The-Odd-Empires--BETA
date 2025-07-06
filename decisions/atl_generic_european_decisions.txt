@@ -415,12 +415,7 @@ country_decisions = {
 							name = "improved_spy_offense"
 							duration = 3650
 						}
-						every_rival_country = {
-							add_opinion = { 
-								who = ROOT 
-								value = -10 
-							}
-						}
+				
 					}
 					25 = { # Court scandals exposed
 						add_country_modifier = {
@@ -470,11 +465,7 @@ country_decisions = {
 		
 		ai_will_do = {
 			factor = 0.4
-			modifier = {
-				factor = 2
-				# Zastąpione przez standardowy trigger
-				num_of_rivals = 2
-			}
+
 			modifier = {
 				factor = 0.2
 				legitimacy = 80
@@ -707,12 +698,7 @@ country_decisions = {
 						}
 						add_navy_tradition = 12
 						add_years_of_income = 0.75
-						every_rival_country = {
-							add_opinion = { 
-								who = ROOT 
-								value = -15 
-							}
-						}
+					
 					}
 					30 = { # Privateer dominance
 						add_country_modifier = {
@@ -905,7 +891,7 @@ country_decisions = {
 			years_of_income = 1.5
 			dip_power = 150
 			# Zastąpione przez standardowy trigger
-			colonial_range = 100
+			range = 100
 			advisor = navigator
 		}
 		
@@ -1081,9 +1067,7 @@ country_decisions = {
 			factor = 0.4
 			modifier = {
 				factor = 3
-				any_rival_country = {
-					navy_size_percentage = 1.5
-				}
+	
 			}
 			modifier = {
 				factor = 0.2
@@ -1140,13 +1124,7 @@ country_decisions = {
 							name = "improved_spy_offense"
 							duration = 5475
 						}
-						every_rival_country = {
-							limit = { navy_size = 10 }
-							add_spy_network_from = {
-								who = ROOT
-								value = 25
-							}
-						}
+					
 					}
 					30 = { # Maritime intelligence
 						add_country_modifier = {
@@ -1200,10 +1178,6 @@ country_decisions = {
 		
 		ai_will_do = {
 			factor = 0.4
-			modifier = {
-				factor = 2
-				num_of_rivals = 2
-			}
 			modifier = {
 				factor = 0.2
 				# Zastąpione przez standardowy trigger
@@ -1508,17 +1482,7 @@ country_decisions = {
 							name = "reduced_diplomatic_reputation"
 							duration = 1825
 						}
-						random_rival_country = {
-							limit = { 
-								# Zastąpione przez standardowy trigger
-								num_of_merchants = 3 
-							}
-							add_casus_belli = {
-								target = ROOT
-								type = cb_trade_war
-								months = 36
-							}
-						}
+				
 					}
 				}
 				set_country_flag = commercial_expansion_cooldown

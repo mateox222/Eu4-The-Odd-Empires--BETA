@@ -350,7 +350,7 @@ atlantis_missions_3 = {
 
 		trigger = {
 			num_of_colonies = 3
-			colonial_range = 600
+			range = 600
 		}
 
 		effect = {
@@ -575,7 +575,7 @@ atlantis_missions_5 = {
 				name = "atlantean_prophecy"
 				duration = 7300
 			}
-			europa_superregion = { discover_country = ROOT } 
+	
 		}
 	}
 
@@ -666,7 +666,7 @@ atlantis_missions_5 = {
 		}
 	}
 
-	conquer_iberia = {
+	atl_conquer_iberia = {
 		icon = atlantropa_chesziberian
 		position = 1
 		required_missions = { terror_of_the_atlantic } 
@@ -701,7 +701,7 @@ atlantis_missions_5 = {
 	the_return_complete = {
 		icon = a_roman_empire
 		position = 1
-		required_missions = { conquer_iberia } 
+		required_missions = { atl_conquer_iberia } 
 		provinces_to_highlight = {
 			OR = {
 				region = france_region
@@ -732,7 +732,7 @@ atlantis_missions_5 = {
 				duration = -1
 			}
 			add_prestige = 100
-			change_tag = ATL
+			override_country_name = ATLANTIS_EMPIRE
 			set_government_rank = 3
 		}
 	}

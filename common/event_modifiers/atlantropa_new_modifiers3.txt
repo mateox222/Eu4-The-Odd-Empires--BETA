@@ -90,7 +90,6 @@ tribunal_controversy = {
 imperial_high_court = {
 	local_unrest = -2
 	local_tax_modifier = 0.15
-	local_administrative_efficiency = 0.01
 	allowed_num_of_buildings = 1
 }
 
@@ -729,7 +728,6 @@ naval_counter_intelligence = {
 	global_spy_defence = 0.3
 	privateer_efficiency = 0.15
 	prestige = 0.25
-	navy_tradition_from_trade = 0.25
 }
 
 naval_intelligence_failure = {
@@ -1504,7 +1502,6 @@ bri_breton_colonial_empire = {
 # Province modifiers
 bri_naval_base = {
 	local_ship_cost = -0.25
-	local_ship_recruit_speed = -0.25
 	local_sailors_modifier = 0.25
 	province_trade_power_modifier = 0.15
 }
@@ -1532,7 +1529,6 @@ bri_celtic_traditions = {
 bri_maritime_festival = {
 	navy_tradition = 0.25
 	prestige = 0.25
-	navy_tradition_from_battle = 0.10
 }
 
 bri_model_plantation = {
@@ -1581,7 +1577,6 @@ occ_mediterranean_trade = {
 }
 
 occ_great_fairs = {
-	trade_income_percentage = 0.20
 	merchants = 1
 	caravan_power = 0.25
 }
@@ -1977,7 +1972,6 @@ blessed_harvest = {
 divine_guidance_cooldown = {
 	church_power_modifier = -0.25
 	papal_influence = -1
-	monthly_fervor = -0.5
 	yearly_harmony = -0.5
 	devotion = -0.25
 }
@@ -2278,4 +2272,370 @@ the_return_of_atlantis = {
 	diplomatic_reputation = 1
 	naval_morale = 0.1
 	core_creation = -0.25
+}
+
+spartan_military_tradition = {
+	army_tradition = 0.25
+	discipline = 0.02
+	prestige_from_land = 0.10
+}
+
+# Wielka Agoge Ustanowiona
+great_agoge_established = {
+	discipline = 0.05
+	army_tradition = 0.5
+	land_morale = 0.05
+	manpower_recovery_speed = 0.10
+	land_forcelimit_modifier = 0.05
+}
+
+# Efektywna Kontrola Helotów
+efficient_helot_control = {
+	global_manpower_modifier = 0.10
+	production_efficiency = 0.05
+	global_tax_modifier = 0.05
+	culture_conversion_cost = -0.15
+}
+
+# Zmilitaryzowane Społeczeństwo Spartańskie
+militarized_spartan_society = {
+	discipline = 0.08
+	land_morale = 0.10
+	army_tradition = 0.5
+	land_forcelimit_modifier = 0.10
+	manpower_recovery_speed = 0.15
+	global_trade_power = -0.05
+	production_efficiency = -0.05
+}
+
+# Atlantyckie Imperium Spartańskie
+atlantean_spartan_empire = {
+	prestige = 1.0
+	discipline = 0.10
+	land_morale = 0.15
+	army_tradition = 1.0
+	land_forcelimit_modifier = 0.15
+	core_creation = -0.10
+	province_warscore_cost = -0.10
+	governing_capacity_modifier = 0.10
+}
+
+# === MODYFIKATORY DYPLOMATYCZNE ===
+
+# Spartańska Dyplomacja Wojskowa
+spartan_military_diplomacy = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.10
+	prestige_from_land = 0.15
+}
+
+# Spartańska Zwierzchność
+spartan_overlordship = {
+	vassal_forcelimit_bonus = 0.15
+	vassal_manpower_bonus = 0.10
+	reduced_liberty_desire = 5
+}
+
+# === MODYFIKATORY WOJEN Z ATLANTYDĄ ===
+
+# Wojna przeciw Filozofom
+war_against_philosophers = {
+	discipline = 0.03
+	land_morale = 0.05
+	shock_damage = 0.05
+	prestige_from_land = 0.15
+}
+
+# Niszczyciel Atlantydy
+destroyer_of_atlantis = {
+	prestige = 0.5
+	army_tradition = 0.5
+	discipline = 0.05
+	land_morale = 0.08
+	legitimacy = 0.25
+	diplomatic_reputation = 1
+}
+
+# === MODYFIKATORY MORSKIE ===
+
+# Spartańska Tradycja Morska
+spartan_naval_tradition = {
+	navy_tradition = 0.25
+	naval_morale = 0.05
+	ship_recruit_speed = -0.10
+	naval_forcelimit_modifier = 0.05
+}
+
+# Panowie Mórz Atlantyckich
+masters_of_atlantean_seas = {
+	navy_tradition = 0.5
+	naval_morale = 0.10
+	blockade_efficiency = 0.15
+	privateer_efficiency = 0.10
+	naval_attrition = -0.10
+}
+
+# Spartańska Przyczółek Europejski
+spartan_european_foothold = {
+	naval_morale = 0.05
+	landing_penalty = -0.25
+	movement_speed = 0.05
+	core_creation = -0.05
+}
+
+# === MODYFIKATORY EUROPEJSKIEJ EKSPANSJI ===
+
+# Przygotowania do Inwazji Europy
+european_invasion_preparations = {
+	land_morale = 0.05
+	naval_morale = 0.05
+	movement_speed = 0.10
+	landing_penalty = -0.5
+	naval_attrition = -0.15
+	manpower_recovery_speed = 0.10
+}
+
+# Spartańskie Podboje Włoskie
+spartan_italian_conquest = {
+	discipline = 0.03
+	core_creation = -0.05
+	province_warscore_cost = -0.05
+	prestige_from_land = 0.10
+}
+
+# Zdobywca Rzymu
+conqueror_of_rome = {
+	prestige = 1.0
+	army_tradition = 0.5
+	discipline = 0.05
+	legitimacy = 0.5
+	diplomatic_reputation = 1
+	core_creation = -0.10
+}
+
+# Spartańskie Imperium Włoskie
+spartan_italian_empire = {
+	discipline = 0.05
+	administrative_efficiency = 0.05
+	governing_capacity_modifier = 0.10
+	core_creation = -0.15
+	province_warscore_cost = -0.15
+}
+
+# Spartańska Ekspansja Bałkańska
+spartan_balkan_expansion = {
+	discipline = 0.03
+	land_morale = 0.05
+	movement_speed = 0.05
+	core_creation = -0.05
+	prestige_from_land = 0.10
+}
+
+# Nowa Bizantyńska Sparta
+new_byzantine_sparta = {
+	legitimacy = 0.5
+	diplomatic_reputation = 1
+	trade_efficiency = 0.10
+	global_trade_power = 0.05
+	tolerance_heathen = 1
+}
+
+# Spartańskie Imperium Europejskie (końcowe)
+spartan_european_empire = {
+	prestige = 1.5
+	army_tradition = 1.0
+	discipline = 0.15
+	land_morale = 0.20
+	land_forcelimit_modifier = 0.20
+	core_creation = -0.20
+	province_warscore_cost = -0.20
+	administrative_efficiency = 0.10
+	governing_capacity_modifier = 0.20
+}
+
+# === MODYFIKATORY PROWINCJONALNE ===
+
+# Miejsce Narodzin Wojowników (misja)
+birthplace_of_warriors_mission = {
+	local_manpower_modifier = 0.15
+	local_regiment_cost = -0.10
+	garrison_size = 0.10
+	local_defensiveness = 0.10
+	supply_limit_modifier = 0.10
+}
+
+# Ośrodki Szkolenia Agoge
+agoge_training_grounds = {
+	local_manpower_modifier = 0.20
+	local_regiment_cost = -0.15
+	regiment_recruit_speed = -0.15
+	local_culture_conversion_cost = -0.20
+}
+
+# System Rolnictwa Helotów
+helot_agricultural_system = {
+	local_production_efficiency = 0.10
+	local_tax_modifier = 0.10
+	trade_goods_size_modifier = 0.05
+	local_unrest = -1
+}
+
+# Spartański Okręg Wojskowy
+spartan_military_district = {
+	local_manpower_modifier = 0.10
+	local_defensiveness = 0.10
+	garrison_size = 0.10
+	supply_limit_modifier = 0.05
+}
+
+# Spartańska Kolonia Wojskowa
+spartan_military_colony = {
+	local_manpower_modifier = 0.15
+	local_unrest = -1
+	garrison_size = 0.15
+	local_core_creation = -0.10
+	local_culture_conversion_cost = -0.15
+}
+
+# Spartańska Baza Morska
+spartan_naval_base = {
+	local_sailors_modifier = 0.15
+	local_ship_cost = -0.10
+	ship_recruit_speed = -0.15
+	blockade_force_required = 0.15
+}
+
+# Zdobyta Stolica Atlantydy
+conquered_atlantean_capital = {
+	local_tax_modifier = 0.15
+	province_trade_power_modifier = 0.20
+	local_development_cost = -0.10
+	local_unrest = -2
+	local_core_creation = -0.15
+}
+
+# Spartańska Administracja Prowincjonalna
+spartan_provincial_administration = {
+	local_tax_modifier = 0.10
+	local_governing_cost = -0.15
+	local_unrest = -1
+	local_core_creation = -0.10
+}
+
+# Spartańska Prowincja Imperialna (końcowa)
+spartan_imperial_province = {
+	local_tax_modifier = 0.15
+	local_manpower_modifier = 0.15
+	local_governing_cost = -0.20
+	local_unrest = -2
+	local_core_creation = -0.15
+}
+
+spartan_iberian_conquest = {
+	discipline = 0.05
+	core_creation = -0.10
+	province_warscore_cost = -0.10
+	prestige_from_land = 0.15
+	landing_penalty = -0.5
+}
+
+# Zdobywca Kastylii
+conqueror_of_castile = {
+	prestige = 1.0
+	army_tradition = 0.75
+	discipline = 0.08
+	legitimacy = 0.75
+	diplomatic_reputation = 2
+	ae_impact = -0.10
+}
+
+# Spartańskie Imperium Iberyjskie
+spartan_iberian_empire = {
+	prestige = 1.5
+	discipline = 0.10
+	administrative_efficiency = 0.08
+	governing_capacity_modifier = 0.15
+	core_creation = -0.20
+	province_warscore_cost = -0.20
+	global_trade_power = 0.10
+}
+
+# === MODYFIKATORY FRANCUSKIE ===
+
+# Spartańskie Przejście przez Pireneje
+spartan_pyrenees_crossing = {
+	discipline = 0.05
+	land_morale = 0.08
+	movement_speed = 0.15
+	attrition = -0.15
+	prestige_from_land = 0.20
+}
+
+# Spartańska Inwazja Francji
+spartan_french_invasion = {
+	discipline = 0.08
+	land_morale = 0.12
+	core_creation = -0.15
+	province_warscore_cost = -0.15
+	movement_speed = 0.10
+	prestige_from_land = 0.25
+}
+
+# Zdobywca Paryża
+conqueror_of_paris = {
+	prestige = 1.5
+	army_tradition = 1.0
+	discipline = 0.10
+	legitimacy = 1.0
+	diplomatic_reputation = 3
+	trade_efficiency = 0.15
+	global_trade_power = 0.15
+}
+
+# Spartańskie Imperium Zachodniej Europy
+spartan_western_european_empire = {
+	prestige = 2.0
+	army_tradition = 1.5
+	discipline = 0.15
+	land_morale = 0.20
+	land_forcelimit_modifier = 0.25
+	core_creation = -0.25
+	province_warscore_cost = -0.25
+	administrative_efficiency = 0.15
+	governing_capacity_modifier = 0.25
+	global_trade_power = 0.20
+}
+
+# === MODYFIKATORY PROWINCJONALNE ===
+
+# Spartańska Stolica Iberyjska
+spartan_iberian_capital = {
+	local_tax_modifier = 0.25
+	province_trade_power_modifier = 0.35
+	local_development_cost = -0.15
+	local_unrest = -4
+	local_core_creation = -0.25
+	local_governing_cost = -0.20
+}
+
+# Spartańska Stolica Francuska
+spartan_french_capital = {
+	local_tax_modifier = 0.30
+	province_trade_power_modifier = 0.40
+	local_development_cost = -0.20
+	local_unrest = -5
+	local_core_creation = -0.30
+	local_governing_cost = -0.25
+	allowed_num_of_buildings = 2
+}
+
+supply_corruption_issues = {
+    yearly_corruption = 0.05
+    land_maintenance_modifier = 0.05
+}
+
+militant_orthodoxy = {
+    tolerance_own = 1
+    global_missionary_strength = 0.01
+    tolerance_heretic = -1
 }

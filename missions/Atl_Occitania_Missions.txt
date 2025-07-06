@@ -180,12 +180,6 @@ occitanian_missions_2 = {
 		provinces_to_highlight = {  } 
 
 		trigger = {
-			home_trade_node = {
-				trade_share = {
-					country = ROOT
-					share = 60
-				}
-			}
 			trade_income_percentage = 0.5
 		}
 
@@ -194,14 +188,7 @@ occitanian_missions_2 = {
 				name = "occ_commercial_dominance"
 				duration = -1
 			}
-			home_trade_node = {
-				add_trade_modifier = {
-					who = ROOT
-					duration = 10950
-					power = 20
-					key = occ_mediterranean_influence
-				}
-			}
+		
 		}
 	}
 }
@@ -324,7 +311,6 @@ occitanian_missions_3 = {
 
 		trigger = {
 			religious_unity = 0.8
-			ROOT = { tolerance_heretic = 2 } 
 			NOT = { num_of_rebel_armies = 1 } 
 			stability = 2
 		}

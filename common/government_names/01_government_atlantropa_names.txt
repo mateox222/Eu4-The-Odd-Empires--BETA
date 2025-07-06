@@ -475,6 +475,11 @@ assyrian_monarchy = {
 }
 
 atlantean_philosopher_republic = {
+		trigger = {
+		OR = {
+			tag = TU3
+		}
+	}
 	rank = {
 		1 = PHILOSOPHER_POLIS
 		2 = PHILOSOPHER_REPUBLIC
@@ -516,4 +521,59 @@ atlantean_philosopher_republic = {
 		2 = PHILOSOPHER_HEIR_fem
 		3 = IMPERIAL_HEIR_fem
 	}
+}
+
+
+chaldean_city_council = {
+    rank = {
+        1 = CITY_STATE
+        2 = CONFEDERATED_CITIES
+        3 = MESOPOTAMIAN_EMPIRE
+    }
+
+    ruler_male = {
+        1 = ENSI
+        2 = LUGAL
+        3 = SHARRU_KISSATI
+    }
+
+    ruler_female = {
+        1 = ENSI_MAIDEN
+        2 = LUGAL_QUEEN
+        3 = SHARRU_KISSATI
+    }
+
+    consort_male = {
+        1 = PRINCE_CONSORT
+        2 = ROYAL_CONSORT
+        3 = IMPERIAL_CONSORT
+    }
+
+    consort_female = {
+        1 = PRINCESS_CONSORT
+        2 = ROYAL_CONSORT
+        3 = IMPERIAL_CONSORT
+    }
+
+    heir_male = {
+        1 = HEIR
+        2 = HEIR
+        3 = HEIR
+    }
+
+    heir_female = {
+        1 = HEIR_fem
+        2 = HEIR_fem
+        3 = HEIR_fem
+    }
+
+    trigger = {
+        government = monarchy
+        OR = {
+            tag = CH1  # Urcity
+            tag = CH2  # Charax
+            tag = CH3  # Uruk
+            tag = CH4  # Iscity
+        }
+    }
 }

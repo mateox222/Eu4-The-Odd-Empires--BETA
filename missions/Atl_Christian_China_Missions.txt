@@ -656,8 +656,8 @@ nestorian_qing_missions_3 = {
 		trigger = {
 			num_of_owned_provinces_with = {
 				OR = {
-					has_building = road_network
-					has_building = canal
+					has_building = atlantropa_road 
+	
 				}
 				value = 20
 			}
@@ -674,8 +674,8 @@ nestorian_qing_missions_3 = {
 			every_owned_province = {
 				limit = {
 					OR = {
-						has_building = road_network
-						has_building = canal
+						has_building = atlantropa_road 
+						
 					}
 				}
 				add_province_modifier = {
@@ -683,10 +683,7 @@ nestorian_qing_missions_3 = {
 					duration = -1
 				}
 			}
-			random_owned_province = {
-				limit = { region = north_china_region } 
-				add_building = canal
-			}
+			
 		}
 	}
 }
@@ -940,7 +937,7 @@ nestorian_qing_missions_5 = {
 				name = "qng_western_knowledge"
 				duration = -1
 			}
-			add_innovativeness = 5
+			change_innovativeness = 5
 			random_ally = {
 				limit = {
 					OR = {
@@ -949,7 +946,7 @@ nestorian_qing_missions_5 = {
 						religion = protestant
 					}
 				}
-				ROOT = { steal_random_tech = PREV } 
+		
 			}
 		}
 	}
