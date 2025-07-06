@@ -202,3 +202,84 @@ atlantean_philosophical_influence = {
     innovativeness_gain = 0.05
     advisor_cost = -0.05
 }
+call_of_athena = {
+	advisor_cost = -0.10
+	technology_cost = -0.05
+	stability_cost_modifier = -0.10
+	global_institution_spread = 0.10
+	idea_cost = -0.05
+}
+
+# Prasinidion - Błogosławieństwo Aresa
+blessing_of_ares = {
+	discipline = 0.05
+	army_tradition = 0.5
+	land_morale = 0.05
+	manpower_recovery_speed = 0.10
+}
+
+# === MODYFIKATORY FILOZOFICZNE ATLANTYDY ===
+
+# Mądrość Platona - najwyższy poziom filozofii
+wisdom_of_plato = {
+	advisor_cost = -0.15
+	idea_cost = -0.10 
+	diplomatic_reputation = 1
+	tolerance_heathen = 1
+	global_institution_spread = 0.15
+	num_accepted_cultures = 1
+}
+
+# Debaty Sofistów - średni poziom
+sophist_debates = {
+	advisor_cost = -0.10
+	idea_cost = -0.05
+	diplomatic_reputation = 1
+	global_institution_spread = 0.10
+}
+
+# Dyskurs Filozoficzny - podstawowy poziom
+philosophical_discourse = {
+	advisor_cost = -0.05
+	idea_cost = -0.05
+	global_institution_spread = 0.05
+}
+
+triumph_of_atlantean_wisdom = {
+	prestige = 1.0
+	legitimacy = 0.5
+	advisor_cost = -0.10
+	idea_cost = -0.05
+	diplomatic_reputation = 1
+	stability_cost_modifier = -0.05
+}
+
+# Triumf Spartańskiej Potęgi - pozytywny dla Prasinidionu
+triumph_of_spartan_might = {
+	prestige = 1.0
+	army_tradition = 0.5
+	discipline = 0.05
+	land_morale = 0.05
+	manpower_recovery_speed = 0.10
+	diplomatic_reputation = 1
+}
+
+# === MODYFIKATORY PORAŻKI ===
+
+# Przytłoczeni przez Filozofię - negatywny dla Prasinidionu
+overshadowed_by_philosophy = {
+	prestige = -0.5
+	army_tradition = -0.25
+	land_morale = -0.05
+	global_unrest = 1
+	legitimacy = -0.25
+}
+
+# Przytłoczeni przez Potęgę - negatywny dla Atlantydy
+overshadowed_by_might = {
+	prestige = -0.5
+	legitimacy = -0.25
+	republican_tradition = -0.25
+	global_unrest = 1
+	stability_cost_modifier = 0.05
+}

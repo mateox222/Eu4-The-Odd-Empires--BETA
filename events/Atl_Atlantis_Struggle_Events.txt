@@ -345,3 +345,211 @@ country_event = {
 		}
 	}
 }
+
+# Wydarzenia przy osiągnięciu 35 prowincji na kontynencie Atlantydy
+# Plik: events/atlantis_35_provinces_events.txt
+
+namespace = atlantis_dominance
+
+# Atlantyda osiąga 35 prowincji - Triumf Filozofii
+country_event = {
+	id = atlantis_dominance.1
+	title = atlantis_dominance.1.t
+	desc = atlantis_dominance.1.d
+	picture = GREAT_BUILDING_eventPicture
+	
+	trigger = {
+		tag = TU3
+		num_of_owned_provinces_with = {
+			value = 35
+			continent = atlantis
+		}
+				NOT = { has_global_flag = atlantis_prasinidion_military_victory }		
+		NOT = { has_country_flag = atlantis_philosophical_victory }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_global_flag = atlantis_prasinidion_military_victory
+		set_country_flag = atlantis_philosophical_victory
+		# Dajemy Atlantydzie pozytywny modyfikator
+		add_country_modifier = {
+			name = "triumph_of_atlantean_wisdom"
+			duration = -1
+		}
+		
+		# Jeśli Prasinidion istnieje, dajemy mu negatywny modyfikator
+		if = {
+			limit = { 
+				GR6 = { exists = yes }
+			}
+			GR6 = {
+				add_country_modifier = {
+					name = "overshadowed_by_philosophy"
+					duration = -1
+				}
+				country_event = {
+					id = atlantis_dominance.10
+					days = 7
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "atlantis_dominance.1.a"
+		
+		custom_tooltip = philosophical_victory_tt
+		
+		add_prestige = 100
+		add_legitimacy = 50
+		add_adm_power = 200
+		add_dip_power = 150
+		
+		# Zmiana rangi na Imperium
+		set_government_rank = 3
+		
+		# Wszystkie pozostałe państwa na kontynencie
+		every_known_country = {
+			limit = {
+				continent = atlantis
+				NOT = { tag = TU3 }
+				NOT = { tag = GR6 }
+			}
+			add_opinion = {
+				who = TU3
+				modifier = recognizes_philosophical_supremacy
+			}
+		}
+	}
+}
+
+# Prasinidion osiąga 35 prowincji - Triumf Wojny
+country_event = {
+	id = atlantis_dominance.2
+	title = "atlantis_dominance.2.t"
+	desc = "atlantis_dominance.2.d"
+	picture = LAND_MILITARY_eventPicture
+	
+	trigger = {
+		tag = GR6
+		num_of_owned_provinces_with = {
+			value = 35
+			continent = atlantis
+		}
+		NOT = { has_country_flag = prasinidion_military_victory }
+		NOT = { has_global_flag = atlantis_prasinidion_military_victory }		
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+			set_global_flag = atlantis_prasinidion_military_victory
+		set_country_flag = prasinidion_military_victory
+		# Dajemy Prasinidionowi pozytywny modyfikator
+		add_country_modifier = {
+			name = "triumph_of_spartan_might"
+			duration = -1
+		}
+		
+		# Jeśli Atlantyda istnieje, dajemy jej negatywny modyfikator
+		if = {
+			limit = { 
+				TU3 = { exists = yes }
+			}
+			TU3 = {
+				add_country_modifier = {
+					name = "overshadowed_by_might"
+					duration = -1
+				}
+				country_event = {
+					id = atlantis_dominance.11
+					days = 7
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "atlantis_dominance.2.a"
+		
+		custom_tooltip = military_victory_tt
+		
+		add_prestige = 100
+		add_army_tradition = 50
+		add_mil_power = 200
+		add_manpower = 20
+		
+		# Zmiana rangi na Imperium
+		set_government_rank = 3
+		
+		# Wszystkie pozostałe państwa na kontynencie
+		every_known_country = {
+			limit = {
+				continent = atlantis
+				NOT = { tag = GR6 }
+				NOT = { tag = TU3 }
+			}
+			add_opinion = {
+				who = GR6
+				modifier = fears_spartan_supremacy
+			}
+		}
+	}
+}
+
+# Reakcja Prasinidionu na triumf Atlantydy
+country_event = {
+	id = atlantis_dominance.10
+	title = "atlantis_dominance.10.t"
+	desc = "atlantis_dominance.10.d"
+	picture = ANGRY_MOB_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "atlantis_dominance.10.a"
+		
+		custom_tooltip = spartan_humiliation_tt
+		
+		add_prestige = -50
+		add_legitimacy = -25
+		add_stability = -2
+		
+		# Dodatkowe negatywne efekty
+		add_war_exhaustion = 5
+		
+		# Casus belli na Atlantydę jako ostatnia szansa
+	}
+}
+
+# Reakcja Atlantydy na triumf Prasinidionu
+country_event = {
+	id = atlantis_dominance.11
+	title = "atlantis_dominance.11.t"
+	desc = "atlantis_dominance.11.d"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "atlantis_dominance.11.a"
+		
+		custom_tooltip = philosophical_defeat_tt
+		
+		add_prestige = -50
+		add_legitimacy = -25
+		add_stability = -2
+		
+		# Dodatkowe negatywne efekty
+		add_war_exhaustion = 5
+		
+		# Casus belli na Prasinidion jako ostatnia szansa
+
+	}
+}
