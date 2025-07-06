@@ -1164,12 +1164,7 @@ country_decisions = {
 							duration = 1460
 						}
 						add_prestige = -12
-						every_rival_country = {
-							add_opinion = { 
-								who = ROOT 
-								value = -20 
-							}
-						}
+				
 					}
 				}
 				set_country_flag = naval_intelligence_cooldown
@@ -1464,13 +1459,7 @@ country_decisions = {
 							name = "improved_trade_efficiency"
 							duration = 2920
 						}
-						every_rival_country = {
-							limit = { trade_income_percentage = 0.2 }
-							add_opinion = { 
-								who = ROOT 
-								value = -20 
-							}
-						}
+			
 					}
 					10 = { # Trade disputes
 						add_country_modifier = {
