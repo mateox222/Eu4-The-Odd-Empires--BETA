@@ -577,3 +577,55 @@ chaldean_city_council = {
         }
     }
 }
+
+
+phoenician_thalassocracy = {
+	trigger = {
+		culture_group = punic_culture
+		OR = {
+			government = republic
+		}
+	}
+	
+	rank = {
+		1 = SEA_CITY
+		2 = THALASSOCRACY
+		3 = EMPIRE_OF_WAVES
+	}
+
+	ruler_male = {
+		1 = ADMIRAL_KING
+		2 = THALASSARCH
+		3 = EMPEROR_OF_TIDES
+	}
+
+	ruler_female = {
+		1 = ADMIRAL_QUEEN
+		2 = THALASSARCH_fem
+		3 = EMPRESS_OF_TIDES
+	}
+	
+	consort_male = {
+		1 = FLEET_CAPTAIN
+		2 = NAVAL_PRINCE
+		3 = IMPERIAL_NAVIGATOR
+	}
+
+	consort_female = {
+		1 = FLEET_CAPTAIN_fem
+		2 = NAVAL_PRINCESS
+		3 = IMPERIAL_NAVIGATOR_fem
+	}
+
+	heir_male = {
+		1 = SHIP_BOY
+		2 = NAVIGATOR_HEIR
+		3 = CROWN_ADMIRAL
+	}
+
+	heir_female = {
+		1 = SHIP_GIRL
+		2 = NAVIGATOR_HEIR_fem
+		3 = CROWN_ADMIRAL_fem
+	}
+}

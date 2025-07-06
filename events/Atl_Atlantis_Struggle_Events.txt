@@ -362,7 +362,7 @@ country_event = {
 		tag = TU3
 		num_of_owned_provinces_with = {
 			value = 35
-			continent = atlantis
+			continent = Atlantis
 		}
 				NOT = { has_global_flag = atlantis_prasinidion_military_victory }		
 		NOT = { has_country_flag = atlantis_philosophical_victory }
@@ -373,6 +373,7 @@ country_event = {
 	}
 	
 	immediate = {
+		hidden_effect = {
 		set_global_flag = atlantis_prasinidion_military_victory
 		set_country_flag = atlantis_philosophical_victory
 		# Dajemy Atlantydzie pozytywny modyfikator
@@ -399,6 +400,7 @@ country_event = {
 		}
 	}
 	
+	}
 	option = {
 		name = "atlantis_dominance.1.a"
 		
@@ -415,7 +417,7 @@ country_event = {
 		# Wszystkie pozostałe państwa na kontynencie
 		every_known_country = {
 			limit = {
-				continent = atlantis
+				continent = Atlantis
 				NOT = { tag = TU3 }
 				NOT = { tag = GR6 }
 			}
@@ -438,7 +440,7 @@ country_event = {
 		tag = GR6
 		num_of_owned_provinces_with = {
 			value = 35
-			continent = atlantis
+			continent = Atlantis
 		}
 		NOT = { has_country_flag = prasinidion_military_victory }
 		NOT = { has_global_flag = atlantis_prasinidion_military_victory }		
@@ -449,6 +451,7 @@ country_event = {
 	}
 	
 	immediate = {
+		hidden_effect = {
 			set_global_flag = atlantis_prasinidion_military_victory
 		set_country_flag = prasinidion_military_victory
 		# Dajemy Prasinidionowi pozytywny modyfikator
@@ -474,6 +477,7 @@ country_event = {
 			}
 		}
 	}
+	}
 	
 	option = {
 		name = "atlantis_dominance.2.a"
@@ -491,7 +495,7 @@ country_event = {
 		# Wszystkie pozostałe państwa na kontynencie
 		every_known_country = {
 			limit = {
-				continent = atlantis
+				continent = Atlantis
 				NOT = { tag = GR6 }
 				NOT = { tag = TU3 }
 			}
