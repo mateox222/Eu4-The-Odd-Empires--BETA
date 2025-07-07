@@ -153,12 +153,12 @@ WAL_expansion_missions = {
 		position = 3
 		required_missions = { wal_claim_ancient_lands } 
 		provinces_to_highlight = {
-			province_id = 153
+			province_id = 151
 			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
 		}
 
 		trigger = {
-			owns_core_province = 153
+			owns_core_province = 151
 			151 = {
 				religion = ROOT
 				culture = romanian
@@ -166,7 +166,7 @@ WAL_expansion_missions = {
 		}
 
 		effect = {
-			153 = {
+			151 = {
 				rename_capital = "Decebalia"
 				add_base_tax = 1
 				add_base_production = 1
@@ -269,7 +269,7 @@ WAL_integration_missions = {
 		trigger = {
 			total_development = 300
 			prestige = 50
-			owns_core_province = 153
+			owns_core_province = 151
 			num_of_subjects = 2
 		}
 
