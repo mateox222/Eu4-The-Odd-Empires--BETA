@@ -1,0 +1,685 @@
+namespace = wal_events
+
+# The Dacian Imperial Claim
+country_event = {
+    id = wal_events.1
+    title = wal_events.1.t
+    desc = wal_events.1.d
+    picture = DIPLOMACY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = wal_events.1.a # Claim the Imperial Title as True Successors
+        ai_chance = { factor = 75 }
+        
+        add_prestige = 25
+        add_legitimacy = 15
+        add_country_modifier = {
+            name = "wal_imperial_ambitions"
+            duration = 10950
+        }
+        
+        every_country = {
+            limit = {
+                religion = united_christianity
+                NOT = { tag = ROOT }
+            }
+            add_opinion = {
+                who = ROOT
+                modifier = "wal_imperial_claim"
+            }
+        }
+        
+        A52 = {
+            add_opinion = {
+                who = ROOT
+                modifier = "wal_nicaean_rivalry"
+            }
+        }
+        
+        LAE = {
+            add_opinion = {
+                who = ROOT
+                modifier = "wal_latin_hostility"
+            }
+        }
+        
+        BUL = {
+            add_opinion = {
+                who = ROOT
+                modifier = "wal_upstart_empire"
+            }
+        }
+    }
+    
+    option = {
+        name = wal_events.1.b # Focus on Regional Power, avoid imperial claims
+        ai_chance = { factor = 25 }
+        
+        add_stability = 1
+        add_adm_power = 100
+        add_dip_power = 100
+        
+        balkan_region = {
+            limit = { owned_by = ROOT }
+            add_province_modifier = {
+                name = "wal_regional_focus"
+                duration = 10950
+            }
+        }
+        
+        A52 = {
+            add_opinion = {
+                who = ROOT
+                modifier = "wal_imperial_claim"
+                value = 50
+            }
+        }
+    }
+}
+
+# Greek Scholars and Refugees Arrive
+country_event = {
+    id = wal_events.2
+    title = wal_events.2.t
+    desc = wal_events.2.d
+    picture = ADVISOR_eventPicture
+    
+    trigger = {
+        tag = WAL
+        has_country_modifier = wal_protector_of_christians
+        NOT = { has_country_flag = wal_greek_scholars }
+    }
+    
+    mean_time_to_happen = {
+        months = 60
+        
+        modifier = {
+            factor = 0.8
+            num_of_owned_provinces_with = {
+                value = 3
+                culture = greek
+            }
+        }
+        
+        modifier = {
+            factor = 0.7
+            advisor = theologian
+        }
+        
+        modifier = {
+            factor = 0.6
+            has_opinion = {
+                who = A52
+                value = 0
+            }
+        }
+    }
+    
+    immediate = {
+        set_country_flag = wal_greek_scholars
+    }
+    
+    option = {
+        name = wal_events.2.a # Welcome the scholars and refugees
+        ai_chance = { factor = 80 }
+        
+        add_years_of_income = -0.5
+        add_country_modifier = {
+            name = "wal_greek_learning"
+            duration = 7300
+        }
+        
+        define_advisor = {
+            type = theologian
+            skill = 2
+            culture = greek
+            religion = united_christianity
+            cost_multiplier = 0.5
+        }
+        
+        random_owned_province = {
+            limit = { NOT = { culture = greek } }
+            change_culture = greek
+        }
+    }
+    
+    option = {
+        name = wal_events.2.b # We need no foreign knowledge
+        ai_chance = { factor = 20 }
+        
+        add_stability = 1
+        add_mil_power = 50
+        
+        every_owned_province = {
+            limit = { culture = greek }
+            add_local_autonomy = 10
+        }
+    }
+}
+
+# The Legendary Falx Forge
+country_event = {
+    id = wal_events.3
+    title = wal_events.3.t
+    desc = wal_events.3.d
+    picture = TRADEGOODS_eventPicture
+    
+    trigger = {
+        tag = WAL
+        has_country_modifier = wal_feared_falx
+        NOT = { has_country_flag = wal_falx_forge }
+        any_owned_province = {
+            OR = {
+                trade_goods = iron
+                trade_goods = copper
+            }
+        }
+    }
+    
+    mean_time_to_happen = {
+        months = 48
+        
+        modifier = {
+            factor = 0.7
+            num_of_owned_provinces_with = {
+                value = 2
+                trade_goods = iron
+            }
+        }
+        
+        modifier = {
+            factor = 0.8
+            army_tradition = 50
+        }
+    }
+    
+    immediate = {
+        set_country_flag = wal_falx_forge
+    }
+    
+    option = {
+        name = wal_events.3.a # Establish the legendary forge
+        ai_chance = { factor = 70 }
+        
+        add_years_of_income = -0.3
+        
+        random_owned_province = {
+            limit = {
+                OR = {
+                    trade_goods = iron
+                    trade_goods = copper
+                }
+            }
+            add_building = weapons
+            add_province_modifier = {
+                name = "wal_legendary_forge"
+                duration = -1
+            }
+        }
+        
+        add_country_modifier = {
+            name = "wal_superior_weapons"
+            duration = 10950
+        }
+    }
+    
+    option = {
+        name = wal_events.3.b # Traditional methods suffice
+        ai_chance = { factor = 30 }
+        
+        add_mil_power = 50
+        add_army_tradition = 5
+        add_years_of_income = 0.1
+    }
+}
+
+# Thracian Integration
+country_event = {
+    id = wal_events.4
+    title = wal_events.4.t
+    desc = wal_events.4.d
+    picture = CULTURE_eventPicture
+    
+    trigger = {
+        tag = WAL
+        has_country_modifier = wal_thracian_settlement
+        thrace_area = {
+            type = all
+            owned_by = ROOT
+        }
+        NOT = { has_country_flag = wal_thracian_integration }
+    }
+    
+    mean_time_to_happen = {
+        months = 72
+        
+        modifier = {
+            factor = 0.8
+            stability = 2
+        }
+        
+        modifier = {
+            factor = 0.6
+            has_idea_group = humanist_ideas
+        }
+    }
+    
+    immediate = {
+        set_country_flag = wal_thracian_integration
+    }
+    
+    option = {
+        name = wal_events.4.a # Embrace local customs and create synthesis
+        ai_chance = { factor = 60 }
+        
+        add_country_modifier = {
+            name = "wal_cultural_synthesis"
+            duration = 10950
+        }
+        
+        thrace_area = {
+            add_province_modifier = {
+                name = "wal_thraco_dacian_culture"
+                duration = 10950
+            }
+        }
+        
+        random_owned_province = {
+            limit = { 
+                area = thrace_area 
+                NOT = { culture = romanian }
+            }
+            change_culture = romanian
+        }
+    }
+    
+    option = {
+        name = wal_events.4.b # Maintain Dacian purity
+        ai_chance = { factor = 40 }
+        
+        add_stability = 1
+        add_legitimacy = 10
+        
+        thrace_area = {
+            add_nationalism = -5
+            change_culture = romanian
+        }
+    }
+}
+
+# The New Constantinople Debate
+country_event = {
+    id = wal_events.5
+    title = wal_events.5.t
+    desc = wal_events.5.d
+    picture = CITY_DEVELOPMENT_eventPicture
+    
+    trigger = {
+        tag = WAL
+        owns_core_province = 5717
+        5717 = { has_province_modifier = wal_new_dacia }
+        NOT = { has_country_flag = wal_constantinople_debate }
+    }
+    
+    mean_time_to_happen = {
+        months = 36
+    }
+    
+    immediate = {
+        set_country_flag = wal_constantinople_debate
+    }
+    
+    option = {
+        name = wal_events.5.a # Build a Great Cathedral - Center of Christianity
+        ai_chance = { factor = 40 }
+        
+        add_years_of_income = -1
+        5717 = {
+            add_building = cathedral
+            add_province_modifier = {
+                name = "wal_christian_center"
+                duration = -1
+            }
+        }
+        
+        add_country_modifier = {
+            name = "wal_christian_defender"
+            duration = 7300
+        }
+    }
+    
+    option = {
+        name = wal_events.5.b # Focus on Trade and Commerce
+        ai_chance = { factor = 35 }
+        
+        add_years_of_income = -0.5
+        5717 = {
+            add_building = marketplace
+            add_base_production = 2
+        }
+        
+        add_mercantilism = 5
+    }
+    
+    option = {
+        name = wal_events.5.c # Build Fortifications against Enemies
+        ai_chance = { factor = 25 }
+        
+        add_years_of_income = -0.75
+        5717 = {
+            add_building = fort_15th
+            add_base_manpower = 1
+        }
+        
+        add_mil_power = 100
+    }
+}
+
+# Nicaean Diplomatic Overture
+country_event = {
+    id = wal_events.6
+    title = wal_events.6.t
+    desc = wal_events.6.d
+    picture = DIPLOMACY_eventPicture
+    
+    trigger = {
+        tag = WAL
+        exists = A52
+        NOT = { war_with = A52 }
+        owns_core_province = 5717
+        A52 = {
+            has_opinion = {
+                who = ROOT
+                value = 200
+            }
+        }
+        NOT = { has_country_flag = wal_nicaean_diplomacy }
+    }
+    
+    mean_time_to_happen = {
+        months = 60
+        
+        modifier = {
+            factor = 0.7
+            A52 = {
+                has_opinion = {
+                    who = ROOT
+                    value = 0
+                }
+            }
+        }
+        
+        modifier = {
+            factor = 1.5
+            has_country_modifier = wal_imperial_ambitions
+        }
+    }
+    
+    immediate = {
+        set_country_flag = wal_nicaean_diplomacy
+    }
+    
+    option = {
+        name = wal_events.6.a # Accept partnership against Latin Empire
+        ai_chance = { factor = 50 }
+        
+        A52 = {
+            add_opinion = {
+                who = ROOT
+                modifier = "wal_anti_latin_alliance"
+                value = 75
+            }
+        }
+        
+        add_casus_belli = {
+            target = LAE
+            type = cb_conquest
+            months = 240
+        }
+        
+        LAE = {
+            add_opinion = {
+                who = ROOT
+                modifier = "wal_latin_hostility"
+            }
+        }
+    }
+    
+    option = {
+        name = wal_events.6.b # Reject - We are the true successors
+        ai_chance = { factor = 30 }
+        
+        add_prestige = 10
+        add_legitimacy = 5
+        
+        A52 = {
+            add_opinion = {
+                who = ROOT
+                modifier = "wal_nicaean_rivalry"
+            }
+        }
+    }
+    
+    option = {
+        name = wal_events.6.c # Propose joint rule of restored Empire
+        ai_chance = { factor = 20 }
+        
+        trigger = {
+            diplomatic_reputation = 3
+            prestige = 25
+        }
+        
+        A52 = {
+            country_event = { id = wal_events.7 days = 30 }
+        }
+    }
+}
+
+# Nicaean Response to Joint Rule Proposal
+country_event = {
+    id = wal_events.7
+    title = wal_events.7.t
+    desc = wal_events.7.d
+    picture = DIPLOMACY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = wal_events.7.a # Accept the proposal
+        ai_chance = { 
+            factor = 30
+            modifier = {
+                factor = 2
+                NOT = {
+                    total_development = FROM
+                }
+            }
+            modifier = {
+                factor = 0.5
+                army_size = FROM
+            }
+        }
+        
+        FROM = {
+            country_event = { id = wal_events.8 days = 10 }
+        }
+    }
+    
+    option = {
+        name = wal_events.7.b # Reject - Nicaea is the sole heir
+        ai_chance = { factor = 70 }
+        
+        FROM = {
+            add_opinion = {
+                who = ROOT
+                modifier = "wal_nicaean_rivalry"
+            }
+        }
+        
+        add_prestige = 10
+    }
+}
+
+# Joint Empire Formation Event
+country_event = {
+    id = wal_events.8
+    title = wal_events.8.t
+    desc = wal_events.8.d
+    picture = GOOD_WITH_MONARCH_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = wal_events.8.a # Form the Dual Empire
+        
+        add_prestige = 50
+        add_legitimacy = 25
+        
+        inherit = A52
+        
+        add_government_reform = dual_monarchy_reform
+        
+        add_country_modifier = {
+            name = "wal_dual_empire"
+            duration = -1
+        }
+        
+        override_country_name = "DACIAN_NICAEAN_EMPIRE"
+        
+        every_country = {
+            limit = {
+                religion = united_christianity
+                NOT = { tag = ROOT }
+            }
+            add_opinion = {
+                who = ROOT
+                modifier = "wal_restored_empire"
+                value = 50
+            }
+        }
+    }
+}
+
+# Bulgarian Recognition
+country_event = {
+    id = wal_events.9
+    title = wal_events.9.t
+    desc = wal_events.9.d
+    picture = DIPLOMACY_eventPicture
+    
+    trigger = {
+        tag = WAL
+        exists = BUL
+        army_tradition = 60
+        prestige = 40
+        NOT = { war_with = BUL }
+        NOT = { has_country_flag = wal_bulgarian_recognition }
+    }
+    
+    mean_time_to_happen = {
+        months = 48
+        
+        modifier = {
+            factor = 0.8
+            has_won_war_against = {
+                who = BUL
+            }
+        }
+        
+        modifier = {
+            factor = 0.7
+            army_size = BUL
+        }
+    }
+    
+    immediate = {
+        set_country_flag = wal_bulgarian_recognition
+    }
+    
+    option = {
+        name = wal_events.9.a # Seek formal recognition as equals
+        ai_chance = { factor = 60 }
+        
+        BUL = {
+            country_event = { id = wal_events.10 days = 30 }
+        }
+    }
+    
+    option = {
+        name = wal_events.9.b # We need no barbarian recognition
+        ai_chance = { factor = 40 }
+        
+        add_prestige = 5
+        add_army_tradition = 5
+        
+        BUL = {
+            add_opinion = {
+                who = ROOT
+                modifier = "wal_upstart_empire"
+            }
+        }
+    }
+}
+
+# Bulgarian Response
+country_event = {
+    id = wal_events.10
+    title = wal_events.10.t
+    desc = wal_events.10.d
+    picture = DIPLOMACY_eventPicture
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = wal_events.10.a # Recognize the Dacian strength
+        ai_chance = { 
+            factor = 40
+            modifier = {
+                factor = 1.5
+                FROM = {
+                    army_size = ROOT
+                }
+            }
+            modifier = {
+                factor = 1.5
+                FROM = {
+                    army_tradition = 60
+                }
+            }
+        }
+        
+        FROM = {
+            add_opinion = {
+                who = ROOT
+                modifier = "wal_bulgar_respect"
+            }
+        }
+        
+        add_opinion = {
+            who = FROM
+            modifier = "wal_bulgar_respect"
+        }
+        
+        add_prestige = 10
+    }
+    
+    option = {
+        name = wal_events.10.b # These refugees dare claim equality?
+        ai_chance = { factor = 60 }
+        
+        FROM = {
+            add_opinion = {
+                who = ROOT
+                modifier = "wal_upstart_empire"
+            }
+        }
+        
+        add_casus_belli = {
+            target = FROM
+            type = cb_humiliate
+            months = 120
+        }
+    }
+}
