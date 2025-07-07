@@ -46,7 +46,7 @@ satrapia_monarchy = {
 	
 	trigger = {
 		government = monarchy
-		primary_culture = bactrian_greek
+		culture = bactrian_greek
 	}
 }
 
@@ -468,7 +468,7 @@ assyrian_monarchy = {
 	trigger = {
 		government = monarchy
 		OR = {
-			primary_culture = assyrian
+			culture = assyrian
 			tag = A78
 		}
 	}
@@ -627,5 +627,505 @@ phoenician_thalassocracy = {
 		1 = SHIP_GIRL
 		2 = NAVIGATOR_HEIR_fem
 		3 = CROWN_ADMIRAL_fem
+	}
+}
+
+
+jewish_monarchy = {
+	trigger = {
+		religion = jewish
+		OR = {
+			government = monarchy
+
+		}
+	}
+	
+	rank = {
+		1 = DUCHY
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = NASI
+		2 = MELECH
+		3 = MELECH_GADOL
+	}
+
+	ruler_female = {
+		1 = NASI_fem
+		2 = MALKA
+		3 = MALKA_GDOLA
+	}
+	
+	consort_male = {
+		1 = CONSORT_COHEN
+		2 = PRINCE_COHEN
+		3 = IMPERIAL_KOHEN
+	}
+
+	consort_female = {
+		1 = GEVERET
+		2 = QUEEN_CONSORT
+		3 = IMPERIAL_CONSORT
+	}
+
+	heir_male = {
+		1 = BEN_NASI
+		2 = CROWN_PRINCE
+		3 = HEIR_OF_DAVID
+	}
+
+	heir_female = {
+		1 = BAT_NASI
+		2 = CROWN_PRINCESS
+		3 = HEIR_OF_DAVID_fem
+	}
+}
+
+# Republika żydowska / Oligarchia
+jewish_republic = {
+	trigger = {
+		religion = jewish
+		OR = {
+			government = republic
+
+		}
+	}
+	
+	rank = {
+		1 = DUCHY
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = ROSH_KAHAL
+		2 = ROSH_BEIT_DIN
+		3 = GAON_GADOL
+	}
+
+	ruler_female = {
+		1 = ROSH_KAHAL_fem
+		2 = ROSH_BEIT_DIN_fem
+		3 = GAON_GDOLA
+	}
+	
+	consort_male = {
+		1 = TALMID_CHACHAM
+		2 = SCHOLARLY_CONSORT
+		3 = LEARNED_CONSORT
+	}
+
+	consort_female = {
+		1 = ESHET_CHAYIL
+		2 = SCHOLARLY_CONSORT_fem
+		3 = LEARNED_CONSORT_fem
+	}
+
+	heir_male = {
+		1 = YOUNG_SCHOLAR
+		2 = HEIR_SCHOLAR
+		3 = CROWN_GAON
+	}
+
+	heir_female = {
+		1 = YOUNG_SCHOLAR_fem
+		2 = HEIR_SCHOLAR_fem
+		3 = CROWN_GAON_fem
+	}
+}
+
+# Teokracja żydowska
+jewish_theocracy = {
+	trigger = {
+		religion = jewish
+		OR = {
+			government = theocracy
+
+		}
+	}
+	
+	rank = {
+		1 = DUCHY
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = KOHEN_GADOL
+		2 = RAV_GADOL
+		3 = KOHEN_MELECH
+	}
+
+	ruler_female = {
+		1 = KOHEN_GADOL_fem
+		2 = RAV_GDOLA
+		3 = KOHEN_MALKA
+	}
+	
+	consort_male = {
+		1 = KOHEN_PARTNER
+		2 = PRIESTLY_CONSORT
+		3 = ROYAL_KOHEN
+	}
+
+	consort_female = {
+		1 = KOHEN_WIFE
+		2 = PRIESTLY_CONSORT_fem
+		3 = ROYAL_KOHEN_fem
+	}
+
+	heir_male = {
+		1 = YOUNG_KOHEN
+		2 = HEIR_PRIEST
+		3 = CROWN_KOHEN
+	}
+
+	heir_female = {
+		1 = YOUNG_KOHEN_fem
+		2 = HEIR_PRIEST_fem
+		3 = CROWN_KOHEN_fem
+	}
+}
+
+dacian_monarchy = {
+	trigger = {
+		OR = {
+			culture = romanian
+		}
+		government = monarchy
+	}
+	
+	rank = {
+		1 = DUCHY
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = TARABOSTES
+		2 = BASILEUS_DAC
+		3 = DECEBALUS_MAGNUS
+	}
+
+	ruler_female = {
+		1 = TARABOSTES_fem
+		2 = BASILISSA_DAC
+		3 = DECEBALUS_MAGNA
+	}
+	
+	consort_male = {
+		1 = NOBLE_WARRIOR
+		2 = PRINCE_DACIAN
+		3 = IMPERIAL_TARABOSTES
+	}
+
+	consort_female = {
+		1 = DACIAN_LADY
+		2 = QUEEN_CONSORT
+		3 = IMPERIAL_CONSORT
+	}
+
+	heir_male = {
+		1 = YOUNG_TARABOSTES
+		2 = PRINCE_HEIR
+		3 = HEIR_OF_DECEBALUS
+	}
+
+	heir_female = {
+		1 = YOUNG_TARABOSTES_fem
+		2 = PRINCESS_HEIR
+		3 = HEIR_OF_DECEBALUS_fem
+	}
+}
+occitan_monarchy = {
+	trigger = {
+		OR = {
+			tag = X07
+		}
+
+			government = monarchy
+		
+	}
+	
+	rank = {
+		1 = DUCHY
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = COMTE
+		2 = REI
+		3 = EMPERADOR
+	}
+
+	ruler_female = {
+		1 = COMTESSA
+		2 = REINA
+		3 = EMPERADRIS
+	}
+	
+	consort_male = {
+		1 = SENHOR_CONSORT
+		2 = PRINCE_CONSORT
+		3 = IMPERIAL_CONSORT
+	}
+
+	consort_female = {
+		1 = DOMPNA
+		2 = REINA_CONSORT
+		3 = IMPERIAL_CONSORT_fem
+	}
+
+	heir_male = {
+		1 = JOVE_COMTE
+		2 = PRINCEP
+		3 = HEIR_EMPERADOR
+	}
+
+	heir_female = {
+		1 = JOVE_COMTESSA
+		2 = PRINCESSA
+		3 = HEIR_EMPERADRIS
+	}
+}
+
+greek_egyptian_monarchy = {
+	trigger = {
+		OR = {
+			tag = A4R
+		}
+	}
+	
+	rank = {
+		1 = DUCHY
+		2 = KINGDOM
+		3 = EMPIRE
+	}
+
+	ruler_male = {
+		1 = SATRAP
+		2 = PHARAOH_PTOLEMY
+		3 = BASILEUS_AEGYPTOS
+	}
+
+	ruler_female = {
+		1 = SATRAP_fem
+		2 = PHARAOH_CLEOPATRA
+		3 = BASILISSA_AEGYPTOS
+	}
+	
+	consort_male = {
+		1 = PHILADELPHOS
+		2 = PRINCE_PTOLEMY
+		3 = IMPERIAL_PHARAOH
+	}
+
+	consort_female = {
+		1 = PHILADELPHIA
+		2 = QUEEN_CLEOPATRA
+		3 = IMPERIAL_PHARAOH_fem
+	}
+
+	heir_male = {
+		1 = YOUNG_PTOLEMY
+		2 = CROWN_PHARAOH
+		3 = HEIR_BASILEUS
+	}
+
+	heir_female = {
+		1 = YOUNG_CLEOPATRA
+		2 = CROWN_PHARAOH_fem
+		3 = HEIR_BASILISSA
+	}
+}
+chinese_monarchy_names = {
+	trigger = {
+		culture_group = east_asian
+		government = monarchy
+	}
+	
+	rank = {
+		1 = CHINA_PRINCIPALITY
+		2 = CELESTIAL_KINGDOM
+		3 = CELESTIAL_EMPIRE
+	}
+
+	ruler_male = {
+		1 = WANG
+		2 = HUANGDI
+		3 = TIANZI
+	}
+
+	ruler_female = {
+		1 = WANG_fem
+		2 = HUANGHOU
+		3 = TIANZI_fem
+	}
+	
+	consort_male = {
+		1 = PRINCE_CONSORT
+		2 = IMPERIAL_CONSORT
+		3 = DRAGON_CONSORT
+	}
+
+	consort_female = {
+		1 = FUREN
+		2 = GUIFEI
+		3 = HUANGHOU_CONSORT
+	}
+
+	heir_male = {
+		1 = WANG_ZI
+		2 = TAIZI
+		3 = HEIR_TIANZI
+	}
+
+	heir_female = {
+		1 = WANG_NV
+		2 = TAIZI_fem
+		3 = HEIR_TIANZI_fem
+	}
+}
+chinese_republic_names = {
+	trigger = {
+			culture_group = east_asian
+			government = republic
+	}
+	
+
+	ruler_male = {
+		1 = ZHIFU
+		2 = ZAIXIANG
+		3 = GRAND_CHANCELLOR
+	}
+
+	ruler_female = {
+		1 = ZHIFU_fem
+		2 = ZAIXIANG_fem
+		3 = GRAND_CHANCELLOR_fem
+	}
+	
+	consort_male = {
+		1 = SCHOLAR_CONSORT
+		2 = MANDARIN_CONSORT
+		3 = GRAND_SCHOLAR
+	}
+
+	consort_female = {
+		1 = SCHOLAR_CONSORT_fem
+		2 = MANDARIN_CONSORT_fem
+		3 = GRAND_SCHOLAR_fem
+	}
+
+	heir_male = {
+		1 = YOUNG_SCHOLAR
+		2 = HEIR_MANDARIN
+		3 = CROWN_CHANCELLOR
+	}
+
+	heir_female = {
+		1 = YOUNG_SCHOLAR_fem
+		2 = HEIR_MANDARIN_fem
+		3 = CROWN_CHANCELLOR_fem
+	}
+}
+spanish_monarchy_names = {
+	trigger = {
+		culture_group = iberian
+		government = monarchy
+	}
+	
+	rank = {
+		1 = SPANISH_PRINCIPALITY
+		2 = HISPANIC_KINGDOM
+		3 = HISPANIC_EMPIRE
+	}
+
+	ruler_male = {
+		1 = CONDE
+		2 = REY
+		3 = EMPERADOR
+	}
+
+	ruler_female = {
+		1 = CONDESA
+		2 = REINA
+		3 = EMPERATRIZ
+	}
+	
+	consort_male = {
+		1 = CONSORT_HIDALGO
+		2 = PRINCE_CONSORT
+		3 = IMPERIAL_CONSORT
+	}
+
+	consort_female = {
+		1 = DONA
+		2 = REINA_CONSORT
+		3 = IMPERIAL_CONSORT_fem
+	}
+
+	heir_male = {
+		1 = INFANTE
+		2 = PRINCIPE
+		3 = HEIR_EMPERADOR
+	}
+
+	heir_female = {
+		1 = INFANTA
+		2 = PRINCESA
+		3 = HEIR_EMPERATRIZ
+	}
+}
+
+druidic_monarchy = {
+	trigger = {
+		religion = catholic
+		government = monarchy
+	}
+	
+	rank = {
+		1 = TUATH
+		2 = RIOCHT_NA_GAEILGE
+		3 = ARD_RIOCHT_CEILTEACH
+	}
+
+	ruler_male = {
+		1 = RI_TUAITHE
+		2 = ARD_RI
+		3 = ARD_RI_CEILTEACH
+	}
+
+	ruler_female = {
+		1 = BANRION_TUAITHE
+		2 = ARD_BANRION
+		3 = ARD_BANRION_CEILTEACH
+	}
+	
+	consort_male = {
+		1 = DRUID_CONSORT
+		2 = SACRED_CONSORT
+		3 = ARCH_DRUID_CONSORT
+	}
+
+	consort_female = {
+		1 = BANDRUI
+		2 = SACRED_CONSORT_fem
+		3 = ARCH_DRUID_CONSORT_fem
+	}
+
+	heir_male = {
+		1 = MAC_RI
+		2 = TANIST
+		3 = HEIR_ARD_RI
+	}
+
+	heir_female = {
+		1 = INION_RI
+		2 = TANIST_fem
+		3 = HEIR_ARD_BANRION
 	}
 }
