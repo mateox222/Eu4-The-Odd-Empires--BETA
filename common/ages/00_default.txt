@@ -438,22 +438,8 @@ age_of_reformation = {
 	start = 6639
 	
 	can_start = {
-		OR = {
-			any_country = {
-				NOT = { culture_group = ROOT }
-				is_neighbor_of = ROOT
-				total_development = 50
-			}
-			any_country = {
-				OR = {
-					has_idea_group = diplomatic_ideas
-					has_idea_group = humanist_ideas
-					has_idea_group = administrative_ideas
-				}
-				total_development = 100
-			}
-		}
-		is_year = 6589
+		is_institution_enabled = renaissance
+
 	}
 	
 	religious_conflicts = yes
