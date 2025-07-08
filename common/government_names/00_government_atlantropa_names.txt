@@ -1083,7 +1083,7 @@ spanish_monarchy_names = {
 
 druidic_monarchy = {
 	trigger = {
-		religion = catholic
+		culture_group = gaelic
 		government = monarchy
 	}
 	
@@ -1128,4 +1128,282 @@ druidic_monarchy = {
 		2 = TANIST_fem
 		3 = HEIR_ARD_BANRION
 	}
+}
+
+aquitaine_gascon_monarchy = {
+    rank = {
+        1 = DUCHAT_GASCON
+        2 = REIAUME_GASCON
+        3 = EMPERI_GASCON
+    }
+
+    ruler_male = {
+        1 = DUC_GASCON
+        2 = REI_GASCON
+        3 = EMPERADOR_GASCON
+    }
+
+    ruler_female = {
+        1 = DUCHESSA_GASCONA
+        2 = REINA_GASCONA
+        3 = EMPERADRIZ_GASCONA
+    }
+
+    consort_male = {
+        1 = DUC_CONSORT
+        2 = REI_CONSORT
+        3 = EMPERADOR_CONSORT
+    }
+
+    consort_female = {
+        1 = DUCHESSA_CONSORTA
+        2 = REINA_CONSORTA
+        3 = EMPERADRIZ_CONSORTA
+    }
+
+    heir_male = {
+        1 = HEIR
+        2 = HEIR
+        3 = HEIR
+    }
+
+    heir_female = {
+        1 = HEIR_fem
+        2 = HEIR_fem
+        3 = HEIR_fem
+    }
+
+    trigger = {
+        government = monarchy
+        OR = {
+            culture_group = french
+        }
+       NOT = { 			tag = X07 }
+    }
+}
+
+aquitaine_gascon_republic = {
+    rank = {
+        1 = COMUNAUTAT_GASCONA
+        2 = REPUBLICA_GASCONA
+        3 = GRAN_REPUBLICA_GASCONA
+    }
+
+    ruler_male = {
+        1 = BAILE_GASCON
+        2 = CONSOL_GASCON
+        3 = GRAN_CONSOL_GASCON
+    }
+
+    ruler_female = {
+        1 = BAILA_GASCONA
+        2 = CONSOLESSA_GASCONA
+        3 = GRAN_CONSOLESSA_GASCONA
+    }
+
+    consort_male = {
+        1 = CONSORT
+        2 = CONSORT
+        3 = CONSORT
+    }
+
+    consort_female = {
+        1 = CONSORT
+        2 = CONSORT
+        3 = CONSORT
+    }
+
+    trigger = {
+        government = republic
+        OR = {
+            culture_group = french
+        }
+       NOT = { 			tag = X07 }
+}
+}
+
+
+polish_piast_monarchy = {
+    rank = {
+        1 = KSIESTWO
+        2 = KROLESTWO
+        3 = CESARSTWO_POLSKIE
+    }
+
+    ruler_male = {
+        1 = KSIAZE_PIASTOWSKI
+        2 = KROL_POLSKI
+        3 = CESARZ_LECHICKI
+    }
+
+    ruler_female = {
+        1 = KSIEZNA_PIASTOWSKA
+        2 = KROLOWA_POLSKA
+        3 = CESARZOWA_LECHISTANU
+    }
+
+    consort_male = {
+        1 = KSIAZE_MALZONEK
+        2 = KROL_MALZONEK
+        3 = CESARZ_MALZONEK
+    }
+
+    consort_female = {
+        1 = KSIEZNA_MALZONKA
+        2 = KROLOWA_MALZONKA
+        3 = CESARZOWA_MALZONKA
+    }
+
+    heir_male = {
+        1 = DZIEDZIC
+        2 = KROLEWICZ
+        3 = CESARZEWICZ
+    }
+
+    heir_female = {
+        1 = DZIEDZICZKA
+        2 = KROLEWNA
+        3 = CESARZEWNA
+    }
+
+    trigger = {
+        government = monarchy
+       culture_group = west_slavic
+	   NOT = {
+			tag = PLC}
+    }
+}
+
+polish_noble_republic = {
+    rank = {
+        1 = RZECZPOSPOLITA_SZLACHECKA
+        2 = WIELKA_RZECZPOSPOLITA
+        3 = NAJJASNIESZA_RZECZPOSPOLITA
+    }
+
+    ruler_male = {
+        1 = MARSZALEK_SEJMOWY
+        2 = HETMAN_WIELKI
+        3 = NAJJASNIEJSZY_MARSZALEK
+    }
+
+    ruler_female = {
+        1 = MARSZALKOWA_SEJMOWA
+        2 = HETMANKA_WIELKA
+        3 = NAJJASNIESZA_MARSZALKOWA
+    }
+
+    consort_male = {
+        1 = MALZONEK
+        2 = MALZONEK
+        3 = MALZONEK
+    }
+
+    consort_female = {
+        1 = MALZONKA
+        2 = MALZONKA
+        3 = MALZONKA
+    }
+
+    trigger = {
+        government = republic
+       culture_group = west_slavic
+    }
+}
+polish_piast_plc_monarchy = {
+    rank = {
+        1 = RZECZPOSPOLITA_SZLACHECKA
+        2 = WIELKA_RZECZPOSPOLITA
+        3 = NAJJASNIESZA_RZECZPOSPOLITA
+    }
+
+    ruler_male = {
+        1 = KSIAZE_PIASTOWSKI
+        2 = KROL_POLSKI
+        3 = CESARZ_LECHICKI
+    }
+
+    ruler_female = {
+        1 = KSIEZNA_PIASTOWSKA
+        2 = KROLOWA_POLSKA
+        3 = CESARZOWA_LECHISTANU
+    }
+
+    consort_male = {
+        1 = KSIAZE_MALZONEK
+        2 = KROL_MALZONEK
+        3 = CESARZ_MALZONEK
+    }
+
+    consort_female = {
+        1 = KSIEZNA_MALZONKA
+        2 = KROLOWA_MALZONKA
+        3 = CESARZOWA_MALZONKA
+    }
+
+    heir_male = {
+        1 = DZIEDZIC
+        2 = KROLEWICZ
+        3 = CESARZEWICZ
+    }
+
+    heir_female = {
+        1 = DZIEDZICZKA
+        2 = KROLEWNA
+        3 = CESARZEWNA
+    }
+
+    trigger = {
+		goverment = monarchy
+       tag = PLC
+    }
+}
+italian_renaissance_monarchy = {
+    rank = {
+        1 = PRINCIPATO
+        2 = REGNO
+        3 = IMPERO_ITALIANO
+    }
+
+    ruler_male = {
+        1 = PRINCIPE_RINASCIMENTALE
+        2 = RE_ITALIANO
+        3 = IMPERATORE_ITALIANO
+    }
+
+    ruler_female = {
+        1 = PRINCIPESSA_RINASCIMENTALE
+        2 = REGINA_ITALIANA
+        3 = IMPERATRICE_ITALIANA
+    }
+
+    consort_male = {
+        1 = PRINCIPE_CONSORTE
+        2 = RE_CONSORTE
+        3 = IMPERATORE_CONSORTE
+    }
+
+    consort_female = {
+        1 = PRINCIPESSA_CONSORTE
+        2 = REGINA_CONSORTE
+        3 = IMPERATRICE_CONSORTE
+    }
+
+    heir_male = {
+        1 = EREDE
+        2 = PRINCIPE_EREDITARIO
+        3 = PRINCIPE_IMPERIALE
+    }
+
+    heir_female = {
+        1 = EREDE_DONNA
+        2 = PRINCIPESSA_EREDITARIA
+        3 = PRINCIPESSA_IMPERIALE
+    }
+
+    trigger = {
+        government = monarchy
+        culture_group = latin
+  
+    }
 }
