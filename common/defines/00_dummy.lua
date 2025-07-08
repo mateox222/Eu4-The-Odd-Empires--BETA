@@ -1298,14 +1298,14 @@ NDefines = {
 		GARRISON_SIZE = 500, 							-- GARRISON_SIZE
 		SIEGE_FORCE_NEEDED_MULTIPLIER = 3,				-- x times garrison to be able to siege.
 		MAX_BREACH = 3,
-		SIEGE_GARRISON_SURRENDER = 200,					-- A siege ends when there is less than 100 defenders left.
+		SIEGE_GARRISON_SURRENDER = 50,					-- A siege ends when there is less than 100 defenders left.
 		ASSAULT_WIDTH_LIMIT = 5,						-- how many times the garrison size that can effectively assault at the same time.
 		ASSAULT_ATTACKER_LOSS = 1.0, 					-- MDEF_ASSAULT_ATTACKER_LOSS = 10,
 		ASSAULT_DEFENDER_LOSS = 0.05, 					-- _MDEF_ASSAULT_DEFENDER_LOSS = 10,
 		ASSAULT_DICE_MODIFIER = 5, 						-- _MDEF_ASSAULT_DICE_MODIFIER_
 		INF_REGIMENT_MANPOWER_COST = 1.0, 				-- 1 = 1000 men in cost.
 		CAV_REGIMENT_MANPOWER_COST = 1.0, 				-- 1 = 1000 men in cost.
-		ART_REGIMENT_MANPOWER_COST = 0.5, 				-- 1 = 1000 men in cost.
+		ART_REGIMENT_MANPOWER_COST = 1.0, 				-- 1 = 1000 men in cost.
 		HEAVY_SHIP_SAILORS_COST = 200,					-- 1 = 1 men in cost.
 		LIGHT_SHIP_SAILORS_COST = 50,					-- 1 = 1 men in cost.
 		GALLEY_SHIP_SAILORS_COST = 50,					-- 1 = 1 men in cost.
@@ -1324,7 +1324,7 @@ NDefines = {
 
 		INFANTRY_SPEED = 0.7, 							-- _MDEF_INFANTRY_SPEED = 10,
 		CAVALRY_SPEED = 1, 							-- _MDEF_CAVALRY_SPEED = 10,
-		ARTILLERY_SPEED = 0.7, 							-- _MDEF_ARTILLERY_SPEED = 10,
+		ARTILLERY_SPEED = 0.5, 							-- _MDEF_ARTILLERY_SPEED = 10,
 
 		INFANTRY_COST = 10.0, 							-- _MDEF_INFANTRY_COST = 10,
 		CAVALRY_COST = 25.0, 							-- _MDEF_CAVALRY_COST = 10,

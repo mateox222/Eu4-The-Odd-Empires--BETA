@@ -35,11 +35,7 @@ extort_tribute = {
         }
         
         # Musimy być silniejsi militarnie
-	
-army_strength = {
-	who = FROM
-	value = 1.25
-}
+ 
         
         # Nie można wobec Great Powers jeśli sami nie jesteśmy
         OR = {
@@ -63,12 +59,7 @@ army_strength = {
                 who = FROM
                 value = -25
             }
-            FROM = {
-                has_opinion_modifier = {
-                    modifier = intimidated
-                    who = ROOT
-                }
-            }
+        
         }
     }
     
@@ -193,13 +184,7 @@ army_strength = {
         
         # Krótszy truce za odmowę (6 miesięcy)
         add_truce_with = FROM
-        FROM = {
-            add_country_modifier = {
-                name = short_truce_timer
-                duration = 180
-                hidden = yes
-            }
-        }
+  
     }
     
     # AI będzie bardziej skłonne zaakceptować w zależności od sytuacji
@@ -255,10 +240,7 @@ army_strength = {
         add_entry = {
             name = AI_EXTORTION_MILITARY_WEAKNESS
             
-army_strength = {
-	who = FROM
-	value = 0.5
-}
+ 
             
             export_to_variable = {
                 variable_name = ai_value
@@ -325,10 +307,7 @@ army_strength = {
                             any_neighbor_province = {
                         owned_by = FROM
                     }
-                army_strength = {
-                    who = ROOT
-                    value = 1.5
-                }
+        army_size = FROM
                    NOT = { years_of_income = 1 }
             }
 }

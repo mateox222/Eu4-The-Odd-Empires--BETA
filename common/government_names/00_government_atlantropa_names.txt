@@ -1354,7 +1354,7 @@ polish_piast_plc_monarchy = {
     }
 
     trigger = {
-		goverment = monarchy
+		 government = monarchy
        tag = PLC
     }
 }
@@ -1405,5 +1405,58 @@ italian_renaissance_monarchy = {
         government = monarchy
         culture_group = latin
   
+    }
+}
+
+aztec_triple_alliance = {
+    rank = {
+        1 = ALTEPETL
+        2 = HUEY_ALTEPETL
+        3 = EXCAN_TLATOLOYAN
+    }
+
+    ruler_male = {
+        1 = TLATOANI
+        2 = HUEY_TLATOANI
+        3 = HUEY_TLATOANI_MEXICA
+    }
+
+    ruler_female = {
+        1 = CIHUATLATOANI
+        2 = HUEY_CIHUATLATOANI
+        3 = HUEY_CIHUATLATOANI_MEXICA
+    }
+
+    consort_male = {
+        1 = TLACATECCATL
+        2 = TLACOCHCALCATL
+        3 = CIHUACOATL
+    }
+
+    consort_female = {
+        1 = CIHUATLACATECCATL
+        2 = CIHUATLACOCHCALCATL
+        3 = CIHUACOATL_ITZPAPALOTL
+    }
+
+    heir_male = {
+        1 = PILLI
+        2 = TLACATECUHTLI
+        3 = TLACATECUHTLI_TEUCTLI
+    }
+
+    heir_female = {
+        1 = CIHUAPILLI
+        2 = CIHUATLACATECUHTLI
+        3 = CIHUATLACATECUHTLI_TEUCTLI
+    }
+
+    trigger = {
+        government = monarchy
+        OR = {
+            religion = nahuatl
+           culture_group = central_american
+ 
+        }
     }
 }
