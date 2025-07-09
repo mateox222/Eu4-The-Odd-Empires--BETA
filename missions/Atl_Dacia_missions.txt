@@ -192,8 +192,8 @@ WAL_expansion_missions = {
 		provinces_to_highlight = {
 			OR = {
 				region = balkan_region
-				area = southern_transylvania_area
-				area = northern_transylvania_area
+ 
+ 
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
 		}
@@ -203,8 +203,8 @@ WAL_expansion_missions = {
 				value = 15
 				OR = {
 					region = balkan_region
-					area = southern_transylvania_area
-					area = northern_transylvania_area
+ 
+ 
 				}
 			}
 		}
@@ -337,10 +337,7 @@ WAL_economic_missions = {
 						value = 100
 					}
 				}
-				any_owned_province = {
-					culture = greek
-					happiness = 5
-				}
+ 
 				advisor = theologian
 			}
 		}
@@ -350,7 +347,7 @@ WAL_economic_missions = {
 				name = "wal_protector_of_christians"
 				duration = 7300
 			}
-			add_diplomatic_reputation = 1
+ 
 			random_owned_province = {
 				limit = { culture = greek } 
 				add_province_modifier = {

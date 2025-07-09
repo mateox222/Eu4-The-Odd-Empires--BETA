@@ -1427,7 +1427,7 @@ NDefines = {
 		SELECT_BUILD_PROVINCE_WEIGHT_DISTANCE = 0.7,
 		SELECT_BUILD_PROVINCE_WEIGHT_TIME = 50.0,
 		ADMIRAL_BLOCKADE_BONUS_PER_SIEGE_PIP = 0.1,
-		NAVAL_TARGET_SELECT_ITERATIONS = 12,   		-- ( Was positioning * 20, 12 would represent old positioning = 0.6)
+		NAVAL_TARGET_SELECT_ITERATIONS = 8,   		-- ( Was positioning * 20, 12 would represent old positioning = 0.6)
 		NAVAL_BASE_ENGAGEMENT_WIDTH = 5,   		-- Number of ships that can fire per round
 		HEAVY_SHIP_COMBAT_WIDTH = 3,
 		LIGHT_SHIP_COMBAT_WIDTH = 1,
@@ -1861,7 +1861,7 @@ NDefines = {
 		PEACE_TERMS_PROVINCE_CORE_MULT = 3.0, -- AI desire for a province is multiplied by this if it has a core on it
 		PEACE_TERMS_PROVINCE_WARGOAL_MULT = 2.0, -- AI desire for a province is multiplied by this if it is the wargoal
 		PEACE_TERMS_PROVINCE_CLAIM_MULT = 2.0, -- AI desire for a province is multiplied by this if it has a claim on it
-		PEACE_TERMS_PROVINCE_NOT_CULTURE_MULT = 0.75, -- AI desire for a province is multiplied by this if it is not the same culture
+		PEACE_TERMS_PROVINCE_NOT_CULTURE_MULT = 0.5, -- AI desire for a province is multiplied by this if it is not the same culture
 		PEACE_TERMS_PROVINCE_VASSAL_MULT = 0.75, -- AI desire for a province is multiplied by this if it would go to their vassal instead of themselves
 		PEACE_TERMS_PROVINCE_REAL_ADJACENT_MULT = 1.5, -- AI desire for a province is increased by this multiplier for each owned adjacent province
 		PEACE_TERMS_PROVINCE_NOT_ADJACENT_MULT = 0.1, -- AI desire for a province is multiplied by this if it is not adjacent at all (including vassals and other provinces being taken in peace)
@@ -2052,7 +2052,7 @@ NDefines = {
 		DIPLOMATIC_ACTION_BUILD_SPY_NETWORK_RIVAL_FACTOR = 50, -- AI scoring to build spy network in neighboring rivals, or overlord if disloyal subject.
 		AI_TOTAL_DEV_CULTURE_MULTIPLIER = 2,				-- Multiplier for how much the AI values having much development in accepted cultures.
 		AI_PROPORTION_OF_DEV_CULTURE_MULTIPLIER = 50,		-- Multiplier for how much the AI wants to convert brother cultures in terms of percentage of the nation. Essentially we compare the total dev of the non-promoted culture * AI_TOTAL_DEV_CULTURE_MULTIPLIER with the proportion of dev of the country * AI_PROPORTION_OF_DEV_CULTURE_MULTIPLIER and choose the larger of the two as our desire to add an accepted culture.
-		AI_BROTHER_CULTURE_MULTIPLIER = 0.75,					-- How much multiplier for how much the AI wants to convert brother cultures (there's less penalty on them not being the same culture because they're at least close).
+		AI_BROTHER_CULTURE_MULTIPLIER = 1,					-- How much multiplier for how much the AI wants to convert brother cultures (there's less penalty on them not being the same culture because they're at least close).
 		DIPLOMATIC_ACTION_INFILTRATE_BASE_FACTOR = 25, -- AI infiltrate administration base scoring
 		DIPLOMATIC_ACTION_INFILTRATE_POWER_FACTOR = 5, -- AI base scoring for infiltrate administration is multiplied by at most this proportion of relative military strength
 		DIPLOMATIC_ACTION_INFILTRATE_RIVAL_FACTOR = 25, -- AI scoring for infiltrate administration is increased by this if they are rivals
@@ -2068,7 +2068,7 @@ NDefines = {
 		GUARANTEE_DESIRE_TOO_MANY_RELATIONS = -50,				-- AI desire for guaranteeing when it has or will get too many relations. Multiplies with number of relations above limit.
 
 		-- AI parameters for not considering diplomacy with all other countries every day (for performance)
-		FOREIGN_MINISTER_IGNORE_DISTANCE_BASE = 8,
+		FOREIGN_MINISTER_IGNORE_DISTANCE_BASE = 12,
 		FOREIGN_MINISTER_BASE_PROVINCE_COUNT = 2,
 
 		DIPLOMATIC_ACTION_CURRY_FAVORS_DEVELOPMENT_FACTOR = 0.2,

@@ -108,7 +108,7 @@ gnostic_franks_missions_2 = {
 		position = 1
 		provinces_to_highlight = {
 			OR = {
-				area = baden_area
+ 
 				area = upper_rhineland_area
 			}
 			NOT = { owned_by = ROOT } 
@@ -118,7 +118,7 @@ gnostic_franks_missions_2 = {
 			army_size_percentage = 0.9
 			num_of_owned_provinces_with = {
 				OR = {
-					area = baden_area
+ 
 					area = upper_rhineland_area
 				}
 				value = 4
@@ -356,11 +356,7 @@ gnostic_franks_missions_4 = {
 		position = 2
 		required_missions = { frk_sacred_commerce } 
 		provinces_to_highlight = {
-			OR = {
-				area = upper_rhineland_area
-				area = baden_area
-				area = lower_rhineland_area
-			}
+ 
 			NOT = { owned_by = ROOT } 
 			OR = {
 				has_port = yes
@@ -384,7 +380,7 @@ gnostic_franks_missions_4 = {
 				name = "rhine_trade_network"
 				duration = 9125
 			}
-			add_merchants = 1
+ 
 			random_owned_province = {
 				limit = {
 					has_port = yes
@@ -406,7 +402,7 @@ gnostic_franks_missions_4 = {
 		}
 
 		trigger = {
-			income = 25
+ 
 			num_of_owned_provinces_with = {
 				has_building = workshop
 				value = 4
