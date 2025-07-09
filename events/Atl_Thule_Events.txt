@@ -1,0 +1,251 @@
+namespace = thule_republic
+
+# Senate Assembly Events (1-4)
+
+# Productive Senate Session
+country_event = {
+	id = thule_republic.1
+	title = thule_republic.1.t
+	desc = thule_republic.1.d
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = thule_republic.1.a
+		add_stability = 1
+		add_republican_tradition = 5
+		add_country_modifier = {
+			name = "productive_senate_session"
+			duration = 730
+		}
+	}
+}
+
+# Fiscal Reforms
+country_event = {
+	id = thule_republic.2
+	title = thule_republic.2.t
+	desc = thule_republic.2.d
+	picture = MERCHANTS_TALKING_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = thule_republic.2.a
+		add_years_of_income = 0.25
+		add_country_modifier = {
+			name = "fiscal_reforms_enacted"
+			duration = 1095
+		}
+	}
+}
+
+# Diplomatic Consensus
+country_event = {
+	id = thule_republic.3
+	title = thule_republic.3.t
+	desc = thule_republic.3.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = thule_republic.3.a
+		add_prestige = 10
+		add_country_modifier = {
+			name = "diplomatic_consensus"
+			duration = 1095
+		}
+	}
+}
+
+# Senate Deadlock
+country_event = {
+	id = thule_republic.4
+	title = thule_republic.4.t
+	desc = thule_republic.4.d
+	picture = ANGRY_MOB_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = thule_republic.4.a
+		add_stability = -1
+		add_country_modifier = {
+			name = "senate_deadlock"
+			duration = 365
+		}
+	}
+}
+
+# Proconsul Events (5-8)
+
+# Capable Proconsul (Military)
+country_event = {
+	id = thule_republic.5
+	title = thule_republic.5.t
+	desc = thule_republic.5.d
+	picture = MILITARY_CAMP_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = thule_republic.5.a
+		add_army_tradition = 10
+		add_country_modifier = {
+			name = "capable_proconsul"
+			duration = 1825
+		}
+	}
+}
+
+# Efficient Proconsul (Administrative)
+country_event = {
+	id = thule_republic.6
+	title = thule_republic.6.t
+	desc = thule_republic.6.d
+	picture = ADVISOR_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = thule_republic.6.a
+		add_country_modifier = {
+			name = "efficient_proconsul"
+			duration = 1825
+		}
+	}
+}
+
+# Popular Proconsul (Social)
+country_event = {
+	id = thule_republic.7
+	title = thule_republic.7.t
+	desc = thule_republic.7.d
+	picture = FEAST_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = thule_republic.7.a
+		add_country_modifier = {
+			name = "popular_proconsul"
+			duration = 1825
+		}
+	}
+}
+
+# Ambitious Proconsul (Risky)
+country_event = {
+	id = thule_republic.8
+	title = thule_republic.8.t
+	desc = thule_republic.8.d
+	picture = IMPORTANT_STATUE_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = thule_republic.8.a
+		add_country_modifier = {
+			name = "ambitious_proconsul"
+			duration = 1825
+		}
+	}
+}
+
+# Census Province Events (9-12)
+
+# Tax Efficiency Discovery
+province_event = {
+	id = thule_republic.9
+	title = thule_republic.9.t
+	desc = thule_republic.9.d
+	picture = MERCHANTS_TALKING_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = thule_republic.9.a
+		add_base_tax = 1
+		add_province_modifier = {
+			name = "census_tax_efficiency"
+			duration = 3650
+		}
+	}
+}
+
+# Trade Records Discovery
+province_event = {
+	id = thule_republic.10
+	title = thule_republic.10.t
+	desc = thule_republic.10.d
+	picture = TRADEGOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = thule_republic.10.a
+		add_base_production = 1
+		add_province_modifier = {
+			name = "census_trade_records"
+			duration = 3650
+		}
+	}
+}
+
+# Population Growth Discovery
+province_event = {
+	id = thule_republic.11
+	title = thule_republic.11.t
+	desc = thule_republic.11.d
+	picture = FARMING_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = thule_republic.11.a
+		add_base_manpower = 1
+		add_province_modifier = {
+			name = "census_population_growth"
+			duration = 3650
+		}
+	}
+}
+
+# Census Resistance
+province_event = {
+	id = thule_republic.12
+	title = thule_republic.12.t
+	desc = thule_republic.12.d
+	picture = ANGRY_MOB_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = thule_republic.12.a
+		add_local_unrest = 2
+		add_province_modifier = {
+			name = "census_resistance"
+			duration = 730
+		}
+	}
+}
+
+# Census Completion (Country Event)
+country_event = {
+	id = thule_republic.13
+	title = thule_republic.13.t
+	desc = thule_republic.13.d
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = thule_republic.13.a
+		add_country_modifier = {
+			name = "completed_lustrum_census"
+			duration = 1825
+		}
+	}
+}
