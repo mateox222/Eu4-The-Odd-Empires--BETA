@@ -919,6 +919,13 @@ AZT_normandia1 = {
 			}
 			add_permanent_claim = ROOT
 		}
+		aquitania_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
 		add_prestige = 10
 				add_government_power = {
 				mechanic_type = atlantropa_aztec_mechanic
