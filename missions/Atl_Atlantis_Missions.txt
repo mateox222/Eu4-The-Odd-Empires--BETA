@@ -14,7 +14,6 @@ atlantis_missions_1 = {
 		}
 
 		trigger = {
-			
 			adm_tech = 8
 			has_advisor = philosopher
 		}
@@ -101,7 +100,7 @@ atlantis_missions_1 = {
 		}
 
 		effect = {
-            add_dip_power = 150
+			add_dip_power = 150
 			custom_tooltip = divine_wisdom_achieved_tt
 			add_country_modifier = {
 				name = "divine_philosophers"
@@ -220,15 +219,15 @@ atlantis_missions_2 = {
 		provinces_to_highlight = {  } 
 
 		trigger = {
-            OR = {
-                AND = {
-				adm_tech = 15
-				dip_tech = 15
-				mil_tech = 15
-                }
+			OR = {
+				AND = {
+					adm_tech = 15
+					dip_tech = 15
+					mil_tech = 15
+				}
 				innovativeness = 60
 			}
-        }
+		}
 
 		effect = {
 			custom_tooltip = technological_leader_tt
@@ -250,9 +249,9 @@ atlantis_missions_2 = {
 
 		trigger = {
 			stability = 3
-            adm_power = 250
-            dip_power = 250
-            mil_power = 250
+			adm_power = 250
+			dip_power = 250
+			mil_power = 250
 		}
 
 		effect = {
@@ -279,7 +278,7 @@ atlantis_missions_2 = {
 		trigger = {
 			has_institution = renaissance
 			has_institution = printing_press
-            has_institution = enlightenment
+			has_institution = enlightenment
 		}
 
 		effect = {
@@ -423,6 +422,51 @@ atlantis_missions_3 = {
 			add_prestige = 50
 		}
 	}
+
+	the_return_complete = {
+		icon = a_roman_empire
+		position = 6
+		required_missions = {
+			atl_conquer_iberia
+			military_supremacy
+			ocean_spanning_empire
+			atlantean_renaissance
+			export_philosophy
+		}
+		provinces_to_highlight = {
+			OR = {
+				region = aquitania_region
+				region = british_isles_region
+				region = low_countries_region
+			}
+			NOT = { owned_by = ROOT } 
+		}
+
+		trigger = {
+			OR = {
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 20
+					region = aquitania_region
+				}
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 15
+					region = british_isles_region
+				}
+			}
+			total_development = 1500
+		}
+
+		effect = {
+			custom_tooltip = atlantean_return_tt
+			add_country_modifier = {
+				name = "the_return_of_atlantis"
+				duration = -1
+			}
+			add_prestige = 100
+			override_country_name = "ATLANTIS_EMPIRE"
+			set_government_rank = 3
+		}
+	}
 }
 atlantis_missions_4 = {
 	slot = 4
@@ -504,13 +548,13 @@ atlantis_missions_4 = {
 		provinces_to_highlight = {  } 
 
 		trigger = {
-            OR = {
-			calc_true_if = {
-				all_owned_province = { fort_level = 2 } 
-				amount = 8
+			OR = {
+				calc_true_if = {
+					all_owned_province = { fort_level = 2 } 
+					amount = 8
+				}
+				defensive_ideas = 4
 			}
-			defensive_ideas = 4
-            }
 		}
 
 		effect = {
@@ -575,7 +619,6 @@ atlantis_missions_5 = {
 				name = "atlantean_prophecy"
 				duration = 7300
 			}
-	
 		}
 	}
 
@@ -640,7 +683,6 @@ atlantis_missions_5 = {
 		trigger = {
 			navy_size = 50
 			num_of_heavy_ship = 30
-
 		}
 
 		effect = {
@@ -670,7 +712,7 @@ atlantis_missions_5 = {
 
 	atl_conquer_iberia = {
 		icon = atlantropa_chesziberian
-		position = 1
+		position = 5
 		required_missions = { terror_of_the_atlantic } 
 		provinces_to_highlight = {
 			region = iberia_region
@@ -697,45 +739,6 @@ atlantis_missions_5 = {
 					duration = -1
 				}
 			}
-		}
-	}
-
-	the_return_complete = {
-		icon = a_roman_empire
-		position = 1
-		required_missions = { atl_conquer_iberia } 
-		provinces_to_highlight = {
-			OR = {
-				region = aquitania_region
-				region = british_isles_region
-				region = low_countries_region
-			}
-			NOT = { owned_by = ROOT } 
-		}
-
-		trigger = {
-			OR = {
-				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-					value = 20
-					region = aquitania_region
-				}
-				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-					value = 15
-					region = british_isles_region
-				}
-			}
-			total_development = 1500
-		}
-
-		effect = {
-			custom_tooltip = atlantean_return_tt
-			add_country_modifier = {
-				name = "the_return_of_atlantis"
-				duration = -1
-			}
-			add_prestige = 100
-			override_country_name = ATLANTIS_EMPIRE
-			set_government_rank = 3
 		}
 	}
 }
