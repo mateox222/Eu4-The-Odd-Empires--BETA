@@ -821,14 +821,14 @@ northern_shipbuilding = {
 
 master_shipyard = {
 	local_ship_cost = -0.25
-	local_ship_recruit_speed = -0.30
+ 
 	local_sailors_modifier = 0.25
 }
 
 druidic_christian_synthesis = {
 	tolerance_heretic = 3
 	tolerance_heathen = 2
-	missionary_strength = 0.02
+ 
 	global_unrest = -1
 }
 
@@ -852,7 +852,7 @@ vault_of_secrets = {
 
 thulean_artisan_guilds = {
 	production_efficiency = 0.15
-	workshop_cost = -0.20
+ 
 	global_trade_goods_size_modifier = 0.10
 }
 
@@ -877,7 +877,7 @@ amber_mines = {
 hyperborean_navigation = {
 	range = 0.25
 	naval_attrition = -0.25
-	exploration_mission_range = 50
+ 
 }
 
 navigation_center = {
@@ -901,7 +901,7 @@ citizen_soldiers = {
 amphibious_masters = {
 	landing_penalty = -2
 	transport_cost = -0.25
-	marines_recruitment_speed = -0.50
+ 
 }
 
 naval_base = {
@@ -940,7 +940,7 @@ thulean_hegemony = {
 northern_passage_control = {
 	global_trade_power = 0.25
 	trade_range_modifier = 0.50
-	naval_tradition = 1
+	navy_tradition = 1
 	merchants = 1
 }
 
@@ -995,9 +995,9 @@ economic_recovery = {
 
 thulean_exploration = {
 	range = 0.20
-	colonial_range = 0.20
+ 
 	may_explore = yes
-	naval_tradition = 0.25
+	navy_tradition = 0.25
 }
 
 thulean_colonization = {
@@ -1105,7 +1105,7 @@ religious_upheaval = {
 	global_unrest = 5
 	stability_cost_modifier = 0.25
 	tolerance_own = -2
-	missionary_strength = -0.05
+ 
 }
 
 religious_conversion_unrest = {
@@ -1194,6 +1194,59 @@ northern_trade_league_leader = {
 # Expedition Modifiers
 hyperborean_expedition = {
 	range = 0.25
-	naval_tradition = 0.5
-	navy_tradition_from_battle = 0.25
+	navy_tradition = 0.5
+ 
+}
+new_thulean_cities = {
+	colony_development_boost = 2
+	colonial_type_change_cost_modifier = -0.50
+	global_colonial_growth = 5
+	colonist_placement_chance = 0.05
+}
+
+thulean_colonial_administration = {
+	local_governing_cost = -0.25
+	local_development_cost = -0.15
+	local_build_cost = -0.20
+	local_unrest = -1
+}
+
+thulean_colonial_empire = {
+	global_tariffs = 0.25
+	treasure_fleet_income = 0.20
+	reduced_liberty_desire_on_other_continent = 15
+	colonial_type_change_cost_modifier = -0.25
+}
+
+# Industrial Modifiers
+thulean_industry = {
+	production_efficiency = 0.15
+	global_trade_goods_size_modifier = 0.15
+ 
+}
+
+industrial_center = {
+	local_production_efficiency = 0.25
+	trade_goods_size = 1
+	allowed_num_of_manufactories = 1
+	local_build_cost = -0.15
+}
+
+# Maritime Modifiers
+thulean_maritime_tradition = {
+	naval_forcelimit_modifier = 0.25
+	ship_recruit_speed = -0.20
+	navy_tradition = 0.50
+	naval_maintenance_modifier = -0.10
+}
+
+developed_harbor = {
+	local_ship_cost = -0.15
+	local_sailors_modifier = 0.20
+	province_trade_power_value = 3
+	local_ship_repair = 0.15
+}
+thulean_great_library = {
+	idea_cost = -0.05
+	advisor_cost = -0.15
 }

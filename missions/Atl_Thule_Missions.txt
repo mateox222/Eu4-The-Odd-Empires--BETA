@@ -250,7 +250,7 @@ THL_missions_2 = {
 				workshop = 4
                 deep_mine = 4
 			}
-			production_income = 20
+ 
 			num_of_owned_provinces_with = {
 				has_building = workshop
 				development = 15
@@ -281,17 +281,14 @@ THL_missions_2 = {
 
 		trigger = {
 			num_of_merchants = 2
-			trade_income = 25
+ 
 			home_trade_node = {
 				trade_share = {
 					country = ROOT
 					share = 60
 				}
 			}
-			num_of_owned_provinces_with = {
-				trade_goods = amber
-				value = 2
-			}
+	 
 		}
 
 		effect = {
@@ -299,13 +296,7 @@ THL_missions_2 = {
 				name = "amber_road_masters"
 				duration = -1
 			}
-			every_owned_province = {
-				limit = { trade_goods = amber } 
-				add_province_modifier = {
-					name = "amber_mines"
-					duration = -1
-				}
-			}
+ 
 			add_mercantilism = 5
 		}
 	}
@@ -341,7 +332,7 @@ THL_missions_2 = {
 				}
 				value = 5
 			}
-			production_income = 30
+ 
 		}
 
 		effect = {
@@ -543,7 +534,7 @@ THL_missions_3 = {
 			is_empty = yes
 			is_city = no
 			has_discovered = ROOT
-            continet = north_america
+            continent = north_america
 		}
 
 		trigger = {
@@ -563,7 +554,7 @@ THL_missions_3 = {
 					duration = -1
 				}
 			}
-			add_colonist = 1
+ 
 		}
 	}
 
@@ -771,8 +762,8 @@ THL_missions_4 = {
 		trigger = {
 			navy_size = 40
 
-			heavy_ship = 10
-			light_ship = 15
+			num_of_heavy_ship = 10
+			num_of_light_ship = 15
 		}
 
 		effect = {

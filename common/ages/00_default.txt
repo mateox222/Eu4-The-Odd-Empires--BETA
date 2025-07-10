@@ -1,202 +1,241 @@
 medieval_age = {
-	start = 6489
+	start =  6489
 	religious_conflicts = yes
+	
 	can_start = {
 		always = yes
 	}
-	papacy = 1.2
+	
 	objectives = {
-		obj_state_monarchy = {
-			OR = {
-				NOT = { crown_land_share = 25 }
-				vassal = 5
-			}
-		}
 
-		obj_silkroad = {
+		
+		obj_castle_realm = {
+			num_of_owned_provinces_with = {
+				value = 8
+				has_building = fort_15th
+			}
+		}
+				obj_feudal_foundation = {
+				has_institution = urban_communes
+			all_owned_province = {
+				urban_communes = 80
+			}
+		}
+		
+		obj_divine_mandate = {
 			OR = {
-				454 = {
-					is_strongest_trade_power = ROOT
+				AND = {
+					religion = united_christianity
+					papal_influence = 75
 				}
-				707 = {
-					is_strongest_trade_power = ROOT
+				AND = {
+					religion = hussite
+					innovativeness = 10
 				}
-				4233 = {
-					is_strongest_trade_power = ROOT
-				}
-				466 = {
-					is_strongest_trade_power = ROOT
-				}
-				1322 = {
-					is_strongest_trade_power = ROOT
-				}
-				1320 = {
-					is_strongest_trade_power = ROOT
-				}
-				112 = {
-					is_strongest_trade_power = ROOT
+				AND = {
+					NOT = { religion = united_christianity }
+					NOT = { religion = hussite }
+					religious_unity = 0.9
 				}
 			}
 		}
 		
-		obj_castles = {
-			fort_15th = 10 
-		}
-		
-		obj_feudalism = {
-			has_institution = feudalism
-			all_state_province = {
-				feudalism = 100
+		obj_vassal_network = {
+			OR = {
+				num_of_subjects = 4
+				AND = {
+					personal_union = 2
+					num_of_subjects = 2
+				}
 			}
 		}
 		
-		obj_two_unions = {
-			allow = {
-				religion_group = christian
-			}
-			personal_union = 2
+		obj_trade_routes = {
+			num_of_centers_of_trade = 3
+
 		}
 		
-		obj_many_vassals = {
-			allow = {
-				NOT = { religion_group = christian }
-			}
-			vassal = 5
-		}		
-	
-		obj_cavalry_medieval = {
-			cavalry_fraction = 0.3
+		obj_knightly_host = {
+			army_tradition = 50
+			cavalry_fraction = 0.25
 		}
-	
-		obj_hre_member = {
-			is_part_of_hre = yes
+		
+		obj_territorial_expansion = {
+			grown_by_development = 100
 		}
-	}		
+		
+ 
+	}
 	
 	abilities = {
-		medieval_loyal_estate = {
+
+		ab_feudal_obligations = {
 			modifier = {
-				all_estate_loyalty_equilibrium = 0.10
+				vassal_income = 0.25
+				reduced_liberty_desire = 10
+				diplomatic_upkeep = 1
 			}
 			ai_will_do = {
-				factor = 10
+				factor = 15
+				modifier = {
+					factor = 2
+					num_of_subjects = 2
+				}
 			}
 		}
 		
-		ab_religiousmedieval_wars = {
+		ab_castle_fortifications = {
 			modifier = {
-				cb_on_religious_enemies = yes	
-				ae_impact = -0.05
-				warscore_cost_vs_other_religion = -0.15
+				fort_maintenance_modifier = -0.25
+				garrison_growth = 0.25
+				defensiveness = 0.15
 			}
 			ai_will_do = {
-				factor = 10
-			}			
+				factor = 12
+				modifier = {
+					factor = 2
+					num_of_owned_provinces_with = {
+						value = 5
+						has_building = fort_15th
+					}
+				}
+			}
 		}
 		
-		medieval_stability = {
+		ab_divine_right = {
 			modifier = {
-				stability_cost_modifier = -0.20
+				legitimacy = 1
+				stability_cost_modifier = -0.15
+				global_unrest = -1
 			}
 			ai_will_do = {
-				factor = 10
+				factor = 14
+				modifier = {
+					factor = 1.5
+					NOT = { stability = 1 }
+				}
 			}
 		}
 		
-		medieval_administration = {
+		ab_heavy_cavalry = {
 			modifier = {
-				all_power_cost = -0.03
+				cavalry_cost = -0.20
+				cavalry_power = 0.15
+				shock_damage = 0.10
 			}
 			ai_will_do = {
-				factor = 10
-			}	
+				factor = 13
+				modifier = {
+					factor = 2
+					cavalry_fraction = 0.20
+				}
+			}
 		}
 		
-		medieval_rellgion = {
+		ab_unified_church = {
+			allow = {
+				religion = united_christianity
+			}
 			modifier = {
 				global_missionary_strength = 0.02
+				tolerance_own = 2
+				church_loyalty_modifier = 0.10
+				papal_influence = 0.5
 			}
 			ai_will_do = {
-				factor = 10
+				factor = 11
+				modifier = {
+					factor = 2
+					religious_unity = 0.8
+				}
 			}
 		}
 		
-		ab_feudal_forts = {
+		ab_gnostic_enlightenment = {
+			allow = {
+				religion = hussite
+			}
 			modifier = {
-				fort_maintenance_modifier = -0.33
+				idea_cost = -0.08
+				technology_cost = -0.05
+	 
 			}
 			ai_will_do = {
-				factor = 10
+				factor = 14
+				modifier = {
+					factor = 1.5
+					innovativeness = 5
+				}
 			}
 		}
 		
-		ab_attack_bonus_in_capital_terrain = {
-			modifier = {
-				attack_bonus_in_capital_terrain = 1
-			}
-			ai_will_do = {
-				factor = 10
-			}
-		}
-		
-		ab_latintolerance = {
+		ab_ancient_wisdom = {
 			allow = {
 				OR = {
-					tag = KOJ
-					tag = LAE
-					tag = CYP
-					tag = A5R
-					tag = A57
+					culture_group = byzantine
+					technology_group = chinese
+					technology_group = indian
 				}
 			}
 			modifier = {
-				tolerance_heretic = 3
-				tolerance_heathen = 1	
+				idea_cost = -0.10
+				embracement_cost = -0.15
+				institution_spread_from_true_faith = 0.25
 			}
 			ai_will_do = {
-				factor = 100
+				factor = 16
 			}
 		}
 		
-		ab_byzantine_resentiment = {
-			allow = {
-				culture_group = byzantine
-			}
+		ab_merchant_guilds = {
 			modifier = {
-				ae_impact = -0.10
-				unjustified_demands = -0.10
-				claim_duration = 0.25
+				global_trade_power = 0.15
+				trade_efficiency = 0.10
+				burghers_loyalty_modifier = 0.10
 			}
 			ai_will_do = {
-				factor = 100
-			}
-		}
-		
-		ab_visigot_reduced_lib_desire = {
-			allow = {
-				OR = {
-					culture_group = east_slavic
-					culture_group = south_slavic
+				factor = 10
+				modifier = {
+					factor = 2
+					trade_income_percentage = 0.3
 				}
 			}
-			modifier = {
-				ae_impact = -0.15
-				unjustified_demands = -0.05
-			}
-			ai_will_do = {
-				factor = 100
-			}
 		}
 		
-		medieval_francia = {
-			allow = {
-				tag = FRA
-			}
+		ab_royal_domain = {
 			modifier = {
-				reduced_liberty_desire = 10
+			 
+				state_maintenance_modifier = -0.15
+				governing_capacity_modifier = 0.10
 			}
 			ai_will_do = {
-				factor = 100
+				factor = 12
+				modifier = {
+					factor = 1.5
+					NOT = { crown_land_share = 30 }
+				}
+			}
+		}
+				ab_cavalry_armies = {
+			modifier = {
+				cav_to_inf_ratio = 0.1
+			}
+			ai_will_do = {
+				factor = 10
+			}
+		}
+		ab_courtly_culture = {
+			modifier = {
+				diplomatic_reputation = 1
+				improve_relation_modifier = 0.20
+ 
+			}
+			ai_will_do = {
+				factor = 8
+				modifier = {
+					factor = 2
+					num_of_royal_marriages = 3
+				}
 			}
 		}
 	}
@@ -272,24 +311,24 @@ age_of_discovery = {
 				}
 			}
 		}
-		
-		obj_renaissance = {
-			has_institution = renaissance
+				obj_gunpowder_warfare = {
+			has_institution = gunpowder_warfare
 			all_state_province = {
-				renaissance = 100
+				gunpowder_warfare = 100
 			}
 		}
+
 		
 		obj_two_unions = {
 			allow = {
-				religion_group = christian
+				religion = united_christianity
 			}
 			personal_union = 2
 		}
 		
 		obj_many_vassals = {
 			allow = {
-				NOT = { religion_group = christian }
+				NOT = { religion = united_christianity }
 			}
 			vassal = 5
 		}		
@@ -316,7 +355,20 @@ age_of_discovery = {
 				factor = 10
 			}
 		}
-		
+						ab_oceanic_exploration = {
+			modifier = {
+				range = 0.50
+				colonist_placement_chance = 0.10
+				global_colonial_growth = 20
+			}
+			ai_will_do = {
+				factor = 14
+				modifier = {
+					factor = 2
+					num_of_colonists = 1
+				}
+			}
+		}
 		ab_justified_wars = {
 			modifier = {
 				ae_impact = -0.05
@@ -345,14 +397,7 @@ age_of_discovery = {
 			}	
 		}
 		
-		ab_cavalry_armies = {
-			modifier = {
-				cav_to_inf_ratio = 0.1
-			}
-			ai_will_do = {
-				factor = 10
-			}
-		}
+
 		
 		ab_colony_boost_development = {
 			modifier = {
@@ -376,61 +421,54 @@ age_of_discovery = {
 			}
 		}
 		
-		ab_ottoman_siege_ability = {
-			allow = {
-				tag = TUR
-			}
+				ab_mercantile_ventures = {
 			modifier = {
-				siege_ability = 0.20
+				trade_efficiency = 0.15
+ 
+				burghers_loyalty_modifier = 0.10
 			}
-			ai_will_do = {
-				factor = 100
+						ai_will_do = {
+				factor = 10
 			}
 		}
-		
-		ab_portugal_colonial_growth = {
-			allow = {
-				tag = POR
-			}
+
+		ab_cartography_advances = {
 			modifier = {
-				global_colonial_growth = 30
+				may_explore = yes
+
 			}
-			ai_will_do = {
-				factor = 100
+						ai_will_do = {
+				factor = 10
 			}
-		}
-		
-		ab_denmark_reduced_lib_desire = {
-			allow = {
-				tag = DAN
-			}
-			modifier = {
-				reduced_liberty_desire = 20
-			}
-			ai_will_do = {
-				factor = 100
-				modifier = {
-					factor = 0
-					NOT = {
-						any_subject_country = {
-							liberty_desire = 20
-						}
 					}
+	ab_gunpowder_armies = {
+			modifier = {
+				fire_damage = 0.10
+				artillery_cost = -0.15
+			}
+			ai_will_do = {
+				factor = 12
+				modifier = {
+					factor = 2
+					has_institution = gunpowder_warfare
 				}
 			}
 		}
-		
-		ab_venice_ship_trade = {
-			allow = {
-				tag = VEN
-			}
+			ab_diplomatic_revolution = {
 			modifier = {
-				global_ship_trade_power = 0.3
+
+				diplomatic_upkeep = 2
+
 			}
 			ai_will_do = {
-				factor = 100
+				factor = 8
+				modifier = {
+					factor = 2
+					num_of_allies = 3
+				}
 			}
-		}
+		}					
+
 	}
 }
 
@@ -473,10 +511,10 @@ age_of_reformation = {
 			colony = 5
 		}
 		
-		obj_force_converted = {
-			custom_trigger_tooltip = {
-				tooltip = obj_diplomatic_dominance_tooltip
-				has_country_flag = diplomatic_dominance
+		obj_renaissance = {
+			has_institution = renaissance
+			all_state_province = {
+				renaissance = 100
 			}
 		}
 		
@@ -578,54 +616,56 @@ age_of_reformation = {
 			}
 		}
 	
-		ab_spain_tercio = {
-			allow = {
-				tag = SPA
-			}
+		ab_military_revolution = {
 			modifier = {
-				shock_damage_received = -0.2
+				infantry_power = 0.10
+				cavalry_power = 0.10
 			}
 			ai_will_do = {
-				factor = 100
-			}
-		}
-		
-		ab_mughal_artillery = {
-			allow = {
-				tag = MUG
-			}
-			modifier = {
-				artillery_cost = -0.3
-			}
-			ai_will_do = {
-				factor = 100
-			}
-		}
-		
-		ab_polish_legitimacy = {
-			allow = {
-				OR = {
-					tag = PLC
-					tag = POL
+				factor = 13
+				modifier = {
+					factor = 2
+					army_professionalism = 0.4
 				}
 			}
+		}
+		
+		ab_war_economy = {
 			modifier = {
-				global_trade_goods_size_modifier = 0.2
+				war_taxes_cost_modifier = -0.50
+				land_maintenance_modifier = -0.10
 			}
 			ai_will_do = {
-				factor = 100
+				factor = 11
+				modifier = {
+					factor = 2
+					num_of_loans = 5
+				}
+			}
+		}
+		ab_star_fortresses = {
+			modifier = {
+				fort_maintenance_modifier = -0.25
+				defensiveness = 0.25
+				garrison_growth = 0.50
+				hostile_attrition = 1
+			}
+			ai_will_do = {
+				factor = 11
 			}
 		}
 		
-		ab_persia_reinforce = {
-			allow = {
-				tag = PER
-			}
+		ab_religious_zeal = {
 			modifier = {
-				reinforce_cost_modifier = -0.2
+				cb_on_religious_enemies = yes
+				warscore_cost_vs_other_religion = -0.20
 			}
 			ai_will_do = {
-				factor = 100
+				factor = 15
+				modifier = {
+					factor = 2
+					religious_unity = 0.9
+				}
 			}
 		}
 	}
@@ -751,67 +791,57 @@ age_of_absolutism = {
 			}
 		}
 	
-		ab_france_fire_damage = {
-			allow = {
-				tag = FRA
-			}
+		ab_religious_tolerance = {
 			modifier = {
-				fire_damage = 0.15
+				tolerance_heretic = 2
+				tolerance_heathen = 2
 			}
 			ai_will_do = {
-				factor = 100
-			}
-		}
-		
-		ab_dutch_anti_corruption = {
-			allow = {
-				tag = NED
-			}
-			modifier = {
-				yearly_corruption = -0.15
-			}
-			ai_will_do = {
-				factor = 100
-			}
-		}
-		
-		ab_sweden_manpower = {
-			allow = {
-				OR = {
-					tag = SWE
-					tag = SCA
+				factor = 9
+				modifier = {
+					factor = 2
+					NOT = { religious_unity = 0.8 }
 				}
 			}
+		}
+		
+		ab_free_trade_doctrine = {
 			modifier = {
-				manpower_recovery_speed = 0.25
+				trade_efficiency = 0.15
 			}
 			ai_will_do = {
-				factor = 100
+				factor = 11
+				modifier = {
+					factor = 2
+					trade_income_percentage = 0.4
+				}
+			}
+		}
+		
+		ab_colonial_exploitation = {
+			modifier = {
+				global_tariffs = 0.25
+				treasure_fleet_income = 0.30
+				trade_company_investment_cost = -0.30
+ 
+			}
+			ai_will_do = {
+				factor = 15
+		 
 			}
 		}
 
-		ab_manchu_banner = {
-			allow = {
-				OR = {
-					tag = MCH
-					tag = QNG
-				}
-			}
-			effect = {
-				if = {
-					limit = {
-						NOT = { primary_culture = manchu }
-						NOT = { primary_culture = manchu_new }
-						NOT = { has_government_attribute = allow_banners }
-					}
-					custom_tooltip = ab_manchu_banner_tt
-				}
-			}
+		ab_industrial_proto_development = {
 			modifier = {
-				amount_of_banners = 0.3
+				build_cost = -0.15
+				global_trade_goods_size_modifier = 0.10
 			}
 			ai_will_do = {
-				factor = 100
+				factor = 14
+				modifier = {
+					factor = 2
+					production_income_percentage = 0.3
+				}
 			}
 		}
 	}
@@ -970,60 +1000,60 @@ age_of_revolutions = {
 			}
 		}
 		
-		ab_pru_military = {
-			allow = {
-				OR = {
-					tag = CRO
-					tag = A63
-				}
-			}
+		ab_constitutional_liberty = {
 			modifier = {
-				fire_damage_received = -0.15
+				reform_progress_growth = 0.33
+				stability_cost_modifier = -0.33
 			}
 			ai_will_do = {
-				factor = 100
+				factor = 12
+				modifier = {
+					factor = 2
+					has_parliament = yes
+				}
 			}
 		}
 		
-		ab_gbr_fleet = {
-			allow = {
-				tag = GBR
-			}
+		ab_mass_conscription = {
 			modifier = {
-				naval_maintenance_modifier = -0.25
+				global_manpower_modifier = 0.25
+				land_forcelimit_modifier = 0.25
+				infantry_cost = -0.20
+				regiment_recruit_speed = -0.25
 			}
 			ai_will_do = {
-				factor = 100
+				factor = 13
+				modifier = {
+					factor = 2
+					is_at_war = yes
+				}
 			}
 		}
 		
-		ab_russia_boost = {
-			allow = {
-				OR = {
-					tag = X11
-					tag = UKR
-				}
-			}
+		ab_nationalism = {
 			modifier = {
-				governing_capacity_modifier = 0.25
+				culture_conversion_cost = -0.33
+				same_culture_advisor_cost = -0.2
 			}
 			ai_will_do = {
-				factor = 100
+				factor = 14
+ 
 			}
 		}
 		
-		ab_austria_rep = {
-			allow = {
-				OR = {
-					tag = BAV
-					tag = GER
-				}
-			}
+		ab_industrial_capacity = {
 			modifier = {
-				diplomatic_reputation = 3
+				production_efficiency = 0.20
+				build_cost = -0.20
+				global_trade_goods_size_modifier = 0.15
+				development_cost = -0.15
 			}
 			ai_will_do = {
-				factor = 100
+				factor = 15
+				modifier = {
+					factor = 2
+					production_income_percentage = 0.4
+				}
 			}
 		}
 	}
