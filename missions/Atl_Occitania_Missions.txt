@@ -268,8 +268,8 @@ occitanian_missions_3 = {
 				name = "occ_unified_occitania"
 				duration = 10950
 			}
-			basque_country = { add_permanent_claim = ROOT } 
-			valencia_area = { add_permanent_claim = ROOT } 
+			iberia_region = { add_permanent_claim = ROOT } 
+
 			add_prestige = 20
 		}
 	}
@@ -350,6 +350,8 @@ occitanian_missions_3 = {
 		}
 
 		effect = {
+			aquitania_region = { add_permanent_claim = ROOT }
+			france_region = { add_permanent_claim = ROOT }			
 			add_country_modifier = {
 				name = "occ_gallic_ambition"
 				duration = -1
@@ -513,6 +515,8 @@ occitanian_missions_5 = {
 		}
 
 		effect = {
+			westdoggerland_area = { add_permanent_claim = ROOT }
+			doggerland_area = { add_permanent_claim = ROOT }
 			add_country_modifier = {
 				name = "occ_benevolent_overlord"
 				duration = -1
@@ -528,10 +532,17 @@ occitanian_missions_5 = {
 	}
 
 	occ_pearl_mediterranean = {
+		
 		icon = mission_mediterranean_islands
 		position = 4
 		required_missions = { occ_protector_small_nations } 
-		provinces_to_highlight = {  } 
+		provinces_to_highlight = {
+			OR = {
+				area =  westdoggerland_area
+				area = doggerland_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
 
 		trigger = {
 			navy_size = 40
@@ -539,10 +550,15 @@ occitanian_missions_5 = {
 				is_island = yes
 				has_building = shipyard
 			}
-			OR = {
-				owns = 5020
-				owns = 5796
-				owns = 2755
+			AND = {
+				 westdoggerland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+ doggerland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 			}
 		}
 
