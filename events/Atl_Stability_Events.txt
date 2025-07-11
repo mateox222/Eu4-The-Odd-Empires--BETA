@@ -1732,8 +1732,10 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		stability = -2
+		NOT = { stability = -2 }
 		NOT = { has_country_flag = had_economic_collapse_event }
+        num_of_loans = 15
+
 	}
 	
 	immediate = {
@@ -1749,9 +1751,9 @@ country_event = {
 		add_inflation = 5
 		add_country_modifier = {
 			name = total_economic_collapse
-			duration = 9125
+			duration = 365
 		}
-		every_owned_province = {
+		random_owned_province = {
 			add_devastation = 40
 			add_base_tax = -1
 			add_base_production = -1
@@ -1823,7 +1825,8 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		stability = -2
+	NOT = {	stability = -2 }
+        years_of_manpower = 0
 		NOT = { has_country_flag = had_foreign_intervention_event }
 		any_neighbor_country = {
 			army_size = ROOT
@@ -1923,8 +1926,11 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		
-NOT = {stability = -1 }
+	NOT = {	years_of_manpower = 0 }
+    has_any_disaster = yes
+
+
+NOT = {stability = -2 }
 		NOT = { has_country_flag = had_total_anarchy_event }
 	}
 	
@@ -2018,8 +2024,9 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		
-NOT = {stability = -1 }
+			NOT = {	years_of_manpower = 0 }
+    has_any_disaster = yes
+NOT = {stability = -2 }
 		NOT = { has_country_flag = had_wrath_of_god_event }
 	}
 	
@@ -2116,8 +2123,9 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		
-NOT = {stability = -1 }
+			NOT = {	years_of_manpower = 0 }
+    has_any_disaster = yes
+NOT = {stability = -2 }
 		NOT = { has_country_flag = had_final_hour_event }
 		NOT = { legitimacy = 10 }
 		NOT = { republican_tradition = 10 }
