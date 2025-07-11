@@ -1,0 +1,1065 @@
+unrest_spreading = {
+	global_unrest = 2
+	years_of_nationalism = 3
+	harsh_treatment_cost = 0.25
+	stability_cost_modifier = 0.15
+}
+
+emergency_measures_success = {
+	global_tax_modifier = 0.08
+	inflation_reduction = 0.05
+	production_efficiency = 0.03
+}
+
+economic_crisis = {
+	global_tax_modifier = -0.10
+	production_efficiency = -0.08
+	interest = 1
+	inflation_reduction = -0.05
+	build_cost = 0.15
+}
+
+heavy_taxation = {
+	global_tax_modifier = 0.15
+	global_unrest = 1
+	production_efficiency = -0.03
+	trade_efficiency = -0.03
+}
+
+desperate_gamble_success = {
+	global_tax_modifier = 0.12
+	production_efficiency = 0.08
+	trade_efficiency = 0.06
+	development_cost = -0.05
+}
+
+financial_ruin = {
+	global_tax_modifier = -0.15
+	production_efficiency = -0.12
+	build_cost = 0.25
+	advisor_cost = 0.25
+}
+
+diplomatic_breakthrough = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.15
+	diplomatic_upkeep = 1
+}
+
+international_pariah = {
+	diplomatic_reputation = -2
+	improve_relation_modifier = -0.15
+	ae_impact = 0.10
+	envoy_travel_time = 0.15
+}
+
+isolationist_policy = {
+	global_trade_power = -0.05
+	diplomatic_reputation = -1
+	advisor_cost = 0.10
+	stability_cost_modifier = -0.05
+}
+
+aggressive_diplomacy = {
+	diplomatic_reputation = -1
+	ae_impact = 0.10
+	unjustified_demands = 0.15
+	prestige = 0.25
+}
+
+religious_compromise = {
+	religious_unity = 0.15
+	tolerance_heretic = 1
+	tolerance_heathen = 1
+	global_missionary_strength = -0.005
+}
+
+religious_persecution = {
+	global_missionary_strength = 0.02
+	tolerance_heretic = -1
+	tolerance_heathen = -1
+	global_unrest = 1
+}
+
+forced_conversion = {
+	global_missionary_strength = 0.025
+	missionary_maintenance_cost = -0.15
+	global_unrest = 1
+	stability_cost_modifier = 0.10
+}
+
+religious_tolerance = {
+	tolerance_heretic = 2
+	tolerance_heathen = 1
+	religious_unity = 0.15
+	legitimacy = -0.25
+}
+
+sectarian_violence = {
+	global_unrest = 2
+	religious_unity = -0.15
+	global_tax_modifier = -0.05
+	manpower_recovery_speed = -0.10
+}
+
+military_discipline_restored = {
+	discipline = 0.025
+	army_tradition = 0.25
+	land_morale = 0.05
+	reinforce_speed = 0.10
+}
+
+military_unreliability = {
+	discipline = -0.025
+	army_tradition_decay = 0.01
+	land_morale = -0.10
+	reinforce_cost_modifier = 0.15
+}
+
+mercenary_reliance = {
+	mercenary_cost = -0.10
+	mercenary_discipline = 0.025
+	global_manpower_modifier = -0.15
+	land_maintenance_modifier = 0.10
+}
+
+military_purge = {
+	discipline = -0.05
+	army_tradition = -5
+	free_leader_pool = -1
+	land_forcelimit_modifier = -0.10
+}
+
+succession_secured = {
+	legitimacy = 0.5
+	heir_chance = 0.15
+	stability_cost_modifier = -0.05
+	monthly_heir_claim_increase = 0.05
+}
+
+succession_dispute = {
+	legitimacy = -0.5
+	global_unrest = 1
+	stability_cost_modifier = 0.15
+	heir_chance = -0.15
+}
+
+regency_council = {
+	legitimacy = -0.25
+	republican_tradition = -0.15
+	all_power_cost = 0.05
+	advisor_cost = 0.15
+}
+
+republican_transition = {
+	republican_tradition = 0.25
+	reform_progress_growth = 0.15
+	global_unrest = -1
+	stability_cost_modifier = -0.05
+}
+
+dynastic_chaos = {
+	legitimacy = -1
+	global_unrest = 2
+	prestige_decay = 0.01
+	stability_cost_modifier = 0.25
+}
+
+# Modifiers for High Stability Events
+
+golden_age_of_arts = {
+	prestige = 0.5
+	idea_cost = -0.05
+	advisor_cost = -0.10
+	yearly_innovativeness = 0.15
+}
+
+cultural_flowering = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.15
+	culture_conversion_cost = -0.15
+	same_culture_advisor_cost = -0.15
+}
+
+stable_prosperity = {
+	global_tax_modifier = 0.10
+	production_efficiency = 0.06
+	inflation_reduction = 0.03
+	development_cost = -0.05
+}
+
+exemplary_administration = {
+	core_creation = -0.15
+	administrative_efficiency = 0.03
+	governing_capacity_modifier = 0.10
+	state_maintenance_modifier = -0.15
+	stability_cost_modifier = -0.10
+}
+
+efficient_bureaucracy = {
+	all_power_cost = -0.03
+	reform_progress_growth = 0.15
+	advisor_cost = -0.05
+	harsh_treatment_cost = -0.15
+}
+
+model_governance = {
+	legitimacy = 0.25
+	republican_tradition = 0.15
+	yearly_absolutism = 0.15
+	global_unrest = -1
+	stability_cost_modifier = -0.05
+}
+
+diplomatic_beacon = {
+	diplomatic_reputation = 1
+	diplomatic_upkeep = 1
+	improve_relation_modifier = 0.25
+	ae_impact = -0.10
+	diplomatic_annexation_cost = -0.10
+}
+
+peaceful_mediator = {
+	prestige = 0.25
+	diplomatic_reputation = 1
+	envoy_travel_time = -0.15
+	war_exhaustion = -0.03
+	unjustified_demands = -0.15
+}
+
+model_state = {
+	prestige = 0.5
+	power_projection_from_insults = 0.15
+	diplomatic_reputation = 1
+	monthly_splendor = 0.5
+}
+
+innovation_hub = {
+	technology_cost = -0.05
+	innovativeness_gain = 0.15
+	institution_spread_from_true_faith = 0.15
+	embracement_cost = -0.15
+	yearly_innovativeness = 0.25
+}
+
+military_innovation = {
+	army_tradition = 0.25
+	discipline = 0.015
+	drill_gain_modifier = 0.15
+	military_tactics = 0.025
+}
+
+administrative_innovation = {
+	advisor_pool = 1
+	monthly_reform_progress = 0.5
+	free_adm_policy = 1
+	administrative_efficiency = 0.025
+}
+
+economic_boom = {
+	global_tax_modifier = 0.12
+	production_efficiency = 0.08
+	trade_efficiency = 0.06
+	inflation_reduction = 0.05
+	development_cost = -0.10
+}
+
+thriving_trade = {
+	trade_efficiency = 0.12
+	global_trade_power = 0.08
+	merchants = 1
+	caravan_power = 0.15
+	placed_merchant_power = 3
+}
+
+capital_prosperity = {
+	global_tax_modifier = 0.06
+	production_efficiency = 0.06
+	development_cost = -0.12
+	build_cost = -0.08
+}
+
+popular_contentment = {
+	global_unrest = -1
+	stability_cost_modifier = -0.12
+	global_manpower_modifier = 0.08
+	manpower_recovery_speed = 0.08
+	years_of_nationalism = -3
+}
+
+loyal_subjects = {
+	global_autonomy = -0.025
+	harsh_treatment_cost = -0.25
+	global_unrest = -1
+	liberty_desire = -10
+}
+
+harmonious_realm = {
+	religious_unity = 0.15
+	tolerance_own = 1
+	tolerance_heretic = 1
+	global_missionary_strength = 0.01
+	stability_cost_modifier = -0.08
+}
+
+foreign_admiration = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.20
+	ae_impact = -0.12
+	prestige = 0.25
+	monthly_splendor = 1
+}
+
+cultural_influence = {
+	prestige = 0.5
+	power_projection_from_insults = 0.25
+	culture_conversion_cost = -0.20
+	diplomatic_reputation = 1
+}
+
+exemplary_nation = {
+	prestige = 1
+	legitimacy = 0.5
+	republican_tradition = 0.25
+	yearly_absolutism = 0.25
+	monthly_splendor = 1.5
+}
+
+spreading_unrest = {
+	global_unrest = 3
+	years_of_nationalism = 5
+	harsh_treatment_cost = 0.35
+	stability_cost_modifier = 0.25
+	global_rebel_suppression_efficiency = -0.25
+}
+
+economic_spiral = {
+	global_tax_modifier = -0.20
+	production_efficiency = -0.15
+	trade_efficiency = -0.12
+	inflation_reduction = -0.12
+	build_cost = 0.35
+	development_cost = 0.25
+	advisor_cost = 0.25
+}
+
+bureaucratic_chaos = {
+	all_power_cost = 0.15
+	administrative_efficiency = -0.04
+	core_creation = 0.25
+	governing_capacity_modifier = -0.15
+ 
+	harsh_treatment_cost = 0.25
+}
+
+realm_in_flames = {
+	global_unrest = 4
+	years_of_nationalism = 8
+	manpower_recovery_speed = -0.25
+	global_tax_modifier = -0.15
+	production_efficiency = -0.15
+	land_forcelimit_modifier = -0.15
+	naval_forcelimit_modifier = -0.15
+}
+
+total_economic_collapse = {
+	global_tax_modifier = -0.30
+	production_efficiency = -0.25
+	trade_efficiency = -0.20
+	build_cost = 0.75
+	development_cost = 0.50
+	advisor_cost = 0.50
+	inflation_reduction = -0.25
+	interest = 3
+	mercenary_cost = 0.35
+}
+
+foreign_puppet = {
+	diplomatic_reputation = -2
+	liberty_desire = 15
+	all_power_cost = 0.08
+	prestige_decay = 0.02
+	ae_impact = -0.25
+	diplomatic_upkeep = -1
+}
+
+anarchic_dissolution = {
+	global_unrest = 6
+	all_power_cost = 0.35
+	administrative_efficiency = -0.25
+	global_tax_modifier = -0.35
+	production_efficiency = -0.30
+	min_autonomy = 35
+	stability_cost_modifier = 0.75
+	legitimacy = -2
+	republican_tradition = -2
+}
+
+divine_wrath = {
+	global_unrest = 3
+	global_tax_modifier = -0.15
+	production_efficiency = -0.12
+	manpower_recovery_speed = -0.20
+	religious_unity = -0.25
+	prestige_decay = 0.015
+	inflation_reduction = -0.10
+	yearly_corruption = 0.05
+}
+
+death_throes = {
+	global_unrest = 8
+	all_power_cost = 0.50
+	administrative_efficiency = -0.35
+	global_tax_modifier = -0.45
+	production_efficiency = -0.35
+	land_forcelimit_modifier = -0.35
+	naval_forcelimit_modifier = -0.35
+	stability_cost_modifier = 1.50
+}
+
+# SURVIVAL MODIFIERS (Desperate Measures)
+
+martial_law = {
+	global_unrest = -2
+	harsh_treatment_cost = -0.35
+	global_rebel_suppression_efficiency = 0.25
+	land_maintenance_modifier = 0.15
+	administrative_efficiency = -0.05
+	global_tax_modifier = -0.05
+	legitimacy = -0.5
+	republican_tradition = -0.25
+}
+
+emergency_taxation = {
+	global_tax_modifier = 0.18
+	global_unrest = 2
+	production_efficiency = -0.08
+	trade_efficiency = -0.05
+	stability_cost_modifier = 0.15
+	yearly_corruption = 0.025
+}
+
+administrative_purge = {
+	all_power_cost = 0.10
+ 
+	advisor_cost = 0.35
+	advisor_pool = -1
+	stability_cost_modifier = 0.15
+	prestige_decay = 0.01
+}
+
+iron_fist_rule = {
+	global_unrest = -3
+	harsh_treatment_cost = -0.50
+	global_rebel_suppression_efficiency = 0.35
+	land_maintenance_modifier = 0.25
+	legitimacy = -1
+	republican_tradition = -0.5
+	diplomatic_reputation = -1
+}
+
+fire_sale_economy = {
+	global_tax_modifier = -0.12
+	production_efficiency = -0.08
+	build_cost = 0.25
+	development_cost = 0.15
+	prestige_decay = 0.01
+	diplomatic_reputation = -1
+	inflation_reduction = 0.08
+}
+
+desperate_resistance = {
+	land_morale = 0.15
+	discipline = 0.05
+	manpower_recovery_speed = 0.15
+	land_maintenance_modifier = -0.15
+	global_tax_modifier = -0.08
+	war_exhaustion = -0.05
+	hostile_attrition = 1
+}
+
+warlord_state = {
+	land_forcelimit_modifier = 0.15
+	land_maintenance_modifier = -0.12
+	discipline = 0.08
+	min_autonomy = 15
+	global_tax_modifier = -0.18
+	diplomatic_reputation = -2
+	legitimacy = -1.5
+	all_power_cost = 0.08
+}
+
+rally_against_disaster = {
+	global_unrest = -1
+	religious_unity = 0.15
+	manpower_recovery_speed = 0.08
+	land_morale = 0.08
+	global_tax_modifier = -0.05
+	yearly_corruption = -0.025
+	tolerance_own = 1
+}
+
+scorched_earth_survival = {
+	hostile_attrition = 2
+	defensiveness = 0.25
+	fort_maintenance_modifier = -0.25
+	global_tax_modifier = -0.25
+	production_efficiency = -0.20
+	land_forcelimit_modifier = -0.15
+	land_morale = 0.12
+}
+
+# RECOVERY MODIFIERS (Expensive but Stabilizing)
+
+crisis_overcome = {
+	stability_cost_modifier = -0.15
+	global_unrest = -2
+	legitimacy = 0.5
+	republican_tradition = 0.25
+	prestige = 0.5
+	diplomatic_reputation = 1
+	administrative_efficiency = 0.025
+}
+
+economic_miracle = {
+	global_tax_modifier = 0.15
+	production_efficiency = 0.12
+	trade_efficiency = 0.08
+	build_cost = -0.15
+	development_cost = -0.12
+	inflation_reduction = 0.10
+	interest = -1
+}
+
+administrative_revolution = {
+	administrative_efficiency = 0.05
+	all_power_cost = -0.08
+	core_creation = -0.18
+	governing_capacity_modifier = 0.15
+	reform_progress_growth = 0.25
+ 
+}
+
+revolutionary_rebirth = {
+	global_unrest = -3
+ 
+	land_morale = 0.15
+	discipline = 0.05
+	manpower_recovery_speed = 0.18
+	global_tax_modifier = 0.08
+	production_efficiency = 0.08
+}
+
+heroic_victory = {
+	prestige = 1
+	army_tradition = 1
+	land_morale = 0.18
+	discipline = 0.08
+	legitimacy = 1
+	republican_tradition = 0.5
+	diplomatic_reputation = 1
+	war_exhaustion = -0.08
+}
+
+phoenix_economy = {
+	global_tax_modifier = 0.20
+	production_efficiency = 0.18
+	trade_efficiency = 0.12
+	build_cost = -0.20
+	development_cost = -0.15
+	inflation_reduction = 0.15
+	interest = -2
+	advisor_cost = -0.12
+}
+
+phoenix_state = {
+	administrative_efficiency = 0.1 
+	global_tax_modifier = 0.18
+	production_efficiency = 0.15
+	stability_cost_modifier = -0.25
+	global_unrest = -3
+	legitimacy = 1.5
+	republican_tradition = 1
+	prestige = 1.5
+	diplomatic_reputation = 2
+	all_power_cost = -0.12
+}
+
+defied_fate = {
+	global_unrest = -4
+	stability_cost_modifier = -0.35
+	administrative_efficiency = 0.1 
+	global_tax_modifier = 0.20
+	production_efficiency = 0.18
+	legitimacy = 1.5
+	republican_tradition = 1
+	prestige = 1
+	monthly_splendor = 2.5
+	yearly_corruption = -0.12
+}
+
+legendary_recovery = {
+	administrative_efficiency = 0.25
+	global_tax_modifier = 0.25
+	production_efficiency = 0.25
+	trade_efficiency = 0.20
+	stability_cost_modifier = -0.50
+	global_unrest = -5
+	legitimacy = 2.5
+	republican_tradition = 1.5
+	prestige = 2.5
+	diplomatic_reputation = 2.5
+	all_power_cost = -0.25
+	land_morale = 0.25
+	naval_morale = 0.25
+	discipline = 0.12
+	core_creation = -0.25
+	build_cost = -0.25
+	development_cost = -0.25
+}
+
+# FAILURE MODIFIERS (When Expensive Options Fail)
+
+failed_gamble = {
+	global_unrest = 3
+	stability_cost_modifier = 0.35
+	prestige_decay = 0.015
+	legitimacy = -1
+	republican_tradition = -0.5
+	all_power_cost = 0.15
+	administrative_efficiency = -0.05
+}
+
+reform_failure = {
+	all_power_cost = 0.25
+	administrative_efficiency = -0.05
+	global_tax_modifier = -0.20
+	production_efficiency = -0.15
+	stability_cost_modifier = 0.50
+	reform_progress_growth = -0.25
+}
+
+state_collapse = {
+	min_autonomy = 25
+	administrative_efficiency = -0.08
+	all_power_cost = 0.20
+	global_tax_modifier = -0.25
+	global_unrest = 4
+	stability_cost_modifier = 0.75
+}
+
+revolution_failed = {
+	global_unrest = 5
+	stability_cost_modifier = 0.75
+	legitimacy = -1.5
+	republican_tradition = -1
+	prestige_decay = 0.025
+	all_power_cost = 0.25
+}
+
+economic_experiment_failed = {
+	global_tax_modifier = -0.35
+	production_efficiency = -0.30
+	trade_efficiency = -0.25
+	build_cost = 1.00
+	development_cost = 0.75
+	inflation_reduction = -0.35
+	interest = 4
+}
+
+glorious_defeat = {
+	prestige = 1.5
+	army_tradition = 25
+	legitimacy = 2.5
+	republican_tradition = 1.5
+	# This modifier is applied right before country removal for heroic last stand
+}
+
+final_collapse = {
+	global_unrest = 15
+	all_power_cost = 2.00
+	administrative_efficiency = -0.50
+	global_tax_modifier = -0.75
+	production_efficiency = -0.75
+	stability_cost_modifier = 2.50
+	# This modifier is applied right before country removal
+}
+
+cursed_realm = {
+	global_unrest = 5
+	religious_unity = -0.35
+	global_tax_modifier = -0.20
+	production_efficiency = -0.18
+	manpower_recovery_speed = -0.25
+	legitimacy = -1.5
+	republican_tradition = -1
+	tolerance_own = -1
+	tolerance_heretic = -2
+	tolerance_heathen = -2
+}
+
+epic_failure = {
+	# Applied right before removal - ceremonial modifier
+	prestige = -5
+	legitimacy = -5
+	republican_tradition = -5
+}
+
+# Special modifiers for extreme situations
+
+# When country has multiple negative stability modifiers active
+cascading_crisis = {
+	global_unrest = 2
+	stability_cost_modifier = 0.15
+	all_power_cost = 0.08
+	# This would be applied automatically when country has 2+ negative stability modifiers
+}
+
+# Temporary modifier for countries that just survived -3 stability
+survivor_trauma = {
+	stability_cost_modifier = 0.25
+	global_unrest = 1
+	legitimacy = -0.5
+	republican_tradition = -0.25
+	# Duration: 1825 days, applied after major crisis
+}
+
+
+# Modifiers for Moderate Stability Events (Stability = 2)
+
+administrative_reforms = {
+	core_creation = -0.15
+	administrative_efficiency = 0.025
+	advisor_cost = -0.10
+	stability_cost_modifier = -0.10
+}
+
+bureaucratic_efficiency = {
+	all_power_cost = -0.03
+	reform_progress_growth = 0.15
+	governing_capacity_modifier = 0.10
+}
+
+radical_restructuring = {
+	administrative_efficiency = 0.05
+	core_creation = -0.1
+	global_unrest = 2
+	harsh_treatment_cost = -0.50
+}
+
+market_recovery = {
+	global_tax_modifier = 0.10
+	production_efficiency = 0.08
+	trade_efficiency = 0.05
+	inflation_reduction = 0.05
+}
+
+economic_instability = {
+	global_tax_modifier = -0.10
+	production_efficiency = -0.05
+	inflation_reduction = -0.05
+	interest = 1
+}
+
+careful_spending = {
+	build_cost = -0.15
+	advisor_cost = -0.20
+	development_cost = -0.10
+	inflation_reduction = 0.10
+}
+
+bold_investment = {
+	global_tax_modifier = 0.15
+	production_efficiency = 0.12
+	development_cost = -0.15
+	build_cost = -0.20
+}
+
+diplomatic_success = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.20
+	ae_impact = -0.10
+}
+
+cautious_diplomacy = {
+	diplomatic_reputation = 0.5
+	envoy_travel_time = -0.15
+	war_exhaustion = -0.02
+}
+
+cultural_integration = {
+	culture_conversion_cost = -0.20
+	promote_culture_cost = -0.15
+	num_accepted_cultures = 1
+	same_culture_advisor_cost = -0.15
+}
+
+cultural_resistance = {
+	culture_conversion_cost = 0.25
+	global_unrest = 1
+	stability_cost_modifier = 0.10
+}
+
+tolerance_policy = {
+	tolerance_heretic = 1
+	tolerance_heathen = 1
+	religious_unity = 0.15
+	global_unrest = -1
+}
+
+cultural_suppression = {
+	culture_conversion_cost = -0.30
+	global_unrest = 1
+	harsh_treatment_cost = -0.25
+	years_of_nationalism = 3
+}
+
+military_modernization = {
+	discipline = 0.025
+	army_tradition = 0.25
+	drill_gain_modifier = 0.15
+	military_tactics = 0.025
+}
+
+military_discontent = {
+	discipline = -0.025
+	army_tradition_decay = 0.01
+	global_manpower_modifier = -0.10
+	land_morale = -0.05
+}
+
+steady_military = {
+	land_maintenance_modifier = -0.05
+	discipline = 0.015
+	reinforce_speed = 0.10
+}
+
+popular_militia = {
+	global_manpower_modifier = 0.15
+	manpower_recovery_speed = 0.10
+	land_forcelimit_modifier = 0.10
+	discipline = -0.05
+}
+
+trade_agreement = {
+	trade_efficiency = 0.10
+	global_trade_power = 0.08
+	merchants = 0.5
+	caravan_power = 0.15
+}
+
+trade_disruption = {
+	trade_efficiency = -0.08
+	global_trade_power = -0.05
+	embargo_efficiency = -0.25
+}
+
+neutral_stance = {
+	diplomatic_reputation = 0.5
+	ae_impact = -0.05
+	improve_relation_modifier = 0.10
+}
+
+aggressive_trading = {
+	trade_efficiency = 0.15
+	privateer_efficiency = 0.25
+	embargo_efficiency = 0.50
+	diplomatic_reputation = -0.5
+}
+
+ 
+authority_restored = {
+	legitimacy = 0.5
+	republican_tradition = 0.25
+	global_unrest = -1
+	stability_cost_modifier = -0.15
+}
+
+weakened_authority = {
+	legitimacy = -1
+	republican_tradition = -0.5
+	global_unrest = 2
+	harsh_treatment_cost = 0.25
+}
+
+harsh_measures = {
+	global_unrest = 1
+	harsh_treatment_cost = -0.75
+	global_rebel_suppression_efficiency = 0.25
+	stability_cost_modifier = 0.15
+}
+
+popular_concessions = {
+	global_unrest = -2
+	global_tax_modifier = -0.10
+	stability_cost_modifier = -0.20
+	legitimacy = 0.25
+}
+
+unrest_spreading = {
+	global_unrest = 3
+	years_of_nationalism = 5
+	harsh_treatment_cost = 0.50
+	stability_cost_modifier = 0.25
+}
+
+emergency_measures_success = {
+	global_tax_modifier = 0.12
+	inflation_reduction = 0.08
+	production_efficiency = 0.05
+}
+
+economic_crisis = {
+	global_tax_modifier = -0.15
+	production_efficiency = -0.10
+	interest = 2
+	inflation_reduction = -0.10
+	build_cost = 0.25
+}
+
+heavy_taxation = {
+	global_tax_modifier = 0.25
+	global_unrest = 2
+	production_efficiency = -0.05
+	trade_efficiency = -0.05
+}
+
+desperate_gamble_success = {
+	global_tax_modifier = 0.20
+	production_efficiency = 0.15
+	trade_efficiency = 0.12
+	development_cost = -0.10
+}
+
+financial_ruin = {
+	global_tax_modifier = -0.25
+	production_efficiency = -0.20
+	build_cost = 0.50
+	advisor_cost = 0.50
+}
+
+diplomatic_breakthrough = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.25
+	diplomatic_upkeep = 1
+}
+
+international_pariah = {
+	diplomatic_reputation = -2
+	improve_relation_modifier = -0.25
+	ae_impact = 0.20
+	envoy_travel_time = 0.25
+}
+
+isolationist_policy = {
+	global_trade_power = -0.10
+	diplomatic_reputation = -1
+	advisor_cost = 0.15
+	stability_cost_modifier = -0.10
+}
+
+aggressive_diplomacy = {
+	diplomatic_reputation = -1
+	ae_impact = 0.15
+	unjustified_demands = 0.25
+	prestige = 0.5
+}
+
+religious_compromise = {
+	religious_unity = 0.20
+	tolerance_heretic = 2
+	tolerance_heathen = 1
+	global_missionary_strength = -0.01
+}
+
+religious_persecution = {
+	global_missionary_strength = 0.03
+	tolerance_heretic = -1
+	tolerance_heathen = -1
+	global_unrest = 2
+}
+
+forced_conversion = {
+	global_missionary_strength = 0.05
+	missionary_maintenance_cost = -0.25
+	global_unrest = 1
+	stability_cost_modifier = 0.15
+}
+
+religious_tolerance = {
+	tolerance_heretic = 3
+	tolerance_heathen = 2
+	religious_unity = 0.25
+	legitimacy = -0.5
+}
+
+sectarian_violence = {
+	global_unrest = 3
+	religious_unity = -0.20
+	global_tax_modifier = -0.08
+	manpower_recovery_speed = -0.15
+}
+
+military_discipline_restored = {
+	discipline = 0.05
+	army_tradition = 0.5
+	land_morale = 0.10
+	reinforce_speed = 0.15
+}
+
+military_unreliability = {
+	discipline = -0.05
+	army_tradition_decay = 0.02
+	land_morale = -0.15
+	reinforce_cost_modifier = 0.25
+}
+
+mercenary_reliance = {
+	mercenary_cost = -0.15
+	mercenary_discipline = 0.05
+	global_manpower_modifier = -0.20
+	land_maintenance_modifier = 0.15
+}
+
+military_purge = {
+	discipline = -0.10
+	army_tradition = -10
+	free_leader_pool = -1
+	land_forcelimit_modifier = -0.15
+}
+
+succession_secured = {
+	legitimacy = 1
+	heir_chance = 0.25
+	stability_cost_modifier = -0.10
+	monthly_heir_claim_increase = 0.10
+}
+
+succession_dispute = {
+	legitimacy = -1
+	global_unrest = 2
+	stability_cost_modifier = 0.25
+	heir_chance = -0.25
+}
+
+regency_council = {
+	legitimacy = -0.5
+	republican_tradition = -0.25
+	all_power_cost = 0.10
+	advisor_cost = 0.25
+}
+
+republican_transition = {
+	republican_tradition = 0.5
+	reform_progress_growth = 0.25
+	global_unrest = -1
+	stability_cost_modifier = -0.10
+}
+
+dynastic_chaos = {
+	legitimacy = -2
+	global_unrest = 4
+	prestige_decay = 0.02
+	stability_cost_modifier = 0.50
+}
+ 
