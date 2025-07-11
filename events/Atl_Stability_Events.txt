@@ -1364,7 +1364,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		stability = -1
+		NOT = {	stability = 0 }
 		NOT = { has_country_flag = had_brewing_rebellion_event }
 		any_owned_province = {
 			unrest = 3
@@ -1628,7 +1628,7 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		stability = -2
+	NOT = {	stability = -2 }
 		NOT = { has_country_flag = had_widespread_revolt_event }
 	}
 	
