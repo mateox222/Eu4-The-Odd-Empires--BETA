@@ -31,7 +31,7 @@ bandit_plague = {
 	
 	can_stop = {
 		OR = {
-		stability = 2
+		stability = 1
 		has_any_disaster = yes
 		}
 	}
@@ -76,7 +76,7 @@ bandit_plague = {
 	}
 	
 	can_end = {
-		stability = 2
+		stability = 1
 		NOT = { average_unrest = 1 }
 		manpower_percentage = 0.6
 		NOT = { war_exhaustion = 2 }
@@ -101,10 +101,10 @@ bandit_plague = {
 		}
 		random_events = {
 			3000 = 0
-			175 = bandit_plague.3
-			150 = bandit_plague.4
-			125 = bandit_plague.5
-			75 = bandit_plague.6
+			75 = bandit_plague.3
+			25 = bandit_plague.4
+			25 = bandit_plague.5
+			25 = bandit_plague.6
 			5 = bandit_plague.7
 		}
 	}

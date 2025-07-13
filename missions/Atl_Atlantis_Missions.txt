@@ -66,9 +66,10 @@ atlantis_missions_1 = {
 		provinces_to_highlight = {  } 
 
 		trigger = {
-			has_country_modifier = rule_of_philosopher_kings
-			stability = 2
-			legitimacy = 80
+ 
+			stability = 3	
+			republican_tradition = 100
+			
 		}
 
 		effect = {
@@ -156,8 +157,7 @@ atlantis_missions_2 = {
 		trigger = {
 			capital_scope = {
 				development = 35
-				has_building = university
-				has_building = workshop
+ 
 			}
 		}
 
@@ -325,9 +325,9 @@ atlantis_missions_3 = {
 		provinces_to_highlight = {  } 
 
 		trigger = {
-			num_of_conquistadors = 1
+ 
 			num_of_explorers = 1
-			dip_tech = 7
+			dip_tech = 9
 		}
 
 		effect = {
@@ -336,8 +336,8 @@ atlantis_missions_3 = {
 				name = "atlantean_exploration"
 				duration = 5475
 			}
-			create_conquistador = { tradition = 40 } 
-			create_explorer = { tradition = 40 } 
+			create_conquistador = { tradition = 100 } 
+ 
 		}
 	}
 
@@ -348,7 +348,7 @@ atlantis_missions_3 = {
 		provinces_to_highlight = {  } 
 
 		trigger = {
-			num_of_colonies = 3
+				colony = 3
  
 		}
 

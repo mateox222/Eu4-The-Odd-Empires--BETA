@@ -166,6 +166,8 @@ ko1_hwasan_conquest = {
 			OR = {
 				province_id = 4201
 				province_id = 2111
+
+				province_id = 730
 			}
 			NOT = { is_core = ROOT }
 		}
@@ -173,6 +175,9 @@ ko1_hwasan_conquest = {
 			OR = {
 				AND = {
 					4201 = {
+						is_core = ROOT
+					}
+					730 = {
 						is_core = ROOT
 					}
 					2111 = {

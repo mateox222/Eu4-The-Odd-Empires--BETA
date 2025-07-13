@@ -250,7 +250,7 @@ A2R_missions_2 = {
 				name = "A2R_divine_warriors"
 				duration = -1
 			}
-			unlock_merc_company = { merc_company = merc_sacred_band_of_thebes } 
+ 
 		}
 	}
 
@@ -605,17 +605,18 @@ A2R_missions_4 = {
 		}
 
 		effect = {
-			add_country_modifier = {
-				name = "A2R_masters_of_red_sea"
-				duration = -1
-			}
-			arabia_region = {
+				mashriq_region = {
 				limit = {
-					has_port = yes
+ 
 					NOT = { is_core = ROOT } 
 				}
 				add_permanent_claim = ROOT
 			}
+			add_country_modifier = {
+				name = "A2R_masters_of_red_sea"
+				duration = -1
+			}
+
 		}
 	}
 }
@@ -699,7 +700,13 @@ A2R_missions_5 = {
 				name = "A2R_masters_of_desert"
 				duration = -1
 			}
-			custom_tooltip = A2R_desert_bonus_tt
+ 			arabia_region = {
+				limit = {
+ 
+					NOT = { is_core = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
 			hidden_effect = {
 				every_owned_province = {
 					limit = {
@@ -737,17 +744,17 @@ A2R_missions_5 = {
 				name = "A2R_monument_builders"
 				duration = -1
 			}
-			capital_scope = {
+			4318 = {
 				if = {
-					limit = { NOT = { has_great_project = { type = pyramid_of_cheops }  }  } 
+ 
 					add_great_project = {
-						type = pyramid_of_cheops
-						instant = yes
+						type = pyramid_of_divine_wisdom
+						instant = no
 					}
 				}
 				else = {
 					add_great_project_tier = {
-						type = pyramid_of_cheops
+						type = pyramid_of_divine_wisdom
 						tier = 1
 					}
 				}

@@ -70,9 +70,7 @@ country_event = {
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 120
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = bandit_plague.3.a # Send military escort
@@ -103,20 +101,9 @@ country_event = {
 	desc = bandit_plague.4.d
 	picture = VILLAGE_BURNING_eventPicture
 	
-	trigger = {
-		has_disaster = bandit_plague
-		any_owned_province = {
-			OR = {
-				has_terrain = hills
-				has_terrain = forest
-			}
-			unrest = 2
-		}
-	}
+ 
 	
-	mean_time_to_happen = {
-		months = 120
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = bandit_plague.4.a # Hunt down the bandits
@@ -159,14 +146,7 @@ country_event = {
 	desc = bandit_plague.5.d
 	picture = praetoriaguards_eventPicture
 	
-	trigger = {
-		has_disaster = bandit_plague
-		average_unrest = 3
-	}
-	
-	mean_time_to_happen = {
-		months = 150
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = bandit_plague.5.a # Offer amnesty
@@ -207,9 +187,7 @@ country_event = {
 		NOT = { has_country_modifier = increased_patrols }
 	}
 	
-	mean_time_to_happen = {
-		months = 120
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = bandit_plague.6.a # Increase patrols
@@ -235,14 +213,8 @@ country_event = {
 	desc = bandit_plague.7.d
 	picture = CORRUPTION_eventPicture
 	
-	trigger = {
-		has_disaster = bandit_plague
-		corruption = 3
-	}
-	
-	mean_time_to_happen = {
-		months = 180
-	}
+	is_triggered_only = yes
+ 
 	
 	option = {
 		name = bandit_plague.7.a # Purge administration

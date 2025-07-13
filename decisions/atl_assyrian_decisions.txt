@@ -297,7 +297,7 @@ country_decisions = {
 npl_rekindle_sacred_flame = {
 	potential = {
 		tag = NPL
-		NOT = { religion = zunist }
+		NOT = { religion = ibadi }
 		NOT = { has_country_flag = npl_zunist_decision }
 	}
 	
@@ -310,16 +310,16 @@ npl_rekindle_sacred_flame = {
 	
 	effect = {
 		add_adm_power = -100
-		change_religion = zunist
+		change_religion = ibadi
 		add_stability = -1
 		capital_scope = {
-			change_religion = zunist
+			change_religion = ibadi
 		}
 		set_country_flag = npl_zunist_decision
 		add_prestige = 25
 		
 		every_owned_province = {
-			limit = { NOT = { religion = zunist } }
+			limit = { NOT = { religion = ibadi } }
 			add_unrest = 5
 		}
 		

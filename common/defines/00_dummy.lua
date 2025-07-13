@@ -1587,7 +1587,7 @@ NDefines = {
 		NAVAL_MORALE_DISENGAGEMENT_CHANCE = 0.5,			-- What morale is needed to be hit before the ships try to retreat.
 
 		LEADER_MINIMUM_AGE = 16,						-- Minimum age of a leader in years
-		LEADER_MAX_RANDOM_YEARS = 25,
+		LEADER_MAX_RANDOM_YEARS = 35,
 		LEADER_MAX_RANDOM_DAYS = 730,
 		LEADER_WORK_YEARS_DEATH_FACTOR = 2,					-- Divides how many years he has been working to calculate chance
 		LEADER_AGE_DEATH_FACTOR = 3,					-- Divides age with this to calculate chance

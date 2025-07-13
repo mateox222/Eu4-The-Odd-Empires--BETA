@@ -423,7 +423,7 @@ nepal_mountain_branch = {
 		provinces_to_highlight = {  } 
 
 		trigger = {
-			army_size = 40
+ 
 			num_of_owned_provinces_with = {
 				has_terrain = mountain
 				value = 20
@@ -510,7 +510,7 @@ nepal_expansion_branch = {
 
 		trigger = {
 			army_size_percentage = 1.0
-			num_of_allies = 2
+			stability = 1
 			NOT = { num_of_rebel_armies = 1 } 
 		}
 
@@ -521,6 +521,9 @@ nepal_expansion_branch = {
 			}
 			add_manpower = 5
 			add_army_tradition = 10
+			tibet_region = {
+				add_claim = ROOT
+			}
 		}
 	}
 
@@ -554,8 +557,7 @@ nepal_expansion_branch = {
 			}
 			add_mercantilism = 2
 			# Fixed: Using add_claim instead of give_claims
-			every_province = {
-				limit = { region = bengal_region }
+			bengal_region = {
 				add_claim = ROOT
 			}
 		}
@@ -591,8 +593,8 @@ nepal_expansion_branch = {
 			}
 			add_adm_power = 100
 			# Fixed: Using add_claim for region
-			every_province = {
-				limit = { region = bengal_region }
+			bengal_region = {
+ 
 				add_claim = ROOT
 			}
 		}
@@ -633,8 +635,7 @@ nepal_expansion_branch = {
 				duration = 7300
 			}
 			# Fixed: Using add_claim for region
-			every_province = {
-				limit = { region = hindusthan_region }
+			hindusthan_region  = {
 				add_claim = ROOT
 			}
 		}
@@ -707,13 +708,13 @@ nepal_expansion_branch = {
 				name = "npl_southern_expansion"
 				duration = 7300
 			}
-			every_owned_province = {
-				limit = { region = deccan_region }
+			deccan_region = {
+				limit = { owned_by = ROOT }
 				change_religion = ibadi
 			}
-			# Fixed: Using add_claim for region
-			every_province = {
-				limit = { region = deccan_region }
+ 
+			deccan_region = {
+ 
 				add_claim = ROOT
 			}
 		}
@@ -1088,7 +1089,7 @@ nepal_military_branch = {
 		trigger = {
 			army_tradition = 60
 			num_of_generals = 2
-			army_size = 25
+ 
 		}
 
 		effect = {
@@ -1097,7 +1098,7 @@ nepal_military_branch = {
 				duration = -1
 			}
 			define_general = {
-				name = "Sacred Guard Commander"
+				name = "Pabitra Rakshak Kamandar"
 				fire = 4
 				shock = 5
 				manuever = 4
