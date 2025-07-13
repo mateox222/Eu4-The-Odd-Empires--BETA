@@ -1826,8 +1826,6 @@ nineveh_restored: "Nineveh Restored"
  ASY_ideas_bonus: "Assyrian Ambition"
  asy_legacy_of_ashur: "Legacy of Ashur"
  asy_legacy_of_ashur_desc: "The ancient god Ashur may no longer be worshipped, but his blessing upon our land remains. The Assyrian kings ruled by divine mandate for millennia, and this sacred authority still resonates with our people. Whether we embrace monarchy, theocracy, or even republican ideals, our government draws legitimacy from this ancient heritage."
- asy_walls_of_nineveh: "The Walls of Nineveh"
- asy_walls_of_nineveh_desc: "Nineveh's walls were once considered one of the wonders of the ancient world - so vast that chariots could race atop them. Our ancestors perfected the art of fortification, creating defensive works that could withstand the mightiest sieges. This expertise in military architecture remains embedded in our culture, allowing us to maintain formidable defenses at reduced cost."
  asy_cuneiform_administration: "Cuneiform Bureaucracy"
  asy_cuneiform_administration_desc: "The Assyrians pioneered sophisticated administrative systems, maintaining detailed records on clay tablets that documented everything from tax collection to military logistics. This tradition of meticulous record-keeping and bureaucratic efficiency has evolved with the times, giving us an edge in governing our territories and combating corruption."
  asy_merchants_of_mesopotamia: "Merchants of Mesopotamia"
@@ -8336,3 +8334,667 @@ northern_passage_control: "Control of Northern Passage"
  urban_patricians_loyality_modifier:"Patrician Loyality"
  urban_patricians_influence_modifier:"Patrician Influence"
  defeated_intervention:0 "Defeated Our Intervention"
+ 
+niflheim_mechanic:0 "Dark Empire Authority"
+niflheim_ruler_authority:0 "§MImperial Authority§!"
+niflheim_military_control:0 "§RMilitary Supremacy§!"
+niflheim_shadow_network:0 "§YShadow Network§!"
+
+monthly_niflheim_ruler_authority:0 "Monthly §MImperial Authority§!"
+monthly_niflheim_military_control:0 "Monthly §RMilitary Supremacy§!"
+monthly_niflheim_shadow_network:0 "Monthly §YShadow Network§!"
+
+# Interactions
+niflheim_boost_ruler_army:0 "Imperial Legion Mobilization"
+niflheim_boost_ruler_authority:0 "Consolidate Imperial Power"
+niflheim_boost_ruler_navy:0 "Shadow Fleet Operations"
+
+# Tooltips
+niflheim_army_mobilization_tooltip:0 "The Emperor's will shall be enforced through superior military might. Our legions will crush all opposition.\n\n§GGuaranteed Effects:§!\n• +100 §MMilitary Power§!\n• +3000 §YManpower§!\n\n§GRandom Effects:§!\n• §G40%§! chance: Elite General (70 tradition) + 10 Army Tradition\n• §G35%§! chance: Imperial Legion Expansion modifier (5 years)\n• §G25%§! chance: Spawn infantry in developed provinces\n\n§RAdditional Effects if Military Control > 60:§!\n• -20 Military Control\n• -1 Stability"
+
+niflheim_authority_consolidation_tooltip:0 "Through calculated political maneuvering and displays of power, the Emperor's authority becomes absolute.\n\n§GGuaranteed Effects:§!\n• +20 §YLegitimacy§!\n• +75 §MAdministrative Power§!\n• +75 §YGovernment Reform Progress§!\n• If heir exists: +30 Heir Claim + random stat boost\n\n§GRandom Effects:§!\n• §G40%§! chance: Imperial Authority Display modifier (10 years)\n• §G35%§! chance: -3 unrest in all unstable provinces\n• §G25%§! chance: +15 Prestige + 5 Absolutism\n\n§RAdditional Effects if Shadow Network > 50:§!\n• -25 Shadow Network"
+
+niflheim_navy_operations_tooltip:0 "Our shadow fleets strike from the darkness, controlling trade routes and projecting power across distant shores.\n\n§GGuaranteed Effects:§!\n• +100 §MDiplomatic Power§!\n• +2000 §YSailors§!\n• +15 §YNavy Tradition§!\n\n§GRandom Effects:§!\n• §G40%§! chance: Elite Admiral (65 tradition) + Shadow Fleet Operations modifier (7 years)\n• §G35%§! chance: +25 spy network against all rivals with ports\n• §G25%§! chance: Spawn heavy ship + 2 light ships in random port\n\n§RAdditional Effects if Shadow Network > 50:§!\n• -15 Shadow Network\n• +0.5 Yearly Corruption"
+
+# Descriptions
+niflheim_boost_ruler_army_desc:0 "Deploy the full might of the imperial war machine. Mass conscription and elite training will forge an unstoppable force."
+niflheim_boost_ruler_authority_desc:0 "Through careful political manipulation, public ceremonies, and elimination of rivals, strengthen the Emperor's grip on power."
+niflheim_boost_ruler_navy_desc:0 "Launch covert naval operations to establish dominance over sea lanes and strike at enemies from unexpected directions."
+
+# Penalty Tooltips
+niflheim_military_excess_tooltip:0 "§RMilitary Oppression:§! Excessive military control breeds fear and resentment among the populace."
+niflheim_shadow_excess_tooltip:0 "§YParanoid State:§! An overreaching shadow network creates instability and diplomatic isolation."
+shadow_fleet_operations:"Shadow Fleet Operations"
+imperial_authority_display:"Authority Showed"
+imperial_legion_expansion:"Black Army in Control"
+faction_royal_court:0 "Royal Court"
+ faction_royal_court_influence:0 "Royal Court Influence"
+ faction_royal_court_FACTION_DESC:0 "A faction of courtiers, advisors, and those closely tied to the monarch. Their power increases prestige and legitimacy but also court costs and corruption."
+ 
+ faction_military:0 "Military Faction"
+ faction_military_influence:0 "Military Faction Influence"
+ faction_military_FACTION_DESC:0 "A faction of generals, officers, and military commanders. Their power strengthens the state's military might and discipline but hampers diplomacy and economic development."
+ 
+ faction_merchant:0 "Merchant Faction"
+ faction_merchant_influence:0 "Merchant Faction Influence"
+ faction_merchant_FACTION_DESC:0 "A faction of wealthy merchants and bankers. Their power supports trade and economic infrastructure but weakens military traditions and stability."
+ 
+ faction_clerical:0 "Clerical Faction"
+ faction_clerical_influence:0 "Clerical Faction Influence"
+ faction_clerical_FACTION_DESC:0 "A faction of high clergy and religious authorities. Their power strengthens religious unity and stability but increases intolerance and hampers technological progress."
+ 
+ faction_noble:0 "Noble Faction"
+ faction_noble_influence:0 "Noble Faction Influence"
+ faction_noble_FACTION_DESC:0 "A faction of magnates and nobility. Their power strengthens cavalry and armed forces but weakens royal absolutism and administrative efficiency."
+  
+ faction_szlachta:0 "Szlachta"
+ 
+ faction_bureaucratic:0 "Bureaucratic Faction"
+ faction_bureaucratic_influence:0 "Bureaucratic Faction Influence"
+ faction_bureaucratic_FACTION_DESC:0 "A faction of state officials and administrators. Their power increases administrative efficiency and technological development but raises maintenance costs and weakens military traditions."
+ 
+ faction_national:0 "National Faction"
+ faction_national_influence:0 "National Faction Influence"
+ faction_national_FACTION_DESC:0 "A faction focused on national and cultural interests. Their power supports diplomacy and cultural integration but hampers religious conversion and trade efficiency."
+  monarchy_factions.900.t:0 "The Great Court Conspiracy"
+ monarchy_factions.900.d:0 "A web of intrigue has been uncovered at court involving members of the nobility, clergy, and even some courtiers. Whispered conversations speak of limiting royal power and establishing a council to 'advise' our decisions. The conspiracy reaches into the highest levels of society, and our response will reshape the political landscape of our realm."
+ monarchy_factions.900.a:0 "Rally the loyal courtiers against the conspiracy"
+ monarchy_factions.900.b:0 "Expose the plot and arrest the conspirators"
+ monarchy_factions.900.c:0 "Negotiate a compromise with all parties"
+
+ monarchy_factions.901.t:0 "Victory of the Royal Court"
+ monarchy_factions.901.d:0 "The conspiracy has been crushed by the decisive action of our loyal courtiers. Those who plotted against royal authority have been exposed and discredited. The court now stands supreme, with unprecedented influence over all aspects of governance. This is a golden age for royal absolutism."
+ monarchy_factions.901.a:0 "Consolidate the court's supreme authority"
+
+ monarchy_factions.902.t:0 "Aftermath of the Purge"
+ monarchy_factions.902.d:0 "The exposure of the conspiracy has led to widespread arrests and confiscations. Many noble families have been stripped of titles and lands, while corrupt clergy have been removed from their positions. The realm is in turmoil, but royal authority has never been stronger."
+ monarchy_factions.902.a:0 "Continue the harsh crackdown"
+ monarchy_factions.902.b:0 "Show mercy to the remaining conspirators"
+
+ monarchy_factions.903.t:0 "The Great Compromise"
+ monarchy_factions.903.d:0 "Through careful negotiation and diplomatic skill, we have reached an accord with all major factions. A new system of governance has been established that respects the interests of courtiers, nobles, and clergy while maintaining royal prerogatives. This delicate balance may prove to be our greatest achievement."
+ monarchy_factions.903.a:0 "Formalize the power-sharing agreement"
+
+ # Rare Special Events
+ monarchy_factions.950.t:0 "The Marriage Alliance Crisis"
+ monarchy_factions.950.d:0 "Our royal marriage to [event_target:foreign_marriage_partner.GetName] has become a source of controversy. Religious authorities condemn the union with a foreign power of different faith, while diplomatic advisors argue that breaking such ties would damage our international standing. The heir's future spouse hangs in the balance."
+ monarchy_factions.950.a:0 "Religious unity must come first"
+ monarchy_factions.950.b:0 "Honor our diplomatic commitments"
+
+ monarchy_factions.951.t:0 "The Royal Philosopher"
+ monarchy_factions.951.d:0 "A brilliant philosopher has gained favor at court, proposing revolutionary ideas about governance, natural law, and human reason. These concepts challenge traditional religious and political authority, attracting both enthusiastic supporters and fierce opponents. Our stance will define our realm's intellectual future."
+ monarchy_factions.951.a:0 "Embrace the new philosophical ideas"
+ monarchy_factions.951.b:0 "Uphold traditional wisdom and faith"
+
+ monarchy_factions.952.t:0 "The Merchant Prince's Proposal"
+ monarchy_factions.952.d:0 "The wealthiest merchant in our realm has petitioned for elevation to noble status, offering substantial financial contributions to the crown. This unprecedented request challenges traditional concepts of nobility based on birth and service, while potentially opening the aristocracy to commercial influence."
+ monarchy_factions.952.a:0 "Grant nobility to wealthy merchants"
+ monarchy_factions.952.b:0 "Maintain noble exclusivity by birth"
+
+ monarchy_factions.953.t:0 "The General's Ultimatum"
+ monarchy_factions.953.d:0 "Our most senior military commander has presented a stark ultimatum: grant the army complete authority over war conduct, or face potential mutiny. The ongoing conflict has strained our forces to the breaking point, and the generals claim only military rule can achieve victory."
+ monarchy_factions.953.a:0 "Grant the military emergency powers"
+ monarchy_factions.953.b:0 "Maintain civilian control of the military"
+
+ monarchy_factions.990.t:0 "The Perfect Balance"
+ monarchy_factions.990.d:0 "Through skillful political maneuvering, we have achieved something remarkable - perfect balance among all major factions in our realm. No single group dominates, yet all feel their voices are heard. This harmony has created unprecedented stability and prosperity throughout our lands."
+ monarchy_factions.990.a:0 "Celebrate this golden age of balance"
+
+ # Special Country Modifiers
+ court_supremacy:0 "Court Supremacy"
+ court_supremacy_desc:0 "The royal court has achieved complete dominance over rival factions."
+
+ noble_purge:0 "Noble Purge"
+ noble_purge_desc:0 "Recent purges have eliminated noble opposition to royal authority."
+
+ faction_compromise:0 "Factional Compromise"
+ faction_compromise_desc:0 "A negotiated agreement balances the interests of all major factions."
+
+ diplomatic_marriage_policy:0 "Diplomatic Marriage Policy"
+ diplomatic_marriage_policy_desc:0 "Strategic marriages strengthen international relationships."
+
+ royal_enlightenment:0 "Royal Enlightenment"
+ royal_enlightenment_desc:0 "The monarchy has embraced new philosophical and scientific ideas."
+
+ merchant_nobility:0 "Merchant Nobility"
+ merchant_nobility_desc:0 "Wealthy merchants have been granted noble status and privileges."
+
+ military_emergency_powers:0 "Military Emergency Powers"
+ military_emergency_powers_desc:0 "Military commanders have been granted extraordinary wartime authority."
+
+ factional_harmony:0 "Factional Harmony"
+ factional_harmony_desc:0 "Perfect balance among all political factions creates unprecedented stability."
+
+ # Opinion Modifiers for Special Events
+ broken_marriage:0 "Broken Royal Marriage"
+ loyal_marriage_partner:0 "Loyal Marriage Partner"
+  monarchy_factions.1.t:0 "Royal Wedding Scandal"
+ monarchy_factions.1.d:0 "Rumors spread through the court like wildfire - whispers of impropriety surrounding the recent royal wedding have reached our ears. The courtiers are divided: some claim these are mere jealous fabrications by rivals, while others insist there is truth behind the gossip. Our response will determine how the royal court perceives our leadership and discretion."
+ monarchy_factions.1.a:0 "Support the courtiers and silence the rumors"
+ monarchy_factions.1.b:0 "Investigate the matter thoroughly"
+
+ # The Royal Hunt
+ monarchy_factions.2.t:0 "The Royal Hunt"
+ monarchy_factions.2.d:0 "The season for the traditional royal hunt has arrived, and the court eagerly awaits our decision on how grand this year's expedition should be. A lavish hunt would demonstrate our wealth and power to visiting dignitaries and strengthen bonds with the nobility, but it would also strain our treasury. The courtiers argue that such displays are essential for maintaining royal prestige."
+ monarchy_factions.2.a:0 "Host a magnificent hunting party"
+ monarchy_factions.2.b:0 "Organize a modest celebration"
+
+ # Royal Mistress Scandal
+ monarchy_factions.101.t:0 "Royal Mistress Scandal"
+ monarchy_factions.101.d:0 "Court gossips are buzzing with news of the monarch's romantic entanglements. What began as discrete liaisons has become the subject of public speculation, threatening to undermine royal dignity. The courtiers are divided between those who support royal prerogatives and those who fear scandal."
+ monarchy_factions.101.a:0 "The heart wants what it wants"
+ monarchy_factions.101.b:0 "Arrange a discrete resolution"
+
+ # The Alchemist's Discovery
+ monarchy_factions.110.t:0 "The Alchemist's Discovery"
+ monarchy_factions.110.d:0 "A learned alchemist at court claims to have discovered a process that could transmute base metals into gold. While skeptics abound, the potential implications for our treasury are enormous. The courtiers urge caution, but also note the prestige that would come from royal patronage of such groundbreaking research."
+ monarchy_factions.110.a:0 "Fund the alchemical research"
+ monarchy_factions.110.b:0 "Reject this foolish pursuit"
+
+ # The Spymaster's Network
+ monarchy_factions.111.t:0 "The Spymaster's Network"
+ monarchy_factions.111.d:0 "Our spymaster has presented an ambitious plan to expand our intelligence network in [event_target:spy_target.GetName]. The proposal involves recruiting assets across their major cities and establishing safe houses for our agents. Such an operation would give us unprecedented insight into their intentions."
+ monarchy_factions.111.a:0 "Authorize the expanded network"
+ monarchy_factions.111.b:0 "Maintain current operations"
+
+ # ==============================================
+ # MILITARY FACTION EVENTS
+ # ==============================================
+
+ # The War Hero's Ambition
+ monarchy_factions.10.t:0 "The War Hero's Ambition"
+ monarchy_factions.10.d:0 "General [event_target:hero_province.GetName] has become a household name after his recent victory. The common soldiers speak his name with reverence, and military officers seek his counsel. However, his growing influence concerns some at court who worry about a general becoming too powerful. The military faction strongly supports promoting this hero, while others counsel caution."
+ monarchy_factions.10.a:0 "Elevate the hero to high command"
+ monarchy_factions.10.b:0 "Keep him in his current position"
+
+ # Military Academy Proposal
+ monarchy_factions.11.t:0 "Military Academy Proposal"
+ monarchy_factions.11.d:0 "Our military commanders have submitted a proposal for establishing a royal military academy. They argue that formal military education would produce better officers and strengthen our armed forces. The academy would require significant funding but could revolutionize our military training. The proposal has strong support among career officers."
+ monarchy_factions.11.a:0 "Fund the military academy"
+ monarchy_factions.11.b:0 "Reject the proposal"
+
+ # Mercenary Company Proposal
+ monarchy_factions.112.t:0 "Mercenary Company Proposal"
+ monarchy_factions.112.d:0 "A group of veteran soldiers seeks royal charter to establish a mercenary company bearing our colors. They argue that professional soldiers-for-hire could supplement our regular forces during wartime while earning revenue during peace. Our military advisors see potential in the proposal."
+ monarchy_factions.112.a:0 "Charter the mercenary company"
+ monarchy_factions.112.b:0 "Reject foreign soldiers"
+
+ # The Siege Engineer's Innovation
+ monarchy_factions.113.t:0 "The Siege Engineer's Innovation"
+ monarchy_factions.113.d:0 "Our chief siege engineer has developed new techniques for reducing enemy fortifications, involving improved gunpowder charges and innovative sapping methods. Field tests suggest these methods could significantly reduce the time required to capture enemy strongholds."
+ monarchy_factions.113.a:0 "Adopt the new siege techniques"
+ monarchy_factions.113.b:0 "Traditional methods have served us well"
+
+ # ==============================================
+ # MERCHANT FACTION EVENTS
+ # ==============================================
+
+ # Trade Route Dispute
+ monarchy_factions.20.t:0 "Trade Route Dispute"
+ monarchy_factions.20.d:0 "A heated dispute has erupted between local merchants and foreign traders over control of the lucrative silk trade in [event_target:trade_province.GetName]. Our merchant allies demand royal intervention to protect their interests, claiming that foreign competition threatens domestic prosperity. How we handle this matter will significantly impact our relationship with the merchant class."
+ monarchy_factions.20.a:0 "Protect our merchants' interests"
+ monarchy_factions.20.b:0 "Remain neutral in the dispute"
+
+ # Banking Innovation
+ monarchy_factions.21.t:0 "Banking Innovation"
+ monarchy_factions.21.d:0 "Progressive merchants in our capital have proposed revolutionary banking methods they claim will increase trade efficiency and royal revenues. They seek royal charter to establish new financial institutions with novel lending practices. Conservative voices warn against departing from traditional methods, but the potential profits are substantial."
+ monarchy_factions.21.a:0 "Grant charter for banking innovation"
+ monarchy_factions.21.b:0 "Stick to traditional banking methods"
+
+ # Maritime Trade Expansion
+ monarchy_factions.120.t:0 "Maritime Trade Expansion"
+ monarchy_factions.120.d:0 "Ambitious merchants propose funding an expedition to establish new trade routes beyond our current reach. They speak of exotic goods and untapped markets that could bring immense wealth to our kingdom. However, such ventures carry significant risks of loss."
+ monarchy_factions.120.a:0 "Fund the trade expedition"
+ monarchy_factions.120.b:0 "The risks are too great"
+
+ # Guildhall Construction
+ monarchy_factions.121.t:0 "Guildhall Construction"
+ monarchy_factions.121.d:0 "The merchant guilds petition for royal permission to construct a grand guildhall in our capital. They argue this would centralize trade administration and boost our commercial reputation. The building would be an impressive addition to the city's skyline."
+ monarchy_factions.121.a:0 "Approve the guildhall construction"
+ monarchy_factions.121.b:0 "Deny the petition"
+
+ # ==============================================
+ # CLERICAL FACTION EVENTS
+ # ==============================================
+
+ # Religious Relic Discovery
+ monarchy_factions.30.t:0 "Religious Relic Discovery"
+ monarchy_factions.30.d:0 "Exciting news reaches the court from [event_target:relic_province.GetName] - construction workers renovating the cathedral have unearthed what appears to be an ancient religious relic. The local clergy claim it bears miraculous properties and could become a site of pilgrimage. However, some question its authenticity and worry about the implications of endorsing potentially false relics."
+ monarchy_factions.30.a:0 "Authenticate and venerate the relic"
+ monarchy_factions.30.b:0 "Question its authenticity"
+
+ # Heresy in the Countryside
+ monarchy_factions.31.t:0 "Heresy in the Countryside"
+ monarchy_factions.31.d:0 "Disturbing reports arrive from [event_target:heretic_province.GetName] of heretical teachings spreading among the peasantry. Local priests report that foreign missionaries have been preaching doctrines contrary to our established faith. The clerical faction demands immediate action to root out this heresy, while others counsel a more measured approach."
+ monarchy_factions.31.a:0 "Launch a royal inquisition"
+ monarchy_factions.31.b:0 "Seek peaceful conversion"
+
+ # Pilgrimage Route Establishment
+ monarchy_factions.130.t:0 "Pilgrimage Route Establishment"
+ monarchy_factions.130.d:0 "Religious authorities in [event_target:pilgrimage_site.GetName] request royal support to establish a formal pilgrimage route to their cathedral. They claim miraculous events have occurred there, attracting faithful from distant lands. A royal endorsement would legitimize these claims and boost religious tourism."
+ monarchy_factions.130.a:0 "Establish the sacred pilgrimage route"
+ monarchy_factions.130.b:0 "Support local religious activities only"
+
+ # Theological Debate
+ monarchy_factions.131.t:0 "Theological Debate"
+ monarchy_factions.131.d:0 "Heated theological discussions at our universities have attracted attention from church authorities. While some see scholarly inquiry as beneficial, others worry about dangerous ideas spreading among the educated classes. The clergy seeks royal guidance on how much intellectual freedom to permit."
+ monarchy_factions.131.a:0 "Support orthodox religious teaching"
+ monarchy_factions.131.b:0 "Allow scholarly theological discussion"
+
+ # ==============================================
+ # NOBLE FACTION EVENTS
+ # ==============================================
+
+ # Tournament of Honor
+ monarchy_factions.40.t:0 "Tournament of Honor"
+ monarchy_factions.40.d:0 "The changing seasons bring the traditional time for knightly tournaments, and our nobles eagerly anticipate this year's competition. A grand tournament would attract knights from across the realm and neighboring countries, showcasing our court's magnificence. However, such events are costly and sometimes end in unfortunate accidents that could embarrass the crown."
+ monarchy_factions.40.a:0 "Host a grand tournament"
+ monarchy_factions.40.b:0 "Organize a modest competition"
+
+ # Noble Land Dispute
+ monarchy_factions.41.t:0 "Noble Land Dispute"
+ monarchy_factions.41.d:0 "A complex legal dispute has emerged in [event_target:disputed_land.GetName] between two noble families claiming ancient rights to the same fertile lands. Both parties have presented genealogical evidence and ancient charters supporting their claims. Our ruling will set an important precedent for noble property rights and royal authority over land disputes."
+ monarchy_factions.41.a:0 "Grant privileges to the nobles"
+ monarchy_factions.41.b:0 "Assert royal authority over the land"
+
+ # Noble Hunting Preserve
+ monarchy_factions.140.t:0 "Noble Hunting Preserve"
+ monarchy_factions.140.d:0 "Our nobles petition for exclusive hunting rights in the ancient forests of [event_target:forest_province.GetName]. They argue that establishing a royal hunting preserve would provide recreation for the court while protecting these woodlands from common poachers. However, local peasants depend on these forests for firewood and game."
+ monarchy_factions.140.a:0 "Grant exclusive hunting rights to nobles"
+ monarchy_factions.140.b:0 "Preserve common access to the forest"
+
+ # Noble Academy Proposal
+ monarchy_factions.141.t:0 "Noble Academy Proposal"
+ monarchy_factions.141.d:0 "Leading nobles propose establishing an academy for the education of aristocratic youth in military arts, statecraft, and courtly graces. They argue this would produce better-trained leaders for our realm, though critics worry about creating an even more privileged elite class."
+ monarchy_factions.141.a:0 "Establish the noble academy"
+ monarchy_factions.141.b:0 "Education should not be restricted by birth"
+
+ # ==============================================
+ # BUREAUCRATIC FACTION EVENTS
+ # ==============================================
+
+ # Administrative Reform Proposal
+ monarchy_factions.50.t:0 "Administrative Reform Proposal"
+ monarchy_factions.50.d:0 "Our chief administrators have presented a comprehensive plan to modernize the kingdom's bureaucracy. They propose streamlining record-keeping, standardizing procedures across provinces, and creating new administrative positions. While the reforms promise greater efficiency, they would also concentrate more power in the hands of professional bureaucrats."
+ monarchy_factions.50.a:0 "Implement the administrative reforms"
+ monarchy_factions.50.b:0 "Maintain the current system"
+
+ # Tax Collection Efficiency
+ monarchy_factions.51.t:0 "Tax Collection Efficiency"
+ monarchy_factions.51.d:0 "Our tax collectors report significant inefficiencies in the current revenue system. They propose modernizing collection methods and establishing standardized assessment procedures across all provinces. The bureaucratic faction argues these changes would substantially increase royal revenues with minimal additional burden on subjects."
+ monarchy_factions.51.a:0 "Modernize the tax collection system"
+ monarchy_factions.51.b:0 "Keep traditional collection methods"
+
+ # Administrative Census
+ monarchy_factions.150.t:0 "Administrative Census"
+ monarchy_factions.150.d:0 "Our chief administrators propose conducting a comprehensive census of our realm's population, resources, and economic activities. This massive undertaking would provide unprecedented data for governance but would require significant bureaucratic resources and may face resistance from privacy-conscious subjects."
+ monarchy_factions.150.a:0 "Conduct the comprehensive census"
+ monarchy_factions.150.b:0 "Perform a basic population count only"
+
+ # Legal Code Standardization
+ monarchy_factions.151.t:0 "Legal Code Standardization"
+ monarchy_factions.151.d:0 "Our legal experts propose standardizing laws across all provinces, replacing the patchwork of local customs and regional variations with a unified royal code. This would simplify administration but may anger those who cherish traditional legal privileges and local autonomy."
+ monarchy_factions.151.a:0 "Standardize the legal code"
+ monarchy_factions.151.b:0 "Maintain regional legal variations"
+
+ # ==============================================
+ # NATIONAL FACTION EVENTS
+ # ==============================================
+
+ # Cultural Festival
+ monarchy_factions.60.t:0 "Cultural Festival"
+ monarchy_factions.60.d:0 "Representatives from our kingdom's various cultural communities have requested royal patronage for a grand cultural festival celebrating the diversity within our realm. They argue such an event would demonstrate the crown's commitment to all subjects regardless of their heritage. However, some traditionalists worry about diluting our primary cultural identity."
+ monarchy_factions.60.a:0 "Support the multicultural festival"
+ monarchy_factions.60.b:0 "Focus on our primary culture"
+
+ # Border Province Integration
+ monarchy_factions.61.t:0 "Border Province Integration"
+ monarchy_factions.61.d:0 "The recently conquered province of [event_target:integration_province.GetName] presents a challenge for integration into our realm. Local leaders have approached the court seeking accommodation for their customs and traditions. The national faction advocates for peaceful integration that respects local culture, while others prefer more direct assimilation methods."
+ monarchy_factions.61.a:0 "Pursue peaceful integration"
+ monarchy_factions.61.b:0 "Enforce cultural assimilation"
+
+ # Cultural Heritage Preservation
+ monarchy_factions.160.t:0 "Cultural Heritage Preservation"
+ monarchy_factions.160.d:0 "Scholars and local leaders in [event_target:heritage_province.GetName] request royal support to preserve their unique cultural traditions, languages, and historical sites. They fear these heritage elements may be lost to time without active protection and promotion."
+ monarchy_factions.160.a:0 "Fund cultural heritage preservation"
+ monarchy_factions.160.b:0 "Promote national cultural unity instead"
+
+ # ==============================================
+ # CROSS-FACTION CONFLICT EVENTS
+ # ==============================================
+
+ # Court vs Military Rivalry
+ monarchy_factions.70.t:0 "Court vs Military Rivalry"
+ monarchy_factions.70.d:0 "Tensions have erupted between our military commanders and court officials over the conduct of our current war. The generals complain that courtiers interfere with military decisions, while the courtiers argue that the military shows insufficient respect for royal prerogatives. This conflict threatens to undermine our war effort unless resolved decisively."
+ monarchy_factions.70.a:0 "Support the military commanders"
+ monarchy_factions.70.b:0 "Back the court officials"
+
+ # Merchant vs Noble Tax Dispute
+ monarchy_factions.71.t:0 "Merchant vs Noble Tax Dispute"
+ monarchy_factions.71.d:0 "Our empty treasury has sparked a heated debate over taxation policy. The merchant faction argues that nobles should bear a greater tax burden given their vast land holdings, while the noble faction insists that merchants should pay more due to their growing wealth from trade. Both groups threaten consequences if we side against them."
+ monarchy_factions.71.a:0 "Increase taxes on the nobility"
+ monarchy_factions.71.b:0 "Tax the merchant class more heavily"
+
+ # ==============================================
+ # WARTIME EVENTS (200-299 series)
+ # ==============================================
+
+ # War Profiteering Scandal
+ monarchy_factions.200.t:0 "War Profiteering Scandal"
+ monarchy_factions.200.d:0 "Disturbing reports reach the court of merchants charging excessive prices for military supplies during our current conflict. While such practices boost our tax revenues, they also burden our war effort and anger our soldiers who struggle to afford basic necessities."
+ monarchy_factions.200.a:0 "Prosecute the war profiteers"
+ monarchy_factions.200.b:0 "Overlook their patriotic contributions"
+
+ # Military Chaplain Controversy
+ monarchy_factions.201.t:0 "Military Chaplain Controversy"
+ monarchy_factions.201.d:0 "A dispute has erupted between military commanders and religious authorities over the role of chaplains in our armies. The generals want practical spiritual guidance, while the clergy insists on maintaining strict religious doctrine. Both sides seek royal resolution of this matter."
+ monarchy_factions.201.a:0 "Support military chaplain program"
+ monarchy_factions.201.b:0 "Keep religious authority separate from military"
+
+ # ==============================================
+ # DOMINANT FACTION EVENTS (300-399 series)
+ # ==============================================
+
+ # Royal Court Dominance
+ monarchy_factions.300.t:0 "The Court Ascendant"
+ monarchy_factions.300.d:0 "Our royal court has achieved unprecedented influence over the realm's governance. Courtiers, advisors, and royal favorites now shape policy across all domains. While this centralizes power around the monarchy, it also risks creating a government of sycophants rather than capable administrators."
+ monarchy_factions.300.a:0 "Embrace the court's golden age"
+ monarchy_factions.300.b:0 "Balance courtly influence with other factions"
+
+ # Military Dominance
+ monarchy_factions.301.t:0 "Military Supremacy"
+ monarchy_factions.301.d:0 "Our military faction has gained dominant influence over state affairs. Generals and officers now hold key positions throughout the government, bringing martial efficiency but also rigid hierarchy to civilian administration. The question remains whether this militarization serves our long-term interests."
+ monarchy_factions.301.a:0 "Formalize military governance"
+ monarchy_factions.301.b:0 "Restore civilian administrative control"
+
+ # ==============================================
+ # CONDITIONAL EVENTS (800-899 series)
+ # ==============================================
+
+ # Stability Breeds Confidence
+ monarchy_factions.800.t:0 "Prosperity and Confidence"
+ monarchy_factions.800.d:0 "Our realm enjoys remarkable stability and prosperity. High legitimacy and internal peace have created an atmosphere of confidence that benefits all factions. This is an opportune moment to strengthen relationships with key political groups or to pursue ambitious projects."
+ monarchy_factions.800.a:0 "Reward the loyal courtiers"
+ monarchy_factions.800.b:0 "Share prosperity among all factions"
+
+ # Crisis Reveals Faction Tensions
+ monarchy_factions.801.t:0 "Crisis and Recrimination"
+ monarchy_factions.801.d:0 "Our current difficulties have sparked a blame game among the various factions at court. Each group points fingers at others for our troubles, creating dangerous divisions when unity is most needed. How we handle these accusations will determine our political future."
+ monarchy_factions.801.a:0 "The merchants have failed us"
+ monarchy_factions.801.b:0 "The nobles are to blame"
+ monarchy_factions.801.c:0 "Foreign enemies are responsible"
+
+ # ==============================================
+ # SPECIAL FACTION EVENTS (900-999 series)
+ # ==============================================
+
+ # The Great Court Conspiracy
+ monarchy_factions.900.t:0 "The Great Court Conspiracy"
+ monarchy_factions.900.d:0 "A web of intrigue has been uncovered at court involving members of the nobility, clergy, and even some courtiers. Whispered conversations speak of limiting royal power and establishing a council to 'advise' our decisions. The conspiracy reaches into the highest levels of society, and our response will reshape the political landscape of our realm."
+ monarchy_factions.900.a:0 "Rally the loyal courtiers against the conspiracy"
+ monarchy_factions.900.b:0 "Expose the plot and arrest the conspirators"
+ monarchy_factions.900.c:0 "Negotiate a compromise with all parties"
+
+ # Conspiracy Aftermath - Court Victory
+ monarchy_factions.901.t:0 "Victory of the Royal Court"
+ monarchy_factions.901.d:0 "The conspiracy has been crushed by the decisive action of our loyal courtiers. Those who plotted against royal authority have been exposed and discredited. The court now stands supreme, with unprecedented influence over all aspects of governance. This is a golden age for royal absolutism."
+ monarchy_factions.901.a:0 "Consolidate the court's supreme authority"
+
+ # Conspiracy Aftermath - Exposed Plot
+ monarchy_factions.902.t:0 "Aftermath of the Purge"
+ monarchy_factions.902.d:0 "The exposure of the conspiracy has led to widespread arrests and confiscations. Many noble families have been stripped of titles and lands, while corrupt clergy have been removed from their positions. The realm is in turmoil, but royal authority has never been stronger."
+ monarchy_factions.902.a:0 "Continue the harsh crackdown"
+ monarchy_factions.902.b:0 "Show mercy to the remaining conspirators"
+
+ # Conspiracy Aftermath - Compromise
+ monarchy_factions.903.t:0 "The Great Compromise"
+ monarchy_factions.903.d:0 "Through careful negotiation and diplomatic skill, we have reached an accord with all major factions. A new system of governance has been established that respects the interests of courtiers, nobles, and clergy while maintaining royal prerogatives. This delicate balance may prove to be our greatest achievement."
+ monarchy_factions.903.a:0 "Formalize the power-sharing agreement"
+
+ # The Royal Marriage Alliance Crisis
+ monarchy_factions.950.t:0 "The Marriage Alliance Crisis"
+ monarchy_factions.950.d:0 "Our royal marriage to [event_target:foreign_marriage_partner.GetName] has become a source of controversy. Religious authorities condemn the union with a foreign power of different faith, while diplomatic advisors argue that breaking such ties would damage our international standing. The heir's future spouse hangs in the balance."
+ monarchy_factions.950.a:0 "Religious unity must come first"
+ monarchy_factions.950.b:0 "Honor our diplomatic commitments"
+
+ # The Royal Philosopher
+ monarchy_factions.951.t:0 "The Royal Philosopher"
+ monarchy_factions.951.d:0 "A brilliant philosopher has gained favor at court, proposing revolutionary ideas about governance, natural law, and human reason. These concepts challenge traditional religious and political authority, attracting both enthusiastic supporters and fierce opponents. Our stance will define our realm's intellectual future."
+ monarchy_factions.951.a:0 "Embrace the new philosophical ideas"
+ monarchy_factions.951.b:0 "Uphold traditional wisdom and faith"
+
+ # The Merchant Prince's Proposal
+ monarchy_factions.952.t:0 "The Merchant Prince's Proposal"
+ monarchy_factions.952.d:0 "The wealthiest merchant in our realm has petitioned for elevation to noble status, offering substantial financial contributions to the crown. This unprecedented request challenges traditional concepts of nobility based on birth and service, while potentially opening the aristocracy to commercial influence."
+ monarchy_factions.952.a:0 "Grant nobility to wealthy merchants"
+ monarchy_factions.952.b:0 "Maintain noble exclusivity by birth"
+
+ # The General's Ultimatum
+ monarchy_factions.953.t:0 "The General's Ultimatum"
+ monarchy_factions.953.d:0 "Our most senior military commander has presented a stark ultimatum: grant the army complete authority over war conduct, or face potential mutiny. The ongoing conflict has strained our forces to the breaking point, and the generals claim only military rule can achieve victory."
+ monarchy_factions.953.a:0 "Grant the military emergency powers"
+ monarchy_factions.953.b:0 "Maintain civilian control of the military"
+
+ # The Perfect Balance
+ monarchy_factions.990.t:0 "The Perfect Balance"
+ monarchy_factions.990.d:0 "Through skillful political maneuvering, we have achieved something remarkable - perfect balance among all major factions in our realm. No single group dominates, yet all feel their voices are heard. This harmony has created unprecedented stability and prosperity throughout our lands."
+ monarchy_factions.990.a:0 "Celebrate this golden age of balance"
+
+ # ==============================================
+ # PROVINCE MODIFIERS
+ # ==============================================
+ 
+ military_hero_snubbed:0 "Military Hero Snubbed"
+ military_hero_snubbed_desc:0 "The local war hero has been deliberately overlooked for promotion, causing resentment among military circles."
+
+ royal_trade_protection:0 "Royal Trade Protection"
+ royal_trade_protection_desc:0 "The crown has granted special protection to local merchants, boosting trade confidence."
+
+ holy_relic:0 "Holy Relic"
+ holy_relic_desc:0 "This province houses an authenticated religious relic, drawing pilgrims and faithful."
+
+ royal_inquisition:0 "Royal Inquisition"
+ royal_inquisition_desc:0 "Religious authorities conduct investigations to root out heretical teachings."
+
+ noble_privileges:0 "Noble Privileges"
+ noble_privileges_desc:0 "Local nobles have been granted special privileges and exemptions."
+
+ crown_land:0 "Crown Land"
+ crown_land_desc:0 "This territory has been claimed directly under royal authority."
+
+ peaceful_integration:0 "Peaceful Integration"
+ peaceful_integration_desc:0 "Local populations are being integrated through diplomatic means and cultural respect."
+
+ cultural_appreciation:0 "Cultural Appreciation"
+ cultural_appreciation_desc:0 "Royal support for local culture has improved relations with minority populations."
+
+ cultural_supremacy:0 "Cultural Supremacy"
+ cultural_supremacy_desc:0 "The primary culture is being promoted above all others in this region."
+
+ pilgrimage_destination:0 "Pilgrimage Destination"
+ pilgrimage_destination_desc:0 "This holy site attracts pilgrims from across the realm and beyond."
+
+ local_religious_center:0 "Local Religious Center"
+ local_religious_center_desc:0 "This province serves as a regional center of religious activity."
+
+ theological_scholarship:0 "Theological Scholarship"
+ theological_scholarship_desc:0 "Academic religious study flourishes in this province."
+
+ noble_hunting_preserve:0 "Noble Hunting Preserve"
+ noble_hunting_preserve_desc:0 "Exclusive hunting grounds reserved for aristocratic recreation."
+
+ cultural_heritage_site:0 "Cultural Heritage Site"
+ cultural_heritage_site_desc:0 "Protected cultural traditions and historical preservation."
+
+ # ==============================================
+ # COUNTRY MODIFIERS
+ # ==============================================
+ 
+ royal_military_academy:0 "Royal Military Academy"
+ royal_military_academy_desc:0 "A prestigious institution trains the next generation of military officers."
+
+ royal_banking_charter:0 "Royal Banking Charter"
+ royal_banking_charter_desc:0 "Innovative banking methods have been sanctioned by royal decree."
+
+ administrative_efficiency_reform:0 "Administrative Efficiency Reform"
+ administrative_efficiency_reform_desc:0 "Bureaucratic reforms have streamlined government operations."
+
+ improved_tax_collection:0 "Improved Tax Collection"
+ improved_tax_collection_desc:0 "Modernized tax collection methods increase royal revenues."
+
+ cultural_unity_celebration:0 "Cultural Unity Celebration"
+ cultural_unity_celebration_desc:0 "Royal patronage of cultural diversity strengthens national cohesion."
+
+ successful_tournament:0 "Successful Tournament"
+ successful_tournament_desc:0 "A magnificently organized tournament has enhanced royal prestige."
+
+ merchant_tax_burden:0 "Merchant Tax Burden"
+ merchant_tax_burden_desc:0 "Increased taxation on merchants affects trade confidence."
+
+ royal_scandal:0 "Royal Scandal"
+ royal_scandal_desc:0 "Recent court scandals have damaged royal reputation."
+
+ royal_spy_network:0 "Royal Intelligence Network"
+ royal_spy_network_desc:0 "An extensive spy network provides valuable intelligence."
+
+ royal_mercenary_charter:0 "Royal Mercenary Charter"
+ royal_mercenary_charter_desc:0 "Licensed mercenary companies serve the crown."
+
+ advanced_siege_techniques:0 "Advanced Siege Techniques"
+ advanced_siege_techniques_desc:0 "New military engineering methods improve siege warfare."
+
+ successful_trade_expedition:0 "Successful Trade Expedition"
+ successful_trade_expedition_desc:0 "Recent trading ventures have opened profitable new routes."
+
+ military_chaplains:0 "Military Chaplains"
+ military_chaplains_desc:0 "Religious guidance strengthens military morale."
+
+ courtly_dominance:0 "Courtly Dominance"
+ courtly_dominance_desc:0 "The royal court's influence permeates all aspects of governance."
+
+ military_dominance:0 "Military Governance"
+ military_dominance_desc:0 "Military efficiency has been applied to civilian administration."
+
+ noble_military_academy:0 "Noble Military Academy"
+ noble_military_academy_desc:0 "An elite institution trains aristocratic military officers."
+
+ comprehensive_census:0 "Comprehensive Census Data"
+ comprehensive_census_desc:0 "Detailed population and resource data improves administration."
+
+ standardized_legal_code:0 "Standardized Legal Code"
+ standardized_legal_code_desc:0 "Unified laws across all provinces streamline governance."
+
+ court_supremacy:0 "Court Supremacy"
+ court_supremacy_desc:0 "The royal court has achieved complete dominance over rival factions."
+
+ noble_purge:0 "Noble Purge"
+ noble_purge_desc:0 "Recent purges have eliminated noble opposition to royal authority."
+
+ faction_compromise:0 "Factional Compromise"
+ faction_compromise_desc:0 "A negotiated agreement balances the interests of all major factions."
+
+ diplomatic_marriage_policy:0 "Diplomatic Marriage Policy"
+ diplomatic_marriage_policy_desc:0 "Strategic marriages strengthen international relationships."
+
+ royal_enlightenment:0 "Royal Enlightenment"
+ royal_enlightenment_desc:0 "The monarchy has embraced new philosophical and scientific ideas."
+
+ merchant_nobility:0 "Merchant Nobility"
+ merchant_nobility_desc:0 "Wealthy merchants have been granted noble status and privileges."
+
+ military_emergency_powers:0 "Military Emergency Powers"
+ military_emergency_powers_desc:0 "Military commanders have been granted extraordinary wartime authority."
+
+ factional_harmony:0 "Factional Harmony"
+ factional_harmony_desc:0 "Perfect balance among all political factions creates unprecedented stability."
+ polans_restore_pagan_temples_title:"Restore Ancient Temples"
+ polans_restore_pagan_temples_desc:"We have returned to the ways of our ancestors. No longer shall the stones of the old gods lie buried and forgotten. With our own hands, we raise again the temples of Perun, Weles, and Swietowit. We carve the sacred symbols, light the holy fires, and offer the gifts of grain, blood, and song. The forest hears us. The wind answers. The gods smile upon our devotion."
+ suspicious_activities:0 "Suspicious Activities"
+ blamed_for_problems:0 "Blamed for Our Problems"
+ broken_marriage:0 "Broken Royal Marriage"
+ loyal_marriage_partner:0 "Loyal Marriage Partner"
+ caucascus:"Caucascus"
+ gtr_control_numidia_title:"Conquer Numidia"
+ gtr_control_numidia_desc:"The ancient lands of Numidia, once home to fierce Berber horsemen who served both Rome and Carthage, now beckon to Visigothic ambition. These fertile coastal provinces and their strategic ports would provide our kingdom with valuable trade routes across the Mediterranean and secure our southern flank against potential threats from Africa. The time has come to extend Visigothic rule beyond the Pillars of Hercules and claim these rich territories for our crown." 
+ ability_aquitaine_appanage_mechanic: "Royal Authority"
+ 
+ royal_authority: "Royal Authority"
+ royal_authority_desc: "Represents the Crown's ability to control and integrate appanages into the realm. Higher authority allows for more effective diplomatic annexation and reduces the independence desires of vassalized territories."
+ 
+ monthly_royal_authority: "Monthly Royal Authority"
+ royal_authority_gain_modifier: "Royal Authority Gain"
+  strengthen_royal_authority: "Strengthen Royal Authority"
+ strengthen_royal_authority_desc: "Invest in administrative reforms and diplomatic efforts to increase the Crown's authority over appanages. This will improve our ability to integrate these territories into the realm."
+ 
+ annex_appanage: "Annex Appanage"
+ annex_appanage_desc: "With maximum royal authority, we can forcibly integrate an appanage into our realm. This will completely absorb the territory but will reset our authority and cause significant administrative strain."
+ 
+ diplomatic_integration: "Diplomatic Integration"
+ diplomatic_integration_desc: "Use our accumulated authority to diplomatically pressure an appanage into closer integration. This reduces their desire for independence and improves relations, though it requires significant diplomatic investment."
+ 
+ 
+ royal_authority_peak: "Peak Royal Authority"
+ royal_authority_peak_desc: "The Crown's authority has reached its zenith, allowing for unprecedented control over our subjects and territories."
+ 
+ recent_appanage_annexation: "Recent Appanage Annexation"
+ recent_appanage_annexation_desc: "The forcible integration of an appanage has caused administrative disruption and political tensions throughout the realm."
+ 
+ diplomatic_integration_attempt: "Diplomatic Integration Efforts"
+ diplomatic_integration_attempt_desc: "Recent diplomatic efforts have improved relations and reduced independence desires."
+ 
+ royal_authority_tooltip: "Royal Authority represents the Crown's administrative and diplomatic capability to control appanages. It grows naturally over time and with administrative development."
+ 
+ can_annex_appanage: "We have sufficient Royal Authority to annex an appanage"
+ can_strengthen_authority: "We can invest in strengthening our Royal Authority"
+ can_diplomatic_integration: "We can attempt diplomatic integration of an appanage"
+ 
+ no_suitable_appanage: "No suitable appanage available for annexation"
+ insufficient_royal_authority: "Insufficient Royal Authority"
+ appanage_too_disloyal: "Appanage has too high liberty desire"
+ 
+ royal_authority_peak_modifier: "§G+1§! Diplomatic Reputation\n§G-25%§! Diplomatic Annexation Cost\n§G+1§! Yearly Prestige\n§G-10%§! Liberty Desire in Subjects"
+ 
+ recent_appanage_annexation_modifier: "§R-1§! Stability\n§R+10%§! Administrative Efficiency\n§R+25%§! Core Creation Cost\n§R-1§! Diplomatic Reputation"
+ 
+ appanage_annexation_title: "Appanage Annexed"
+ appanage_annexation_desc: "Through the exercise of royal authority, we have successfully integrated the appanage of [appanage_name.GetName] into our realm. While this strengthens our direct control, it has caused some administrative disruption."
+ 
+ diplomatic_integration_title: "Diplomatic Integration"
+ diplomatic_integration_desc: "Our diplomatic efforts have borne fruit. The appanage of [appanage_name.GetName] has grown closer to the Crown, with reduced desires for independence."
+ POLIS:0 "Polis"
+ SYMMACHEIA:0 "Symmacheia"
+ HELLENIKOS_KOSMOS:0 "Hellenikos Kosmos"
+
+ ARCHON_EPONYMOS:0 "Archon Eponymos"
+ HEGEMONES_SYMMACHIAS:0 "Hegemones Symmachias"
+ BASILEUS_HELLENON:0 "Basileus Hellenon"
+
+ ARCHONTISSA:0 "Archontissa"
+ HEGEMONISSA_SYMMACHIAS:0 "Hegemonissa Symmachias"
+ BASILISSA_HELLENON:0 "Basilissa Hellenon"
+  DYNASTEIA:0 "Dynasteia"
+ BASILEIA:0 "Basileia"
+ MEGALOS_BASILEIA:0 "Megalos Basileia"
+ DYNASTES:0 "Dynastes"
+ BASILEUS:0 "Basileus"
+ MEGAS_BASILEUS:0 "Megas Basileus"
+ DYNASTISSA:0 "Dynastissa"
+ BASILISSA:0 "Basilissa"
+ MEGALE_BASILISSA:0 "Megale Basilissa"
+ SYMMACHOS:0 "Symmachos"
+ HEGEMONES_CONSORTE:0 "Hegemones Consorte"
+ BASILEUS_CONSORTE:0 "Basileus Consorte"
+ HEGEMONISSA_CONSORTE:0 "Hegemonissa Consorte"
+ BASILISSA_CONSORTE:0 "Basilissa Consorte"
+ DYNASTES_CONSORTE:0 "Dynastes Consorte"
+ MEGAS_CONSORTE:0 "Megas Consorte"
+ DYNASTISSA_CONSORTE:0 "Dynastissa Consorte"
+ MEGALE_CONSORTE:0 "Megale Consorte"
+ 
+ # Heir Titles
+ DIADOCHOS:0 "Diadochos"
+ DIADOCHOS_BASILEUS:0 "Diadochos Basileus"
+ MEGAS_DIADOCHOS:0 "Megas Diadochos"
+ DIADOCHOS_GYNAIKA:0 "Diadochos Gynaika"
+ DIADOCHOS_BASILISSA:0 "Diadochos Basilissa"
+ MEGALE_DIADOCHOS:0 "Megale Diadochos"

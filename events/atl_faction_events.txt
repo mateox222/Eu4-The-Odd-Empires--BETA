@@ -1,0 +1,229 @@
+namespace = conditional_factions
+country_event = {
+    id = conditional_factions.1
+    title = conditional_factions.1.t
+    desc = conditional_factions.1.d
+    picture = COURT_eventPicture
+    
+    hidden = yes
+    is_triggered_only = yes
+    
+    trigger = {
+        OR = {
+        ai = no
+        total_development = 200
+        tag = FRA
+        tag = X55
+        tag = X46
+        }
+        government = monarchy
+        or = {
+       has_reform = feudalism_reform
+       has_reform = meridioslavian_monarchy
+        has_reform =  bohemian_elective_kingdom_reform
+       has_reform = autocracy_reform 
+       has_reform = elective_monarchy_reform
+       has_reform = feudal_france_reform
+       has_reform = francocracy 
+       has_reform = african_autocracy_reform 
+
+        }
+
+        NOT = { has_country_flag = conditional_factions_initialized }
+    }
+    
+    immediate = {
+        set_country_flag = conditional_factions_initialized
+        
+        # PODSTAWOWE FRAKCJE (zawsze dostępne gdy has_factions = yes)
+        add_faction = faction_merchant
+        add_faction_influence = {
+            faction = faction_merchant
+            influence = 20
+        }
+        
+        add_faction = faction_royal_court
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = 25
+        }
+        
+        # CONDITIONAL 4: Noble faction (zawsze dostępna - brak warunków allow)
+        add_faction = faction_noble
+        add_faction_influence = {
+            faction = faction_noble
+            influence = 35
+        }
+        
+        # CONDITIONAL 1: Clerical faction dla chrześcijan
+        if = {
+            limit = {
+                religion_group = christian
+            }
+            add_faction = faction_clerical
+            add_faction_influence = {
+                faction = faction_clerical
+                influence = 30
+            }
+        }
+        
+        # CONDITIONAL 2: Bureaucratic faction dla empire rank (rank 3)
+        if = {
+            limit = {
+                government_rank = 3
+            }
+            add_faction = faction_bureaucratic
+            add_faction_influence = {
+                faction = faction_bureaucratic
+                influence = 25
+            }
+        }
+        
+        # CONDITIONAL 3: National faction dla członków HRE
+        if = {
+            limit = {
+                is_part_of_hre = yes
+            }
+            add_faction = faction_national
+            add_faction_influence = {
+                faction = faction_national
+                influence = 20
+            }
+        }
+        
+        # Dodatkowe sprawdzenie military faction (może być w podstawowych)
+        if = {
+            limit = {
+                NOT = { has_faction = faction_military }
+            }
+            add_faction = faction_military
+            add_faction_influence = {
+                faction = faction_military
+                influence = 15
+            }
+        }
+    }
+    
+    option = {
+        name = conditional_factions.1.a
+    }
+}
+
+
+country_event = {
+    id = conditional_factions.4
+    title = conditional_factions.4.t
+    desc = conditional_factions.4.d
+    picture = COURT_eventPicture
+    
+    hidden = yes
+    is_triggered_only = yes
+    trigger = {
+        has_factions = yes
+ 
+        
+        # Sprawdź czy brakuje jakiejś frakcji którą powinien mieć
+        OR = {
+            # Brakuje podstawowych frakcji
+            NOT = { has_faction = faction_merchant }
+            NOT = { has_faction = faction_royal_court }
+            NOT = { has_faction = faction_noble }
+            
+            # Brakuje conditional frakcji
+            AND = {
+                religion_group = christian
+                NOT = { has_faction = faction_clerical }
+            }
+            AND = {
+                government_rank = 3
+                NOT = { has_faction = faction_bureaucratic }
+            }
+            AND = {
+                is_part_of_hre = yes
+                NOT = { has_faction = faction_national }
+            }
+            
+            # Ma frakcję której nie powinien mieć
+            AND = {
+                NOT = { religion_group = christian }
+                has_faction = faction_clerical
+            }
+            AND = {
+                NOT = { government_rank = 3 }
+                has_faction = faction_bureaucratic
+            }
+            AND = {
+                NOT = { is_part_of_hre = yes }
+                has_faction = faction_national
+            }
+        }
+    }
+    
+
+    
+    immediate = {
+        # Dodaj brakujące podstawowe frakcje
+        if = {
+            limit = { NOT = { has_faction = faction_merchant } }
+            add_faction = faction_merchant
+        }
+        if = {
+            limit = { NOT = { has_faction = faction_royal_court } }
+            add_faction = faction_royal_court
+        }
+        if = {
+            limit = { NOT = { has_faction = faction_noble } }
+            add_faction = faction_noble
+        }
+        
+        # Obsłuż conditional frakcje
+        if = {
+            limit = {
+                religion_group = christian
+                NOT = { has_faction = faction_clerical }
+            }
+            add_faction = faction_clerical
+        }
+        if = {
+            limit = {
+                NOT = { religion_group = christian }
+                has_faction = faction_clerical
+            }
+            remove_faction = faction_clerical
+        }
+        
+        if = {
+            limit = {
+                government_rank = 3
+                NOT = { has_faction = faction_bureaucratic }
+            }
+            add_faction = faction_bureaucratic
+        }
+        if = {
+            limit = {
+                NOT = { government_rank = 3 }
+                has_faction = faction_bureaucratic
+            }
+            remove_faction = faction_bureaucratic
+        }
+        
+        if = {
+            limit = {
+                is_part_of_hre = yes
+                NOT = { has_faction = faction_national }
+            }
+            add_faction = faction_national
+        }
+        if = {
+            limit = {
+                NOT = { is_part_of_hre = yes }
+                has_faction = faction_national
+            }
+            remove_faction = faction_national
+        }
+    }
+    
+    option = {
+        name = conditional_factions.4.a
+    }
+}

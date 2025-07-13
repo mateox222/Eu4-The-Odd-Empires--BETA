@@ -33,13 +33,7 @@ kri_development = {
 					duration = -1
 				}
 			}
-			kapitallyonesse_area = {
-				limit = {
-					NOT = { is_core = ROOT } 
-					NOT = { is_permanent_claim = ROOT } 
-				}
-				add_permanent_claim = ROOT
-			}
+			 add_adm_power = 125
 		}
 	}
 
@@ -55,7 +49,7 @@ kri_development = {
 		trigger = {
 			capital_scope = {
 				development = 30
-				has_building = cathedral
+				has_building = temple
 			}
 			treasury = 300
 		}
@@ -67,10 +61,10 @@ kri_development = {
 					name = "kri_nexus_growth"
 					duration = -1
 				}
-				hidden_effect = { remove_province_modifier = kri_crystal_heart_awakening } 
+				hidden_effect = { remove_province_modifier = kri_crystal_heart_awakenIing } 
 			}
 			kapitallyonesse_area = { add_base_tax = 1 } 
-			set_country_flag = kri_nexus_tier_2
+	 
 		}
 	}
 
@@ -85,7 +79,7 @@ kri_development = {
 
 		trigger = {
 			capital_scope = { development = 40 } 
-			has_country_flag = kri_nexus_tier_2
+ 
 			adm_power = 200
 		}
 
@@ -102,7 +96,7 @@ kri_development = {
 				add_base_production = 1
 				add_base_manpower = 1
 			}
-			set_country_flag = kri_nexus_mastered
+ 
 		}
 	}
 
@@ -133,7 +127,7 @@ kri_development = {
 		effect = {
 			gwlamelot_area = {
 				limit = { owned_by = ROOT } 
-				change_culture = lyonessan
+				change_culture = ROOT
 				change_religion = catholic
 				add_province_modifier = {
 					name = "kri_integrated_lands"
@@ -262,7 +256,7 @@ kri_unification = {
 				}
 				add_permanent_claim = ROOT
 			}
-			set_country_flag = kri_realm_unified
+ 
 		}
 	}
 
@@ -281,7 +275,7 @@ kri_unification = {
 		}
 
 		trigger = {
-			has_country_flag = kri_realm_unified
+ 
 			calc_true_if = {
 				all_owned_province = {
 					religion = catholic
@@ -309,7 +303,7 @@ kri_unification = {
 						duration = -1
 					}
 				}
-				set_country_flag = kri_stones_awakened
+ 
 			}
 		}
 	}
@@ -428,7 +422,7 @@ kri_naval_dominion = {
 		provinces_to_highlight = {  } 
 
 		trigger = {
-			has_country_flag = kri_stones_awakened
+ 
 			OR = {
 				ruler_has_personality = bold_fighter
 				ruler_has_personality = charismatic_negotiator
@@ -647,7 +641,7 @@ trigger = {
 				change_religion = catholic
 				change_culture = inperioan
 			}
-			british_isles_region = { add_permanent_claim = ROOT } 
+ 
 			hyperborea_region = { add_permanent_claim = ROOT } 
 		}
 	}
@@ -670,7 +664,7 @@ kri_mystical_path = {
 		provinces_to_highlight = {  } 
 
 		trigger = {
-			has_country_flag = kri_stones_awakened
+ 
 			religious_unity = 0.9
 			calc_true_if = {
 				all_owned_province = {

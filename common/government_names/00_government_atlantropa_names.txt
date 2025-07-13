@@ -1760,3 +1760,94 @@ manichean_republic = {
         government = republic
     }
 }
+
+reek_city_state_democracy = {
+    rank = {
+        1 = POLIS
+        2 = SYMMACHEIA
+        3 = HELLENIKOS_KOSMOS
+    }
+
+    ruler_male = {
+        1 = ARCHON_EPONYMOS
+        2 = HEGEMONES_SYMMACHIAS
+        3 = BASILEUS_HELLENON
+    }
+
+    ruler_female = {
+        1 = ARCHONTISSA
+        2 = HEGEMONISSA_SYMMACHIAS
+        3 = BASILISSA_HELLENON
+    }
+
+    consort_male = {
+        1 = SYMMACHOS
+        2 = HEGEMONES_CONSORTE
+        3 = BASILEUS_CONSORTE
+    }
+
+    consort_female = {
+        1 = SYMMACHOS
+        2 = HEGEMONISSA_CONSORTE
+        3 = BASILISSA_CONSORTE
+    }
+
+    trigger = {
+        government = republic
+        culture_group = byzantine
+        OR = {
+            has_reform = oligarchic_republic
+            has_reform = athenian_republic
+            has_reform = free_city
+        }
+    }
+}
+greek_hellenistic_monarchy = {
+    rank = {
+        1 = DYNASTEIA
+        2 = BASILEIA
+        3 = MEGALOS_BASILEIA
+    }
+
+    ruler_male = {
+        1 = DYNASTES
+        2 = BASILEUS
+        3 = MEGAS_BASILEUS
+    }
+
+    ruler_female = {
+        1 = DYNASTISSA
+        2 = BASILISSA
+        3 = MEGALE_BASILISSA
+    }
+
+    consort_male = {
+        1 = DYNASTES_CONSORTE
+        2 = BASILEUS_CONSORTE
+        3 = MEGAS_CONSORTE
+    }
+
+    consort_female = {
+        1 = DYNASTISSA_CONSORTE
+        2 = BASILISSA_CONSORTE
+        3 = MEGALE_CONSORTE
+    }
+
+    heir_male = {
+        1 = DIADOCHOS
+        2 = DIADOCHOS_BASILEUS
+        3 = MEGAS_DIADOCHOS
+    }
+
+    heir_female = {
+        1 = DIADOCHOS_GYNAIKA
+        2 = DIADOCHOS_BASILISSA
+        3 = MEGALE_DIADOCHOS
+    }
+
+    trigger = {
+        government = monarchy
+        culture_group = byzantine
+ 
+    }
+}

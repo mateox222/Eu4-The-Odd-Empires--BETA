@@ -9,6 +9,7 @@ monarchy_mechanic = {
 	custom_attributes = {
 		enables_aristocratic_idea_group = yes
 	}
+
 	modifiers = {
 		nobles_influence_modifier = 0.05
 	}
@@ -35,6 +36,35 @@ feudalism_reform = {
 		feudal_authority_mechanic
 		state_centralization_mechanic
 	}
+	conditional = {
+		factions = {
+
+		faction_merchant
+		faction_royal_court
+	}}
+	conditional = {
+	allow = {	religion_group = christian }
+		factions = {			faction_clerical }
+
+	}
+		conditional = {
+	allow = {	government_rank  = 3 }
+		factions = {	faction_bureaucratic		 }
+
+	}
+		conditional = {
+	allow = {	   is_part_of_hre = yes }
+		factions = {	faction_national		 }
+
+	}
+		conditional = {
+
+
+		factions = {	faction_noble		 }
+
+	}			
+			
+	
 	ai = {
 		factor = 0.5 #generic
 	}
@@ -59,6 +89,35 @@ autocracy_reform = {
 		state_centralization_mechanic
 		
 	}
+	conditional = {
+		factions = {
+
+		faction_merchant
+		faction_royal_court
+	}}
+	conditional = {
+	allow = {	religion_group = christian }
+		factions = {			faction_clerical }
+
+	}
+		conditional = {
+	allow = {	government_rank  = 3 }
+		factions = {	faction_bureaucratic		 }
+
+	}
+		conditional = {
+	allow = {	   is_part_of_hre = yes }
+		factions = {	faction_national		 }
+
+	}
+		conditional = {
+
+
+		factions = {	faction_noble		 }
+
+	}			
+			
+	
 }
 
 elective_monarchy_reform = {
@@ -76,6 +135,35 @@ elective_monarchy_reform = {
 	custom_attributes = {
 		has_ruler_election = yes
 	}
+	conditional = {
+		factions = {
+
+		faction_merchant
+		faction_royal_court
+	}}
+	conditional = {
+	allow = {	religion_group = christian }
+		factions = {			faction_clerical }
+
+	}
+		conditional = {
+	allow = {	government_rank  = 3 }
+		factions = {	faction_bureaucratic		 }
+
+	}
+		conditional = {
+	allow = {	   is_part_of_hre = yes }
+		factions = {	faction_national		 }
+
+	}
+		conditional = {
+
+
+		factions = {	faction_noble		 }
+
+	}			
+			
+	
 	ai = {
 		factor = 0.5
 	}
@@ -347,7 +435,14 @@ feudal_france_reform = {
 		vassal_income = 0.2
 		max_absolutism = -50
 	}
-
+	factions = {
+		faction_national
+		faction_bureaucratic
+		faction_noble
+		faction_clerical
+		faction_merchant
+		faction_royal_court
+	}
 	custom_attributes = {
 		locked_government_type = yes
 		has_appanages = yes
@@ -375,11 +470,69 @@ appanage_reform = {
 	custom_attributes = {
 		locked_government_type = yes
 	}
+	conditional = {
+		factions = {
+
+		faction_merchant
+		faction_royal_court
+	}}
+	conditional = {
+	allow = {	religion_group = christian }
+		factions = {			faction_clerical }
+
+	}
+		conditional = {
+	allow = {	government_rank  = 3 }
+		factions = {	faction_bureaucratic		 }
+
+	}
+		conditional = {
+	allow = {	   is_part_of_hre = yes }
+		factions = {	faction_national		 }
+
+	}
+		conditional = {
+
+
+		factions = {	faction_noble		 }
+
+	}			
+			
+	
 }
 
 absolutist_france_reform = {
 	icon = "absolutist_france_reform"
 	allow_normal_conversion = no
+			conditional = {
+		factions = {
+
+		faction_merchant
+		faction_royal_court
+	}}
+	conditional = {
+	allow = {	religion_group = christian }
+		factions = {			faction_clerical }
+
+	}
+		conditional = {
+	allow = {	government_rank  = 3 }
+		factions = {	faction_bureaucratic		 }
+
+	}
+		conditional = {
+	allow = {	   is_part_of_hre = yes }
+		factions = {	faction_national		 }
+
+	}
+		conditional = {
+
+
+		factions = {	faction_noble		 }
+
+	}			
+			
+	
 	potential = {
 		has_dlc = "Domination" 
 		OR = {
@@ -397,6 +550,7 @@ absolutist_france_reform = {
 			}
 			mission_completed = fra_movement_centralization
 		}
+
 	}
 	trigger = {
 		OR = {
@@ -1751,6 +1905,35 @@ bohemian_elective_kingdom_reform = {
 		nobles_privilege_slots = 1
 		nobles_influence_modifier = 0.05
 	}
+	conditional = {
+		factions = {
+
+		faction_merchant
+		faction_royal_court
+	}}
+	conditional = {
+	allow = {	religion_group = christian }
+		factions = {			faction_clerical }
+
+	}
+		conditional = {
+	allow = {	government_rank  = 3 }
+		factions = {	faction_bureaucratic		 }
+
+	}
+		conditional = {
+	allow = {	   is_part_of_hre = yes }
+		factions = {	faction_national		 }
+
+	}
+		conditional = {
+
+
+		factions = {	faction_noble		 }
+
+	}			
+			
+	
 	conditional = {
 		allow = { has_dlc = "Domination" }
 		custom_attributes = {

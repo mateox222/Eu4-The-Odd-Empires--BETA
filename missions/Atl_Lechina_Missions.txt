@@ -191,9 +191,10 @@ polans_pagan_reaction_group = {
 			}
 			add_mil_power = 100
 			add_army_tradition = 10
-						every_province = {
+						every_owned_province = {
 				limit = { culture = polish }
 				add_core = ROOT
+				change_culture = staropolska
 			}
 
 		}
@@ -244,7 +245,7 @@ polans_religious_missions = {
 		position = 3
 		
 		trigger = {
-			advisor = theologian
+			adm_power = 250
 			religious_unity = 0.85
 			stability = 3
 		}
@@ -576,11 +577,8 @@ polans_expansion_missions = {
 				name = "polans_lechitic_expansion"
 				duration = -1
 			}
-			add_adm_power = 75			
-			every_owned_province = {
-				limit = { culture_group = west_slavic }
-				add_core = ROOT
-			}
+			add_adm_power = 250		
+			
 		}
 	}
 

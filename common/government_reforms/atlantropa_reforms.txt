@@ -80,6 +80,33 @@ francocracy = {
 	government_abilities = {
 		crusaderstates_mechanic
 	}
+		conditional = {
+		factions = {
+
+		faction_merchant
+		faction_royal_court
+	}}
+	conditional = {
+	allow = {	religion_group = christian }
+		factions = {			faction_clerical }
+
+	}
+		conditional = {
+	allow = {	government_rank  = 3 }
+		factions = {	faction_bureaucratic		 }
+
+	}
+		conditional = {
+	allow = {	   is_part_of_hre = yes }
+		factions = {	faction_national		 }
+
+	}
+		conditional = {
+
+
+		factions = {	faction_noble		 }
+
+	}			
 	ai = {
 		factor = 100
 	}
@@ -114,10 +141,42 @@ meridioslavian_monarchy = {
 	custom_attributes = {
 		locked_government_type = yes
 	}
+
+	conditional = {
+		factions = {
+
+		faction_merchant
+		faction_royal_court
+	}}
+	conditional = {
+	allow = {	religion_group = christian }
+		factions = {			faction_clerical }
+
+	}
+		conditional = {
+	allow = {	government_rank  = 3 }
+		factions = {	faction_bureaucratic		 }
+
+	}
+		conditional = {
+	allow = {	   is_part_of_hre = yes }
+		factions = {	faction_national		 }
+
+	}
+		conditional = {
+
+
+		factions = {	faction_noble		 }
+
+	}			
+			
+	
+
 	ai = {
 		factor = 100
 	}
 }
+
 satrapia = {
 	icon = "monastic_elections_reform"
 	allow_normal_conversion = yes
@@ -506,6 +565,35 @@ balatonianmonarchy = {
 		allow = { has_dlc = "Common Sense" }
 		has_parliament = yes
 	}
+	conditional = {
+		factions = {
+
+		faction_merchant
+		faction_royal_court
+	}}
+	conditional = {
+	allow = {	religion_group = christian }
+		factions = {			faction_clerical }
+
+	}
+		conditional = {
+	allow = {	government_rank  = 3 }
+		factions = {	faction_bureaucratic		 }
+
+	}
+		conditional = {
+	allow = {	   is_part_of_hre = yes }
+		factions = {	faction_national		 }
+
+	}
+		conditional = {
+
+
+		factions = {	faction_noble		 }
+
+	}			
+			
+	
 	custom_attributes = {
 		locked_government_type = yes
 	}
@@ -534,6 +622,7 @@ atlantropatsardom = {
 	lock_level_when_selected = yes
 
 	modifiers = {
+		has_streltsy = yes
 		global_manpower_modifier = 0.20
 		yearly_absolutism = 0.5
 		global_autonomy = -0.05
@@ -850,7 +939,14 @@ chivalric_monarchy = {
 		legitimacy = 0.5
 		prestige = 0.5
 	}
-
+	factions = {
+		faction_national
+		faction_bureaucratic
+		faction_noble
+		faction_clerical
+		faction_merchant
+		faction_royal_court
+	}
 	conditional = {
 	}
 	custom_attributes = {
@@ -991,6 +1087,35 @@ kristaperioan_empire = {
 		locked_government_type = yes
 		maintain_dynasty = yes
 	}
+	conditional = {
+		factions = {
+
+		faction_merchant
+		faction_royal_court
+	}}
+	conditional = {
+	allow = {	religion_group = christian }
+		factions = {			faction_clerical }
+
+	}
+		conditional = {
+	allow = {	government_rank  = 3 }
+		factions = {	faction_bureaucratic		 }
+
+	}
+		conditional = {
+	allow = {	   is_part_of_hre = yes }
+		factions = {	faction_national		 }
+
+	}
+		conditional = {
+
+
+		factions = {	faction_noble		 }
+
+	}			
+			
+	
 	ai = {
 		factor = 100
 	}
@@ -1349,6 +1474,35 @@ perpignan_monarchy = {
 		locked_government_type = yes
 	}
 	conditional = {
+		factions = {
+
+		faction_merchant
+		faction_royal_court
+	}}
+	conditional = {
+	allow = {	religion_group = christian }
+		factions = {			faction_clerical }
+
+	}
+		conditional = {
+	allow = {	government_rank  = 3 }
+		factions = {	faction_bureaucratic		 }
+
+	}
+		conditional = {
+	allow = {	   is_part_of_hre = yes }
+		factions = {	faction_national		 }
+
+	}
+		conditional = {
+
+
+		factions = {	faction_noble		 }
+
+	}			
+			
+	
+	conditional = {
 		government_abilities = {
 			pho_naval_professionalism_mechanic
 		}
@@ -1616,6 +1770,35 @@ african_autocracy_reform = {
 		prestige = 0.5
 		global_unrest = -1
 	}
+	conditional = {
+		factions = {
+
+		faction_merchant
+		faction_royal_court
+	}}
+	conditional = {
+	allow = {	religion_group = christian }
+		factions = {			faction_clerical }
+
+	}
+		conditional = {
+	allow = {	government_rank  = 3 }
+		factions = {	faction_bureaucratic		 }
+
+	}
+		conditional = {
+	allow = {	   is_part_of_hre = yes }
+		factions = {	faction_national		 }
+
+	}
+		conditional = {
+
+
+		factions = {	faction_noble		 }
+
+	}			
+			
+	
 			government_abilities = {
 		feudal_authority_mechanic
 		state_centralization_mechanic

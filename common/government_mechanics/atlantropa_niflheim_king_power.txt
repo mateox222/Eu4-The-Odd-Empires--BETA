@@ -1,125 +1,358 @@
 niflheim_mechanic = {
    alert_icon_gfx = GFX_alerticons_government_mechanics
-	alert_icon_index = 10
+   alert_icon_index = 10
 
-	powers = {
-		niflheim_ruler_authority = {
-			max = 100
-			reset_on_new_ruler = yes
-			base_monthly_growth = 0.5
-			scaled_modifier = {
-				modifier = {
-					legitimacy = 1	
-					max_absolutism = 10	
-					monthly_fervor_increase = 1	
-				}
-			}
-		}
-	}
-	
-	interactions = {
-		niflheim_boost_ruler_army = {
-			cooldown_years = 2
-			
-			icon = GFX_niflheimarmy
-			trigger = {
-				has_government_power = {
-					mechanic_type = niflheim_mechanic
-					power_type = niflheim_ruler_authority
-					value = 75
-				}
-			}
-			effect = { 
-				add_mil_power = 50
-				add_yearly_manpower = 2	
-				create_general = { tradition = 50 }	
-				add_government_power = {
-					mechanic_type = niflheim_mechanic
-					power_type = niflheim_ruler_authority
-					value = -75
-				}
-			}
-			ai_chance = {
-				factor = 1
-			}
-		}
-		niflheim_boost_ruler_authority = {
-			cooldown_years = 2
-			
-			icon = GFX_niflheimemperor 
-			trigger = {
-				has_government_power = {
-					mechanic_type = niflheim_mechanic
-					power_type = niflheim_ruler_authority
-					value = 75
-				}
-			}
-			effect = { 
-				add_government_power = {
-					mechanic_type = niflheim_mechanic
-					power_type = niflheim_ruler_authority
-					value = -75
-				}
-				add_heir_claim = 25
-				add_legitimacy = 25
-				change_government_reform_progress = 50
-				custom_tooltip = niflheim_heir
-				hidden_effect = {
-					random_list = {
-						50 = {
-							add_legitimacy = 5
-						}
-						15 = {
-							trigger = {
-								has_heir = yes
-							}
-							change_heir_adm = 1	
-						}
-						15 = {
-							trigger = {
-								has_heir = yes
-							}
-							change_heir_dip = 1	
-						}
-						15 = {
-							trigger = {
-								has_heir = yes
-							}
-							change_heir_mil = 1	
-						}
-					}
-				}
-			}
-			ai_chance = {
-				factor = 1
-			}
-		}
-		niflheim_boost_ruler_navy = {
-			cooldown_years = 2
-			
-			icon = GFX_niflheimship
-			trigger = {
-				has_government_power = {
-					mechanic_type = niflheim_mechanic
-					power_type = niflheim_ruler_authority
-					value = 75
-				}
-			}
-			effect = { 
-				add_dip_power = 50
-				add_yearly_sailors = 2	
-				create_admiral = { tradition = 50 }	
-				add_government_power = {
-					mechanic_type = niflheim_mechanic
-					power_type = niflheim_ruler_authority
-					value = -75
-				}
-			}
-			ai_chance = {
-				factor = 1
-			}
-		}
-
-
-}
+   powers = {
+       niflheim_ruler_authority = {
+           max = 100
+           reset_on_new_ruler = yes
+           base_monthly_growth = 0.75
+           scaled_modifier = {
+               modifier = {
+                   legitimacy = 0.5
+                   max_absolutism = 10
+                   diplomatic_reputation = 0.15
+                   ae_impact = -0.1
+               }
+           }
+       }
+       
+       niflheim_military_control = {
+           max = 100
+           reset_on_new_ruler = no
+           base_monthly_growth = 0.5
+           scaled_modifier = {
+               modifier = {
+                   discipline = 0.03
+                   land_morale = 0.075
+                   manpower_recovery_speed = 0.15
+                   global_unrest = -1.0
+               }
+           }
+           range_modifier = {
+               start_value = 80
+               end_value = 100
+               modifier = {
+                   stability_cost_modifier = 0.2
+                   global_tax_modifier = -0.1
+                   trade_efficiency = -0.15
+               }
+           }
+       }
+       
+       niflheim_shadow_network = {
+           max = 100
+           reset_on_new_ruler = no
+           base_monthly_growth = 0.4
+           scaled_modifier = {
+               modifier = {
+                   global_spy_defence = 0.15
+                   spy_offence = 0.15
+                   fabricate_claims_cost = -0.2
+                   improve_relation_modifier = 0.1
+               }
+           }
+           range_modifier = {
+               start_value = 75
+               end_value = 100
+               modifier = {
+                   diplomatic_reputation = -2
+                   advisor_cost = 0.25
+                   yearly_corruption = 0.25
+                   liberty_desire = 15
+               }
+           }
+       }
+   }
+   
+   interactions = {
+       niflheim_boost_ruler_army = {
+           cooldown_years = 5
+           icon = GFX_niflheimarmy
+           trigger = {
+               has_government_power = {
+                   mechanic_type = niflheim_mechanic
+                   power_type = niflheim_ruler_authority
+                   value = 50
+               }
+               has_government_power = {
+                   mechanic_type = niflheim_mechanic
+                   power_type = niflheim_military_control
+                   value = 40
+               }
+           }
+           
+           effect = {
+               custom_tooltip = niflheim_army_mobilization_tooltip
+               
+               add_government_power = {
+                   mechanic_type = niflheim_mechanic
+                   power_type = niflheim_ruler_authority
+                   value = -50
+               }
+               add_government_power = {
+                   mechanic_type = niflheim_mechanic
+                   power_type = niflheim_military_control
+                   value = -40
+               }
+               
+               hidden_effect = {
+                   add_mil_power = 100
+                   add_yearly_manpower = 3
+                   
+                   if = {
+                       limit = {
+                           has_government_power = {
+                               mechanic_type = niflheim_mechanic
+                               power_type = niflheim_military_control
+                               value = 60
+                           }
+                       }
+                       add_government_power = {
+                           mechanic_type = niflheim_mechanic
+                           power_type = niflheim_military_control
+                           value = -20
+                       }
+                       add_stability = -1
+                   }
+                   
+                   random_list = {
+                       40 = {
+                           create_general = { tradition = 70 }
+                           add_army_tradition = 10
+                       }
+                       35 = {
+                           add_country_modifier = {
+                               name = "imperial_legion_expansion"
+                               duration = 1825
+                           }
+                       }
+                       25 = {
+                           every_owned_province = {
+                               limit = { 
+                                   development = 12
+                                   NOT = { has_province_modifier = occupied_territory }
+                               }
+                               infantry = ROOT
+                           }
+                       }
+                   }
+               }
+           }
+           
+           ai_chance = {
+               factor = 2
+               modifier = {
+                   factor = 3
+                   is_at_war = yes
+               }
+               modifier = {
+                   factor = 0.5
+                   has_government_power = {
+                       mechanic_type = niflheim_mechanic
+                       power_type = niflheim_military_control
+                       value = 80
+                   }
+               }
+           }
+       }
+       
+       niflheim_boost_ruler_authority = {
+           cooldown_years = 5
+           icon = GFX_niflheimemperor
+           trigger = {
+               has_government_power = {
+                   mechanic_type = niflheim_mechanic
+                   power_type = niflheim_ruler_authority
+                   value = 60
+               }
+               has_government_power = {
+                   mechanic_type = niflheim_mechanic
+                   power_type = niflheim_shadow_network
+                   value = 30
+               }
+           }
+           
+           effect = {
+               custom_tooltip = niflheim_authority_consolidation_tooltip
+               
+               add_government_power = {
+                   mechanic_type = niflheim_mechanic
+                   power_type = niflheim_ruler_authority
+                   value = -60
+               }
+               add_government_power = {
+                   mechanic_type = niflheim_mechanic
+                   power_type = niflheim_shadow_network
+                   value = -30
+               }
+               
+               hidden_effect = {
+                   add_legitimacy = 20
+                   add_adm_power = 75
+                   change_government_reform_progress = 75
+                   
+                   if = {
+                       limit = {
+                           has_government_power = {
+                               mechanic_type = niflheim_mechanic
+                               power_type = niflheim_shadow_network
+                               value = 50
+                           }
+                       }
+                       add_government_power = {
+                           mechanic_type = niflheim_mechanic
+                           power_type = niflheim_shadow_network
+                           value = -25
+                       }
+                   }
+                   
+                   if = {
+                       limit = { has_heir = yes }
+                       add_heir_claim = 30
+                       
+                       random_list = {
+                           33 = { change_heir_adm = 1 }
+                           33 = { change_heir_dip = 1 }
+                           33 = { change_heir_mil = 1 }
+                       }
+                   }
+                   
+                   random_list = {
+                       40 = {
+                           add_country_modifier = {
+                               name = "imperial_authority_display"
+                               duration = 3650
+                           }
+                       }
+                       35 = {
+                           every_owned_province = {
+                               limit = { unrest = 1 }
+                               add_unrest = -3
+                           }
+                       }
+                       25 = {
+                           add_prestige = 15
+                           add_absolutism = 5
+                       }
+                   }
+               }
+           }
+           
+           ai_chance = {
+               factor = 1.5
+               modifier = {
+                   factor = 2
+                   legitimacy = 50
+               }
+               modifier = {
+                   factor = 3
+                   has_government_power = {
+                       mechanic_type = niflheim_mechanic
+                       power_type = niflheim_shadow_network
+                       value = 75
+                   }
+               }
+           }
+       }
+       
+       niflheim_boost_ruler_navy = {
+           cooldown_years = 5
+           icon = GFX_niflheimship
+           trigger = {
+               has_government_power = {
+                   mechanic_type = niflheim_mechanic
+                   power_type = niflheim_ruler_authority
+                   value = 45
+               }
+               has_government_power = {
+                   mechanic_type = niflheim_mechanic
+                   power_type = niflheim_shadow_network
+                   value = 50
+               }
+           }
+           
+           effect = {
+               custom_tooltip = niflheim_navy_operations_tooltip
+               
+               add_government_power = {
+                   mechanic_type = niflheim_mechanic
+                   power_type = niflheim_ruler_authority
+                   value = -45
+               }
+               add_government_power = {
+                   mechanic_type = niflheim_mechanic
+                   power_type = niflheim_shadow_network
+                   value = -50
+               }
+               
+               hidden_effect = {
+                   add_dip_power = 100
+                   add_yearly_sailors = 2
+                   add_navy_tradition = 15
+                   
+                   if = {
+                       limit = {
+                           has_government_power = {
+                               mechanic_type = niflheim_mechanic
+                               power_type = niflheim_shadow_network
+                               value = 50
+                           }
+                       }
+                       add_government_power = {
+                           mechanic_type = niflheim_mechanic
+                           power_type = niflheim_shadow_network
+                           value = -15
+                       }
+                       add_corruption = 0.5
+                   }
+                   
+                   random_list = {
+                       40 = {
+                           create_admiral = { tradition = 65 }
+                           add_country_modifier = {
+                               name = "shadow_fleet_operations"
+                               duration = 2555
+                           }
+                       }
+                       35 = {
+                           every_rival_country = {
+                               limit = { 
+                                   any_owned_province = { has_port = yes }
+                               }
+                               add_spy_network_from = {
+                                   who = ROOT
+                                   value = 25
+                               }
+                           }
+                       }
+                       25 = {
+                           random_owned_province = {
+                               limit = { has_port = yes }
+                               heavy_ship = ROOT
+                               light_ship = ROOT
+                               light_ship = ROOT
+                           }
+                       }
+                   }
+               }
+           }
+           
+           ai_chance = {
+               factor = 1
+               modifier = {
+                   factor = 2
+                   navy_size_percentage = 0.7
+               }
+               modifier = {
+                   factor = 0.3
+                   has_government_power = {
+                       mechanic_type = niflheim_mechanic
+                       power_type = niflheim_shadow_network
+                       value = 85
+                   }
+               }
+           }
+       }
+   }
 }

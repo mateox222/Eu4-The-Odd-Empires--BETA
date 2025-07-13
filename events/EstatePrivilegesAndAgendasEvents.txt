@@ -957,7 +957,8 @@ country_event = {
 	#TOE
 		option = {
 		name = estate_privileges_and_agendas_events.3.p
-		trigger = { has_country_flag = estate_guilds_present_agenda }
+		trigger = { has_country_flag = estate_guilds_present_agenda 
+		always = no }
 		start_estate_agenda = estate_guilds
 		goto = estate_guilds
 		ai_chance = {
@@ -1003,7 +1004,8 @@ country_event = {
 	}
 	option = {
 		name = estate_privileges_and_agendas_events.3.r
-		trigger = { has_country_flag = estate_rural_communes_present_agenda }
+		trigger = { has_country_flag = estate_rural_communes_present_agenda 
+		always = no}
 		start_estate_agenda = estate_rural_communes
 		goto = estate_rural_communes
 		ai_chance = {
@@ -1050,7 +1052,7 @@ country_event = {
 
 option = {
 		name = estate_privileges_and_agendas_events.3.s
-		trigger = { has_country_flag = estate_urban_patricians_present_agenda }
+		trigger = { has_country_flag = estate_urban_patricians_present_agenda always = no }
 		start_estate_agenda = estate_urban_patricians
 		goto = estate_urban_patricians
 		ai_chance = {
