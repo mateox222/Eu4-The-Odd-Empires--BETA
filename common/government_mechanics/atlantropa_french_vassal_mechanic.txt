@@ -1,4 +1,4 @@
-frenchannexapanage_mechanic = {
+aquitaine_appanage_mechanic = {
 
 	alert_icon_gfx = GFX_alerticons_government_mechanics
 	alert_icon_index = 10
@@ -39,11 +39,11 @@ frenchannexapanage_mechanic = {
 			cooldown_years = 5
 			
 			trigger = {
-				adm_power = 100
+	
 				dip_power = 50
 				NOT = {
 					has_government_power = {
-						mechanic_type = frenchannexapanage_mechanic
+						mechanic_type = aquitaine_appanage_mechanic
 						power_type = royal_authority
 						value = 100
 					}
@@ -51,10 +51,11 @@ frenchannexapanage_mechanic = {
 			}
 			
 			effect = {
-				add_adm_power = -100
+	
 				add_dip_power = -50
+				add_adm_power = 50
 				add_government_power = {
-					mechanic_type = frenchannexapanage_mechanic
+					mechanic_type = aquitaine_appanage_mechanic
 					power_type = royal_authority
 					value = 25
 				}
@@ -66,7 +67,7 @@ frenchannexapanage_mechanic = {
 					factor = 2
 					NOT = {
 						has_government_power = {
-							mechanic_type = frenchannexapanage_mechanic
+							mechanic_type = aquitaine_appanage_mechanic
 							power_type = royal_authority
 							value = 75
 						}
@@ -76,16 +77,16 @@ frenchannexapanage_mechanic = {
 		}
 		
 		annex_appanage = {
-			icon = GFX_annexappanage
+			icon = GFX_annexappanage2
 			cost_type = royal_authority
 			cost = 100 # wymaga pełnego paska
 			cooldown_years = 10
 			
-			icon = GFX_frenchappanagew
+			
 			
 			trigger = {
 				has_government_power = {
-					mechanic_type = frenchannexapanage_mechanic
+					mechanic_type = aquitaine_appanage_mechanic
 					power_type = royal_authority
 					value = 100
 				}
@@ -122,7 +123,7 @@ frenchannexapanage_mechanic = {
 				
 				# Resetuje royal_authority do 0
 				set_government_power = {
-					mechanic_type = frenchannexapanage_mechanic
+					mechanic_type = aquitaine_appanage_mechanic
 					power_type = royal_authority
 					value = 0
 				}
@@ -158,7 +159,7 @@ frenchannexapanage_mechanic = {
 			
 			trigger = {
 				has_government_power = {
-					mechanic_type = frenchannexapanage_mechanic
+					mechanic_type = aquitaine_appanage_mechanic
 					power_type = royal_authority
 					value = 50
 				}
@@ -179,11 +180,11 @@ frenchannexapanage_mechanic = {
 					}
 				}
 				
-				add_dip_power = -200
+		 
 				
 				# Zmniejsza royal_authority
 				add_government_power = {
-					mechanic_type = frenchannexapanage_mechanic
+					mechanic_type = aquitaine_appanage_mechanic
 					power_type = royal_authority
 					value = -50
 				}
@@ -191,11 +192,7 @@ frenchannexapanage_mechanic = {
 				# Rozpoczyna proces dyplomatycznej integracji
 				event_target:appanage_to_integrate = {
 					add_liberty_desire = -25
-					add_opinion = {
-						who = ROOT
-						modifier = diplomatic_integration_attempt
-						years = 10
-					}
+					 
 				}
 			}
 			

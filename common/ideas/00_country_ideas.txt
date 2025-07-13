@@ -867,12 +867,7 @@ FRA_ideas = {
 	}
 
 	trigger = {
-		tag = FRA
-		if = {
-			limit = { has_dlc = "Emperor" }
-			is_revolution_target = no
-		}
-		else = { is_revolutionary = no }
+	always = no
 	}
 	free = yes		#will be added at load.
 
@@ -916,13 +911,7 @@ FRA_ideas_2 = {
 	}
 
 	trigger = {
-		tag = FRA
-		if = {
-			limit = { has_dlc = "Emperor" }
-			is_revolution_target = yes
-			is_revolutionary = yes
-		}
-		else = { is_revolutionary = yes }
+	always = no
 	}
 	free = yes		#will be added at load.
 
