@@ -539,9 +539,11 @@ africa_series_3 = {
 		position = 4
 		required_missions = { africa_manage_estates }
 		trigger = {
-			NOT = { religion = united_christianity }
+			stability = 3
+			adm_power = 500
 		}
 		effect = {
+			add_adm_power = -500
 			country_event = {
 				id = atlantropa_africa_event.3
 			}
