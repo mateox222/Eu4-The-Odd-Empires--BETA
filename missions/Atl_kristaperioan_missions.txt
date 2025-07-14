@@ -328,7 +328,7 @@ kri_unification = {
 			}
 			gwlamelot_area = {
 				type = all
-				unrest = 0
+			NOT = {	unrest = 1 }
 			}
 		}
 
@@ -423,10 +423,8 @@ kri_naval_dominion = {
 
 		trigger = {
  
-			OR = {
-				ruler_has_personality = bold_fighter
-				ruler_has_personality = charismatic_negotiator
-			}
+			navy_size = 20
+			army_size = 20
 			navy_tradition = 40
 		}
 
@@ -669,7 +667,7 @@ kri_mystical_path = {
 			calc_true_if = {
 				all_owned_province = {
 					religion = catholic
-					unrest = 0
+				NOT = {	unrest = 1 }
 				}
 				amount = 8
 			}
