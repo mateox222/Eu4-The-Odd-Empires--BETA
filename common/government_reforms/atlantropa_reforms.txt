@@ -1129,7 +1129,11 @@ bulgarian_monarchy = {
 	allow_normal_conversion = yes
 	lock_level_when_selected = yes
 	potential = {
-		has_reform = bulgarian_monarchy
+		goverment = monarchy
+		OR = {
+			tag = WAL
+			tag = BUL
+		}
 	}
 	trigger = {
 		religion_group = christian
