@@ -12,6 +12,7 @@ arthuria_mission1 = {
 	# The name of the mission, used for localization
 	arthuria_first_slot4 = {
 		icon = atlantropa_celtdeal
+		position = 1
 		provinces_to_highlight = {
 			OR = {
 				owned_by = A35
@@ -37,6 +38,7 @@ arthuria_mission1 = {
 	arthuria_second_slot4 = {
 		icon = atlantropa_framond
 		required_missions = { arthuria_first_slot4 }
+		position = 2
 		provinces_to_highlight = {
 			OR = {
 				area = storebugt_area
@@ -60,6 +62,7 @@ arthuria_mission1 = {
 	}
 	arthuria_third_slot4 = {
 		icon = atlantropa_templarthule
+		position = 3
 		required_missions = { arthuria_second_slot4 }
 		provinces_to_highlight = {
 			region = thule_region
@@ -91,28 +94,10 @@ arthuria_mission1 = {
 			}
 		}
 	}
-	arthuria_papal = {
-		icon = atlantropa_pope
-		required_missions = { arthuria_third_slot4 }
-		trigger = {
-			PAP = {
-				has_opinion = {
-					who = ROOT
-					value = 150
-				}
-			} }
-			ai_weight = {
-				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-			}
-
-			effect = {
-				country_event = {
-					id = legionhispanian_events.48
-				}
-			}
-		}
+ 
 
 		conquer_ireland_art = {
+			position = 5
 			icon = atlantropa_stalzemsty
 			required_missions = {  }
 			position = 5
