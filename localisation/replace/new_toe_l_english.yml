@@ -3492,7 +3492,7 @@ kri_crystal_heart_awakening: "Crystal Heart Awakening"
  distribute_grain_title: "Distribute Grain to the People"
  send_diplomatic_missions_title: "Send Diplomatic Missions"
  enforce_orthodoxy_title: "Enforce Religious Orthodoxy"
- military_parade_title: "Military Parade"
+ military_parade_title: "Make a triumph"
  consult_patriarch_title: "Consult the Patriarch"
  suppress_rival_factions_title: "Suppress Rival Factions"
  reform_administration_title: "Reform Provincial Administration"
@@ -9026,66 +9026,44 @@ faction_royal_court:0 "Royal Court"
  
  aqu_dual_heritage: "Dual Heritage"
  aqu_dual_heritage_desc: "Our unique position between French and English spheres of influence has taught us to navigate cultural differences with skill. We have learned to embrace diversity while maintaining unity, making us adept at integrating different peoples and traditions."
- 
- # Ambition
  AQU_ideas_bonus_desc: "Through careful administration and diplomatic finesse, we have mastered the art of governing vast territories efficiently. Our expanded administrative capacity and refined bureaucracy allow us to rule our domains with unprecedented effectiveness."
   volcanic_winter.1.t: "Distant Thunder"
  volcanic_winter.1.d: "Reports reach our court of a catastrophic volcanic eruption in distant lands. The explosion was so massive that ash clouds have begun to spread across the sky, creating unnatural twilight even during midday. Our scholars warn that this phenomenon may persist for months, affecting weather patterns across the known world."
  volcanic_winter.1.a: "This does not bode well..."
- 
- # Event 2 - Ciemnienie nieba
  volcanic_winter.2.t: "The Sun Grows Dim"
  volcanic_winter.2.d: "The ash clouds have reached our lands, turning the sky an eerie orange-red color. The sun appears as a pale disc through the haze, providing little warmth. Our people whisper of omens and divine displeasure, while merchants report disruptions in trade routes as navigation becomes increasingly difficult."
  volcanic_winter.2.a: "We must endure this trial."
- 
- # Event 3 - Problemy z uprawami
  volcanic_winter.3.t: "The Failing Harvest"
  volcanic_winter.3.d: "The lack of sunlight has begun to take its toll on our crops. Farmers report stunted growth and widespread crop failures. The ash falling from the sky has contaminated water sources and poisoned some fields. Food prices are beginning to rise as panic spreads among the population."
  volcanic_winter.3.a: "We must ration our reserves."
  volcanic_winter.3.b: "Purchase emergency supplies from our reserves."
- 
- # Event 4 - Zimna fala
  volcanic_winter.4.t: "The Unnatural Cold"
  volcanic_winter.4.d: "Temperatures have dropped drastically as the ash clouds block the sun's warmth. Even our southernmost provinces report unseasonably cold weather. Our tropical colonies send word of unprecedented frost, while northern territories experience the harshest winter in living memory. The cold affects both civilian population and our military forces."
  volcanic_winter.4.a: "We must adapt to these harsh conditions."
- 
- # Event 5 - Problemy społeczne
  volcanic_winter.5.t: "Growing Unrest"
  volcanic_winter.5.d: "Food shortages and the persistent cold have sparked unrest among our subjects. Some blame the government for inadequate preparation, while others see this as divine punishment. Riots have broken out in several towns, and our local governors request additional resources to maintain order."
  volcanic_winter.5.a: "We cannot spare resources for appeasement."
  volcanic_winter.5.b: "Provide aid to calm the populace."
- 
- # Event 6 - Adaptacja i handel
  volcanic_winter.6.t: "Adapting to Crisis"
  volcanic_winter.6.d: "As the crisis persists, our merchants and administrators have begun developing new strategies. Emergency trade routes are being established to import food from less affected regions. Our people have shown remarkable ingenuity in adapting to these harsh conditions, though the economic cost remains significant."
  volcanic_winter.6.a: "Invest in new trade networks."
  volcanic_winter.6.b: "Seek assistance from our allies."
- 
- # Event 7 - Rozpoczęcie odbudowy
  volcanic_winter.7.t: "Planning for Recovery"
  volcanic_winter.7.d: "Though the crisis continues, our administrators have begun planning for eventual recovery. New agricultural techniques are being developed to deal with ash-contaminated soil, and innovative solutions are being proposed to rebuild our damaged infrastructure. The worst may be behind us, but much work remains."
  volcanic_winter.7.a: "Begin reconstruction efforts."
  volcanic_winter.7.b: "Invest in innovative solutions."
- 
- # Event 8 - Koniec katastrofy
  volcanic_winter.8.t: "The Sun Returns"
  volcanic_winter.8.d: "After what feels like an eternity, the ash clouds have finally begun to disperse. The sun shines once again with its full strength, and our people emerge from their homes to witness the return of normal weather. Though we have endured great hardship, our realm has survived this unprecedented crisis and emerged stronger."
  volcanic_winter.8.a: "We have proven our resilience."
  volcanic_winter.8.b: "Give thanks for our deliverance."
- 
- # Event 9 - Nowe metody uprawy
  volcanic_winter.9.t: "Agricultural Innovation"
  volcanic_winter.9.d: "Our scholars and farmers have developed new techniques for cultivating crops in ash-contaminated soil. These innovations, born from necessity, promise to improve our agricultural output even after the crisis ends. However, implementing these methods will require significant investment and training."
  volcanic_winter.9.a: "Invest in these new methods."
  volcanic_winter.9.b: "Focus on immediate recovery instead."
- 
- # Event 10 - Migracje ludności
  volcanic_winter.10.t: "The Great Migration"
  volcanic_winter.10.d: "Desperate families from the most affected regions have begun migrating to our neighboring territories, seeking relief from the harsh conditions. This mass movement of people strains our resources but also creates diplomatic tensions with our neighbors, who must deal with waves of refugees."
  volcanic_winter.10.a: "We cannot stop this migration."
  volcanic_winter.10.b: "Provide assistance to prevent exodus."
- 
- # Modyfikatory
  ash_clouds: "Ash Clouds"
  crop_failures: "Crop Failures"
  emergency_food_reserves: "Emergency Food Reserves"
@@ -9099,3 +9077,651 @@ faction_royal_court:0 "Royal Court"
  divine_deliverance: "Divine Deliverance"
  improved_farming_methods: "Improved Farming Methods"
  refugee_crisis: "Refugee Crisis"
+ aquaselia_ideas:0 "Aquaesolia Ideas"
+ aquaselia_ideas_start:0 "Aquaesolia Traditions"
+ aquaselia_ideas_bonus:0 "Aquaesolia Ambition"
+ 
+ aquaselia_roman_roads:0 "Roman Roads Network"
+ aquaselia_roman_roads_desc:0 "The extensive network of Roman roads connects every corner of our realm. These stone highways enable rapid movement of troops, goods, and information across the kingdom."
+ 
+ aquaselia_banking:0 "Londinium Banking Houses"
+ aquaselia_banking_desc:0 "The great city of Londinium has become a center of finance and commerce. Our banking houses, built on Roman commercial law, facilitate trade across the known world."
+ 
+ aquaselia_saxon_aux:0 "Saxon Auxiliaries"
+ aquaselia_saxon_aux_desc:0 "We have recruited the fierce Saxon warriors as auxiliary troops. These Germanic fighters bring their own martial traditions while serving under Roman command structure."
+ 
+ aquaselia_monasteries:0 "Monasteries and Learning"
+ aquaselia_monasteries_desc:0 "Our monasteries serve as centers of learning, preserving both Christian knowledge and classical Roman texts. These institutions advance scholarship and provide educated administrators."
+ 
+ aquaselia_wool_trade:0 "Wool Trade Monopoly"
+ aquaselia_wool_trade_desc:0 "The fine wool produced by our sheep has become renowned throughout Europe. Our merchant guilds have established a virtual monopoly on this precious commodity."
+ 
+ aquaselia_norman_influence:0 "Norman Influence"
+ aquaselia_norman_influence_desc:0 "The Norman nobility has brought new military techniques and administrative practices. Their cavalry tactics and stone castle construction have revolutionized our warfare."
+ 
+ aquaselia_common_law:0 "Common Law Tradition"
+ aquaselia_common_law_desc:0 "Our legal system, based on Roman law but adapted to local customs, provides consistent justice across the realm. This common law creates stability and efficient governance."
+  albion_ideas:0 "Albion Ideas"
+ albion_ideas_start:0 "Albion Traditions"
+ albion_ideas_bonus:0 "Albion Ambition"
+ 
+ albion_hadrians_wall:0 "Hadrian's Wall Legacy"
+ albion_hadrians_wall_desc:0 "The great wall built by Emperor Hadrian still stands as a testament to Roman engineering and our defensive capabilities. Its watchtowers and fortifications continue to guard our northern borders."
+ 
+ albion_roman_fleet:0 "Roman Naval Tradition"
+ albion_roman_fleet_desc:0 "Our fleets carry the legacy of the Roman navy, with experienced captains who learned their craft in the Mediterranean. The Classis Britannica continues to patrol our waters with unmatched skill."
+ 
+ albion_legions:0 "Britannia's Legions"
+ albion_legions_desc:0 "The legions stationed in Britannia have become as hardy as the island itself. These professional soldiers, trained in Roman discipline yet adapted to British warfare, form the backbone of our military might."
+ 
+ albion_mining:0 "Tin and Silver Mines"
+ albion_mining_desc:0 "The mineral wealth of Britannia has been exploited since Roman times. Our tin mines in Cornwall and silver deposits throughout the island provide both wealth and strategic resources for the empire."
+ 
+ albion_celtic_culture:0 "Celtic Integration"
+ albion_celtic_culture_desc:0 "Rather than suppress the Celtic peoples, we have learned to integrate their traditions with Roman law and custom. This cultural synthesis has created a unique Romano-British identity."
+ 
+ albion_merchants:0 "Merchant Adventurers"
+ albion_merchants_desc:0 "Our island position has bred a class of bold merchants who venture across dangerous seas to establish trade routes. These merchant adventurers bring wealth and exotic goods to our shores."
+ 
+ albion_island_defense:0 "Island Fortress"
+ albion_island_defense_desc:0 "Our island nature is both our greatest strength and our protection. The seas around us serve as both highway and moat, while our coastal fortifications guard every landing."
+ tie_ideas:0 "Tie Dynasty Ideas"
+ tie_ideas_start:0 "Tie Dynasty Traditions"
+ tie_ideas_bonus:0 "Tie Dynasty Ambition"
+ 
+ tie_iron_mandate:0 "Iron Mandate Revolution"
+ tie_iron_mandate_desc:0 "The Tie Dynasty rose from the ashes of the corrupt Jin, forged in the fires of revolution. Our mandate is as strong as iron, unbreakable and eternal, bringing order to the chaos left by our predecessors."
+ 
+ tie_forge_nation:0 "Forge of the Nation"
+ tie_forge_nation_desc:0 "Like iron shaped by the hammer, our nation is forged through industry and determination. Great furnaces across the land produce not just metal, but prosperity for all our people."
+ 
+ tie_peoples_army:0 "People's Army"
+ tie_peoples_army_desc:0 "Our military draws strength from the common people who overthrew the Jin Dynasty. Every peasant is a potential soldier, every village a source of loyal troops willing to defend the revolution."
+ 
+ tie_meritocracy:0 "Meritocratic Bureaucracy"
+ tie_meritocracy_desc:0 "Gone are the days of inherited privilege. Our government positions are filled based on merit and ability, creating an efficient administration that serves the people rather than the nobility."
+ 
+ tie_iron_rice_bowl:0 "Iron Rice Bowl"
+ tie_iron_rice_bowl_desc:0 "Every citizen is guaranteed sustenance and security. This 'iron rice bowl' ensures that no one goes hungry while strengthening the loyalty of our people to the dynasty."
+ 
+ tie_steel_dragon_fleet:0 "Steel Dragon Fleet"
+ tie_steel_dragon_fleet_desc:0 "Our naval forces are as mighty as dragons forged from steel. These iron-clad vessels patrol our coasts and rivers, ensuring that no enemy can threaten our revolution from the sea."
+ 
+ tie_celestial_ironworks:0 "Celestial Iron Works"
+ tie_celestial_ironworks_desc:0 "Heaven itself has blessed our forges. The celestial iron works produce the finest weapons and siege equipment, giving our armies an edge that even the gods would envy."
+ angland_ideas:0 "Angland Ideas"
+ angland_ideas_start:0 "Angland Traditions"
+ angland_ideas_bonus:0 "Angland Ambition"
+ 
+ angland_aegean_longships:0 "Aegean Longships"
+ angland_aegean_longships_desc:0 "Our traditional longships have been adapted for the calm waters of the Aegean Sea. These swift vessels can navigate between islands with ease and strike fear into the hearts of our enemies."
+ 
+ angland_hellenic_settlement:0 "Hellenic Settlement"
+ angland_hellenic_settlement_desc:0 "The Anglo settlers have established thriving communities throughout the Greek islands, blending their northern customs with the ancient wisdom of Hellas to create prosperous new settlements."
+ 
+ angland_anglo_greek:0 "Anglo-Greek Synthesis"
+ angland_anglo_greek_desc:0 "The marriage of Anglo practicality with Greek philosophy has created a unique culture. Our scholars study both Germanic law and Hellenic wisdom, creating a synthesis greater than either alone."
+ 
+ angland_merchant_seafarers:0 "Merchant Seafarers"
+ angland_merchant_seafarers_desc:0 "Our people have always been sailors, but the Mediterranean has taught us the value of trade over mere raiding. Our merchant fleets now carry goods across the ancient sea routes."
+ 
+ angland_warband:0 "Warband Tradition"
+ angland_warband_desc:0 "The Anglo warrior tradition lives on in our new homeland. Our infantry fights with the fierce determination of their northern ancestors, adapted to the terrain and tactics of the Mediterranean."
+ 
+ angland_island_fortress:0 "Island Fortress Network"
+ angland_island_fortress_desc:0 "Each island in our domain has been fortified against invasion. This network of strongholds ensures that no enemy can easily conquer our scattered but well-defended territories."
+ 
+ angland_mediterranean:0 "Mediterranean Ambitions"
+ angland_mediterranean_desc:0 "No longer content with mere survival in our new homeland, we now look to dominate the Eastern Mediterranean. Our fleets carry both trade goods and the promise of Angland expansion."
+ persian_mamluk_ideas:0 "Mamluk Ideas"
+ persian_mamluk_ideas_start:0 "Mamluk Traditions"
+ persian_mamluk_ideas_bonus:0 "Mamluk Ambition"
+ 
+ persian_mamluk_nestorian_ghulams:0 "Nestorian Warrior-Slaves"
+ persian_mamluk_nestorian_ghulams_desc:0 "Our warrior-slaves are trained not only in combat but also in the Nestorian faith. These Christian ghulams form an elite cavalry force bound by both military discipline and religious devotion."
+ 
+ persian_mamluk_integration:0 "Persian Integration"
+ persian_mamluk_integration_desc:0 "After our successful rebellion in Persia, we have learned to adapt to Persian customs while maintaining our Nestorian identity. This cultural synthesis has strengthened our rule over the diverse peoples of Iran."
+ 
+ persian_mamluk_silk_road:0 "Silk Road Control"
+ persian_mamluk_silk_road_desc:0 "Our strategic position along the ancient Silk Road provides immense wealth. We have established control over key trading posts and caravan routes connecting East and West."
+ 
+ persian_mamluk_monasteries:0 "Nestorian Monasteries"
+ persian_mamluk_monasteries_desc:0 "A network of Nestorian monasteries spreads Christian learning throughout our realm. These institutions preserve ancient knowledge while promoting our distinct form of Christianity."
+ 
+ persian_mamluk_desert:0 "Desert Warfare"
+ persian_mamluk_desert_desc:0 "Our experience in desert warfare serves us well in the arid regions of eastern Iran. We have mastered the art of fighting in harsh environments, using the terrain to our advantage."
+ 
+ persian_mamluk_gunpowder:0 "Gunpowder Adaptation"
+ persian_mamluk_gunpowder_desc:0 "Unlike traditional military castes, we have embraced gunpowder technology. Our artillery corps combines Mamluk discipline with Persian engineering expertise."
+ 
+ persian_mamluk_sultanate:0 "Eastern Sultanate"
+ persian_mamluk_sultanate_desc:0 "We have established a new Mamluk Sultanate in the East, combining military traditions with Nestorian Christianity to create a stable and prosperous Christian realm in Persia."
+ carpetania_ideas:0 "Carpetania Ideas"
+ carpetania_ideas_start:0 "Carpetania Traditions"
+ carpetania_ideas_bonus:0 "Carpetania Ambition"
+ 
+ carpetania_feudal_decentralization:0 "Feudal Decentralization"
+ carpetania_feudal_decentralization_desc:0 "Our realm is a patchwork of semi-autonomous fiefs, each jealously guarding its privileges. While this weakens central authority, it also ensures that local lords can quickly mobilize their forces."
+ 
+ carpetania_noble_privileges:0 "Noble Privileges"
+ carpetania_noble_privileges_desc:0 "The nobility of Carpetania maintains extensive privileges and rights, including the exclusive right to heavy cavalry service. These proud knights form the backbone of our military forces."
+ 
+ carpetania_local_strongholds:0 "Local Strongholds"
+ carpetania_local_strongholds_desc:0 "Every valley and hilltop in our realm boasts its own castle or fortified manor. This network of strongholds makes conquest difficult and expensive for any invader."
+ 
+ carpetania_reconquista:0 "Iberian Reconquista"
+ carpetania_reconquista_desc:0 "Our knights carry the banner of Christianity against the infidel. The spirit of the Reconquista burns bright in our lands, inspiring our warriors to fight with holy fervor."
+ 
+ carpetania_pastoral:0 "Pastoral Economy"
+ carpetania_pastoral_desc:0 "The rolling hills and valleys of southern Iberia are perfect for sheep and cattle herding. Our pastoral economy provides wool, leather, and meat for both local use and export."
+ 
+ carpetania_mountain_warfare:0 "Mountain Warfare"
+ carpetania_mountain_warfare_desc:0 "Our warriors are skilled in fighting among the rocky hills and narrow passes of our homeland. The terrain that challenges invaders is familiar ground to our troops."
+ 
+ carpetania_fueros:0 "Fueros Tradition"
+ carpetania_fueros_desc:0 "Ancient local laws and customs, known as fueros, govern our communities. These traditional privileges help maintain stability by respecting local autonomy and custom."
+ veleti_ideas:0 "Veleti Ideas"
+ veleti_ideas_start:0 "Veleti Traditions"
+ veleti_ideas_bonus:0 "Veleti Ambition"
+ 
+ veleti_tribal_confederation:0 "Tribal Confederation"
+ veleti_tribal_confederation_desc:0 "The Veleti are not a single people but a confederation of related Slavic tribes. Each tribe maintains its autonomy while contributing warriors to the common cause of defending their lands."
+ 
+ veleti_sacred_groves:0 "Sacred Groves"
+ veleti_sacred_groves_desc:0 "Deep within our forests stand the sacred groves where our ancestors' spirits dwell. These holy places are centers of our pagan faith and sources of strength for our warriors."
+ 
+ veleti_forest_warriors:0 "Forest Warriors"
+ veleti_forest_warriors_desc:0 "Our warriors know every path through the dark forests. They strike from the shadows like wolves, using the dense woodlands as both shield and weapon against their enemies."
+ 
+ veleti_slavic_fortifications:0 "Slavic Fortifications"
+ veleti_slavic_fortifications_desc:0 "Our settlements are protected by wooden palisades and earthen ramparts. These fortifications, built with ancient knowledge, can withstand even the most determined siege."
+ 
+ veleti_amber_trade:0 "Amber Trade"
+ veleti_amber_trade_desc:0 "The amber of our northern shores is prized throughout Europe. This 'northern gold' provides wealth that helps fund our resistance against Christian expansion."
+ 
+ veleti_warrior_bands:0 "Warrior Bands"
+ veleti_warrior_bands_desc:0 "Young warriors form bands that raid enemy territory and serve as mercenaries. These fierce fighters gain experience and wealth while defending our ancient way of life."
+ 
+ veleti_pagan_resistance:0 "Pagan Resistance"
+ veleti_pagan_resistance_desc:0 "We are the last guardians of the old ways, standing firm against the tide of Christianity. Our resistance to foreign religion strengthens our resolve and unity."
+ himisandr_ideas:0 "Himisandr Ideas"
+ himisandr_ideas_start:0 "Himisandr Traditions"
+ himisandr_ideas_bonus:0 "Himisandr Ambition"
+ 
+ himisandr_nile_raiders:0 "Nile Raiders"
+ himisandr_nile_raiders_desc:0 "Our longships have learned to navigate the treacherous waters of the Nile Delta. These skilled raiders strike fear into the hearts of Egyptian merchants and nobles alike."
+ 
+ himisandr_desert_adaptation:0 "Desert Adaptation"
+ himisandr_desert_adaptation_desc:0 "The sons of the frozen north have learned to survive in the burning sands. Our warriors have adapted to the harsh desert climate, making them formidable opponents in this foreign land."
+ 
+ himisandr_pharaoh_ambition:0 "Pharaoh's Ambition"
+ himisandr_pharaoh_ambition_desc:0 "Our jarl dreams of ruling Egypt as the northmen once ruled kingdoms in the west. The ancient throne of the pharaohs calls to our ambitious leaders."
+ 
+ himisandr_northern_mercenaries:0 "Northern Mercenaries"
+ himisandr_northern_mercenaries_desc:0 "Warriors from the distant north are drawn to our cause by promises of gold and glory. These fierce fighters bring their traditional weapons and tactics to our campaigns."
+ 
+ himisandr_pyramid_plunder:0 "Pyramid Plunder"
+ himisandr_pyramid_plunder_desc:0 "The ancient tombs and temples of Egypt hold untold riches. Our raiders have become skilled at extracting wealth from these monuments to long-dead pharaohs."
+ 
+ himisandr_longship_mastery:0 "Longship Mastery"
+ himisandr_longship_mastery_desc:0 "Our shipwrights have perfected the art of building longships suited for both river raids and coastal warfare. These vessels are the key to our dominance in Egyptian waters."
+ 
+ himisandr_sons_north:0 "Sons of the North"
+ himisandr_sons_north_desc:0 "We are the heirs of northern warriors who conquered kingdoms and struck fear into the hearts of kings. That same fierce spirit burns in our veins as we carve out our destiny in the south."
+ jin_ideas:0 "Jin Dynasty Ideas"
+ jin_ideas_start:0 "Jin Dynasty Traditions"
+ jin_ideas_bonus:0 "Jin Dynasty Ambition"
+ 
+ jin_mandate_heaven:0 "Mandate of Heaven"
+ jin_mandate_heaven_desc:0 "The Jin Dynasty rules by divine mandate, blessed by Heaven itself. This celestial approval grants our rulers unquestioned legitimacy and the right to govern all under Heaven."
+ 
+ jin_imperial_bureaucracy:0 "Imperial Bureaucracy"
+ jin_imperial_bureaucracy_desc:0 "Our vast empire is administered by a sophisticated bureaucracy of scholar-officials. These learned men, selected through rigorous examinations, ensure efficient governance across our realm."
+ 
+ jin_great_wall:0 "Great Wall Defense"
+ jin_great_wall_desc:0 "The Great Wall stands as an eternal guardian of our northern borders. This massive fortification protects our civilization from barbarian invasions and demonstrates our engineering prowess."
+ 
+ jin_silk_road:0 "Silk Road Prosperity"
+ jin_silk_road_desc:0 "The Silk Road brings wealth from distant lands to our empire. Our merchants and caravans carry precious goods across the known world, making China the center of global trade."
+ 
+ jin_confucian_scholars:0 "Confucian Scholars"
+ jin_confucian_scholars_desc:0 "The wisdom of Confucius guides our governance. Our scholar-officials, steeped in classical learning, bring order and virtue to the administration of our vast empire."
+ 
+ jin_imperial_army:0 "Imperial Army"
+ jin_imperial_army_desc:0 "The Imperial Army stands ready to defend the realm and expand our borders. These disciplined soldiers fight with the strength of the dragon and the wisdom of ancient military treatises."
+ 
+ jin_middle_kingdom:0 "Middle Kingdom"
+ jin_middle_kingdom_desc:0 "China is the center of civilization, the Middle Kingdom around which all other nations revolve. Our cultural and political influence extends far beyond our borders."
+ palmyra_ideas:0 "Palmyra Ideas"
+ palmyra_ideas_start:0 "Palmyra Traditions"
+ palmyra_ideas_bonus:0 "Palmyra Ambition"
+ 
+ palmyra_oasis_hub:0 "Oasis Trading Hub"
+ palmyra_oasis_hub_desc:0 "Our city stands as a verdant jewel in the desert, a vital stopping point for merchants traveling between East and West. This oasis attracts traders from across the known world."
+ 
+ palmyra_caravan_routes:0 "Desert Caravan Routes"
+ palmyra_caravan_routes_desc:0 "We have mastered the art of desert travel, establishing secure routes across the harsh sands. Our caravans move swiftly and safely through territories that would defeat other merchants."
+ 
+ palmyra_archers:0 "Palmyrene Archers"
+ palmyra_archers_desc:0 "Our skilled archers are renowned throughout the region. These desert warriors combine the mobility of nomads with the precision of professional soldiers, making them formidable opponents."
+ 
+ palmyra_zenobia_legacy:0 "Zenobia's Legacy"
+ palmyra_zenobia_legacy_desc:0 "The memory of Queen Zenobia, who dared to challenge Rome itself, inspires our rulers. Her legacy of courage and ambition continues to guide our kingdom's destiny."
+ 
+ palmyra_silk_spice:0 "Silk and Spice Trade"
+ palmyra_silk_spice_desc:0 "Precious silks from the East and exotic spices from distant lands flow through our markets. This lucrative trade in luxury goods has made Palmyra wealthy and influential."
+ 
+ palmyra_desert_fortress:0 "Desert Fortress"
+ palmyra_desert_fortress_desc:0 "Our city's defenses are strengthened by the desert itself. The harsh environment that protects us from invaders has been augmented with strong walls and clever fortifications."
+ 
+ palmyra_crossroads:0 "Crossroads of Empires"
+ palmyra_crossroads_desc:0 "Palmyra sits at the crossroads between great empires, making diplomacy as important as trade. We have learned to navigate the complex politics of our powerful neighbors."
+ canaan_ideas:0 "Canaan Ideas"
+ canaan_ideas_start:0 "Canaan Traditions"
+ canaan_ideas_bonus:0 "Canaan Ambition"
+ 
+ canaan_phoenician_navigation:0 "Phoenician Navigation"
+ canaan_phoenician_navigation_desc:0 "Our sailors have inherited the legendary navigational skills of the Phoenicians. We dare to venture beyond the Pillars of Hercules into the vast unknown ocean."
+ 
+ canaan_purple_dye:0 "Purple Dye Monopoly"
+ canaan_purple_dye_desc:0 "The royal purple dye extracted from murex shells found along our coast is more valuable than gold. This monopoly on luxury goods brings wealth from across the Mediterranean."
+ 
+ canaan_aramaic_commerce:0 "Aramaic Commerce"
+ canaan_aramaic_commerce_desc:0 "The Aramaic language serves as the lingua franca of trade across the Near East. Our merchants can conduct business from Egypt to Mesopotamia with ease."
+ 
+ canaan_coastal_cities:0 "Coastal City-States"
+ canaan_coastal_cities_desc:0 "Our realm consists of prosperous coastal cities, each with its own harbor and trading fleet. This network of ports dominates Mediterranean commerce."
+ 
+ canaan_alphabet:0 "Alphabet Innovation"
+ canaan_alphabet_desc:0 "We have given the world the gift of the alphabet, making writing accessible to merchants and scholars alike. This innovation facilitates trade and diplomacy across cultures."
+ 
+ canaan_cedar_trade:0 "Cedar Wood Trade"
+ canaan_cedar_trade_desc:0 "The mighty cedars of Lebanon provide timber prized by kings and pharaohs. This precious wood is essential for shipbuilding and grand construction projects."
+ 
+ canaan_mediterranean_colonies:0 "Mediterranean Colonies"
+ canaan_mediterranean_colonies_desc:0 "Following in the footsteps of ancient Phoenicians, we establish trading posts and colonies across the Mediterranean, spreading our influence and commerce."
+ antioch_ideas:0 "Antioch Ideas"
+ antioch_ideas_start:0 "Antioch Traditions"
+ antioch_ideas_bonus:0 "Antioch Ambition"
+ 
+ antioch_hellenic_heritage:0 "Hellenic Heritage"
+ antioch_hellenic_heritage_desc:0 "We are the heirs of Alexander's conquests, carrying the torch of Greek civilization into the East. Our scholars and philosophers continue the great traditions of Athens and Alexandria."
+ 
+ antioch_seleucid_legacy:0 "Seleucid Legacy"
+ antioch_seleucid_legacy_desc:0 "The ghost of the mighty Seleucid Empire still inspires our rulers. We remember when Greek kings ruled from Syria to the Indus, and dream of restoring that ancient glory."
+ 
+ antioch_cosmopolitan:0 "Cosmopolitan City"
+ antioch_cosmopolitan_desc:0 "Antioch has always been a meeting place of cultures - Greek, Syrian, Persian, and many others. This diversity strengthens our realm and enriches our commerce."
+ 
+ antioch_phalanx:0 "Phalanx Tradition"
+ antioch_phalanx_desc:0 "Our armies still fight in the ancient Greek manner, with disciplined phalanxes of spear-armed infantry. These formations have proven their worth from Macedonia to India."
+ 
+ antioch_eastern_trade:0 "Eastern Mediterranean Trade"
+ antioch_eastern_trade_desc:0 "Our position at the crossroads of Europe and Asia makes us natural merchants. Goods from the far East flow through our markets to eager buyers in the West."
+ 
+ antioch_gymnasium:0 "Gymnasium Culture"
+ antioch_gymnasium_desc:0 "The gymnasium remains the heart of Greek culture, where young men train their bodies and minds. These institutions preserve our Hellenic identity and civic virtues."
+ 
+ antioch_diadochi:0 "Diadochi Ambition"
+ antioch_diadochi_desc:0 "We are one of the successor kingdoms to Alexander's empire, and we have not forgotten our rightful place among the great powers of the ancient world."
+ cilicia_ideas:0 "Cilicia Ideas"
+ cilicia_ideas_start:0 "Cilicia Traditions"
+ cilicia_ideas_bonus:0 "Cilicia Ambition"
+ 
+ cilicia_taurus_mountains:0 "Taurus Mountains"
+ cilicia_taurus_mountains_desc:0 "The mighty Taurus Mountains form a natural barrier protecting our realm. These rugged peaks have sheltered our people for generations and given us mastery over mountain warfare."
+ 
+ cilicia_gates:0 "Cilician Gates"
+ cilicia_gates_desc:0 "The famous Cilician Gates, the narrow mountain passes that connect Anatolia to Syria, are under our control. This strategic position allows us to tax and regulate all trade passing through."
+ 
+ cilicia_pirate_haven:0 "Pirate Haven"
+ cilicia_pirate_haven_desc:0 "Our rugged coastline with its hidden coves has long been a refuge for pirates and privateers. We have learned to use these sea raiders to our advantage in both war and commerce."
+ 
+ cilicia_mountain_fortresses:0 "Mountain Fortresses"
+ cilicia_mountain_fortresses_desc:0 "Ancient fortresses crown the peaks of our mountains, built into the living rock itself. These strongholds are virtually impregnable and can hold out against any siege."
+ 
+ cilicia_coastal_plains:0 "Coastal Plains"
+ cilicia_coastal_plains_desc:0 "The fertile plains along our coast provide rich farmland and prosperous cities. This agricultural wealth supports our mountain strongholds and funds our military campaigns."
+ 
+ cilicia_rough_terrain:0 "Rough Terrain Warfare"
+ cilicia_rough_terrain_desc:0 "Our warriors are masters of fighting in difficult terrain. They can move swiftly through mountains and forests that would slow enemy armies to a crawl."
+ 
+ cilicia_strategic_position:0 "Strategic Position"
+ cilicia_strategic_position_desc:0 "Cilicia sits at the crossroads between Europe and Asia, making us valuable allies and dangerous enemies. Great powers court our friendship and fear our enmity."
+ sabratha_ideas:0 "Sabratha Ideas"
+ sabratha_ideas_start:0 "Sabratha Traditions"
+ sabratha_ideas_bonus:0 "Sabratha Ambition"
+ 
+ sabratha_tripolitanian_legacy:0 "Tripolitanian Legacy"
+ sabratha_tripolitanian_legacy_desc:0 "We are the heirs of the ancient Tripolitanian cities that once served as Rome's gateway to Africa. Our royal lineage carries the dignity of those who ruled this crossroads of civilizations."
+ 
+ sabratha_roman_berber:0 "Roman-Berber Synthesis"
+ sabratha_roman_berber_desc:0 "Our kingdom represents a unique fusion of Roman civilization with Berber traditions. This cultural synthesis has created a distinctive identity that honors both our imperial past and African heritage."
+ 
+ sabratha_saharan_trade:0 "Saharan Trade Routes"
+ sabratha_saharan_trade_desc:0 "The great trade routes across the Sahara converge in our territory, bringing gold, ivory, and slaves from the heart of Africa. We are the masters of trans-Saharan commerce."
+ 
+ sabratha_olive_oil:0 "Olive Oil Production"
+ sabratha_olive_oil_desc:0 "Our fertile coastal plains produce the finest olive oil in North Africa. This liquid gold has been the foundation of our prosperity since Roman times."
+ 
+ sabratha_coastal_fortifications:0 "Coastal Fortifications"
+ sabratha_coastal_fortifications_desc:0 "Our coastline is protected by a chain of ancient fortresses, built by Romans and maintained by us. These strongholds guard against pirates and foreign invaders."
+ 
+ sabratha_desert_auxiliaries:0 "Desert Auxiliaries"
+ sabratha_desert_auxiliaries_desc:0 "We employ skilled Berber horsemen who know every path through the desert. These mobile warriors serve as our eyes and ears in the vast Saharan borderlands."
+ 
+ sabratha_african_granary:0 "African Granary"
+ sabratha_african_granary_desc:0 "Tunisia has always been the granary of North Africa, feeding cities across the Mediterranean. Our agricultural abundance supports both our people and our ambitions."
+ kabylia_ideas:0 "Kabylia Ideas"
+ kabylia_ideas_start:0 "Kabylia Traditions"
+ kabylia_ideas_bonus:0 "Kabylia Ambition"
+ 
+ kabylia_atlas_refuge:0 "Atlas Mountain Refuge"
+ kabylia_atlas_refuge_desc:0 "The rugged peaks of the Atlas Mountains have always been our sanctuary. These ancient highlands protect our people from invaders and preserve our unique way of life."
+ 
+ kabylia_berber_roman_tribes:0 "Berber-Roman Tribes"
+ kabylia_berber_roman_tribes_desc:0 "Our kingdom is a confederation of tribes that blend Berber traditions with Roman organization. Each tribe maintains its autonomy while contributing to our collective strength."
+ 
+ kabylia_numidian_cavalry:0 "Numidian Cavalry"
+ kabylia_numidian_cavalry_desc:0 "We are the inheritors of the legendary Numidian horsemen who served Rome and Carthage. Our light cavalry remains unmatched in speed and skill across North Africa."
+ 
+ kabylia_mountain_fortresses:0 "Mountain Fortresses"
+ kabylia_mountain_fortresses_desc:0 "Ancient fortresses crown our mountain peaks, built into the living rock. These strongholds have withstood countless sieges and remain symbols of our independence."
+ 
+ kabylia_olive_terraces:0 "Olive Terraces"
+ kabylia_olive_terraces_desc:0 "Our ingenious terraced farms carved into the mountainsides produce some of the finest olives in North Africa. This agricultural innovation sustains our mountain communities."
+ 
+ kabylia_tribal_confederation:0 "Tribal Confederation"
+ kabylia_tribal_confederation_desc:0 "Our strength comes from the unity of diverse tribes, each contributing their unique skills and traditions. This confederation balances local autonomy with collective power."
+ 
+ kabylia_mauretanian_heritage:0 "Mauretanian Heritage"
+ kabylia_mauretanian_heritage_desc:0 "We are the heirs of the ancient Kingdom of Mauretania, which once stretched across North Africa. Our royal lineage carries the prestige of rulers who negotiated with Rome as equals."
+ edessa_ideas:0 "Edessa Ideas"
+ edessa_ideas_start:0 "Edessa Traditions"
+ edessa_ideas_bonus:0 "Edessa Ambition"
+ 
+ edessa_osroene_heritage:0 "Osroene Heritage"
+ edessa_osroene_heritage_desc:0 "We are the heirs of the ancient Kingdom of Osroene, which ruled this land for centuries. Our royal lineage carries the legitimacy of kings who balanced between Rome and Persia."
+ 
+ edessa_syriac_christianity:0 "Syriac Christianity"
+ edessa_syriac_christianity_desc:0 "Edessa is one of the earliest centers of Christianity, where the faith took root in Syriac culture. Our distinct Christian tradition influences both our identity and our missionary work."
+ 
+ edessa_silk_road:0 "Silk Road Crossroads"
+ edessa_silk_road_desc:0 "Our city sits at a crucial junction of the Silk Road, where merchants from East and West meet to trade. This position brings wealth and makes us indispensable to long-distance commerce."
+ 
+ edessa_mesopotamian_learning:0 "Mesopotamian Learning"
+ edessa_mesopotamian_learning_desc:0 "We are the guardians of ancient Mesopotamian knowledge, preserving and translating texts that might otherwise be lost. Our scholars bridge the gap between Greek, Persian, and Arab learning."
+ 
+ edessa_border_fortress:0 "Border Fortress"
+ edessa_border_fortress_desc:0 "Our city has long served as a fortress on the contested frontier between empires. These ancient walls have withstood countless sieges and remain our ultimate protection."
+ 
+ edessa_aramaic_diplomacy:0 "Aramaic Diplomacy"
+ edessa_aramaic_diplomacy_desc:0 "The Aramaic language serves as a diplomatic bridge between different peoples and empires. Our skilled negotiators can communicate with rulers from Constantinople to Baghdad."
+ 
+ edessa_desert_raids:0 "Desert Raids"
+ edessa_desert_raids_desc:0 "Our cavalry excels at swift raids across the desert borderlands. These mobile warriors can strike enemy caravans and retreat before retaliation, bringing wealth and weakening our foes."
+  albtutania_ideas:0 "Albtutania Ideas"
+ albtutania_ideas_start:0 "Albtutania Traditions"
+ albtutania_ideas_bonus:0 "Albtutania Ambition"
+ 
+ albtutania_slavic_roman:0 "Slavic-Roman Synthesis"
+ albtutania_slavic_roman_desc:0 "Our realm represents a unique fusion of Slavic customs with Roman administrative practices. This synthesis has created a distinctive civilization that honors both our ancestral traditions and imperial organization."
+ 
+ albtutania_dnieper_trade:0 "Dnieper Trade Route"
+ albtutania_dnieper_trade_desc:0 "The great Dnieper River serves as our highway to the Black Sea and Constantinople. This ancient route from the Varangians to the Greeks brings wealth and connects us to the wider world."
+ 
+ albtutania_druzhina_legions:0 "Druzhina Legions"
+ albtutania_druzhina_legions_desc:0 "Our warrior retinues combine the loyalty of Slavic druzhina with the discipline of Roman legions. These elite soldiers form the backbone of our military might."
+ 
+ albtutania_orthodox_latin:0 "Orthodox-Latin Coexistence"
+ albtutania_orthodox_latin_desc:0 "Unlike other realms torn by religious strife, we have learned to balance Eastern Orthodox traditions with Latin Christian practices, creating a unique model of religious tolerance."
+ 
+ albtutania_river_fortifications:0 "River Fortifications"
+ albtutania_river_fortifications_desc:0 "Our cities and fortresses are built along the great rivers, using waterways as both highways and defensive barriers. This network of river strongholds protects our realm from invasion."
+ 
+ albtutania_boyar_estates:0 "Boyar Estates"
+ albtutania_boyar_estates_desc:0 "Our noble boyars manage vast estates worked by skilled farmers and craftsmen. These productive lands form the economic foundation of our Romano-Slavic civilization."
+ 
+ albtutania_northern_ambitions:0 "Northern Ambitions"
+ albtutania_northern_ambitions_desc:0 "We look northward to the forests and steppes where our Slavic kinsmen dwell. Our destiny lies in uniting these lands under our enlightened Romano-Slavic rule."
+ burgos_ideas:0 "Burgos Ideas"
+ burgos_ideas_start:0 "Burgos Traditions"
+ burgos_ideas_bonus:0 "Burgos Ambition"
+ 
+ burgos_castilian_heartland:0 "Castilian Heartland"
+ burgos_castilian_heartland_desc:0 "Burgos stands at the heart of Castile, the birthplace of our noble traditions and the seat of our ancient kings. This central position gives us unquestioned legitimacy over Castilian lands."
+ 
+ burgos_reconquista_warriors:0 "Reconquista Warriors"
+ burgos_reconquista_warriors_desc:0 "Our knights carry the sacred banner of the Reconquista, fighting to reclaim Iberian lands from the Moors. This holy war has forged our identity and sharpened our martial skills."
+ 
+ burgos_wool_trade:0 "Wool Trade"
+ burgos_wool_trade_desc:0 "The finest wool in Europe comes from our Castilian sheep. This valuable commodity has made our merchants wealthy and our kingdom prosperous through trade with Flanders and beyond."
+ 
+ burgos_caballeros_hidalgos:0 "Caballeros Hidalgos"
+ burgos_caballeros_hidalgos_desc:0 "Our minor nobility, the hidalgos, form a proud class of knights and horsemen. These caballeros provide the backbone of our cavalry and embody the martial spirit of Castile."
+ 
+ burgos_camino_santiago:0 "Camino de Santiago"
+ burgos_camino_santiago_desc:0 "The great pilgrimage route to Santiago de Compostela passes through our lands, bringing pilgrims, merchants, and cultural exchange. This sacred road enhances our prestige and prosperity."
+ 
+ burgos_meseta_fortresses:0 "Meseta Fortresses"
+ burgos_meseta_fortresses_desc:0 "The high plateau of the Meseta is dotted with our ancient castles and fortified towns. These strongholds control the strategic routes across the Spanish interior."
+ 
+ burgos_castilian_laws:0 "Castilian Laws"
+ burgos_castilian_laws_desc:0 "Our legal traditions, codified in the Fuero Juzgo and local fueros, provide justice and order throughout our realm. These laws balance royal authority with local privileges."
+ castellon_ideas:0 "Castellón Ideas"
+ castellon_ideas_start:0 "Castellón Traditions"
+ castellon_ideas_bonus:0 "Castellón Ambition"
+ 
+ castellon_valencian_coast:0 "Valencian Coastland"
+ castellon_valencian_coast_desc:0 "Our duchy stretches along the fertile Valencian coast, where prosperous cities and towns benefit from both Mediterranean trade and rich agricultural lands."
+ 
+ castellon_orange_groves:0 "Orange Groves"
+ castellon_orange_groves_desc:0 "The famous orange groves of Valencia produce the finest citrus fruits in Europe. These golden orchards have made our region wealthy and renowned across the Mediterranean."
+ 
+ castellon_mediterranean_merchants:0 "Mediterranean Merchants"
+ castellon_mediterranean_merchants_desc:0 "Our merchants sail across the Mediterranean, trading Valencian oranges, silk, and ceramics. These experienced traders have established networks from Barcelona to Naples."
+ 
+ castellon_moorish_heritage:0 "Moorish Heritage"
+ castellon_moorish_heritage_desc:0 "The legacy of Al-Andalus lives on in our architecture, agriculture, and scholarship. We have learned to appreciate and preserve the wisdom left by our Moorish predecessors."
+ 
+ castellon_coastal_fortifications:0 "Coastal Fortifications"
+ castellon_coastal_fortifications_desc:0 "Our coastline is protected by a chain of towers and fortresses, guarding against Barbary pirates and hostile fleets. These defenses ensure safe passage for our merchant vessels."
+ 
+ castellon_fueros_valencianos:0 "Fueros Valencianos"
+ castellon_fueros_valencianos_desc:0 "The ancient fueros of Valencia grant our people traditional rights and privileges. These local laws help maintain stability and loyalty throughout our diverse population."
+ 
+ castellon_crown_aragon:0 "Crown of Aragon"
+ castellon_crown_aragon_desc:0 "As part of the Crown of Aragon's heritage, we maintain diplomatic ties across the Mediterranean. This legacy grants us prestige and influence in European affairs."
+ saxon_balkans_ideas:0 "Saxon Ideas"
+ saxon_balkans_ideas_start:0 "Saxon Balkans Traditions"
+ saxon_balkans_ideas_bonus:0 "Saxon Balkans Ambition"
+ 
+ saxon_balkans_germanic_settlement:0 "Germanic Settlement"
+ saxon_balkans_germanic_settlement_desc:0 "Our Saxon ancestors ventured south from their northern homelands to establish new settlements in the Balkan mountains. These hardy colonists brought Germanic customs to this frontier region."
+ 
+ saxon_balkans_mountain_mining:0 "Mountain Mining"
+ saxon_balkans_mountain_mining_desc:0 "The rich mineral deposits of the Balkan mountains have made our kingdom prosperous. Our Saxon miners, with their expertise from the German lands, extract silver, copper, and iron from these peaks."
+ 
+ saxon_balkans_militias:0 "Saxon Militias"
+ saxon_balkans_militias_desc:0 "Every Saxon settlement maintains its own militia, ready to defend hearth and home. These citizen-soldiers combine Germanic military traditions with knowledge of local terrain."
+ 
+ saxon_balkans_integration:0 "Balkan Integration"
+ saxon_balkans_integration_desc:0 "Over generations, we have learned to coexist with the Slavic and other peoples of the Balkans. This cultural synthesis has strengthened our realm and improved our diplomatic standing."
+ 
+ saxon_balkans_fortified_settlements:0 "Fortified Settlements"
+ saxon_balkans_fortified_settlements_desc:0 "Each of our towns and villages is built like a fortress, with strong walls and watchtowers. This network of fortified settlements makes our realm difficult to conquer."
+ 
+ saxon_balkans_transhumance:0 "Transhumance Economy"
+ saxon_balkans_transhumance_desc:0 "We have adopted the traditional Balkan practice of seasonal livestock migration, moving our herds between mountain pastures and lowland meadows. This mobile economy provides flexibility and prosperity."
+ 
+ saxon_balkans_danubian_trade:0 "Danubian Trade"
+ saxon_balkans_danubian_trade_desc:0 "Our strategic position along the Danube River and its tributaries allows us to control vital trade routes between Central Europe and the Black Sea, bringing wealth to our mountain kingdom."
+ gepids_ideas:0 "Gepids Ideas"
+ gepids_ideas_start:0 "Gepids Traditions"
+ gepids_ideas_bonus:0 "Gepids Ambition"
+ gepids_ideas_desc:0 "Gepids Ideas"
+ gepids_gothic_heritage:0 "Gothic Heritage"
+ gepids_gothic_heritage_desc:0 "We are the proud descendants of the Gothic peoples, inheriting their martial traditions and royal lineage. Our warriors carry the memory of great victories against Rome itself."
+ 
+ gepids_carpathian_strongholds:0 "Carpathian Strongholds"
+ gepids_carpathian_strongholds_desc:0 "The rugged Carpathian Mountains provide natural fortresses for our people. We have built strongholds in strategic passes, controlling the routes between the plains and the highlands."
+ 
+ gepids_pannonian_plains:0 "Pannonian Plains"
+ gepids_pannonian_plains_desc:0 "The vast Pannonian Plains are perfect for our cavalry and provide rich farmland for our people. These fertile grasslands have made our kingdom prosperous and our horsemen feared."
+ 
+ gepids_warrior_brotherhood:0 "Warrior Brotherhood"
+ gepids_warrior_brotherhood_desc:0 "Our society is built around the warrior's code, where every free man is expected to bear arms. This martial culture produces fierce fighters ready to defend our homeland."
+ 
+ gepids_amber_routes:0 "Amber Routes"
+ gepids_amber_routes_desc:0 "We control the ancient amber routes that connect the Baltic Sea with the Mediterranean. This precious trade brings wealth and connects us to distant lands."
+ 
+ gepids_tribal_assembly:0 "Tribal Assembly"
+ gepids_tribal_assembly_desc:0 "The traditional assembly of free warriors makes important decisions for our people. This ancient democratic tradition ensures that our leaders have the support of the fighting men."
+ 
+ gepids_dacia_conquest:0 "Dacia Conquest"
+ gepids_dacia_conquest_desc:0 "Our destiny lies in conquering the rich lands of Dacia beyond the Carpathians. These fertile territories will provide the foundation for a great Gepid empire."
+ vandals_balkans_ideas:0 "Lesser Vandalic Ideas"
+ vandals_balkans_ideas_start:0 "Lesser Vandalic Traditions"
+ vandals_balkans_ideas_bonus:0 "Lesser Vandalic Ambition"
+ 
+ vandals_balkans_wandering_warriors:0 "Wandering Warriors"
+ vandals_balkans_wandering_warriors_desc:0 "Our people have always been wanderers and raiders, moving swiftly across the land like wolves. This nomadic heritage has made our warriors hardy and our armies mobile."
+ 
+ vandals_balkans_mountain_raids:0 "Mountain Raids"
+ vandals_balkans_mountain_raids_desc:0 "The rugged Balkan mountains provide perfect terrain for our raiding parties. We strike from hidden valleys and retreat into the highlands, taking plunder and avoiding retaliation."
+ 
+ vandals_balkans_adaptation:0 "Balkan Adaptation"
+ vandals_balkans_adaptation_desc:0 "Though we came from distant northern lands, we have learned to thrive in the Balkan climate and terrain. Our people have adapted to this new homeland while maintaining their warrior spirit."
+ 
+ vandals_balkans_warrior_kings:0 "Warrior Kings"
+ vandals_balkans_warrior_kings_desc:0 "Our kings lead from the front, earning their crowns through prowess in battle rather than birth alone. These warrior-rulers command respect through strength and military success."
+ 
+ vandals_balkans_fortified_camps:0 "Fortified Camps"
+ vandals_balkans_fortified_camps_desc:0 "We build our settlements like military camps, ready to be defended or abandoned as needed. This martial approach to urban planning reflects our perpetual readiness for war."
+ 
+ vandals_balkans_tribal_confederacy:0 "Tribal Confederacy"
+ vandals_balkans_tribal_confederacy_desc:0 "Our kingdom is a loose confederation of related tribes, each maintaining its own warriors and traditions. This structure provides flexibility while preserving tribal autonomy."
+ 
+ vandals_balkans_plunder_economy:0 "Plunder Economy"
+ vandals_balkans_plunder_economy_desc:0 "While we have learned to farm and trade, raiding and plunder still form an important part of our economy. Our warriors bring back wealth and slaves from successful campaigns."
+ paristria_ideas:0 "Paristria Ideas"
+ paristria_ideas_start:0 "Paristria Traditions"
+ paristria_ideas_bonus:0 "Paristria Ambition"
+ 
+ paristria_danubian_frontier:0 "Danubian Frontier"
+ paristria_danubian_frontier_desc:0 "Our kingdom guards the northern frontier along the mighty Danube River. This strategic position has made us the shield of Hellenism against barbarian invasions from the steppes."
+ 
+ paristria_byzantine_legacy:0 "Byzantine Legacy"
+ paristria_byzantine_legacy_desc:0 "We are the inheritors of the Eastern Roman Empire's administrative wisdom and cultural heritage. Our court maintains the traditions of Constantinople even in this northern outpost."
+ 
+ paristria_orthodox_faith:0 "Greek Orthodox Faith"
+ paristria_orthodox_faith_desc:0 "The Orthodox faith binds our Greek subjects and provides a bridge to the Slavic peoples of the region. Our monasteries preserve both Greek learning and Christian piety."
+ 
+ paristria_thracian_agriculture:0 "Thracian Agriculture"
+ paristria_thracian_agriculture_desc:0 "The fertile plains of ancient Thrace provide abundant harvests of grain and grapes. This agricultural wealth has sustained Greek civilization in these lands for centuries."
+ 
+ paristria_river_trade:0 "River Trade"
+ paristria_river_trade_desc:0 "The Danube and its tributaries carry our merchants' goods from the Black Sea to Central Europe. This river network makes our kingdom a vital link in continental trade."
+ 
+ paristria_theme_system:0 "Theme System"
+ paristria_theme_system_desc:0 "We maintain the Byzantine military organization through the theme system, where soldier-farmers defend their own lands. This efficient system provides both agriculture and defense."
+ 
+ paristria_hellenic_renaissance:0 "Hellenic Renaissance"
+ paristria_hellenic_renaissance_desc:0 "Our scholars work to preserve and revive the classical Greek heritage, creating a renaissance of Hellenic culture in our northern kingdom far from the Mediterranean homeland."
+ crassus_legion_ideas:0 "Crassus Legion Ideas"
+ crassus_legion_ideas_start:0 "Crassus Legion Traditions"
+ crassus_legion_ideas_bonus:0 "Crassus Legion Ambition"
+ 
+ crassus_lost_legion:0 "Lost Legion"
+ crassus_lost_legion_desc:0 "We are the descendants of Roman legionaries who survived the disaster at Carrhae and wandered east until we reached the roof of the world. Our survival against impossible odds has become legend."
+ 
+ crassus_mountain_adaptation:0 "Mountain Adaptation"
+ crassus_mountain_adaptation_desc:0 "The harsh peaks of Tibet have hardened our soldiers beyond what any Roman training could achieve. We have learned to fight and thrive where the air itself is thin and hostile."
+ 
+ crassus_roman_discipline:0 "Roman Discipline"
+ crassus_roman_discipline_desc:0 "Despite our isolation from Rome, we maintain the iron discipline that made the legions invincible. Our formations and tactics remain true to the teachings of the centurions."
+ 
+ crassus_tibetan_integration:0 "Tibetan Integration"
+ crassus_tibetan_integration_desc:0 "Over generations, we have learned to respect and adopt Tibetan customs while maintaining our Roman identity. This cultural synthesis has strengthened both our rule and our souls."
+ 
+ crassus_high_altitude:0 "High Altitude Warfare"
+ crassus_high_altitude_desc:0 "We are masters of warfare in the thin air and treacherous terrain of the Himalayas. Enemies who dare to challenge us on our mountain peaks fight at a deadly disadvantage."
+ 
+ crassus_silk_road_mercenaries:0 "Silk Road Mercenaries"
+ crassus_silk_road_mercenaries_desc:0 "Our legendary military skills are sought after by merchants and princes along the Silk Road. We provide protection for caravans while gaining wealth and recruits for our ranks."
+ 
+ crassus_eagle_standards:0 "Eagle Standards"
+ crassus_eagle_standards_desc:0 "The golden eagles of our lost legions still lead our armies into battle. These sacred standards carry the authority of Rome and the legitimacy of our rule over this distant realm."
+ sarmatians_ideas:0 "Sarmatians Ideas"
+ sarmatians_ideas_start:0 "Sarmatians Traditions"
+ sarmatians_ideas_bonus:0 "Sarmatians Ambition"
+ 
+ sarmatians_steppe_nomads:0 "Steppe Nomads"
+ sarmatians_steppe_nomads_desc:0 "We are the masters of the endless steppes, moving with our herds across the vast grasslands. Our nomadic lifestyle has made us hardy and our cavalry unmatched in mobility."
+ 
+ sarmatians_cataphracts:0 "Heavy Cataphracts"
+ sarmatians_cataphracts_desc:0 "Our elite warriors fight as heavily armored cataphracts, both rider and horse protected by scale armor. These shock cavalry can break any enemy line with their devastating charge."
+ 
+ sarmatians_warrior_women:0 "Warrior Women"
+ sarmatians_warrior_women_desc:0 "Among our people, women fight alongside men as equals in battle. These fierce warrior-women are as skilled with bow and lance as any male fighter, doubling our military strength."
+ 
+ sarmatians_horse_archers:0 "Horse Archers"
+ sarmatians_horse_archers_desc:0 "Our mounted archers can shoot accurately while riding at full gallop, raining arrows on enemies before melting away across the steppe. No infantry formation can catch or corner us."
+ 
+ sarmatians_steppe_raids:0 "Steppe Raids"
+ sarmatians_steppe_raids_desc:0 "Swift raids against settled peoples provide us with wealth, slaves, and glory. Our cavalry strikes like lightning and vanishes before any retaliation can be organized."
+ 
+ sarmatians_tribal_confederation:0 "Tribal Confederation"
+ sarmatians_tribal_confederation_desc:0 "Our strength comes from the unity of many related tribes, each contributing their warriors to the common cause while maintaining their traditional independence and customs."
+ 
+ sarmatians_scythian_heritage:0 "Scythian Heritage"
+ sarmatians_scythian_heritage_desc:0 "We are the inheritors of the great Scythian tradition, carrying forward the legacy of the first masters of steppe warfare. This ancient heritage commands respect across the known world."
+ sarmatians_ideas:0 "Sarmatians Ideas"
+ sarmatians_ideas_start:0 "Sarmatians Traditions"
+ sarmatians_ideas_bonus:0 "Sarmatians Ambition"
+ 
+ sarmatians_steppe_nomads:0 "Steppe Nomads"
+ sarmatians_steppe_nomads_desc:0 "We are the masters of the endless steppes, moving with our herds across the vast grasslands. Our nomadic lifestyle has made us hardy and our cavalry unmatched in mobility."
+ 
+ sarmatians_cataphracts:0 "Heavy Cataphracts"
+ sarmatians_cataphracts_desc:0 "Our elite warriors fight as heavily armored cataphracts, both rider and horse protected by scale armor. These shock cavalry can break any enemy line with their devastating charge."
+ 
+ sarmatians_warrior_women:0 "Warrior Women"
+ sarmatians_warrior_women_desc:0 "Among our people, women fight alongside men as equals in battle. These fierce warrior-women are as skilled with bow and lance as any male fighter, doubling our military strength."
+ 
+ sarmatians_horse_archers:0 "Horse Archers"
+ sarmatians_horse_archers_desc:0 "Our mounted archers can shoot accurately while riding at full gallop, raining arrows on enemies before melting away across the steppe. No infantry formation can catch or corner us."
+ 
+ sarmatians_steppe_raids:0 "Steppe Raids"
+ sarmatians_steppe_raids_desc:0 "Swift raids against settled peoples provide us with wealth, slaves, and glory. Our cavalry strikes like lightning and vanishes before any retaliation can be organized."
+ 
+ sarmatians_tribal_confederation:0 "Tribal Confederation"
+ sarmatians_tribal_confederation_desc:0 "Our strength comes from the unity of many related tribes, each contributing their warriors to the common cause while maintaining their traditional independence and customs."
+ 
+ sarmatians_scythian_heritage:0 "Scythian Heritage"
+ sarmatians_scythian_heritage_desc:0 "We are the inheritors of the great Scythian tradition, carrying forward the legacy of the first masters of steppe warfare. This ancient heritage commands respect across the known world."
+ kemetic_egypt_ideas:0 "Kemetic Egypt Ideas"
+ kemetic_egypt_ideas_start:0 "Kemetic Egypt Traditions"
+ kemetic_egypt_ideas_bonus:0 "Kemetic Egypt Ambition"
+ 
+ kemetic_divine_pharaoh:0 "Divine Pharaoh"
+ kemetic_divine_pharaoh_desc:0 "The Pharaoh is not merely a king but a living god, the earthly incarnation of Horus and son of Ra. This divine authority grants unquestioned legitimacy and commands respect from all nations."
+ 
+ kemetic_nile_floods:0 "Nile Floods"
+ kemetic_nile_floods_desc:0 "The annual flooding of the sacred Nile brings life to our land, depositing fertile silt across the fields. This divine gift from Hapi ensures abundant harvests and prosperity for our kingdom."
+ 
+ kemetic_ancient_wisdom:0 "Ancient Wisdom"
+ kemetic_ancient_wisdom_desc:0 "We are the heirs of thousands of years of accumulated knowledge in mathematics, medicine, astronomy, and engineering. This ancient wisdom gives us advantages in all fields of learning."
+ 
+ kemetic_pyramid_construction:0 "Pyramid Construction"
+ kemetic_pyramid_construction_desc:0 "Our master builders possess unmatched skill in monumental construction, inherited from those who built the great pyramids. No engineering challenge is beyond our capabilities."
+ 
+ kemetic_priestly_bureaucracy:0 "Priestly Bureaucracy"
+ kemetic_priestly_bureaucracy_desc:0 "The temples serve not only as places of worship but as centers of administration and learning. Our priest-administrators are among the most skilled bureaucrats in the world."
+ 
+ kemetic_mummy_preservation:0 "Mummy Preservation"
+ kemetic_mummy_preservation_desc:0 "Through sacred mummification rituals and divine protection, our pharaohs achieve a form of immortality. This connection to the afterlife strengthens the royal lineage and ensures dynastic continuity."
+ 
+ kemetic_maat_order:0 "Ma'at Order"
+ kemetic_maat_order_desc:0 "The principle of Ma'at - truth, justice, and cosmic order - governs our society. This divine law ensures harmony between gods and mortals, creating stability that has endured for millennia."
