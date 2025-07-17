@@ -20,19 +20,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 	name = "nikean_empire.2.a"
-				add_country_modifier = {
-				name = "byzantine_horse_army"
-				duration = -1
-			}
-			325 = {     add_core = A52 }
-					anatolia_region  = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
 
-}
 
 	}
 	}
@@ -44,10 +32,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 	name = "nikean_empire.3.a"
-				add_country_modifier = {
-				name = "growth_of_capital"
-				duration = 6850
-			}
+
 	}
 	}
 			country_event = {
@@ -57,8 +42,7 @@ country_event = {
 	picture = hellenistic_eventPicture
 	is_triggered_only = yes
 	option = {
-	name = "nikean_empire.4.a"
-			inherit = MEN
+
 	}
 	}
 
@@ -70,10 +54,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 	name = "nikean_empire.5.a"
-				add_country_modifier = {
-				name = "byzantine_road_to_restoration"
-				duration = -1
-			}
+
 	}
 	}
 					country_event = {
@@ -112,11 +93,7 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.7.a"
-				add_prestige = 10
-				add_country_modifier = {
-				name = "byzantine_turkey_threat"
-				duration = -1
-			}
+
 	}
 	}
 
@@ -156,11 +133,7 @@ country_event = {
 
 		option = {
 	name = "nikean_empire.9.a"
-				add_prestige = 10
-				add_country_modifier = {
-				name = "byzantine_karaman_threat"
-				duration = -1
-			}
+
 	}
 	}
 							country_event = {
@@ -173,17 +146,7 @@ country_event = {
 
 		option = {
 	name = "nikean_empire.10.a"
-				add_prestige = 25
-				set_government_rank = 3
-				override_country_name = ANATOLIAN_EMPIRE
-				add_country_modifier = {
-				name = "anatolian_empire_modifier"
-				duration = 6800
-				}
-				add_country_modifier = {
-				name = "growth_of_the_orthodox_church"
-				duration = -1
-			}
+
 			}
 	}
 	country_event = {
@@ -201,10 +164,7 @@ country_event = {
 	}
 		option = {
 	name = "nikean_empire.11.a"
-				add_country_modifier = {
-				name = "byzantine_ERETNA_threat"
-				duration = -1
-			}
+
 	}
 	}
 
@@ -323,10 +283,7 @@ country_event = {
 
 		option = {
 	name = "nikean_empire.15.a"
-				add_country_modifier = {
-				name = "byzantine_armenian_threat"
-				duration = -1
-			}
+			
 	}
 	}
 		country_event = {
@@ -338,8 +295,7 @@ country_event = {
 
 		option = {
 	name = "nikean_empire.16.a"
-				add_mil_power = 150
-				add_prestige = 5
+
 	}
 	}
 			country_event = {
@@ -351,29 +307,7 @@ country_event = {
 
 		option = {
 	name = "nikean_empire.17.a"
-				add_mil_power = 100
-				add_patriarch_authority = 0.1
-			palestine_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			syrian_desert_area = {
-				add_claim = ROOT
-			}
-			trans_jordan_area = {
-				add_claim = ROOT
-			}
-			add_claim = 407
-			add_claim = 2309
-			add_claim = 2314
-			add_claim = 4292
-					add_country_modifier = {
-				name = "byzantine_armenian_antiuch"
-				duration = -1
-			}
+			
 	}
 	}
 				country_event = {
@@ -385,20 +319,7 @@ country_event = {
 
 		option = {
 	name = "nikean_empire.18.a"
-				add_mil_power = 100
-			mecca_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			tabuk_area = {
-				add_claim = ROOT
-			}
-			medina_area = {
-				add_claim = ROOT
-			}
+
 	}
 	}
 					country_event = {
@@ -411,40 +332,6 @@ country_event = {
 
 		option = {
 	name = "nikean_empire.19.a"
-				add_mil_power = 100
-				add_prestige = 15
-
-			delta_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
-				}
-						add_permanent_claim = ROOT
-}
-			bahari_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
-				}
-						add_permanent_claim = ROOT
-}
-			vostani_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
-				}
-						add_permanent_claim = ROOT
-}
-
-every_country = {
-    limit = {
-        religion = catholic
-    }
-	add_opinion = {
-    who = ROOT
-    modifier = renounced_as_heretics
-}
-}
 
 	}
 	}
@@ -507,28 +394,6 @@ every_country = {
 
 		option = {
 	name = "nikean_empire.21.a"
-				add_adm_power = 100
-	add_dip_power = 100
-	add_mil_power = 100
-	add_country_modifier = {
-					name = "atlantropa_coring"
-					duration = 3475
-				}
-							tripolitania_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			djerba_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-
 
 
 	}
@@ -543,24 +408,6 @@ every_country = {
 
 		option = {
 	name = "nikean_empire.22.a"
-				add_adm_power = 50
-	add_dip_power = 50
-	add_mil_power = 50
-	tunisia_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-	kabylia_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-
 
 
 	}
@@ -574,55 +421,7 @@ every_country = {
 
 		option = {
 	name = "nikean_empire.23.a"
-	add_adm_power = 50
-	add_dip_power = 50
-	add_mil_power = 50
-	add_country_modifier = {
-					name = "atlantropa_coring"
-					duration = 3475
-				}
-							fezzan_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			north_saharan_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-				hubas_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-										southlibya_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			nezzan_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-				carthago_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
+	
 	}
 	}
 			country_event = {
@@ -634,22 +433,6 @@ every_country = {
 
 		option = {
 			name = "nikean_empire.24.a"
-				add_country_modifier = {
-					name = "byzantine_kartagni_antiuch"
-					duration = -1
-				}
-	add_adm_power = 150
-	add_dip_power = 150
-	add_mil_power = 150
-
-							libyasuperior_region = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-
 
 	}
 	}
@@ -662,19 +445,6 @@ every_country = {
 
 		option = {
 			name = "nikean_empire.25.a"
-				add_country_modifier = {
-					name = "byzantine_greek_fire"
-					duration = -1
-				}
-	add_dip_power = 100
-	317 = {
-	change_province_name = "Meletiospolis"
-	rename_capital = "Meletiospolis"
-	add_base_tax = 3
-	add_base_production = 3
-	add_base_manpower = 3
-}
-
 
 	}
 	}
@@ -688,22 +458,9 @@ every_country = {
 		option = {
 			name = "nikean_empire.26.a"
 
-	add_dip_power = 100
-	remove_country_modifier = byzantine_greek_fire
-				add_country_modifier = {
-					name = "refromed_byzantine_greek_fire"
-					duration = -1
-				}
-				random_owned_province = {
-    limit = { has_port = yes }
-            create_flagship = {
-                name = "Vasilefs"
-                type = galley
-            }
-    }
-}
 
 
+		}
 	}
 			country_event = {
 	id = nikean_empire.27
@@ -737,13 +494,10 @@ every_country = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.28.a"
-		add_mil_power = 100
+
 		KOJ = { add_historical_rival = ROOT }
 		add_historical_rival = KOJ
-				add_country_modifier = {
-					name = "byzantine_cyprus_threat"
-					duration = -1
-				}
+
 
 	}
 	}
@@ -779,38 +533,9 @@ every_country = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.30.a"
-	add_mil_power = 200
-							al_jazira_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-										iraq_arabi_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-						basra_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-					khuzestan_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-
-			}
+	
 	}
+					}
 						country_event = {
 	id = nikean_empire.31
 	title = nikean_empire.31.t
@@ -819,21 +544,7 @@ every_country = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.31.a"
-	add_prestige = 20
-							bahrain_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-							pirate_coast_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
+
 
 			}
 	}
@@ -871,12 +582,7 @@ every_country = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.33.a"
-		add_mil_power = 100
-	add_country_modifier = {
-					name = "atlantropa_christianisation"
-					duration = -1
-				}
-				add_prestige = 15
+
 
 }}
 			country_event = {
@@ -1289,20 +995,7 @@ every_country = {
 		option = {
 	name = "nikean_empire.35.a"
 
-	add_adm_power = 100
-	add_dip_power = 100
-	add_mil_power = 100
-					arabia_region = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-		}
-	add_country_modifier = {
-					name = "atlantropa_coring"
-					duration = 3475
-				}
+
 }
 }
 			country_event = {
@@ -1314,20 +1007,7 @@ every_country = {
 		option = {
 	name = "nikean_empire.36.a"
 
-	add_adm_power = 100
-	add_dip_power = 100
-	add_mil_power = 100
-					horn_of_africa_region = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-		}
-	add_country_modifier = {
-					name = "byzantine_abissynian_threat"
-					duration = -1
-				}
+
 }
 }
 			country_event = {
@@ -1339,18 +1019,7 @@ every_country = {
 		option = {
 	name = "nikean_empire.37.a"
 
-	add_mil_power = 50
-				maghreb_region = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-	add_country_modifier = {
-					name = "byzantine_kartago_threat"
-					duration = -1
-				}
+
 }
 }
 
@@ -1419,43 +1088,6 @@ country_event = {
 		option = {
 	name = "nikean_empire.40.a"
 
-	add_mil_power = 150
-				lower_andalucia_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			upper_andalucia_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-						marrekesh_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-						western_morocco_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-						southern_morocco_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-
 }
 }
 			country_event = {
@@ -1467,43 +1099,6 @@ country_event = {
 		option = {
 	name = "nikean_empire.41.a"
 
-					cap_verde_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			jolof_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-						greatpass_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-					tlaniuikoameh_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			1110 = {
-			change_province_name = "Orientalis"
-			rename_capital = "Orientalis"
-			add_base_manpower = 3
-			add_base_production = 3
-			add_base_tax = 3
-			change_culture = ROOT
-			change_religion = ROOT
-			}
 
 }
 
@@ -1516,31 +1111,6 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.42.a"
-			add_country_modifier = {
-				name = "byzantium_resurgent"
-				duration = -1
-			}
-			albania_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			atlantis_adriaticcoast = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			macedonia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
 
 
 			}
@@ -1555,41 +1125,7 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.43.a"
-		venetia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			east_adriatic_coast_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			rascia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			serbia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			bosnia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
+		
 
 }
 }
@@ -1671,31 +1207,7 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.46.a"
-		carinthia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			croatia_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			east_adriatic_coast_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			add_country_modifier = {
-				name = "balkan_empire"
-				duration = 10475
-			}
+		
 
 }
 }
@@ -1708,31 +1220,7 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.47.a"
-			add_country_modifier = {
-				name = "roman_italy"
-				duration = 5475
-			}
-			tuscany_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			emilia_romagna_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			central_italy_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
+
 
 }
 }
@@ -1744,55 +1232,7 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.48.a"
-		tuscany_area = {
-				limit = { owned_by = ROOT }
-				add_province_modifier = {
-					name = "faster_integration"
-					duration = 5475
-				}
-			}
-			central_italy_area = {
-				limit = { owned_by = ROOT }
-				add_province_modifier = {
-					name = "faster_integration"
-					duration = 5475
-				}
-			}
-			emilia_romagna_area = {
-				limit = { owned_by = ROOT }
-				add_province_modifier = {
-					name = "faster_integration"
-					duration = 5475
-				}
-			}
-			lombardy_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			po_valley_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			piedmont_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			liguria_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
+		
 }
 }
 			country_event = {
@@ -1803,38 +1243,7 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.49.a"
-					add_country_modifier = {
-				name = "byzantine_unification_of_italy"
-				duration = -1
-			}
-			holland_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			north_brabant_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			brabant_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			flanders_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
+
 }
 }
 			country_event = {
@@ -1845,87 +1254,9 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.50.a"
-	custom_tooltip = francjapolskarzym
-	hidden_effect = {
-				france_region = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-					owned_by = PLC
-				}
-				add_permanent_claim = ROOT
-			}
-							france_region = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-					owned_by = POL
-				}
-				add_permanent_claim = ROOT
-			}
-												iberia_region = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-					owned_by = A59
-				}
-				add_permanent_claim = ROOT
-			}
-
-												iberia_region = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-					owned_by = FRA
-				}
-				add_permanent_claim = ROOT
-			}
-						if = {
-				limit = {
-					exists = PLC
-
-				}
-				add_casus_belli = {
-					target = PLC
-					type = cb_vassalize_mission
-					months = 120
-				}
-			}
-			else_if = {
-				limit = {
-					exists = POL
-				}
-				add_casus_belli = {
-					target = POL
-					type = cb_vassalize_mission
-					months = 120
-				}
-			}
-						if = {
-				limit = {
-					exists = A59
-
-				}
-				add_casus_belli = {
-					target = A59
-					type = cb_vassalize_mission
-					months = 120
-				}
-			}
-			else_if = {
-				limit = {
-					exists = FRA
-				}
-				add_casus_belli = {
-					target = FRA
-					type = cb_vassalize_mission
-					months = 120
-				}
-			}
-
+	 
 }
 		}
-}
 
 			country_event = {
 	id = nikean_empire.51
@@ -1935,52 +1266,10 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.51.a"
-					add_country_modifier = {
-				name = "byzantine_venedia_threat"
-				duration = -1
-			}
-						france_region = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-}
-}
-			country_event = {
-	id = nikean_empire.52
-	title = nikean_empire.52.t
-	desc = nikean_empire.52.d
-	picture = rzeczpospolitahusarz_eventPicture
-	major = yes
-		trigger = {
-		OR = {
-		tag = POL
-		tag = PLC
-		}
-		    NOT = { has_country_flag = zlotowile_captured }
-			184 = { controlled_by = BYZ }
 
-	}
-		option = {
-	name = "nikean_empire.52.a"
-
-			4387 = {
-    ROOT = {
-        infantry = PREV
-    }
-}
-add_manpower = 25
-define_general = {
-    shock = 5
-    fire = 4
-    manuever = 4
-    siege = 4
-}
-			set_country_flag = zlotowile_captured
 }
 }
+ 
 			country_event = {
 	id = nikean_empire.53
 	title = nikean_empire.53.t
@@ -1989,22 +1278,7 @@ define_general = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.53.a"
-					add_country_modifier = {
-				name = "byzantine_france_threat"
-				duration = -1
-			}
-						iberia_region = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-							add_casus_belli = {
-					type = cb_restore_personal_union
-					months = 300
-					target = POR
-				}
+
 
 }
 }
@@ -2027,21 +1301,7 @@ define_general = {
 					}
 				add_permanent_claim = ROOT
 			}
-				add_casus_belli = {
-					target = SPA
-					type = cb_vassalize_mission
-					months = 120
-				}
-					add_casus_belli = {
-					target = CAS
-					type = cb_vassalize_mission
-					months = 120
-				}
-								add_casus_belli = {
-					target = ARA
-					type = cb_vassalize_mission
-					months = 120
-				}
+ 
 }
 }
 			country_event = {
@@ -2052,10 +1312,7 @@ define_general = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.55.a"
-				add_country_modifier = {
-				name = "spa_rb_christian_iberia"
-				duration = 5475
-			}
+
 
 			munster_area = {
 				limit = {
@@ -2146,20 +1403,6 @@ define_general = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.57.a"
-			add_adm_power = 100
-	add_dip_power = 100
-	add_mil_power = 100
-	add_country_modifier = {
-					name = "atlantropa_romanisation"
-					duration = 3475
-				}
-		caucasia_region = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-		}
 
 			}
 			}
@@ -2172,15 +1415,6 @@ define_general = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.58.a"
-	add_mil_power = 50
-
-		carpathia_region = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-		}
 
 			}
 			}
@@ -2194,11 +1428,6 @@ define_general = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.59.a"
-	add_mil_power = 50
-	add_country_modifier = {
-					name = "expansionist_romania_byzantine"
-					duration = -1
-				}
 
 
 			}
@@ -2236,15 +1465,6 @@ define_general = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.61.a"
-	add_dip_power = 100
-	add_mil_power = 100
-	add_adm_power = 100
-	emperor = {
-	add_opinion = {
-    who = ROOT
-    modifier = byzantine_border
-}}
-
 
 			}
 			}
@@ -2291,18 +1511,6 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.63.a"
-	add_adm_power = 100
-	add_dip_power = 100
-	add_mil_power = 100
-	add_country_modifier = {
-					name = "atlantropa_romanisation"
-					duration = 3475
-				}
-
-				add_prestige = 10
-
-
-
 
 			}
 			}
@@ -2314,43 +1522,9 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.64.a"
-					capital_scope = {
-				add_base_manpower = 1
-				add_base_tax = 1
-				add_base_production = 1
+			
 			}
-			lazio_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			western_sicily_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			lazio_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			add_permanent_claim = 124
-			add_permanent_claim = 2982
-
-			121 = {
-				add_base_production = -3
-				add_base_manpower = -3
-				add_base_tax = -3
-				add_devastation = 90
-			}
-			}
-			}
+						}
 
 						country_event = {
 	id = nikean_empire.65
@@ -2360,18 +1534,6 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.65.a"
-	add_adm_power = 50
-	add_dip_power = 50
-	add_mil_power = 50
-				add_country_modifier = {
-				name = "theme_of_sicily"
-				duration = 10475
-			}
-
-				add_prestige = 10
-
-
-
 
 			}
 			}
@@ -2383,18 +1545,6 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.66.a"
-	add_adm_power = 50
-	add_dip_power = 50
-	add_mil_power = 50
-				add_country_modifier = {
-				name = "sardinia_of_sicily"
-				duration = -1
-			}
-
-				add_prestige = 10
-
-
-
 
 			}
 			}
@@ -2494,7 +1644,7 @@ country_event = {
 				name = "healing_the_schism"
 				duration = -1
 			}
-			country_event = { id = catholic_flavor.3 }
+ 
 
 				hidden_effect = {
 				every_country = {
@@ -2519,18 +1669,6 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.69.a"
-	add_adm_power = 50
-	add_dip_power = 50
-	add_mil_power = 50
-				add_country_modifier = {
-				name = "switzerland_of_sicily"
-				duration = -1
-			}
-
-				add_prestige = 10
-
-
-
 
 			}
 			}
@@ -2542,21 +1680,6 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.70.a"
-	add_adm_power = 50
-	add_dip_power = 50
-	add_mil_power = 50
-
-
-				add_prestige = 10
-
-					south_german_region  = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-
-}
 
 
 			}
@@ -2570,16 +1693,6 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.71.a"
-	add_adm_power = 50
-	add_dip_power = 50
-	add_mil_power = 50
-
-
-				add_prestige = 10
-				add_country_modifier = {
-				name = "aeaea_of_sicily"
-				duration = -1
-			}
 
 
 			}
@@ -2594,20 +1707,7 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.72.a"
-	add_adm_power = 50
-	add_dip_power = 50
-	add_mil_power = 50
 
-
-				add_prestige = 10
-								british_isles_region  = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-
-}
 
 
 			}
@@ -2622,17 +1722,6 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.73.a"
-	add_adm_power = 150
-	add_dip_power = 150
-	add_mil_power = 150
-
-
-				add_prestige = 15
-				add_country_modifier = {
-				name = "iberia_of_sicily"
-				duration = -1
-			}
-				 create_general = { tradition = 100 }
 
 			}
 			}
@@ -2644,34 +1733,7 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.74.a"
-	add_adm_power = 50
-	add_dip_power = 50
-	add_mil_power = 50
-					germiyan_area = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-				ankara_area = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-				kastamonu_area = {
-					limit = {
-						NOT = { is_core = ROOT }
-						NOT = { is_permanent_claim = ROOT }
-					}
-					add_permanent_claim = ROOT
-				}
-		add_permanent_claim = 327
-		add_permanent_claim = 332
-		add_permanent_claim = 4310
-		add_permanent_claim = 2305
+
 
 
 			}
@@ -2684,15 +1746,7 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.75.a"
-	add_adm_power = 50
-	add_dip_power = 50
-	add_mil_power = 50
 
-				capital_scope = {
-					add_base_manpower = 1
-					add_base_production = 1
-					add_base_tax = 1
-				}
 
 			}
 			}
@@ -2705,13 +1759,7 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.76.a"
-				151 = {
-					add_base_tax = 2
-					add_base_production = 2
-					add_base_manpower = 2
-				}
-				add_government_reform = theme_system
-				create_general = { tradition = 50 }
+
 			}
 
 
@@ -2726,15 +1774,6 @@ country_event = {
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.77.a"
-				add_prestige = 5
-	2195 = {
-	add_core = ROOT
-		add_base_tax = 3
-		add_base_production = 3
-		add_base_manpower = 3
-		add_building = drydock
-	}
-create_admiral = { tradition = 50 }
 
 
 			}
@@ -2748,15 +1787,6 @@ create_admiral = { tradition = 50 }
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.78.a"
-				add_prestige = 10
-			ruthenia_region  = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-		}
- create_general = { tradition = 100 }
 
 			}
 					}
@@ -2769,11 +1799,6 @@ create_admiral = { tradition = 50 }
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.79.a"
-				add_prestige = 25
-	add_adm_power = 150
-	add_dip_power = 150
-	add_mil_power = 150
- create_general = { tradition = 100 }
 
 			}
 					}
@@ -2788,15 +1813,6 @@ create_admiral = { tradition = 50 }
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.80.a"
-				add_prestige = 10
-				north_german_region  = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT }
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-		}
- create_general = { tradition = 50 }
 
 			}
 					}
@@ -2808,23 +1824,12 @@ create_admiral = { tradition = 50 }
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.81.a"
-				add_prestige = 25
-	add_adm_power = 150
-	add_dip_power = 150
-	add_mil_power = 150
- create_general = { tradition = 100 }
- 98 = {
-add_base_manpower = 2
-add_base_production = 2
-add_base_tax = 2
-change_culture = ROOT
-change_province_name = "Kontastinakti"
-rename_capital = "Kontastinakti"
+
 
  }
 
 			}
-					}
+					
 
 						country_event = {
 	id = nikean_empire.82
@@ -2834,18 +1839,15 @@ rename_capital = "Kontastinakti"
 	is_triggered_only = yes
 		option = {
 	name = "nikean_empire.82.a"
-				add_country_modifier = {
-				name = "atlantropa_endless_empire_mod"
-				duration = -1
-			}
+
  }
 
 			}
 
 
 
-										###############FactionSystem
-										###############Blues
+###############FactionSystem
+###############Blues
 
 
 

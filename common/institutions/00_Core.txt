@@ -803,26 +803,12 @@ banking_revolution = {
     historical_start_province = 116 # Florence
     history = {
 			is_year = 6650
-        OR = {
-						
-            province_id = 116 # Florence
-            province_id = 97  # Antwerp
-            province_id = 50  # Hamburg
-            province_id = 90  # Augsburg
-        }
+ 
     }
 	can_start = {
 		is_year = 6650
 		is_institution_enabled = renaissance
-		is_state = yes
-		development = 25
-		OR = {
-			development = 25
-			trade_goods = gold
-		}
-		owner = {
-			NOT = { inflation = 5 }
-		}
+ 
 	}
 	start_chance = 5
 	
