@@ -389,16 +389,12 @@ country_event = {
                 name = atl_gnostic_divine_portents
                 duration = 1095
             }
-            add_stability = -2
+      
             
             random_list = {
                 30 = {
-                    add_papal_influence = 25
-                    add_church_power = 50
-                    every_owned_province = {
-                        limit = { religion = united_christianity }
-                        add_unrest = 3
-                    }
+                          add_stability = -1
+
                 }
                 25 = {
                     add_legitimacy = -15
@@ -415,6 +411,11 @@ country_event = {
                     kill_advisor = theologian
                     add_prestige = -10
                 }
+                                                35 = {
+               
+                    add_prestige = 10
+                    add_stability = 1
+                }
                 15 = {
                     add_stability = -1
                     every_owned_province = {
@@ -422,11 +423,7 @@ country_event = {
                         add_devastation = 5
                     }
                 }
-                5 = {
-               
-                    add_prestige = -30
-                    add_stability = -3
-                }
+
             }
          
     }
@@ -446,6 +443,17 @@ country_event = {
             add_prestige = 15
             
             random_list = {
+                                35 = {
+               
+                    add_prestige = -10
+                    add_stability = -1
+                }
+                35 = {
+                                        every_owned_province = {
+                        limit = { religion = united_christianity }
+                        add_unrest = 3
+                    }
+                }
                 35 = {
                     add_adm_tech = 1
                     change_innovativeness = 2
