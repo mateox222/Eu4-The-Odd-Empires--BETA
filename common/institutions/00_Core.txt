@@ -808,10 +808,12 @@ banking_revolution = {
 	can_start = {
 		is_year = 6650
 		is_institution_enabled = renaissance
- 
+ 		region = italy_region
+		is_state = yes
+		is_island = no
 	}
 	start_chance = 5
-	
+		on_start = institution_events.3
 	can_embrace = {
 		owner = { has_institution = renaissance }
 		is_year = 6650
