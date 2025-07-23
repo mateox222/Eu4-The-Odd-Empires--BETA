@@ -449,7 +449,7 @@ kri_naval_dominion = {
 
 		trigger = {
 			has_idea_group = exploration_ideas
-			num_of_colonies = 2
+				colony = 2
 		}
 
 		effect = {
@@ -476,9 +476,7 @@ kri_naval_dominion = {
 
 		trigger = {
 			has_ruler_modifier = kri_atlantean_blood
-			custom_trigger_tooltip = {
-				tooltip = kri_song_of_depths_tt
-				or = {
+			 
 					has_won_war_against = {
 						who = IS6
 						max_years_since = 10
@@ -493,8 +491,8 @@ kri_naval_dominion = {
 					}
 					army_size = 100
 				}
-			}
-		}
+			 
+	 
 
 		effect = {
 			add_country_modifier = {
@@ -514,7 +512,7 @@ kri_naval_dominion = {
 		provinces_to_highlight = {  } 
 
 		trigger = {
-			num_of_colonies = 5
+			colony = 5
 			calc_true_if = {
 				all_subject_country = {
 					is_colonial_nation = yes
@@ -768,13 +766,7 @@ kri_mystical_path = {
 		provinces_to_highlight = {  } 
 
 		trigger = {
-			calc_true_if = {
-				all_owned_province = {
-					region = france_region
-					religion = catholic
-				}
-				amount = 8
-			}
+ 
 			OR = {
 			has_institution = renaissance
 			adm_power = 900
