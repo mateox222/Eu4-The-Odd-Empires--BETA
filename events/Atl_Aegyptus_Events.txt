@@ -329,20 +329,7 @@ country_event = {
 		add_government_reform = jewish_merchants_reform
 		kill_ruler = yes
 		hidden_effect = {
-			every_owned_province = {
-				limit = {
-					OR = {
-						area = trans_jordan_area
-						area = syrian_desert_area
-					}
-				}
-				add_core = SYR
-				cede_province = SYR
-			}
-			5802 = {
-				add_core = A1C
-				cede_province = A1C
-			}
+
 			every_owned_province = {
 				limit = {
 					area = palestine_area
@@ -365,24 +352,13 @@ country_event = {
 		NOT = { has_country_flag = jerozolimaprzetrwa }
 	}
 	option = {
-		change_tag = SYR
 		swap_non_generic_missions = yes
 		name = "kyrinaikan_events.6.a"
 		custom_tooltip = kyrinajkajedenrok433
 		add_stability = -1
-		change_religion = assyrianchurch
+ 
 		kill_ruler = yes
 		hidden_effect = {
-			every_owned_province = {
-				limit = {
-					OR = {
-						area = trans_jordan_area
-						area = syrian_desert_area
-					}
-				}
-				add_core = SYR
-				cede_province = SYR
-			}
 			5802 = {
 				add_core = A1C
 				cede_province = A1C
