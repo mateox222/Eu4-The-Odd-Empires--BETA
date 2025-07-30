@@ -64,7 +64,7 @@ latin_empire_recovery_branch = {
 
 	lae_crusader_kingdom = {
 		icon = atlantropa_fallconstantinople
-		position = 1
+		position = 5
 		required_missions = { lae_feudal_system } 
 		provinces_to_highlight = {  } 
 
@@ -75,7 +75,8 @@ latin_empire_recovery_branch = {
 		}
 
 		effect = {
-			set_government_rank = 2
+			add_adm_power = 150
+			add_dip_power = 50
 			add_country_modifier = {
 				name = "lae_kingdom_established"
 				duration = -1
@@ -86,7 +87,7 @@ latin_empire_recovery_branch = {
 
 	lae_imperial_restoration = {
 		icon = mission_imperial_spain
-		position = 1
+		position = 7
 		required_missions = { lae_crusader_kingdom } 
 		provinces_to_highlight = {  } 
 
@@ -101,7 +102,7 @@ latin_empire_recovery_branch = {
 				name = "lae_restored_empire"
 				duration = -1
 			}
-			override_country_name = "Trojan Empire"
+ 
 		}
 	}
 }
@@ -184,6 +185,27 @@ latin_empire_balkan_branch = {
 				}
 				add_permanent_claim = ROOT
 			}
+				 alfold_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+				 rascia_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+				 east_adriatic_coast_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 
@@ -195,11 +217,26 @@ latin_empire_balkan_branch = {
 			OR = {
 				area = serbia_area
 				area = bosnia_area
+				area = alfold_area
+				area = rascia_area
+				area = east_adriatic_coast_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
 		}
 
 		trigger = {
+			east_adriatic_coast_area  = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			rascia_area	 = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			alfold_area	 = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
 			serbia_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
@@ -250,7 +287,7 @@ latin_empire_balkan_branch = {
 	}
 
 	lae_balkan_unity = {
-		icon = mission_unite_home_region
+		icon = mission_balkan_conquest
 		position = 8
 		required_missions = { lae_western_balkans } 
 		provinces_to_highlight = {  } 
@@ -322,6 +359,10 @@ latin_empire_trojan_branch = {
 		}
 
 		effect = {
+							country_event = { 
+    id = latin_empire.2
+    days = 1
+}
 			add_country_modifier = {
 				name = "lae_greco_latin_synthesis"
 				duration = -1
@@ -396,7 +437,7 @@ latin_empire_trojan_branch = {
 		trigger = {
 			religious_unity = 0.75
 			num_of_owned_provinces_with = {
-				value = 10
+				value = 20
 				religion = orthodox
 			}
 		}
@@ -410,7 +451,7 @@ latin_empire_trojan_branch = {
 	}
 
 	lae_hellenic_renaissance = {
-		icon = mission_empire
+		icon = atlantropa_hellenic_empire
 		position = 7
 		required_missions = { lae_orthodox_tolerance } 
 		provinces_to_highlight = {  } 
@@ -432,7 +473,7 @@ latin_empire_trojan_branch = {
 	}
 
 	lae_eastern_empire = {
-		icon = mission_empire
+		icon = atlantropa_nicaeaburn
 		position = 9
 		required_missions = {
 			lae_hellenic_renaissance
@@ -465,8 +506,8 @@ latin_empire_anatolia_branch = {
 
 	lae_expel_magyars = {
 		icon = mission_non-western_cavalry_raid
-		position = 4
-		required_missions = { lae_new_troy } 
+		position = 2
+		required_missions = { lae_end_crisis } 
 		provinces_to_highlight = {
 			area = hudavendigar_area
 			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
@@ -530,7 +571,7 @@ latin_empire_anatolia_branch = {
 
 	lae_central_anatolia = {
 		icon = mission_steppe_warriors
-		position = 1
+		position = 5
 		required_missions = { lae_western_anatolia } 
 		provinces_to_highlight = {
 			OR = {
@@ -565,7 +606,7 @@ latin_empire_anatolia_branch = {
 
 	lae_eastern_anatolia = {
 		icon = mission_mosque
-		position = 1
+		position = 6
 		required_missions = { lae_central_anatolia } 
 		provinces_to_highlight = {
 			area = erzurum_area
@@ -616,7 +657,7 @@ latin_empire_holy_war_branch = {
 	potential = { tag = LAE } 
 
 	lae_crusading_zeal = {
-		icon = mission_european_church
+		icon = atlantropa_crusadeover
 		position = 2
 		required_missions = { lae_end_crisis } 
 		provinces_to_highlight = {  } 
@@ -637,13 +678,13 @@ latin_empire_holy_war_branch = {
 
 	lae_holy_war = {
 		icon = mission_asian_trader
-		position = 1
+		position = 4
 		required_missions = { lae_crusading_zeal } 
 		provinces_to_highlight = {  } 
 
 		trigger = {
 			num_of_provinces_owned_or_owned_by_subjects_with = {
-				value = 5
+				value = 10
 				NOT = { religion = ROOT } 
 			}
 		}
@@ -658,11 +699,11 @@ latin_empire_holy_war_branch = {
 
 	lae_eastern_trade = {
 		icon = mission_dominate_home_trade_node
-		position = 1
-		required_missions = { lae_holy_war } 
+		position = 5
 		provinces_to_highlight = {  } 
 
 		trigger = {
+			merchants = 3
 			151 = { is_strongest_trade_power = ROOT } 
 			trade_income_percentage = 0.25
 		}
@@ -677,7 +718,7 @@ latin_empire_holy_war_branch = {
 
 	lae_naval_supremacy = {
 		icon = mission_establish_high_seas_navy
-		position = 1
+		position = 7
 		required_missions = { lae_eastern_trade } 
 		provinces_to_highlight = {  } 
 
