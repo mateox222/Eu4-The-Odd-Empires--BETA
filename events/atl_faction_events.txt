@@ -49,26 +49,8 @@ country_event = {
  
     }
 
-       if = {
-            limit = {
-             NOT = {   has_estate = estate_nobles
-            }
-              has_faction = faction_noble
-            }
-      
-       remove_faction = faction_noble
  
-    }
-            if = {
-
-            limit = {
-                has_faction = faction_clerical
-          not = {      religion_group = christian }
-          NOT = { has_estate = estate_church }
-            }
-            remove_faction = faction_clerical
  
-        }
 
         if = {
             limit = {
@@ -119,36 +101,19 @@ country_event = {
             influence = 25
         }
         
-       if = {
-        limit = {
-            has_estate = estate_nobles
-
-        }
-       
-        add_faction = faction_noble
-        add_faction_influence = {
-            faction = faction_noble
-            influence = 35
-        }
-        }
+ 
         
        
-        if = {
-            limit = {
-                religion_group = christian
-                   has_estate = estate_church 
-            }
-            add_faction = faction_clerical
-            add_faction_influence = {
-                faction = faction_clerical
-                influence = 30
-            }
-        }
+ 
         
  
         if = {
             limit = {
-                government_rank = 3
+              or = {
+government_rank = 3
+government_rank = 2
+government_rank = 1
+              }  
             }
             add_faction = faction_bureaucratic
             add_faction_influence = {

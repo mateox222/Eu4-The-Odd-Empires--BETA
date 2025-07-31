@@ -22,16 +22,15 @@ latin_empire_recovery_branch = {
 		}
 
 		effect = {
+ 
+			add_yearly_manpower = 2
 			add_country_modifier = {
 				name = "lae_vassal_loyalty"
 				duration = 5475
 			}
 			every_subject_country = {
 				add_liberty_desire = -20
-				add_opinion = {
-					who = ROOT
-					modifier = lae_imperial_protection
-				}
+			 
 			}
 		}
 	}
@@ -43,6 +42,7 @@ latin_empire_recovery_branch = {
 		provinces_to_highlight = {  } 
 
 		trigger = {
+			
 			estate_loyalty = {
 				estate = estate_nobles
 				loyalty = 60
@@ -69,14 +69,17 @@ latin_empire_recovery_branch = {
 		provinces_to_highlight = {  } 
 
 		trigger = {
-			prestige = 50
-			legitimacy = 75
+						religious_unity = 0.85
+			NOT = { corruption = 5 }
+				prestige = 75
+				legitimacy = 85
 			total_development = 150
 		}
 
 		effect = {
 			add_adm_power = 150
-			add_dip_power = 50
+			add_dip_power = 150
+			add_mil_power = 100
 			add_country_modifier = {
 				name = "lae_kingdom_established"
 				duration = -1
@@ -98,6 +101,9 @@ latin_empire_recovery_branch = {
 		}
 
 		effect = {
+						change_government_reform_progress = 300
+			add_prestige = 50
+			add_legitimacy = 25
 			add_country_modifier = {
 				name = "lae_restored_empire"
 				duration = -1
@@ -130,6 +136,8 @@ latin_empire_balkan_branch = {
 		}
 
 		effect = {
+						add_mil_power = 100
+			add_army_tradition = 10
 			balkan_region = {
 				limit = {
 					NOT = { is_core = ROOT } 
@@ -137,7 +145,7 @@ latin_empire_balkan_branch = {
 				}
 				add_claim = ROOT
 			}
-			add_mil_power = 50
+		 
 		}
 	}
 
@@ -219,6 +227,7 @@ latin_empire_balkan_branch = {
 		}
 
 		trigger = {
+			mil_power = 400
 			east_adriatic_coast_area  = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
@@ -242,6 +251,7 @@ latin_empire_balkan_branch = {
 		}
 
 		effect = {
+				add_army_tradition = 15
 			add_country_modifier = {
 				name = "lae_germanic_victory"
 				duration = 5475
@@ -540,7 +550,7 @@ latin_empire_anatolia_branch = {
 		}
 
 		effect = {
-
+			add_army_tradition = 10
 			add_country_modifier = {
 				name = "lae_magyar_reconquest"
 				duration = 3650
@@ -604,6 +614,10 @@ latin_empire_anatolia_branch = {
 		}
 
 		trigger = {
+						aydin_area = {
+				type = all
+				development = 12
+			}
 			karaman_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
@@ -640,9 +654,15 @@ latin_empire_anatolia_branch = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
+						erzurum_area = {
+				type = all
+			has_influencing_fort = yes
+
+			}
 		}
 
 		effect = {
+			add_mil_power = 200
 			add_country_modifier = {
 				name = "lae_anatolian_themes"
 				duration = -1
@@ -695,6 +715,7 @@ latin_empire_holy_war_branch = {
 				name = "lae_crusading_zeal"
 				duration = 5475
 			}
+			add_adm_power = 75
 		}
 	}
 
@@ -716,6 +737,7 @@ latin_empire_holy_war_branch = {
 				name = "lae_holy_warrior"
 				duration = 3650
 			}
+			add_prestige = 15
 		}
 	}
 
@@ -739,6 +761,7 @@ latin_empire_holy_war_branch = {
 		}
 
 		effect = {
+				add_mercantilism = 5
 			add_country_modifier = {
 				name = "lae_eastern_trade_dominance"
 				duration = -1
@@ -758,6 +781,8 @@ latin_empire_holy_war_branch = {
 		}
 
 		effect = {
+				add_sailors = 2000
+					add_navy_tradition = 15
 			add_country_modifier = {
 				name = "lae_naval_supremacy"
 				duration = 5475
