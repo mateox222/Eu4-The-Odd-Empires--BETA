@@ -95,6 +95,7 @@ option = {
 	}
 	KOJ = { grant_independence = yes }
 	create_alliance = KOJ
+	KOJ = { restore_country_color = yes	 }
 }
 }
 
@@ -107,6 +108,7 @@ country_event = {
 		is_neighbor_of = LAE
 	}
 	trigger = {
+		always = no
 		tag = LAE
 		NOT = { has_country_flag = latindostajepodupie4 }
 		has_country_flag = latindostajepodupie3
@@ -202,6 +204,7 @@ country_event = {
 	picture = ANGRY_MOB_eventPicture
 	
 	trigger = {
+
 		EPI = { exists = yes }
 		tag = LAE
 		has_disaster_progress = {
@@ -470,15 +473,8 @@ country_event = {
 	
 	is_triggered_only = yes
 	option = {
+		 set_country_flag = latindostajepodupie12
 		name = byzantine_war.1a 
- 
-
-		define_ruler = {
-		adm = 0
-		dip = 0
-		mil = 0
-		regency = yes
-}
 		add_stability = -2	
 		add_mil_power = -250 
 		add_dip_power = -250 

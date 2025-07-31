@@ -493,7 +493,7 @@ latin_empire_trojan_branch = {
 				name = "lae_eastern_empire_restored"
 				duration = -1
 			}
-			override_country_name = "Eastern Trojan Empire"
+			
 		}
 	}
 }
@@ -521,6 +521,31 @@ latin_empire_anatolia_branch = {
 		}
 
 		effect = {
+			override_country_name = LATINEMPIRE
+			if = {
+				limit = {
+					ATH = { is_subject_of = ROOT }
+				}
+				inherit = ATH	
+			}	
+						if = {
+				limit = {
+					KOJ = { is_subject_of = ROOT }
+				}
+				inherit = KOJ	
+			}	
+						if = {
+				limit = {
+					X51 = { is_subject_of = ROOT }
+				}
+				inherit = X51
+			}
+						if = {
+				limit = {
+					KNI = { is_subject_of = ROOT }
+				}
+				inherit = KNI
+			}		
 			add_country_modifier = {
 				name = "lae_magyar_reconquest"
 				duration = 3650
