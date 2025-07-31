@@ -130,20 +130,14 @@ latin_empire_balkan_branch = {
 		}
 
 		effect = {
-			macedonia_area = {
+			balkan_region = {
 				limit = {
 					NOT = { is_core = ROOT } 
 					NOT = { is_permanent_claim = ROOT } 
 				}
-				add_permanent_claim = ROOT
+				add_claim = ROOT
 			}
-			albania_area = {
-				limit = {
-					NOT = { is_core = ROOT } 
-					NOT = { is_permanent_claim = ROOT } 
-				}
-				add_permanent_claim = ROOT
-			}
+			add_mil_power = 50
 		}
 	}
 
@@ -335,6 +329,31 @@ latin_empire_trojan_branch = {
 		}
 
 		effect = {
+						override_country_name = LATINEMPIRE
+			if = {
+				limit = {
+					ATH = { is_subject_of = ROOT }
+				}
+				inherit = ATH	
+			}	
+						if = {
+				limit = {
+					KOJ = { is_subject_of = ROOT }
+				}
+				inherit = KOJ	
+			}	
+						if = {
+				limit = {
+					X51 = { is_subject_of = ROOT }
+				}
+				inherit = X51
+			}
+						if = {
+				limit = {
+					KNI = { is_subject_of = ROOT }
+				}
+				inherit = KNI
+			}		
 			add_stability = 1
 			add_country_modifier = {
 				name = "lae_crusader_recovery"
@@ -521,31 +540,7 @@ latin_empire_anatolia_branch = {
 		}
 
 		effect = {
-			override_country_name = LATINEMPIRE
-			if = {
-				limit = {
-					ATH = { is_subject_of = ROOT }
-				}
-				inherit = ATH	
-			}	
-						if = {
-				limit = {
-					KOJ = { is_subject_of = ROOT }
-				}
-				inherit = KOJ	
-			}	
-						if = {
-				limit = {
-					X51 = { is_subject_of = ROOT }
-				}
-				inherit = X51
-			}
-						if = {
-				limit = {
-					KNI = { is_subject_of = ROOT }
-				}
-				inherit = KNI
-			}		
+
 			add_country_modifier = {
 				name = "lae_magyar_reconquest"
 				duration = 3650
@@ -577,6 +572,8 @@ latin_empire_anatolia_branch = {
 		}
 
 		effect = {
+			add_prestige = 25
+			add_adm_power = 250
 			karaman_area = {
 				limit = {
 					NOT = { is_core = ROOT } 
@@ -728,7 +725,15 @@ latin_empire_holy_war_branch = {
 		provinces_to_highlight = {  } 
 
 		trigger = {
-			merchants = 3
+						custom_trigger_tooltip = {
+				tooltip = latintroubles
+				OR = {
+					has_global_flag = end_of_latin_empire_crisis
+					has_country_flag = latindostajepodupie12
+					is_year = 6510
+				}
+			}
+				num_of_merchants = 3
 			151 = { is_strongest_trade_power = ROOT } 
 			trade_income_percentage = 0.25
 		}
