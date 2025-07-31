@@ -76,7 +76,7 @@ country_event = {
 	}
 	option = {
 		name = byzantine_war.302.a 
-		add_stability = -2
+		add_stability = -1
 	    set_country_flag = latindostajepodupie3
 		add_disaster_progress = {
 			disaster = latin_empire_crisis
@@ -91,22 +91,10 @@ option = {
 	add_yearly_manpower = 0.5	
 	add_disaster_progress = {
 		disaster = latin_empire_crisis
-		value = -30
+		value = -60
 	}
-	4976 = {  add_core = A51
-	   cede_province = A51 }
-	147  = {  add_core = A51
-	cede_province = A51 }
-	1853  = {  add_core = A51
-	cede_province = A51 }
-	4960  = {  add_core = A51
-	cede_province = A51 }
-	148  = {  add_core = A51
-	cede_province = A51 }
-	4702  = {  add_core = A51
-	cede_province = A51 }
-	create_march = A51
-
+	KOJ = { grant_independence = yes }
+	create_alliance = KOJ
 }
 }
 
@@ -236,7 +224,8 @@ country_event = {
 	 limit = {
 		OR = {
 		1853 = { owned_by = ROOT }
-		1853 = { owned_by = A51 }
+		1853 = { owned_by = ATH }
+		1853 = { owned_by = KOJ }		
 		}
 	 }
 1853 = {
@@ -247,7 +236,8 @@ country_event = {
 	 limit = {
 		OR = {
 		147 = { owned_by = ROOT }
-		147 = { owned_by = A51 }
+		147 = { owned_by = ATH }
+		147 = { owned_by = KOJ }		
 		}
 	 }
 147 = {
@@ -258,7 +248,8 @@ country_event = {
 	 limit = {
 		OR = {
 		4976 = { owned_by = ROOT }
-		4976 = { owned_by = A51 }
+		4976 = { owned_by = ATH }
+		1853 = { owned_by = KOJ }		
 		}
 	 }
 4976 = {
@@ -428,7 +419,7 @@ country_event = {
 	option = {
 		name = byzantine_war.311.a 
 		add_years_of_income = -2
-		add_stability = -3
+		add_stability = -2
 		set_country_flag = latindostajepodupie11
 		add_disaster_progress = {
 			disaster = latin_empire_crisis
@@ -438,6 +429,7 @@ country_event = {
 option = {
 	name = byzantine_war.311.b
 	set_country_flag = latindostajepodupie11b
+	add_prestige = 5
 }
 }
 country_event = {
@@ -479,66 +471,31 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = byzantine_war.1a 
-if = {
-	 limit = {
-		4779 = { owned_by = ROOT }
-	 }
-		4779 = {
-			spawn_rebels = {
-				type = pretender_rebels
-				size = 5
-				should_take_capital = yes
-			}
-	}
-}
-if = {
-	 limit = {
-		1765 = { owned_by = ROOT }
-	 }
-		1764 = {
-			spawn_rebels = {
-				type = pretender_rebels
-				size = 3
-				should_take_capital = yes
-			}
-	}
-}
+ 
+
 		define_ruler = {
-		name = "Eternal Regency"
 		adm = 0
 		dip = 0
 		mil = 0
 		regency = yes
 }
-		add_stability = -4	
-		add_mil_power = -50 
-		add_dip_power = -50 
-		add_adm_power = -50
+		add_stability = -2	
+		add_mil_power = -250 
+		add_dip_power = -250 
+		add_adm_power = -250
 		add_legitimacy = -100
-		set_global_flag = war_of_emperors
-		set_country_flag = bramkarezerowadlalatin
-		set_country_flag = bramkarezerowadlalatindays
-		clr_country_flag = latindostajepodupie1
 		add_war_exhaustion = 5	
-		if = {
-	 limit = {
-		3003 = { owned_by = ROOT }
-	 }
-		3003 = {
-    cede_province = ATH
-}
-		}
-		if = {
-	 limit = {
-		146 = { owned_by = ROOT }
-	 }
-		146 = {
-    cede_province = ATH
-}
-		}
+		release_all_subjects = yes	
+		release_all_possible_countries = yes	
+		 4779  = {  
+			add_core = X51
+ cede_province = X51 }
 
+		 2296  = {  
+			add_core = TU2
+ cede_province = TU2 }
 	}
-	}
+}
 	
 country_event = {
 	id = byzantine_war.2
@@ -716,7 +673,7 @@ country_event = {
 	fire_only_once = yes
 	mean_time_to_happen = { days = 480 }	
 	option = {
-		name = "byzantine_war.313.e" 
+		name = "byzantine_war.313.a" 
 		add_prestige = 10
 	}}
 
