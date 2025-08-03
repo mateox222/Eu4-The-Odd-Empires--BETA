@@ -1,0 +1,996 @@
+# Imperial Authority Collection Mechanic for Holy Roman Emperor
+# Place in common/decisions/
+
+country_decisions = {
+
+	# Imperial Tax Collection
+	impose_imperial_tax = {
+		color = { 252 255 253 }
+		potential = {
+			is_emperor = yes
+			NOT = { has_country_flag = imperial_tax_cooldown }
+		}
+		
+		allow = {
+			years_of_income = 2.0
+			adm_power = 150
+			NOT = { authority = 25 }
+			stability = 1
+			NOT = { num_of_rebel_armies = 1 }
+		}
+		
+		effect = {
+			add_years_of_income = -2.0
+			add_adm_power = -150
+			add_country_modifier = {
+				name = "imperial_tax_collection"
+				duration = 1825
+			}
+			hidden_effect = {
+				every_elector = {
+				
+					random_list = {
+						60 = { # Complies reluctantly
+							ROOT = {
+								add_years_of_income = 0.5
+							}
+						}
+						30 = { # Protests strongly
+							add_liberty_desire = 10
+							ROOT = {
+								add_years_of_income = 0.25
+							}
+						}
+						10 = { # Refuses payment
+							add_liberty_desire = 20
+							ROOT = {
+								add_prestige = -5
+							}
+						}
+					}
+				}
+				every_country = {
+					limit = {
+						is_part_of_hre = yes
+						is_elector = no
+						NOT = { tag = ROOT }
+					}
+				
+					random_list = {
+						70 = { # Pays tax
+							ROOT = {
+								add_years_of_income = 0.3
+							}
+						}
+						25 = { # Pays reduced amount
+							add_liberty_desire = 5
+							ROOT = {
+								add_years_of_income = 0.15
+							}
+						}
+						5 = { # Refuses to pay
+							add_liberty_desire = 15
+							ROOT = {
+								add_prestige = -2
+							}
+						}
+					}
+				}
+			}
+			random_list = {
+				30 = {
+					add_country_modifier = {
+						name = "imperial_resistance"
+						duration = 2920
+					}
+				}
+				25 = {
+					random_owned_province = {
+						limit = { is_part_of_hre = yes }
+						spawn_rebels = {
+							type = noble_rebels
+							size = 1
+						}
+					}
+				}
+				25 = {
+					add_country_modifier = {
+						name = "tax_collector_efficiency"
+						duration = 1825
+					}
+				}
+				20 = {
+					add_stability = -1
+					add_prestige = 10
+				}
+			}
+			set_country_flag = imperial_tax_cooldown
+		}
+		
+		ai_will_do = {
+			factor = 0.3
+			modifier = {
+				factor = 2
+				NOT = { authority = 40 }
+			}
+			modifier = {
+				factor = 0.5
+				any_elector = {
+					liberty_desire = 30
+				}
+			}
+		}
+	}
+
+	# Imperial Diet Assembly
+	convene_imperial_diet = {
+		color = { 252 255 253 }
+		potential = {
+			is_emperor = yes
+			NOT = { has_country_flag = imperial_diet_cooldown }
+			dip_tech = 12
+		}
+		
+		allow = {
+			years_of_income = 3.0
+			dip_power = 200
+			prestige = 25
+			diplomatic_reputation = 2
+		}
+		
+		effect = {
+			add_years_of_income = -3.0
+			add_dip_power = -200
+			add_prestige = 15
+			add_country_modifier = {
+				name = "imperial_diet_session"
+				duration = 3650
+			}
+			hidden_effect = {
+				every_elector = {
+					random_list = {
+						40 = { # Supports imperial agenda
+		
+							ROOT = {
+								add_prestige = 10
+							}
+						}
+						35 = { # Neutral participation
+							ROOT = {
+								add_prestige = 5
+							}
+						}
+						15 = { # Opposes agenda
+				
+							add_liberty_desire = 5
+							ROOT = {
+								add_prestige = -5
+							}
+						}
+						10 = { # Boycotts diet
+					
+							add_liberty_desire = 15
+							ROOT = {
+								add_prestige = -10
+							}
+						}
+					}
+				}
+				every_country = {
+					limit = {
+						is_part_of_hre = yes
+						is_elector = no
+						NOT = { tag = ROOT }
+					}
+					random_list = {
+						60 = { # Participates constructively
+							ROOT = {
+								add_prestige = 3
+							}
+						}
+						30 = { # Sends representative but uncommitted
+							# No effect
+						}
+						10 = { # Refuses to participate
+							add_liberty_desire = 10
+							ROOT = {
+								add_prestige = -2
+							}
+						}
+					}
+				}
+			}
+			random_list = {
+				25 = {
+					add_country_modifier = {
+						name = "successful_diet"
+						duration = 5475
+					}
+				}
+				25 = {
+					add_country_modifier = {
+						name = "diet_controversy"
+						duration = 2920
+					}
+				}
+				25 = {
+					add_stability = 1
+					add_legitimacy = 10
+				}
+				25 = {
+					random_list = {
+						50 = {
+							add_prestige = 15
+						}
+						50 = {
+							every_elector = {
+								limit = { liberty_desire = 20 }
+								add_liberty_desire = -10
+							}
+						}
+					}
+				}
+			}
+			set_country_flag = imperial_diet_cooldown
+		}
+		
+		ai_will_do = {
+			factor = 0.4
+			modifier = {
+				factor = 2
+				prestige = 50
+			}
+			modifier = {
+				factor = 0.3
+				any_elector = {
+					liberty_desire = 40
+				}
+			}
+		}
+	}
+
+	# Imperial Military Levy
+	call_imperial_levy = {
+		color = { 252 255 253 }
+		potential = {
+			is_emperor = yes
+			NOT = { has_country_flag = imperial_levy_cooldown }
+		}
+		
+		allow = {
+			is_at_war = yes
+			years_of_income = 1.5
+			mil_power = 100
+			NOT = { authority = 20 }
+			war_exhaustion = 3
+		}
+		
+		effect = {
+			add_years_of_income = -1.5
+			add_mil_power = -100
+			add_country_modifier = {
+				name = "imperial_levy_called"
+				duration = 1095
+			}
+			hidden_effect = {
+				every_elector = {
+					random_list = {
+						50 = { # Provides troops
+							ROOT = {
+								infantry = ROOT
+								infantry = ROOT
+							}
+			
+						}
+						30 = { # Provides reduced support
+							ROOT = {
+								infantry = ROOT
+							}
+					
+							add_liberty_desire = 5
+						}
+						20 = { # Refuses levy
+				
+							add_liberty_desire = 15
+							ROOT = {
+								add_prestige = -5
+								add_war_exhaustion = 0.5
+							}
+						}
+					}
+				}
+				every_country = {
+					limit = {
+						is_part_of_hre = yes
+						is_elector = no
+						NOT = { tag = ROOT }
+						NOT = { war_with = ROOT }
+					}
+					random_list = {
+						65 = { # Provides levy
+							ROOT = {
+								infantry = ROOT
+							}
+		
+						}
+						25 = { # Provides token force
+							ROOT = {
+								add_manpower = 2
+							}
+						
+							add_liberty_desire = 3
+						}
+						10 = { # Ignores call
+			
+							add_liberty_desire = 10
+							ROOT = {
+								add_prestige = -2
+							}
+						}
+					}
+				}
+			}
+			random_list = {
+				35 = {
+					add_country_modifier = {
+						name = "imperial_unity"
+						duration = 1825
+					}
+				}
+				30 = {
+					add_country_modifier = {
+						name = "levy_resistance"
+						duration = 1825
+					}
+				}
+				25 = {
+					add_army_tradition = 10
+					add_prestige = 10
+				}
+				10 = {
+					random_owned_province = {
+						limit = { is_part_of_hre = yes }
+						spawn_rebels = {
+							type = particularist_rebels
+							size = 1
+						}
+					}
+				}
+			}
+			set_country_flag = imperial_levy_cooldown
+		}
+		
+		ai_will_do = {
+			factor = 0.6
+			modifier = {
+				factor = 2
+				war_exhaustion = 8
+			}
+			modifier = {
+				factor = 0.2
+				authority = 50
+			}
+		}
+	}
+
+	# Imperial Justice Tribunal
+	establish_imperial_tribunal = {
+		color = { 252 255 253 }
+		potential = {
+			is_emperor = yes
+			NOT = { has_country_flag = imperial_tribunal_cooldown }
+			adm_tech = 15
+		}
+		
+		allow = {
+			years_of_income = 2.5
+			adm_power = 200
+			NOT = { authority = 30 }
+			advisor = theologian
+		}
+		
+		effect = {
+			add_years_of_income = -2.5
+			add_adm_power = -200
+			add_country_modifier = {
+				name = "imperial_justice_tribunal"
+				duration = 5475
+			}
+			hidden_effect = {
+				every_country = {
+					limit = {
+						is_part_of_hre = yes
+						NOT = { tag = ROOT }
+					}
+					random_list = {
+						40 = { # Accepts tribunal authority
+
+							ROOT = {
+								add_prestige = 10
+								add_stability_or_adm_power = yes
+							}
+						}
+						35 = { # Grudgingly accepts
+							ROOT = {
+								add_prestige = 5
+							}
+						}
+						15 = { # Protests tribunal
+			
+							add_liberty_desire = 10
+							ROOT = {
+								add_prestige = -3
+							}
+						}
+						10 = { # Rejects tribunal authority
+						
+							add_liberty_desire = 20
+							ROOT = {
+								add_prestige = -8
+							}
+						}
+					}
+				}
+			}
+			random_list = {
+				30 = {
+					add_country_modifier = {
+						name = "imperial_law_and_order"
+						duration = 7300
+					}
+				}
+				25 = {
+					add_country_modifier = {
+						name = "tribunal_controversy"
+						duration = 3650
+					}
+				}
+				25 = {
+					add_stability = 1
+					add_legitimacy = 15
+				}
+				20 = {
+					capital_scope = {
+						if = {
+							limit = { NOT = { has_building = courthouse } }
+							add_building = courthouse
+						}
+						add_province_modifier = {
+							name = "imperial_high_court"
+							duration = 7300
+						}
+					}
+				}
+			}
+			set_country_flag = imperial_tribunal_cooldown
+		}
+		
+		ai_will_do = {
+			factor = 0.35
+			modifier = {
+				factor = 2
+				stability = 2
+			}
+			modifier = {
+				factor = 0.1
+				average_unrest = 3
+			}
+		}
+	}
+
+	implement_military_reforms = {
+		color = { 255 235 235 }
+		
+		potential = {
+			NOT = { has_country_flag = military_reform_cooldown }
+			mil_tech = 8
+			army_size = 10
+		}
+		
+		allow = {
+			years_of_income = 2.0
+			mil_power = 150
+			army_tradition = 20
+			manpower_percentage = 0.6
+		}
+		
+		effect = {
+			add_years_of_income = -2.0
+			add_mil_power = -150
+			add_country_modifier = {
+				name = "military_reform_campaign"
+				duration = 2190
+			}
+			tooltip = {
+				custom_tooltip = military_reform_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					35 = { # Successful military modernization
+						add_country_modifier = {
+							name = "modernized_military"
+							duration = 5475
+						}
+						add_army_tradition = 15
+						capital_scope = {
+							if = {
+								limit = { NOT = { has_building = training_fields } }
+								add_building = training_fields
+							}
+						}
+					}
+					30 = { # Officer corps reform
+						add_country_modifier = {
+							name = "professional_officer_corps"
+							duration = 7300
+						}
+						add_army_tradition = 10
+						add_yearly_manpower = 1
+					}
+					25 = { # Expensive modernization
+						add_country_modifier = {
+							name = "costly_military_reforms"
+							duration = 3650
+						}
+						add_inflation = 1
+						add_army_tradition = 8
+					}
+					10 = { # Military resistance
+						add_country_modifier = {
+							name = "military_conservatism"
+							duration = 2555
+						}
+						add_army_tradition = -5
+						random_owned_province = {
+							limit = { development = 10 }
+							spawn_rebels = {
+								type = noble_rebels
+								size = 1
+							}
+						}
+					}
+				}
+				set_country_flag = military_reform_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.5
+			modifier = {
+				factor = 2
+				army_tradition = 40
+			}
+			modifier = {
+				factor = 0.3
+				manpower_percentage = 0.3
+			}
+		}
+	}
+
+	# Elite Guard Formation
+	establish_elite_guard = {
+		color = { 255 235 235 }
+		
+		potential = {
+			NOT = { has_country_flag = elite_guard_cooldown }
+			mil_tech = 12
+			army_tradition = 30
+			legitimacy = 50
+		}
+		
+		allow = {
+			years_of_income = 1.5
+			mil_power = 100
+			army_tradition = 40
+			manpower_percentage = 0.7
+		}
+		
+		effect = {
+			add_years_of_income = -1.5
+			add_mil_power = -100
+			add_country_modifier = {
+				name = "elite_guard_formation"
+				duration = 1825
+			}
+			tooltip = {
+				custom_tooltip = elite_guard_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					40 = { # Elite guard established
+						add_country_modifier = {
+							name = "royal_guard"
+							duration = 7300
+						}
+						capital_scope = {
+							infantry = ROOT
+							infantry = ROOT
+							infantry = ROOT
+							add_province_modifier = {
+								name = "guard_barracks"
+								duration = 7300
+							}
+						}
+					}
+					30 = { # Guard becomes political force
+						add_country_modifier = {
+							name = "political_guard"
+							duration = 5475
+						}
+						add_legitimacy = 15
+					}
+					20 = { # Expensive but effective
+						add_country_modifier = {
+							name = "costly_elite_forces"
+							duration = 3650
+						}
+						add_army_tradition = 12
+						add_years_of_income = -0.5
+					}
+					10 = { # Guard coup attempt
+						add_country_modifier = {
+							name = "guard_disloyalty"
+							duration = 2920
+						}
+						add_legitimacy = -15
+						add_stability = -1
+					}
+				}
+				set_country_flag = elite_guard_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.4
+			modifier = {
+				factor = 2
+				legitimacy = 70
+			}
+			modifier = {
+				factor = 0.2
+				legitimacy = 30
+			}
+		}
+	}
+
+	# Veteran Integration Program
+	integrate_veterans = {
+		color = { 255 235 235 }
+		
+		potential = {
+			NOT = { has_country_flag = veteran_integration_cooldown }
+			army_tradition = 15
+			is_at_war = no
+		}
+		
+		allow = {
+			years_of_income = 1.0
+			adm_power = 75
+			army_tradition = 25
+			war_exhaustion = 2
+		}
+		
+		effect = {
+			add_years_of_income = -1.0
+			add_adm_power = -75
+			add_war_exhaustion = -1
+			add_country_modifier = {
+				name = "veteran_integration"
+				duration = 1460
+			}
+			tooltip = {
+				custom_tooltip = veteran_integration_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					40 = { # Veterans become trainers
+						add_country_modifier = {
+							name = "veteran_trainers"
+							duration = 5475
+						}
+						add_yearly_manpower = 0.5
+					}
+					30 = { # Veterans form militia
+						add_country_modifier = {
+							name = "veteran_militia"
+							duration = 3650
+						}
+						random_owned_province = {
+							limit = { development = 8 }
+							add_province_modifier = {
+								name = "veteran_settlement"
+								duration = 5475
+							}
+						}
+					}
+					20 = { # Veterans demand pensions
+						add_country_modifier = {
+							name = "veteran_pensions"
+							duration = 7300
+						}
+						add_stability = 1
+						add_years_of_income = -0.25
+					}
+					10 = { # Veteran unrest
+						add_country_modifier = {
+							name = "veteran_discontent"
+							duration = 2190
+						}
+						random_owned_province = {
+							limit = { development = 10 }
+							spawn_rebels = {
+								type = particularist_rebels
+								size = 2
+							}
+						}
+					}
+				}
+				set_country_flag = veteran_integration_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.6
+			modifier = {
+				factor = 2
+				war_exhaustion = 5
+			}
+			modifier = {
+				factor = 0.3
+				stability = 2
+			}
+		}
+	}
+
+	# Military Engineering Corps
+	establish_engineering_corps = {
+		color = { 255 235 235 }
+		
+		potential = {
+			NOT = { has_country_flag = engineering_corps_cooldown }
+			mil_tech = 14
+			any_owned_province = { has_building = fort_15th }
+		}
+		
+		allow = {
+			years_of_income = 2.5
+			mil_power = 200
+			advisor = fortification_expert
+			num_of_cities = 15
+		}
+		
+		effect = {
+			add_years_of_income = -2.5
+			add_mil_power = -200
+			add_country_modifier = {
+				name = "engineering_corps_established"
+				duration = 2920
+			}
+			tooltip = {
+				custom_tooltip = engineering_corps_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					35 = { # Advanced engineering
+						add_country_modifier = {
+							name = "military_engineering"
+							duration = 7300
+						}
+						random_owned_province = {
+							limit = { 
+								has_building = fort_15th
+								NOT = { has_building = fort_16th }
+							}
+							remove_building = fort_15th
+							add_building = fort_16th
+						}
+					}
+					30 = { # Siege expertise
+						add_country_modifier = {
+							name = "siege_specialists"
+							duration = 5475
+						}
+					}
+					25 = { # Infrastructure development
+						add_country_modifier = {
+							name = "military_infrastructure"
+							duration = 3650
+						}
+						random_owned_province = {
+							limit = { development = 12 }
+							if = {
+								limit = { NOT = { has_building = fort_15th } }
+								add_building = fort_15th
+							}
+						}
+					}
+					10 = { # Engineering disasters
+						add_country_modifier = {
+							name = "engineering_failures"
+							duration = 2190
+						}
+						random_owned_province = {
+							limit = { has_building = fort_15th }
+							remove_building = fort_15th
+						}
+					}
+				}
+				set_country_flag = engineering_corps_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.3
+			modifier = {
+				factor = 2
+				any_rival_country = {
+					border_distance = {
+						who = ROOT
+						distance = 200
+					}
+				}
+			}
+		}
+	}
+
+	# Military Supply Reform
+	reform_military_supply = {
+		color = { 255 235 235 }
+		
+		potential = {
+			NOT = { has_country_flag = supply_reform_cooldown }
+			mil_tech = 10
+			army_size = 20
+		}
+		
+		allow = {
+			years_of_income = 1.5
+			adm_power = 100
+			mil_power = 75
+			advisor = quartermaster
+		}
+		
+		effect = {
+			add_years_of_income = -1.5
+			add_adm_power = -100
+			add_mil_power = -75
+			add_country_modifier = {
+				name = "supply_reform_program"
+				duration = 2190
+			}
+			tooltip = {
+				custom_tooltip = supply_reform_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					40 = { # Efficient supply system
+						add_country_modifier = {
+							name = "efficient_logistics"
+							duration = 5475
+						}
+					}
+					30 = { # Reduced attrition
+						add_country_modifier = {
+							name = "improved_supply_lines"
+							duration = 3650
+						}
+					}
+					20 = { # Supply depots
+						add_country_modifier = {
+							name = "supply_depot_network"
+							duration = 7300
+						}
+						random_owned_province = {
+							limit = { development = 10 }
+							add_province_modifier = {
+								name = "military_supply_depot"
+								duration = 7300
+							}
+						}
+					}
+					10 = { # Supply corruption
+						add_country_modifier = {
+							name = "supply_corruption_issues"
+							duration = 2920
+						}
+						add_corruption = 1
+					}
+				}
+				set_country_flag = supply_reform_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.5
+			modifier = {
+				factor = 2
+				NOT = { manpower_percentage = 0.5 }
+			}
+			modifier = {
+				factor = 0.2
+				corruption = 8
+			}
+		}
+	}
+
+	# Mercenary Company Integration
+	integrate_mercenary_companies = {
+		color = { 255 235 235 }
+		
+		potential = {
+			NOT = { has_country_flag = mercenary_integration_cooldown }
+			num_of_mercenaries = 3
+		}
+		
+		allow = {
+			years_of_income = 1.75
+			dip_power = 100
+			mil_power = 50
+		}
+		
+		effect = {
+			add_years_of_income = -1.75
+			add_dip_power = -100
+			add_mil_power = -50
+			add_country_modifier = {
+				name = "mercenary_integration_program"
+				duration = 1825
+			}
+			tooltip = {
+				custom_tooltip = mercenary_integration_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					35 = { # Successful integration
+						add_country_modifier = {
+							name = "integrated_mercenaries"
+							duration = 5475
+						}
+					}
+					30 = { # Mercenary loyalty
+						add_country_modifier = {
+							name = "loyal_mercenaries"
+							duration = 3650
+						}
+					}
+					25 = { # Professional units
+						add_country_modifier = {
+							name = "professional_mercenaries"
+							duration = 7300
+						}
+						capital_scope = {
+							infantry = ROOT
+							infantry = ROOT
+						}
+					}
+					10 = { # Mercenary rebellion
+						add_country_modifier = {
+							name = "mercenary_revolt"
+							duration = 2190
+						}
+						random_owned_province = {
+							limit = { development = 12 }
+							spawn_rebels = {
+								type = noble_rebels
+								size = 3
+							}
+						}
+					}
+				}
+				set_country_flag = mercenary_integration_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.4
+			modifier = {
+				factor = 2
+				num_of_mercenaries = 5
+			}
+			modifier = {
+				factor = 0.1
+				num_of_rebel_armies = 1
+			}
+		}
+	}
+}

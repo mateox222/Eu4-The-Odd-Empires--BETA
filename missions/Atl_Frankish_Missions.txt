@@ -1,0 +1,643 @@
+gnostic_franks_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = X60
+		religion = hussite
+	}
+
+	frk_sacred_order = {
+		icon = mission_religious
+		position = 1
+		provinces_to_highlight = {
+			owned_by = ROOT
+			NOT = { has_building = temple } 
+		}
+
+		trigger = {
+			stability = 2
+			religious_unity = 0.8
+			num_of_owned_provinces_with = {
+				has_building = temple
+				value = 3
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "gnostic_enlightenment"
+				duration = 7300
+			}
+			capital_scope = {
+				add_province_modifier = {
+					name = "sacred_center"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	frk_purify_realm = {
+		icon = mission_hands_praying
+		position = 2
+		required_missions = { frk_sacred_order } 
+		provinces_to_highlight = {
+			owned_by = ROOT
+			NOT = { religion = hussite } 
+		}
+
+		trigger = {
+			religious_unity = 0.95
+			all_owned_province = {
+				OR = {
+					religion = hussite
+					has_missionary = yes
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "purified_realm"
+				duration = 9125
+			}
+			add_prestige = 25
+			add_patriarch_authority = 0.15
+		}
+	}
+
+	frk_hidden_knowledge = {
+		icon = mission_scholar_officials
+		position = 3
+		required_missions = { frk_purify_realm } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			adm_tech = 7
+			has_idea_group = religious_ideas
+			monthly_adm = 9
+		}
+
+		effect = {
+			capital_scope = {
+				add_building = university
+			}
+			add_country_modifier = {
+				name = "gnostic_wisdom"
+				duration = 10950
+			}
+			add_adm_power = 100
+			random_owned_province = {
+				limit = { has_building = temple } 
+				add_building = university
+			}
+		}
+	}
+}
+gnostic_franks_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = X60
+		religion = hussite
+	}
+
+	frk_secure_borders = {
+		icon = mission_fortify_rajputana
+		position = 1
+		provinces_to_highlight = {
+			OR = {
+ 
+				area = upper_rhineland_area
+			}
+			NOT = { owned_by = ROOT } 
+		}
+
+		trigger = {
+			army_size_percentage = 0.9
+			num_of_owned_provinces_with = {
+				OR = {
+ 
+					area = upper_rhineland_area
+				}
+				value = 4
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "secured_borders"
+				duration = 5475
+			}
+			add_mil_power = 50
+			capital_scope = { add_base_manpower = 2 } 
+		}
+	}
+
+	frk_challenge_vangiones = {
+		icon = atlantropa_regnumvangionea
+		position = 2
+		required_missions = { frk_secure_borders } 
+		provinces_to_highlight = {
+			owned_by = BOH
+			any_neighbor_province = { owned_by = ROOT } 
+		}
+
+		trigger = {
+            OR = {
+			is_rival = BOH
+			army_size = BOH
+			owns = 187
+			}
+
+			OR = {
+				war_with = BOH
+				owns = 187
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "frankish_expansion"
+				duration = 7300
+			}
+		}
+	}
+
+	frk_rhine_dominion = {
+		icon = rhineland_conquest
+		position = 3
+		required_missions = { frk_challenge_vangiones } 
+		provinces_to_highlight = {
+			region = north_german_region
+			NOT = { owned_by = ROOT } 
+			any_neighbor_province = { owned_by = ROOT } 
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				region = north_german_region
+				value = 8
+			}
+			prestige = 25
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "rhine_overlordship"
+				duration = -1
+			}
+			add_prestige = 30
+			add_adm_power = 75
+		}
+	}
+}
+gnostic_franks_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = X60
+		religion = hussite
+	}
+
+	frk_diplomatic_webs = {
+		icon = mission_diplomatic_relation
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_allies = 2
+			OR = {
+				alliance_with = THU
+				has_opinion = {
+					who = THU
+					value = 100
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "diplomatic_network"
+				duration = 5475
+			}
+			add_dip_power = 50
+			add_papal_influence = 25
+		}
+	}
+
+	frk_convert_heretics = {
+		icon = mission_catholic_heddal_church
+		position = 2
+		required_missions = { frk_diplomatic_webs } 
+		provinces_to_highlight = {
+			OR = {
+				owned_by = BOH
+				owned_by = THU
+			}
+			NOT = { religion = hussite } 
+		}
+
+		trigger = {
+			num_of_missionaries = 2
+			OR = {
+                AND = {
+                owns = 187
+                owns = 134
+                }
+
+				BOH = {
+					num_of_owned_provinces_with = {
+						religion = hussite
+						value = 1
+					}
+				}
+				THU = {
+					num_of_owned_provinces_with = {
+						religion = hussite
+						value = 1
+					}
+				}
+			}
+		}
+
+		effect = {
+			capital_scope = {
+				add_reform_center = hussite
+			}
+			add_country_modifier = {
+				name = "missionary_zeal"
+				duration = 9125
+			}
+			add_church_power = 100
+			add_prestige = 15
+		}
+	}
+
+	frk_gnostic_empire = {
+		icon = switzerland_and_the_empire
+		position = 4
+		required_missions = {
+			frk_convert_heretics
+			frk_rhine_dominion
+		}
+		provinces_to_highlight = {
+			OR = {
+				region = north_german_region
+				region = south_german_region
+			}
+			NOT = { religion = hussite } 
+		}
+
+		trigger = {
+			total_development = 300
+			num_of_owned_provinces_with = {
+				religion = hussite
+				value = 15
+			}
+			religious_unity = 0.9
+			prestige = 50
+		}
+
+		effect = {
+			override_country_name = GNOSTICEMPIRE
+			add_country_modifier = {
+				name = "gnostic_empire"
+				duration = -1
+			}
+			add_prestige = 50
+			add_legitimacy = 25
+			add_stability = 1
+		}
+	}
+}
+gnostic_franks_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = X60
+		religion = hussite
+	}
+
+	frk_sacred_commerce = {
+		icon = mission_dominate_home_trade_node
+		position = 1
+		provinces_to_highlight = {
+			owned_by = ROOT
+			NOT = { has_building = marketplace } 
+			OR = {
+				has_port = yes
+				province_has_center_of_trade_of_level = 1
+			}
+		}
+
+		trigger = {
+			treasury = 200
+			num_of_owned_provinces_with = {
+				has_building = marketplace
+				value = 3
+			}
+			trade_income_percentage = 0.2
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "sacred_commerce"
+				duration = 7300
+			}
+			add_mercantilism = 5
+			capital_scope = {
+				add_base_production = 2
+				add_building = marketplace
+			}
+		}
+	}
+
+	frk_rhine_trade = {
+		icon = mission_dharma_mission_arabian_trade
+		position = 2
+		required_missions = { frk_sacred_commerce } 
+		provinces_to_highlight = {
+ 
+			NOT = { owned_by = ROOT } 
+			OR = {
+				has_port = yes
+				province_has_center_of_trade_of_level = 1
+			}
+		}
+
+		trigger = {
+			num_of_merchants = 2
+			num_of_owned_provinces_with = {
+				OR = {
+					has_port = yes
+					province_has_center_of_trade_of_level = 1
+				}
+				value = 5
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "rhine_trade_network"
+				duration = 9125
+			}
+ 
+			random_owned_province = {
+				limit = {
+					has_port = yes
+					NOT = { has_building = dock } 
+				}
+				add_building = dock
+			}
+		}
+	}
+
+	frk_prosperity_enlightenment = {
+		icon = mission_have_manufactories
+		position = 3
+		required_missions = { frk_rhine_trade } 
+		provinces_to_highlight = {
+			owned_by = ROOT
+			NOT = { has_building = workshop } 
+			development = 15
+		}
+
+		trigger = {
+ 
+			num_of_owned_provinces_with = {
+				has_building = workshop
+				value = 4
+			}
+			num_of_owned_provinces_with = {
+				OR = {
+					has_building = mills
+					has_building = farm_estate
+					has_building = tradecompany
+				}
+				value = 2
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "prosperity_enlightenment"
+				duration = -1
+			}
+			add_years_of_income = 0.5
+			every_owned_province = {
+				limit = {
+					religion = hussite
+					development = 10
+				}
+				add_base_production = 1
+			}
+		}
+	}
+
+	frk_gnostic_banking = {
+		icon = mission_rb_the_bank_of_scotland
+		position = 4
+		required_missions = { frk_prosperity_enlightenment } 
+		provinces_to_highlight = {
+			owned_by = ROOT
+			NOT = { has_building = stock_exchange } 
+			development = 20
+		}
+
+		trigger = {
+			treasury = 1000
+			inflation = 2
+			num_of_loans = 0
+			num_of_owned_provinces_with = {
+				has_building = stock_exchange
+				value = 2
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "gnostic_banking_houses"
+				duration = -1
+			}
+			add_treasury = 500
+			add_mercantilism = 10
+			capital_scope = { add_building = stock_exchange } 
+		}
+	}
+}
+gnostic_franks_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = X60
+		religion = hussite
+	}
+
+	frk_centers_learning = {
+		icon = the_great_school
+		position = 1
+		provinces_to_highlight = {
+			owned_by = ROOT
+			NOT = { has_building = university } 
+			development = 12
+		}
+
+		trigger = {
+			adm_tech = 5
+			num_of_owned_provinces_with = {
+				has_building = university
+				value = 2
+			}
+			advisor = philosopher
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "centers_of_learning"
+				duration = 9125
+			}
+			add_adm_power = 100
+			random_owned_province = {
+				limit = {
+					development = 10
+					NOT = { has_building = university } 
+				}
+				add_building = university
+			}
+		}
+	}
+
+	frk_illuminate_provinces = {
+		icon = la_marseillaise
+		position = 2
+		required_missions = { frk_centers_learning } 
+		provinces_to_highlight = {
+			owned_by = ROOT
+			development = 15
+			religion = hussite
+		}
+
+		trigger = {
+			capital_scope = { development = 20 } 
+		
+			num_of_owned_provinces_with = {
+				development = 15
+				religion = hussite
+				value = 6
+			}
+			innovativeness = 20
+		}
+
+		effect = {
+			capital_scope = { 	add_building = grand_cathedral }
+			add_country_modifier = {
+				name = "illuminated_provinces"
+				duration = 10950
+			}
+			every_owned_province = {
+				limit = {
+					religion = hussite
+					development = 12
+				}
+				add_province_modifier = {
+					name = "gnostic_enlightenment_province"
+					duration = 10950
+				}
+			}
+		}
+	}
+
+	frk_sacred_architecture = {
+		icon = mission_great_wall
+		position = 3
+		required_missions = { frk_illuminate_provinces } 
+		provinces_to_highlight = {
+			owned_by = ROOT
+			OR = {
+				NOT = { has_building = cathedral } 
+				NOT = { has_building = university } 
+			}
+			development = 18
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				has_building = cathedral
+				value = 3
+			}
+			num_of_owned_provinces_with = {
+				has_building = university
+				value = 4
+			}
+			prestige = 40
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "sacred_architecture"
+				duration = -1
+			}
+			add_prestige = 25
+			capital_scope = {
+				add_building = cathedral
+				add_province_modifier = {
+					name = "grand_temple_complex"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	frk_perfected_realm = {
+		icon = deal_with_the_illuminati
+		position = 5
+		required_missions = {
+			frk_sacred_architecture
+			frk_gnostic_banking
+		}
+		provinces_to_highlight = {
+			owned_by = ROOT
+			development = 25
+		}
+
+		trigger = {
+			total_development = 500
+			capital_scope = { development = 30 } 
+			num_of_owned_provinces_with = {
+				development = 25
+				value = 3
+			}
+			innovativeness = 50
+			religious_unity = 1.0
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "perfected_realm"
+				duration = -1
+			}
+			add_splendor = 200
+			add_prestige = 50
+			every_owned_province = {
+				limit = {
+					religion = hussite
+					development = 20
+				}
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+		}
+	}
+}

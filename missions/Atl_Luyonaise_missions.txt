@@ -1,0 +1,327 @@
+luyonaisse_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = GUY
+		NOT = { map_setup = map_setup_random } 
+	}
+
+	guy_rival_aquitaine = {
+		icon = mission_rb_conquer_the_highlands
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			OR = {
+				is_rival = FRA
+				NOT = { exists = FRA } 
+				FRA = { is_subject = yes } 
+			}
+			army_tradition = 40
+		}
+
+		effect = {
+			guyenne_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+			poitou_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "guy_anti_aquitaine_sentiment"
+				duration = 7300
+			}
+		}
+	}
+
+	guy_destroy_aquitaine = {
+		icon = mission_abolish_mestnichestvo
+		position = 2
+		required_missions = { guy_rival_aquitaine } 
+		provinces_to_highlight = { owned_by = FRA } 
+
+		trigger = {
+			NOT = { exists = FRA } 
+		has_won_war_against = {
+	who = FRA
+	max_years_since = 25
+}
+		}
+
+		effect = {
+			add_prestige = 50
+			add_legitimacy = 25
+			
+		}
+	}
+
+	guy_vangionean_alliance = {
+		icon = mission_religious
+		position = 3
+		required_missions = { guy_destroy_aquitaine } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			OR = {
+				alliance_with = BOH
+				BOH = { is_subject_of = ROOT } 
+				NOT = { exists = BOH } 
+			}
+		}
+
+		effect = {
+			if = {
+				limit = { exists = BOH } 
+				BOH = {
+					add_opinion = {
+						who = ROOT
+						modifier = guy_strategic_partner
+                        	multiplier = 25
+					}
+				}
+			}
+			add_dip_power = 100
+			upper_rhineland_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+}
+luyonaisse_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = GUY
+		NOT = { map_setup = map_setup_random } 
+	}
+
+	guy_venedian_crown = {
+		icon = atlantropa_rzejpybielka
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			POL = {
+				has_regency = no
+				government = elective_monarchy
+			}
+			army_size_percentage = 0.8
+			manpower_percentage = 0.5
+			treasury = 100
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "guy_electoral_influence"
+				duration = 3650
+			}
+			POL = {
+				add_opinion = {
+					who = ROOT
+					modifier = guy_electoral_candidate
+				}
+			}
+			custom_tooltip = guy_venedian_election_tt
+		}
+	}
+
+	guy_dominate_union = {
+		icon = atlantropa_stalzemsty
+		position = 2
+		required_missions = { guy_venedian_crown } 
+		provinces_to_highlight = { owned_by = POL } 
+
+		trigger = {
+			junior_union_with = POL
+			army_size = POL
+			total_development = POL
+			POL = { ai = yes }
+			dip_power = 500
+			custom_trigger_tooltip = {
+				tooltip = guy_union_reversal_tt
+				has_country_flag = guy_can_reverse_union
+			}
+		}
+
+		effect = {
+			add_dip_power = -500
+			country_event = { id = luyonaisse_events.2 } 
+			add_power_projection = {
+				type = mission_rewards_power_projection
+				amount = 25
+			}
+		}
+	}
+
+	guy_romance_hegemony = {
+		icon = spread_piety
+		position = 3
+		required_missions = { guy_dominate_union } 
+		provinces_to_highlight = {
+			
+			NOT = { owned_by = ROOT } 
+		}
+
+		trigger = {
+			total_development = POL
+            army_size = POL
+            total_development = 500
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "guy_romance_empire"
+				duration = -1
+			}
+			france_region = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	guy_restore_neustria = {
+		icon = mission_war_for_the_crown
+		position = 4
+		 
+		trigger = {
+            adm_tech = 7
+            is_subject = no
+			OR = {
+				tag = X10
+				AND = {
+					NOT = { exists = X10 } 
+					prestige = 75
+					legitimacy = 95
+					stability = 3
+					is_at_war = no
+					
+				}
+			}
+		}
+
+		effect = {
+			if = {
+				limit = { NOT = { tag = X10 }  } 
+				country_event = { id = luyonaisse_events.10 } 
+			}
+			else = {
+				add_country_modifier = {
+					name = "neustrian_glory"
+					duration = -1
+				}
+			}
+		}
+	}
+}
+luyonaisse_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = GUY
+		NOT = { map_setup = map_setup_random } 
+	}
+
+	guy_belgian_identity = {
+		icon = mission_alliances
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			stability = 1
+			num_of_owned_provinces_with = {
+				value = 10
+				culture = wallonian
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "guy_cultural_awakening"
+				duration = 7300
+			}
+			every_owned_province = {
+				limit = { culture = wallonian } 
+				add_province_modifier = {
+					name = "guy_cultural_center"
+					duration = 10950
+				}
+			}
+		}
+	}
+
+	guy_brussels_capital = {
+		icon = fra_crown_seat_capital
+		position = 2
+		required_missions = { guy_belgian_identity } 
+		provinces_to_highlight = { province_id = 174 } 
+
+		trigger = {
+			owns_core_province = 174
+			174 = {
+				development = 25
+				has_building = cathedral
+				has_building = marketplace
+			}
+			capital = 174
+		}
+
+		effect = {
+			174 = {
+				add_base_tax = 3
+				add_base_production = 3
+				add_base_manpower = 2
+				add_province_modifier = {
+					name = "guy_neustrian_capital"
+					duration = -1
+				}
+			}
+			add_prestige = 25
+		}
+	}
+
+	guy_cultural_renaissance = {
+		icon = public_works
+		position = 3
+		required_missions = { guy_brussels_capital } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			has_institution = renaissance
+			prestige = 50
+			num_of_owned_provinces_with = {
+				value = 5
+				has_building = university
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "guy_belgian_renaissance"
+				duration = -1
+			}
+			change_innovativeness = 5
+		}
+	}
+}

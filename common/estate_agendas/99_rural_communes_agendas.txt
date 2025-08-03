@@ -1,0 +1,195 @@
+estate_rural_communes_develop_manpower = {
+	can_select = {
+		any_owned_province = {
+			base_manpower = 3
+
+		}
+	}
+	provinces_to_highlight = {
+		owned_by = ROOT
+		base_manpower = 3
+
+	}
+	selection_weight = {
+		factor = 10
+		modifier = {
+			factor = 1.5
+			manpower_percentage = 0.5
+		}
+	}
+	pre_effect = {
+		random_owned_province = {
+			limit = {
+				base_manpower = 3
+
+			}
+			save_event_target_as = agenda_province
+		}
+	}
+	task_requirements = {
+		event_target:agenda_province = {
+			base_manpower = 5
+		}
+	}
+	task_completed_effect = {
+		add_estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = 15
+		}
+		add_yearly_manpower = 1.0
+	}
+	failing_effect = {
+		add_estate_loyalty_modifier = {
+			estate = estate_rural_communes
+			desc = EST_VAL_AGENDA_FAILED
+			loyalty = -5
+			duration = 7300
+		}
+	}
+}
+
+estate_rural_communes_build_barracks = {
+	can_select = {
+		any_owned_province = {
+			NOT = { has_building = barracks }
+			base_manpower = 2
+
+		}
+	}
+	provinces_to_highlight = {
+		owned_by = ROOT
+		NOT = { has_building = barracks }
+		base_manpower = 2
+
+	}
+	selection_weight = {
+		factor = 7
+		modifier = {
+			factor = 1.5
+			is_at_war = yes
+		}
+	}
+	pre_effect = {
+		random_owned_province = {
+			limit = {
+				NOT = { has_building = barracks }
+				base_manpower = 2
+
+			}
+			save_event_target_as = agenda_province
+		}
+	}
+	task_requirements = {
+		event_target:agenda_province = {
+			has_building = barracks
+		}
+	}
+	task_completed_effect = {
+		add_estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = 12
+		}
+		event_target:agenda_province = {
+			add_province_modifier = {
+				name = "commune_militia_training"
+				duration = 5475
+			}
+		}
+	}
+	failing_effect = {
+		add_estate_loyalty_modifier = {
+			estate = estate_rural_communes
+			desc = EST_VAL_AGENDA_FAILED
+			loyalty = -5
+			duration = 7300
+		}
+	}
+}
+
+estate_rural_communes_reduce_war_exhaustion = {
+	can_select = {
+		war_exhaustion = 5
+	}
+	selection_weight = {
+		factor = 9
+		modifier = {
+			factor = 2.0
+			war_exhaustion = 10
+		}
+	}
+	task_requirements = {
+		NOT = { war_exhaustion = 3 }
+	}
+	task_completed_effect = {
+		add_estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = 10
+		}
+		add_country_modifier = {
+			name = "commune_war_recovery"
+			duration = 3650
+		}
+	}
+	failing_effect = {
+		add_estate_loyalty_modifier = {
+			estate = estate_rural_communes
+			desc = EST_VAL_AGENDA_FAILED
+			loyalty = -5
+			duration = 7300
+		}
+	}
+}
+
+estate_rural_communes_expand_farmland = {
+	can_select = {
+		any_owned_province = {
+			has_terrain = farmlands
+			NOT = { development = 15 }
+
+		}
+	}
+	provinces_to_highlight = {
+		owned_by = ROOT
+		has_terrain = farmlands
+		NOT = { development = 15 }
+
+	}
+	selection_weight = {
+		factor = 6
+	}
+	pre_effect = {
+		random_owned_province = {
+			limit = {
+				has_terrain = farmlands
+				NOT = { development = 15 }
+
+			}
+			save_event_target_as = agenda_province
+		}
+	}
+	task_requirements = {
+		event_target:agenda_province = {
+			development = 15
+		}
+	}
+	task_completed_effect = {
+		add_estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = 12
+		}
+		event_target:agenda_province = {
+			add_province_modifier = {
+				name = "commune_agricultural_expansion"
+				duration = 7300
+			}
+		}
+	}
+	failing_effect = {
+		add_estate_loyalty_modifier = {
+			estate = estate_rural_communes
+			desc = EST_VAL_AGENDA_FAILED
+			loyalty = -5
+			duration = 7300
+		}
+	}
+}

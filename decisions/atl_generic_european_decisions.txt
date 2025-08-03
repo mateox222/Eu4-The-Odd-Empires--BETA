@@ -1,0 +1,1788 @@
+country_decisions = {
+	convene_noble_assembly = {
+		color = { 235 231 253 }
+		
+		potential = {
+			government = monarchy
+			has_estate = estate_nobles
+			NOT = { has_country_flag = noble_assembly_cooldown }
+			num_of_cities = 8
+		}
+		
+		allow = {
+			years_of_income = 1.5
+			dip_power = 100
+			legitimacy = 40
+			NOT = { num_of_rebel_armies = 1 }
+		}
+		
+		effect = {
+			add_years_of_income = -1.5
+			add_dip_power = -100
+			add_country_modifier = {
+				name = "noble_assembly_session"
+				duration = 1825
+			}
+			tooltip = {
+				custom_tooltip = noble_assembly_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					35 = { # Nobles support the crown
+						add_legitimacy = 15
+						add_stability = 1
+						add_country_modifier = {
+							name = "noble_loyalty"
+							duration = 3650
+						}
+					}
+					30 = { # Nobles demand concessions
+						add_legitimacy = 5
+						add_country_modifier = {
+							name = "noble_privileges"
+							duration = 2920
+						}
+						random_owned_province = {
+							limit = { development = 10 }
+							add_local_autonomy = 10
+						}
+					}
+					25 = { # Assembly reaches compromise
+						add_prestige = 10
+						add_country_modifier = {
+							name = "noble_compromise"
+							duration = 2555
+						}
+					}
+					10 = { # Nobles openly rebel
+						add_legitimacy = -10
+						add_stability = -1
+						random_owned_province = {
+							limit = { development = 12 }
+							spawn_rebels = {
+								type = noble_rebels
+								size = 2
+							}
+						}
+					}
+				}
+				set_country_flag = noble_assembly_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.4
+			modifier = {
+				factor = 2
+				legitimacy = 60
+			}
+			modifier = {
+				factor = 0.3
+				average_autonomy = 40
+			}
+		}
+	}
+
+	# Urban Guild Management
+	negotiate_with_guilds = {
+		color = { 235 231 253 }
+		
+		potential = {
+						has_estate = estate_guilds
+			NOT = { has_country_flag = guild_negotiation_cooldown }
+			num_of_cities = 10
+			adm_tech = 8
+		}
+		
+		allow = {
+			years_of_income = 1.0
+			adm_power = 75
+			stability = 0
+		}
+		
+		effect = {
+			add_years_of_income = -1.0
+			add_adm_power = -75
+			add_country_modifier = {
+				name = "guild_negotiations"
+				duration = 1460
+			}
+			tooltip = {
+				custom_tooltip = guild_negotiation_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					40 = { # Guilds cooperate
+						add_country_modifier = {
+							name = "guild_cooperation"
+							duration = 3650
+						}
+						random_owned_province = {
+							limit = { 
+								development = 8
+								has_building = workshop
+							}
+							add_base_production = 1
+						}
+					}
+					30 = { # Guilds demand monopolies
+						add_country_modifier = {
+							name = "guild_monopolies"
+							duration = 2920
+						}
+						add_inflation = 1
+					}
+					20 = { # Mixed results
+						add_country_modifier = {
+							name = "guild_compromise"
+							duration = 2190
+						}
+						add_years_of_income = 0.5
+					}
+					10 = { # Guild strikes
+						add_country_modifier = {
+							name = "guild_strikes"
+							duration = 1095
+						}
+						random_owned_province = {
+							limit = { base_production = 3 }
+							add_unrest = 3
+						}
+					}
+				}
+				set_country_flag = guild_negotiation_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.5
+			modifier = {
+				factor = 2
+				production_income_percentage = 0.25
+			}
+			modifier = {
+				factor = 0.2
+				inflation = 8
+			}
+		}
+	}
+
+	# Religious Synod
+	convene_religious_synod = {
+		color = { 235 231 253 }
+		
+		potential = {
+			religion_group = christian
+			NOT = { has_country_flag = religious_synod_cooldown }
+			advisor = theologian
+		}
+		
+		allow = {
+			years_of_income = 1.25
+			adm_power = 100
+			stability = 1
+			religious_unity = 0.7
+		}
+		
+		effect = {
+			add_years_of_income = -1.25
+			add_adm_power = -100
+			add_country_modifier = {
+				name = "religious_synod_session"
+				duration = 2190
+			}
+			tooltip = {
+				custom_tooltip = religious_synod_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					35 = { # Synod strengthens orthodoxy
+						add_country_modifier = {
+							name = "orthodox_consensus"
+							duration = 5475
+						}
+						add_stability = 1
+						add_papal_influence = 15
+					}
+					25 = { # Synod promotes tolerance
+						add_country_modifier = {
+							name = "religious_tolerance"
+							duration = 3650
+						}
+						# Zastąpione przez standardowe modyfikatory
+						add_country_modifier = {
+							name = "increased_tolerance_heretic"
+							duration = 3650
+						}
+						add_country_modifier = {
+							name = "increased_tolerance_heathen"
+							duration = 3650
+						}
+					}
+					25 = { # Synod causes schism
+						add_country_modifier = {
+							name = "religious_schism"
+							duration = 2920
+						}
+						add_stability = -1
+						every_owned_province = {
+							limit = { NOT = { religion = ROOT } }
+							add_unrest = 2
+						}
+					}
+					15 = { # Synod reforms church
+						add_country_modifier = {
+							name = "church_reforms"
+							duration = 7300
+						}
+						add_church_power = 50
+						add_devotion = 10
+					}
+				}
+				set_country_flag = religious_synod_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.3
+			modifier = {
+				factor = 2
+				religious_unity = 0.9
+			}
+			modifier = {
+				factor = 0.1
+				num_of_rebel_armies = 1
+			}
+		}
+	}
+
+	# Border Fortification Campaign
+	fortify_border_regions = {
+		color = { 235 231 253 }
+		
+		potential = {
+			NOT = { has_country_flag = fortification_campaign_cooldown }
+			mil_tech = 12
+			any_neighbor_country = { 
+				NOT = { alliance_with = ROOT }
+				NOT = { truce_with = ROOT }
+			}
+		}
+		
+		allow = {
+			years_of_income = 3.0
+			mil_power = 150
+			manpower_percentage = 0.5
+		}
+		
+		effect = {
+			add_years_of_income = -3.0
+			add_mil_power = -150
+			add_country_modifier = {
+				name = "border_fortification_project"
+				duration = 2920
+			}
+			tooltip = {
+				custom_tooltip = border_fortification_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					40 = { # Successful fortification
+						add_country_modifier = {
+							name = "fortified_borders"
+							duration = 10950
+						}
+						random_owned_province = {
+							limit = { 
+								any_neighbor_province = {
+									NOT = { owned_by = ROOT }
+								}
+								NOT = { has_building = fort_15th }
+								NOT = { has_building = fort_16th }
+								NOT = { has_building = fort_17th }
+								NOT = { has_building = fort_18th }
+							}
+							add_building = fort_15th
+						}
+					}
+					30 = { # Expensive but effective
+						add_country_modifier = {
+							name = "costly_fortifications"
+							duration = 3650
+						}
+						add_inflation = 2
+						random_owned_province = {
+							limit = { 
+								any_neighbor_province = {
+									NOT = { owned_by = ROOT }
+								}
+							}
+							add_province_modifier = {
+								name = "border_fortress"
+								duration = 7300
+							}
+						}
+					}
+					20 = { # Partial success
+						add_country_modifier = {
+							name = "limited_fortifications"
+							duration = 2920
+						}
+						random_owned_province = {
+							limit = { 
+								any_neighbor_province = {
+									NOT = { owned_by = ROOT }
+								}
+							}
+							add_province_modifier = {
+								name = "defensive_works"
+								duration = 3650
+							}
+						}
+					}
+					10 = { # Construction problems
+						add_country_modifier = {
+							name = "fortification_delays"
+							duration = 1825
+						}
+						add_war_exhaustion = 1
+					}
+				}
+				set_country_flag = fortification_campaign_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.3
+			modifier = {
+				factor = 3
+				any_rival_country = {
+					border_distance = {
+						who = ROOT
+						distance = 100
+					}
+				}
+			}
+			modifier = {
+				factor = 0.1
+				manpower_percentage = 0.2
+			}
+		}
+	}
+
+	# Court Intrigue Management
+	manage_court_intrigue = {
+		color = { 235 231 253 }
+		
+		potential = {
+			government = monarchy
+			NOT = { has_country_flag = court_intrigue_cooldown }
+			dip_tech = 10
+		}
+		
+		allow = {
+			years_of_income = 1.0
+			dip_power = 75
+			# Zastąpione przez standardowy trigger
+	 
+		}
+		
+		effect = {
+			add_years_of_income = -1.0
+			add_dip_power = -75
+			add_country_modifier = {
+				name = "court_intrigue_management"
+				duration = 1460
+			}
+			tooltip = {
+				custom_tooltip = court_intrigue_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					30 = { # Successful intrigue network
+						add_country_modifier = {
+							name = "effective_spy_network"
+							duration = 3650
+						}
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "improved_spy_offense"
+							duration = 3650
+						}
+				
+					}
+					25 = { # Court scandals exposed
+						add_country_modifier = {
+							name = "court_scandals"
+							duration = 2190
+						}
+						add_legitimacy = -5
+						add_prestige = -10
+					}
+					25 = { # Foreign spies uncovered
+						add_country_modifier = {
+							name = "counter_intelligence"
+							duration = 2920
+						}
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "improved_spy_defense"
+							duration = 2920
+						}
+						add_prestige = 5
+					}
+					20 = { # Diplomatic intelligence gained
+						add_country_modifier = {
+							name = "diplomatic_intelligence"
+							duration = 2555
+						}
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "improved_diplomatic_reputation"
+							duration = 2555
+						}
+						random_known_country = {
+							limit = { 
+								NOT = { alliance_with = ROOT }
+								capital_scope = { continent = europe }
+							}
+							add_spy_network_from = {
+								who = ROOT
+								value = 20
+							}
+						}
+					}
+				}
+				set_country_flag = court_intrigue_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.4
+
+			modifier = {
+				factor = 0.2
+				legitimacy = 80
+			}
+		}
+	}
+
+	# Renaissance Humanism Movement
+	promote_humanist_learning = {
+		color = { 235 231 253 }
+		
+		potential = {
+			dip_tech = 15
+			NOT = { has_country_flag = humanism_promotion_cooldown }
+			advisor = philosopher
+		}
+		
+		allow = {
+			years_of_income = 2.0
+			dip_power = 150
+			# Zastąpione przez standardowy trigger
+			technology_group = western
+			prestige = 30
+		}
+		
+		effect = {
+			add_years_of_income = -2.0
+			add_dip_power = -150
+			add_country_modifier = {
+				name = "humanist_movement"
+				duration = 3650
+			}
+			tooltip = {
+				custom_tooltip = humanist_learning_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					35 = { # Successful humanist reform
+						add_country_modifier = {
+							name = "humanist_enlightenment"
+							duration = 7300
+						}
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "increased_innovativeness"
+							duration = 7300
+						}
+						capital_scope = {
+							add_building = university
+						}
+					}
+					30 = { # Religious resistance
+						add_country_modifier = {
+							name = "religious_conservative_backlash"
+							duration = 2920
+						}
+						add_stability = -1
+						add_church_power = -25
+					}
+					25 = { # Cultural flowering
+						add_country_modifier = {
+							name = "cultural_renaissance"
+							duration = 5475
+						}
+						add_prestige = 15
+						add_legitimacy = 10
+					}
+					10 = { # Social upheaval
+						add_country_modifier = {
+							name = "social_upheaval"
+							duration = 1825
+						}
+						random_owned_province = {
+							limit = { development = 15 }
+							spawn_rebels = {
+								type = particularist_rebels
+								size = 1
+							}
+						}
+					}
+				}
+				set_country_flag = humanism_promotion_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.3
+			modifier = {
+				factor = 2
+				technology_group = western
+			}
+			modifier = {
+				factor = 0.1
+				religious_unity = 0.6
+			}
+		}
+	}
+
+	establish_naval_academy = {
+		color = { 235 245 255 }
+		
+		potential = {
+			NOT = { has_country_flag = naval_academy_cooldown }
+			dip_tech = 9
+			navy_size = 10
+			any_owned_province = { has_port = yes }
+		}
+		
+		allow = {
+			years_of_income = 1.75
+			dip_power = 125
+			navy_tradition = 20
+			advisor = naval_reformer
+		}
+		
+		effect = {
+			add_years_of_income = -1.75
+			add_dip_power = -125
+			add_country_modifier = {
+				name = "naval_academy_establishment"
+				duration = 2190
+			}
+			tooltip = {
+				custom_tooltip = naval_academy_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					40 = { # Successful naval academy
+						add_country_modifier = {
+							name = "prestigious_naval_academy"
+							duration = 7300
+						}
+						add_navy_tradition = 15
+						random_owned_province = {
+							limit = { 
+								has_port = yes
+								development = 10
+							}
+							add_building = dock
+							add_province_modifier = {
+								name = "naval_academy_port"
+								duration = 7300
+							}
+						}
+					}
+					30 = { # Professional naval officers
+						add_country_modifier = {
+							name = "professional_naval_officers"
+							duration = 5475
+						}
+						add_navy_tradition = 10
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "additional_navy_leaders"
+							duration = 5475
+						}
+					}
+					20 = { # Expensive but effective
+						add_country_modifier = {
+							name = "costly_naval_training"
+							duration = 3650
+						}
+						add_navy_tradition = 8
+						add_inflation = 1
+					}
+					10 = { # Naval traditionalist resistance
+						add_country_modifier = {
+							name = "naval_conservatism"
+							duration = 2920
+						}
+						add_navy_tradition = -5
+						random_owned_province = {
+							limit = { has_port = yes }
+							add_unrest = 2
+						}
+					}
+				}
+				set_country_flag = naval_academy_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.5
+			modifier = {
+				factor = 2
+				navy_tradition = 40
+			}
+			modifier = {
+				factor = 0.3
+				num_of_ports = 2
+			}
+		}
+	}
+
+	# Privateer Fleet Authorization
+	authorize_privateer_fleets = {
+		color = { 235 245 255 }
+		
+		potential = {
+			NOT = { has_country_flag = privateer_authorization_cooldown }
+			dip_tech = 7
+			num_of_light_ship = 5
+			any_rival_country = { any_owned_province = { has_port = yes } }
+		}
+		
+		allow = {
+			years_of_income = 1.25
+			dip_power = 100
+			navy_tradition = 15
+			num_of_light_ship = 10
+		}
+		
+		effect = {
+			add_years_of_income = -1.25
+			add_dip_power = -100
+			add_country_modifier = {
+				name = "privateer_authorization"
+				duration = 1825
+			}
+			tooltip = {
+				custom_tooltip = privateer_authorization_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					35 = { # Successful privateering
+						add_country_modifier = {
+							name = "profitable_privateering"
+							duration = 3650
+						}
+						add_navy_tradition = 12
+						add_years_of_income = 0.75
+					
+					}
+					30 = { # Privateer dominance
+						add_country_modifier = {
+							name = "privateer_dominance"
+							duration = 2920
+						}
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "improved_privateer_efficiency"
+							duration = 2920
+						}
+						random_trade_node = {
+							limit = {
+								any_trade_node_member_province = {
+									owned_by = ROOT
+									has_port = yes
+								}
+							}
+							add_trade_modifier = {
+								who = ROOT
+								duration = 2920
+								power = 20
+								key = privateer_control
+							}
+						}
+					}
+					25 = { # Diplomatic complications
+						add_country_modifier = {
+							name = "privateer_complications"
+							duration = 2190
+						}
+						add_navy_tradition = 8
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "reduced_diplomatic_reputation"
+							duration = 2190
+						}
+						random_rival_country = {
+							add_casus_belli = {
+								target = ROOT
+								type = cb_trade_war
+								months = 60
+							}
+						}
+					}
+					10 = { # Privateer mutiny
+						add_country_modifier = {
+							name = "privateer_mutiny"
+							duration = 1460
+						}
+						add_navy_tradition = -8
+						random_owned_province = {
+							limit = { has_port = yes }
+							spawn_rebels = {
+								type = noble_rebels
+								size = 2
+							}
+						}
+					}
+				}
+				set_country_flag = privateer_authorization_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.4
+			modifier = {
+				factor = 2
+				# Zastąpione przez standardowy trigger
+				trade_income_percentage = 0.2
+			}
+			modifier = {
+				factor = 0.2
+				diplomatic_reputation = -2
+			}
+		}
+	}
+
+	# Naval Shipyard Expansion
+	expand_naval_shipyards = {
+		color = { 235 245 255 }
+		
+		potential = {
+			NOT = { has_country_flag = shipyard_expansion_cooldown }
+			dip_tech = 11
+			any_owned_province = { 
+				has_port = yes
+				has_building = shipyard
+			}
+		}
+		
+		allow = {
+			years_of_income = 2.25
+			adm_power = 100
+			dip_power = 75
+			num_of_cities = 12
+		}
+		
+		effect = {
+			add_years_of_income = -2.25
+			add_adm_power = -100
+			add_dip_power = -75
+			add_country_modifier = {
+				name = "shipyard_expansion_project"
+				duration = 2555
+			}
+			tooltip = {
+				custom_tooltip = shipyard_expansion_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					40 = { # Advanced shipbuilding
+						add_country_modifier = {
+							name = "advanced_shipbuilding"
+							duration = 7300
+						}
+						random_owned_province = {
+							limit = { 
+								has_port = yes
+								has_building = shipyard
+								NOT = { has_building = grand_shipyard }
+							}
+							remove_building = shipyard
+							add_building = grand_shipyard
+						}
+					}
+					25 = { # Naval innovation
+						add_country_modifier = {
+							name = "naval_innovation"
+							duration = 5475
+						}
+						add_navy_tradition = 10
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "increased_innovativeness"
+							duration = 5475
+						}
+					}
+					25 = { # Mass production
+						add_country_modifier = {
+							name = "naval_mass_production"
+							duration = 3650
+						}
+						random_owned_province = {
+							limit = { 
+								has_port = yes
+								development = 8
+							}
+							add_building = shipyard
+						}
+					}
+					10 = { # Construction delays
+						add_country_modifier = {
+							name = "shipyard_delays"
+							duration = 2190
+						}
+						add_inflation = 2
+						add_navy_tradition = -5
+					}
+				}
+				set_country_flag = shipyard_expansion_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.4
+			modifier = {
+				factor = 2
+				num_of_heavy_ship = 10
+			}
+			modifier = {
+				factor = 0.2
+				inflation = 5
+			}
+		}
+	}
+
+	# Naval Exploration Initiative
+	launch_exploration_initiative = {
+		color = { 235 245 255 }
+		
+		potential = {
+			NOT = { has_country_flag = exploration_initiative_cooldown }
+			dip_tech = 9
+			num_of_colonists = 1
+			navy_size = 8
+		}
+		
+		allow = {
+			years_of_income = 1.5
+			dip_power = 150
+			# Zastąpione przez standardowy trigger
+ 
+			advisor = navigator
+		}
+		
+		effect = {
+			add_years_of_income = -1.5
+			add_dip_power = -150
+			add_country_modifier = {
+				name = "exploration_initiative"
+				duration = 2920
+			}
+			tooltip = {
+				custom_tooltip = exploration_initiative_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					35 = { # Successful exploration
+						add_country_modifier = {
+							name = "age_of_exploration"
+							duration = 5475
+						}
+						add_navy_tradition = 15
+						add_prestige = 20
+						capital_scope = {
+							light_ship = ROOT
+							light_ship = ROOT
+						}
+					}
+					25 = { # New trade routes
+						add_country_modifier = {
+							name = "new_trade_routes"
+							duration = 3650
+						}
+						# Zastąpione przez standardowe efekty
+						add_country_modifier = {
+							name = "increased_colonial_range"
+							duration = 3650
+						}
+						add_country_modifier = {
+							name = "additional_merchant"
+							duration = 3650
+						}
+					}
+					25 = { # Colonial opportunities
+						add_country_modifier = {
+							name = "colonial_opportunities"
+							duration = 7300
+						}
+						# Zastąpione przez standardowe efekty
+						add_country_modifier = {
+							name = "improved_colonist_chance"
+							duration = 7300
+						}
+						add_country_modifier = {
+							name = "faster_colonial_growth"
+							duration = 7300
+						}
+					}
+					15 = { # Exploration disasters
+						add_country_modifier = {
+							name = "exploration_disasters"
+							duration = 1825
+						}
+						add_navy_tradition = -10
+						add_prestige = -15
+					}
+				}
+				set_country_flag = exploration_initiative_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.5
+			modifier = {
+				factor = 2
+				num_of_colonists = 2
+			}
+			modifier = {
+				factor = 0.1
+				navy_tradition = 10
+			}
+		}
+	}
+
+	# Coastal Defense Network
+	establish_coastal_defenses = {
+		color = { 235 245 255 }
+		
+		potential = {
+			NOT = { has_country_flag = coastal_defense_cooldown }
+			mil_tech = 12
+			num_of_ports = 3
+			any_rival_country = { navy_size = 15 }
+		}
+		
+		allow = {
+			years_of_income = 2.0
+			mil_power = 150
+			dip_power = 100
+			manpower_percentage = 0.6
+		}
+		
+		effect = {
+			add_years_of_income = -2.0
+			add_mil_power = -150
+			add_dip_power = -100
+			add_country_modifier = {
+				name = "coastal_defense_project"
+				duration = 2190
+			}
+			tooltip = {
+				custom_tooltip = coastal_defense_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					40 = { # Fortified coastline
+						add_country_modifier = {
+							name = "fortified_coastline"
+							duration = 10950
+						}
+						random_owned_province = {
+							limit = { 
+								has_port = yes
+								development = 10
+							}
+							add_building = coastal_defence
+							add_province_modifier = {
+								name = "coastal_fortress"
+								duration = 10950
+							}
+						}
+					}
+					30 = { # Naval artillery
+						add_country_modifier = {
+							name = "coastal_artillery"
+							duration = 5475
+						}
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "improved_coastal_defense"
+							duration = 5475
+						}
+					}
+					20 = { # Harbor defenses
+						add_country_modifier = {
+							name = "harbor_defenses"
+							duration = 7300
+						}
+						every_owned_province = {
+							limit = { 
+								has_port = yes
+								development = 8
+							}
+							add_province_modifier = {
+								name = "fortified_harbor"
+								duration = 5475
+							}
+						}
+					}
+					10 = { # Defense failures
+						add_country_modifier = {
+							name = "coastal_defense_failures"
+							duration = 2555
+						}
+						add_war_exhaustion = 1
+						add_prestige = -10
+					}
+				}
+				set_country_flag = coastal_defense_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.4
+			modifier = {
+				factor = 3
+	
+			}
+			modifier = {
+				factor = 0.2
+				num_of_ports = 1
+			}
+		}
+	}
+
+	# Naval Intelligence Network
+	establish_naval_intelligence = {
+		color = { 235 245 255 }
+		
+		potential = {
+			NOT = { has_country_flag = naval_intelligence_cooldown }
+			dip_tech = 14
+			navy_tradition = 25
+			# Zastąpione przez standardowy trigger
+	 
+		}
+		
+		allow = {
+			years_of_income = 1.25
+			dip_power = 125
+			# Zastąpione przez standardowy trigger
+ 
+			num_of_light_ship = 8
+		}
+		
+		effect = {
+			add_years_of_income = -1.25
+			add_dip_power = -125
+			add_country_modifier = {
+				name = "naval_intelligence_network"
+				duration = 1825
+			}
+			tooltip = {
+				custom_tooltip = naval_intelligence_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					35 = { # Effective naval spies
+						add_country_modifier = {
+							name = "naval_spy_network"
+							duration = 5475
+						}
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "improved_spy_offense"
+							duration = 5475
+						}
+					
+					}
+					30 = { # Maritime intelligence
+						add_country_modifier = {
+							name = "maritime_intelligence"
+							duration = 3650
+						}
+						# Zastąpione przez standardowe efekty
+						add_country_modifier = {
+							name = "improved_navy_tradition_from_trade"
+							duration = 3650
+						}
+						add_country_modifier = {
+							name = "improved_privateer_efficiency"
+							duration = 3650
+						}
+					}
+					25 = { # Counter-intelligence
+						add_country_modifier = {
+							name = "naval_counter_intelligence"
+							duration = 2920
+						}
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "improved_spy_defense"
+							duration = 2920
+						}
+						add_prestige = 8
+					}
+					10 = { # Intelligence failure
+						add_country_modifier = {
+							name = "naval_intelligence_failure"
+							duration = 1460
+						}
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "reduced_spy_offense"
+							duration = 1460
+						}
+						add_prestige = -12
+				
+					}
+				}
+				set_country_flag = naval_intelligence_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.4
+ 
+		}
+	}
+
+	# Banking System Reform
+	establish_banking_system = {
+		color = { 255 255 235 }
+		
+		potential = {
+			NOT = { has_country_flag = banking_system_cooldown }
+			adm_tech = 12
+			num_of_cities = 15
+			any_owned_province = { development = 20 }
+		}
+		
+		allow = {
+			years_of_income = 2.5
+			adm_power = 150
+			dip_power = 100
+			advisor = treasurer
+		}
+		
+		effect = {
+			add_years_of_income = -2.5
+			add_adm_power = -150
+			add_dip_power = -100
+			add_country_modifier = {
+				name = "banking_system_establishment"
+				duration = 2920
+			}
+			tooltip = {
+				custom_tooltip = banking_system_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					35 = { # Modern banking success
+						add_country_modifier = {
+							name = "advanced_banking"
+							duration = 10950
+						}
+						add_inflation = -2
+						capital_scope = {
+							add_building = stock_exchange
+							add_province_modifier = {
+								name = "financial_center"
+								duration = 10950
+							}
+						}
+					}
+					30 = { # Credit system established
+						add_country_modifier = {
+							name = "credit_system"
+							duration = 7300
+						}
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "reduced_interest"
+							duration = 7300
+						}
+						add_years_of_income = 1.0
+					}
+					25 = { # Banking speculation
+						add_country_modifier = {
+							name = "banking_speculation"
+							duration = 3650
+						}
+						add_inflation = 1
+						add_years_of_income = 1.5
+					}
+					10 = { # Banking crisis
+						add_country_modifier = {
+							name = "banking_crisis"
+							duration = 2555
+						}
+						add_inflation = 3
+						add_years_of_income = -1.0
+						add_stability = -1
+					}
+				}
+				set_country_flag = banking_system_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.4
+			modifier = {
+				factor = 2
+				inflation = 5
+			}
+			modifier = {
+				factor = 0.2
+				inflation = 15
+			}
+		}
+	}
+
+	# Manufacturing Development
+	promote_manufacturing = {
+		color = { 255 255 235 }
+		
+		potential = {
+			NOT = { has_country_flag = manufacturing_promotion_cooldown }
+			adm_tech = 15
+			any_owned_province = { 
+				has_building = workshop
+				base_production = 4
+			}
+		}
+		
+		allow = {
+			years_of_income = 2.0
+			adm_power = 125
+			advisor = master_of_mint
+			num_of_cities = 12
+		}
+		
+		effect = {
+			add_years_of_income = -2.0
+			add_adm_power = -125
+			add_country_modifier = {
+				name = "manufacturing_development"
+				duration = 2555
+			}
+			tooltip = {
+				custom_tooltip = manufacturing_promotion_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					40 = { # Industrial advancement
+						add_country_modifier = {
+							name = "proto_industrialization"
+							duration = 7300
+						}
+						random_owned_province = {
+							limit = { 
+								has_building = workshop
+								NOT = { has_building = counting_house }
+							}
+							add_building = counting_house
+						}
+						random_owned_province = {
+							limit = { 
+								base_production = 3
+								NOT = { has_building = workshop }
+							}
+							add_building = workshop
+						}
+					}
+					30 = { # Skilled craftsmen
+						add_country_modifier = {
+							name = "skilled_craftsmen"
+							duration = 5475
+						}
+						every_owned_province = {
+							limit = { 
+								has_building = workshop
+								base_production = 3
+							}
+							add_base_production = 1
+						}
+					}
+					20 = { # Manufacturing guilds
+						add_country_modifier = {
+							name = "manufacturing_guilds"
+							duration = 3650
+						}
+						add_years_of_income = 0.75
+						add_inflation = 0.5
+					}
+					10 = { # Production bottlenecks
+						add_country_modifier = {
+							name = "production_bottlenecks"
+							duration = 2190
+						}
+						add_inflation = 2
+						random_owned_province = {
+							limit = { has_building = workshop }
+							add_unrest = 3
+						}
+					}
+				}
+				set_country_flag = manufacturing_promotion_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.5
+			modifier = {
+				factor = 2
+				production_income_percentage = 0.3
+			}
+			modifier = {
+				factor = 0.2
+				num_of_rebel_armies = 1
+			}
+		}
+	}
+
+	# Commercial Network Expansion
+	expand_commercial_networks = {
+		color = { 255 255 235 }
+		
+		potential = {
+			NOT = { has_country_flag = commercial_expansion_cooldown }
+			dip_tech = 10
+			num_of_merchants = 2
+			mercantilism = 10
+		}
+		
+		allow = {
+			years_of_income = 1.75
+			dip_power = 125
+			num_of_light_ship = 8
+			# Zastąpione przez standardowy trigger
+			trade_income_percentage = 0.15
+		}
+		
+		effect = {
+			add_years_of_income = -1.75
+			add_dip_power = -125
+			add_country_modifier = {
+				name = "commercial_expansion"
+				duration = 2190
+			}
+			tooltip = {
+				custom_tooltip = commercial_expansion_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					35 = { # Trade network success
+						add_country_modifier = {
+							name = "expanded_trade_network"
+							duration = 5475
+						}
+						# Zastąpione przez standardowe efekty
+						add_country_modifier = {
+							name = "additional_merchant"
+							duration = 5475
+						}
+						add_mercantilism = 3
+						random_trade_node = {
+							limit = {
+								any_trade_node_member_province = {
+									owned_by = ROOT
+								}
+							}
+							add_trade_modifier = {
+								who = ROOT
+								duration = 5475
+								power = 25
+								key = commercial_dominance
+							}
+						}
+					}
+					30 = { # International commerce
+						add_country_modifier = {
+							name = "international_commerce"
+							duration = 3650
+						}
+						# Zastąpione przez standardowe efekty
+						add_country_modifier = {
+							name = "improved_diplomatic_reputation"
+							duration = 3650
+						}
+						add_country_modifier = {
+							name = "improved_global_trade_power"
+							duration = 3650
+						}
+					}
+					25 = { # Commercial competition
+						add_country_modifier = {
+							name = "commercial_competition"
+							duration = 2920
+						}
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "improved_trade_efficiency"
+							duration = 2920
+						}
+			
+					}
+					10 = { # Trade disputes
+						add_country_modifier = {
+							name = "trade_disputes"
+							duration = 1825
+						}
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "reduced_diplomatic_reputation"
+							duration = 1825
+						}
+				
+					}
+				}
+				set_country_flag = commercial_expansion_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.5
+			modifier = {
+				factor = 2
+				trade_income_percentage = 0.4
+			}
+			modifier = {
+				factor = 0.2
+				diplomatic_reputation = -2
+			}
+		}
+	}
+
+	# Tax Collection Reform
+	reform_tax_collection = {
+		color = { 255 255 235 }
+		
+		potential = {
+			NOT = { has_country_flag = tax_reform_cooldown }
+			adm_tech = 8
+			num_of_cities = 10
+		}
+		
+		allow = {
+			years_of_income = 1.5
+			adm_power = 100
+			advisor = treasurer
+			corruption = 3
+		}
+		
+		effect = {
+			add_years_of_income = -1.5
+			add_adm_power = -100
+			add_country_modifier = {
+				name = "tax_collection_reform"
+				duration = 2190
+			}
+			tooltip = {
+				custom_tooltip = tax_reform_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					40 = { # Efficient tax system
+						add_country_modifier = {
+							name = "efficient_taxation"
+							duration = 7300
+						}
+						add_corruption = -2
+						every_owned_province = {
+							limit = { 
+								development = 10
+								NOT = { has_building = courthouse }
+							}
+							add_building = courthouse
+						}
+					}
+					30 = { # Tax farmer system
+						add_country_modifier = {
+							name = "tax_farming"
+							duration = 5475
+						}
+						add_years_of_income = 1.0
+						add_corruption = 1
+					}
+					20 = { # Bureaucratic expansion
+						add_country_modifier = {
+							name = "expanded_bureaucracy"
+							duration = 3650
+						}
+						# Zastąpione przez standardowe efekty
+						add_country_modifier = {
+							name = "improved_administrative_efficiency"
+							duration = 3650
+						}
+						add_country_modifier = {
+							name = "increased_advisor_cost"
+							duration = 3650
+						}
+					}
+					10 = { # Tax rebellion
+						add_country_modifier = {
+							name = "tax_rebellion"
+							duration = 2555
+						}
+						add_stability = -1
+						random_owned_province = {
+							limit = { development = 12 }
+							spawn_rebels = {
+								type = particularist_rebels
+								size = 2
+							}
+						}
+					}
+				}
+				set_country_flag = tax_reform_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.6
+			modifier = {
+				factor = 2
+				corruption = 8
+			}
+			modifier = {
+				factor = 0.3
+				stability = 0
+			}
+		}
+	}
+
+	# Infrastructure Development
+	invest_in_infrastructure = {
+		color = { 255 255 235 }
+		
+		potential = {
+			NOT = { has_country_flag = infrastructure_investment_cooldown }
+			adm_tech = 11
+			num_of_cities = 8
+		}
+		
+		allow = {
+			years_of_income = 3.0
+			adm_power = 150
+			mil_power = 75
+			advisor = master_of_mint
+		}
+		
+		effect = {
+			add_years_of_income = -3.0
+			add_adm_power = -150
+			add_mil_power = -75
+			add_country_modifier = {
+				name = "infrastructure_development"
+				duration = 3650
+			}
+			tooltip = {
+				custom_tooltip = infrastructure_investment_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					35 = { # Transportation network
+						add_country_modifier = {
+							name = "improved_roads"
+							duration = 10950
+						}
+						random_owned_province = {
+							limit = { 
+								development = 15
+								is_capital = no
+							}
+							add_province_modifier = {
+								name = "major_trade_hub"
+								duration = 10950
+							}
+						}
+						every_owned_province = {
+							limit = { 
+								development = 8
+								NOT = { has_building = marketplace }
+							}
+							add_building = marketplace
+						}
+					}
+					30 = { # Urban development
+						add_country_modifier = {
+							name = "urban_development"
+							duration = 7300
+						}
+						capital_scope = {
+							add_base_tax = 1
+							add_base_production = 1
+						}
+						random_owned_province = {
+							limit = { 
+								development = 10
+								is_capital = no
+							}
+							add_base_tax = 1
+						}
+					}
+					25 = { # Regional improvements
+						add_country_modifier = {
+							name = "regional_improvements"
+							duration = 5475
+						}
+						every_owned_province = {
+							limit = { development = 6 }
+							add_province_modifier = {
+								name = "improved_infrastructure"
+								duration = 5475
+							}
+						}
+					}
+					10 = { # Construction corruption
+						add_country_modifier = {
+							name = "infrastructure_corruption"
+							duration = 3650
+						}
+						add_corruption = 2
+						add_inflation = 1
+					}
+				}
+				set_country_flag = infrastructure_investment_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.3
+			modifier = {
+				factor = 2
+				tax_income_percentage = 0.4
+			}
+			modifier = {
+				factor = 0.1
+				corruption = 10
+			}
+		}
+	}
+
+	# Market Regulation Reform
+	reform_market_regulations = {
+		color = { 255 255 235 }
+		
+		potential = {
+			NOT = { has_country_flag = market_regulation_cooldown }
+			dip_tech = 13
+			# Zastąpione przez standardowy trigger
+			trade_income_percentage = 0.1
+			any_owned_province = { has_building = marketplace }
+		}
+		
+		allow = {
+			years_of_income = 1.25
+			dip_power = 100
+			adm_power = 75
+			stability = 1
+		}
+		
+		effect = {
+			add_years_of_income = -1.25
+			add_dip_power = -100
+			add_adm_power = -75
+			add_country_modifier = {
+				name = "market_regulation_reform"
+				duration = 1825
+			}
+			tooltip = {
+				custom_tooltip = market_regulation_outcomes_tooltip
+			}
+			hidden_effect = {
+				random_list = {
+					35 = { # Free market success
+						add_country_modifier = {
+							name = "free_market_economy"
+							duration = 5475
+						}
+						# Zastąpione przez standardowe efekty
+						add_country_modifier = {
+							name = "improved_trade_efficiency"
+							duration = 5475
+						}
+						add_inflation = -1
+						add_country_modifier = {
+							name = "improved_global_trade_power"
+							duration = 5475
+						}
+					}
+					30 = { # Regulated commerce
+						add_country_modifier = {
+							name = "regulated_commerce"
+							duration = 3650
+						}
+						add_stability = 1
+						add_mercantilism = 2
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "reduced_global_unrest"
+							duration = 3650
+						}
+					}
+					25 = { # Market consolidation
+						add_country_modifier = {
+							name = "market_consolidation"
+							duration = 2920
+						}
+						add_years_of_income = 0.5
+						random_owned_province = {
+							limit = { 
+								has_building = marketplace
+								development = 12
+							}
+							add_building = trade_depot
+						}
+					}
+					10 = { # Market disruption
+						add_country_modifier = {
+							name = "market_disruption"
+							duration = 2190
+						}
+						add_inflation = 2
+						# Zastąpione przez standardowy efekt
+						add_country_modifier = {
+							name = "increased_global_unrest"
+							duration = 2190
+						}
+						add_stability = -1
+					}
+				}
+				set_country_flag = market_regulation_cooldown
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0.4
+			modifier = {
+				factor = 2
+				# Zastąpione przez standardowy trigger
+				trade_income_percentage = 0.2
+			}
+			modifier = {
+				factor = 0.2
+				# Zastąpione przez standardowy trigger
+				average_unrest = 3
+			}
+		}
+	}
+}

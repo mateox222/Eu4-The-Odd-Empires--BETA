@@ -139,27 +139,32 @@ guiTypes = {
 			Orientation = "UPPER_LEFT"
 		}
 		#TOE
-				guiButtonType =
-		{
-			name ="TOE_more_manpower"
-			quadTextureSprite ="GFX_TOE_more_army_button"
-			position = { x = 100  y = 150 }
-			scripted = yes
-		}
-						guiButtonType =
-		{
-			name ="TOE_more_kasa"
-			quadTextureSprite ="GFX_TOE_more_cash_button"
-			position = { x = 146  y = 150 }
-			scripted = yes
-		}
-						guiButtonType =
-		{
-			name ="TOE_more_sailors"
-			quadTextureSprite ="GFX_TOE_more_navy_button"
-			position = { x = 192  y = 150 }
-			scripted = yes
-		}
+guiButtonType =
+{
+    name ="TOE_more_manpower"
+    quadTextureSprite ="GFX_TOE_more_army_button"
+    position = { x = 100  y = 150 }
+    scripted = yes
+    borderSize = {x = 50 y = 50 }  # Zwiększ borderSize
+}
+
+guiButtonType =
+{
+    name ="TOE_more_kasa"
+    quadTextureSprite ="GFX_TOE_more_cash_button"
+    position = { x = 150  y = 150 }  # Zwiększ odstęp
+    scripted = yes
+    borderSize = {x = 100 y = 50}
+}
+
+guiButtonType =
+{
+    name ="TOE_more_sailors"
+    quadTextureSprite ="GFX_TOE_more_navy_button"
+    position = { x = 200  y = 150 }  # Zwiększ odstęp
+    scripted = yes
+    borderSize = {x = 50 y = 50}  # Ujednolic borderSize
+}
 
 		iconType =
 		{

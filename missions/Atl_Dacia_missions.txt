@@ -1,0 +1,568 @@
+WAL_refugee_missions = {
+	slot = 1
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = WAL } 
+
+	wal_settle_thrace = {
+		icon = settle_north_america
+		position = 1
+		provinces_to_highlight = {
+			area = thrace_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			stability = 3
+			adm_power = 50
+			mil_power = 50
+			dip_power = 50
+		}
+
+		effect = {
+			add_adm_power = -50
+			add_mil_power = -50
+			add_dip_power = -50
+			add_country_modifier = {
+				name = "wal_thracian_settlement"
+				duration = 7300
+			}
+			thrace_area = {
+				add_province_modifier = {
+					name = "wal_dacian_refugees"
+					duration = 5475
+				}
+			}
+		}
+	}
+
+	wal_rebuild_fortifications = {
+		icon = mission_fortify_rajputana
+		position = 2
+		required_missions = { wal_settle_thrace } 
+		provinces_to_highlight = {
+			area = thrace_area
+			OR = {
+				NOT = { fort_level = 2 } 
+				devastation = 1
+			}
+			owned_by = ROOT
+		}
+
+		trigger = {
+			fort_15th = 5
+			army_tradition = 20
+		}
+
+		effect = {
+			add_mil_power = 100
+			add_country_modifier = {
+				name = "wal_mountain_fortresses"
+				duration = -1
+			}
+			thrace_area = {
+				if = {
+					limit = { owned_by = ROOT } 
+					add_province_modifier = {
+						name = "wal_fortified_settlements"
+						duration = 10950
+					}
+				}
+			}
+		}
+	}
+
+	wal_unite_refugees = {
+		icon = mission_cope_with_refugees
+		position = 3
+		required_missions = { wal_rebuild_fortifications } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			stability = 2
+			legitimacy = 80
+			num_of_owned_provinces_with = {
+				value = 10
+				culture = romanian
+			}
+		}
+
+		effect = {
+			add_prestige = 20
+			add_country_modifier = {
+				name = "wal_united_dacian_tribes"
+				duration = -1
+			}
+			random_owned_province = {
+				limit = {
+					culture = romanian
+					is_capital = no
+				}
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+			}
+		}
+	}
+}
+WAL_expansion_missions = {
+	slot = 2
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = WAL } 
+
+	wal_claim_ancient_lands = {
+		icon = atlantropa_ancientcity
+		position = 2
+		required_missions = { wal_settle_thrace } 
+		provinces_to_highlight = {
+			OR = {
+				area = bulgaria_area
+				area = wallachia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			OR = {
+				bulgaria_area = { country_or_non_sovereign_subject_holds = ROOT } 
+				wallachia_area = { country_or_non_sovereign_subject_holds = ROOT } 
+			}
+		}
+
+		effect = {
+			balkan_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT } 
+					NOT = { is_core = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+			151 = { add_claim = ROOT } 
+			add_country_modifier = {
+				name = "wal_reclaiming_homeland"
+				duration = 5475
+			}
+		}
+	}
+
+	wal_trojan_legacy = {
+		icon = atlantropa_constantinople
+		position = 3
+		required_missions = { wal_claim_ancient_lands } 
+		provinces_to_highlight = {
+			province_id = 151
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			owns_core_province = 151
+			151 = {
+				religion = ROOT
+				culture = romanian
+			}
+		}
+
+		effect = {
+			151 = {
+				rename_capital = "Decebalia"
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				add_building = cathedral
+				add_province_modifier = {
+					name = "wal_new_dacia"
+					duration = -1
+				}
+			}
+			add_prestige = 30
+			add_country_modifier = {
+				name = "wal_heirs_of_troy"
+				duration = -1
+			}
+		}
+	}
+
+	wal_balkan_dominance = {
+		icon = mission_conquer_romania
+		position = 4
+		required_missions = { wal_trojan_legacy } 
+		provinces_to_highlight = {
+			OR = {
+				region = balkan_region
+ 
+ 
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 15
+				OR = {
+					region = balkan_region
+ 
+ 
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "wal_balkan_hegemony"
+				duration = -1
+			}
+			add_permanent_claim = anatolia_region
+			add_adm_power = 150
+		}
+	}
+}
+WAL_integration_missions = {
+	slot = 3
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = WAL } 
+
+	wal_christian_unity = {
+		icon = mission_religious
+		position = 2
+		required_missions = { wal_byzantine_refugees } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			religious_unity = 0.9
+			religion = united_christianity
+			num_of_owned_provinces_with = {
+				value = 5
+				religion = united_christianity
+				culture = greek
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "wal_christian_defender"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = { religion = united_christianity } 
+				add_province_modifier = {
+					name = "wal_religious_harmony"
+					duration = 10950
+				}
+			}
+		}
+	}
+
+	wal_successor_state = {
+		icon = the_latin_empire
+		position = 4
+		required_missions = {
+			wal_christian_unity
+			wal_trojan_legacy
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			total_development = 300
+			prestige = 50
+			owns_core_province = 151
+			num_of_subjects = 2
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "wal_byzantine_successor"
+				duration = -1
+			}
+			add_prestige = 25
+			add_legitimacy = 20
+			country_event = { id = wal_events.1 } 
+		}
+	}
+
+	wal_new_empire = {
+		icon = switzerland_and_the_empire
+		position = 5
+		required_missions = {
+			wal_successor_state
+			wal_balkan_dominance
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			government_rank = 3
+			total_development = 500
+			army_size = 40
+			prestige = 75
+		}
+
+		effect = {
+			override_country_name = "DACIAN_EMPIRE"
+			add_country_modifier = {
+				name = "wal_imperial_restoration"
+				duration = -1
+			}
+			add_prestige = 50
+			add_legitimacy = 25
+			capital_scope = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+			}
+		}
+	}
+}
+WAL_economic_missions = {
+	slot = 4
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = WAL } 
+
+	wal_byzantine_refugees = {
+		icon = mission_alliances
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			OR = {
+				any_country = {
+					has_country_modifier = greek_diaspora
+					has_opinion = {
+						who = ROOT
+						value = 100
+					}
+				}
+ 
+				advisor = theologian
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "wal_protector_of_christians"
+				duration = 7300
+			}
+ 
+			random_owned_province = {
+				limit = { culture = greek } 
+				add_province_modifier = {
+					name = "wal_greek_quarter"
+					duration = 10950
+				}
+			}
+		}
+	}
+
+	wal_trade_networks = {
+		icon = mission_dominate_home_trade_node
+		position = 2
+		required_missions = { wal_byzantine_refugees } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			share_of_starting_income = 1.5
+			num_of_merchants = 2
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "wal_thriving_trade"
+				duration = 7300
+			}
+			capital_scope = {
+				add_building = marketplace
+				add_base_production = 2
+			}
+			add_mercantilism = 3
+		}
+	}
+
+	wal_mountain_resources = {
+		icon = mission_rb_build_furnaces
+		position = 3
+		required_missions = { wal_trade_networks } 
+		provinces_to_highlight = {
+			owned_by = ROOT
+			OR = {
+				trade_goods = gold
+				trade_goods = iron
+				trade_goods = copper
+			}
+			NOT = { base_production = 3 } 
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				OR = {
+					trade_goods = gold
+					trade_goods = iron
+					trade_goods = copper
+				}
+				base_production = 3
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "wal_mountain_wealth"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = {
+					OR = {
+						trade_goods = gold
+						trade_goods = iron
+						trade_goods = copper
+					}
+				}
+				add_province_modifier = {
+					name = "wal_enhanced_mining"
+					duration = 10950
+				}
+			}
+		}
+	}
+
+	wal_agricultural_reform = {
+		icon = mission_rb_grow_the_channel
+		position = 4
+		required_missions = { wal_mountain_resources } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 8
+				base_tax = 4
+			}
+			monthly_income = 20
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "wal_agricultural_prosperity"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = { base_tax = 4 } 
+				add_base_tax = 1
+			}
+		}
+	}
+}
+WAL_military_missions = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = WAL } 
+
+	wal_warrior_tradition = {
+		icon = atlantropa_niflheim_army
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_tradition = 30
+			manpower_percentage = 0.6
+			num_of_generals = 1
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "wal_dacian_warriors"
+				duration = 10950
+			}
+			add_army_tradition = 10
+			random_owned_province = {
+				limit = {
+					culture = romanian
+					base_manpower = 2
+				}
+				add_base_manpower = 2
+			}
+		}
+	}
+
+	wal_falx_warriors = {
+		icon = mission_steppe_warriors
+		position = 2
+		required_missions = { wal_warrior_tradition } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			mil_tech = 12
+			army_tradition = 40
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "wal_feared_falx"
+				duration = -1
+			}
+			add_mil_power = 100
+			every_owned_province = {
+				limit = { culture = romanian } 
+				add_province_modifier = {
+					name = "wal_warrior_culture"
+					duration = 10950
+				}
+			}
+		}
+	}
+
+	wal_mountain_warfare = {
+		icon = mission_gunpowder_warfare
+		position = 3
+		required_missions = { wal_falx_warriors } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_tradition = 60
+			army_size = LAE
+			army_size = BYZ
+			army_size = A52
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "wal_mountain_fighters"
+				duration = -1
+			}
+			add_prestige = 15
+			add_army_tradition = 15
+		}
+	}
+
+	wal_terror_of_enemies = {
+		icon = mission_conquer_romania
+		position = 4
+		required_missions = { wal_mountain_warfare } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_tradition = 80
+			prestige = 50
+			army_size = 80
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "wal_legendary_fighters"
+				duration = -1
+			}
+			add_prestige = 25
+			every_neighbor_country = {
+				add_opinion = {
+					who = ROOT
+					modifier = wal_feared_warriors
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,528 @@
+aislimgurun_missions_one = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = MCH
+	}
+
+	christ_mch_banners = {
+		icon = mission_chinese_general_riding
+		position = 2
+		required_missions = { aslimgurun_reorganize }
+		trigger = {
+			if = {
+							limit = {
+								has_dlc = "Mandate of Heaven"
+							}
+							num_of_banners = 8
+							army_size_percentage = 0.9
+						}
+						else = {
+							army_size_percentage = 0.9
+							cavalry_fraction = 0.4
+						}
+						if = {
+							limit = { has_dlc = "Cradle of Civilization" }
+							OR = {
+								AND = {
+									army_professionalism = 0.5
+									army_tradition = 70
+								}
+								has_mil_advisor = yes
+							}
+						}
+						else = {
+							OR = {
+								army_tradition = 70
+								has_mil_advisor = yes
+							}
+						}
+		}
+		effect = {
+			if = {
+							limit = { has_dlc = "Mandate of Heaven" }
+							add_country_modifier = {
+								name = mjz_eight_banners_modifier2
+								duration = -1
+							}
+							custom_tooltip = mjz_banners_cost_no_corruption_tt
+							set_country_flag = refund_partial_corruption_on_banner_recruited_flag
+						}
+						else = {
+							add_country_modifier = {
+								name = mjz_eight_banners_modifier
+								duration = -1
+							}
+						}
+						if = {
+							limit = { has_country_modifier = mjz_dominance_of_the_horselords_modifier }
+							custom_tooltip = mjz_extend_dominance_modifier_tt
+							hidden_effect = {
+								remove_country_modifier = mjz_dominance_of_the_horselords_modifier
+								add_country_modifier = {
+									name = mjz_dominance_of_the_horselords_modifier
+									duration = 3650
+								}
+							}
+						}
+		}
+	}
+	aslimgurun_mongolia = {
+		icon = qng_end_yuan
+		position = 3
+		required_missions = { aslimgurun_unite_jurchen_tribes }
+		provinces_to_highlight = {
+			region = mongolia_region
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+							region = mongolia_region
+							value = 15
+						}
+		}
+		effect = {
+			add_power_projection = {
+							type = mission_rewards_power_projection
+							amount = 50
+						}
+						add_prestige_or_monarch_power = { amount = 20 }
+						if = {
+							limit = { is_emperor_of_china = yes }
+							add_mandate = 10
+						}
+						if = {
+							limit = { has_country_modifier = mjz_dominance_of_the_horselords_modifier }
+							custom_tooltip = mjz_extend_dominance_modifier_tt
+							hidden_effect = {
+								remove_country_modifier = mjz_dominance_of_the_horselords_modifier
+								add_country_modifier = {
+									name = mjz_dominance_of_the_horselords_modifier
+									duration = 3650
+								}
+							}
+						}
+			add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+		}
+	}
+}
+
+aislimgurun2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = MCH
+	}
+
+	aslimgurun_reorganize = {
+		icon = balance_the_estates
+		position = 1
+		required_missions = {  }
+		trigger = {
+			has_adm_advisor = yes
+						has_dip_advisor = yes
+						has_mil_advisor = yes
+						stability = 2
+						is_in_deficit = no
+		}
+		effect = {
+			add_country_modifier = {
+							name = mch_5_trusted_companions_modifier
+							duration = 7300
+						}
+				add_country_modifier = {
+							name = mch_5_trusted_companions_modifier
+							duration = 7300
+						}
+						if = {
+							limit = { is_emperor_of_china = yes }
+							add_meritocracy = 10
+							change_government_reform_progress = 100
+						}
+						else = { change_government_reform_progress = 150 }
+						if = {
+							limit = { has_country_modifier = mjz_dominance_of_the_horselords_modifier }
+							custom_tooltip = mjz_extend_dominance_modifier_tt
+							hidden_effect = {
+								remove_country_modifier = mjz_dominance_of_the_horselords_modifier
+								add_country_modifier = {
+									name = mjz_dominance_of_the_horselords_modifier
+									duration = 3650
+								}
+							}
+						}
+		}
+	}
+	aslimgurun_invadekorea = {
+		icon = atlantropa_burningchina3
+		position = 3
+		required_missions = { aslimgurun_unite_jurchen_tribes }
+		provinces_to_highlight = {
+			owned_by = KO1
+		}
+		trigger = {
+			NOT = { exists = KO1 }
+			owns_core_province = 2108
+		}
+		effect = {
+			2108 = { change_religion = assyrianchurch }
+			add_prestige = 25
+			add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+			add_country_modifier = {
+			    name = manchu_christianity_east2
+			    duration = -1
+			}
+		}
+	}
+}
+
+aislimgurun3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = MCH
+	}
+
+	Aislimgurun_fall_of_Song = {
+		icon = mission_crisis_ming_dynasty
+		position = 1
+		required_missions = {  }
+		trigger = {
+			custom_trigger_tooltip = {
+							tooltip = THECHINESEWARATL
+							always = yes
+						}
+		}
+		effect = {
+			add_mil_power = 100
+			add_stability = 1
+		}
+	}
+	aslimgurun_unite_jurchen_tribes = {
+		icon = mission_manchu_warrior
+		position = 2
+		required_missions = { Aislimgurun_fall_of_Song }
+		provinces_to_highlight = {
+			owner = {
+							AND = {
+								NOT = { tag = ROOT }
+								culture = ROOT
+								army_size = ROOT
+							}
+						}
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+							tooltip = mjz_all_country_of_manchuria_of_root_culture_less_army_than_root_tt
+							NOT = {
+								any_known_country = {
+									capital_scope = {
+										region = manchuria_region
+									}
+									culture = ROOT
+									army_size = ROOT
+								}
+							}
+						}
+						num_of_cavalry = 12
+						OR = {
+							NOT = { average_autonomy_above_min = 10 }
+							NOT = { average_effective_unrest = 2 }
+						}
+		}
+		effect = {
+			add_country_modifier = {
+							name = mjz_united_jurchens_modifier
+							duration = 7300
+						}
+						custom_tooltip = mjz_every_province_10_autonomy_tt
+						hidden_effect = {
+							every_owned_province = { add_local_autonomy = -10 }
+						}
+						if = {
+							limit = { has_country_modifier = mjz_dominance_of_the_horselords_modifier }
+							custom_tooltip = mjz_extend_dominance_modifier_tt
+							hidden_effect = {
+								remove_country_modifier = mjz_dominance_of_the_horselords_modifier
+								add_country_modifier = {
+									name = mjz_dominance_of_the_horselords_modifier
+									duration = 3650
+								}
+							}
+						}
+						manchuria_region = {
+							limit = {
+								NOT = { is_permanent_claim = ROOT }
+								NOT = { is_core = ROOT	}
+							}
+							add_permanent_claim = ROOT
+						}
+			mongolia_region = {
+							limit = {
+								NOT = { is_permanent_claim = ROOT }
+								NOT = { is_core = ROOT	}
+							}
+							add_permanent_claim = ROOT
+						}
+			hebei_area = {
+							limit = {
+								NOT = { is_permanent_claim = ROOT }
+								NOT = { is_core = ROOT	}
+							}
+							add_permanent_claim = ROOT
+						}
+			korea_region = {
+							limit = {
+								NOT = { is_permanent_claim = ROOT }
+								NOT = { is_core = ROOT	}
+							}
+							add_permanent_claim = ROOT
+						}
+		}
+	}
+	aslimgurun_invade_north = {
+		icon = mch_bypass_great_wall
+		position = 3
+		required_missions = { aslimgurun_unite_jurchen_tribes }
+		provinces_to_highlight = {
+			area = hebei_area
+		}
+		trigger = {
+			hebei_area = {
+							type = all
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+		}
+		effect = {
+			custom_tooltip = mch_war_with_eoc_reward_tt
+						tooltip = {
+							add_yearly_manpower = 2
+							add_war_exhaustion = -2
+						}
+						custom_tooltip = pol_alternatively_tt
+						tooltip = {
+							liaoning_area = {
+								add_base_manpower = 1
+							}
+							add_stability_or_adm_power = yes
+						}
+						hidden_effect = {
+							if = {
+								limit = {
+									AND = {
+										726 = { controlled_by = ROOT }
+										event_target:EmperorOfChina = {
+											war_with = ROOT
+											NOT = {
+												war_score_against = {
+													who = ROOT
+													value = -50
+												}
+											}
+										}
+									}
+								}
+								add_yearly_manpower = 2
+								add_war_exhaustion = -2
+								event_target:EmperorOfChina = {
+									every_owned_province = {
+										limit = {
+											controlled_by = PREV
+											has_fort_building_trigger = yes
+										}
+										add_devastation = 10
+									}
+								}
+							}
+							else = {
+								liaoning_area = {
+									add_base_manpower = 1
+								}
+								add_stability_or_adm_power = yes
+							}
+						}
+						if = {
+							limit = { has_country_modifier = mjz_dominance_of_the_horselords_modifier }
+							custom_tooltip = mjz_extend_dominance_modifier_tt
+							hidden_effect = {
+								remove_country_modifier = mjz_dominance_of_the_horselords_modifier
+								add_country_modifier = {
+									name = mjz_dominance_of_the_horselords_modifier
+									duration = 3650
+								}
+							}
+						}
+					add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+		}
+	}
+	mch_beyond_the_great_wall = {
+		icon = mch_bypass_great_wall
+		position = 4
+		required_missions = { aslimgurun_invade_north }
+		trigger = {
+			total_development = 500
+			army_size = 75
+			mil_power = 100
+		}
+		effect = {
+			add_mil_power = -100
+			country_event = {
+			    id = chrisitian_china.1
+			}
+		}
+	}
+	mch_christian_empire = {
+		icon = jap_conquer_north_china
+		position = 5
+		required_missions = { mch_beyond_the_great_wall }
+		trigger = {
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+							region = north_china_region
+							value = 20
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+							region = south_china_region
+							value = 20
+						}			}
+		}
+		effect = {
+			add_prestige = 25
+		}
+	}
+}
+
+aislimgurun4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = MCH
+	}
+
+	mch_christianity_east = {
+		icon = mission_buddhist_monk_praying
+		position = 1
+		required_missions = {  }
+		trigger = {
+			num_of_owned_provinces_with = {
+							value = 10
+							OR = {
+								has_building = temple
+								has_building = cathedral
+							}
+						}
+		}
+		effect = {
+			add_estate_loyalty = {
+							estate = estate_church
+							loyalty = 10
+						}
+
+			add_country_modifier = {
+			    name = manchu_christianity_east
+			    duration = -1
+			}
+			add_stability = 1
+		}
+	}
+	aslimgurun_annex_korea = {
+		icon = mjz_into_korea
+		position = 3
+		required_missions = { aslimgurun_unite_jurchen_tribes }
+		provinces_to_highlight = {
+			region = korea_region
+		}
+		trigger = {
+			num_of_provinces_owned_or_owned_by_subjects_with = {
+							region = korea_region
+							value = 16
+						}
+						5887 = { country_or_subject_holds = ROOT }
+		}
+		effect = {
+			country_event = { id = flavor_mch.11 }
+						custom_tooltip = mch_event_insight_11_tt
+						if = {
+							limit = { has_country_modifier = mjz_dominance_of_the_horselords_modifier }
+							custom_tooltip = mjz_extend_dominance_modifier_tt
+							hidden_effect = {
+								remove_country_modifier = mjz_dominance_of_the_horselords_modifier
+								add_country_modifier = {
+									name = mjz_dominance_of_the_horselords_modifier
+									duration = 3650
+								}
+							}
+						}
+			add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+		}
+	}
+}
+
+aislimgurun5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = MCH
+	}
+
+	easter_mount_holy = {
+		icon = mission_hands_praying
+		position = 2
+		required_missions = { mch_christianity_east }
+		provinces_to_highlight = {
+			province_id = 4201
+						OR = {
+							NOT = { owned_by = ROOT is_core = ROOT }
+							has_tax_building_trigger = no
+						}
+		}
+		trigger = {
+			owns_core_province = 4201
+						4201 = { has_tax_building_trigger = yes }
+		}
+		effect = {
+			add_country_modifier = {
+							name = "mch_sacred_mountain"
+							duration = 7300
+						}
+					4201 = {
+							remove_building = temple
+							add_building = cathedral
+						}
+		}
+	}
+	aslimgurun_manchuria = {
+		icon = mission_marwari_horses
+		position = 3
+		required_missions = { aslimgurun_unite_jurchen_tribes }
+		provinces_to_highlight = {
+			region = manchuria_region
+		}
+		trigger = {
+			manchuria_region = {
+							type = all
+							country_or_non_sovereign_subject_holds = ROOT
+						}
+		}
+		effect = {
+			add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+			add_country_modifier = {
+			    name = manchu_christianity_east3
+			    duration = -1
+			}
+		}
+	}
+}
+

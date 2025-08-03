@@ -10,12 +10,12 @@ province_event = {
 	hidden = yes
 	trigger = {
 		always = no
-		}
-			option = {
+	}
+	option = {
 		name = "atlantropa_basic_event.1.a"
 	}
-		}
-	
+}
+
 
 
 
@@ -30,12 +30,12 @@ country_event = {
 	hidden = yes
 	trigger = {
 		always = no
-		}
-			
+	}
+
 	option = {
 		name = "atlantropa_basic_event.1.a"
 	}
-		}
+}
 
 
 province_event = {
@@ -43,728 +43,770 @@ province_event = {
 	title = "atlantropa_basic_eventt.2.t"
 	desc = "atlantropa_basic_event.2.d"
 	picture = sackniflport_eventPicture
-	
+
 	trigger = {
 		NOT = { has_province_modifier = burnedprovince }
 		owned_by = ROOT
-		controller = { 
+		controller = {
 			war_with = ROOT
-		}	
+		}
 		num_of_units_in_province = {
-    amount = 5
-	who = controller
-}
-		
+			amount = 5
+			who = controller
+		}
 
-		}	
-		
-	
+
+	}
+
+
 	mean_time_to_happen = {
 		months = 48
-		
+
 		modifier = {
-		factor = 0.5
-		NOT = { development = 20 }
-	}	
+			factor = 0.5
+			NOT = { development = 20 }
+		}
 		modifier = {
-		factor = 1.2
-		development = 40
-	}		
+			factor = 1.2
+			development = 40
+		}
 	}
 	option = {
 		trigger = { NOT = { development = 10 }}
 		name = "atlantropa_basic_event.2.a"
 		ai_chance = { factor = 60 }
-		add_base_tax = -1	
-		add_devastation = 5	
+		add_base_tax = -1
+		add_devastation = 5
 		add_unrest = 1
-		add_province_modifier = { 
-    name = burnedprovince
-    duration = 3600
-    hidden = yes
-}
+		add_province_modifier = {
+			name = burnedprovince
+			duration = 3600
+			hidden = yes
+		}
 	}
 	option = {
-		trigger = { 
+		trigger = {
 			development = 10
 			NOT = { development = 20 }}
-		name = "atlantropa_basic_event.2.a"
-		ai_chance = { factor = 60 }
-		add_base_tax = -1	
-		add_base_manpower = -1	
-		add_devastation = 10	
-		add_unrest = 1
-		add_province_modifier = { 
-    name = burnedprovince
-    duration = 1800
-    hidden = yes
-}
-	}	
-	option = {
-		trigger = { 
-			development = 20
-			NOT = { development = 30 }}
-		name = "atlantropa_basic_event.2.a"
-		ai_chance = { factor = 60 }
-		add_base_tax = -2	
-		add_base_manpower = -2	
-		add_devastation = 15
-		add_unrest = 1
-		add_province_modifier = { 
-    name = burnedprovince
-    duration = 3600
-    hidden = yes
-}
-	}	
-	option = {
-		trigger = { 
-			development = 30
+			name = "atlantropa_basic_event.2.a"
+			ai_chance = { factor = 60 }
+			add_base_tax = -1
+			add_base_manpower = -1
+			add_devastation = 10
+			add_unrest = 1
+			add_province_modifier = {
+				name = burnedprovince
+				duration = 1800
+				hidden = yes
+			}
 		}
-		name = "atlantropa_basic_event.2.a"
-		ai_chance = { factor = 60 }
-		add_base_tax = -3	
-		add_base_manpower = -3	
-		add_devastation = 20	
-		add_unrest = 2
-		add_province_modifier = { 
-    name = burnedprovince
-    duration = 3600
-    hidden = yes
-}
-	}	
-}
-
-
-province_event = {
-	id = atlantropa_basic_event.3
-	title = "atlantropa_basic_event.3.t"
-	desc = "atlantropa_basic_event.3.d"
-	picture = venedia_in_siege_eventPicture
-	major = yes
-	major_trigger = { 
-		OR = {
-		war_with = owner
-		war_with = controller	
-	 }
-	}
-	trigger = {
-		is_capital = yes
-		NOT = { has_province_modifier = burnedcapitalprovince }
-		owned_by = ROOT
-		controller = { 
-			war_with = ROOT
-		}	
-		}	
-		
-	option = {
-		name = "atlantropa_basic_event.2.a"
-		ai_chance = { factor = 60 }
-				add_province_modifier = { 
-    name = burnedcapitalprovince
-    duration = 3600
-    hidden = yes
-}
-		add_base_tax = -1	
-		add_base_production = -1	
-		add_base_manpower = -1	
-		add_devastation = 50	
-		owner = { 	add_prestige = -5
- }
- controller = {
-add_prestige = 5
-add_years_of_income = 0.5	
- }
-
-
-	}
-}
-
-
-country_event = {
-	id = atlantropa_basic_event.4
-	title = atlantropa_basic_event.4.t
-	desc = atlantropa_basic_event.4.d
-	picture = sackniflport_eventPicture
-	trigger = {
-	had_recent_war = 2
-	war_exhaustion = 5
-	is_at_war = no
-	NOT = { has_country_modifier = odbuodwapowojenna }
-	NOT = { has_country_modifier = odbuodwapowojenna2 }
-	NOT = { has_ruler_flag = odbuodwapowojenna2 }	
-	}
-	mean_time_to_happen = {
-	months = 12
-
-}
-	option = {
-	name = "atlantropa_basic_event.4.a" 
-	add_war_exhaustion = -2
-	 set_ruler_flag = odbuodwapowojenna2
-	 add_adm_power = -50
-	 add_country_modifier = { 
-		name = odbuodwapowojenna
-		duration = 3600 
-	}
-	if = {
-	limit = { 
-	OR = {
-	tag = BYZ
-	tag = A52
-	}}
-							add_government_power = {
-					mechanic_type = nikaeanbyzantine_mechanic
-					power_type = byz_adm_power
-					value = -5
+		option = {
+			trigger = {
+				development = 20
+				NOT = { development = 30 }}
+				name = "atlantropa_basic_event.2.a"
+				ai_chance = { factor = 60 }
+				add_base_tax = -2
+				add_base_manpower = -2
+				add_devastation = 15
+				add_unrest = 1
+				add_province_modifier = {
+					name = burnedprovince
+					duration = 3600
+					hidden = yes
 				}
-	}
-	
-
-
-		}
+			}
 			option = {
-				name = "atlantropa_basic_event.4.b" 
-				add_war_exhaustion = 2.5
-				 set_ruler_flag = odbuodwapowojenna2
-				 add_country_modifier = { 
-					name = odbuodwapowojenna2
-					duration = 1800
+				trigger = {
+					development = 30
 				}
-		if = {
-	limit = { 
-	OR = {
-	tag = BYZ
-	tag = A52
-	}}
-							add_government_power = {
-					mechanic_type = nikaeanbyzantine_mechanic
-					power_type = byz_adm_power
-					value = -5
+				name = "atlantropa_basic_event.2.a"
+				ai_chance = { factor = 60 }
+				add_base_tax = -3
+				add_base_manpower = -3
+				add_devastation = 20
+				add_unrest = 2
+				add_province_modifier = {
+					name = burnedprovince
+					duration = 3600
+					hidden = yes
 				}
-	}
-						}			
-
+			}
 		}
 
 
-province_event = {
-	id = atlantropa_basic_event.5
-	title = "atlantropa_basic_event.5.t"
-	desc = "atlantropa_basic_event.5.d"
-	picture = sackniflport_eventPicture
-	
-	trigger = {
-		NOT = { has_province_modifier = burnedprovince2 }
-		owner = { 		NOT = { has_ruler_modifier = odbuodwapowojenna } }
-		owned_by = ROOT
-		development = 25
-		devastation = 20
-		}	
-		
-	
-	mean_time_to_happen = {
-		months = 36	
-		
-		modifier = {
-		factor = 1.5
-		 development = 40
-	}	
-			modifier = {
-		factor = 1.5
-		 owner = { has_ruler_modifier = odbuodwapowojenna2 }
-	}	
-		modifier = {
-		factor = 2
-		development = 50
-	}		
-	}
-	option = {
-		name = "atlantropa_basic_event.5.a"
-		ai_chance = { factor = 60 }
-		add_base_tax = -1	
-		add_base_production = -1	
-		add_base_manpower = -1	
-		add_devastation = 10	
-		add_unrest = 2
-		add_province_modifier = { 
-    name = burnedprovince2
-    duration = 3600
-}
-	}
-}		
+		province_event = {
+			id = atlantropa_basic_event.3
+			title = "atlantropa_basic_event.3.t"
+			desc = "atlantropa_basic_event.3.d"
+			picture = venedia_in_siege_eventPicture
+			major = yes
+			major_trigger = {
+				OR = {
+					war_with = owner
+					war_with = controller
+				}
+			}
+			trigger = {
+				is_capital = yes
+				NOT = { has_province_modifier = burnedcapitalprovince }
+				owned_by = ROOT
+				controller = {
+					war_with = ROOT
+				}
+			}
+
+			option = {
+				name = "atlantropa_basic_event.2.a"
+				ai_chance = { factor = 60 }
+				add_province_modifier = {
+					name = burnedcapitalprovince
+					duration = 3600
+					hidden = yes
+				}
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1
+				add_devastation = 50
+				owner = { 	add_prestige = -5
+				}
+				controller = {
+					add_prestige = 5
+					add_years_of_income = 0.5
+				}
 
 
-country_event = {
-	id = atlantropa_basic_event.6
-	title = atlantropa_basic_event.6.t
-	desc = atlantropa_basic_event.6.d
-	picture = CITY_DEVELOPMENT_eventPicture
-	trigger = {
-	is_at_war = no
-	stability = 3
-	NOT = { has_ruler_flag = wladcaprosperity }	
-	}
-	mean_time_to_happen = {
-	months = 600
-
-}
-	option = {
-	name = "atlantropa_basic_event.6.a" 
-	add_war_exhaustion = -2
-	 set_ruler_flag = wladcaprosperity
-	 add_inflation = -3
-	 add_adm_power = 75	 
-	 add_dip_power = 75	 
-	 add_mil_power = 75	 	 
-
-		}		
-
+			}
 		}
 
 
 		country_event = {
-			id = atlantropa_basic_event.7
-			title = atlantropa_basic_event.6.t
-			desc = atlantropa_basic_event.6.d
-			picture = CITY_DEVELOPMENT_eventPicture
-			is_triggered_only = yes
-			immediate = {
-			every_subject_country = { 
-				limit = {
-					is_colonial_nation = yes
-				}
-				change_country_color = { country = ROOT }
+			id = atlantropa_basic_event.4
+			title = atlantropa_basic_event.4.t
+			desc = atlantropa_basic_event.4.d
+			picture = sackniflport_eventPicture
+			trigger = {
+				had_recent_war = 2
+				war_exhaustion = 5
+				is_at_war = no
+				NOT = { has_country_modifier = odbuodwapowojenna }
+				NOT = { has_country_modifier = odbuodwapowojenna2 }
+				NOT = { has_ruler_flag = odbuodwapowojenna2 }
 			}
-		
+			mean_time_to_happen = {
+				months = 12
+
+			}
+			option = {
+				name = "atlantropa_basic_event.4.a"
+				add_war_exhaustion = -2
+				set_ruler_flag = odbuodwapowojenna2
+				add_adm_power = -50
+				add_country_modifier = {
+					name = odbuodwapowojenna
+					duration = 3600
+				}
+				if = {
+					limit = {
+						OR = {
+							tag = BYZ
+							tag = A52
+						}}
+						add_government_power = {
+							mechanic_type = nikaeanbyzantine_mechanic
+							power_type = byz_adm_power
+							value = -5
+						}
+					}
+
+
+
 				}
 				option = {
-					name = "atlantropa_basic_event.6.a" 
-				}		
-			}
-
-		country_event = {
-	id = atlantropa_basic_event.100
-	title = atlantropa_basic_event.6.t
-	desc = atlantropa_basic_event.6.d
-	picture = CITY_DEVELOPMENT_eventPicture
-	hidden = yes
-	trigger = {
-		NOT = { has_country_flag = francjawasal }	
-		OR = {
-		is_subject_of = FRA
-		is_subject_of = A59
-		}
-		is_colonial_nation = no
-	}
-
-	option = {
-	name = "atlantropa_basic_event.6.a" 
-	 set_country_flag = francjawasal
-	 change_country_color = { color = { 90 127 222  }	}
-	set_country_flag = has_overriden_color 
-		}		
-
-		}
-
-		country_event = {
-	id = atlantropa_basic_event.101
-	title = atlantropa_basic_event.6.t
-	desc = atlantropa_basic_event.6.d
-	picture = CITY_DEVELOPMENT_eventPicture
-	hidden = yes
-	trigger = {
-		has_country_flag = francjawasal
-	NOT = {	is_subject_of = FRA }
-	NOT = {	is_subject_of = A59 }
-
-	}
-
-	option = {
-	name = "atlantropa_basic_event.6.a" 
-	clr_country_flag = francjawasal
-	 restore_country_color = yes	
-	 	if = {
-		limit = {
-			has_country_flag = FRANCUSKAWOJNADOMOWA
-		}
-				change_country_color = { 
-    color = { 123 19 0 }
-}
-	}
-		}		
-
-		}
-
-
-
-province_event = {
-	id = atlantropa_basic_event.102
-	title = "atlantropa_basic_event.5.t"
-	desc = "atlantropa_basic_event.5.d"
-	picture = sackniflport_eventPicture
-	hidden = yes
-		mean_time_to_happen = {
-		months = 320
-		
-		modifier = {
-		factor = 0.8
-		 development = 20
-	}		
-	}
-	trigger = {
-		OR = {
-		has_owner_accepted_culture = no
-		has_owner_culture = no
-		}
-		owner = { is_colonial_nation = yes }
-
-		owner = {  }
-		NOT = { continent = asia }
-		NOT = { continent = europe }
-		NOT = { continent = Atlantis }
-		NOT = { continent = lemuria }		
-		}	
-	
-	immediate = {
-				owner = {
-    save_event_target_as = ownereligia
-}
-		change_culture = event_target:ownereligia
-		change_religion = event_target:ownereligia
-		add_base_tax = -1	
-		add_base_production = -1	
-		add_base_manpower = -1	
-		
-		if = {
-			limit = {
-				development = 30
-			}
-		add_base_tax = -1	
-		add_base_production = -2	
-		add_base_manpower = -2	
-
-		}
-	}
-		option = {
-	name = "atlantropa_basic_event.6.a" 
-		}	
-}		
-
-
-
-
-country_event = {
-	id = atlantropa_basic_event.300																			
-	title = "atlantropa_basic_event.5.t"
-	desc = "atlantropa_basic_event.5.d"
-	picture = HARBOUR_eventPicture
-	
-	trigger = {
-		religion = united_christianity
-		has_religious_school = no
-
-	}
-	
-	is_triggered_only = yes
-
-	option = {
-	name = "atlantropa_basic_event.6.a" 
-		trigger = {
-	
-		}
-    }
-    option = {
-	name = "atlantropa_basic_event.6.a" 
-		trigger = {
-	
-			capital_scope = { continent = africa }
-			NOT = { culture_group = byzantine }
-			NOT = { culture_group = latin  }
-		}
-		set_religious_school = {
-			group = christian
-			school = alexandria_pentarch
-		}
-	}
-    option = {
-	name = "atlantropa_basic_event.6.a" 
-		trigger = {
-	
-							OR = {
-				capital_scope = {  continent = asia }
-				capital_scope = { superregion = eastern_europe_superregion }
-				culture_group = byzantine
-			}
-			NOT = { culture_group = latin  }
-			NOT = { culture_group = french  }
-			
-		}
-		set_religious_school = {
-			group = christian
-			school = constantinople_pentarch
-		}
-	}
-    option = {
-	name = "atlantropa_basic_event.6.a" 
-		trigger = {
-	
-			capital_scope = {  continent = asia }
-			NOT = { culture_group = byzantine }
-			NOT = { culture_group = latin  }
-			NOT = { culture_group = french  }
-		}
-		set_religious_school = {
-			group = christian
-			school = antioch_pentarch
-		}
-	}
-    option = {
-	name = "atlantropa_basic_event.6.a" 
-		trigger = {
-	
-			capital_scope = { continent = asia }
-			NOT = { culture_group = byzantine }
-			NOT = { culture_group = latin  }
-			NOT = { culture_group = french  }
-		}
-		set_religious_school = {
-			group = christian
-			school = jerusalem_pentarch
-		}
-	}
-    option = {
-	name = "atlantropa_basic_event.6.a" 
-		trigger = {
-			OR = {
-			NOT = {
-			capital_scope = { 	continent = asia }
-			capital_scope = { 	continent = africa }
-			}
-			culture_group = latin  
-			culture_group = french 
-			}
-			NOT = { culture_group = byzantine }
-				
-		}
-		set_religious_school = {
-			group = christian
-			school = rome_pentarch 
-		}
-	}
-   
-}
-
-
-
-
-province_event = {
-	id = atlantropa_basic_event.3011
-	title = "atlantropa_basic_event.3011.t"
-	desc = "atlantropa_basic_event.1.d"
-	picture = VILLAGE_BURNING_eventPicture
-	is_triggered_only = yes
-	trigger = {
-		owner = {
-		OR = {
-					  tag = CYP
-					  tag = A6F
-					  tag = A2R
-					  tag = MAK
-					  tag = HSN
-					  tag = A3R	
-					  tag = DI1
-					  tag = DI2
-					  tag = DI3
-					  tag = DI4
-					  tag = DI5		
-
-		}
-		}
-	}
-	hidden = yes
-	option = {
-		name = "atlantropa_basic_event.1.a"
-		if = {
-			limit = {
-				owner = {
-					OR = {
-			AND = {
-											NOT = { 	has_country_flag =  alexandria_city_destroyed }
-						tag = CYP
-										}
-					  tag = A6F
-					  tag = A2R
-					  tag = MAK
-					  tag = HSN
-					  tag = A3R	
-					  tag = DI1
-					  tag = DI2
-					  tag = DI3
-					  tag = DI4
-					  tag = DI5		
-			  }	
-				}
-				controller = {
-	
-					OR = {
-						AND = {
-						NOT = { 	has_country_flag =  alexandria_city_destroyed }
-								tag = CYP
-												}
-					  tag = A6F
-					  tag = A2R
-					  tag = MAK
-					  tag = HSN
-					  tag = A3R	
-					  tag = DI1
-					  tag = DI2
-					  tag = DI3
-					  tag = DI4
-					  tag = DI5		
-			  }	
-	
-				}
-			}	
-				cede_province = controller
-				IF = {
-					limit = {
-						NOT = { is_core = controller }
+					name = "atlantropa_basic_event.4.b"
+					add_war_exhaustion = 2.5
+					set_ruler_flag = odbuodwapowojenna2
+					add_country_modifier = {
+						name = odbuodwapowojenna2
+						duration = 1800
 					}
-					add_territorial_core = controller
+					if = {
+						limit = {
+							OR = {
+								tag = BYZ
+								tag = A52
+							}}
+							add_government_power = {
+								mechanic_type = nikaeanbyzantine_mechanic
+								power_type = byz_adm_power
+								value = -5
+							}
+						}
+					}
+
 				}
-				ROOT = {	
-					random_list = {
-					20 = { add_base_tax = -1 }
-					20 = { add_base_production = -1 }	
-					20 = { add_base_manpower = -1 }		
-					80 = { add_devastation = 2	}
+
+
+				province_event = {
+					id = atlantropa_basic_event.5
+					title = "atlantropa_basic_event.5.t"
+					desc = "atlantropa_basic_event.5.d"
+					picture = sackniflport_eventPicture
+
+					trigger = {
+						NOT = { has_province_modifier = burnedprovince2 }
+						owner = { 		NOT = { has_ruler_modifier = odbuodwapowojenna } }
+						owned_by = ROOT
+						development = 25
+						devastation = 20
+					}
+
+
+					mean_time_to_happen = {
+						months = 36
+
+						modifier = {
+							factor = 1.5
+							development = 40
+						}
+						modifier = {
+							factor = 1.5
+							owner = { has_ruler_modifier = odbuodwapowojenna2 }
+						}
+						modifier = {
+							factor = 2
+							development = 50
+						}
+					}
+					option = {
+						name = "atlantropa_basic_event.5.a"
+						ai_chance = { factor = 60 }
+						add_base_tax = -1
+						add_base_production = -1
+						add_base_manpower = -1
+						add_devastation = 10
+						add_unrest = 2
+						add_province_modifier = {
+							name = burnedprovince2
+							duration = 3600
+						}
+					}
 				}
+
+
+				country_event = {
+					id = atlantropa_basic_event.6
+					title = atlantropa_basic_event.6.t
+					desc = atlantropa_basic_event.6.d
+					picture = CITY_DEVELOPMENT_eventPicture
+					trigger = {
+						is_at_war = no
+						stability = 3
+						NOT = { has_ruler_flag = wladcaprosperity }
+					}
+					mean_time_to_happen = {
+						months = 600
+
+					}
+					option = {
+						name = "atlantropa_basic_event.6.a"
+						add_war_exhaustion = -2
+						hidden_effect = { set_ruler_flag = wladcaprosperity }
+						add_inflation = -3
+						add_adm_power = 75
+						add_dip_power = 75
+						add_mil_power = 75
+
+					}
+
 				}
-		
-	}
-	}
-}
 
-province_event = {
-	id = atlantropa_basic_event.3012
-	title = "atlantropa_basic_event.3012.t"
-	desc = "atlantropa_basic_event.1.d"
-	picture = VILLAGE_BURNING_eventPicture
-	is_triggered_only = yes
-	hidden = yes
-	trigger = {  owner = { has_country_flag = CHINSKAWOJNADOMOWAAAAA }}
-	option = {
-		name = "atlantropa_basic_event.1.a"
-		if = {
-			limit = {
-				NOT = { is_capital = yes }
-				controller = {
-					has_country_flag = CHINSKAWOJNADOMOWAAAAA
+
+				country_event = {
+					id = atlantropa_basic_event.7
+					title = atlantropa_basic_event.6.t
+					desc = atlantropa_basic_event.6.d
+					picture = CITY_DEVELOPMENT_eventPicture
+					is_triggered_only = yes
+					hidden = yes
+					immediate = {
+						every_subject_country = {
+							limit = {
+								is_colonial_nation = yes
+							}
+							change_country_color = { country = ROOT }
+							set_country_flag = has_overriden_color_flag
+						}
+
+
+					}
+					option = {
+						name = "atlantropa_basic_event.6.a"
+					}
 				}
-				from = {
-					has_country_flag = CHINSKAWOJNADOMOWAAAAA
+
+				country_event = {
+					id = atlantropa_basic_event.100
+					title = atlantropa_basic_event.6.t
+					desc = atlantropa_basic_event.6.d
+					picture = CITY_DEVELOPMENT_eventPicture
+					hidden = yes
+					trigger = {
+						NOT = { has_country_flag = francjawasal }
+						OR = {
+							is_subject_of = FRA
+							is_subject_of = A59
+						}
+						is_colonial_nation = no
+					}
+
+					option = {
+						name = "atlantropa_basic_event.6.a"
+						set_country_flag = francjawasal
+						change_country_color = { color = { 90 127 222  }	}
+						set_country_flag = has_overriden_color
+					}
+
 				}
-			}
-			
-				cede_province = controller
-				add_core = controller
-		
-	}
 
-	}
-}
-province_event = {
-	id = atlantropa_basic_event.3013
-	title = "atlantropa_basic_event.3013.t"
-	desc = "atlantropa_basic_event.1.d"
-	picture = VILLAGE_BURNING_eventPicture
-		trigger = {  owner = { has_country_flag = FRANCUSKAWOJNADOMOWA }}
-	is_triggered_only = yes
-	hidden = yes
-	option = {
-		name = "atlantropa_basic_event.1.a"
-		if = {
-			limit = {
-				controller = {
-					has_country_flag = FRANCUSKAWOJNADOMOWA
+				country_event = {
+					id = atlantropa_basic_event.101
+					title = atlantropa_basic_event.6.t
+					desc = atlantropa_basic_event.6.d
+					picture = CITY_DEVELOPMENT_eventPicture
+					hidden = yes
+					trigger = {
+						has_country_flag = francjawasal
+						NOT = {	is_subject_of = FRA }
+						NOT = {	is_subject_of = A59 }
+
+					}
+
+					option = {
+						name = "atlantropa_basic_event.6.a"
+						clr_country_flag = francjawasal
+						restore_country_color = yes
+						if = {
+							limit = {
+								has_country_flag = FRANCUSKAWOJNADOMOWA
+							}
+							change_country_color = {
+								color = { 123 19 0 }
+							}
+						}
+					}
+
 				}
-				from = {
-					has_country_flag = FRANCUSKAWOJNADOMOWA
+
+
+
+				province_event = {
+					id = atlantropa_basic_event.102
+					title = "atlantropa_basic_event.5.t"
+					desc = "atlantropa_basic_event.5.d"
+					picture = sackniflport_eventPicture
+					hidden = yes
+					mean_time_to_happen = {
+						months = 320
+
+						modifier = {
+							factor = 0.8
+							development = 20
+						}
+					}
+					trigger = {
+						OR = {
+							has_owner_accepted_culture = no
+							has_owner_culture = no
+						}
+						owner = { is_colonial_nation = yes }
+
+						owner = {  }
+						NOT = { continent = asia }
+						NOT = { continent = europe }
+						NOT = { continent = Atlantis }
+						NOT = { continent = lemuria }
+					}
+
+					immediate = {
+						owner = {
+							save_event_target_as = ownereligia
+						}
+						change_culture = event_target:ownereligia
+						change_religion = event_target:ownereligia
+						add_base_tax = -1
+						add_base_production = -1
+						add_base_manpower = -1
+
+						if = {
+							limit = {
+								development = 30
+							}
+							add_base_tax = -1
+							add_base_production = -2
+							add_base_manpower = -2
+
+						}
+					}
+					option = {
+						name = "atlantropa_basic_event.6.a"
+					}
 				}
-			}
-			
-				cede_province = controller
-				add_core = controller
-		
-	}
-
-	}
-}
-
-country_event = {
-	id = atlantropa_basic_event.3014
-	title = "atlantropa_basic_eventt.3014.t"
-	desc = "atlantropa_basic_event.1.d"
-	picture = sackniflport_eventPicture
-	trigger = {
-		capital_scope = {
-			superregion = china_superregion
-		}
-		is_emperor_of_china = no
-		any_country = {
-			NOT = { total_development =	ROOT }
-			is_emperor_of_china = YES
-		 }	
-		
-	}
-	hidden = yes
-option = {
-	set_emperor_of_china = ROOT
-		name = "atlantropa_basic_event.1.a"
-}
-}
 
 
 
-		country_event = {
-	id = atlantropa_basic_event.4000
-	title = atlantropa_basic_event.6.t
-	desc = atlantropa_basic_event.6.d
-	picture = CITY_DEVELOPMENT_eventPicture
-	hidden = yes
-	trigger = {
-		NOT = { has_country_flag = azteckiwasal }	
-		OR = {
-		is_subject_of = AZT
-		}
-		is_colonial_nation = no
-	}
 
-	option = {
-	name = "atlantropa_basic_event.6.a" 
-	 set_country_flag = azteckiwasal
-	 change_country_color = { color = { 47 46 44  }	}
-	set_country_flag = has_overriden_color 
-		}		
+					country_event = {
+						id = atlantropa_basic_event.300
+						title = "atlantropa_basic_event.5.t"
+						desc = "atlantropa_basic_event.5.d"
+						picture = HARBOUR_eventPicture
 
-		}
+						trigger = {
+						always = no
+							religion = united_christianity
+							has_religious_school = no
 
-		country_event = {
-	id = atlantropa_basic_event.4001
-	title = atlantropa_basic_event.6.t
-	desc = atlantropa_basic_event.6.d
-	picture = CITY_DEVELOPMENT_eventPicture
-	hidden = yes
-	trigger = {
-		has_country_flag = azteckiwasal
-	NOT = {	is_subject_of = AZT }
+						}
 
-	}
+						is_triggered_only = yes
 
-	option = {
-	name = "atlantropa_basic_event.6.a" 
-	clr_country_flag = azteckiwasal
-	 restore_country_color = yes	
-		}		
+						option = {
+							name = "atlantropa_basic_event.6.a"
+							trigger = {
 
-		}
+							}
+						}
+						option = {
+							name = "atlantropa_basic_event.6.a"
+							trigger = {
+
+								capital_scope = { continent = africa }
+								NOT = { culture_group = byzantine }
+								NOT = { culture_group = latin  }
+							}
+						 
+						}
+						option = {
+							name = "atlantropa_basic_event.6.a"
+							trigger = {
+
+								OR = {
+									capital_scope = {  continent = asia }
+									capital_scope = { superregion = eastern_europe_superregion }
+									culture_group = byzantine
+								}
+								NOT = { culture_group = latin  }
+								NOT = { culture_group = french  }
+
+							}
+							 
+						}
+						option = {
+							name = "atlantropa_basic_event.6.a"
+							trigger = {
+
+								capital_scope = {  continent = asia }
+								NOT = { culture_group = byzantine }
+								NOT = { culture_group = latin  }
+								NOT = { culture_group = french  }
+							}
+						 
+						}
+						option = {
+							name = "atlantropa_basic_event.6.a"
+							trigger = {
+
+								capital_scope = { continent = asia }
+								NOT = { culture_group = byzantine }
+								NOT = { culture_group = latin  }
+								NOT = { culture_group = french  }
+							}
+						 
+						}
+						option = {
+							name = "atlantropa_basic_event.6.a"
+							trigger = {
+								OR = {
+									NOT = {
+										capital_scope = { 	continent = asia }
+										capital_scope = { 	continent = africa }
+									}
+									culture_group = latin
+									culture_group = french
+								}
+								NOT = { culture_group = byzantine }
+
+							}
+						 
+						}
+
+					}
+
+
+
+
+				province_event = {
+					id = atlantropa_basic_event.3011
+					title = "atlantropa_basic_event.3011.t"
+					desc = "atlantropa_basic_event.1.d"
+					picture = VILLAGE_BURNING_eventPicture
+					is_triggered_only = yes
+					trigger = {
+						owner = {
+							OR = {
+								tag = CYP
+								tag = A6F
+								tag = A2R
+								tag = MAK
+								tag = HSN
+								tag = A3R
+								tag = DI1
+								tag = DI2
+								tag = DI3
+								tag = DI4
+								tag = DI5
+								tag = X66
+							}
+						}
+					}
+					hidden = yes
+					option = {
+						name = "atlantropa_basic_event.1.a"
+						if = {
+							limit = {
+								owner = {
+									OR = {
+										AND = {
+											NOT = { 	has_country_flag =  alexandria_city_destroyed }
+											tag = CYP
+										}
+										tag = A6F
+										tag = A2R
+										tag = MAK
+										tag = HSN
+										tag = A3R
+										tag = DI1
+										tag = DI2
+										tag = DI3
+										tag = DI4
+										tag = DI5
+										tag = X66
+									}
+								}
+								controller = {
+
+									OR = {
+										AND = {
+											NOT = { 	has_country_flag =  alexandria_city_destroyed }
+											tag = CYP
+										}
+										tag = A6F
+										tag = A2R
+										tag = MAK
+										tag = HSN
+										tag = A3R
+										tag = DI1
+										tag = DI2
+										tag = DI3
+										tag = DI4
+										tag = DI5
+										tag = X66
+									}
+
+								}
+							}
+							cede_province = controller
+							IF = {
+								limit = {
+									NOT = { is_core = controller }
+								}
+								add_territorial_core = controller
+							}
+							ROOT = {
+								random_list = {
+									20 = { add_base_tax = -1 }
+									20 = { add_base_production = -1 }
+									20 = { add_base_manpower = -1 }
+									80 = { add_devastation = 2	}
+								}
+							}
+
+						}
+					}
+				}
+
+				province_event = {
+					id = atlantropa_basic_event.3012
+					title = "atlantropa_basic_event.3012.t"
+					desc = "atlantropa_basic_event.1.d"
+					picture = VILLAGE_BURNING_eventPicture
+					is_triggered_only = yes
+					hidden = yes
+					trigger = {  owner = { has_country_flag = CHINSKAWOJNADOMOWAAAAA }}
+					option = {
+						name = "atlantropa_basic_event.1.a"
+						if = {
+							limit = {
+								NOT = { is_capital = yes }
+								controller = {
+									has_country_flag = CHINSKAWOJNADOMOWAAAAA
+								}
+								from = {
+									has_country_flag = CHINSKAWOJNADOMOWAAAAA
+								}
+							}
+
+							cede_province = controller
+							add_core = controller
+
+						}
+
+					}
+				}
+				province_event = {
+					id = atlantropa_basic_event.3013
+					title = "atlantropa_basic_event.3013.t"
+					desc = "atlantropa_basic_event.1.d"
+					picture = VILLAGE_BURNING_eventPicture
+					trigger = {  owner = { has_country_flag = FRANCUSKAWOJNADOMOWA }}
+					is_triggered_only = yes
+					hidden = yes
+					option = {
+						name = "atlantropa_basic_event.1.a"
+						if = {
+							limit = {
+								controller = {
+									has_country_flag = FRANCUSKAWOJNADOMOWA
+								}
+								from = {
+									has_country_flag = FRANCUSKAWOJNADOMOWA
+								}
+							}
+
+							cede_province = controller
+							add_core = controller
+
+						}
+
+					}
+				}
+
+				country_event = {
+					id = atlantropa_basic_event.3014
+					title = "atlantropa_basic_eventt.3014.t"
+					desc = "atlantropa_basic_event.1.d"
+					picture = sackniflport_eventPicture
+					trigger = {
+						NOT = { TAG = A58 }
+						capital_scope = {
+							superregion = china_superregion
+						}
+						is_emperor_of_china = no
+						any_country = {
+							NOT = { total_development =	ROOT }
+							ai = yes
+							is_emperor_of_china = YES
+						}
+
+					}
+					hidden = yes
+					option = {
+						set_emperor_of_china = ROOT
+						name = "atlantropa_basic_event.1.a"
+					}
+				}
+
+
+
+				country_event = {
+					id = atlantropa_basic_event.4000
+					title = atlantropa_basic_event.6.t
+					desc = atlantropa_basic_event.6.d
+					picture = CITY_DEVELOPMENT_eventPicture
+					hidden = yes
+					trigger = {
+						NOT = { has_country_flag = azteckiwasal }
+						OR = {
+							is_subject_of = AZT
+						}
+						is_colonial_nation = no
+					}
+
+					option = {
+						name = "atlantropa_basic_event.6.a"
+						set_country_flag = azteckiwasal
+						change_country_color = { color = { 160 5 9  }	}
+						set_country_flag = has_overriden_color
+					}
+
+				}
+
+				country_event = {
+					id = atlantropa_basic_event.4001
+					title = atlantropa_basic_event.6.t
+					desc = atlantropa_basic_event.6.d
+					picture = CITY_DEVELOPMENT_eventPicture
+					hidden = yes
+					trigger = {
+						has_country_flag = azteckiwasal
+						NOT = {	is_subject_of = AZT }
+
+					}
+
+					option = {
+						name = "atlantropa_basic_event.6.a"
+						clr_country_flag = azteckiwasal
+						restore_country_color = yes
+					}
+
+				}
+				country_event = {
+					id = atlantropa_basic_event.400144
+					title = atlantropa_basic_event.6.t
+					desc = atlantropa_basic_event.6.d
+					picture = CITY_DEVELOPMENT_eventPicture
+					hidden = yes
+					trigger = {
+						is_subject_of = XX1
+						NOT = {
+							OR = {
+								is_subject_of_type =autonomous_ai
+								is_colonial_nation = yes
+							}
+						}
+					}
+					option = {
+						name = "atlantropa_basic_event.6.a"
+						grant_independence = yes
+						restore_country_color = yes
+					}
+
+				}
+
+				province_event = {
+					id = atlantropa_basic_event.2111176
+					title = "atlantropa_basic_eventt.2.t"
+					desc = "atlantropa_basic_event.2.d"
+					picture = sackniflport_eventPicture
+					mean_time_to_happen = {
+						months = 40
+					}
+					hidden = yes
+					trigger = {
+						or = {
+							owned_by = XX1
+							owned_by = XX2
+							owned_by = XX3
+							owned_by = XX4
+						}
+						NOT = {
+							religion = mu_ancient_atheism
+						}
+					}
+					option = {
+						name = "atlantropa_basic_event.6.a"
+						change_culture = mu_android
+						change_religion = mu_ancient_atheism
+					}
+				}

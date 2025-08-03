@@ -1,0 +1,323 @@
+atlantis_philosopher_council = {
+	alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 1
+	
+	available = {
+		tag = TU3
+	}
+
+powers = {
+		philosophical_wisdom = {
+			min = 0
+			max = 100
+			default = 50
+			reset_on_new_ruler = yes
+			base_monthly_growth = 0.5
+			development_scaled_monthly_growth = 0.002
+			monarch_power = adm
+			is_good = yes
+			
+			# Wysoki poziom mądrości - bonusy
+			scaled_modifier = {
+				start_value = 50
+				end_value = 100
+				extend_beyond_value = no
+				modifier = {
+					advisor_cost = -0.25
+					technology_cost = -0.15
+					diplomatic_reputation = 2
+					stability_cost_modifier = -0.20
+					global_institution_spread = 0.25
+				}
+			}
+			
+			# Niski poziom mądrości - problemy
+			reverse_scaled_modifier = {
+				start_value = 0
+				end_value = 50
+				extend_beyond_value = no
+				modifier = {
+					stability_cost_modifier = 0.15
+					technology_cost = 0.10
+					global_unrest = 2
+					advisor_cost = 0.15
+				}
+			}
+		}
+	}
+	
+	interactions = {
+		convene_great_symposium = {
+            icon = GFX_convene_great_symposium
+			center = yes
+			cost_type = philosophical_wisdom
+			cost = 25
+			
+			trigger = {
+				adm_power = 100
+				NOT = { has_country_modifier = recent_great_symposium }
+				has_government_power = {
+					mechanic_type = atlantis_philosopher_council
+					power_type = philosophical_wisdom
+					value = 25
+				}
+			}
+			
+			effect = {
+				custom_tooltip = great_symposium_plato_tt
+				
+				hidden_effect = {
+					add_adm_power = -100
+					add_country_modifier = {
+						name = "recent_great_symposium"
+						duration = 1095
+						hidden = yes
+					}
+					
+					random_list = {
+						40 = {
+							add_government_power = {
+								mechanic_type = atlantis_philosopher_council
+								power_type = philosophical_wisdom
+								value = 20
+							}
+							add_prestige = 25
+							add_legitimacy = 15
+							add_country_modifier = {
+								name = "symposium_of_the_forms"
+								duration = 2555
+							}
+						}
+						50 = {
+							add_government_power = {
+								mechanic_type = atlantis_philosopher_council
+								power_type = philosophical_wisdom
+								value = 10
+							}
+							add_prestige = 15
+							add_legitimacy = 10
+							add_country_modifier = {
+								name = "dialectical_enlightenment"
+								duration = 1825
+							}
+						}
+						10 = {
+							add_government_power = {
+								mechanic_type = atlantis_philosopher_council
+								power_type = philosophical_wisdom
+								value = -5
+							}
+							add_prestige = -10
+							add_country_modifier = {
+								name = "sophistic_discord"
+								duration = 1095
+							}
+						}
+					}
+				}
+			}
+			
+			cooldown_years = 3
+			
+			ai_chance = {
+				factor = 75
+				modifier = {
+					factor = 2
+					adm_power = 200
+				}
+			}
+		}
+		
+		establish_philosopher_kings = {
+            icon = GFX_establish_philosopher_kings
+			center = yes
+			cost_type = philosophical_wisdom
+			cost = 40
+			potential = {
+				always = no
+			}
+			trigger = {
+				dip_power = 150
+				NOT = { has_country_modifier = recent_philosopher_king_reform }
+				has_government_power = {
+					mechanic_type = atlantis_philosopher_council
+					power_type = philosophical_wisdom
+					value = 40
+				}
+				stability = 1
+			}
+			
+			effect = {
+				custom_tooltip = philosopher_kings_plato_tt
+				
+				hidden_effect = {
+					add_dip_power = -100
+							add_country_modifier = {
+						name = "recent_philosopher_king_reform"
+						duration = 1825
+						hidden = yes
+					}
+					
+					add_government_power = {
+						mechanic_type = atlantis_philosopher_council
+						power_type = philosophical_wisdom
+						value = 10
+					}
+					
+					add_stability = 1
+					add_legitimacy = 15
+					
+					# Sprawdzamy czy mamy już system
+					if = {
+						limit = { has_country_modifier = rule_of_philosopher_kings }
+						# Wzmacniamy istniejący system
+						remove_country_modifier = rule_of_philosopher_kings
+						add_country_modifier = {
+							name = "rule_of_philosopher_kings"
+							duration = 5475 # +1.5 roku za każde użycie
+						}
+						
+						# Bonus za wzmocnienie
+						random_list = {
+							40 = {
+								add_country_modifier = {
+									name = "enhanced_philosophical_rule"
+									duration = 1825
+								}
+							}
+							60 = {
+								add_adm_power = 75
+							}
+						}
+					}
+					else = {
+						# Pierwsza implementacja systemu
+						add_country_modifier = {
+							name = "rule_of_philosopher_kings"
+							duration = 3650
+						}
+						
+						# Szansa na geniusza-doradcę tylko przy pierwszym użyciu
+						random_list = {
+							25 = {
+								define_advisor = {
+									type = philosopher
+									skill = 3
+									culture = ROOT
+									religion = ROOT
+									cost_multiplier = 0.25
+								}
+							}
+							75 = {
+								add_adm_power = 100
+							}
+						}
+					}
+				}
+			}
+			
+			cooldown_years = 5
+			
+			ai_chance = {
+				factor = 50
+				modifier = {
+					factor = 2
+					stability = 2
+				}
+			}
+		}
+		
+		contemplate_the_one = {
+            icon = GFX_contemplate_the_one
+			center = yes
+			cost_type = philosophical_wisdom
+			cost = 60
+			
+			trigger = {
+				mil_power = 100
+				has_government_power = {
+					mechanic_type = atlantis_philosopher_council
+					power_type = philosophical_wisdom
+					value = 60
+				}
+				prestige = 50
+			}
+			
+			effect = {
+				custom_tooltip = contemplate_the_one_plato_tt
+				
+				hidden_effect = {
+					add_mil_power = -100
+					
+					add_government_power = {
+						mechanic_type = atlantis_philosopher_council
+						power_type = philosophical_wisdom
+						value = -30
+					}
+					
+					random_list = {
+						60 = {
+							# Wielkie Oświecenie
+							add_country_modifier = {
+								name = "contemplation_of_the_one"
+								duration = 7300
+							}
+							add_prestige = 50
+							add_legitimacy = 30
+							add_stability = 2
+							
+							# Wpływ na innych
+							every_known_country = {
+								limit = {
+									continent = new_world
+									NOT = { tag = ROOT }
+								}
+								add_opinion = {
+									who = ROOT
+									modifier = "touched_by_divine_wisdom"
+								}
+							}
+						}
+						30 = {
+							# Średnie Oświecenie
+							add_country_modifier = {
+								name = "philosophical_transcendence"
+								duration = 3650
+							}
+							add_prestige = 25
+							add_legitimacy = 15
+							add_stability = 1
+						}
+						10 = {
+							# Upadek w Mania (szaleństwo)
+							add_country_modifier = {
+								name = "philosophical_madness"
+								duration = 1825
+							}
+							add_stability = -2
+							add_prestige = -20
+						}
+					}
+				}
+			}
+			
+			cooldown_years = 10
+			
+			ai_chance = {
+				factor = 25
+				modifier = {
+					factor = 2
+					has_government_power = {
+						mechanic_type = atlantis_philosopher_council
+						power_type = philosophical_wisdom
+						value = 80
+					}
+				}
+				modifier = {
+					factor = 3
+					prestige = 75
+				}
+			}
+		}
+	}
+}

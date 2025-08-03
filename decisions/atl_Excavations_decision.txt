@@ -1,0 +1,690 @@
+# EU4 Archaeological Excavation Decision
+# File: decisions/excavation_decisions.txt
+
+country_decisions = {
+
+    archaeological_excavation = {
+        color = { 255 0 0 }
+        potential = {
+            NOT = { has_country_modifier = recent_excavation }
+            num_of_cities = 3
+            ai = no
+            NOT = { government = tribal }
+        }
+        
+        allow = {
+            is_at_war = no
+            adm_power = 25
+            dip_power = 25
+            mil_power = 25
+            stability = 0
+            NOT = { war_exhaustion = 5 }
+        }
+        
+        effect = {
+            add_adm_power = -25
+            add_dip_power = -25
+            add_mil_power = -25
+            add_country_modifier = {
+                name = recent_excavation
+                duration = 5475  # 15 years
+            }
+            
+            custom_tooltip = excavation_mysteries_tooltip
+            
+            hidden_effect = {
+                random_list = {
+                    # NOTHING/DISASTERS
+                    50 = { set_country_flag = excavation_cave_in }
+                    50 = { set_country_flag = excavation_empty_dig }
+                    50 = { set_country_flag = excavation_thieves }
+                    50 = { set_country_flag = excavation_toxic_gas }
+                    50 = { set_country_flag = excavation_flood }
+                    50 = { set_country_flag = excavation_workers_flee }
+                    50 = { set_country_flag = excavation_false_alarm }
+                    50 = { set_country_flag = excavation_cursed_ground }
+                    50 = { set_country_flag = excavation_collapse }
+                    25 = { set_country_flag = excavation_demon_portal }
+                    
+                    # MINOR FINDS
+                    100 = { set_country_flag = excavation_old_coins }
+                    100 = { set_country_flag = excavation_pottery_shards }
+                    100 = { set_country_flag = excavation_bone_tools }
+                    100 = { set_country_flag = excavation_rusty_weapons }
+                    100 = { set_country_flag = excavation_bronze_trinkets }
+                    100 = { set_country_flag = excavation_stone_tablets }
+                    100 = { set_country_flag = excavation_amber_jewelry }
+                    100 = { set_country_flag = excavation_iron_scraps }
+                    100 = { set_country_flag = excavation_glass_beads }
+                    100 = { set_country_flag = excavation_wooden_idols }
+                    100 = { set_country_flag = excavation_animal_bones }
+                    100 = { set_country_flag = excavation_charcoal_remains }
+                    100 = { set_country_flag = excavation_broken_pottery }
+                    100 = { set_country_flag = excavation_cloth_fragments }
+                    100 = { set_country_flag = excavation_copper_pieces }
+                    100 = { set_country_flag = excavation_flint_tools }
+                    100 = { set_country_flag = excavation_leather_scraps }
+                    100 = { set_country_flag = excavation_carved_stones }
+                    100 = { set_country_flag = excavation_wooden_splinters }
+                    100 = { set_country_flag = excavation_corroded_metal }
+                    
+                    # HYPERWAR ARTIFACTS
+                    30 = { set_country_flag = excavation_plasma_rifle }
+                    30 = { set_country_flag = excavation_quantum_processor }
+                    30 = { set_country_flag = excavation_genetic_modifier }
+                    30 = { set_country_flag = excavation_battle_mech_piece }
+                    30 = { set_country_flag = excavation_temporal_weapon }
+                    30 = { set_country_flag = excavation_nano_swarm }
+                    30 = { set_country_flag = excavation_cyber_implant }
+                    30 = { set_country_flag = excavation_neural_interface }
+                    30 = { set_country_flag = excavation_fusion_core }
+                    30 = { set_country_flag = excavation_gravity_generator }
+                    30 = { set_country_flag = excavation_shield_projector }
+                    30 = { set_country_flag = excavation_mind_control_device }
+                    30 = { set_country_flag = excavation_teleportation_pad }
+                    30 = { set_country_flag = excavation_weather_machine }
+                    30 = { set_country_flag = excavation_reality_anchor }
+                    30 = { set_country_flag = excavation_dimensional_key }
+                    30 = { set_country_flag = excavation_korean_war_banner }
+                    30 = { set_country_flag = excavation_finnish_battle_armor }
+                    30 = { set_country_flag = excavation_steampunk_engine }
+                    30 = { set_country_flag = excavation_hyperspace_drive }
+                    30 = { set_country_flag = excavation_matter_compiler }
+                    30 = { set_country_flag = excavation_psi_amplifier }
+                    30 = { set_country_flag = excavation_quantum_entangler }
+                    30 = { set_country_flag = excavation_void_cannon }
+                    30 = { set_country_flag = excavation_time_dilator }
+                    30 = { set_country_flag = excavation_korean_general_helmet }
+                    30 = { set_country_flag = excavation_finnish_sniper_scope }
+                    30 = { set_country_flag = excavation_hyperwar_propaganda }
+                    30 = { set_country_flag = excavation_battle_recordings }
+                    30 = { set_country_flag = excavation_soldier_diary }
+                    30 = { set_country_flag = excavation_war_medal }
+                    30 = { set_country_flag = excavation_encrypted_data }
+                    30 = { set_country_flag = excavation_tactical_computer }
+                    30 = { set_country_flag = excavation_communication_device }
+                    30 = { set_country_flag = excavation_medical_nanobots }
+                    30 = { set_country_flag = excavation_energy_cell }
+                    30 = { set_country_flag = excavation_holographic_projector }
+                    30 = { set_country_flag = excavation_stealth_generator }
+                    30 = { set_country_flag = excavation_particle_accelerator }
+                    30 = { set_country_flag = excavation_molecular_assembler }
+                    30 = { set_country_flag = excavation_consciousness_backup }
+                    30 = { set_country_flag = excavation_terraforming_seed }
+                    30 = { set_country_flag = excavation_space_elevator_cable }
+                    30 = { set_country_flag = excavation_antimatter_containment }
+                    30 = { set_country_flag = excavation_multiverse_beacon }
+                    
+                    # ANCIENT TECH
+                    30 = { set_country_flag = excavation_fire_technology }
+                    30 = { set_country_flag = excavation_concrete_knowledge }
+                    30 = { set_country_flag = excavation_balloon_plans }
+                    30 = { set_country_flag = excavation_water_wheel }
+                    30 = { set_country_flag = excavation_compass }
+                    30 = { set_country_flag = excavation_lens_crafting }
+                    30 = { set_country_flag = excavation_metallurgy }
+                    30 = { set_country_flag = excavation_gunpowder_recipe }
+                    30 = { set_country_flag = excavation_printing_press }
+                    30 = { set_country_flag = excavation_clockwork }
+                    
+                    # ROMAN ERA ARTIFACTS
+                    25 = { set_country_flag = excavation_roman_sword }
+                    25 = { set_country_flag = excavation_aqueduct_plans }
+                    25 = { set_country_flag = excavation_roman_coins }
+                    25 = { set_country_flag = excavation_legion_standards }
+                    25 =  { set_country_flag = excavation_roman_scrolls }
+                    
+                    # CURSED ARTIFACTS
+                    30 = { set_country_flag = excavation_cursed_idol }
+                    30 = { set_country_flag = excavation_plague_container }
+                    30 = { set_country_flag = excavation_madness_relic }
+                    30 = { set_country_flag = excavation_blood_stone }
+                    30 = { set_country_flag = excavation_soul_gem }
+                    30 = { set_country_flag = excavation_necromantic_tome }
+                    30 = { set_country_flag = excavation_demon_mask }
+                    30 = { set_country_flag = excavation_cursed_crown }
+                    30 = { set_country_flag = excavation_shadow_cloak }
+                    30 = { set_country_flag = excavation_void_mirror }
+                    30 = { set_country_flag = excavation_bone_throne }
+                    30 = { set_country_flag = excavation_death_whistle }
+                    30 = { set_country_flag = excavation_sacrifice_altar }
+                    30 = { set_country_flag = excavation_haunted_armor }
+                    30 = { set_country_flag = excavation_cursed_weapon }
+                    
+                    # BENEFICIAL ODDITIES
+                    30 = { set_country_flag = excavation_healing_spring }
+                    30 = { set_country_flag = excavation_wisdom_crystal }
+                    30 = { set_country_flag = excavation_luck_charm }
+                    30 = { set_country_flag = excavation_fertility_statue }
+                    30 = { set_country_flag = excavation_trade_route_map }
+                    30 = { set_country_flag = excavation_diplomatic_seal }
+                    30 = { set_country_flag = excavation_royal_regalia }
+                    30 = { set_country_flag = excavation_scholars_library }
+                    30 = { set_country_flag = excavation_merchant_ledger }
+                    30 = { set_country_flag = excavation_military_manual }
+                    
+                    # ULTRA RARE FINDS
+                    10 = { set_country_flag = excavation_reality_shard }
+                    10 = { set_country_flag = excavation_time_anomaly }
+                    10 = { set_country_flag = excavation_space_tear }
+                    10 = { set_country_flag = excavation_divine_intervention }
+                    10 = { set_country_flag = excavation_philosophers_stone }
+                }
+            }
+            
+                        # Clear all excavation flags first
+            clr_country_flag = excavation_cave_in
+            clr_country_flag = excavation_empty_dig
+            clr_country_flag = excavation_thieves
+            clr_country_flag = excavation_toxic_gas
+            clr_country_flag = excavation_flood
+            clr_country_flag = excavation_workers_flee
+            clr_country_flag = excavation_false_alarm
+            clr_country_flag = excavation_cursed_ground
+            clr_country_flag = excavation_collapse
+            clr_country_flag = excavation_demon_portal
+            
+            # Trigger appropriate event based on flag
+            if = {
+                limit = { has_country_flag = excavation_cave_in }
+                country_event = { id = excavation_disasters.1 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_empty_dig }
+                country_event = { id = excavation_disasters.2 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_thieves }
+                country_event = { id = excavation_disasters.3 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_toxic_gas }
+                country_event = { id = excavation_disasters.4 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_flood }
+                country_event = { id = excavation_disasters.5 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_workers_flee }
+                country_event = { id = excavation_disasters.6 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_false_alarm }
+                country_event = { id = excavation_disasters.7 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_cursed_ground }
+                country_event = { id = excavation_disasters.8 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_collapse }
+                country_event = { id = excavation_disasters.9 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_demon_portal }
+                country_event = { id = excavation_disasters.10 }
+            }
+            
+            # Minor finds (most common)
+            else_if = {
+                limit = { has_country_flag = excavation_old_coins }
+                country_event = { id = excavation_minor.1 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_pottery_shards }
+                country_event = { id = excavation_minor.2 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_bone_tools }
+                country_event = { id = excavation_minor.3 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_rusty_weapons }
+                country_event = { id = excavation_minor.4 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_bronze_trinkets }
+                country_event = { id = excavation_minor.5 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_stone_tablets }
+                country_event = { id = excavation_minor.6 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_amber_jewelry }
+                country_event = { id = excavation_minor.7 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_iron_scraps }
+                country_event = { id = excavation_minor.8 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_glass_beads }
+                country_event = { id = excavation_minor.9 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_wooden_idols }
+                country_event = { id = excavation_minor.10 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_animal_bones }
+                country_event = { id = excavation_minor.11 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_charcoal_remains }
+                country_event = { id = excavation_minor.12 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_broken_pottery }
+                country_event = { id = excavation_minor.13 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_cloth_fragments }
+                country_event = { id = excavation_minor.14 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_copper_pieces }
+                country_event = { id = excavation_minor.15 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_flint_tools }
+                country_event = { id = excavation_minor.16 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_leather_scraps }
+                country_event = { id = excavation_minor.17 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_carved_stones }
+                country_event = { id = excavation_minor.18 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_wooden_splinters }
+                country_event = { id = excavation_minor.19 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_corroded_metal }
+                country_event = { id = excavation_minor.20 }
+            }
+            
+            # Hyperwar artifacts
+            else_if = {
+                limit = { has_country_flag = excavation_plasma_rifle }
+                country_event = { id = excavation_hyperwar.1 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_quantum_processor }
+                country_event = { id = excavation_hyperwar.2 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_genetic_modifier }
+                country_event = { id = excavation_hyperwar.3 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_battle_mech_piece }
+                country_event = { id = excavation_hyperwar.4 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_temporal_weapon }
+                country_event = { id = excavation_hyperwar.5 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_nano_swarm }
+                country_event = { id = excavation_hyperwar.6 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_cyber_implant }
+                country_event = { id = excavation_hyperwar.7 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_neural_interface }
+                country_event = { id = excavation_hyperwar.8 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_fusion_core }
+                country_event = { id = excavation_hyperwar.9 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_gravity_generator }
+                country_event = { id = excavation_hyperwar.10 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_shield_projector }
+                country_event = { id = excavation_hyperwar.11 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_mind_control_device }
+                country_event = { id = excavation_hyperwar.12 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_teleportation_pad }
+                country_event = { id = excavation_hyperwar.13 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_weather_machine }
+                country_event = { id = excavation_hyperwar.14 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_reality_anchor }
+                country_event = { id = excavation_hyperwar.15 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_dimensional_key }
+                country_event = { id = excavation_hyperwar.16 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_korean_war_banner }
+                country_event = { id = excavation_hyperwar.17 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_finnish_battle_armor }
+                country_event = { id = excavation_hyperwar.18 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_steampunk_engine }
+                country_event = { id = excavation_hyperwar.19 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_hyperspace_drive }
+                country_event = { id = excavation_hyperwar.20 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_matter_compiler }
+                country_event = { id = excavation_hyperwar.21 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_psi_amplifier }
+                country_event = { id = excavation_hyperwar.22 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_quantum_entangler }
+                country_event = { id = excavation_hyperwar.23 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_void_cannon }
+                country_event = { id = excavation_hyperwar.24 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_time_dilator }
+                country_event = { id = excavation_hyperwar.25 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_korean_general_helmet }
+                country_event = { id = excavation_hyperwar.26 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_finnish_sniper_scope }
+                country_event = { id = excavation_hyperwar.27 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_hyperwar_propaganda }
+                country_event = { id = excavation_hyperwar.28 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_battle_recordings }
+                country_event = { id = excavation_hyperwar.29 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_soldier_diary }
+                country_event = { id = excavation_hyperwar.30 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_war_medal }
+                country_event = { id = excavation_hyperwar.31 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_encrypted_data }
+                country_event = { id = excavation_hyperwar.32 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_tactical_computer }
+                country_event = { id = excavation_hyperwar.33 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_communication_device }
+                country_event = { id = excavation_hyperwar.34 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_medical_nanobots }
+                country_event = { id = excavation_hyperwar.35 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_energy_cell }
+                country_event = { id = excavation_hyperwar.36 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_holographic_projector }
+                country_event = { id = excavation_hyperwar.37 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_stealth_generator }
+                country_event = { id = excavation_hyperwar.38 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_particle_accelerator }
+                country_event = { id = excavation_hyperwar.39 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_molecular_assembler }
+                country_event = { id = excavation_hyperwar.40 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_consciousness_backup }
+                country_event = { id = excavation_hyperwar.41 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_terraforming_seed }
+                country_event = { id = excavation_hyperwar.42 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_space_elevator_cable }
+                country_event = { id = excavation_hyperwar.43 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_antimatter_containment }
+                country_event = { id = excavation_hyperwar.44 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_multiverse_beacon }
+                country_event = { id = excavation_hyperwar.45 }
+            }
+            
+            # Ancient tech
+            else_if = {
+                limit = { has_country_flag = excavation_fire_technology }
+                country_event = { id = excavation_ancient.1 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_concrete_knowledge }
+                country_event = { id = excavation_ancient.2 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_balloon_plans }
+                country_event = { id = excavation_ancient.3 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_water_wheel }
+                country_event = { id = excavation_ancient.4 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_compass }
+                country_event = { id = excavation_ancient.5 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_lens_crafting }
+                country_event = { id = excavation_ancient.6 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_metallurgy }
+                country_event = { id = excavation_ancient.7 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_gunpowder_recipe }
+                country_event = { id = excavation_ancient.8 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_printing_press }
+                country_event = { id = excavation_ancient.9 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_clockwork }
+                country_event = { id = excavation_ancient.10 }
+            }
+            
+            # Roman era
+            else_if = {
+                limit = { has_country_flag = excavation_roman_sword }
+                country_event = { id = excavation_roman.1 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_aqueduct_plans }
+                country_event = { id = excavation_roman.2 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_roman_coins }
+                country_event = { id = excavation_roman.3 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_legion_standards }
+                country_event = { id = excavation_roman.4 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_roman_scrolls }
+                country_event = { id = excavation_roman.5 }
+            }
+            
+            # Cursed artifacts
+            else_if = {
+                limit = { has_country_flag = excavation_cursed_idol }
+                country_event = { id = excavation_cursed.1 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_plague_container }
+                country_event = { id = excavation_cursed.2 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_madness_relic }
+                country_event = { id = excavation_cursed.3 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_blood_stone }
+                country_event = { id = excavation_cursed.4 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_soul_gem }
+                country_event = { id = excavation_cursed.5 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_necromantic_tome }
+                country_event = { id = excavation_cursed.6 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_demon_mask }
+                country_event = { id = excavation_cursed.7 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_cursed_crown }
+                country_event = { id = excavation_cursed.8 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_shadow_cloak }
+                country_event = { id = excavation_cursed.9 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_void_mirror }
+                country_event = { id = excavation_cursed.10 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_bone_throne }
+                country_event = { id = excavation_cursed.11 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_death_whistle }
+                country_event = { id = excavation_cursed.12 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_sacrifice_altar }
+                country_event = { id = excavation_cursed.13 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_haunted_armor }
+                country_event = { id = excavation_cursed.14 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_cursed_weapon }
+                country_event = { id = excavation_cursed.15 }
+            }
+            
+            # Beneficial oddities
+            else_if = {
+                limit = { has_country_flag = excavation_healing_spring }
+                country_event = { id = excavation_beneficial.1 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_wisdom_crystal }
+                country_event = { id = excavation_beneficial.2 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_luck_charm }
+                country_event = { id = excavation_beneficial.3 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_fertility_statue }
+                country_event = { id = excavation_beneficial.4 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_trade_route_map }
+                country_event = { id = excavation_beneficial.5 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_diplomatic_seal }
+                country_event = { id = excavation_beneficial.6 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_royal_regalia }
+                country_event = { id = excavation_beneficial.7 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_scholars_library }
+                country_event = { id = excavation_beneficial.8 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_merchant_ledger }
+                country_event = { id = excavation_beneficial.9 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_military_manual }
+                country_event = { id = excavation_beneficial.10 }
+            }
+            
+            # Ultra rare finds
+            else_if = {
+                limit = { has_country_flag = excavation_reality_shard }
+                country_event = { id = excavation_ultra_rare.1 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_time_anomaly }
+                country_event = { id = excavation_ultra_rare.2 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_space_tear }
+                country_event = { id = excavation_ultra_rare.3 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_divine_intervention }
+                country_event = { id = excavation_ultra_rare.4 }
+            }
+            else_if = {
+                limit = { has_country_flag = excavation_philosophers_stone }
+                country_event = { id = excavation_ultra_rare.5 }
+            }
+            
+            # Clear the flag after event
+            clr_country_flag = excavation_result_processed
+        }
+        
+
+    }
+}
+

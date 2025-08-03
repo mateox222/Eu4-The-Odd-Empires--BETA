@@ -1,68 +1,168 @@
 chinesestable_mechanic = {
-   alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_gfx = GFX_alerticons_government_mechanics
 	alert_icon_index = 8
 	
 	interactions = {
-        chinesestable_boost_ruler_navy = { #Improvemandate
+		chinesestable_boost_ruler_navy = {
 			cooldown_years = 10
 			
 			icon = GFX_chineseship
 			trigger = {
-                imperial_mandate = 80
+				imperial_mandate = 80
 			}
-			effect = { 
-             add_mandate = -10	
-             add_yearly_sailors = 2
-             create_admiral = { tradition = 75 }	
-             add_diP_power = 150
-             add_stability = -1
-
-			}
-			ai_chance = {
-				factor = 0
-			}
-		}
-        chinesestable_boost_ruler_army = { 
-			cooldown_years = 10
-			
-			icon = GFX_chinesearmy
-			trigger = {
-                imperial_mandate = 80
-			}
-			effect = { 
-             add_mandate = -10	
-             add_yearly_manpower = 2
-             create_general = { tradition = 75 }	
-             add_mil_power = 150
-             add_stability = -1
-
-			}
-			ai_chance = {
-				factor = 0
-			}
-		}
-
-                chinesestable_boost_ruler_economy = { 
-			cooldown_years = 10
-			
-			icon = GFX_chineseTAXES
-			trigger = {
-                imperial_mandate = 80
-			}
-			effect = { 
-             add_mandate = -10	
-             add_years_of_income = 2	
-             add_adm_power = 150
-             add_inflation = -5
-             add_stability = -1
-
+			effect = {
+				add_mandate = -10
+				custom_tooltip = CELESTIAL_NAVY_WISDOM_TT
+				hidden_effect = {
+					random_list = {
+						20 = {
+							add_yearly_sailors = 5
+							create_admiral = { tradition = 100 }
+							add_dip_power = 300
+							add_navy_tradition = 20
+							add_prestige = 25
+						}
+						20 = {
+							add_yearly_sailors = 2
+							create_admiral = { tradition = 75 }
+							add_dip_power = 150
+							add_corruption = -1
+						}
+						20 = {
+							add_yearly_sailors = 1
+							add_dip_power = 50
+							add_stability = 1
+						}
+						20 = {
+							add_yearly_sailors = -2
+							kill_leader = {
+    type = admiral
+}
+							add_dip_power = -100
+							add_devastation = 10
+						}
+						20 = {
+							add_yearly_sailors = -5
+							add_stability = -2
+							add_corruption = 3
+							add_navy_tradition = -30
+							add_disaster_progress = {
+								disaster = mandate_of_heaven_lost
+								value = 25
+							}
+						}
+					}
+				}
 			}
 			ai_chance = {
 				factor = 0
 			}
 		}
 		
-
-
+		chinesestable_boost_ruler_army = {
+			cooldown_years = 10
+			
+			icon = GFX_chinesearmy
+			trigger = {
+				imperial_mandate = 80
+			}
+			effect = {
+				add_mandate = -10
+				custom_tooltip = CELESTIAL_ARMY_WISDOM_TT
+				hidden_effect = {
+					random_list = {
+						20 = {
+							add_yearly_manpower = 5
+							create_general = { tradition = 100 }
+							add_mil_power = 300
+							add_army_tradition = 20
+							add_legitimacy = 25
+						}
+						20 = {
+							add_yearly_manpower = 2
+							create_general = { tradition = 75 }
+							add_mil_power = 150
+							add_war_exhaustion = -2
+						}
+						20 = {
+							add_yearly_manpower = 1
+							add_mil_power = 50
+							add_stability = 1
+						}
+						20 = {
+							add_yearly_manpower = -2
+							kill_leader = {
+    type = general
 }
+							add_mil_power = -100
+							
+						}
+						20 = {
+							add_yearly_manpower = -5
+							add_stability = -2
+							add_war_exhaustion = 10
+							add_army_tradition = -30
+							spawn_rebels = {
+								type = pretender_rebels
+								size = 2
+							}
+						}
+					}
+				}
+			}
+			ai_chance = {
+				factor = 0
+			}
+		}
+		
+		chinesestable_boost_ruler_economy = {
+			cooldown_years = 10
+			
+			icon = GFX_chineseTAXES
+			trigger = {
+				imperial_mandate = 80
+			}
+			effect = {
+				add_mandate = -10
+				custom_tooltip = CELESTIAL_ECONOMY_WISDOM_TT
+				hidden_effect = {
+					random_list = {
+						20 = {
+							add_years_of_income = 5
+							add_adm_power = 300
+							add_inflation = -10
+							add_mercantilism = 5
+							add_prosperity = 50
+						}
+						20 = {
+							add_years_of_income = 2
+							add_adm_power = 150
+							add_inflation = -5
+							add_corruption = -1
+						}
+						20 = {
+							add_years_of_income = 0.5
+							add_adm_power = 50
+							add_stability = 1
+						}
+						20 = {
+							add_years_of_income = -2
+							add_adm_power = -100
+							add_inflation = 10
+							add_devastation = 10
+						}
+						20 = {
+							add_years_of_income = -5
+							add_stability = -2
+							add_inflation = 20
+							add_corruption = 5
+						}
+					}
+				}
+			}
+			ai_chance = {
+				factor = 0
+			}
+		}
+	}
 }

@@ -1,0 +1,2641 @@
+# Fixed EU4 Event Modifiers - Atlantropa New Modifiers 3
+# All unknown modifiers have been replaced with valid EU4 equivalents
+
+imperial_tax_collection = {
+	imperial_authority = 0.25
+	global_tax_modifier = 0.1
+	diplomatic_reputation = -0.5
+	ae_impact = 0.05
+}
+
+imperial_resistance = {
+	global_unrest = 1
+	stability_cost_modifier = 0.15
+	imperial_authority = -0.1
+	diplomatic_reputation = -1
+}
+
+tax_collector_efficiency = {
+	global_tax_modifier = 0.15
+	imperial_authority = 0.1
+	advisor_cost = -0.1
+}
+
+# Imperial Diet Modifiers
+imperial_diet_session = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.2
+	imperial_authority = 0.15
+	prestige = 0.5
+}
+
+successful_diet = {
+	imperial_authority = 0.2
+	diplomatic_upkeep = 1
+	stability_cost_modifier = -0.1
+	legitimacy = 0.5
+}
+
+diet_controversy = {
+	diplomatic_reputation = -0.5
+	global_unrest = 0.5
+	imperial_authority = -0.05
+	stability_cost_modifier = 0.1
+}
+
+# Imperial Levy Modifiers
+imperial_levy_called = {
+	land_forcelimit_modifier = 0.15
+	imperial_authority = 0.1
+	manpower_recovery_speed = 0.2
+	war_exhaustion = -0.02
+}
+
+imperial_unity = {
+	imperial_authority = 0.15
+	army_tradition = 0.5
+	land_morale = 0.05
+	diplomatic_reputation = 0.5
+}
+
+levy_resistance = {
+	global_unrest = 1
+	imperial_authority = -0.1
+	liberty_desire_from_subject_development = 0.25
+	diplomatic_reputation = -0.5
+}
+
+# Imperial Tribunal Modifiers
+imperial_justice_tribunal = {
+	imperial_authority = 0.2
+	stability_cost_modifier = -0.15
+	global_unrest = -1
+	administrative_efficiency = 0.025
+}
+
+imperial_law_and_order = {
+	imperial_authority = 0.25
+	stability_cost_modifier = -0.2
+	global_unrest = -2
+	diplomatic_reputation = 1
+}
+
+tribunal_controversy = {
+	imperial_authority = -0.05
+	global_unrest = 1
+	liberty_desire_from_subject_development = 0.15
+	stability_cost_modifier = 0.1
+}
+
+imperial_high_court = {
+	local_unrest = -2
+	local_tax_modifier = 0.15
+	allowed_num_of_buildings = 1
+}
+
+noble_assembly_session = {
+	diplomatic_reputation = 1
+	legitimacy = 0.25
+	stability_cost_modifier = -0.1
+}
+
+noble_loyalty = {
+	legitimacy = 1
+	land_forcelimit_modifier = 0.1
+	global_manpower_modifier = 0.1
+	stability_cost_modifier = -0.15
+}
+
+noble_privileges = {
+	legitimacy = 0.5
+	global_autonomy = 0.03
+	land_forcelimit_modifier = 0.05
+	global_tax_modifier = -0.1
+}
+
+noble_compromise = {
+	legitimacy = 0.5
+	diplomatic_reputation = 0.5
+	stability_cost_modifier = -0.05
+}
+
+# Guild Management Modifiers
+guild_negotiations = {
+	production_efficiency = 0.05
+	global_trade_goods_size_modifier = 0.03
+	build_cost = 0.1
+}
+
+guild_cooperation = {
+	production_efficiency = 0.15
+	global_trade_goods_size_modifier = 0.1
+	build_cost = -0.1
+	development_cost = -0.05
+}
+
+guild_monopolies = {
+	production_efficiency = 0.1
+	global_trade_goods_size_modifier = 0.05
+	inflation_reduction = -0.05
+	global_trade_power = 0.1
+}
+
+guild_compromise = {
+	production_efficiency = 0.08
+	global_tax_modifier = 0.05
+	build_cost = 0.05
+}
+
+guild_strikes = {
+	production_efficiency = -0.15
+	global_unrest = 1
+	build_cost = 0.2
+	development_cost = 0.1
+}
+
+# Religious Synod Modifiers
+religious_synod_session = {
+	stability_cost_modifier = -0.1
+	global_missionary_strength = 0.01
+	tolerance_own = 0.5
+}
+
+orthodox_consensus = {
+	stability_cost_modifier = -0.2
+	global_missionary_strength = 0.03
+	tolerance_own = 2
+	religious_unity = 0.15
+}
+
+religious_tolerance = {
+	tolerance_heretic = 2
+	tolerance_heathen = 2
+	global_unrest = -1
+	diplomatic_reputation = 0.5
+}
+
+religious_schism = {
+	tolerance_heretic = -1
+	tolerance_heathen = -1
+	global_unrest = 1
+	stability_cost_modifier = 0.15
+}
+
+church_reforms = {
+	global_missionary_strength = 0.02
+	missionary_maintenance_cost = -0.25
+	advisor_cost = -0.1
+	church_power_modifier = 0.25
+}
+
+# Border Fortification Modifiers
+border_fortification_project = {
+	fort_maintenance_modifier = -0.1
+	defensiveness = 0.1
+	land_maintenance_modifier = 0.05
+}
+
+fortified_borders = {
+	defensiveness = 0.25
+	hostile_attrition = 2
+	garrison_size = 0.2
+	fort_maintenance_modifier = -0.15
+}
+
+costly_fortifications = {
+	defensiveness = 0.15
+	fort_maintenance_modifier = 0.1
+	inflation_reduction = -0.02
+	garrison_size = 0.1
+}
+
+limited_fortifications = {
+	defensiveness = 0.1
+	hostile_attrition = 1
+	garrison_size = 0.05
+}
+
+fortification_delays = {
+	build_cost = 0.15
+	build_time = 0.25
+	war_exhaustion_cost = 0.1
+}
+
+border_fortress = {
+	local_defensiveness = 0.3
+	local_hostile_attrition = 3
+	local_garrison_size = 0.25
+	fort_level = 1
+}
+
+defensive_works = {
+	local_defensiveness = 0.15
+	local_hostile_attrition = 1
+	local_garrison_size = 0.1
+}
+
+# Court Intrigue Modifiers
+court_intrigue_management = {
+	spy_offence = 0.1
+	global_spy_defence = 0.1
+	diplomatic_reputation = 0.5
+}
+
+effective_spy_network = {
+	spy_offence = 0.25
+	fabricate_claims_cost = -0.2
+	rebel_support_efficiency = 0.25
+}
+
+court_scandals = {
+	legitimacy = -0.5
+	prestige_decay = 0.01
+	diplomatic_reputation = -0.5
+	stability_cost_modifier = 0.05
+}
+
+counter_intelligence = {
+	global_spy_defence = 0.3
+	discovered_relations_impact = -0.2
+	prestige = 0.25
+}
+
+diplomatic_intelligence = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.15
+	ae_impact = -0.05
+}
+
+# Humanism Movement Modifiers
+humanist_movement = {
+	idea_cost = -0.05
+	technology_cost = -0.03
+	embracement_cost = -0.1
+}
+
+humanist_enlightenment = {
+	idea_cost = -0.1
+	technology_cost = -0.05
+	innovativeness_gain = 0.5
+	institution_spread_from_true_faith = 0.25
+}
+
+religious_conservative_backlash = {
+	global_missionary_strength = 0.01
+	tolerance_heretic = -1
+	tolerance_heathen = -1
+	idea_cost = 0.05
+}
+
+cultural_renaissance = {
+	prestige = 1
+	legitimacy = 0.5
+	culture_conversion_cost = -0.2
+	advisor_cost = -0.1
+}
+
+social_upheaval = {
+	global_unrest = 2
+	stability_cost_modifier = 0.2
+	harsh_treatment_cost = 0.15
+}
+
+# Military Reform Modifiers
+military_reform_campaign = {
+	land_maintenance_modifier = 0.1
+	army_tradition = 0.25
+	discipline = 0.02
+}
+
+modernized_military = {
+	discipline = 0.05
+	army_tradition_decay = -0.01
+	land_morale = 0.1
+	reinforce_speed = 0.2
+}
+
+professional_officer_corps = {
+	army_tradition = 1
+	leader_land_fire = 1
+	leader_land_shock = 1
+	free_land_leader_pool = 1
+}
+
+costly_military_reforms = {
+	discipline = 0.03
+	land_maintenance_modifier = 0.15
+	inflation_reduction = -0.02
+}
+
+military_conservatism = {
+	army_tradition_decay = 0.01
+	discipline = -0.02
+	global_unrest = 1
+}
+
+# Elite Guard Modifiers
+elite_guard_formation = {
+	army_tradition = 0.5
+	legitimacy = 0.25
+	land_maintenance_modifier = 0.05
+}
+
+royal_guard = {
+	legitimacy = 1
+	land_morale = 0.1
+	discipline = 0.025
+	max_absolutism = 5
+}
+
+political_guard = {
+	legitimacy = 1.5
+	max_absolutism = 10
+	global_unrest = -1
+	stability_cost_modifier = -0.1
+}
+
+costly_elite_forces = {
+	army_tradition = 1
+	discipline = 0.05
+	land_maintenance_modifier = 0.25
+}
+
+guard_disloyalty = {
+	legitimacy = -1
+	army_tradition_decay = 0.02
+	global_unrest = 2
+}
+
+guard_barracks = {
+	local_manpower_modifier = 0.25
+	local_garrison_size = 0.2
+	local_defensiveness = 0.1
+	allowed_num_of_buildings = 1
+}
+
+# Veteran Integration Modifiers
+veteran_integration = {
+	army_tradition_decay = -0.005
+	war_exhaustion = -0.01
+	global_unrest = -0.5
+}
+
+veteran_trainers = {
+	army_tradition_decay = -0.01
+	discipline = 0.025
+	reinforce_speed = 0.15
+	land_morale = 0.05
+}
+
+veteran_militia = {
+	global_manpower_modifier = 0.1
+	garrison_size = 0.15
+	defensiveness = 0.1
+}
+
+veteran_pensions = {
+	stability_cost_modifier = -0.15
+	war_exhaustion_cost = -0.2
+	global_unrest = -1
+	land_maintenance_modifier = 0.05
+}
+
+veteran_discontent = {
+	global_unrest = 2
+	army_tradition_decay = 0.01
+	stability_cost_modifier = 0.1
+}
+
+veteran_settlement = {
+	local_manpower_modifier = 0.2
+	local_defensiveness = 0.15
+	local_unrest = -2
+	local_garrison_size = 0.1
+}
+
+# Engineering Corps Modifiers
+engineering_corps_established = {
+	siege_ability = 0.1
+	fort_maintenance_modifier = -0.1
+	build_cost = 0.1
+}
+
+military_engineering = {
+	siege_ability = 0.2
+	fort_maintenance_modifier = -0.15
+	defensiveness = 0.15
+	artillery_levels_available_vs_fort = 1
+}
+
+siege_specialists = {
+	siege_ability = 0.25
+	artillery_barrage_cost = -0.25
+	assault_fort_ability = 0.2
+}
+
+military_infrastructure = {
+	fort_maintenance_modifier = -0.2
+	movement_speed = 0.1
+	defensiveness = 0.1
+}
+
+engineering_failures = {
+	siege_ability = -0.1
+	fort_maintenance_modifier = 0.2
+	build_cost = 0.15
+}
+
+# Supply Reform Modifiers
+supply_reform_program = {
+	land_attrition = -0.05
+	land_maintenance_modifier = 0.05
+	movement_speed = 0.05
+}
+
+efficient_logistics = {
+	land_maintenance_modifier = -0.15
+	movement_speed = 0.15
+	reinforce_cost_modifier = -0.2
+}
+
+improved_supply_lines = {
+	land_attrition = -0.2
+	movement_speed = 0.1
+	hostile_attrition = 1
+}
+
+supply_depot_network = {
+	land_attrition = -0.1
+	global_supply_limit_modifier = 0.25
+	movement_speed = 0.05
+}
+
+supply_naval_traditions = {
+	yearly_corruption = 0.1
+	land_maintenance_modifier = 0.2
+	land_attrition = 0.1
+}
+
+military_supply_depot = {
+	supply_limit_modifier = 0.5
+	local_hostile_attrition = 2
+	local_friendly_movement_speed = 0.2
+	allowed_num_of_buildings = 1
+}
+
+# Mercenary Integration Modifiers
+mercenary_integration_program = {
+	mercenary_cost = 0.1
+	mercenary_discipline = 0.025
+	possible_condottieri = 1
+}
+
+integrated_mercenaries = {
+	mercenary_discipline = 0.1
+	mercenary_manpower = 0.2
+	possible_condottieri = 3
+	merc_maintenance_modifier = -0.1
+}
+
+loyal_mercenaries = {
+	mercenary_cost = -0.2
+	mercenary_manpower = 0.3
+	merc_maintenance_modifier = -0.15
+}
+
+professional_mercenaries = {
+	mercenary_discipline = 0.075
+	mercenary_cost = -0.1
+	possible_condottieri = 2
+}
+
+mercenary_revolt = {
+	mercenary_cost = 0.25
+	global_unrest = 2
+	mercenary_discipline = -0.05
+}
+
+# Naval Academy Modifiers
+naval_academy_establishment = {
+	navy_tradition = 0.5
+	naval_maintenance_modifier = 0.1
+	admiral_cost = -0.1
+}
+
+prestigious_naval_academy = {
+	navy_tradition = 1
+	navy_tradition_decay = -0.01
+	leader_naval_fire = 1
+	leader_naval_manuever = 1
+	free_navy_leader_pool = 1
+}
+
+professional_naval_officers = {
+	navy_tradition = 0.75
+	admiral_cost = -0.15
+	naval_morale = 0.1
+	disengagement_chance = 0.1
+}
+
+costly_naval_training = {
+	navy_tradition = 0.5
+	admiral_cost = -0.1
+	naval_maintenance_modifier = 0.15
+	inflation_reduction = -0.02
+}
+
+naval_conservatism = {
+	navy_tradition_decay = 0.01
+	naval_morale = -0.05
+	global_ship_recruit_speed = 0.1
+}
+
+naval_academy_port = {
+	local_sailors_modifier = 0.25
+	local_ship_cost = -0.15
+	ship_recruit_speed = -0.25
+	allowed_num_of_buildings = 1
+}
+
+# Privateer Modifiers
+privateer_authorization = {
+	privateer_efficiency = 0.15
+
+	diplomatic_reputation = -0.5
+}
+
+profitable_privateering = {
+	privateer_efficiency = 0.25
+
+	trade_efficiency = 0.1
+	global_trade_power = 0.1
+}
+
+privateer_dominance = {
+	privateer_efficiency = 0.35
+	capture_ship_chance = 0.15
+
+}
+
+privateer_complications = {
+	privateer_efficiency = 0.2
+	diplomatic_reputation = -1
+	improve_relation_modifier = -0.1
+	ae_impact = 0.05
+}
+
+privateer_mutiny = {
+	privateer_efficiency = -0.15
+	navy_tradition_decay = 0.02
+	naval_morale = -0.1
+}
+
+# Shipyard Expansion Modifiers
+shipyard_expansion_project = {
+	global_ship_cost = 0.1
+	global_ship_recruit_speed = -0.1
+	build_cost = 0.15
+}
+
+advanced_shipbuilding = {
+	global_ship_cost = -0.15
+	global_ship_recruit_speed = -0.2
+	ship_durability = 0.1
+	heavy_ship_power = 0.1
+}
+
+naval_innovation = {
+	global_ship_cost = -0.1
+	innovativeness_gain = 0.25
+	embracement_cost = -0.1
+	navy_tradition = 0.5
+}
+
+naval_mass_production = {
+	global_ship_cost = -0.2
+	global_ship_recruit_speed = -0.15
+	naval_forcelimit_modifier = 0.1
+}
+
+shipyard_delays = {
+	global_ship_cost = 0.2
+	global_ship_recruit_speed = 0.15
+	build_cost = 0.25
+}
+
+# Exploration Initiative Modifiers
+exploration_initiative = {
+	range = 0.1
+
+	colonist_placement_chance = 0.03
+}
+
+age_of_exploration = {
+	range = 0.25
+	colonist_placement_chance = 0.1
+	global_colonial_growth = 20
+	prestige = 1
+}
+
+new_trade_routes = {
+	merchants = 1
+	trade_range_modifier = 0.2
+	global_trade_power = 0.1
+	caravan_power = 0.15
+}
+
+colonial_opportunities = {
+	colonists = 1
+	colonist_placement_chance = 0.15
+	global_colonial_growth = 25
+	native_assimilation = 0.5
+}
+
+exploration_disasters = {
+	range = -0.1
+	colonist_placement_chance = -0.05
+	naval_attrition = 0.15
+	prestige_decay = 0.01
+}
+
+# Coastal Defense Modifiers
+coastal_defense_project = {
+	own_coast_naval_combat_bonus = 0.5
+	naval_forcelimit_modifier = 0.05
+	fort_maintenance_modifier = 0.1
+}
+
+fortified_coastline = {
+	own_coast_naval_combat_bonus = 1.5
+	blockade_efficiency = -0.25
+	hostile_fleet_attrition = 3
+	defensiveness = 0.1
+}
+
+coastal_artillery = {
+	own_coast_naval_combat_bonus = 1.0
+	artillery_fire = 0.5
+	siege_blockade_progress = 1
+}
+
+harbor_defenses = {
+	own_coast_naval_combat_bonus = 0.75
+	blockade_efficiency = -0.15
+	naval_attrition = -0.1
+}
+
+coastal_defense_failures = {
+	own_coast_naval_combat_bonus = -0.5
+	blockade_efficiency = 0.15
+	fort_maintenance_modifier = 0.2
+}
+
+coastal_fortress = {
+	local_defensiveness = 0.25
+	hostile_fleet_attrition = 5
+	blockade_force_required = 0.5
+	fort_level = 1
+}
+
+fortified_harbor = {
+	local_ship_repair = 0.25
+	blockade_force_required = 0.3
+	hostile_fleet_attrition = 2
+	local_sailors_modifier = 0.1
+}
+
+# Naval Intelligence Modifiers
+naval_intelligence_network = {
+	spy_offence = 0.15
+	privateer_efficiency = 0.1
+
+}
+
+naval_spy_network = {
+	spy_offence = 0.25
+	fabricate_claims_cost = -0.2
+	privateer_efficiency = 0.2
+	discovered_relations_impact = -0.15
+}
+
+maritime_intelligence = {
+	privateer_efficiency = 0.25
+	trade_steering = 0.1
+	embargo_efficiency = 0.2
+}
+
+naval_counter_intelligence = {
+	global_spy_defence = 0.3
+	privateer_efficiency = 0.15
+	prestige = 0.25
+}
+
+naval_intelligence_failure = {
+	spy_offence = -0.2
+	privateer_efficiency = -0.1
+	diplomatic_reputation = -0.5
+	prestige_decay = 0.01
+}
+
+# Banking System Modifiers
+banking_system_establishment = {
+	inflation_reduction = 0.05
+	interest = -0.5
+	global_trade_power = 0.05
+}
+
+advanced_banking = {
+	inflation_reduction = 0.15
+	interest = -2
+	global_trade_power = 0.15
+	development_cost = -0.1
+}
+
+credit_system = {
+	interest = -1.5
+	build_cost = -0.1
+	development_cost = -0.05
+	inflation_reduction = 0.05
+}
+
+banking_speculation = {
+	inflation_reduction = -0.05
+	global_trade_power = 0.2
+	interest = -1
+	stability_cost_modifier = 0.1
+}
+
+banking_crisis = {
+	inflation_reduction = -0.1
+	interest = 2
+	global_trade_power = -0.1
+	stability_cost_modifier = 0.2
+}
+
+financial_center = {
+	province_trade_power_modifier = 0.25
+	local_tax_modifier = 0.25
+	local_development_cost = -0.15
+	allowed_num_of_buildings = 1
+}
+
+# Manufacturing Development Modifiers
+manufacturing_development = {
+	production_efficiency = 0.1
+	global_trade_goods_size_modifier = 0.05
+	build_cost = 0.1
+}
+
+proto_industrialization = {
+	production_efficiency = 0.2
+	global_trade_goods_size_modifier = 0.15
+	development_cost = -0.05
+	innovativeness_gain = 0.25
+}
+
+skilled_craftsmen = {
+	production_efficiency = 0.15
+	global_trade_goods_size_modifier = 0.1
+	advisor_cost = -0.1
+}
+
+manufacturing_guilds = {
+	production_efficiency = 0.1
+	global_trade_power = 0.1
+	inflation_reduction = -0.02
+	global_tax_modifier = 0.05
+}
+
+production_bottlenecks = {
+	production_efficiency = -0.1
+	inflation_reduction = -0.05
+	global_unrest = 1
+	build_cost = 0.2
+}
+
+# Commercial Network Modifiers
+commercial_expansion = {
+	trade_efficiency = 0.1
+	global_trade_power = 0.1
+	merchants = 0.5
+}
+
+expanded_trade_network = {
+	merchants = 1
+	trade_efficiency = 0.15
+	global_trade_power = 0.2
+	diplomatic_reputation = 0.5
+}
+
+international_commerce = {
+	diplomatic_reputation = 1
+	global_trade_power = 0.15
+	trade_range_modifier = 0.2
+	envoy_travel_time = -0.1
+}
+
+commercial_competition = {
+	trade_efficiency = 0.2
+	global_trade_power = 0.1
+	ae_impact = 0.05
+	embargo_efficiency = 0.25
+}
+
+trade_disputes = {
+	diplomatic_reputation = -1
+	trade_efficiency = 0.05
+	global_trade_power = -0.05
+	improve_relation_modifier = -0.1
+}
+
+# Tax Collection Reform Modifiers
+tax_collection_reform = {
+	global_tax_modifier = 0.1
+	yearly_corruption = -0.05
+	administrative_efficiency = 0.02
+}
+
+efficient_taxation = {
+	global_tax_modifier = 0.2
+	yearly_corruption = -0.1
+	administrative_efficiency = 0.01
+	stability_cost_modifier = -0.1
+}
+
+tax_farming = {
+	global_tax_modifier = 0.15
+	yearly_corruption = 0.05
+	global_trade_power = 0.05
+	advisor_cost = -0.05
+}
+
+expanded_bureaucracy = {
+	administrative_efficiency = 0.01
+	global_tax_modifier = 0.1
+	advisor_cost = 0.15
+	stability_cost_modifier = -0.05
+}
+
+tax_rebellion = {
+	global_tax_modifier = -0.1
+	global_unrest = 2
+	stability_cost_modifier = 0.15
+	harsh_treatment_cost = 0.2
+}
+
+# Infrastructure Development Modifiers
+infrastructure_development = {
+	development_cost = -0.05
+	build_cost = 0.15
+	movement_speed = 0.05
+}
+
+improved_roads = {
+	movement_speed = 0.2
+	development_cost = -0.1
+	trade_efficiency = 0.1
+	caravan_power = 0.3
+}
+
+urban_development = {
+	development_cost = -0.1
+	build_cost = -0.1
+	global_tax_modifier = 0.1
+	production_efficiency = 0.05
+}
+
+regional_improvements = {
+	development_cost = -0.05
+	build_cost = -0.05
+	movement_speed = 0.1
+	global_prosperity_growth = 0.1
+}
+
+infrastructure_improvements = {
+	yearly_corruption = 0.1
+	build_cost = 0.25
+	development_cost = 0.1
+	inflation_reduction = -0.02
+}
+
+major_trade_hub = {
+	province_trade_power_modifier = 0.20
+	local_tax_modifier = 0.2
+	local_development_cost = -0.1
+	caravan_power = 0.2
+}
+
+improved_infrastructure = {
+	local_development_cost = -0.05
+	local_build_cost = -0.05
+	local_tax_modifier = 0.05
+	local_production_efficiency = 0.05
+}
+
+# Market Regulation Modifiers
+market_regulation_reform = {
+	trade_efficiency = 0.05
+	global_trade_power = 0.05
+	stability_cost_modifier = -0.05
+}
+
+free_market_economy = {
+	trade_efficiency = 0.2
+	global_trade_power = 0.15
+	inflation_reduction = 0.1
+	production_efficiency = 0.1
+}
+
+regulated_commerce = {
+	stability_cost_modifier = -0.15
+	global_unrest = -1
+	mercantilism_cost = -0.2
+	global_trade_power = 0.05
+}
+
+market_consolidation = {
+	trade_efficiency = 0.1
+	global_trade_power = 0.1
+	global_tax_modifier = 0.05
+	development_cost = -0.05
+}
+
+market_disruption = {
+	trade_efficiency = -0.1
+	global_unrest = 2
+	inflation_reduction = -0.05
+	stability_cost_modifier = 0.15
+}
+
+minor_administrative_texts = {
+	administrative_efficiency = 0.025
+	advisor_cost = -0.1
+}
+
+minor_military_manuals = {
+	army_tradition = 0.5
+	drill_gain_modifier = 0.25
+}
+
+ancient_merchant_records = {
+	trade_efficiency = 0.1
+	global_trade_goods_size_modifier = 0.05
+}
+
+library_of_ashurbanipal_scientific = {
+	technology_cost = -0.15
+	innovativeness_gain = 2
+	idea_cost = -0.15
+	institution_spread_from_true_faith = 0.5
+}
+
+library_of_ashurbanipal_administrative = {
+	administrative_efficiency = 0.025
+	reform_progress_growth = 1
+	advisor_cost = -0.25
+	yearly_corruption = -0.1
+}
+
+library_of_ashurbanipal_religious = {
+	tolerance_own = 3
+	global_missionary_strength = 0.03
+	papal_influence = 2
+	missionaries = 1
+}
+
+# Sargon modifiers
+heir_of_sargon_divine = {
+	legitimacy = 2
+	devotion = 2
+	republican_tradition = 1
+	max_absolutism = 10
+	prestige = 1
+}
+
+heir_of_sargon_military = {
+	discipline = 0.05
+	free_leader_pool = 2
+	general_cost = -0.5
+}
+
+sargon_throne_display = {
+	local_unrest = -3
+	local_development_cost = -0.2
+}
+
+# Treasury modifiers
+curse_of_greed = {
+	all_power_cost = 0.1
+	global_unrest = 2
+	inflation_reduction = -0.5
+}
+
+assyrian_royal_bank = {
+	interest = -1
+	inflation_reduction = 0.15
+	build_cost = -0.1
+	global_tax_income = 24
+}
+
+# Military modifiers
+assyrian_iron_revolution = {
+	infantry_cost = -0.2
+	infantry_power = 0.2
+	regiment_recruit_speed = -0.5
+}
+
+assyrian_fortress_design = {
+	fort_maintenance_modifier = -0.33
+	defensiveness = 0.25
+	garrison_size = 0.5
+}
+
+upgraded_assyrian_fort = {
+	local_defensiveness = 0.5
+	local_garrison_size = 0.5
+}
+
+# Diplomatic modifiers (FIXED: spy_network_efficiency -> spy_offence)
+assyrian_intelligence_network = {
+	spy_offence = 0.5
+	global_spy_defence = 0.33
+	diplomats = 1
+	rebel_support_efficiency = 0.5
+}
+
+assyrian_diplomatic_traditions = {
+	diplomatic_reputation = 3
+	improve_relation_modifier = 0.33
+	ae_impact = -0.15
+	diplomats = 1
+}
+
+assyrian_trade_privileges = {
+	global_trade_power = 0.25
+	merchants = 2
+	trade_efficiency = 0.2
+	global_own_trade_power = 0.25
+}
+
+# Curse modifiers
+cursed_ground = {
+	local_unrest = 10
+	local_development_cost = 0.5
+	local_tax_modifier = -0.5
+	local_hostile_attrition = 2
+}
+
+venedian_trade_disruption = {
+	trade_value_modifier = -0.25
+	local_production_efficiency = -0.15
+	local_unrest = 2
+}
+
+# Country Modifiers - Positive Outcomes
+venedian_royal_authority = {
+	legitimacy = 1
+	max_absolutism = 5
+	administrative_efficiency = 0.10
+	nobles_influence_modifier = -0.15
+}
+
+venedian_efficient_administration = {
+	administrative_efficiency = 0.15
+	stability_cost_modifier = -0.20
+	advisor_cost = -0.15
+}
+
+venedian_iron_discipline = {
+	discipline = 0.025
+	land_morale = 0.10
+}
+
+venedian_loyal_army = {
+	army_tradition_decay = -0.01
+	land_morale = 0.05
+	reinforce_speed = 0.20
+	war_exhaustion = -0.02
+}
+
+venedian_foreign_advisors = {
+	artillery_power = 0.05
+	siege_ability = 0.10
+	yearly_corruption = 0.05
+}
+
+ongoing_excavation = {
+	global_tax_modifier = -0.05
+	build_time = 0.1
+	monthly_ashurbanipal_legacy = -0.25
+}
+
+# === LEGENDARY DISCOVERY MODIFIERS ===
+
+# Library of Ashurbanipal Variants
+library_of_ashurbanipal_scientific_minor = {
+	technology_cost = -0.05
+	innovativeness_gain = 0.5
+	idea_cost = -0.05
+	institution_spread_from_true_faith = 0.1
+}
+
+library_of_ashurbanipal_administrative_minor = {
+	administrative_efficiency = 0.05
+	reform_progress_growth = 0.25
+	advisor_cost = -0.1
+	yearly_corruption = -0.05
+}
+
+library_of_ashurbanipal_religious_minor = {
+	tolerance_own = 1
+	global_missionary_strength = 0.01
+	papal_influence = 0.5
+	missionaries = 1
+}
+
+# Sargon's Throne Variants
+heir_of_sargon_divine_minor = {
+	legitimacy = 1
+	devotion = 1
+	republican_tradition = 0.5
+	prestige = 0.5
+	max_absolutism = 5
+}
+
+heir_of_sargon_military_minor = {
+	land_morale = 0.05
+	discipline = 0.025
+	free_leader_pool = 1
+	general_cost = -0.25
+}
+
+sargon_throne_display_minor = {
+	local_unrest = -2
+	local_development_cost = -0.1
+	local_state_maintenance_modifier = -0.25
+}
+
+# Treasury Variants
+curse_of_greed_minor = {
+	all_power_cost = 0.05
+	global_unrest = 1
+	inflation_reduction = -0.25
+}
+
+assyrian_royal_bank_minor = {
+	interest = -0.5
+	inflation_reduction = 0.1
+	build_cost = -0.05
+	global_tax_income = 12
+}
+
+# Military Codex Variants
+assyrian_siege_mastery = {
+	siege_ability = 0.1
+	artillery_power = 0.05
+	leader_siege = 1
+}
+
+assyrian_iron_revolution_minor = {
+	infantry_cost = -0.1
+	infantry_power = 0.1
+	regiment_recruit_speed = -0.25
+}
+
+assyrian_fortress_design_minor = {
+	fort_maintenance_modifier = -0.15
+	defensiveness = 0.1
+	garrison_size = 0.25
+}
+
+upgraded_assyrian_fort_minor = {
+	local_defensiveness = 0.25
+	local_garrison_size = 0.25
+	local_hostile_attrition = 1
+}
+
+# Diplomatic Archives Variants
+assyrian_intelligence_network_minor = {
+	spy_offence = 0.25
+	global_spy_defence = 0.15
+	diplomats = 1
+}
+
+assyrian_diplomatic_traditions_minor = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.15
+	ae_impact = -0.1
+}
+
+assyrian_trade_privileges_minor = {
+	global_trade_power = 0.1
+	merchants = 1
+	trade_efficiency = 0.1
+}
+
+# === MAJOR DISCOVERY MODIFIERS ===
+
+advanced_cuneiform_administration = {
+	administrative_efficiency = 0.05
+	state_maintenance_modifier = -0.1
+	yearly_corruption = -0.05
+}
+
+elite_assyrian_tactics = {
+	discipline = 0.025
+	infantry_power = 0.05
+	drill_gain_modifier = 0.25
+}
+
+ancient_trade_knowledge = {
+	global_trade_power = 0.1
+	trade_efficiency = 0.05
+	placed_merchant_power = 5
+}
+
+# === SIGNIFICANT DISCOVERY MODIFIERS ===
+
+religious_manuscripts_found = {
+	tolerance_own = 1
+	papal_influence = 0.25
+	global_missionary_strength = 0.01
+}
+
+babylonian_astronomy = {
+	technology_cost = -0.05
+	innovativeness_gain = 0.25
+	institution_spread_from_true_faith = 0.1
+}
+
+assyrian_iron_weapons = {
+	infantry_power = 0.05
+	regiment_recruit_speed = -0.15
+	land_maintenance_modifier = -0.05
+}
+
+# === CURSE AND DISASTER MODIFIERS ===
+
+curse_of_assyria = {
+	heir_chance = -0.25
+	monarch_lifespan = -0.1
+	all_power_cost = 0.05
+	legitimacy = -0.5
+}
+
+cursed_ruler = {
+	all_power_cost = 0.05
+	heir_chance = -0.25
+	monarch_admin_power = -1
+}
+
+cursed_ground_minor = {
+	local_unrest = 5
+	local_development_cost = 0.25
+	local_tax_modifier = -0.25
+}
+
+excavation_disaster = {
+	local_development_cost = 0.25
+	local_build_cost = 0.25
+	local_unrest = 3
+}
+
+archaeological_disappointment = {
+	prestige = -0.25
+	monthly_ashurbanipal_legacy = -0.1
+}
+
+archaeological_tragedy = {
+	prestige = -0.5
+	stability_cost_modifier = 0.1
+	global_unrest = 1
+}
+
+grand_spectacle_memory = {
+	local_unrest = -4
+	local_tax_modifier = 0.20
+	province_trade_power_modifier = 0.15
+	local_development_cost = -0.10
+}
+
+# imperial_glory_spread  
+imperial_glory_spread = {
+	local_unrest = -2
+	local_tax_modifier = 0.10
+	local_manpower_modifier = 0.10
+}
+
+# imperial_propaganda_campaign
+imperial_propaganda_campaign = {
+	global_unrest = -1
+	stability_cost_modifier = -0.15
+	legitimacy = 0.25
+}
+
+# praetorian_loyalty
+praetorian_loyalty = {
+	land_morale = 0.10
+	army_tradition_decay = -0.01
+	land_maintenance_modifier = -0.10
+}
+
+# praetorian_betrayal
+praetorian_betrayal = {
+	land_morale = -0.10
+	global_unrest = 3
+	land_maintenance_modifier = 0.15
+}
+
+# Breton Mission Modifiers
+
+bri_masters_of_western_seas = {
+	naval_forcelimit_modifier = 0.15
+	light_ship_power = 0.10
+	naval_morale = 0.10
+}
+
+bri_atlantic_pathfinders = {
+	range = 0.25
+	colonist_placement_chance = 0.05
+	global_colonial_growth = 5
+}
+
+bri_new_world_pioneers = {
+	colonists = 1
+	global_colonial_growth = 10
+	native_uprising_chance = -0.25
+}
+
+bri_colonial_enthusiasm = {
+	colonist_placement_chance = 0.10
+	global_colonial_growth = 15
+	colony_cost_modifier = -0.20
+}
+
+bri_celtic_new_world = {
+	global_colonial_growth = 20
+	colonist_placement_chance = 0.15
+	native_assimilation = 0.50
+	prestige_from_land = 0.25
+}
+
+bri_developed_homeland = {
+	development_cost = -0.10
+	global_tax_modifier = 0.10
+	global_manpower_modifier = 0.10
+}
+
+bri_naval_supremacy = {
+	naval_forcelimit_modifier = 0.20
+	heavy_ship_power = 0.15
+	naval_maintenance_modifier = -0.10
+	prestige_from_naval = 0.25
+}
+
+bri_oceanic_traders = {
+	trade_efficiency = 0.15
+	global_trade_power = 0.10
+	merchants = 1
+}
+
+bri_colonial_trade_dominance = {
+	trade_efficiency = 0.25
+	global_foreign_trade_power = 0.20
+	treasure_fleet_income = 0.25
+}
+
+bri_sugar_monopoly = {
+	trade_goods_size_modifier = 0.15
+	global_trade_goods_size = 0.10
+	production_efficiency = 0.10
+}
+
+bri_caribbean_empire = {
+	global_tariffs = 0.30
+	treasure_fleet_income = 0.50
+	colonial_subject_type_upgrade_cost_modifier = -0.25
+}
+
+bri_celtic_identity = {
+	culture_conversion_cost = -0.25
+	same_culture_advisor_cost = -0.20
+	prestige = 0.5
+}
+
+bri_shipbuilding_expertise = {
+	global_ship_cost = -0.15
+	global_ship_recruit_speed = -0.25
+	heavy_ship_power = 0.10
+	light_ship_power = 0.10
+}
+
+bri_colonial_trading_company = {
+	trade_steering = 0.15
+	global_trade_power = 0.15
+	placed_merchant_power = 5
+}
+
+bri_colonial_prosperity = {
+	global_colonial_growth = 25
+	development_cost_modifier = -0.10
+	colony_development_boost = 2
+}
+
+bri_breton_new_world = {
+	global_colonial_growth = 30
+	colonist_placement_chance = 0.20
+	global_tariffs = 0.25
+	reduced_liberty_desire = 15
+}
+
+bri_center_of_learning = {
+	technology_cost = -0.05
+	idea_cost = -0.05
+	innovativeness_gain = 0.25
+}
+
+bri_naval_innovation = {
+	navy_tradition = 0.5
+	ship_durability = 0.10
+	flagship_cost = -0.25
+	max_flagships = 1
+}
+
+bri_efficient_colonial_administration = {
+	diplomatic_annexation_cost = -0.15
+	governing_capacity_modifier = 0.10
+	state_maintenance_modifier = -0.15
+}
+
+bri_colonial_ports = {
+	global_ship_repair = 0.15
+	blockade_efficiency = 0.15
+	naval_attrition = -0.15
+}
+
+bri_celtic_renaissance = {
+	global_institution_spread = 0.15
+	embracement_cost = -0.20
+	prestige = 0.5
+}
+
+bri_atlantic_routes = {
+	trade_range_modifier = 0.30
+	global_ship_trade_power = 0.20
+	naval_forcelimit_modifier = 0.15
+}
+
+bri_colonial_wealth = {
+	global_tax_modifier = 0.15
+	production_efficiency = 0.15
+	interest = -1
+}
+
+bri_breton_colonial_empire = {
+	prestige = 1.0
+	diplomatic_reputation = 2
+	global_colonial_growth = 50
+	reduced_liberty_desire = 25
+	global_tariffs = 0.50
+}
+
+# Province modifiers
+bri_naval_base = {
+	local_ship_cost = -0.25
+	local_sailors_modifier = 0.25
+	province_trade_power_modifier = 0.15
+}
+
+bri_celtic_settlement = {
+	local_colonial_growth = 20
+	local_manpower_modifier = 0.25
+	local_tax_modifier = 0.25
+	local_production_efficiency = 0.15
+}
+
+bri_loyal_colony = {
+	liberty_desire = -15
+	global_colonial_growth = 15
+	local_colonial_growth = 10
+}
+
+# Additional Event Modifiers
+bri_celtic_traditions = {
+	local_tax_modifier = 0.15
+	local_manpower_modifier = 0.15
+	local_unrest = -2
+}
+
+bri_maritime_festival = {
+	navy_tradition = 0.25
+	prestige = 0.25
+}
+
+bri_model_plantation = {
+	local_production_efficiency = 0.25
+	local_tax_modifier = 0.15
+	trade_goods_size_modifier = 0.20
+}
+
+bri_naval_academy = {
+	navy_tradition = 1.0
+	leader_naval_fire = 1
+	leader_naval_manuever = 1
+	admiral_cost = -0.25
+}
+
+occ_langue_doc_revival = {
+	culture_conversion_cost = -0.20
+	improve_relation_modifier = 0.15
+	diplomatic_reputation = 1
+}
+
+occ_courts_of_love = {
+	prestige = 1
+	diplomatic_upkeep = 1
+	advisor_cost = -0.15
+	stability_cost_modifier = -0.10
+}
+
+occ_center_of_learning = {
+	technology_cost = -0.10
+	innovativeness_gain = 0.5
+	idea_cost = -0.05
+}
+
+occ_enlightened_realm = {
+	technology_cost = -0.15
+	advisor_pool = 1
+	monthly_splendor = 2
+	tolerance_heretic = 2
+}
+
+occ_mediterranean_trade = {
+	trade_efficiency = 0.15
+	light_ship_power = 0.20
+	naval_forcelimit_modifier = 0.25
+}
+
+occ_great_fairs = {
+	merchants = 1
+	caravan_power = 0.25
+}
+
+occ_commercial_dominance = {
+	trade_efficiency = 0.25
+	global_trade_power = 0.20
+	mercantilism_cost = -0.25
+}
+
+occ_unified_occitania = {
+	core_creation = -0.20
+	administrative_efficiency = 0.05
+	global_unrest = -2
+}
+
+occ_bastide_network = {
+	fort_maintenance_modifier = -0.25
+	defensiveness = 0.20
+	garrison_size = 0.30
+	hostile_attrition = 1
+}
+
+occ_cathar_tolerance = {
+	tolerance_heretic = 3
+	tolerance_heathen = 2
+	global_unrest = -3
+	stability_cost_modifier = -0.20
+}
+
+occ_gascon_expansion = {
+	land_forcelimit_modifier = 0.20
+	manpower_recovery_speed = 0.15
+	core_creation = -0.15
+}
+
+occ_southern_crown = {
+	prestige = 2
+	diplomatic_reputation = 2
+	legitimacy = 1
+	all_estate_loyalty_equilibrium = 0.10
+}
+
+occ_gallic_ambition = {
+	ae_impact = -0.15
+	province_warscore_cost = -0.20
+	diplomatic_annexation_cost = -0.25
+}
+
+occ_cultural_diplomacy = {
+	diplomatic_reputation = 2
+	improve_relation_modifier = 0.25
+	envoy_travel_time = -0.20
+}
+
+occ_benevolent_overlord = {
+	reduced_liberty_desire = 15
+	vassal_income = 0.25
+	diplomatic_upkeep = 2
+}
+
+occ_island_dominion = {
+	naval_forcelimit_modifier = 0.30
+	ship_durability = 0.15
+	navy_tradition = 1
+}
+
+# Modyfikatory prowincjonalne
+occ_renowned_university = {
+	local_institution_spread = 0.25
+	local_development_cost = -0.15
+	local_tax_modifier = 0.20
+}
+
+occ_scholarly_province = {
+	local_institution_spread = 0.15
+	local_development_cost = -0.10
+}
+
+occ_renowned_vineyards = {
+	local_production_efficiency = 0.30
+	trade_goods_size_modifier = 0.25
+	local_tax_modifier = 0.15
+}
+
+occ_strategic_bastide = {
+	local_defensiveness = 0.25
+	local_garrison_size = 0.30
+	local_hostile_attrition = 2
+}
+
+occ_peaceful_coexistence = {
+	local_unrest = -3
+	local_tax_modifier = 0.10
+	local_manpower_modifier = 0.10
+}
+
+occ_new_capital = {
+	local_tax_modifier = 0.50
+	local_manpower_modifier = 0.25
+	local_institution_spread = 0.30
+}
+
+# Nestorian Qing Modifiers
+
+# Country Modifiers
+qng_nestorian_mandate = {
+	imperial_authority = 0.5
+	legitimacy = 0.5
+	global_unrest = -1
+}
+
+qng_nestorian_patriarchate = {
+	missionaries = 1
+	global_heathen_missionary_strength = 0.01
+	missionary_maintenance_cost = -0.10
+	tolerance_own = 1
+}
+
+qng_cross_dragon_harmony = {
+	religious_unity = 0.10
+	global_unrest = -1
+	stability_cost_modifier = -0.05
+}
+
+qng_missionary_zeal = {
+	global_heathen_missionary_strength = 0.015
+	missionaries = 1
+	missionary_maintenance_cost = -0.15
+}
+
+qng_eastern_protector = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.15
+}
+
+qng_reformed_banners = {
+	discipline = 0.025
+	amount_of_banners = 0.10
+	army_tradition = 0.5
+}
+
+qng_northern_pacification = {
+	hostile_attrition = 1
+	core_creation = -0.05
+}
+
+qng_heavenly_warriors = {
+	land_morale = 0.05
+	manpower_recovery_speed = 0.10
+	free_land_leader_pool = 1
+}
+
+qng_imperial_discipline = {
+	discipline = 0.05
+	artillery_power = 0.05
+}
+
+qng_mandate_of_cross = {
+	max_absolutism = 10
+	legitimacy = 0.5
+	imperial_authority = 1
+}
+
+qng_southern_control = {
+	global_tax_modifier = 0.10
+	state_maintenance_modifier = -0.10
+}
+
+qng_christian_examination = {
+	advisor_cost = -0.10
+	advisor_pool = 1
+	yearly_corruption = -0.025
+}
+
+qng_silk_road_dominance = {
+	caravan_power = 0.15
+	merchants = 1
+	trade_range_modifier = 0.10
+}
+
+qng_imperial_industry = {
+	production_efficiency = 0.10
+	build_cost = -0.10
+}
+
+qng_middle_kingdom_of_cross = {
+	diplomatic_reputation = 2
+	imperial_authority = 1
+}
+
+qng_maritime_revival = {
+	trade_range_modifier = 0.15
+	global_ship_cost = -0.15
+	colonists = 1
+}
+
+qng_christian_trade_network = {
+	trade_efficiency = 0.15
+	merchants = 1
+	global_trade_power = 0.10
+}
+
+qng_southern_seas_empire = {
+	naval_forcelimit_modifier = 0.20
+	trade_steering = 0.15
+}
+
+qng_christian_asian_empire = {
+	governing_capacity = 50
+	diplomatic_annexation_cost = -0.15
+}
+
+qng_christian_diplomacy = {
+	diplomatic_reputation = 1
+	diplomats = 1
+	improve_relation_modifier = 0.15
+}
+
+qng_western_knowledge = {
+	technology_cost = -0.05
+	embracement_cost = -0.15
+}
+
+qng_global_christian_network = {
+	diplomatic_reputation = 2
+	diplomatic_upkeep = 1
+}
+
+qng_protector_of_christendom = {
+	diplomatic_reputation = 2
+	prestige = 1
+	legitimacy = 1
+}
+
+# Province Modifiers
+qng_forbidden_city_restored = {
+	local_tax_modifier = 0.25
+	local_unrest = -2
+}
+
+qng_patriarch_seat = {
+	local_missionary_strength = 0.03
+	local_tax_modifier = 0.15
+	local_unrest = -1
+}
+
+qng_blessed_lands = {
+	local_unrest = -1
+	local_tax_modifier = 0.10
+}
+
+qng_mountain_monasteries = {
+	local_missionary_strength = 0.02
+	local_defensiveness = 0.10
+}
+
+qng_steppe_churches = {
+	local_missionary_strength = 0.02
+	local_manpower_modifier = 0.15
+}
+
+qng_orthodox_protection = {
+	local_unrest = -1
+	local_tax_modifier = 0.10
+}
+
+qng_nestorian_hagia_sophia = {
+	local_missionary_strength = 0.03
+	local_tax_modifier = 0.20
+	local_unrest = -2
+}
+
+qng_banner_training_grounds = {
+	local_manpower_modifier = 0.25
+	local_regiment_cost = -0.15
+}
+
+qng_frontier_security = {
+	local_defensiveness = 0.15
+	local_hostile_attrition = 2
+}
+
+qng_blessed_banners = {
+	local_manpower_modifier = 0.15
+	local_amount_of_banners = 0.10
+}
+
+qng_integrated_administration = {
+	local_tax_modifier = 0.15
+	local_state_maintenance_modifier = -0.15
+}
+
+qng_blessed_ports = {
+	local_ship_cost = -0.15
+	local_sailors_modifier = 0.15
+}
+
+qng_christian_merchants = {
+	province_trade_power_modifier = 0.15
+	local_production_efficiency = 0.10
+}
+
+qng_blessed_production = {
+	local_production_efficiency = 0.20
+	trade_goods_size_modifier = 0.15
+}
+
+qng_spice_monopoly = {
+	province_trade_power_modifier = 0.25
+	trade_goods_size_modifier = 0.20
+}
+
+qng_trade_hub = {
+	province_trade_power_modifier = 0.20
+	local_production_efficiency = 0.15
+}
+
+qng_christian_vassal = {
+	local_unrest = -1
+	local_tax_modifier = 0.10
+}
+
+# Development Mission Modifiers
+qng_capital_investment = {
+	development_cost = -0.10
+	build_cost = -0.10
+}
+
+qng_provincial_development = {
+	development_cost = -0.05
+	global_tax_modifier = 0.05
+}
+
+qng_grand_infrastructure = {
+	movement_speed = 0.10
+	development_cost = -0.10
+}
+
+qng_development_mandate = {
+	development_cost = -0.15
+	global_tax_modifier = 0.10
+}
+
+qng_celestial_prosperity = {
+	development_cost = -0.15
+	global_tax_modifier = 0.15
+	prestige = 1
+}
+
+# Development Province Modifiers
+qng_imperial_capital_glory = {
+	local_tax_modifier = 0.30
+	local_production_efficiency = 0.20
+	local_unrest = -2
+}
+
+qng_blessed_province = {
+	local_tax_modifier = 0.15
+	local_unrest = -1
+}
+
+qng_imperial_roads = {
+	local_friendly_movement_speed = 0.15
+	local_development_cost = -0.10
+}
+
+qng_prosperity_center = {
+	local_tax_modifier = 0.20
+	local_production_efficiency = 0.15
+}
+
+qng_jewel_of_empire = {
+	local_tax_modifier = 0.30
+	local_production_efficiency = 0.25
+	local_unrest = -1
+}
+
+divine_wisdom = {
+	adm_tech_cost_modifier = -0.05
+	idea_cost = -0.05
+	advisor_pool = 1
+	prestige = 0.5
+}
+
+blessed_harvest = {
+	global_tax_modifier = 0.1
+	production_efficiency = 0.1
+	global_trade_goods_size_modifier = 0.05
+	development_cost = -0.05
+}
+
+divine_guidance_cooldown = {
+	church_power_modifier = -0.25
+	papal_influence = -1
+	yearly_harmony = -0.5
+	devotion = -0.25
+}
+
+divine_plague = {
+	global_unrest = 2
+	stability_cost_modifier = 0.25
+	global_manpower_modifier = -0.1
+	global_tax_modifier = -0.15
+	global_monthly_devastation = 0.05
+}
+
+locust_swarm = {
+	global_trade_goods_size_modifier = -0.2
+	production_efficiency = -0.15
+	global_tax_modifier = -0.2
+	global_unrest = 1
+	development_cost = 0.25
+}
+
+righteous_fury = {
+	discipline = 0.05
+	land_morale = 0.05
+	siege_ability = 0.1
+	recover_army_morale_speed = 0.1
+}
+
+divine_wrath_cooldown = {
+	prestige = -0.5
+	legitimacy = -0.5
+	republican_tradition = -0.25
+	tolerance_own = -1
+	global_missionary_strength = -0.01
+}
+
+symposium_of_the_forms = {
+	advisor_cost = -0.10
+	idea_cost = -0.10
+	technology_cost = -0.05
+	diplomatic_reputation = 1
+	global_institution_spread = 0.10
+	prestige = 0.5
+	monthly_philosophical_wisdom = 0.25
+}
+
+# Dialektyczne Oświecenie - średni poziom
+dialectical_enlightenment = {
+	advisor_cost = -0.08
+	idea_cost = -0.05
+	diplomatic_reputation = 1
+	global_institution_spread = 0.05
+	monthly_philosophical_wisdom = 0.15
+}
+
+# Sofistyczna Niezgoda - porażka
+sophistic_discord = {
+	advisor_cost = 0.08
+	idea_cost = 0.05
+	stability_cost_modifier = 0.10
+	global_unrest = 0.5
+	monthly_philosophical_wisdom = -0.25
+}
+
+# === MODYFIKATORY Z FILOZOFÓW-KRÓLÓW ===
+
+# Rządy Filozofów-Królów
+rule_of_philosopher_kings = {
+	stability_cost_modifier = -0.10
+	legitimacy = 0.5
+	global_unrest = -1
+	core_creation = -0.05
+	diplomatic_reputation = 1
+	tolerance_heathen = 1
+	monthly_philosophical_wisdom = 0.20
+}
+
+# === MODYFIKATORY Z KONTEMPLACJI JEDNI ===
+
+# Kontemplacja Jedni - najwyższe oświecenie
+contemplation_of_the_one = {
+	prestige = 1.0
+	legitimacy = 1.0
+	stability_cost_modifier = -0.15
+	administrative_efficiency = 0.08
+	diplomatic_reputation = 2
+	advisor_cost = -0.15
+	technology_cost = -0.10
+	idea_cost = -0.10
+	monthly_philosophical_wisdom = -0.15 # Powolny decay po transcendencji
+}
+
+# Filozoficzna Transcendencja - średnie oświecenie
+philosophical_transcendence = {
+	prestige = 0.5
+	legitimacy = 0.5
+	stability_cost_modifier = -0.10
+	administrative_efficiency = 0.05
+	tolerance_heathen = 1
+	advisor_cost = -0.10
+	technology_cost = -0.05
+	monthly_philosophical_wisdom = -0.10
+}
+
+# Filozoficzne Szaleństwo - upadek w manię
+philosophical_madness = {
+	stability_cost_modifier = 0.25
+	technology_cost = 0.15
+	idea_cost = 0.10
+	global_unrest = 2
+	legitimacy = -1.0
+	diplomatic_reputation = -2
+	advisor_cost = 0.15
+	tolerance_heathen = -1
+	monthly_philosophical_wisdom = -0.50
+}
+
+recent_great_symposium = {
+	# Empty modifier for cooldown tracking
+}
+
+recent_philosopher_king_reform = {
+	# Empty modifier for cooldown tracking
+}
+
+# Modyfikatory z Misji Atlantydy
+
+# === KOLUMNA 1 - FILOZOFIA ===
+
+proto_academy = {
+	advisor_cost = -0.05
+	idea_cost = -0.05
+	monthly_philosophical_wisdom = 0.1
+}
+
+philosophical_center = {
+	local_institution_spread = 0.50
+	local_development_cost = -0.15
+}
+
+mastery_of_dialectic = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.25
+}
+
+platonic_republic = {
+	stability_cost_modifier = -0.20
+	global_unrest = -2
+}
+
+divine_philosophers = {
+	prestige = 2.0
+	diplomatic_reputation = 1
+	monthly_philosophical_wisdom = 0.5
+}
+
+philosophical_hegemony = {
+	diplomatic_upkeep = 1
+	vassal_income = 0.25
+	diplomatic_annexation_cost = -0.20
+}
+
+enlightened_vassalage = {
+	liberty_desire = -15
+	stability_cost_modifier = -0.10
+}
+
+# === KOLUMNA 2 - TALL DEVELOPMENT ===
+
+crown_jewel_of_atlantis = {
+	local_development_cost = -0.25
+	local_tax_modifier = 0.25
+}
+
+urbanization_focus = {
+	build_cost = -0.15
+	global_prosperity_growth = 0.25
+}
+
+atlantean_prosperity = {
+	global_trade_goods_size_modifier = 0.15
+}
+
+atlantean_golden_age = {
+	local_tax_modifier = 0.10
+	local_production_efficiency = 0.10
+	province_trade_power_modifier = 0.10
+}
+
+atlantean_innovation = {
+	technology_cost = -0.05
+	innovativeness_gain = 0.50
+}
+
+center_of_learning = {
+	embracement_cost = -0.25
+	global_institution_spread = 0.10
+}
+
+birthplace_of_progress = {
+	local_institution_spread = 1.0
+}
+
+atlantean_renaissance = {
+	advisor_cost = -0.20
+}
+
+# === KOLUMNA 3 - KOLONIE ===
+
+atlantean_naval_tradition = {
+	naval_morale = 0.15
+}
+
+atlantean_exploration = {
+	colonist_placement_chance = 0.10
+}
+
+atlantean_colonial_empire = {
+	colonists = 1
+}
+
+atlantean_outpost = {
+	local_colonial_growth = 20
+}
+
+atlantean_trade_empire = {
+	trade_efficiency = 0.20
+	merchants = 1
+}
+
+empire_of_the_seas = {
+	naval_forcelimit_modifier = 0.25
+	prestige = 1.0
+}
+
+# === KOLUMNA 4 - MILITARY ===
+
+atlantean_bronze_age = {
+	army_tradition = 0.5
+	manpower_recovery_speed = 0.15
+}
+
+atlantean_military_doctrine = {
+	discipline = 0.025
+	land_morale = 0.10
+}
+
+atlantean_professionalism = {
+	drill_gain_modifier = 0.25
+	land_maintenance_modifier = -0.10
+}
+
+atlantean_fortifications = {
+	defensiveness = 0.20
+	fort_maintenance_modifier = -0.20
+}
+
+impregnable_fortress = {
+	local_defensiveness = 0.30
+	local_garrison_size = 0.50
+	local_hostile_attrition = 2
+}
+
+atlantean_military_supremacy = {
+	army_tradition = 0.5
+	land_forcelimit_modifier = 0.20
+}
+
+# === KOLUMNA 5 - INWAZJA EUROPY ===
+
+atlantean_prophecy = {
+	colonist_placement_chance = 0.15
+	range = 0.25
+}
+
+return_to_the_old_world = {
+	province_warscore_cost = -0.15
+}
+
+terror_of_the_seas = {
+	ship_durability = 0.15
+	capture_ship_chance = 0.25
+	blockade_efficiency = 0.25
+}
+
+atlantean_iberia = {
+	culture_conversion_cost = -0.25
+	religious_unity = 0.10
+}
+
+atlantean_administration = {
+	local_unrest = -2
+	local_tax_modifier = 0.15
+	local_culture_conversion_cost = -0.25
+}
+
+the_return_of_atlantis = {
+	prestige = 3.0
+	diplomatic_reputation = 1
+	naval_morale = 0.1
+	core_creation = -0.25
+}
+
+spartan_military_tradition = {
+	army_tradition = 0.25
+	discipline = 0.02
+	prestige_from_land = 0.10
+}
+
+# Wielka Agoge Ustanowiona
+great_agoge_established = {
+	discipline = 0.05
+	army_tradition = 0.5
+	land_morale = 0.05
+	manpower_recovery_speed = 0.10
+	land_forcelimit_modifier = 0.05
+}
+
+# Efektywna Kontrola Helotów
+efficient_helot_control = {
+	global_manpower_modifier = 0.10
+	production_efficiency = 0.05
+	global_tax_modifier = 0.05
+	culture_conversion_cost = -0.15
+}
+
+# Zmilitaryzowane Społeczeństwo Spartańskie
+militarized_spartan_society = {
+	discipline = 0.08
+	land_morale = 0.10
+	army_tradition = 0.5
+	land_forcelimit_modifier = 0.10
+	manpower_recovery_speed = 0.15
+	global_trade_power = -0.05
+	production_efficiency = -0.05
+}
+
+# Atlantyckie Imperium Spartańskie
+atlantean_spartan_empire = {
+	prestige = 1.0
+	discipline = 0.10
+	land_morale = 0.05
+	army_tradition = 1.0
+	land_forcelimit_modifier = 0.15
+	core_creation = -0.10
+	province_warscore_cost = -0.10
+	governing_capacity_modifier = 0.10
+}
+
+# === MODYFIKATORY DYPLOMATYCZNE ===
+
+# Spartańska Dyplomacja Wojskowa
+spartan_military_diplomacy = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.10
+	prestige_from_land = 0.15
+}
+
+# Spartańska Zwierzchność
+spartan_overlordship = {
+	vassal_forcelimit_bonus = 0.15
+	vassal_manpower_bonus = 0.10
+	reduced_liberty_desire = 5
+}
+
+# === MODYFIKATORY WOJEN Z ATLANTYDĄ ===
+
+# Wojna przeciw Filozofom
+war_against_philosophers = {
+	discipline = 0.03
+	land_morale = 0.05
+	shock_damage = 0.05
+	prestige_from_land = 0.15
+}
+
+# Niszczyciel Atlantydy
+destroyer_of_atlantis = {
+	prestige = 0.5
+	army_tradition = 0.5
+	discipline = 0.05
+	land_morale = 0.08
+	legitimacy = 0.25
+	diplomatic_reputation = 1
+}
+
+# === MODYFIKATORY MORSKIE ===
+
+# Spartańska Tradycja Morska
+spartan_naval_tradition = {
+	navy_tradition = 0.25
+	naval_morale = 0.05
+	ship_recruit_speed = -0.10
+	naval_forcelimit_modifier = 0.05
+}
+
+# Panowie Mórz Atlantyckich
+masters_of_atlantean_seas = {
+	navy_tradition = 0.5
+	naval_morale = 0.10
+	blockade_efficiency = 0.15
+	privateer_efficiency = 0.10
+	naval_attrition = -0.10
+}
+
+# Spartańska Przyczółek Europejski
+spartan_european_foothold = {
+	naval_morale = 0.05
+	landing_penalty = -0.25
+	movement_speed = 0.05
+	core_creation = -0.05
+}
+
+# === MODYFIKATORY EUROPEJSKIEJ EKSPANSJI ===
+
+# Przygotowania do Inwazji Europy
+european_invasion_preparations = {
+	land_morale = 0.05
+	naval_morale = 0.05
+	movement_speed = 0.10
+	landing_penalty = -0.5
+	naval_attrition = -0.15
+	manpower_recovery_speed = 0.10
+}
+
+# Spartańskie Podboje Włoskie
+spartan_italian_conquest = {
+	discipline = 0.03
+	core_creation = -0.05
+	province_warscore_cost = -0.05
+	prestige_from_land = 0.10
+}
+
+# Zdobywca Rzymu
+conqueror_of_rome = {
+	prestige = 1.0
+	army_tradition = 0.5
+	discipline = 0.05
+	legitimacy = 0.5
+	diplomatic_reputation = 1
+	core_creation = -0.10
+}
+
+# Spartańskie Imperium Włoskie
+spartan_italian_empire = {
+	discipline = 0.05
+	administrative_efficiency = 0.05
+	governing_capacity_modifier = 0.10
+	core_creation = -0.15
+	province_warscore_cost = -0.15
+}
+
+# Spartańska Ekspansja Bałkańska
+spartan_balkan_expansion = {
+	discipline = 0.03
+	land_morale = 0.05
+	movement_speed = 0.05
+	core_creation = -0.05
+	prestige_from_land = 0.10
+}
+
+# Nowa Bizantyńska Sparta
+new_byzantine_sparta = {
+	legitimacy = 0.5
+	diplomatic_reputation = 1
+	trade_efficiency = 0.10
+	global_trade_power = 0.05
+	tolerance_heathen = 1
+}
+
+# Spartańskie Imperium Europejskie (końcowe)
+spartan_european_empire = {
+	prestige = 1.5
+	army_tradition = 1.0
+	discipline = 0.05
+	land_morale = 0.05
+	land_forcelimit_modifier = 0.20
+	core_creation = -0.20
+	province_warscore_cost = -0.20
+	administrative_efficiency = 0.10
+	governing_capacity_modifier = 0.20
+}
+
+# === MODYFIKATORY PROWINCJONALNE ===
+
+# Miejsce Narodzin Wojowników (misja)
+birthplace_of_warriors_mission = {
+	local_manpower_modifier = 0.15
+	local_regiment_cost = -0.10
+	garrison_size = 0.10
+	local_defensiveness = 0.10
+	supply_limit_modifier = 0.10
+}
+
+# Ośrodki Szkolenia Agoge
+agoge_training_grounds = {
+	local_manpower_modifier = 0.20
+	local_regiment_cost = -0.15
+	regiment_recruit_speed = -0.15
+	local_culture_conversion_cost = -0.20
+}
+
+# System Rolnictwa Helotów
+helot_agricultural_system = {
+	local_production_efficiency = 0.10
+	local_tax_modifier = 0.10
+	trade_goods_size_modifier = 0.05
+	local_unrest = -1
+}
+
+# Spartański Okręg Wojskowy
+spartan_military_district = {
+	local_manpower_modifier = 0.10
+	local_defensiveness = 0.10
+	garrison_size = 0.10
+	supply_limit_modifier = 0.05
+}
+
+# Spartańska Kolonia Wojskowa
+spartan_military_colony = {
+	local_manpower_modifier = 0.15
+	local_unrest = -1
+	garrison_size = 0.15
+	local_core_creation = -0.10
+	local_culture_conversion_cost = -0.15
+}
+
+# Spartańska Baza Morska
+spartan_naval_base = {
+	local_sailors_modifier = 0.15
+	local_ship_cost = -0.10
+	ship_recruit_speed = -0.15
+	blockade_force_required = 0.15
+}
+
+# Zdobyta Stolica Atlantydy
+conquered_atlantean_capital = {
+	local_tax_modifier = 0.15
+	province_trade_power_modifier = 0.20
+	local_development_cost = -0.10
+	local_unrest = -2
+	local_core_creation = -0.15
+}
+
+# Spartańska Administracja Prowincjonalna
+spartan_provincial_administration = {
+	local_tax_modifier = 0.10
+	local_governing_cost = -0.15
+	local_unrest = -1
+	local_core_creation = -0.10
+}
+
+# Spartańska Prowincja Imperialna (końcowa)
+spartan_imperial_province = {
+	local_tax_modifier = 0.15
+	local_manpower_modifier = 0.15
+	local_governing_cost = -0.20
+	local_unrest = -2
+	local_core_creation = -0.15
+}
+
+spartan_iberian_conquest = {
+	discipline = 0.05
+	core_creation = -0.10
+	province_warscore_cost = -0.10
+	prestige_from_land = 0.15
+	landing_penalty = -0.5
+}
+
+# Zdobywca Kastylii
+conqueror_of_castile = {
+	prestige = 1.0
+	army_tradition = 0.75
+	discipline = 0.08
+	legitimacy = 0.75
+	diplomatic_reputation = 2
+	ae_impact = -0.10
+}
+
+# Spartańskie Imperium Iberyjskie
+spartan_iberian_empire = {
+	prestige = 1.5
+	discipline = 0.10
+	administrative_efficiency = 0.08
+	governing_capacity_modifier = 0.15
+	core_creation = -0.20
+	province_warscore_cost = -0.20
+	global_trade_power = 0.10
+}
+
+# === MODYFIKATORY FRANCUSKIE ===
+
+# Spartańskie Przejście przez Pireneje
+spartan_pyrenees_crossing = {
+	discipline = 0.05
+	land_morale = 0.05
+	movement_speed = 0.15
+	attrition = -0.15
+	prestige_from_land = 0.20
+}
+
+# Spartańska Inwazja Francji
+spartan_french_invasion = {
+	discipline = 0.08
+	land_morale = 0.05
+	core_creation = -0.15
+	province_warscore_cost = -0.15
+	movement_speed = 0.10
+	prestige_from_land = 0.25
+}
+
+# Zdobywca Paryża
+conqueror_of_paris = {
+	prestige = 1.5
+	army_tradition = 1.0
+	discipline = 0.10
+	legitimacy = 1.0
+	diplomatic_reputation = 3
+	trade_efficiency = 0.15
+	global_trade_power = 0.15
+}
+
+# Spartańskie Imperium Zachodniej Europy
+spartan_western_european_empire = {
+	prestige = 2.0
+	army_tradition = 1.5
+	discipline = 0.05
+	land_morale = 0.1
+	land_forcelimit_modifier = 0.25
+	core_creation = -0.25
+	province_warscore_cost = -0.25
+	administrative_efficiency = 0.15
+	governing_capacity_modifier = 0.25
+	global_trade_power = 0.20
+}
+
+# === MODYFIKATORY PROWINCJONALNE ===
+
+# Spartańska Stolica Iberyjska
+spartan_iberian_capital = {
+	local_tax_modifier = 0.25
+	province_trade_power_modifier = 0.35
+	local_development_cost = -0.15
+	local_unrest = -4
+	local_core_creation = -0.25
+	local_governing_cost = -0.20
+}
+
+# Spartańska Stolica Francuska
+spartan_french_capital = {
+	local_tax_modifier = 0.30
+	province_trade_power_modifier = 0.40
+	local_development_cost = -0.20
+	local_unrest = -5
+	local_core_creation = -0.30
+	local_governing_cost = -0.25
+	allowed_num_of_buildings = 2
+}
+
+supply_corruption_issues = {
+    yearly_corruption = 0.05
+    land_maintenance_modifier = 0.05
+}
+
+militant_orthodoxy = {
+    tolerance_own = 1
+    global_missionary_strength = 0.01
+    tolerance_heretic = -1
+}

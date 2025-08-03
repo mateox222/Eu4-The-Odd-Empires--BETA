@@ -1,0 +1,280 @@
+country_decisions = {
+    # Konsultacja szamanów/kapłanów
+    pagan_consult_shamans = {
+        major = no
+        color = { 161 6 9 }
+        
+        potential = {
+            religion_group = pagan
+            has_government_mechanic = toe_tribal_fervor
+            NOT = { has_country_modifier = shamanic_wisdom_admin }
+            NOT = { has_country_modifier = shamanic_wisdom_diplo }
+            NOT = { has_country_modifier = shamanic_wisdom_military }
+        }
+        
+        allow = {
+            custom_trigger_tooltip = {
+                tooltip = pagan_shamans_power_tt
+                adm_power = 50
+            }
+        }
+        
+        effect = {
+            add_adm_power = -50
+            add_government_power = {
+                mechanic_type = toe_tribal_fervor
+                power_type = toe_tribal_fervor
+                value = 5
+            }
+            tooltip = {
+                custom_tooltip = shamanic_consultation_outcomes_tooltip
+            }
+            hidden_effect = {
+                random_list = {
+                    33 = {
+                        add_country_modifier = {
+                            name = "shamanic_wisdom_admin"
+                            duration = 730
+                        }
+                    }
+                    33 = {
+                        add_country_modifier = {
+                            name = "shamanic_wisdom_diplo"
+                            duration = 730
+                        }
+                    }
+                    34 = {
+                        add_country_modifier = {
+                            name = "shamanic_wisdom_military"
+                            duration = 730
+                        }
+                    }
+                }
+                set_country_flag = pagan_shamans_cooldown
+                clr_country_flag = pagan_shamans_cooldown
+                set_country_flag = pagan_shamans_cooldown
+            }
+        }
+        
+        ai_will_do = {
+            factor = 30
+            modifier = {
+                factor = 2
+                adm_power = 100
+            }
+        }
+    }
+
+    # Puryfikacja świętych miejsc
+    pagan_purify_sites = {
+        major = yes
+        color = { 161 6 9 }
+        
+        potential = {
+            religion_group = pagan
+            has_government_mechanic = toe_tribal_fervor
+            NOT = { has_ruler_flag = pagan_purify_cooldown } 
+            any_owned_province = {
+                NOT = { religion = ROOT }
+                OR = {
+                    has_building = temple
+                    has_building = cathedral
+                    base_tax = 3
+                }
+            }
+        }
+        
+        allow = {
+            custom_trigger_tooltip = {
+                tooltip = pagan_purify_power_tt
+                dip_power = 75
+            }
+        }
+        
+        effect = {
+            add_dip_power = -75
+            add_government_power = {
+                mechanic_type = toe_tribal_fervor
+                power_type = toe_tribal_fervor
+                value = 10
+            }
+            tooltip = {
+                custom_tooltip = sacred_site_purification_tooltip
+            }
+            hidden_effect = {
+                random_owned_province = {
+                    limit = {
+                        NOT = { religion = ROOT }
+                        OR = {
+                            has_building = temple
+                            has_building = cathedral
+                            base_tax = 3
+                        }
+                    }
+                    change_religion = ROOT
+                    add_province_modifier = {
+                        name = "purified_sacred_site"
+                        duration = 1825
+                    }
+                }
+                add_prestige = 10
+                set_ruler_flag = pagan_purify_cooldown
+                clr_ruler_flag = pagan_purify_cooldown
+                set_ruler_flag = pagan_purify_cooldown
+            }
+        }
+        
+        ai_will_do = {
+            factor = 45
+            modifier = {
+                factor = 1.5
+                religious_unity = 0.8
+            }
+        }
+    }
+
+    # Wezwanie duchów przodków
+    pagan_summon_ancestors = {
+        major = yes
+        color = { 161 6 9 }
+        
+        potential = {
+            religion_group = pagan
+            has_government_mechanic = toe_tribal_fervor
+            NOT = { has_country_modifier = ancestor_spirits_blessing }
+        }
+        
+        allow = {
+            custom_trigger_tooltip = {
+                tooltip = pagan_ancestors_war_tt
+                is_at_war = yes
+            }
+            custom_trigger_tooltip = {
+                tooltip = pagan_ancestors_tradition_tt
+                army_tradition = 20
+            }
+        }
+        
+        effect = {
+            add_government_power = {
+                mechanic_type = toe_tribal_fervor
+                power_type = toe_tribal_fervor
+                value = 20
+            }
+            add_army_tradition = -10
+            add_country_modifier = {
+                name = "ancestor_spirits_blessing"
+                duration = 1095
+            }
+            tooltip = {
+                custom_tooltip = ancestor_summoning_effects_tooltip
+            }
+            hidden_effect = {
+                random_owned_province = {
+                    limit = { controlled_by = ROOT }
+                    spawn_rebels = {
+                        type = zealots
+                        size = 1
+                        friend = ROOT
+                        leader = "Duch Przodka"
+                    }
+                }
+                set_country_flag = pagan_ancestors_cooldown
+                clr_country_flag = pagan_ancestors_cooldown
+                set_country_flag = pagan_ancestors_cooldown
+            }
+        }
+        
+        ai_will_do = {
+            factor = 70
+            modifier = {
+                factor = 2
+                is_in_deficit = yes
+            }
+            modifier = {
+                factor = 1.5
+                army_tradition = 40
+            }
+        }
+    }
+
+    # Próba boskiej mocy (ryzykowna akcja)
+    pagan_divine_trial = {
+        major = yes
+        color = { 161 6 9 }
+        
+        potential = {
+            religion_group = pagan
+            has_government_mechanic = toe_tribal_fervor
+            NOT = { has_country_modifier = divine_favor_blessing }
+            NOT = { has_country_modifier = divine_displeasure }
+        }
+        
+        allow = {
+            custom_trigger_tooltip = {
+                tooltip = pagan_trial_stability_tt
+                stability = 1
+            }
+            custom_trigger_tooltip = {
+                tooltip = pagan_trial_legitimacy_tt
+                legitimacy = 50
+            }
+        }
+        
+        effect = {
+            tooltip = {
+                custom_tooltip = divine_trial_outcomes_tooltip
+            }
+            hidden_effect = {
+                random_list = {
+                    60 = { # Divine favor
+                        add_government_power = {
+                            mechanic_type = toe_tribal_fervor
+                            power_type = toe_tribal_fervor
+                            value = 25
+                        }
+                        add_legitimacy = 20
+                        add_devotion = 20
+                        add_horde_unity = 20
+                        add_prestige = 25
+                        add_country_modifier = {
+                            name = "divine_favor_blessing"
+                            duration = 1825
+                        }
+                    }
+                    40 = { # Divine displeasure
+                        add_government_power = {
+                            mechanic_type = toe_tribal_fervor
+                            power_type = toe_tribal_fervor
+                            value = -15
+                        }
+                        add_stability = -1
+                        add_legitimacy = -15
+                        add_devotion = -15
+                        add_horde_unity = -15
+                        add_prestige = -15
+                        add_country_modifier = {
+                            name = "divine_displeasure"
+                            duration = 1095
+                        }
+                    }
+                }
+                set_country_flag = pagan_trial_cooldown
+                clr_country_flag = pagan_trial_cooldown
+                set_country_flag = pagan_trial_cooldown
+            }
+        }
+        
+        ai_will_do = {
+            factor = 25
+            modifier = {
+                factor = 1.5
+                legitimacy = 80
+            }
+            modifier = {
+                factor = 0.5
+                stability = 3
+            }
+        }
+    }
+}

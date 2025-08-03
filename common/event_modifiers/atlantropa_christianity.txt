@@ -1,0 +1,415 @@
+hermit_monasticism_modifier = {
+ 
+}
+
+apostolic_community_modifier = {
+ 
+}
+
+contemplative_mysticism_modifier = {
+ 
+}
+
+militant_christianity_modifier = {
+ 
+}
+
+folk_scholasticism_modifier = {
+ 
+}
+
+merchant_theology_modifier = {
+ 
+}
+
+agrarian_christianity_modifier = {
+ 
+}
+
+prophetic_renewal_modifier = {
+ 
+}
+
+craftsmen_brotherhood_modifier = {
+ 
+}
+
+marian_devotion_modifier = {
+ 
+}
+
+pilgrimage_faith_modifier = {
+ 
+}
+
+biblical_fundamentalism_modifier = {
+ 
+}
+
+divine_mercy_modifier = {
+ 
+}
+
+trinitarian_fellowship_modifier = {
+ 
+}
+
+druidic_blessing = {
+    # Removed "natural_scientist_spawn_chance" - not a valid modifier
+    # Use advisor_cost reduction or technology cost instead
+    advisor_cost = -0.10
+    production_efficiency = 0.05
+    tolerance_own = 1
+}
+
+sacred_grove_blessing = {
+    tolerance_own = 1
+    religious_unity = 0.10
+    stability_cost_modifier = -0.10
+}
+
+pilgrimage_blessing = {
+    prestige = 0.5
+    global_missionary_strength = 0.10  # Changed from "missionary_strength"
+    legitimacy = 0.25
+}
+
+monastery_endowed = {
+    global_institution_spread = 0.10
+    diplomatic_reputation = 1
+    idea_cost = -0.05
+}
+
+celtic_holy_war = {
+    land_morale = 0.10
+    manpower_recovery_speed = 0.15
+    war_exhaustion = -0.02
+}
+
+culdee_advisors = {
+    advisor_cost = -0.10
+    state_maintenance_modifier = -0.10  # Changed from "state_governing_cost"
+    # Removed "monthly_adm" - not a valid modifier
+    # Use administrative_efficiency instead
+    administrative_efficiency = 0.025
+}
+
+# Alternative modifiers for variety
+
+ancestral_wisdom = {
+    idea_cost = -0.10
+    technology_cost = -0.05
+    advisor_pool = 1
+}
+
+celtic_monastery_network = {
+    global_institution_spread = 0.15
+    development_cost = -0.05
+    # Removed "monthly_adm" - use administrative_efficiency instead
+    administrative_efficiency = 0.025
+}
+
+sacred_manuscript_tradition = {
+    prestige = 1.0
+    diplomatic_reputation = 2
+    culture_conversion_cost = -0.15
+}
+
+warriors_of_faith = {
+    discipline = 0.025
+    shock_damage = 0.05  # Changed from "morale_damage"
+    fort_maintenance_modifier = -0.10
+}
+
+druidic_conversion_blessing = {
+    global_missionary_strength = 0.15
+    tolerance_heretic = -1
+    # Removed "monthly_fervor_increase" - use church_power_modifier instead
+    church_power_modifier = 0.25
+}
+
+# Council of Kells Special Modifiers
+
+council_of_kells_traditional = {
+    global_missionary_strength = 0.025
+    tolerance_own = 1
+    # Removed "relation_with_heretics" - not a valid modifier
+    # Removed "global_religious_conversion_resistance" - not a valid modifier
+    # Use tolerance_heretic instead
+    tolerance_heretic = -1
+}
+
+council_of_kells_balanced = {
+    diplomatic_reputation = 1
+    # Removed "global_religious_conversion_resistance" - use missionary strength instead
+    global_missionary_strength = 0.02
+    improve_relation_modifier = 0.10
+}
+
+council_of_kells_adaptive = {
+    # Removed "relation_with_heretics" - use tolerance_heretic instead
+    tolerance_heretic = 1
+    improve_relation_modifier = 0.30
+    diplomatic_upkeep = 1
+}
+
+# Seasonal/Event Modifiers
+# Note: "duration" is not a valid modifier in event_modifiers files
+# Duration should be set in the event itself, not the modifier
+
+samhain_blessing = {
+    monarch_lifespan = 0.25
+    heir_chance = 0.25
+    # Removed "duration" - set this in the event that applies the modifier
+}
+
+beltane_fertility = {
+    global_manpower_modifier = 0.10
+    development_cost = -0.10
+    # Removed "duration" - set this in the event that applies the modifier
+}
+
+lughnasadh_harvest = {
+    production_efficiency = 0.15
+    trade_efficiency = 0.10
+    # Removed "duration" - set this in the event that applies the modifier
+}
+
+imbolc_renewal = {
+    stability_cost_modifier = -0.25
+    war_exhaustion = -0.05  # Changed from "war_exhaustion_reduction"
+    # Removed "duration" - set this in the event that applies the modifier
+}
+ven_center_of_learning = {
+	technology_cost = -0.10
+	idea_cost = -0.05
+	advisor_cost = -0.15
+	global_institution_spread = 0.15
+	prestige = 0.5
+}
+
+pol_venedian_constitutions = {
+	stability_cost_modifier = -0.15
+	reform_progress_growth = 0.25
+	max_absolutism = -5
+	all_estate_loyalty_equilibrium = 0.05
+	administrative_efficiency = 0.025
+	global_unrest = -1
+}
+
+pol_constitutional_order = {
+	stability_cost_modifier = -0.20
+	max_absolutism = -10
+	reform_progress_growth = 0.30
+	administrative_efficiency = 0.05
+	all_estate_loyalty_equilibrium = 0.10
+	diplomatic_reputation = 1
+	yearly_corruption = -0.05
+}
+
+pol_centers_of_learning = {
+	technology_cost = -0.15
+	idea_cost = -0.10
+	advisor_cost = -0.20
+	global_institution_spread = 0.25
+	embracement_cost = -0.15
+	innovativeness_gain = 0.25
+	prestige = 1
+}
+
+pol_army_mobilization = {
+	land_forcelimit_modifier = 0.25
+	manpower_recovery_speed = 0.25
+	regiment_recruit_speed = -0.25
+	army_tradition = 1
+	discipline = 0.025
+	land_maintenance_modifier = 0.15
+}
+royal_decree_cooldown = {
+	# Hidden modifier to prevent event spam
+	# No actual effects, just used as a flag for event conditions
+}
+
+improved_rural_production = {
+	production_efficiency = 0.15
+	global_trade_goods_size_modifier = 0.10
+	development_cost = -0.05
+	global_tax_modifier = 0.10
+}
+
+assyrian_resilience = {
+	land_morale = 0.1
+	defensiveness = 0.15
+	war_exhaustion = -0.02
+}
+
+walls_of_nineveh = {
+	local_defensiveness = 0.33
+	local_garrison_size = 0.25
+	local_development_cost = -0.1
+}
+
+assyrian_diplomacy = {
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.2
+	ae_impact = -0.1
+}
+
+regional_power_status = {
+	prestige = 1
+	power_projection_from_insults = 0.25
+	rival_change_cost = -0.5
+}
+
+master_of_mesopotamia = {
+	governing_capacity = 150
+	core_creation = -0.15
+	state_maintenance_modifier = -0.2
+}
+
+assyrian_merchant_tradition = {
+	global_trade_power = 0.1
+	trade_efficiency = 0.05
+}
+
+assyrian_restoration = {
+	local_unrest = -2
+	local_tax_modifier = 0.15
+	local_build_cost = -0.15
+}
+
+assyrian_ascendancy = {
+	army_tradition = 0.5
+	discipline = 0.05
+	siege_ability = 0.1
+}
+
+twin_rivers_control = {
+	global_ship_trade_power = 0.2
+	naval_forcelimit_modifier = 0.25
+	development_cost = -0.05
+}
+
+cuneiform_archives = {
+	advisor_cost = -0.1
+	same_culture_advisor_cost = -0.1
+}
+
+library_of_ashurbanipal = {
+	technology_cost = -0.05
+	innovativeness_gain = 0.5
+	institution_spread_from_true_faith = 0.2
+}
+
+mesopotamian_scholarship = {
+	idea_cost = -0.1
+	reform_progress_growth = 0.15
+}
+
+anti_trojan_sentiment = {
+	morale_damage_received = -0.1
+	land_attrition = -0.15
+	recover_army_morale_speed = 0.1
+}
+
+assyrian_imperial_ambition = {
+	max_absolutism = 20
+	administrative_efficiency = 0.1
+	yearly_absolutism = 0.5
+}
+
+kurdish_integration = {
+	global_manpower_modifier = 0.15
+	land_attrition = -0.2
+}
+
+mountain_fortresses = {
+	local_defensiveness = 0.25
+	local_hostile_attrition = 1
+}
+
+armenian_loyalty = {
+	local_manpower_modifier = 0.25
+	local_unrest = -1
+}
+
+bulwark_against_persia = {
+	shock_damage_received = -0.1
+	cavalry_power = 0.15
+}
+
+mesopotamian_cooperation = {
+	diplomatic_annexation_cost = -0.15
+	liberty_desire_from_subject_development = -0.1
+}
+
+gulf_trade_access = {
+	naval_maintenance_modifier = -0.15
+	global_ship_cost = -0.1
+	light_ship_power = 0.1
+}
+
+assyrian_expansionism = {
+	province_warscore_cost = -0.1
+	years_of_nationalism = -5
+	core_creation = -0.1
+}
+
+neo_assyrian_empire = {
+	discipline = 0.1
+ 
+	governing_capacity = 250
+	prestige = 2
+	all_power_cost = -0.05
+}
+
+# Opinion Modifiers
+# Location: common/opinion_modifiers/ASY_opinion_modifiers.txt
+
+babylon_restored = {
+	local_development_cost = -0.2
+	local_build_cost = -0.2
+	local_production_efficiency = 0.25
+}
+
+pure_assyrian_focus = {
+	legitimacy = 1
+	republican_tradition = 0.5
+	culture_conversion_cost = -0.25
+}
+
+anti_persian_preparations = {
+	land_morale = 0.1
+	fort_maintenance_modifier = -0.25
+	defensiveness = 0.1
+}
+
+cuneiform_translation_project = {
+	technology_cost = -0.05
+	idea_cost = -0.05
+	prestige = 0.5
+}
+
+secured_trade_routes = {
+	trade_efficiency = 0.1
+	global_trade_power = 0.1
+	caravan_power = 0.2
+}
+
+champion_of_christian_unity = {
+	tolerance_own = 2
+	global_missionary_strength = 0.02
+	papal_influence = 1
+}
+
+neo_assyrian_identity = {
+	discipline = 0.05
+	core_creation = -0.1
+	max_absolutism = 10
+}
+
+assyrian_humility = {
+	improve_relation_modifier = 0.25
+	ae_impact = -0.1
+	stability_cost_modifier = -0.1
+}

@@ -1,18 +1,19 @@
 arthuria_mission1 = {
-    slot = 4                    # Which column the missions will appear in. 1 to 5.
-    generic = no            # Whether missions within this series are considered generic.
-    ai = yes                  # Whether the AI will claim missions in this series.
-    has_country_shield = yes  # Whether to display the country shield on the icon.    
-    
-    # Determines when a series appears for a country. Country scope.
-    potential = {
-			 OR = { tag = A34 AND = { was_tag = A34 tag = A37 } AND = { was_tag = A34 tag = A38 }  }
-    }
-    
-    # The name of the mission, used for localization
-    arthuria_first_slot4 = {
-	icon = atlantropa_celtdeal
-	provinces_to_highlight = {
+	slot = 4                    # Which column the missions will appear in. 1 to 5.
+	generic = no            # Whether missions within this series are considered generic.
+	ai = yes                  # Whether the AI will claim missions in this series.
+	has_country_shield = yes  # Whether to display the country shield on the icon.
+
+	# Determines when a series appears for a country. Country scope.
+	potential = {
+		OR = { tag = A34 AND = { was_tag = A34 tag = A37 } AND = { was_tag = A34 tag = A38 }  }
+	}
+
+	# The name of the mission, used for localization
+	arthuria_first_slot4 = {
+		icon = atlantropa_celtdeal
+		position = 1
+		provinces_to_highlight = {
 			OR = {
 				owned_by = A35
 				province_id = 5047
@@ -22,21 +23,22 @@ arthuria_mission1 = {
 			}
 		}
 		trigger = {
-			army_size = 13		
+			army_size = 13
 		}
-				effect = {
-								country_event = { 
-    id = legionhispanian_events.3
-}
- 
-}
+		effect = {
+			country_event = {
+				id = legionhispanian_events.3
+			}
+
+		}
 		ai_weight = {
 			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
 		}
-}
+	}
 	arthuria_second_slot4 = {
-	icon = atlantropa_framond
+		icon = atlantropa_framond
 		required_missions = { arthuria_first_slot4 }
+		position = 2
 		provinces_to_highlight = {
 			OR = {
 				area = storebugt_area
@@ -49,1166 +51,1151 @@ arthuria_mission1 = {
 		}
 
 		effect = {
-										country_event = { 
-    id = legionhispanian_events.4
-}
+			country_event = {
+				id = legionhispanian_events.4
+			}
 
-}
+		}
 		ai_weight = {
 			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
 		}
-}
+	}
 	arthuria_third_slot4 = {
-	icon = atlantropa_templarthule
+		icon = atlantropa_templarthule
+		position = 3
 		required_missions = { arthuria_second_slot4 }
 		provinces_to_highlight = {
-				region = thule_region
+			region = thule_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		trigger = {
-		AND = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 15 # how many provinces should be owned in the areas below
-				region = thule_region
+			AND = {
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 15 # how many provinces should be owned in the areas below
+					region = thule_region
+				}
+				plymouth_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+				OR = {
+					has_opinion = {
+						who = AT7
+						value = 100
+					} 		owns_core_province = 5111
+				}
 			}
-			plymouth_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			OR = {
-	has_opinion = {
-	who = AT7
-	value = 100
-} 		owns_core_province = 5111
-}
-}
-}
- 		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
 		}
-
-
-		effect = {
-										country_event = { 
-    id = legionhispanian_events.5
-}
-}
-}
-	arthuria_papal = {
-	icon = atlantropa_pope
-		required_missions = { arthuria_third_slot4 }
-		trigger = {
-		PAP = {
-			has_opinion = {
-	who = ROOT
-	value = 150
-}
-		} }		
 		ai_weight = {
 			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
 		}
 
+
 		effect = {
-											country_event = { 
-    id = legionhispanian_events.48
-}
-		 }
-		 }
-		 	arhurian_lyonesse = { 
-		position = 5
-		icon = atlantropa_lyonesse
-		required_missions = { arthuria_fourth_slot3 }
-			
+			country_event = {
+				id = legionhispanian_events.5
+			}
+		}
+	}
+ 
+
+		conquer_ireland_art = {
+			position = 5
+			icon = atlantropa_stalzemsty
+			required_missions = {  }
+			position = 5
+
 			provinces_to_highlight = {
 				OR = {
-			area = kapitallyonesse_area
-			area = mendebelkea_area
-			area = irlahandia_area
-			area = gwlamelot_area
-			area = lyon_isles_area
+					area = munster_area
+					area = connacht_area
+					area = ulster_area
+					area = leinster_area
 				}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		
-		trigger = {
-			kapitallyonesse_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				NOT = { owned_by = ROOT }
 			}
-			mendebelkea_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+
+			trigger = {
+				munster_area = {
+					type = all
+					owned_by = ROOT
+				}
+				connacht_area = {
+					type = all
+					owned_by = ROOT
+				}
+				ulster_area = {
+					type = all
+					owned_by = ROOT
+				}
+				leinster_area = {
+					type = all
+					owned_by = ROOT
+				}
 			}
-			irlahandia_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.26
+				}
+
 			}
-			gwlamelot_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			lyon_isles_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-		}
-		
-		effect = {
-							country_event = { 
-    id = legionhispanian_events.37
-}
-		
-		}
-				ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-	}
-	conquer_ireland_art = {
-		icon = atlantropa_ireland
-		required_missions = { arhurian_lyonesse }
-		position = 6
-		
-		provinces_to_highlight = {
-			OR = {
-				area = munster_area
-				area = connacht_area
-				area = ulster_area
-				area = leinster_area
-			}
-			NOT = { owned_by = ROOT }
-		}
-		
-		trigger = {
-			munster_area = {
-				type = all
-				owned_by = ROOT
-			}
-			connacht_area = {
-				type = all
-				owned_by = ROOT
-			}
-			ulster_area = {
-				type = all
-				owned_by = ROOT
-			}
-			leinster_area = {
-				type = all
-				owned_by = ROOT
-			}
-		}
-		
-		effect = {
-										country_event = { 
-    id = legionhispanian_events.26
-}
-	
-		}
 			ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-	}
-		conquer_ireland_arta = {
-		icon = atlantropa_romanireland
-		required_missions = { conquer_ireland_art }
-		position = 7
-		
-		provinces_to_highlight = {
-			OR = {
-				area = munster_area
-				area = connacht_area
-				area = ulster_area
-				area = leinster_area
-			}
-			NOT = { owned_by = ROOT }
-		}
-		
-		trigger = {
-			munster_area = {
-				type = all
-				religion = ROOT
-			}
-			connacht_area = {
-				type = all
-				religion = ROOT
-			}
-			ulster_area = {
-				type = all
-				religion = ROOT
-			}
-			leinster_area = {
-				type = all
-				religion = ROOT
-			}
-		}
-		
-		
-		effect = {
-										country_event = { 
-    id = legionhispanian_events.27
-}	
-		}
-				ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-	
-	}
-	
-	
-
-
-arthuria_sp_slot3 = {
-	icon = atlantropa_rome
-   required_missions = { legio_roma }
-   position = 11
-
-				trigger = {
-				government_rank = 3
-				is_hegemon = yes
-}
-			
-				effect = {
-																	country_event = { 
-    id = legionhispanian_events.50
-}
-
-				
-				
-			
-
-
-			}
-				ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}		
-}
-  atlantropa_carthago = {
-  	position = 12
-   	icon = atlantropa_carthago
-   required_missions = { italy_conquest }
-
-				trigger = {
-	num_of_owned_provinces_with = {
-	value = 5
-	owned_by = ROOT
-	region = maghreb_region
-}
-			owns_core_province = 341
-			
-		}
-				effect = {
-																					country_event = { 
-    id = legionhispanian_events.64
-}
-				}
-						ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-
-	atlantropa_jerusalemroman_conquest = {
-	icon = jerusalem
-	  	position = 14
-		required_missions = {  syria_conquest }
-		provinces_to_highlight = {
-			OR = { # all the provinces we should own to highlight
-				province_id = 379
-			}
-			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			owns_core_province = 379
-		}
-				effect = {
-			country_event = { 
-    id = legionhispanian_events.61
-}
-			
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-	}
-
-
-}
-
-
-
-arthuria_mission2 = {
-    slot = 2                   # Which column the missions will appear in. 1 to 5.
-    generic = no          # Whether missions within this series are considered generic.
-    ai = yes                  # Whether the AI will claim missions in this series.
-    has_country_shield = yes  # Whether to display the country shield on the icon.    
-    
-    # Determines when a series appears for a country. Country scope.
-    potential = {
-			 OR = { tag = A34 AND = { was_tag = A34 tag = A37 } AND = { was_tag = A34 tag = A38 } }
-    }
-
-
-   arthuria_first_slot2 = {
-   icon = atlantropa_nativethule
-	provinces_to_highlight = {
-			OR = {
-				owned_by = A33
-				province_id = 5057
-			}
-			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-		}
-		trigger = {
-			army_size = 12	
-		}
-				effect = {
-														country_event = { 
-    id = legionhispanian_events.6
-}
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-
-}
-
-
-
-
-	arthuria_second_slot2 = {
-	icon = atlantropa_magaranja
-		required_missions = { arthuria_first_slot2 }
-		provinces_to_highlight = {
-			OR = {
-				area = magaranja_area
-
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			magaranja_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-		}
-
-		effect = {
-																country_event = { 
-    id = legionhispanian_events.7
-}
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-	arthuria_third_slot2 = {
-	icon = atlantropa_focusgreek
-		required_missions = { arthuria_second_slot2 }
-		provinces_to_highlight = {
-			OR = { # all the provinces we should own to highlight
-				province_id = 5056
-				province_id = 5044
-			    province_id = 5043
-				province_id = 5042
-				province_id = 5040			
-			}
-			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			owns_core_province = 5056
-			owns_core_province = 5044
-			owns_core_province = 5043
-			owns_core_province = 5042
-			owns_core_province = 5040
-
-		}
-
-		effect = {
-																		country_event = { 
-    id = legionhispanian_events.8
-}
-
-
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-	arthuria_fourthslot = {
-	icon = atlantropa_meropisfall
-		required_missions = { arthuria_third_slot2 }
-		provinces_to_highlight = {
-			OR = {
-				area = hydroponika_area
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			hydroponika_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-
-		effect = {
-		country_event = { 
-    id = legionhispanian_events.9
-}
-
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-
-arthuria_discover_america_caribbean = {
-		icon = atlantropa_arthurianfleet
-		required_missions = {arthuria_fourth_slot3}
-		position = 5
-		
-		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = miss_discover_eastern_america
-				colonial_eastern_america = { has_discovered = ROOT }
-			}
-			custom_trigger_tooltip = {
-				tooltip = miss_discover_caribbean
-				colonial_the_carribean = { has_discovered = ROOT }
-			}
-		}
-		
-		effect = {
-			add_country_modifier = {
-				name = "the_unknown_frontier"
-				duration = 5475
-			}
-			add_dip_power = 50
-		}
-			ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-	}
-arhurian_colony_in_north_america = { 
-		icon = atlantropa_arthuriancolonist
-		required_missions = { arthuria_discover_america_caribbean }
-		
-		provinces_to_highlight = {
-			colonial_region = colonial_eastern_america
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-			has_discovered = ROOT
-		}
-		
-		trigger = { 
-			custom_trigger_tooltip = {
-				tooltip = miss_colonize_eastern_america
-				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-					value = 1
-					colonial_region = colonial_eastern_america
-					is_city = yes
-				}
-				}
-				}
-						effect = {
-			create_conquistador = {
-				tradition = 80
-			}
-		}
-			ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-			}
-arhurian_colonist_in_north_america = { 
-		icon = atlantropa_novabritannia
-		required_missions = { arhurian_colony_in_north_america  }
-			
-					provinces_to_highlight = {
-			colonial_region = colonial_eastern_america
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-			has_discovered = ROOT
-		}
-		
-		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 15
-				colonial_region = colonial_eastern_america
-				is_city = yes
-			}
-		}
-		
-		effect = {
-			add_country_modifier = {
-				name = "arhuria_thirteen_colonies_mod"
-				duration = -1
-			}
-		}
-				ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-	}
-	
-	arthuria_gp_slot3 = {
-		
-		icon = atlantropa_greatpower
-	   required_missions = { arthuria_throw_the_pyreness }
-	
-					trigger = {
-					government_rank = 3
-					is_great_power = yes
-	}
-				
-					effect = {
-													country_event = { 
-		id = legionhispanian_events.32
-	}
-				}
-						ai_weight = {
 				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
 			}
-					
+		}
+		conquer_ireland_arta = {
+			icon = atlantropa_latinempireburn
+			required_missions = { conquer_ireland_art }
+			position = 6
+
+			provinces_to_highlight = {
+				OR = {
+					area = munster_area
+					area = connacht_area
+					area = ulster_area
+					area = leinster_area
+				}
+				NOT = { owned_by = ROOT }
+			}
+
+			trigger = {
+				munster_area = {
+					type = all
+					religion = ROOT
+				}
+				connacht_area = {
+					type = all
+					religion = ROOT
+				}
+				ulster_area = {
+					type = all
+					religion = ROOT
+				}
+				leinster_area = {
+					type = all
+					religion = ROOT
+				}
+			}
+
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.27
+				}
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+
+		}
+
+		arhurian_lyonesse = {
+			required_missions = {  arthuria_throw_the_pyreness }
+			position = 8
+			icon = atlantropa_lyonesse
+
+
+			provinces_to_highlight = {
+				OR = {
+					area = kapitallyonesse_area
+					area = mendebelkea_area
+					area = irlahandia_area
+					area = gwlamelot_area
+					area = lyon_isles_area
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+
+			trigger = {
+				kapitallyonesse_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				mendebelkea_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				irlahandia_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				gwlamelot_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				lyon_isles_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.37
+				}
+
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+
+
+		arthuria_sp_slot3 = {
+			icon = atlantropa_rome
+			required_missions = { legio_roma }
+			position = 11
+
+			trigger = {
+				government_rank = 3
+				is_hegemon = yes
+			}
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.50
+				}
+
+
+
+
+
+
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+		atlantropa_carthago = {
+			position = 12
+			icon = atlantropa_carthago
+			required_missions = { italy_conquest }
+
+			trigger = {
+				num_of_owned_provinces_with = {
+					value = 5
+					owned_by = ROOT
+					region = maghreb_region
+				}
+				owns_core_province = 341
+
+			}
+			effect = {
+				country_event = {
+					id = legionhispanian_events.64
+				}
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+
+		atlantropa_jerusalemroman_conquest = {
+			icon = jerusalem
+			position = 14
+			required_missions = {  syria_conquest }
+			provinces_to_highlight = {
+				OR = { # all the provinces we should own to highlight
+					province_id = 379
+				}
+				NOT = {	country_or_non_sovereign_subject_holds = ROOT }
+			}
+			trigger = {
+				owns_core_province = 379
+			}
+			effect = {
+				country_event = {
+					id = legionhispanian_events.61
+				}
+
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+
+
 	}
 
 
-	albion_conquest_brittany = {
-		icon = atlantropa_britanny
-		required_missions = { art_reclaim_arm_paris }
-		position = 9
-		
-		provinces_to_highlight = {
-			area = brittany_area
-			NOT = { owned_by = ROOT }
+
+	arthuria_mission2 = {
+		slot = 2                   # Which column the missions will appear in. 1 to 5.
+		generic = no          # Whether missions within this series are considered generic.
+		ai = yes                  # Whether the AI will claim missions in this series.
+		has_country_shield = yes  # Whether to display the country shield on the icon.
+
+		# Determines when a series appears for a country. Country scope.
+		potential = {
+			OR = { tag = A34 AND = { was_tag = A34 tag = A37 } AND = { was_tag = A34 tag = A38 } }
 		}
-		
-		ai_weight = {
-			factor = 2
-			modifier = {
-				factor = 0
-				brittany_area = {
-					owner = {
-						alliance_with = ROOT
+
+
+		arthuria_first_slot2 = {
+			icon = atlantropa_nativethule
+			provinces_to_highlight = {
+				OR = {
+					owned_by = A33
+					province_id = 5057
+				}
+				NOT = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+			trigger = {
+				army_size = 12
+			}
+			effect = {
+				country_event = {
+					id = legionhispanian_events.6
+				}
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+
+		}
+
+
+
+
+		arthuria_second_slot2 = {
+			icon = atlantropa_magaranja
+			required_missions = { arthuria_first_slot2 }
+			provinces_to_highlight = {
+				OR = {
+					area = magaranja_area
+
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			trigger = {
+				magaranja_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			}
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.7
+				}
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+		arthuria_third_slot2 = {
+			icon = atlantropa_focusgreek
+			required_missions = { arthuria_second_slot2 }
+			provinces_to_highlight = {
+				OR = { # all the provinces we should own to highlight
+					province_id = 5056
+					province_id = 5044
+					province_id = 5043
+					province_id = 5042
+					province_id = 5040
+				}
+				NOT = {	country_or_non_sovereign_subject_holds = ROOT }
+			}
+			trigger = {
+				owns_core_province = 5056
+				owns_core_province = 5044
+				owns_core_province = 5043
+				owns_core_province = 5042
+				owns_core_province = 5040
+
+			}
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.8
+				}
+
+
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+		arthuria_fourthslot = {
+			icon = atlantropa_meropisfall
+			required_missions = { arthuria_third_slot2 }
+			provinces_to_highlight = {
+				OR = {
+					area = hydroponika_area
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			trigger = {
+				hydroponika_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+
+			}
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.9
+				}
+
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+
+		arthuria_discover_america_caribbean = {
+			icon = atlantropa_arthurianfleet
+			required_missions = {arthuria_fourth_slot3}
+			position = 5
+
+			trigger = {
+				custom_trigger_tooltip = {
+					tooltip = miss_discover_eastern_america
+					colonial_eastern_america = { has_discovered = ROOT }
+				}
+				custom_trigger_tooltip = {
+					tooltip = miss_discover_caribbean
+					colonial_the_carribean = { has_discovered = ROOT }
+				}
+			}
+
+			effect = {
+				add_country_modifier = {
+					name = "the_unknown_frontier"
+					duration = 5475
+				}
+				add_dip_power = 50
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+		arhurian_colony_in_north_america = {
+			icon = atlantropa_arthuriancolonist
+			required_missions = { arthuria_discover_america_caribbean }
+
+			provinces_to_highlight = {
+				colonial_region = colonial_eastern_america
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				has_discovered = ROOT
+			}
+
+			trigger = {
+				custom_trigger_tooltip = {
+					tooltip = miss_colonize_eastern_america
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						value = 1
+						colonial_region = colonial_eastern_america
+						is_city = yes
 					}
 				}
 			}
-		}
-		
-		trigger = {
-			brittany_area = {
-				type = all
-				owned_by = ROOT
+			effect = {
+				create_conquistador = {
+					tradition = 80
+				}
 			}
-		}
-		
-		effect = {
-					country_event = { 
-    id = legionhispanian_events.36
-}
-		}
 			ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-	}
-	italy_conquest = {
-	position = 11
-	icon = atlantropa_italia
-		required_missions = { legio_roma albion_conquest_brittany}
-		provinces_to_highlight = {
-OR = {
-            region = italy_region
-            region = atlantis_sicily_region
-            }
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			italy_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			atlantis_sicily_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }			
-
-		}
-
-
-		effect = {
-							country_event = { 
-    id = legionhispanian_events.51
-}
-			
-				}
-						ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
 			}
-			
-						balkan_conquest = {
-	position = 12
-	icon = atlantropa_balkans
-		required_missions = { italy_conquest}
-		provinces_to_highlight = {
-			OR = {
-				region = balkan_region
+		}
+		arhurian_colonist_in_north_america = {
+			icon = atlantropa_novabritannia
+			required_missions = { arhurian_colony_in_north_america  }
+
+			provinces_to_highlight = {
+				colonial_region = colonial_eastern_america
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				has_discovered = ROOT
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			balkan_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
 
-		}
-
-		effect = {
-									country_event = { 
-    id = legionhispanian_events.55
-}
-				}
-				ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-			}
-			
-
-			
-	anatolia_conquest = {
-	icon = atlantropa_anatolia
-		required_missions = { balkan_conquest}
-		provinces_to_highlight = {
-			OR = {
-				region = anatolia_region
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			anatolia_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-
-		effect = {
-					country_event = { 
-    id = legionhispanian_events.58
-}
-
-				}
-				ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-			}
-			
-	crimea_conquest = {
-	icon = atlantropa_crimea
-		required_missions = { anatolia_conquest}
-		provinces_to_highlight = {
-			OR = {
-				area = crimea_area
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			crimea_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-
-		effect = {
-							country_event = { 
-    id = legionhispanian_events.59
-}
-
-				}
-				ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-			}
-			
-
-
-	}
-	
-
-
-arthuria_mission3 = {
-    slot = 5  	# Which column the missions will appear in. 1 to 5.
-	
-    generic = no          # Whether missions within this series are considered generic.
-    ai = yes       	# Whether the AI will claim missions in this series.
-    has_country_shield = yes  # Whether to display the country shield on the icon.    
-    
-    # Determines when a series appears for a country. Country scope.
-    potential = {
-			 OR = { tag = A34 AND = { was_tag = A34 tag = A37 } AND = { was_tag = A34 tag = A38 } }
-    }
-	arthuria_first_slot5 = {
-	position = 1
-		icon = atlantropa_catholfocus
-		trigger = {
-		
-num_of_owned_provinces_with = {
-	value = 30
-	religion = ROOT
-	region = thule_region
-}
-}
-		effect = {
-							country_event = { 
-    id = legionhispanian_events.45
-}
-		
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-
-	arthuria_second_slot5 = {
-	position = 2
-	icon = atlantropa_britanisation
-	required_missions = { arthuria_first_slot5 }
-		trigger = {
-		
-num_of_owned_provinces_with = {
-	value = 35
-	culture = ROOT
-	region = thule_region
-}
-}
-		effect = {
-									country_event = { 
-    id = legionhispanian_events.46
-}
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-
-
-	
-		arthuria_third_slot5 = {
-		position = 3
-		icon = atlantropa_sendgard
-		required_missions = { arthuria_second_slot4 }
-		provinces_to_highlight = {
-			OR = { # all the provinces we should own to highlight
-				province_id = 5110
-			}
-			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			owns_core_province = 5110
-		}
-				effect = {
-								country_event = { 
-    id = legionhispanian_events.11
-}					
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-arthuria_sixth_slot3 = {
-   icon = atlantropa_nilfgaard
-   		position = 5
-      required_missions = { arthuria_fourth_slot3 arthuria_third_slot5}
 			trigger = {
-			army_size = A27
-			navy_size = A27
-			num_of_total_ports = A27
-	
-		}
-						effect = {
-							country_event = { 
-    id = legionhispanian_events.15
-}
-	}
-			ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}	
+				num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					value = 15
+					colonial_region = colonial_eastern_america
+					is_city = yes
+				}
+			}
 
-}
-arthuria_seventh_slot3 = {
-   icon = atlantropa_niflheim
-      required_missions = { arthuria_sixth_slot3}
-	     		position = 7
-				trigger = {
+			effect = {
+				add_country_modifier = {
+					name = "arhuria_thirteen_colonies_mod"
+					duration = -1
+				}
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+
+		arthuria_gp_slot3 = {
+
+			icon = atlantropa_greatpower
+			required_missions = { arthuria_throw_the_pyreness }
+
+			trigger = {
+				government_rank = 3
+				is_great_power = yes
+			}
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.32
+				}
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+
+		}
+
+
+		albion_conquest_brittany = {
+			icon = atlantropa_britanny
+			required_missions = { art_reclaim_arm_paris }
+			position = 9
+
+			provinces_to_highlight = {
+				area = brittany_area
+				NOT = { owned_by = ROOT }
+			}
+
+			ai_weight = {
+				factor = 2
+				modifier = {
+					factor = 0
+					brittany_area = {
+						owner = {
+							alliance_with = ROOT
+						}
+					}
+				}
+			}
+
+			trigger = {
+				brittany_area = {
+					type = all
+					owned_by = ROOT
+				}
+			}
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.36
+				}
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+		italy_conquest = {
+			position = 11
+			icon = atlantropa_italia
+			required_missions = { legio_roma }
+			provinces_to_highlight = {
+				OR = {
+					region = italy_region
+					region = atlantis_sicily_region
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			trigger = {
+				italy_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+				atlantis_sicily_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+
+			}
+
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.51
+				}
+
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+
+		balkan_conquest = {
+			position = 12
+			icon = atlantropa_balkans
+			required_missions = { italy_conquest}
+			provinces_to_highlight = {
+				OR = {
+					region = balkan_region
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			trigger = {
+				balkan_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+
+			}
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.55
+				}
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+
+
+
+		anatolia_conquest = {
+			icon = atlantropa_anatolia
+			required_missions = { balkan_conquest}
+			provinces_to_highlight = {
+				OR = {
+					region = anatolia_region
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			trigger = {
+				anatolia_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+
+			}
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.58
+				}
+
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+
+		crimea_conquest = {
+			icon = atlantropa_crimea
+			required_missions = { anatolia_conquest}
+			provinces_to_highlight = {
+				OR = {
+					area = crimea_area
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			trigger = {
+				crimea_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+
+			}
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.59
+				}
+
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+
+
+
+	}
+
+
+
+	arthuria_mission3 = {
+		slot = 5  	# Which column the missions will appear in. 1 to 5.
+
+		generic = no          # Whether missions within this series are considered generic.
+		ai = yes       	# Whether the AI will claim missions in this series.
+		has_country_shield = yes  # Whether to display the country shield on the icon.
+
+		# Determines when a series appears for a country. Country scope.
+		potential = {
+			OR = { tag = A34 AND = { was_tag = A34 tag = A37 } AND = { was_tag = A34 tag = A38 } }
+		}
+		arthuria_first_slot5 = {
+			position = 1
+			icon = atlantropa_catholfocus
+			trigger = {
+
 				num_of_owned_provinces_with = {
-	value = 1
-	owned_by = ROOT
-	region = hyperborea_region
-}
-		}
-		
-				effect = {
-		country_event = { 
-    id = legionhispanian_events.16
-}
-				
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-arthuria_ninenth_slot3 = {
-   icon = atlantropa_sackcity
-      required_missions = { arthuria_seventh_slot3}
-				trigger = {
-			owns_core_province = 5098
+					value = 30
+					religion = ROOT
+					region = thule_region
+				}
+			}
+			effect = {
+				country_event = {
+					id = legionhispanian_events.45
+				}
 
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
 		}
-		
-				effect = {
-						country_event = { 
-    id = legionhispanian_events.18
-}
-					
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-arthuria_eighth_slot3 = {
-   icon = atlantropa_iceland
-      required_missions = { arthuria_ninenth_slot3}
-				trigger = {
-			owns_core_province = 370
-			owns_core_province = 371
 
-		}
-						effect = {
-						country_event = { 
-    id = legionhispanian_events.19
-}
-		
-
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-
-  arthuria_netherland = {
-   	icon = atlantropa_lowland
-   required_missions = { art_vassalize_france }
-	position = 10
-	trigger = {
-	num_of_owned_provinces_with = {
-	value = 16
-	owned_by = ROOT
-	region = low_countries_region
-}
-			owns_core_province = 5795
-			
-		}
-				effect = {
-												country_event = { 
-    id = legionhispanian_events.31
-}
-
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-	arthuria_doggerland = {
-   icon = atlantropa_doggerland
-   		position = 11
-      required_missions = {  arthuria_netherland }
-	  	provinces_to_highlight = {
-			area = doggerland_area
-		}
+		arthuria_second_slot5 = {
+			position = 2
+			icon = atlantropa_britanisation
+			required_missions = { arthuria_first_slot5 }
 			trigger = {
-			owns_core_province = 5020
-			owns_core_province = 5022
-			owns_core_province = 5021
-			owns_core_province = 5026
-			owns_core_province = 5023
-			owns_core_province = 4994
-			owns_core_province = 4990
-			owns_core_province = 5024
-			owns_core_province = 5025
-									
-	
-		}
-		
-				effect = {
-														country_event = { 
-    id = legionhispanian_events.28
-}	
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
 
-}
-
-arthuria_mission4 = {
-    slot = 3                  # Which column the missions will appear in. 1 to 5.
-    generic = no          # Whether missions within this series are considered generic.
-    ai = yes                  # Whether the AI will claim missions in this series.
-    has_country_shield = yes  # Whether to display the country shield on the icon.    
-    
-    # Determines when a series appears for a country. Country scope.
-    potential = {
-			 OR = { tag = A34 AND = { was_tag = A34 tag = A37 } AND = { was_tag = A34 tag = A38 } }
-    }
-
-
-   arthuria_first_slot3 = {
-   icon = atlantropa_vikingdeal
-   	position = 1
-	provinces_to_highlight = {
-			OR = {
-				owned_by = A36
+				num_of_owned_provinces_with = {
+					value = 35
+					culture = ROOT
+					region = thule_region
+				}
 			}
-			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+			effect = {
+				country_event = {
+					id = legionhispanian_events.46
+				}
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
 			}
 		}
-		trigger = {
-			num_of_heavy_ship = 1
-			navy_size = A36		
-			navy_size = 15
-		}
-				effect = {
-				country_event = { 
-    id = legionhispanian_events.2
-}
-
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-   arthuria_second_slot3 = {
-   icon = atlantropa_vinterkeep
-   required_missions = { arthuria_first_slot3 }
-   	position = 2
-
-				trigger = {
-			owns_core_province = 5109
-		}
-				effect = {
-								country_event = { 
-    id = legionhispanian_events.12
-}
-
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-   arthuria_third_slot3 = {
-   	icon = atlantropa_brafil
-   required_missions = { arthuria_second_slot3 }
-   	position = 3
-
-				trigger = {
-			navy_size_percentage = 0.8
-			army_size_percentage = 0.9
-	num_of_owned_provinces_with = {
-	value = 30
-	owned_by = ROOT
-	region = thule_region
-}
-			
-		}
-				effect = {
-							country_event = { 
-    id = legionhispanian_events.13
-}
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-
-arthuria_fourth_slot3 = {
-icon = "atlantropa_preparenavy"
-   required_missions = { arthuria_third_slot2 arthuria_third_slot3 arthuria_third_slot4 }
-   	position = 4
-
-				trigger = {
-			navy_size = 50
-			army_size = 50
 
 
-	num_of_owned_provinces_with = {
-	value = 30
-	owned_by = ROOT
-	region = thule_region
-}
-			
-		}
-				effect = {
-										country_event = { 
-    id = legionhispanian_events.22
-}
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-arthuria_scotland_slot3 = {
-	icon = atlantropa_scotland
-   required_missions = { arthuria_fourth_slot3 }
-   	position = 5
 
-		provinces_to_highlight = {
-			OR = { # all the provinces we should own to highlight
-				province_id = 248
+		arthuria_third_slot5 = {
+			position = 3
+			icon = atlantropa_sendgard
+			required_missions = { arthuria_second_slot4 }
+			provinces_to_highlight = {
+				OR = { # all the provinces we should own to highlight
+					province_id = 5110
+				}
+				NOT = {	country_or_non_sovereign_subject_holds = ROOT }
 			}
-			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			OR = {
-			owns_core_province = 4546
-			OR = {
-				SCO = {	junior_union_with = ROOT	}
-				SCO = {	is_subject_of = ROOT	}
+			trigger = {
+				owns_core_province = 5110
+			}
+			effect = {
+				country_event = {
+					id = legionhispanian_events.11
+				}
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
 			}
 		}
-		OR = {
-			owns_core_province = 248
-								OR = {
+		arthuria_sixth_slot3 = {
+			icon = atlantropa_nilfgaard
+			position = 5
+			required_missions = { arthuria_fourth_slot3 arthuria_third_slot5}
+			trigger = {
+				army_size = A27
+				navy_size = A27
+				num_of_total_ports = A27
+
+			}
+			effect = {
+				country_event = {
+					id = legionhispanian_events.15
+				}
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+
+		}
+		arthuria_seventh_slot3 = {
+			icon = atlantropa_niflheim
+			required_missions = { arthuria_sixth_slot3}
+			position = 7
+			trigger = {
+				num_of_owned_provinces_with = {
+					value = 1
+					owned_by = ROOT
+					region = hyperborea_region
+				}
+			}
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.16
+				}
+
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+		arthuria_ninenth_slot3 = {
+			icon = atlantropa_sackcity
+			required_missions = { arthuria_seventh_slot3}
+			trigger = {
+				owns_core_province = 5098
+
+			}
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.18
+				}
+
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+		arthuria_eighth_slot3 = {
+			icon = atlantropa_iceland
+			required_missions = { arthuria_ninenth_slot3}
+			trigger = {
+				owns_core_province = 370
+				owns_core_province = 371
+
+			}
+			effect = {
+				country_event = {
+					id = legionhispanian_events.19
+				}
+
+
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+
+		arthuria_netherland = {
+			icon = atlantropa_lowland
+			required_missions = { art_vassalize_france }
+			position = 10
+			trigger = {
+				num_of_owned_provinces_with = {
+					value = 16
+					owned_by = ROOT
+					region = low_countries_region
+				}
+				owns_core_province = 5795
+
+			}
+			effect = {
+				country_event = {
+					id = legionhispanian_events.31
+				}
+
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+		arthuria_doggerland = {
+			icon = atlantropa_doggerland
+			position = 11
+			required_missions = {  arthuria_netherland }
+			provinces_to_highlight = {
+				area = doggerland_area
+			}
+			trigger = {
+				owns_core_province = 5020
+				owns_core_province = 5022
+				owns_core_province = 5021
+				owns_core_province = 5026
+				owns_core_province = 5023
+				owns_core_province = 4994
+				owns_core_province = 4990
+				owns_core_province = 5024
+				owns_core_province = 5025
+
+
+			}
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.28
+				}
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+
+	}
+
+	arthuria_mission4 = {
+		slot = 3                  # Which column the missions will appear in. 1 to 5.
+		generic = no          # Whether missions within this series are considered generic.
+		ai = yes                  # Whether the AI will claim missions in this series.
+		has_country_shield = yes  # Whether to display the country shield on the icon.
+
+		# Determines when a series appears for a country. Country scope.
+		potential = {
+			OR = { tag = A34 AND = { was_tag = A34 tag = A37 } AND = { was_tag = A34 tag = A38 } }
+		}
+
+
+		arthuria_first_slot3 = {
+			icon = atlantropa_vikingdeal
+			position = 1
+			provinces_to_highlight = {
+				OR = {
+					owned_by = A36
+				}
+				NOT = {
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+			trigger = {
+				num_of_heavy_ship = 1
+				navy_size = A36
+				navy_size = 15
+			}
+			effect = {
+				country_event = {
+					id = legionhispanian_events.2
+				}
+
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+		arthuria_second_slot3 = {
+			icon = atlantropa_vinterkeep
+			required_missions = { arthuria_first_slot3 }
+			position = 2
+
+			trigger = {
+				owns_core_province = 5109
+			}
+			effect = {
+				country_event = {
+					id = legionhispanian_events.12
+				}
+
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+		arthuria_third_slot3 = {
+			icon = atlantropa_brafil
+			required_missions = { arthuria_second_slot3 }
+			position = 3
+
+			trigger = {
+				navy_size_percentage = 0.8
+				army_size_percentage = 0.9
+				num_of_owned_provinces_with = {
+					value = 30
+					owned_by = ROOT
+					region = thule_region
+				}
+
+			}
+			effect = {
+				country_event = {
+					id = legionhispanian_events.13
+				}
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+
+		arthuria_fourth_slot3 = {
+			icon = "atlantropa_preparenavy"
+			required_missions = { arthuria_third_slot2 arthuria_third_slot3 arthuria_third_slot4 }
+			position = 4
+
+			trigger = {
+				navy_size = 50
+				army_size = 50
+
+
+				num_of_owned_provinces_with = {
+					value = 30
+					owned_by = ROOT
+					region = thule_region
+				}
+
+			}
+			effect = {
+				country_event = {
+					id = legionhispanian_events.22
+				}
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+		arthuria_scotland_slot3 = {
+			icon = atlantropa_scotland
+			required_missions = { arthuria_fourth_slot3 }
+			position = 5
+
+			provinces_to_highlight = {
+				OR = { # all the provinces we should own to highlight
+					province_id = 248
+				}
+				NOT = {	country_or_non_sovereign_subject_holds = ROOT }
+			}
+			trigger = {
+				OR = {
+					owns_core_province = 4546
+					OR = {
+						SCO = {	junior_union_with = ROOT	}
+						SCO = {	is_subject_of = ROOT	}
+					}
+				}
+				OR = {
+					owns_core_province = 248
+					OR = {
 						TU7 = {	junior_union_with = ROOT	}
 						TU7 = {	is_subject_of = ROOT	}
 					}
 
-		}
-		}
-			
-				effect = {
-								country_event = { 
-    id = legionhispanian_events.23
-}
-			
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-
-
-arthuria_fifth_slot3 = {
-	icon = atlantropa_fallofbritain
-   required_missions = { arthuria_scotland_slot3 }
-   	position = 6
-
-				trigger = {
-				AND = {
-	num_of_owned_provinces_with = {
-	value = 30
-	owned_by = ROOT
-	region = british_isles_region
-	}
-	owns_core_province = 4361
-	}
-	
-}
-			
-				effect = {
-								country_event = { 
-    id = legionhispanian_events.25
-}
-			
-}		
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-
-
-
-arthuria_throw_the_pyreness = {
-	icon = atlantropa_alsace
-   required_missions = { arthuria_fifth_slot3 }
-   	position = 6
-
-	   provinces_to_highlight = {
-		OR = {
-	area = guyenne_area
-	area = pyrenees_area
-	area = languedoc_area
-	area = poitou_area
-	area = massif_central_area
-		}
-	NOT = { country_or_non_sovereign_subject_holds = ROOT }
-}
-
-trigger = {
-	massif_central_area = {
-		type = all
-		country_or_non_sovereign_subject_holds = ROOT
-	}
-	poitou_area = {
-		type = all
-		country_or_non_sovereign_subject_holds = ROOT
-	}
-	languedoc_area = {
-		type = all
-		country_or_non_sovereign_subject_holds = ROOT
-	}
-	pyrenees_area = {
-		type = all
-		country_or_non_sovereign_subject_holds = ROOT
-	}
-	guyenne_area = {
-		type = all
-		country_or_non_sovereign_subject_holds = ROOT
-	}
-}
-			
-				effect = {
-					add_prestige = 10
-					france_region = {
-						limit = {
-							NOT = { is_permanent_claim = ROOT }
-							NOT = { is_core = ROOT	}
-						}
-						add_permanent_claim = ROOT	}
-}
-					
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-
-
-	art_reclaim_arm_paris = {
-		icon = atlantropa_rzejpybielka
-		required_missions = { arthuria_throw_the_pyreness }
-		position = 3
-		
-		provinces_to_highlight = {
-			OR = {
-				AND = {
-					owned_by = POL
-					is_capital = yes
-				}
-				AND = {
-					province_id = 183
-					NOT = { owned_by = POL }
-					owner = {
-						NOT = { exists = POL }
-					}
 				}
 			}
-			NOT = { controlled_by = ROOT }
-		}
-		
-		trigger = {
-			if = {
-				limit = {
-					exists = POL
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.23
 				}
-				POL = {
-					capital_scope = {
-						OR = {
-							controlled_by = ROOT
-							AND = {
-								controller = {
-									OR = {
-										is_subject_of = ROOT
-										alliance_with = ROOT
-										overlord = {
-											alliance_with = ROOT
-										}
-									}
-									custom_trigger_tooltip = {
-										tooltip = joint_war_with_root_vs_france
+
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+
+
+		arthuria_fifth_slot3 = {
+			icon = atlantropa_fallofbritain
+			required_missions = { arthuria_scotland_slot3 }
+			position = 6
+
+			trigger = {
+				AND = {
+					num_of_owned_provinces_with = {
+						value = 30
+						owned_by = ROOT
+						region = british_isles_region
+					}
+					owns_core_province = 4361
+				}
+
+			}
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.25
+				}
+
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+
+
+
+		arthuria_throw_the_pyreness = {
+			icon = atlantropa_alsace
+			required_missions = { arthuria_fifth_slot3 }
+			position = 6
+
+			provinces_to_highlight = {
+				OR = {
+					area = guyenne_area
+					area = pyrenees_area
+					area = languedoc_area
+					area = poitou_area
+					area = massif_central_area
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+
+			trigger = {
+				massif_central_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				poitou_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				languedoc_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				pyrenees_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				guyenne_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+			}
+
+			effect = {
+				add_prestige = 10
+				france_region = {
+					limit = {
+						NOT = { is_permanent_claim = ROOT }
+						NOT = { is_core = ROOT	}
+					}
+					add_permanent_claim = ROOT	}
+			}
+
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+
+
+		art_reclaim_arm_paris = {
+			icon = atlantropa_rzejpybielka
+			required_missions = { arthuria_throw_the_pyreness }
+			position = 3
+
+			provinces_to_highlight = {
+				OR = {
+					AND = {
+						owned_by = POL
+						is_capital = yes
+					}
+					AND = {
+						province_id = 183
+						NOT = { owned_by = POL }
+						owner = {
+							NOT = { exists = POL }
+						}
+					}
+				}
+				NOT = { controlled_by = ROOT }
+			}
+
+			trigger = {
+				if = {
+					limit = {
+						exists = POL
+					}
+					POL = {
+						capital_scope = {
+							OR = {
+								controlled_by = ROOT
+								AND = {
+									controller = {
 										OR = {
-											is_in_war = {
-												attackers = root
-												attackers = this
-												defenders = POL
+											is_subject_of = ROOT
+											alliance_with = ROOT
+											overlord = {
+												alliance_with = ROOT
 											}
-											is_in_war = {
-												defenders = root
-												defenders = this
-												attackers = POL
+										}
+										custom_trigger_tooltip = {
+											tooltip = joint_war_with_root_vs_france
+											OR = {
+												is_in_war = {
+													attackers = root
+													attackers = this
+													defenders = POL
+												}
+												is_in_war = {
+													defenders = root
+													defenders = this
+													attackers = POL
+												}
 											}
 										}
 									}
@@ -1216,39 +1203,38 @@ trigger = {
 							}
 						}
 					}
-				}
-				else = {
-					183 = {
-						owned_by = ROOT
+					else = {
+						183 = {
+							owned_by = ROOT
+						}
 					}
 				}
 			}
-		}
-		
-		effect = {
-	set_global_flag = rzymianie_maszeruja_na_polske
-	if = {
-				limit = {
-					POL = {
-						exists = YES
+
+			effect = {
+				set_global_flag = rzymianie_maszeruja_na_polske
+				if = {
+					limit = {
+						POL = {
+							exists = YES
+						}
+					}
+					add_casus_belli = {
+						target = POL
+						type = cb_restore_personal_union
 					}
 				}
-				add_casus_belli = {
-					target = POL
-					type = cb_restore_personal_union
-				}
-			}
-					if = {
-				limit = {
-					PLC = {
-						exists = YES
+				if = {
+					limit = {
+						PLC = {
+							exists = YES
+						}
+					}
+					add_casus_belli = {
+						target = PLC
+						type = cb_restore_personal_union
 					}
 				}
-				add_casus_belli = {
-					target = PLC
-					type = cb_restore_personal_union
-				}
-			}
 				brittany_area = {
 					limit = {
 						NOT = { is_core = ROOT }
@@ -1256,419 +1242,420 @@ trigger = {
 					}
 					add_permanent_claim = ROOT
 				}
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
 		}
-				ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-	}
 		art_vassalize_france = {
-		icon = atlantropa_Franceaisearmy
-		required_missions = { art_reclaim_arm_paris }
-		
-		provinces_to_highlight = {
-			OR = {
-				area = ile_de_france_area
-				province_id = 186
-				province_id = 4390
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		
-		trigger = {
-			OR = {
-				POL = { is_subject_of = ROOT }
-				AND = {
-					ile_de_france_area = {
-						type = all
-						country_or_non_sovereign_subject_holds = ROOT
-					}
-					186 = {
-						country_or_non_sovereign_subject_holds = ROOT
-					}
-					4390 = {
-						country_or_non_sovereign_subject_holds = ROOT
-					}
-				}
-			}
-		}
-		
-		effect = {
-																	country_event = { 
-    id = legionhispanian_events.35
-}
+			icon = atlantropa_Franceaisearmy
+			required_missions = { art_reclaim_arm_paris }
 
-			
-	}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-	
-	}
-		legio_roma = {
-   icon = atlantropa_roma
-      required_missions = { art_vassalize_france }
+			provinces_to_highlight = {
+				OR = {
+					area = ile_de_france_area
+					province_id = 186
+					province_id = 4390
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
 
 			trigger = {
-			owns_core_province = 118							
-		}
-		
-				effect = {
-																					country_event = { 
-    id = legionhispanian_events.40
-}
-			
-
-			}
-				
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-				
-						
-}
-		legio_romanisation = {
-   icon = atlantropa_romanisation
-      required_missions = { legio_roma }
-
-		trigger = {
-		OR = {
-num_of_owned_provinces_with = {
-	value = 40
-	culture = ROOT
-	region = italy_region
-}
-}
-}
-		effect = {
-													country_event = { 
-    id = legionhispanian_events.49
-}
-
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-			}
-				
-		
-
-			atlantropa_germania_conquest = {
-	position = 12
-	icon = atlantropa_germania
-		required_missions = { italy_conquest}
-		provinces_to_highlight = {
-			OR = {
-				region = north_german_region
-				region = south_german_region
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			north_german_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			south_german_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-
-		effect = {
-														country_event = { 
-    id = legionhispanian_events.65
-}
-				}
-						ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-		
-			}
-						syria_conquest = {
-	icon = atlantropa_syria
-		required_missions = { balkan_conquest}
-		provinces_to_highlight = {
-			OR = {
-				region = mashriq_region
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			mashriq_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-
-		effect = {
-		country_event = { 
-    id = legionhispanian_events.60
-}
-		
-				}
-				ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-			}
-			
-									egypt_conquest = {
-	icon = atlantropa_egypt
-		required_missions = { syria_conquest}
-		provinces_to_highlight = {
-			OR = {
-				region = egypt_region
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			egypt_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-
-		effect = {
-				country_event = { 
-    id = legionhispanian_events.63
-}
-
-				
-				}
-				ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-			}
-
-
-		}
-		
-	
-	arthuria_mission5 = {
-    slot = 1                  # Which column the missions will appear in. 1 to 5.
-    generic = no          # Whether missions within this series are considered generic.
-    ai = yes                  # Whether the AI will claim missions in this series.
-    has_country_shield = yes  # Whether to display the country shield on the icon.    
-    
-    # Determines when a series appears for a country. Country scope.
-    potential = {
-			 OR = { tag = A34 AND = { was_tag = A34 tag = A37 } AND = { was_tag = A34 tag = A38 } }
-    }
-arthuria_economy_slot1 = {
-   icon = atlantropa_urbsconditia
-   	position = 1
-		trigger = {
-			5061 = {
-				owned_by = ROOT
-				culture = ROOT
-				religion = ROOT
-				development = 40
-
-} }
-				effect = {
-								country_event = { 
-    id = legionhispanian_events.41
-}
-
-
-						
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-
-   arthuria_first_slot1 = {
-   required_missions = {  arthuria_economy_slot1 }
-   icon = atlantropa_goldmine
-   	position = 1
-		trigger = {
-			5055 = {
-				owned_by = ROOT
-				culture = ROOT
-				religion = ROOT
-				development = 15
-
-}
-						dip_power = 150
+				OR = {
+					POL = { is_subject_of = ROOT }
+					AND = {
+						ile_de_france_area = {
+							type = all
+							country_or_non_sovereign_subject_holds = ROOT
 						}
-				effect = {
-												country_event = { 
-    id = legionhispanian_events.42
-}
-		
-						
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-   arthuria_third_slot1 = {
-   required_missions = { arthuria_first_slot1 }
-   icon = atlantropa_greatpower
-		trigger = {
-	crown_land_share = 65
-	NOT = { current_age = age_of_discovery }
-	NOT = { current_age = medieval_age }	
-
+						186 = {
+							country_or_non_sovereign_subject_holds = ROOT
 						}
-				effect = {
-																country_event = { 
-    id = legionhispanian_events.43
-}
-		}
-				ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-						
-}
-   arthuria_second_slot1 = {
-   required_missions = { arthuria_third_slot1 }
-   icon = atlantropa_devlegio
-		trigger = {
-total_development = 500
-
+						4390 = {
+							country_or_non_sovereign_subject_holds = ROOT
 						}
-				effect = {
-																				country_event = { 
-    id = legionhispanian_events.44
-}
-
-		}
-				ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-						
-}
-	pagomenia_fall = {
-	icon = atlantropa_conquestnorth
-		required_missions = { arthuria_fourthslot }
-		provinces_to_highlight = {
-			OR = {
-				area = southhyberborea_area
+					}
+				}
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			southhyberborea_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
 
-		}
+			effect = {
+				country_event = {
+					id = legionhispanian_events.35
+				}
 
-		effect = {
-				country_event = { 
-    id = legionhispanian_events.10
-}
 
-}
-		ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-	greater_avalon = {
-	icon = atlantropa_greatavalon
-		required_missions = { pagomenia_fall }
-		provinces_to_highlight = {
-			OR = {
-				region = thule_region
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			thule_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-
-		effect = {
-								country_event = { 
-    id = legionhispanian_events.20
-}
-
-		
-
-}
-		ai_weight = {
-			factor = 1000	#Byzantium is basically Ottomans in its conquest behavior
-		}
-}
-arhurian_canada = { 
-
-		icon = atlantropa_canadahiber
-		required_missions = { arhurian_colony_in_north_america greater_avalon }
-			
-					provinces_to_highlight = {
-			colonial_region = colonial_canada
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-			has_discovered = ROOT
-		}
-		
-		trigger = {
-			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
-				value = 15
-				colonial_region = colonial_canada
-				is_city = yes
-			}
-		}
-		
-		effect = {
-			add_country_modifier = {
-				name = "arhuria_canada_colonies_mod"
-				duration = -1
-			}
-		}
-				ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-	}
-
-	
-		iberia_conquest = {
-				position = 10
-	icon = atlantropa_hispania
-		required_missions = { albion_conquest_brittany  }
-		provinces_to_highlight = {
-			OR = {
-				region = iberia_region
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			british_isles_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-
-							effect = {
-								country_event = { 
-    id = legionhispanian_events.54
-}
-		
-			}
-					ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
-		}
-			}
-	
-	
-	
-
-	atlantropa_constantinople_conquest = {
-	icon = atlantropa_constantinople
-		position = 13
-		required_missions = { balkan_conquest}
-		provinces_to_highlight = {
-			OR = { # all the provinces we should own to highlight
-				province_id = 151
-			}
-			NOT = {	country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			owns_core_province = 151
-		}
-				effect = {
-			country_event = { 
-    id = legionhispanian_events.57
-}
-			
-}
 			ai_weight = {
-			factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+
 		}
-	}
+		legio_roma = {
+			icon = atlantropa_roma
+			required_missions = { art_vassalize_france }
+
+			trigger = {
+				owns_core_province = 118
+			}
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.40
+				}
+
+
+			}
+
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+
+
+		}
+		legio_romanisation = {
+			icon = atlantropa_romanisation
+			required_missions = { legio_roma }
+
+			trigger = {
+				OR = {
+					num_of_owned_provinces_with = {
+						value = 40
+						culture = ROOT
+						region = italy_region
+					}
+				}
+			}
+			effect = {
+				country_event = {
+					id = legionhispanian_events.49
+				}
+
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+
+
+
+		atlantropa_germania_conquest = {
+			position = 12
+			icon = atlantropa_germania
+			required_missions = { italy_conquest}
+			provinces_to_highlight = {
+				OR = {
+					region = north_german_region
+					region = south_german_region
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			trigger = {
+				north_german_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+				south_german_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+
+			}
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.65
+				}
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+
+		}
+		syria_conquest = {
+			icon = atlantropa_syria
+			required_missions = { balkan_conquest}
+			provinces_to_highlight = {
+				OR = {
+					region = mashriq_region
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			trigger = {
+				mashriq_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+
+			}
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.60
+				}
+
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+
+		egypt_conquest = {
+			icon = atlantropa_egypt
+			required_missions = { syria_conquest}
+			provinces_to_highlight = {
+				OR = {
+					region = egypt_region
+				}
+				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			}
+			trigger = {
+				egypt_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+
+			}
+
+			effect = {
+				country_event = {
+					id = legionhispanian_events.63
+				}
+
+
+			}
+			ai_weight = {
+				factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+			}
+		}
+
 
 	}
-	
-	
-	
-	
+
+
+	arthuria_mission5 = {
+		slot = 1                  # Which column the missions will appear in. 1 to 5.
+		generic = no          # Whether missions within this series are considered generic.
+		ai = yes                  # Whether the AI will claim missions in this series.
+		has_country_shield = yes  # Whether to display the country shield on the icon.
+
+		# Determines when a series appears for a country. Country scope.
+		potential = {
+			OR = { tag = A34 AND = { was_tag = A34 tag = A37 } AND = { was_tag = A34 tag = A38 } }
+		}
+		arthuria_economy_slot1 = {
+			icon = atlantropa_urbsconditia
+			position = 1
+			trigger = {
+				5061 = {
+					owned_by = ROOT
+					culture = ROOT
+					religion = ROOT
+					development = 40
+
+				} }
+				effect = {
+					country_event = {
+						id = legionhispanian_events.41
+					}
+
+
+
+				}
+				ai_weight = {
+					factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+				}
+			}
+
+			arthuria_first_slot1 = {
+				required_missions = {  arthuria_economy_slot1 }
+				icon = atlantropa_goldmine
+				position = 1
+				trigger = {
+					5055 = {
+						owned_by = ROOT
+						culture = ROOT
+						religion = ROOT
+						development = 15
+
+					}
+					dip_power = 150
+				}
+				effect = {
+					country_event = {
+						id = legionhispanian_events.42
+					}
+
+
+				}
+				ai_weight = {
+					factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+				}
+			}
+			arthuria_third_slot1 = {
+				required_missions = { arthuria_first_slot1 }
+				icon = atlantropa_greatpower
+				trigger = {
+					crown_land_share = 65
+					NOT = { current_age = age_of_discovery }
+					NOT = { current_age = medieval_age }
+
+				}
+				effect = {
+					country_event = {
+						id = legionhispanian_events.43
+					}
+				}
+				ai_weight = {
+					factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+				}
+
+			}
+			arthuria_second_slot1 = {
+				required_missions = { arthuria_third_slot1 }
+				icon = atlantropa_devlegio
+				trigger = {
+					total_development = 500
+
+				}
+				effect = {
+					country_event = {
+						id = legionhispanian_events.44
+					}
+
+				}
+				ai_weight = {
+					factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+				}
+
+			}
+			pagomenia_fall = {
+				icon = atlantropa_conquestnorth
+				required_missions = { arthuria_fourthslot }
+				provinces_to_highlight = {
+					OR = {
+						area = southhyberborea_area
+					}
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+				trigger = {
+					southhyberborea_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+
+				}
+
+				effect = {
+					country_event = {
+						id = legionhispanian_events.10
+					}
+
+				}
+				ai_weight = {
+					factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+				}
+			}
+			greater_avalon = {
+				icon = atlantropa_greatavalon
+				required_missions = { pagomenia_fall }
+				provinces_to_highlight = {
+					OR = {
+						region = thule_region
+					}
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+				trigger = {
+					thule_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+
+				}
+
+				effect = {
+					country_event = {
+						id = legionhispanian_events.20
+					}
+
+
+
+				}
+				ai_weight = {
+					factor = 1000	#Byzantium is basically Ottomans in its conquest behavior
+				}
+			}
+			arhurian_canada = {
+
+				icon = atlantropa_canadahiber
+				required_missions = { arhurian_colony_in_north_america greater_avalon }
+
+				provinces_to_highlight = {
+					colonial_region = colonial_canada
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					has_discovered = ROOT
+				}
+
+				trigger = {
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						value = 15
+						colonial_region = colonial_canada
+						is_city = yes
+					}
+				}
+
+				effect = {
+					add_country_modifier = {
+						name = "arhuria_canada_colonies_mod"
+						duration = -1
+					}
+				}
+				ai_weight = {
+					factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+				}
+			}
+
+
+			iberia_conquest = {
+				position = 10
+				icon = atlantropa_sunsetships
+				required_missions = { art_vassalize_france  }
+				provinces_to_highlight = {
+					OR = {
+						region = iberia_region
+						region = aquitania_region
+					}
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+				trigger = {
+					iberia_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+
+				}
+
+				effect = {
+					country_event = {
+						id = legionhispanian_events.54
+					}
+
+				}
+				ai_weight = {
+					factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+				}
+			}
+
+
+
+
+			atlantropa_constantinople_conquest = {
+				icon = atlantropa_constantinople
+				position = 13
+				required_missions = { balkan_conquest}
+				provinces_to_highlight = {
+					OR = { # all the provinces we should own to highlight
+						province_id = 151
+					}
+					NOT = {	country_or_non_sovereign_subject_holds = ROOT }
+				}
+				trigger = {
+					owns_core_province = 151
+				}
+				effect = {
+					country_event = {
+						id = legionhispanian_events.57
+					}
+
+				}
+				ai_weight = {
+					factor = 500	#Byzantium is basically Ottomans in its conquest behavior
+				}
+			}
+
+		}
+
+
+
+
 
 
 

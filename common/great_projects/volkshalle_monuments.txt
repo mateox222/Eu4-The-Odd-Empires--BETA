@@ -1,0 +1,122 @@
+volkshalle = {
+    start = 4617
+	date = 1444.01.01
+	time = { months = 0 }
+	build_cost = 0
+	can_be_moved = no
+	move_days_per_unit_distance = 10
+	starting_tier = 1
+	type = monument
+	build_trigger = {
+	always = no
+	}
+
+	on_built = {
+	}
+
+	on_destroyed = {
+	}
+
+	can_use_modifiers_trigger = {
+		culture_group = germanic 
+		province_is_or_accepts_culture = yes
+	}
+
+	can_upgrade_trigger = {
+		culture_group = germanic 
+		province_is_or_accepts_culture = yes
+	}
+
+	keep_trigger = {
+	}
+
+	tier_0 = {
+		upgrade_time = {
+			months = 0
+		}
+		cost_to_upgrade = {
+			factor = 0
+		}
+		province_modifiers = {
+		}
+		area_modifier = {
+		}
+		country_modifiers = {
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_1 = {
+		upgrade_time = {
+			months = 120
+		}
+		cost_to_upgrade = {
+			factor = 1000
+		}
+		province_modifiers = {
+						local_unrest = -5
+						
+		}
+		area_modifier = {
+			local_development_cost = -0.55
+			local_build_time = -0.5
+			local_build_cost = -0.5	
+		}
+		country_modifiers = {
+			stability_cost_modifier = -0.1
+			global_missionary_strength = 0.01	
+			discipline = 0.03	
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_2 = {
+		upgrade_time = {
+			months = 240
+		}
+		cost_to_upgrade = {
+			factor = 2500
+		}
+		province_modifiers = {
+						local_unrest = -7
+		}
+		area_modifier = {
+			local_development_cost = -0.65
+		    local_build_time = -0.75
+			local_build_cost = -0.75	
+		}
+		country_modifiers = {
+			stability_cost_modifier = -0.2
+			discipline = 0.05	
+		}
+		on_upgraded = {
+		}
+	}
+
+	tier_3 = {
+		upgrade_time = {
+			months = 480
+		}
+		cost_to_upgrade = {
+			factor = 5000
+		}
+		province_modifiers = {
+								local_unrest = -10
+		}
+		area_modifier = {
+			local_development_cost = -0.75
+		    local_build_time = -0.95
+			local_build_cost = -0.95	
+		}
+		country_modifiers = {
+			stability_cost_modifier = -0.75	
+			legitimacy = 2
+			war_exhaustion = -0.02
+			discipline = 0.10	
+		}
+		on_upgraded = {
+		}
+	}
+}

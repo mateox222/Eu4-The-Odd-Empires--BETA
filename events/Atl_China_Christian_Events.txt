@@ -1,0 +1,36 @@
+
+namespace = chrisitian_china
+
+
+country_event = {
+	id = chrisitian_china.1
+	title = "chrisitian_china.1.t"
+	desc = "chrisitian_china.1.d"
+	picture = matkaboskachinskomurska_eventPicture
+	is_triggered_only = yes
+	option = {
+		change_tag = QNG
+		swap_non_generic_missions = yes	
+		swap_free_idea_group = yes	
+		name = "chrisitian_china.1.a"
+		add_horde_unity = 25
+		add_yearly_manpower = 2
+		add_war_exhaustion = -2
+		add_stability = 2
+south_china_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			north_china_region = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+	}
+
+}

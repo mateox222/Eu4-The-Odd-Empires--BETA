@@ -1,43 +1,69 @@
-		toe_random_color_effect = {
-every_subject_country = {
-			limit = {
-				is_part_of_hre = yes
-				is_colonial_nation = no
-				NOT = {
-					is_subject_of_type = tributary_state
-				}
+toe_random_color_effect = {
+	every_subject_country = {
+		limit = {
+			NOT = {has_country_flag = has_overriden_color_flag }
+			is_colonial_nation = no
+			NOT = {
+				is_subject_of_type = tributary_state
 			}
-			change_country_color = {
-				country = ROOT
-			}
-			set_country_flag = memberofetruria
 		}
-		
+		restore_country_color = yes
+		change_country_color = {
+			country = ROOT
+		}
+		set_country_flag = has_overriden_color_flag
+	}
 		every_subject_country = {
+		limit = {
+			is_subject_of = SP5
+		}
+		restore_country_color = yes
+		change_country_color = {
+color = { 191 50 43}
+		}
+		set_country_flag = has_overriden_color_flag
+	}
+}
+toe_random_dependence_color_effect = {
+			FROM = { NOT = {
+				is_subject_of_type = tributary_state
+			}}
+	set_country_flag = has_overriden_color_flag
+		every_subject_country = {
+		limit = {
+			NOT = {has_country_flag = has_overriden_color_flag }
+			is_colonial_nation = no
+			NOT = {
+				is_subject_of_type = tributary_state
+			}
+		}
+		restore_country_color = yes
+		change_country_color = {
+			country = ROOT
+		}
+		set_country_flag = has_overriden_color_flag
+	}
+	if = {
+		limit = {
+			root = { tag = A4R }}
+			FROM = { change_country_color = { color = { 114 138 212 } }}
+		}
+		if = {
 			limit = {
-				is_subject_of = X55
-			}
-			change_country_color = {
-				country = X55
-			}
-		}
-		}
-			toe_random_dependence_color_effect = {
-				if = {
-					limit = { 
-						root = { tag = A4R }}
-				FROM = { change_country_color = { color = { 114 138 212 } }}
+				ROOT = {
+					OR = {
+						tag = A52
+						tag = BYZ
+					}}
 				}
-				if = {
-					limit = { 
-						ROOT = { 
-							OR = {
-							tag = A52
-							tag = BYZ
-						}}
-						 }
 				FROM = {	change_country_color = { color = { 153 71 124 } } }
+			}
+			if = {
+					limit = {
+						ROOT = { tag = X55 }
+						}
+				FROM = {  change_country_color = { color = { 98 0 102 } } }
 				}
 
 
-        }
+		}

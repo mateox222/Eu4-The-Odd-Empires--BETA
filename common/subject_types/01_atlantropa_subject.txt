@@ -1,10 +1,10 @@
 atlantis_coempire = {
 	copy_from = default
-	
+
 	# Graphics:
-    sprite = GFX_icon_eyalet
+	sprite = GFX_icon_eyalet
 	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_eyalet
-	diplomacy_subject_sprite = GFX_icon_diplomacy_am_eyalet 
+	diplomacy_subject_sprite = GFX_icon_diplomacy_am_eyalet
 
 	# Properties:
 	transfer_trade_power = yes
@@ -97,7 +97,7 @@ italian_colony = {
 	press_sailors = yes
 	return_land = yes
 	knowledge_sharing = yes
-	
+
 	# Graphics:
 	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_commercial_enterprise
 	diplomacy_subject_sprite = GFX_icon_diplomacy_am_commercial_enterprise
@@ -118,11 +118,11 @@ italian_colony = {
 
 atlantis_magyar_eyalet = {
 	copy_from = default
-	
+
 	# Graphics:
-    sprite = GFX_icon_eyalet
+	sprite = GFX_icon_eyalet
 	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_eyalet
-	diplomacy_subject_sprite = GFX_icon_diplomacy_am_eyalet 
+	diplomacy_subject_sprite = GFX_icon_diplomacy_am_eyalet
 
 	# Properties:
 	transfer_trade_power = yes
@@ -190,11 +190,11 @@ atlantis_magyar_eyalet = {
 
 mu_hexamon = {
 	copy_from = default
-	
+
 	# Graphics:
-    sprite = GFX_icon_eyalet
+	sprite = GFX_icon_eyalet
 	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_eyalet
-	diplomacy_subject_sprite = GFX_icon_diplomacy_am_eyalet 
+	diplomacy_subject_sprite = GFX_icon_diplomacy_am_eyalet
 
 	# Properties:
 	transfer_trade_power = yes
@@ -236,9 +236,9 @@ mu_hexamon = {
 
 aztec_tlacotli = {
 	copy_from = default
-	
+
 	# Graphics:
-    sprite = GFX_aztec_vas
+	sprite = GFX_aztec_vas
 	diplomacy_overlord_sprite = GFX_aztec_vas
 	diplomacy_subject_sprite = GFX_aztec_vas
 
@@ -265,7 +265,7 @@ aztec_tlacotli = {
 	forcelimit_to_overlord = 0.2						# Percent of subject FL to use as base for modifiers
 	naval_forcelimit_to_overlord = 0.2					# Percent of subject FL to use as base for modifiers
 	manpower_to_overlord = 0.15							# Percent of subject FL to use as base for modifiers
-	sailors_to_overlord = 0.1		
+	sailors_to_overlord = 0.1
 	military_focus = 1.2					# Percent of subject FL to use as base for modifiers
 
 	relative_power_class = 1
@@ -287,16 +287,16 @@ aztec_tlacotli = {
 
 atlantis_etruria_confederation = {
 	copy_from = default
-	
+
 	# Graphics:
-    sprite = GFX_etruria_conf
+	sprite = GFX_etruria_conf
 	diplomacy_overlord_sprite = GFX_etruria_conf
 	diplomacy_subject_sprite = GFX_etruria_conf
 
 	# Properties:
 	transfer_trade_power = yes
-	joins_overlords_wars = yes
-	can_be_annexed = no
+	joins_overlords_wars = no
+	can_be_annexed = yes
 	has_power_projection = no
 	gets_help_with_rebels = yes
 	forms_trade_companies = no
@@ -313,12 +313,13 @@ atlantis_etruria_confederation = {
 	liberty_desire_development_ratio = 0.1
 	liberty_desire_same_dynasty = -5.0
 	pays_overlord = 0.1
-	forcelimit_to_overlord = 0.25						# Percent of subject FL to use as base for modifiers
-	naval_forcelimit_to_overlord = 0.2					# Percent of subject FL to use as base for modifiers
-	manpower_to_overlord = 0.25							# Percent of subject FL to use as base for modifiers
-	sailors_to_overlord = 0.25							# Percent of subject FL to use as base for modifiers
+	forcelimit_to_overlord = 0.0						# Percent of subject FL to use as base for modifiers
+	naval_forcelimit_to_overlord = 0.0					# Percent of subject FL to use as base for modifiers
+	manpower_to_overlord = 0.0							# Percent of subject FL to use as base for modifiers
+	sailors_to_overlord = 0.0							# Percent of subject FL to use as base for modifiers
 	relative_power_class = 1
 	should_quit_wars_on_activation = yes
+	military_focus = 0
 
 	restoration_cb = cb_disloyal_eyalet
 
@@ -331,4 +332,265 @@ atlantis_etruria_confederation = {
 	seize_territory = no
 	siphon_income = yes
 	conscript_general = yes
+}
+
+atlantis_carpetania_confederation = {
+	copy_from = default
+
+	# Graphics:
+	sprite = GFX_carpetania_conf
+	diplomacy_overlord_sprite = GFX_carpetania_conf
+	diplomacy_subject_sprite = GFX_carpetania_conf
+
+	# Properties:
+	transfer_trade_power = yes
+	joins_overlords_wars = yes
+	can_be_annexed = yes
+	has_power_projection = no
+	gets_help_with_rebels = yes
+	forms_trade_companies = no
+	takes_diplo_slot = no
+	can_be_co_belligerented = yes
+	extend_trading_range = yes
+	opinion_cost_instead_of_favors_cost = no
+	opinion_cost_to_join_offensive_wars = 40
+	opinion_cost_to_join_defensive_wars = 0
+	opinion_on_subject_integration = 0
+	counts_for_borders = yes
+	max_government_rank = 1
+	base_liberty_desire = -75
+	liberty_desire_development_ratio = 0.1
+	liberty_desire_same_dynasty = -5.0
+	pays_overlord = 0.1
+	forcelimit_to_overlord = 0.2						# Percent of subject FL to use as base for modifiers
+	naval_forcelimit_to_overlord = 0.2					# Percent of subject FL to use as base for modifiers
+	manpower_to_overlord = 0.25							# Percent of subject FL to use as base for modifiers
+	sailors_to_overlord = 0.25							# Percent of subject FL to use as base for modifiers
+	relative_power_class = 1
+	should_quit_wars_on_activation = yes
+	military_focus = 0
+
+	restoration_cb = cb_disloyal_eyalet
+
+	# Subject Interactions:
+	support_loyalists = yes
+	seize_court_resources = yes
+	request_extra_levies = yes
+	place_relative_on_throne = yes
+	divert_trade = yes
+	seize_territory = no
+	siphon_income = yes
+	conscript_general = yes
+}
+
+atlantis_chaldean_confederation = {
+	copy_from = default
+
+	# Graphics:
+	sprite = GFX_chaldea_conf
+	diplomacy_overlord_sprite = GFX_chaldea_conf
+	diplomacy_subject_sprite = GFX_chaldea_conf
+
+	# Properties:
+	transfer_trade_power = yes
+	joins_overlords_wars = no
+	can_be_annexed = yes
+	has_power_projection = no
+	gets_help_with_rebels = yes
+	forms_trade_companies = no
+	takes_diplo_slot = no
+	can_be_co_belligerented = yes
+	extend_trading_range = yes
+	opinion_cost_instead_of_favors_cost = no
+	opinion_cost_to_join_offensive_wars = 40
+	opinion_cost_to_join_defensive_wars = 0
+	opinion_on_subject_integration = 0
+	counts_for_borders = yes
+	max_government_rank = 1
+	base_liberty_desire = -75
+	liberty_desire_development_ratio = 0.1
+	liberty_desire_same_dynasty = -5.0
+	pays_overlord = 0.1
+	forcelimit_to_overlord = 0.0						# Percent of subject FL to use as base for modifiers
+	naval_forcelimit_to_overlord = 0.0					# Percent of subject FL to use as base for modifiers
+	manpower_to_overlord = 0.0							# Percent of subject FL to use as base for modifiers
+	sailors_to_overlord = 0.0							# Percent of subject FL to use as base for modifiers
+	relative_power_class = 1
+	should_quit_wars_on_activation = yes
+	military_focus = 0
+
+	restoration_cb = cb_disloyal_eyalet
+
+	# Subject Interactions:
+	support_loyalists = yes
+	seize_court_resources = yes
+	request_extra_levies = yes
+	place_relative_on_throne = yes
+	divert_trade = yes
+	seize_territory = no
+	siphon_income = yes
+	conscript_general = yes
+}
+atlantis_arabian_confederation = {
+	copy_from = default
+
+	# Graphics:
+	sprite = GFX_arabia_conf
+	diplomacy_overlord_sprite = GFX_arabia_conf
+	diplomacy_subject_sprite = GFX_arabia_conf
+
+	# Properties:
+	transfer_trade_power = yes
+	joins_overlords_wars = no
+	can_be_annexed = yes
+	has_power_projection = no
+	gets_help_with_rebels = yes
+	forms_trade_companies = no
+	takes_diplo_slot = no
+	can_be_co_belligerented = yes
+	extend_trading_range = yes
+	opinion_cost_instead_of_favors_cost = no
+	opinion_cost_to_join_offensive_wars = 40
+	opinion_cost_to_join_defensive_wars = 0
+	opinion_on_subject_integration = 0
+	counts_for_borders = yes
+	max_government_rank = 1
+	base_liberty_desire = -75
+	liberty_desire_development_ratio = 0.1
+	liberty_desire_same_dynasty = -5.0
+	pays_overlord = 0.1
+	forcelimit_to_overlord = 0.0						# Percent of subject FL to use as base for modifiers
+	naval_forcelimit_to_overlord = 0.0					# Percent of subject FL to use as base for modifiers
+	manpower_to_overlord = 0.0							# Percent of subject FL to use as base for modifiers
+	sailors_to_overlord = 0.0							# Percent of subject FL to use as base for modifiers
+	relative_power_class = 1
+	should_quit_wars_on_activation = yes
+	military_focus = 0
+
+	restoration_cb = cb_disloyal_eyalet
+
+	# Subject Interactions:
+	support_loyalists = yes
+	seize_court_resources = yes
+	request_extra_levies = yes
+	place_relative_on_throne = yes
+	divert_trade = yes
+	seize_territory = no
+	siphon_income = yes
+	conscript_general = yes
+}
+merchant_italian_colony = {
+	copy_from = default
+	# Properties:
+	transfer_trade_power = yes
+	joins_overlords_wars = no
+	can_be_annexed = yes
+	has_power_projection = no
+	gets_help_with_rebels = yes
+	forms_trade_companies = no
+	takes_diplo_slot = no
+	can_be_co_belligerented = yes
+	extend_trading_range = yes
+	opinion_cost_instead_of_favors_cost = no
+	opinion_cost_to_join_offensive_wars = 40
+	opinion_cost_to_join_defensive_wars = 0
+	opinion_on_subject_integration = 0
+	counts_for_borders = yes
+	max_government_rank = 1
+	base_liberty_desire = -75
+	liberty_desire_development_ratio = 0.1
+	liberty_desire_same_dynasty = -5.0
+	pays_overlord = 0.1
+	forcelimit_to_overlord = 0.1						# Percent of subject FL to use as base for modifiers
+	naval_forcelimit_to_overlord = 0.1					# Percent of subject FL to use as base for modifiers
+	manpower_to_overlord = 0.1							# Percent of subject FL to use as base for modifiers
+	sailors_to_overlord = 0.1							# Percent of subject FL to use as base for modifiers
+	relative_power_class = 1
+	should_quit_wars_on_activation = yes
+	military_focus = 0
+
+	restoration_cb = cb_disloyal_eyalet
+
+	# Subject Interactions:
+	support_loyalists = yes
+	seize_court_resources = yes
+	request_extra_levies = yes
+	place_relative_on_throne = yes
+	divert_trade = yes
+	seize_territory = no
+	siphon_income = yes
+	conscript_general = yes
+	# Graphics:
+	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_commercial_enterprise
+	diplomacy_subject_sprite = GFX_icon_diplomacy_am_commercial_enterprise
+}
+
+autonomous_ai = {
+	copy_from = vassal
+	count = vassal
+	sprite = GFX_arabia_conf
+	diplomacy_overlord_sprite = GFX_icon_diplomacy_lead_appanage
+	diplomacy_subject_sprite = GFX_icon_diplomacy_am_appanage
+
+	# Properties:
+	has_power_projection = no
+	joins_overlords_wars = yes
+	can_be_co_belligerented = yes    #Enemies can force this subject to join its overlord into the defense war. Only used when the subject has the "joins_overlords_wars = no". By default it's "no"
+	takes_diplo_slot = no
+	manpower_to_overlord = 0.9
+	gets_help_with_rebels = yes
+	separatists_become_subjects = yes
+	counts_for_borders = yes
+	allows_taking_land_without_independence = yes
+	forms_trade_companies = no
+	can_concentrate_development = no
+	liberty_desire_development_ratio = 0
+	trust_on_start = 100
+	base_liberty_desire = -1000.0
+	military_focus = 4
+
+	relative_power_class = 1
+	should_quit_wars_on_activation = yes
+
+	can_fight = {
+
+	}
+	can_rival = {
+
+	}
+	can_ally = {
+	}
+	can_marry = {
+	}
+
+	# Subject Interactions
+	seize_court_resources = yes
+	request_extra_levies = yes
+	grant_administrative_autonomy = yes
+	#(disable)
+	scutage = yes
+	grant_core_claim = yes
+	grant_province = yes
+	place_relative_on_throne = no
+	enforce_religion = no
+	enforce_culture = no
+	seize_territory = no
+	#(enable)
+	contribute_to_capital = yes
+	return_land = yes
+	conscript_general = yes
+
+	# Modifiers
+
+	modifier_overlord = clear #We don't want to duplicate the ones inherited from vassal
+	modifier_subject = clear #Ditto
+	modifier_subject = {
+
+	}
+	modifier_subject = {
+
+	}
+	modifier_overlord = {
+
+	}
 }

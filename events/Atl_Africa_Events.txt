@@ -1,0 +1,135 @@
+namespace = atlantropa_africa_event
+
+country_event = {
+	id = atlantropa_africa_event.1
+	title = "atlantropa_africa_event.1.t"
+	desc = "atlantropa_africa_event.1.d"
+	picture = 4thpunicwar_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = X55
+	}
+
+	option = {
+		name = "atlantropa_africa_event.1.a"
+		add_prestige = 5
+		custom_tooltip = africaconquest
+		hidden_effect = {
+			define_heir = {
+				male = yes
+				dynasty = ROOT
+				name = "Uberto"
+				monarch_name = "Uberto III"
+				claim = 100
+				mil = 6
+				age = 27
+			}
+		}
+	}
+
+}
+country_event = {
+	id = atlantropa_africa_event.2 #Fate of the Empire
+	title = "atlantropa_africa_event.2.t"
+	desc = "atlantropa_africa_event.2.d"
+	picture = saccoroma_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = X55
+		OR = {
+			controls = 5747
+			owns = 5747
+		}
+		NOT = {
+			is_year = 6515
+		}
+	}
+
+	option = {
+		add_authority = 30
+		name = "atlantropa_africa_event.2.a"
+		add_prestige = 25
+		set_emperor = yes
+		add_mil_power = 100
+		add_adm_power = 100
+		add_adm_power = 100
+		every_country = { white_peace = x46 }
+		every_country = { white_peace = x55 }
+	}
+	option = {
+		emperor = { add_authority = -30 }
+		every_country = { white_peace = x46 }
+		every_country = { white_peace = x55 }
+		name = "atlantropa_africa_event.2.b"
+		add_prestige = 100
+		add_stability = -1
+		add_dip_power = -200
+		set_government_rank = 3
+		override_country_name = SOUTHERNROME
+		custom_tooltip = africaconquest2
+		hidden_effect = {
+			every_province = {
+				limit = {
+					continent = africa
+					is_part_of_hre = yes
+				}
+				add_permanent_claim = ROOT
+			}
+			every_country = {
+				limit = {
+					continent = africa
+					is_part_of_hre = yes
+				}
+				set_in_empire = no
+			}
+			SIC = { set_in_empire = no }
+			SAR = { set_in_empire = no }
+			every_province = {
+				limit = {
+					continent = africa
+					is_part_of_hre = yes
+				}
+				set_in_empire = no
+			}
+			inherit = SIC
+			inherit = SAR
+		}
+	}
+
+}
+
+country_event = {
+	id =  atlantropa_africa_event.3
+	title = "atlantropa_africa_event.3.t"
+	desc = "atlantropa_africa_event.3.d"
+	picture = easternchurches_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = { #Slavia
+		name = "atlantropa_africa_event.3.a"
+		change_religion = african_imperial_cult
+		341 = { change_religion = african_imperial_cult }
+		add_prestige = 25
+		on_religion_change_effect = yes
+		on_religion_change_estate_privileges_effect = yes
+	}
+}
+country_event = {
+	id =  atlantropa_africa_event.4
+	title = "atlantropa_africa_event.4.t"
+	desc = "atlantropa_africa_event.4.d"
+	picture = 4thpunicwar_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = "atlantropa_africa_event.4.a"
+		override_country_name = HOLYAFRICANEMPIRE
+		add_prestige = 25
+	}
+	option = {
+		name = "atlantropa_africa_event.4.b"
+		override_country_name = HOLYAFRICANEMPIRE2
+		add_prestige = 25
+	}
+}
+

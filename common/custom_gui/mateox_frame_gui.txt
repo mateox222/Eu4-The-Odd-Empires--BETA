@@ -6,23 +6,27 @@
 custom_icon = {
 	name ="mateox_icon_monarch_ramka"
 	tooltip = toe_monarch_localisation
-		potential = { 
-			OR = {
-         has_portrait_trigger_tribal = yes
-		 has_portrait_trigger_european = yes
-		 has_portrait_trigger_asia = yes
-		 has_portrait_trigger_ruleraddition = yes
-		 has_portrait_trigger_kuleradditionmoree = yes
-		 has_portrait_trigger_ruleradditionmore = yes
-		 has_portrait_trigger_toeruler = yes
-		 has_portrait_trigger_dwatoeruler = yes
-		 has_regency = yes
-			}
-	 }
+	potential = {
+		NOT = { has_global_flag	= wylaczoneportretyzejaje}
+		OR = {
+			has_portrait_trigger_tribal = yes
+			has_portrait_trigger_ruleradditionmore = yes
+			has_portrait_trigger_ruleradditionmoree = yes
+			has_portrait_trigger_european = yes
+			has_portrait_trigger_asia = yes
+			has_portrait_trigger_ruleraddition = yes
+			has_portrait_trigger_kuleradditionmoree = yes
+			has_portrait_trigger_kuleradditionmoree = yes
+			has_portrait_trigger_toeruler = yes
+			has_portrait_trigger_dwatoeruler = yes
+			has_portrait_trigger_ztoeruler = yes
+			has_regency = yes
+		}
+	}
 	frame = {
 		number = 1
 		trigger = {
 			always = yes
-		} 
 		}
 	}
+}

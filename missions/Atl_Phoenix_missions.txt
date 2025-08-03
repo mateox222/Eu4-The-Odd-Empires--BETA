@@ -3,10 +3,10 @@ atl_phx1 = {
 	generic = no
 	ai = yes
 	potential = {
-				OR = {
-tag = XA8
-tag = A79
-}
+		OR = {
+			tag = XA8
+			tag = A79
+		}
 	}
 
 	phx_renesans = {
@@ -134,12 +134,12 @@ tag = A79
 			672 = {
 				hidden_effect = {
 					clear_trade_good_modifiers_effect = yes
-		 }
+				}
 				change_trade_goods = cloth
-							 add_permanent_province_modifier = { 
-	name = trade_good_clothes
- 	duration = -1 
- }
+				add_permanent_province_modifier = {
+					name = trade_good_clothes
+					duration = -1
+				}
 			}
 		}
 	}
@@ -196,12 +196,12 @@ tag = A79
 			120 = {
 				hidden_effect = {
 					clear_trade_good_modifiers_effect = yes
-	 }
-	change_trade_goods = glass
-	 add_permanent_province_modifier = { 
-	name = trade_good_marble
- 	duration = -1 
- }
+				}
+				change_trade_goods = glass
+				add_permanent_province_modifier = {
+					name = trade_good_marble
+					duration = -1
+				}
 			}
 			add_government_power = {
 				mechanic_type = phoenix_mechanic
@@ -300,10 +300,10 @@ atl_phx2 = {
 	generic = no
 	ai = yes
 	potential = {
-				OR = {
-tag = XA8
-tag = A79
-}
+		OR = {
+			tag = XA8
+			tag = A79
+		}
 	}
 
 	phx_army_reform = {
@@ -398,9 +398,9 @@ tag = A79
 				change_province_name = "Fenicio"
 
 				add_great_project_tier = {
-    type = kiel_canal
-    tier = 1
-}
+					type = kiel_canal
+					tier = 1
+				}
 			}
 		}
 	}
@@ -423,9 +423,9 @@ tag = A79
 		required_missions = { phx_cultural_revolution }
 		trigger = {
 			custom_trigger_tooltip = {
-	tooltip = CULTURALREVOLUTION1YEAR
-			had_country_flag = { flag = phx_cultural_revolution days = 360 }
-		}
+				tooltip = CULTURALREVOLUTION1YEAR
+				had_country_flag = { flag = phx_cultural_revolution days = 360 }
+			}
 		}
 		effect = {
 			country_event = {
@@ -570,10 +570,10 @@ atl_phx3 = {
 	generic = no
 	ai = yes
 	potential = {
-			OR = {
-tag = XA8
-tag = A79
-}
+		OR = {
+			tag = XA8
+			tag = A79
+		}
 	}
 
 	atl_phx_prepare_country = {
@@ -618,18 +618,18 @@ tag = A79
 			owns_core_province = 124
 			capital = 124
 			124 = {
-			development = 25 }
+				development = 25 }
 		}
 		effect = {
 			124 = {
 				hidden_effect = {
 					clear_trade_good_modifiers_effect = yes
-		 }
+				}
 				change_trade_goods = paper
-							 add_permanent_province_modifier = { 
-	name = trade_good_books
-	 duration = -1 
-	}
+				add_permanent_province_modifier = {
+					name = trade_good_books
+					duration = -1
+				}
 				add_base_tax = 1
 				add_base_production = 1
 				add_base_manpower = 1
@@ -643,8 +643,8 @@ tag = A79
 		required_missions = {  }
 		trigger = {
 			custom_trigger_tooltip = {
-	tooltip = PHOENIXISREAL
-			has_country_flag = PHOENIXISREAL
+				tooltip = PHOENIXISREAL
+				has_country_flag = PHOENIXISREAL
 			}
 		}
 		effect = {
@@ -703,6 +703,12 @@ tag = A79
 		position = 9
 		required_missions = { phx_march_on_rome }
 		trigger = {
+			NOT = {
+				OR = {
+					current_age = age_of_discovery
+					current_age = medieval_age
+				}
+			}
 			has_disaster = phx_cultural_revolution
 		}
 		effect = {
@@ -718,8 +724,8 @@ tag = A79
 		trigger = {
 			custom_trigger_tooltip = {
 				tooltip = CULTURALREVOLUTION3YEAR
-			had_country_flag = { flag = phx_cultural_revolution days = 1080 }
-		}
+				had_country_flag = { flag = phx_cultural_revolution days = 1080 }
+			}
 		}
 		effect = {
 			country_event = {
@@ -731,10 +737,10 @@ tag = A79
 		icon = atlantropa_phoenixempire
 		position = 11
 		required_missions = { phx_deport_greeks phx_destroy_catholics phx_purge_carthagos }
-		trigger = { 
+		trigger = {
 			custom_trigger_tooltip = {
 				tooltip = questionsofpuritans
-			has_country_flag = questionsofpuritans
+				has_country_flag = questionsofpuritans
 			}
 		}
 		effect = {
@@ -851,10 +857,10 @@ atl_phx4 = {
 	generic = no
 	ai = yes
 	potential = {
-				OR = {
-tag = XA8
-tag = A79
-}
+		OR = {
+			tag = XA8
+			tag = A79
+		}
 	}
 
 	phx_national_navy = {
@@ -943,12 +949,12 @@ tag = A79
 			4737 = {
 				hidden_effect = {
 					clear_trade_good_modifiers_effect = yes
-				 }
-			change_trade_goods = atl_tools
-		add_permanent_province_modifier = { 
-	name = trade_good_artillery
- 	duration = -1 
- }
+				}
+				change_trade_goods = atl_tools
+				add_permanent_province_modifier = {
+					name = trade_good_artillery
+					duration = -1
+				}
 			}
 		}
 	}
@@ -958,10 +964,10 @@ tag = A79
 		required_missions = { phx_march_on_rome }
 		trigger = {
 			any_owned_province = {
-			has_great_project = {
-				type = atlantis_colosseum_roma
-				tier = 1
-			}
+				has_great_project = {
+					type = atlantis_colosseum_roma
+					tier = 1
+				}
 			}
 		}
 		effect = {
@@ -974,12 +980,12 @@ tag = A79
 		icon = atlantropa_poison
 		position = 10
 		required_missions = { phx_cultural_revolution }
-		
+
 		trigger = {
 			custom_trigger_tooltip = {
-			tooltip = CULTURALREVOLUTION5YEAR
-			had_country_flag = { flag = phx_cultural_revolution days = 1825 }
-		}
+				tooltip = CULTURALREVOLUTION5YEAR
+				had_country_flag = { flag = phx_cultural_revolution days = 1825 }
+			}
 		}
 		effect = {
 			country_event = {
@@ -1108,10 +1114,10 @@ atl_phx5 = {
 	generic = no
 	ai = yes
 	potential = {
-				OR = {
-tag = XA8
-tag = A79
-}
+		OR = {
+			tag = XA8
+			tag = A79
+		}
 	}
 
 	phx_italian_trade = {
@@ -1383,13 +1389,13 @@ tag = A79
 		position = 18
 		required_missions = { phx_attack_west }
 		provinces_to_highlight = {
-			region = iberia_region
+			region = aquitania_region
 		}
 		trigger = {
 			num_of_owned_provinces_with = {
 				value = 30
 				OR = {
-					region = iberia_region
+					region = aquitania_region
 				}
 			}
 		}

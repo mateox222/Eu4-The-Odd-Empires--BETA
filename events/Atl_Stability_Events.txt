@@ -1,0 +1,2226 @@
+namespace = low_stability
+
+# Crisis of Authority
+country_event = {
+	id = low_stability.1
+	title = low_stability.1.t
+	desc = low_stability.1.d
+	picture = ANGRY_MOB_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { stability = 1 }
+		NOT = { has_country_flag = had_authority_crisis_event }
+		NOT = { legitimacy = 80 }
+		NOT = { republican_tradition = 80 }
+	}
+	
+	immediate = {
+		set_country_flag = had_authority_crisis_event
+	}
+	
+	option = {
+		name = low_stability.1.a
+		ai_chance = { factor = 40 }
+		
+		random_list = {
+			40 = {
+				add_country_modifier = {
+					name = authority_restored
+					duration = 3650
+				}
+				add_legitimacy = 10
+				add_republican_tradition = 5
+			}
+			60 = {
+				add_stability = -1
+				add_country_modifier = {
+					name = weakened_authority
+					duration = 2190
+				}
+				random_owned_province = {
+					spawn_rebels = {
+						type = pretender_rebels
+						size = 1
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = low_stability.1.b
+		ai_chance = { factor = 35 }
+		
+		add_country_modifier = {
+			name = harsh_measures
+			duration = 1825
+		}
+		add_mil_power = -75
+		random_owned_province = {
+			add_unrest = 5
+		}
+	}
+	
+	option = {
+		name = low_stability.1.c
+		ai_chance = { factor = 25 }
+		
+		random_list = {
+			30 = {
+				add_country_modifier = {
+					name = popular_concessions
+					duration = 3650
+				}
+				add_treasury = -200
+			}
+			70 = {
+				add_country_modifier = {
+					name = unrest_spreading
+					duration = 3650
+				}
+				every_owned_province = {
+					limit = {
+						unrest = 2
+					}
+					add_unrest = 2
+				}
+			}
+		}
+	}
+}
+
+# Economic Troubles
+country_event = {
+	id = low_stability.2
+	title = low_stability.2.t
+	desc = low_stability.2.d
+	picture = BANKRUPTCY_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		num_of_loans = 5
+		NOT = { stability = 1 }
+		NOT = { has_country_flag = had_economic_troubles_event }
+		NOT = { treasury = 500 }
+	}
+	
+	immediate = {
+		set_country_flag = had_economic_troubles_event
+	}
+	
+	option = {
+		name = low_stability.2.a
+		ai_chance = { factor = 35 }
+		
+		random_list = {
+			35 = {
+				add_country_modifier = {
+					name = emergency_measures_success
+					duration = 2190
+				}
+				add_treasury = 200
+			}
+			65 = {
+				add_inflation = 2
+				add_country_modifier = {
+					name = economic_crisis
+					duration = 3650
+				}
+				add_loan = {
+					interest_modifier = 1.0
+					duration = 120
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = low_stability.2.b
+		ai_chance = { factor = 40 }
+		
+		add_country_modifier = {
+			name = heavy_taxation
+			duration = 3650
+		}
+		every_owned_province = {
+			add_unrest = 1
+		}
+		add_treasury = 300
+	}
+	
+	option = {
+		name = low_stability.2.c
+		ai_chance = { factor = 25 }
+		
+		random_list = {
+			25 = {
+				add_country_modifier = {
+					name = desperate_gamble_success
+					duration = 5475
+				}
+				add_treasury = 500
+			}
+			75 = {
+				set_bankruptcy = ROOT
+				add_country_modifier = {
+					name = financial_ruin
+					duration = 1825
+				}
+			}
+		}
+	}
+}
+
+# Diplomatic Isolation
+country_event = {
+	id = low_stability.3
+	title = low_stability.3.t
+	desc = low_stability.3.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { stability = 1 }
+		NOT = { has_country_flag = had_diplomatic_isolation_event }
+		NOT = { num_of_allies = 3 }
+	}
+	
+	immediate = {
+		set_country_flag = had_diplomatic_isolation_event
+	}
+	
+	option = {
+		name = low_stability.3.a
+		ai_chance = { factor = 40 }
+		
+		random_list = {
+			30 = {
+				add_country_modifier = {
+					name = diplomatic_breakthrough
+					duration = 3650
+				}
+				random_known_country = {
+					add_opinion = {
+						who = ROOT
+						modifier = desperate_alliance
+						years = 10
+					}
+				}
+			}
+			70 = {
+				add_country_modifier = {
+					name = international_pariah
+					duration = 5475
+				}
+				every_known_country = {
+					add_opinion = {
+						who = ROOT
+						modifier = unstable_regime
+						years = 15
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = low_stability.3.b
+		ai_chance = { factor = 35 }
+		
+		add_country_modifier = {
+			name = isolationist_policy
+			duration = 3650
+		}
+		add_dip_power = -100
+	}
+	
+	option = {
+		name = low_stability.3.c
+		ai_chance = { factor = 25 }
+		
+		add_country_modifier = {
+			name = aggressive_diplomacy
+			duration = 2190
+		}
+ 
+	}
+}
+
+# Religious Unrest
+country_event = {
+	id = low_stability.4
+	title = low_stability.4.t
+	desc = low_stability.4.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { stability = 1 }
+		NOT = { has_country_flag = had_religious_unrest_event }
+		NOT = { religious_unity = 0.8 }
+	}
+	
+	immediate = {
+		set_country_flag = had_religious_unrest_event
+	}
+	
+	option = {
+		name = low_stability.4.a
+		ai_chance = { factor = 40 }
+		
+		random_list = {
+			35 = {
+				add_country_modifier = {
+					name = religious_compromise
+					duration = 3650
+				}
+				add_stability = 1 
+			}
+			65 = {
+				add_country_modifier = {
+					name = religious_persecution
+					duration = 2190
+				}
+				random_owned_province = {
+					limit = {
+						NOT = { religion = ROOT }
+					}
+					spawn_rebels = {
+						type = religious_rebels
+						size = 2
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = low_stability.4.b
+		ai_chance = { factor = 35 }
+		
+		add_country_modifier = {
+			name = forced_conversion
+			duration = 5475
+		}
+		every_owned_province = {
+			limit = {
+				NOT = { religion = ROOT }
+			}
+			add_unrest = 3
+		}
+	}
+	
+	option = {
+		name = low_stability.4.c
+		ai_chance = { factor = 25 }
+		
+		random_list = {
+			40 = {
+				add_country_modifier = {
+					name = religious_tolerance
+					duration = 7300
+				}
+				add_legitimacy = -10
+			}
+			60 = {
+				add_country_modifier = {
+					name = sectarian_violence
+					duration = 1825
+				}
+				random_owned_province = {
+					add_devastation = 25
+				}
+			}
+		}
+	}
+}
+
+# Military Mutiny
+country_event = {
+	id = low_stability.5
+	title = low_stability.5.t
+	desc = low_stability.5.d
+	picture = MILITARY_CAMP_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { stability = 1 }
+		NOT = { has_country_flag = had_military_mutiny_event }
+ 
+	}
+	
+	immediate = {
+		set_country_flag = had_military_mutiny_event
+	}
+	
+	option = {
+		name = low_stability.5.a
+		ai_chance = { factor = 45 }
+		
+		random_list = {
+			30 = {
+				add_country_modifier = {
+					name = military_discipline_restored
+					duration = 3650
+				}
+				add_army_tradition = 5
+			}
+			70 = {
+				add_country_modifier = {
+					name = military_unreliability
+					duration = 3650
+				}
+ 
+			}
+		}
+	}
+	
+	option = {
+		name = low_stability.5.b
+		ai_chance = { factor = 35 }
+		
+		add_country_modifier = {
+			name = mercenary_reliance
+			duration = 2190
+		}
+		add_treasury = -300
+		add_yearly_manpower = -0.5
+	}
+	
+	option = {
+		name = low_stability.5.c
+		ai_chance = { factor = 20 }
+		
+ 
+		add_country_modifier = {
+			name = military_purge
+			duration = 1825
+		}
+	}
+}
+
+# Succession Crisis
+country_event = {
+	id = low_stability.6
+	title = low_stability.6.t
+	desc = low_stability.6.d
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { stability = 1 }
+		NOT = { has_country_flag = had_succession_crisis_event }
+		OR = {
+			NOT = { has_heir = yes }
+			NOT = { heir_claim = 75 }
+		}
+	}
+	
+	immediate = {
+		set_country_flag = had_succession_crisis_event
+	}
+	
+	option = {
+		name = low_stability.6.a
+		ai_chance = { factor = 40 }
+		
+		random_list = {
+			45 = {
+				define_heir = {
+					dynasty = ROOT
+					claim = 95
+				}
+				add_country_modifier = {
+					name = succession_secured
+					duration = 3650
+				}
+			}
+			55 = {
+				add_country_modifier = {
+					name = succession_dispute
+					duration = 5475
+				}
+				random_owned_province = {
+					spawn_rebels = {
+						type = pretender_rebels
+						size = 2
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = low_stability.6.b
+		ai_chance = { factor = 35 }
+		
+		add_country_modifier = {
+			name = regency_council
+			duration = 1825
+		}
+		add_legitimacy = -15
+		add_republican_tradition = -5
+	}
+	
+	option = {
+		name = low_stability.6.c
+		ai_chance = { factor = 25 }
+		
+		random_list = {
+			20 = {
+				change_government = republic
+				add_country_modifier = {
+					name = republican_transition
+					duration = 7300
+				}
+			}
+			80 = {
+				add_country_modifier = {
+					name = dynastic_chaos
+					duration = 3650
+				}
+				add_stability = -2
+			}
+		}
+	}
+}
+namespace = moderate_stability
+
+# Administrative Challenges
+country_event = {
+	id = moderate_stability.1
+	title = moderate_stability.1.t
+	desc = moderate_stability.1.d
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+
+		stability = 1
+NOT = { stability = 3 }
+		NOT = { has_country_flag = had_admin_challenges_event }
+		NOT = { corruption = 3 }
+	}
+	
+	immediate = {
+		set_country_flag = had_admin_challenges_event
+	}
+	
+	option = {
+		name = moderate_stability.1.a
+		ai_chance = { factor = 50 }
+		
+		add_country_modifier = {
+			name = administrative_reforms
+			duration = 5475
+		}
+		add_adm_power = -50
+		add_government_reform = 15
+	}
+	
+	option = {
+		name = moderate_stability.1.b
+		ai_chance = { factor = 30 }
+		
+		random_list = {
+			60 = {
+				add_country_modifier = {
+					name = bureaucratic_efficiency
+					duration = 3650
+				}
+			}
+			40 = {
+				add_corruption = 0.5
+				add_treasury = 100
+			}
+		}
+	}
+	
+	option = {
+		name = moderate_stability.1.c
+		ai_chance = { factor = 20 }
+		
+		add_stability = -1
+		add_country_modifier = {
+			name = radical_restructuring
+			duration = 7300
+		}
+	}
+}
+
+# Economic Uncertainty
+country_event = {
+	id = moderate_stability.2
+	title = moderate_stability.2.t
+	desc = moderate_stability.2.d
+	picture = BANKRUPTCY_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 1
+NOT = { stability = 3 }
+		NOT = { has_country_flag = had_economic_uncertainty_event }
+		NOT = { inflation = 5 }
+	}
+	
+	immediate = {
+		set_country_flag = had_economic_uncertainty_event
+	}
+	
+	option = {
+		name = moderate_stability.2.a
+		ai_chance = { factor = 40 }
+		
+		random_list = {
+			50 = {
+				add_country_modifier = {
+					name = market_recovery
+					duration = 3650
+				}
+				add_treasury = 150
+			}
+			50 = {
+				add_inflation = 1
+				add_country_modifier = {
+					name = economic_instability
+					duration = 1825
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = moderate_stability.2.b
+		ai_chance = { factor = 35 }
+		
+		add_country_modifier = {
+			name = careful_spending
+			duration = 5475
+		}
+		add_treasury = -100
+	}
+	
+	option = {
+		name = moderate_stability.2.c
+		ai_chance = { factor = 25 }
+		
+		random_list = {
+			70 = {
+				add_country_modifier = {
+					name = bold_investment
+					duration = 5475
+				}
+			}
+			30 = {
+				add_treasury = -300
+				add_loan = {
+					interest_modifier = 0.5
+					duration = 60
+				}
+			}
+		}
+	}
+}
+
+# Diplomatic Complications
+country_event = {
+	id = moderate_stability.3
+	title = moderate_stability.3.t
+	desc = moderate_stability.3.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 1
+NOT = { stability = 3 }
+		NOT = { has_country_flag = had_diplomatic_complications_event }
+		any_neighbor_country = {
+			NOT = { alliance_with = ROOT }
+		}
+	}
+	
+	immediate = {
+		set_country_flag = had_diplomatic_complications_event
+	}
+	
+	option = {
+		name = moderate_stability.3.a
+		ai_chance = { factor = 45 }
+		
+		random_list = {
+			60 = {
+				add_country_modifier = {
+					name = diplomatic_success
+					duration = 3650
+				}
+ 
+			}
+			40 = {
+				add_prestige = -10
+	 
+			}
+		}
+	}
+	
+	option = {
+		name = moderate_stability.3.b
+		ai_chance = { factor = 35 }
+		
+		add_country_modifier = {
+			name = cautious_diplomacy
+			duration = 5475
+		}
+		add_dip_power = -25
+	}
+	
+	option = {
+		name = moderate_stability.3.c
+		ai_chance = { factor = 20 }
+		
+ 
+		add_prestige = 15
+	}
+}
+
+# Cultural Tensions
+country_event = {
+	id = moderate_stability.4
+	title = moderate_stability.4.t
+	desc = moderate_stability.4.d
+	picture = RELIGION_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 1
+NOT = { stability = 3 }
+		NOT = { has_country_flag = had_cultural_tensions_event }
+		any_owned_province = {
+			NOT = { culture = ROOT }
+		}
+	}
+	
+	immediate = {
+		set_country_flag = had_cultural_tensions_event
+	}
+	
+	option = {
+		name = moderate_stability.4.a
+		ai_chance = { factor = 40 }
+		
+		random_list = {
+			55 = {
+				add_country_modifier = {
+					name = cultural_integration
+					duration = 5475
+				}
+				add_dip_power = -75
+			}
+			45 = {
+				random_owned_province = {
+					limit = {
+						NOT = { culture = ROOT }
+					}
+					add_unrest = 3
+				}
+				add_country_modifier = {
+					name = cultural_resistance
+					duration = 1825
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = moderate_stability.4.b
+		ai_chance = { factor = 35 }
+		
+		add_country_modifier = {
+			name = tolerance_policy
+			duration = 3650
+		}
+		add_stability = -1
+	}
+	
+	option = {
+		name = moderate_stability.4.c
+		ai_chance = { factor = 25 }
+		
+		random_owned_province = {
+			limit = {
+				NOT = { culture = ROOT }
+			}
+			add_nationalism = 5
+		}
+		add_country_modifier = {
+			name = cultural_suppression
+			duration = 3650
+		}
+	}
+}
+
+# Military Concerns
+country_event = {
+	id = moderate_stability.5
+	title = moderate_stability.5.t
+	desc = moderate_stability.5.d
+	picture = MILITARY_CAMP_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 1
+NOT = { stability = 3 }
+		NOT = { has_country_flag = had_military_concerns_event }
+		army_tradition = 20
+	}
+	
+	immediate = {
+		set_country_flag = had_military_concerns_event
+	}
+	
+	option = {
+		name = moderate_stability.5.a
+		ai_chance = { factor = 40 }
+		
+		random_list = {
+			65 = {
+				add_country_modifier = {
+					name = military_modernization
+					duration = 5475
+				}
+				add_mil_power = -100
+			}
+			35 = {
+				add_army_tradition = -10
+				add_country_modifier = {
+					name = military_discontent
+					duration = 2190
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = moderate_stability.5.b
+		ai_chance = { factor = 35 }
+		
+		add_country_modifier = {
+			name = steady_military
+			duration = 3650
+		}
+		add_treasury = -150
+	}
+	
+	option = {
+		name = moderate_stability.5.c
+		ai_chance = { factor = 25 }
+		
+		add_yearly_manpower = 0.25
+		add_country_modifier = {
+			name = popular_militia
+			duration = 1825
+		}
+	}
+}
+
+# Trade Disputes
+country_event = {
+	id = moderate_stability.6
+	title = moderate_stability.6.t
+	desc = moderate_stability.6.d
+	picture = MERCHANTS_TALKING_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 1
+NOT = { stability = 3 }
+		NOT = { has_country_flag = had_trade_disputes_event }
+		num_of_merchants = 1
+	}
+	
+	immediate = {
+		set_country_flag = had_trade_disputes_event
+	}
+	
+	option = {
+		name = moderate_stability.6.a
+		ai_chance = { factor = 45 }
+		
+		random_list = {
+			60 = {
+				add_country_modifier = {
+					name = trade_agreement
+					duration = 3650
+				}
+				add_mercantilism = 1
+			}
+			40 = {
+				add_country_modifier = {
+					name = trade_disruption
+					duration = 1825
+				}
+				add_treasury = -100
+			}
+		}
+	}
+	
+	option = {
+		name = moderate_stability.6.b
+		ai_chance = { factor = 35 }
+		
+		add_country_modifier = {
+			name = neutral_stance
+			duration = 2190
+		}
+		add_dip_power = -50
+	}
+	
+	option = {
+		name = moderate_stability.6.c
+		ai_chance = { factor = 20 }
+		
+		add_country_modifier = {
+			name = aggressive_trading
+			duration = 3650
+		}
+		random_known_country = {
+			add_opinion = {
+				who = ROOT
+				modifier = trade_rivalry
+				years = 10
+			}
+		}
+	}
+}
+namespace = high_stability
+
+# Golden Age of Culture and Arts
+country_event = {
+	id = high_stability.1
+	title = high_stability.1.t
+	desc = high_stability.1.d
+	picture = Daqin_City_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 3
+		NOT = { has_country_flag = had_golden_age_event }
+		is_at_war = no
+		NOT = { war_exhaustion = 1 }
+	}
+	
+	immediate = {
+		set_country_flag = had_golden_age_event
+	}
+	
+	option = {
+		name = high_stability.1.a
+		ai_chance = { factor = 50 }
+		
+		add_prestige = 25
+		add_country_modifier = {
+			name = golden_age_of_arts
+			duration = 7300
+		}
+		define_advisor = {
+			type = artist
+			skill = 3
+			cost_multiplier = 0.5
+		}
+	}
+	
+	option = {
+		name = high_stability.1.b
+		ai_chance = { factor = 30 }
+		
+		add_dip_power = 100
+		change_innovativeness = 2
+		add_country_modifier = {
+			name = cultural_flowering
+			duration = 5475
+		}
+	}
+	
+	option = {
+		name = high_stability.1.c
+		ai_chance = { factor = 20 }
+		
+		add_treasury = 200
+		add_yearly_manpower = 0.5
+		add_country_modifier = {
+			name = stable_prosperity
+			duration = 3650
+		}
+	}
+}
+
+# Exemplary Administration
+country_event = {
+	id = high_stability.2
+	title = high_stability.2.t
+	desc = high_stability.2.d
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 3
+		NOT = { has_country_flag = had_administration_event }
+		NOT = { corruption = 1 }
+	}
+	
+	immediate = {
+		set_country_flag = had_administration_event
+	}
+	
+	option = {
+		name = high_stability.2.a
+		ai_chance = { factor = 40 }
+		
+		add_country_modifier = {
+			name = exemplary_administration
+			duration = 9125
+		}
+		add_adm_power = 150
+		define_advisor = {
+			type = treasurer
+			skill = 3
+			cost_multiplier = 0.25
+		}
+	}
+	
+	option = {
+		name = high_stability.2.b
+		ai_chance = { factor = 35 }
+		
+		add_country_modifier = {
+			name = efficient_bureaucracy
+			duration = 7300
+		}
+		add_government_reform = 25
+	}
+	
+	option = {
+		name = high_stability.2.c
+		ai_chance = { factor = 25 }
+		
+		add_country_modifier = {
+			name = model_governance
+			duration = 5475
+		}
+		add_legitimacy = 15
+		add_republican_tradition = 5
+	}
+}
+
+# Diplomatic Beacon
+country_event = {
+	id = high_stability.3
+	title = high_stability.3.t
+	desc = high_stability.3.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 3
+		NOT = { has_country_flag = had_diplomatic_beacon_event }
+		num_of_allies = 2
+	}
+	
+	immediate = {
+		set_country_flag = had_diplomatic_beacon_event
+	}
+	
+	option = {
+		name = high_stability.3.a
+		ai_chance = { factor = 45 }
+		
+		add_country_modifier = {
+			name = diplomatic_beacon
+			duration = 7300
+		}
+		random_ally = {
+			add_opinion = {
+				who = ROOT
+				modifier = exemplary_stability
+				years = 20
+			}
+		}
+		add_dip_power = 100
+	}
+	
+	option = {
+		name = high_stability.3.b
+		ai_chance = { factor = 35 }
+		
+		add_country_modifier = {
+			name = peaceful_mediator
+			duration = 5475
+		}
+		add_prestige = 20
+		every_neighbor_country = {
+			limit = {
+				NOT = { war_with = ROOT }
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = stable_neighbor
+				years = 10
+			}
+		}
+	}
+	
+	option = {
+		name = high_stability.3.c
+		ai_chance = { factor = 20 }
+		
+		add_country_modifier = {
+			name = model_state
+			duration = 3650
+		}
+		add_power_projection = {
+			type = 25_permanent_power_projection
+			amount = 15
+		}
+	}
+}
+
+# Technological Innovation
+country_event = {
+	id = high_stability.4
+	title = high_stability.4.t
+	desc = high_stability.4.d
+	picture = INVENTION_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 3
+		NOT = { has_country_flag = had_innovation_event }
+		innovativeness = 20
+	}
+	
+	immediate = {
+		set_country_flag = had_innovation_event
+	}
+	
+	option = {
+		name = high_stability.4.a
+		ai_chance = { factor = 40 }
+		
+		add_country_modifier = {
+			name = innovation_hub
+			duration = 7300
+		}
+		change_innovativeness = 3
+		define_advisor = {
+			type = natural_scientist
+			skill = 3
+			cost_multiplier = 0.5
+		}
+	}
+	
+	option = {
+		name = high_stability.4.b
+		ai_chance = { factor = 35 }
+		
+		add_mil_tech = 1
+		add_country_modifier = {
+			name = military_innovation
+			duration = 5475
+		}
+	}
+	
+	option = {
+		name = high_stability.4.c
+		ai_chance = { factor = 25 }
+		
+		add_adm_tech = 1
+		add_country_modifier = {
+			name = administrative_innovation
+			duration = 5475
+		}
+	}
+}
+
+# Prosperity and Growth
+country_event = {
+	id = high_stability.5
+	title = high_stability.5.t
+	desc = high_stability.5.d
+	picture = TRADE_GOODS_PLANTATION_GOODS_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 3
+		NOT = { has_country_flag = had_prosperity_event }
+		NOT = { inflation = 2 }
+	}
+	
+	immediate = {
+		set_country_flag = had_prosperity_event
+	}
+	
+	option = {
+		name = high_stability.5.a
+		ai_chance = { factor = 40 }
+		
+		add_years_of_income = 1.5
+		add_country_modifier = {
+			name = economic_boom
+			duration = 7300
+		}
+		random_owned_province = {
+			limit = {
+				development = 15
+			}
+			add_prosperity = 50
+		}
+	}
+	
+	option = {
+		name = high_stability.5.b
+		ai_chance = { factor = 35 }
+		
+		add_country_modifier = {
+			name = thriving_trade
+			duration = 5475
+		}
+		add_mercantilism = 3
+		define_advisor = {
+			type = trader
+			skill = 3
+			cost_multiplier = 0.5
+		}
+	}
+	
+	option = {
+		name = high_stability.5.c
+		ai_chance = { factor = 25 }
+		
+		capital_scope = {
+			add_base_tax = 2
+			add_base_production = 1
+		}
+		add_country_modifier = {
+			name = capital_prosperity
+			duration = 9125
+		}
+	}
+}
+
+# Popular Contentment
+country_event = {
+	id = high_stability.6
+	title = high_stability.6.t
+	desc = high_stability.6.d
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 3
+		NOT = { has_country_flag = had_contentment_event }
+		NOT = { average_unrest = 1 }
+	}
+	
+	immediate = {
+		set_country_flag = had_contentment_event
+	}
+	
+	option = {
+		name = high_stability.6.a
+		ai_chance = { factor = 45 }
+		
+		add_country_modifier = {
+			name = popular_contentment
+			duration = 9125
+		}
+		add_yearly_manpower = 1.0
+		add_legitimacy = 10
+		add_republican_tradition = 3
+	}
+	
+	option = {
+		name = high_stability.6.b
+		ai_chance = { factor = 35 }
+		
+		add_country_modifier = {
+			name = loyal_subjects
+			duration = 7300
+		}
+		every_owned_province = {
+			limit = {
+				unrest = 1
+			}
+			add_local_autonomy = -10
+		}
+	}
+	
+	option = {
+		name = high_stability.6.c
+		ai_chance = { factor = 20 }
+		
+		add_country_modifier = {
+			name = harmonious_realm
+			duration = 5475
+		}
+		add_splendor = 100
+		add_prestige = 15
+	}
+}
+
+# Foreign Admiration
+country_event = {
+	id = high_stability.7
+	title = high_stability.7.t
+	desc = high_stability.7.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		stability = 3
+		NOT = { has_country_flag = had_admiration_event }
+		prestige = 50
+	}
+	
+	immediate = {
+		set_country_flag = had_admiration_event
+	}
+	
+	option = {
+		name = high_stability.7.a
+		ai_chance = { factor = 40 }
+		
+		add_country_modifier = {
+			name = foreign_admiration
+			duration = 7300
+		}
+		every_known_country = {
+			limit = {
+				NOT = { war_with = ROOT }
+				NOT = { is_rival = ROOT }
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = admired_stability
+				years = 15
+			}
+		}
+	}
+	
+	option = {
+		name = high_stability.7.b
+		ai_chance = { factor = 35 }
+		
+		add_country_modifier = {
+			name = cultural_influence
+			duration = 5475
+		}
+		add_power_projection = {
+			type = 25_permanent_power_projection
+			amount = 20
+		}
+	}
+	
+	option = {
+		name = high_stability.7.c
+		ai_chance = { factor = 25 }
+		
+		add_country_modifier = {
+			name = exemplary_nation
+			duration = 3650
+		}
+		add_prestige = 30
+		add_splendor = 50
+	}
+}
+ 
+namespace = negative_stability
+
+# STABILITY = -1 EVENTS: "Beginning of the Fall"
+
+# Brewing Rebellion
+country_event = {
+	id = negative_stability.1
+	title = negative_stability.1.t
+	desc = negative_stability.1.d
+	picture = ANGRY_MOB_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+                ai = no
+		NOT = {	stability = 0 }
+		NOT = { has_country_flag = had_brewing_rebellion_event }
+		any_owned_province = {
+			unrest = 3
+		}
+	}
+	
+	immediate = {
+		set_country_flag = had_brewing_rebellion_event
+	}
+	
+	option = {
+		name = negative_stability.1.a
+		ai_chance = { factor = 60 }
+		
+		# Accept the chaos - cheap but very bad
+		add_country_modifier = {
+			name = spreading_unrest
+			duration = 5475
+		}
+		every_owned_province = {
+			limit = { unrest = 2 }
+			add_unrest = 3
+		}
+		random_owned_province = {
+			spawn_rebels = {
+				type = anti_tax_rebels
+				size = 2
+			}
+		}
+	}
+	
+	option = {
+		name = negative_stability.1.b
+		ai_chance = { factor = 35 }
+		
+		# Desperate crackdown - expensive but stops immediate threat
+		add_mil_power = -150
+		add_treasury = -300
+		add_country_modifier = {
+			name = martial_law
+			duration = 3650
+		}
+		every_owned_province = {
+			limit = { unrest = 3 }
+			add_unrest = -2
+		}
+	}
+	
+	option = {
+		name = negative_stability.1.c
+		ai_chance = { factor = 5 }
+		
+		# All-in gamble - very expensive but potentially great
+		add_adm_power = -200
+		add_dip_power = -200
+		add_mil_power = -200
+		add_treasury = -500
+		
+		random_list = {
+			25 = {
+				add_stability = 1
+ 
+				add_country_modifier = {
+					name = crisis_overcome
+					duration = 7300
+				}
+			}
+			75 = {
+				add_stability = -2
+				add_country_modifier = {
+					name = failed_gamble
+					duration = 3650
+				}
+				random_owned_province = {
+					spawn_rebels = {
+						type = pretender_rebels
+						size = 3
+					}
+				}
+			}
+		}
+	}
+}
+
+# Economic Deterioration
+country_event = {
+	id = negative_stability.2
+	title = negative_stability.2.t
+	desc = negative_stability.2.d
+	picture = BANKRUPTCY_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		        ai = no
+NOT = {stability = -1 }
+		NOT = { has_country_flag = had_economic_deterioration_event }
+		NOT = { treasury = 200 }
+	}
+	
+	immediate = {
+		set_country_flag = had_economic_deterioration_event
+	}
+	
+	option = {
+		name = negative_stability.2.a
+		ai_chance = { factor = 55 }
+		
+		# Let economy crash
+		add_inflation = 3
+		add_country_modifier = {
+			name = economic_spiral
+			duration = 3650
+		}
+		add_loan = {
+			interest_modifier = 2.0
+			duration = 120
+		}
+		every_owned_province = {
+			add_devastation = 15
+		}
+	}
+	
+	option = {
+		name = negative_stability.2.b
+		ai_chance = { factor = 40 }
+		
+		# Emergency financial measures
+		add_adm_power = -100
+		add_corruption = 2
+		add_country_modifier = {
+			name = emergency_taxation
+			duration = 5475
+		}
+		every_owned_province = {
+			add_unrest = 2
+		}
+		add_treasury = 400
+	}
+	
+	option = {
+		name = negative_stability.2.c
+		ai_chance = { factor = 5 }
+		
+		# Desperate reform attempt
+		add_adm_power = -300
+		add_treasury = -200
+		add_government_reform = -50
+		
+		random_list = {
+			30 = {
+				add_country_modifier = {
+					name = economic_miracle
+					duration = 9125
+				}
+				add_years_of_income = 2
+			}
+			70 = {
+				set_bankruptcy = ROOT
+				add_country_modifier = {
+					name = reform_failure
+					duration = 1825
+				}
+			}
+		}
+	}
+}
+
+# Administrative Breakdown
+country_event = {
+	id = negative_stability.3
+	title = negative_stability.3.t
+	desc = negative_stability.3.d
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		        ai = no
+NOT = {stability = -1 }
+		NOT = { has_country_flag = had_admin_breakdown_event }
+		corruption = 2
+	}
+	
+	immediate = {
+		set_country_flag = had_admin_breakdown_event
+	}
+	
+	option = {
+		name = negative_stability.3.a
+		ai_chance = { factor = 50 }
+		
+		# Accept corruption and inefficiency
+		add_corruption = 2
+		add_country_modifier = {
+			name = bureaucratic_chaos
+			duration = 7300
+		}
+		kill_advisor = random
+		every_owned_province = {
+			add_local_autonomy = 15
+		}
+	}
+	
+	option = {
+		name = negative_stability.3.b
+		ai_chance = { factor = 45 }
+		
+		# Massive purge and reorganization
+		add_adm_power = -250
+		add_stability = -1
+		add_prestige = -20
+		add_country_modifier = {
+			name = administrative_purge
+			duration = 2190
+		}
+		kill_advisor = random
+		kill_advisor = random
+	}
+	
+	option = {
+		name = negative_stability.3.c
+		ai_chance = { factor = 5 }
+		
+		# Complete administrative revolution
+		add_adm_power = -400
+		add_dip_power = -200
+		add_treasury = -600
+		
+		random_list = {
+			20 = {
+				add_country_modifier = {
+					name = administrative_revolution
+					duration = 9125
+				}
+				add_government_reform = 100
+				add_stability = 1  
+			}
+			80 = {
+				add_country_modifier = {
+					name = state_collapse
+					duration = 5475
+				}
+				every_owned_province = {
+					add_local_autonomy = 25
+				}
+			}
+		}
+	}
+}
+
+# STABILITY = -2 EVENTS: "Deep Crisis"
+
+# Widespread Revolt
+country_event = {
+	id = negative_stability.4
+	title = negative_stability.4.t
+	desc = negative_stability.4.d
+	picture = CIVIL_WAR_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+                ai = no
+	NOT = {	stability = -2 }
+		NOT = { has_country_flag = had_widespread_revolt_event }
+	}
+	
+	immediate = {
+		set_country_flag = had_widespread_revolt_event
+	}
+	
+	option = {
+		name = negative_stability.4.a
+		ai_chance = { factor = 45 }
+		
+		# Let the realm burn
+		add_country_modifier = {
+			name = realm_in_flames
+			duration = 7300
+		}
+		random_owned_province = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 4
+			}
+		}
+		random_owned_province = {
+			spawn_rebels = {
+				type = anti_tax_rebels
+				size = 3
+			}
+		}
+		random_owned_province = {
+			spawn_rebels = {
+				type = religious_rebels
+				size = 2
+			}
+		}
+		every_owned_province = {
+			add_devastation = 25
+		}
+	}
+	
+	option = {
+		name = negative_stability.4.b
+		ai_chance = { factor = 50 }
+		
+		# Massive military response
+		add_mil_power = -300
+		add_treasury = -800
+		add_army_tradition = -20
+		add_country_modifier = {
+			name = iron_fist_rule
+			duration = 5475
+		}
+		disband_all_regiments = yes
+		add_yearly_manpower = -2
+	}
+	
+	option = {
+		name = negative_stability.4.c
+		ai_chance = { factor = 5 }
+		
+		# Revolutionary transformation
+		add_adm_power = -500
+		add_dip_power = -300
+		add_mil_power = -400
+		add_treasury = -1000
+		
+		random_list = {
+			15 = {
+				change_government = republic
+				add_country_modifier = {
+					name = revolutionary_rebirth
+					duration = 9125
+				}
+				add_stability = 3
+				add_revolutionary_zeal = 50
+			}
+			85 = {
+				add_country_modifier = {
+					name = revolution_failed
+					duration = 3650
+				}
+				add_stability = -1
+				random_owned_province = {
+					spawn_rebels = {
+						type = pretender_rebels
+						size = 5
+						win = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+# Economic Collapse
+country_event = {
+	id = negative_stability.5
+	title = negative_stability.5.t
+	desc = negative_stability.5.d
+	picture = FAMINE_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+                ai = no
+		NOT = { stability = -2 }
+		NOT = { has_country_flag = had_economic_collapse_event }
+        num_of_loans = 15
+
+	}
+	
+	immediate = {
+		set_country_flag = had_economic_collapse_event
+	}
+	
+	option = {
+		name = negative_stability.5.a
+		ai_chance = { factor = 40 }
+		
+		# Complete economic meltdown
+		set_bankruptcy = ROOT
+		add_inflation = 5
+		add_country_modifier = {
+			name = total_economic_collapse
+			duration = 365
+		}
+		random_owned_province = {
+			add_devastation = 40
+			add_base_tax = -1
+			add_base_production = -1
+		}
+	}
+	
+	option = {
+		name = negative_stability.5.b
+		ai_chance = { factor = 55 }
+		
+		# Sell everything to survive
+		add_treasury = -500
+		add_prestige = -50
+		add_stability = -1
+ 
+		add_country_modifier = {
+			name = fire_sale_economy
+			duration = 3650
+		}
+		capital_scope = {
+			add_base_tax = -2
+			add_base_production = -2
+		}
+	}
+	
+	option = {
+		name = negative_stability.5.c
+		ai_chance = { factor = 5 }
+		
+		# Radical economic restructuring
+		add_adm_power = -600
+		add_treasury = -1500
+		add_inflation = -10
+		
+		random_list = {
+			10 = {
+				add_country_modifier = {
+					name = phoenix_economy
+					duration = 18250
+				}
+				every_owned_province = {
+					add_base_tax = 1
+					add_base_production = 1
+				}
+				add_years_of_income = 5
+			}
+			90 = {
+				add_country_modifier = {
+					name = economic_experiment_failed
+					duration = 7300
+				}
+				every_owned_province = {
+					add_base_tax = -2
+					add_base_production = -2
+				}
+				set_bankruptcy = ROOT
+			}
+		}
+	}
+}
+
+# Foreign Intervention
+country_event = {
+	id = negative_stability.6
+	title = negative_stability.6.t
+	desc = negative_stability.6.d
+	picture = SIEGE_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+                ai = no
+	NOT = {	stability = -2 }
+        years_of_manpower = 0
+		NOT = { has_country_flag = had_foreign_intervention_event }
+		any_neighbor_country = {
+			army_size = ROOT
+		}
+	}
+	
+	immediate = {
+		set_country_flag = had_foreign_intervention_event
+	}
+	
+	option = {
+		name = negative_stability.6.a
+		ai_chance = { factor = 35 }
+		
+		# Submit to foreign domination
+		random_neighbor_country = {
+			save_event_target_as = intervening_power
+		}
+		event_target:intervening_power = {
+			vassalize = ROOT
+		}
+		add_country_modifier = {
+			name = foreign_puppet
+			duration = 7300
+		}
+		add_liberty_desire = 50
+	}
+	
+	option = {
+		name = negative_stability.6.b
+		ai_chance = { factor = 60 }
+		
+		# Desperate resistance
+		random_neighbor_country = {
+			save_event_target_as = intervening_power
+			declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_conquest
+			}
+		}
+		add_country_modifier = {
+			name = desperate_resistance
+			duration = 1825
+		}
+		add_war_exhaustion = 5
+		disband_all_regiments = yes
+		add_yearly_manpower = -1
+	}
+	
+	option = {
+		name = negative_stability.6.c
+		ai_chance = { factor = 5 }
+		
+		# Heroic last stand
+		add_mil_power = -400
+		add_treasury = -1000
+		add_prestige = -30
+		
+		random_list = {
+			20 = {
+				add_country_modifier = {
+					name = heroic_victory
+					duration = 9125
+				}
+				add_army_tradition = 50
+				add_prestige = 100
+				random_neighbor_country = {
+					add_opinion = {
+						who = ROOT
+						modifier = defeated_intervention
+						years = 50
+					}
+				}
+			}
+			80 = {
+				add_country_modifier = {
+					name = glorious_defeat
+					duration = 3650
+				}
+				random_neighbor_country = {
+					inherit = ROOT
+				}
+			}
+		}
+	}
+}
+
+#  EVENTS: "State Collapse"
+
+# Total Anarchy
+country_event = {
+	id = negative_stability.7
+	title = negative_stability.7.t
+	desc = negative_stability.7.d
+	picture = REVOLUTION_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+                ai = no
+	NOT = {	years_of_manpower = 0 }
+    has_any_disaster = yes
+
+
+NOT = {stability = -2 }
+		NOT = { has_country_flag = had_total_anarchy_event }
+	}
+	
+	immediate = {
+		set_country_flag = had_total_anarchy_event
+	}
+	
+	option = {
+		name = negative_stability.7.a
+		ai_chance = { factor = 30 }
+		
+		# Complete state dissolution
+		add_country_modifier = {
+			name = anarchic_dissolution
+			duration = 18250
+		}
+		release_all_possible_countries = yes
+		every_owned_province = {
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 2
+				win = yes
+			}
+		}
+		disband_all_units = yes
+		set_bankruptcy = ROOT
+	}
+	
+	option = {
+		name = negative_stability.7.b
+		ai_chance = { factor = 65 }
+		
+		# Warlord takeover
+		add_mil_power = -500
+		kill_ruler = yes
+		add_country_modifier = {
+			name = warlord_state
+			duration = 9125
+		}
+		change_government = despotic_monarchy
+		add_legitimacy = -50
+		every_owned_province = {
+			add_local_autonomy = 50
+		}
+	}
+	
+	option = {
+		name = negative_stability.7.c
+		ai_chance = { factor = 5 }
+		
+		# Phoenix from the ashes
+		add_adm_power = -1000
+		add_dip_power = -500
+		add_mil_power = -800
+		add_treasury = -2000
+		add_prestige = -100
+		
+		random_list = {
+			5 = {
+				add_country_modifier = {
+					name = phoenix_state
+					duration = 18250
+				}
+				add_stability = 6
+				every_owned_province = {
+					add_base_tax = 2
+					add_base_production = 2
+					add_base_manpower = 1
+				}
+				add_prestige = 200
+				add_legitimacy = 100
+			}
+			95 = {
+				add_country_modifier = {
+					name = final_collapse
+					duration = 9125
+				}
+				remove_country = yes
+			}
+		}
+	}
+}
+
+# Wrath of God (Natural Disasters + Crisis)
+country_event = {
+	id = negative_stability.8
+	title = negative_stability.8.t
+	desc = negative_stability.8.d
+	picture = COMET_SIGHTED_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+                ai = no
+			NOT = {	years_of_manpower = 0 }
+    has_any_disaster = yes
+NOT = {stability = -2 }
+		NOT = { has_country_flag = had_wrath_of_god_event }
+	}
+	
+	immediate = {
+		set_country_flag = had_wrath_of_god_event
+	}
+	
+	option = {
+		name = negative_stability.8.a
+		ai_chance = { factor = 40 }
+		
+		# Accept divine punishment
+		add_country_modifier = {
+			name = divine_wrath
+			duration = 7300
+		}
+		every_owned_province = {
+			add_devastation = 50
+			random_list = {
+				33 = { add_base_tax = -2 }
+				33 = { add_base_production = -2 }
+				34 = { add_base_manpower = -2 }
+			}
+		}
+		add_yearly_manpower = -3
+		add_inflation = 10
+	}
+	
+	option = {
+		name = negative_stability.8.b
+		ai_chance = { factor = 55 }
+		
+		# Rally the faithful
+		add_dip_power = -400
+		add_adm_power = -300
+		add_country_modifier = {
+			name = rally_against_disaster
+			duration = 5475
+		}
+		every_owned_province = {
+			add_devastation = 25
+		}
+		add_papal_influence = 100
+		add_church_power = 100
+	}
+	
+	option = {
+		name = negative_stability.8.c
+		ai_chance = { factor = 5 }
+		
+		# Defy the heavens themselves
+		add_adm_power = -800
+		add_dip_power = -600
+		add_mil_power = -400
+		add_treasury = -1500
+		
+		random_list = {
+			10 = {
+				add_country_modifier = {
+					name = defied_fate
+					duration = 18250
+				}
+				add_stability = 3
+				every_owned_province = {
+					add_devastation = -100
+					add_prosperity = 100
+				}
+				add_prestige = 150
+			}
+			90 = {
+				add_country_modifier = {
+					name = cursed_realm
+					duration = 18250
+				}
+				every_owned_province = {
+					add_devastation = 75
+					spawn_rebels = {
+						type = religious_rebels
+						size = 3
+					}
+				}
+			}
+		}
+	}
+}
+
+# The Final Hour
+country_event = {
+	id = negative_stability.9
+	title = negative_stability.9.t
+	desc = negative_stability.9.d
+	picture = DEATH_OF_HEIR_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+                ai = no
+			NOT = {	years_of_manpower = 0 }
+    has_any_disaster = yes
+NOT = {stability = -2 }
+		NOT = { has_country_flag = had_final_hour_event }
+		NOT = { legitimacy = 10 }
+		NOT = { republican_tradition = 10 }
+	}
+	
+	immediate = {
+		set_country_flag = had_final_hour_event
+	}
+	
+	option = {
+		name = negative_stability.9.a
+		ai_chance = { factor = 25 }
+		
+		# Embrace the end
+		add_country_modifier = {
+			name = death_throes
+			duration = 1825
+		}
+		every_owned_province = {
+			add_unrest = 20
+		}
+		add_war_exhaustion = 20
+		disband_all_units = yes
+		kill_advisor = random
+		kill_advisor = random
+		kill_advisor = random
+	}
+	
+	option = {
+		name = negative_stability.9.b
+		ai_chance = { factor = 70 }
+		
+		# Scorched earth survival
+		add_mil_power = -600
+		add_treasury = -1000
+		add_country_modifier = {
+			name = scorched_earth_survival
+			duration = 3650
+		}
+		every_owned_province = {
+			add_devastation = 60
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -1
+		}
+		capital_scope = {
+			add_devastation = -50
+		}
+	}
+	
+	option = {
+		name = negative_stability.9.c
+		ai_chance = { factor = 5 }
+		
+		# Legendary last stand
+		add_adm_power = -1500
+		add_dip_power = -1000
+		add_mil_power = -1200
+		add_treasury = -3000
+		add_prestige = -200
+		
+		random_list = {
+			2 = {
+				add_country_modifier = {
+					name = legendary_recovery
+					duration = 36500  # 100 years
+				}
+				add_stability = 6
+				add_legitimacy = 100
+				add_republican_tradition = 100
+				add_prestige = 200
+				add_army_tradition = 100
+				add_navy_tradition = 100
+				every_owned_province = {
+					add_base_tax = 3
+					add_base_production = 3
+					add_base_manpower = 2
+				}
+			}
+			98 = {
+				add_country_modifier = {
+					name = epic_failure
+					duration = 1825
+				}
+
+			}
+		}
+	}
+}

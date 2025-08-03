@@ -1648,7 +1648,7 @@ emp_burgundy_5 = {
 		trigger = {
 			OR = {
 				AND = {
-					religion = catholic
+					religion = united_christianity
 					papal_influence = 50
 					PAP = {
 						has_opinion = {
@@ -1658,7 +1658,7 @@ emp_burgundy_5 = {
 					}
 				}
 				AND = {
-					NOT = { religion = catholic }
+					NOT = { religion = united_christianity }
 					OR = {
 						NOT = { exists = PAP }
 						PAP = {
@@ -1689,7 +1689,7 @@ emp_burgundy_5 = {
 		}
 		effect = {
 			if = {
-				limit = { religion = catholic }
+				limit = { religion = united_christianity }
 				add_country_modifier = {
 					name = bur_special_place_in_popes_heart
 					duration = 7300

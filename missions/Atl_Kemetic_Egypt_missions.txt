@@ -1,0 +1,763 @@
+A2R_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = A2R } 
+
+	A2R_cleanse_cyrenaica = {
+		icon = mission_arabian_fort
+		position = 2
+		required_missions = { A2R_prepare_revolt } 
+		provinces_to_highlight = {
+			area = cyrenaica_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			cyrenaica_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+
+		effect = {
+			add_army_tradition = 10
+			cyrenaica_area = {
+				add_province_modifier = {
+					name = "A2R_liberated_lands"
+					duration = 3650
+				}
+			}
+			add_mil_power = 150
+            add_years_of_income = 2
+		}
+	}
+
+	A2R_liberate_delta = {
+		icon = mission_egyptian_mamluk_soldier
+		position = 3
+		required_missions = { A2R_gather_faithful } 
+		provinces_to_highlight = {
+			area = delta_area
+			NOT = { owned_by = ROOT } 
+		}
+
+		trigger = {
+			delta_area = {
+				type = all
+				owned_by = ROOT
+			}
+			361 = { owned_by = ROOT } 
+		}
+
+		effect = {
+            set_capital = 358	
+            358	 = {
+                add_core = ROOT
+                change_culture = old_egyptian
+                change_religion = ROOT
+                change_province_name = "Nektanebia"
+            }
+			358	 = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+			add_prestige = 25
+			add_mil_power = 100
+		}
+	}
+
+	A2R_convert_holy_lands = {
+		icon = mission_hands_praying
+		position = 4
+		required_missions = { A2R_liberate_delta } 
+		provinces_to_highlight = {
+			OR = {
+				area = delta_area
+				area = bahari_area
+			}
+			NOT = { religion = kemetism } 
+		}
+
+		trigger = {
+			delta_area = {
+				type = all
+				religion = kemetism
+			}
+			bahari_area = {
+				type = all
+				religion = kemetism
+			}
+			religious_unity = 0.80
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "A2R_religious_fervor"
+				duration = 7300
+			}
+			add_devotion = 25
+			add_stability = 1
+		}
+	}
+
+	A2R_restore_temples = {
+		icon = mission_mosque
+		position = 5
+		required_missions = { A2R_pharaoh_coronation } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 15
+				has_building = temple
+			}
+			361 = { has_building = cathedral } 
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "A2R_divine_mandate"
+				duration = -1
+			}
+			361 = {
+				add_permanent_province_modifier = {
+					name = "A2R_great_temple_of_ra"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	A2R_age_of_wonders = {
+		icon = mission_early_game_buildings
+		position = 6
+		required_missions = { A2R_restore_temples } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			OR = {
+				has_great_project = {
+					type = pyramid_of_cheops
+					tier = 3
+				}
+				num_of_owned_provinces_with = {
+					value = 3
+					has_great_project = {
+						type = any
+						tier = 2
+					}
+				}
+			}
+			treasury = 3000
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "A2R_golden_age_of_kemet"
+				duration = -1
+			}
+			change_innovativeness = 25
+		}
+	}
+}
+A2R_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = A2R } 
+
+	A2R_gather_faithful = {
+		icon = atlantropa_stalzemsty
+		position = 2
+		required_missions = { A2R_prepare_revolt } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_size_percentage = 0.80
+			manpower_percentage = 0.60
+			num_of_generals = 1
+			mil_power = 100
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "A2R_sacred_warriors"
+				duration = 7300
+			}
+			create_general = { tradition = 40 } 
+			kabir_area = {
+				limit = { NOT = { is_core = ROOT }  } 
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	A2R_expel_greeks = {
+		icon = mission_pf_soldier
+		position = 3
+		required_missions = { A2R_gather_faithful } 
+		provinces_to_highlight = {
+			region = egypt_region
+			OR = {
+				culture_group = byzantine
+				religion = orthodox
+			}
+		}
+
+		trigger = {
+			NOT = {
+				any_owned_province = {
+					region = egypt_region
+					culture_group = byzantine
+				}
+			}
+			army_tradition = 40
+		}
+
+		effect = {
+			add_power_projection = {
+				type = mission_rewards_power_projection
+				amount = 25
+			}
+			add_country_modifier = {
+				name = "A2R_liberators_of_egypt"
+				duration = -1
+			}
+		}
+	}
+
+	A2R_army_of_horus = {
+		icon = mission_egyptian_mamluk_soldier
+		position = 5
+		required_missions = { A2R_pharaoh_coronation } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_size = 40
+ 
+			has_global_modifier_value = {
+				which = discipline
+				value = 0.10
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "A2R_divine_warriors"
+				duration = -1
+			}
+ 
+		}
+	}
+
+	A2R_conquer_anatolia = {
+		icon = mission_pf_cross
+		position = 6
+		required_missions = { A2R_army_of_horus } 
+		provinces_to_highlight = {
+			region = anatolia_region
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 20
+				region = anatolia_region
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "A2R_anatolian_conqueror"
+				duration = -1
+			}
+			add_mil_power = 200
+		}
+	}
+}
+A2R_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = A2R } 
+
+	A2R_prepare_revolt = {
+		icon = atlantropa_phoenixempire
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			is_subject = no
+			stability = 1
+			legitimacy_equivalent = 50
+			army_size = 10
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "A2R_preparing_restoration"
+				duration = 3650
+			}
+			add_legitimacy = 20
+			egypt_region = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { owned_by = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	A2R_reclaim_middle_egypt = {
+		icon = atlantropa_egypt
+		position = 2
+		required_missions = { A2R_prepare_revolt } 
+		provinces_to_highlight = {
+			OR = {
+				area = bahari_area
+				area = vostani_area
+			}
+			NOT = { owned_by = ROOT } 
+		}
+
+		trigger = {
+			bahari_area = {
+				type = all
+				owned_by = ROOT
+			}
+			vostani_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+
+		effect = {
+			add_prestige = 20
+			add_adm_power = 50
+			said_area = {
+				limit = { NOT = { is_core = ROOT }  } 
+				add_permanent_claim = ROOT
+			}
+			360 = {
+				add_base_tax = 1
+				add_base_production = 1
+                change_province_name = Parva
+			}
+		}
+	}
+
+	A2R_secure_upper_egypt = {
+		icon = mission_saharan_route
+		position = 3
+		required_missions = { A2R_reclaim_middle_egypt } 
+		provinces_to_highlight = {
+			area = said_area
+			NOT = { owned_by = ROOT } 
+		}
+
+		trigger = {
+			said_area = {
+				type = all
+				owned_by = ROOT
+			}
+			360 = {
+				owned_by = ROOT
+				development = 20
+			}
+		}
+
+		effect = {
+			360 = {
+				add_permanent_province_modifier = {
+					name = "A2R_valley_of_kings"
+					duration = -1
+				}
+			}
+			lower_nubia_area = {
+				limit = { NOT = { is_core = ROOT }  } 
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	A2R_pharaoh_coronation = {
+		icon = atlantropa_mithrarel
+		position = 4
+		required_missions = {
+			A2R_secure_upper_egypt
+			A2R_liberate_delta
+			A2R_nile_canals
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			total_development = 200
+			is_at_war = no
+			stability = 2
+			legitimacy_equivalent = 95
+			egypt_region = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+
+		effect = {
+			if = {
+				limit = { NOT = { government = monarchy }  } 
+				change_government = monarchy
+			}
+			add_government_reform = A2R_pharaonic_kingdom
+			change_primary_culture = old_egyptian
+			override_country_name = "ATLANTROPAKAYFAEGYPTASSS"
+			set_country_flag = restored_pharaonic_egypt
+			add_prestige = 50
+			add_country_modifier = {
+				name = "A2R_eternal_pharaoh"
+				duration = -1
+			}
+			egypt_region = {
+				add_province_modifier = {
+					name = "A2R_pharaonic_rule"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	A2R_rebuild_alexandria = {
+		icon = mission_develop_the_capital
+		position = 5
+		required_missions = { A2R_pharaoh_coronation } 
+		provinces_to_highlight = { province_id = 358 } 
+
+		trigger = {
+			358 = {
+				owned_by = ROOT
+				development = 30
+				has_building = marketplace
+				has_building = workshop
+				has_building = dock
+			}
+		}
+
+		effect = {
+			358 = {
+				add_permanent_province_modifier = {
+					name = "A2R_lighthouse_restored"
+					duration = -1
+				}
+				center_of_trade = 2
+			}
+			add_mercantilism = 3
+		}
+	}
+
+	A2R_eternal_library = {
+		icon = atlantropa_urbsconditia
+		position = 6
+		required_missions = { A2R_rebuild_alexandria } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			358 = { has_building = university } 
+			innovativeness = 50
+			has_institution = printing_press
+		}
+
+		effect = {
+			358 = {
+				add_permanent_province_modifier = {
+					name = "A2R_great_library_of_alexandria"
+					duration = -1
+				}
+			}
+			add_country_modifier = {
+				name = "A2R_center_of_learning"
+				duration = -1
+			}
+		}
+	}
+}
+A2R_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = A2R } 
+
+	A2R_secure_nubia = {
+		icon = mission_zambezi_gold
+		position = 2
+		required_missions = { A2R_prepare_revolt } 
+		provinces_to_highlight = {
+			OR = {
+				area = lower_nubia_area
+				area = dongola_area
+			}
+		}
+
+		trigger = {
+			OR = {
+				lower_nubia_area = {
+					type = all
+					country_or_non_sovereign_subject_holds = ROOT
+				}
+				num_of_owned_provinces_with = {
+					value = 3
+					trade_goods = gold
+				}
+			}
+		}
+
+		effect = {
+			add_treasury = 300
+			add_country_modifier = {
+				name = "A2R_nubian_riches"
+				duration = 7300
+			}
+		}
+	}
+
+	A2R_nile_canals = {
+		icon = mission_advance_to_the_arabian_sea
+		position = 3
+		required_missions = {
+			A2R_secure_nubia
+			A2R_reclaim_middle_egypt
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					has_building = workshop
+					has_building = farm_estate
+				}
+				has_terrain = farmlands
+			}
+			treasury = 1000
+		}
+
+		effect = {
+			every_owned_province = {
+				limit = {
+					has_terrain = farmlands
+					region = egypt_region
+				}
+				add_permanent_province_modifier = {
+					name = "A2R_irrigation_system"
+					duration = -1
+				}
+			}
+			add_country_modifier = {
+				name = "A2R_agricultural_revolution"
+				duration = -1
+			}
+		}
+	}
+
+	A2R_incense_monopoly = {
+		icon = mission_african_gold
+		position = 5
+		required_missions = { A2R_pharaoh_coronation } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			trading_bonus = {
+				trade_goods = incense
+				value = yes
+			}
+			num_of_owned_provinces_with = {
+				value = 5
+				trade_goods = incense
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "A2R_sacred_incense_trade"
+				duration = -1
+			}
+			add_years_of_income = 2
+		}
+	}
+
+	A2R_red_sea_fleet = {
+		icon = mission_galleys_in_port
+		position = 6
+		required_missions = { A2R_incense_monopoly } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			navy_size = 30
+			num_of_heavy_ship = 5
+			num_of_owned_provinces_with = {
+				shipyard = 5
+			}
+		}
+
+		effect = {
+				mashriq_region = {
+				limit = {
+ 
+					NOT = { is_core = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "A2R_masters_of_red_sea"
+				duration = -1
+			}
+
+		}
+	}
+}
+A2R_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = A2R } 
+
+	A2R_revive_hieroglyphs = {
+		icon = mission_scholar_officials
+		position = 2
+		required_missions = { A2R_prepare_revolt } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			has_adm_advisor = yes
+			stability = 1
+			num_of_owned_provinces_with = {
+				value = 5
+				religion = kemetism
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "A2R_sacred_writings"
+				duration = 7300
+			}
+			add_adm_power = 50
+			add_prestige = 15
+		}
+	}
+
+	A2R_dynasty_of_gods = {
+		icon = mission_the_great_conqueror
+		position = 3
+		required_missions = { A2R_revive_hieroglyphs } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			legitimacy_equivalent = 90
+			has_heir = yes
+			heir_claim = 80
+		 
+		}
+
+		effect = {
+			add_heir_claim = 20
+			add_country_modifier = {
+				name = "A2R_divine_bloodline"
+				duration = -1
+			}
+			add_ruler_modifier = {
+				name = "A2R_god_king"
+				duration = -1
+			}
+		}
+	}
+
+	A2R_desert_empire = {
+		icon = mission_saharan_route
+		position = 5
+		required_missions = { A2R_pharaoh_coronation } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 15
+				OR = {
+					has_terrain = desert
+					has_terrain = coastal_desert
+				}
+				development = 10
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "A2R_masters_of_desert"
+				duration = -1
+			}
+ 			arabia_region = {
+				limit = {
+ 
+					NOT = { is_core = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							has_terrain = desert
+							has_terrain = coastal_desert
+						}
+					}
+					add_province_modifier = {
+						name = "A2R_desert_development"
+						duration = -1
+					}
+				}
+			}
+		}
+	}
+
+	A2R_new_pyramid_age = {
+		icon = mission_golden_century
+		position = 6
+		required_missions = { A2R_desert_empire } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			treasury = 5000
+			adm_tech = 15
+			num_of_owned_provinces_with = {
+				value = 3
+				development = 30
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "A2R_monument_builders"
+				duration = -1
+			}
+			4318 = {
+				if = {
+ 
+					add_great_project = {
+						type = pyramid_of_divine_wisdom
+						instant = no
+					}
+				}
+				else = {
+					add_great_project_tier = {
+						type = pyramid_of_divine_wisdom
+						tier = 1
+					}
+				}
+			}
+		}
+	}
+}

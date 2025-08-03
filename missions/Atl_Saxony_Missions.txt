@@ -1,16 +1,16 @@
- emp_ser_economy_internal = {
+emp_ser_economy_internal = {
 	slot = 1
 	generic = no
 	ai = yes
 
 	potential = {
 		OR = {
-		tag = SER
-		tag = A53 }
+			tag = SER
+			tag = A53 }
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	saxony_imperial_roads = {
 		icon = atlantropa_imperialroads
 		required_missions = {  }
@@ -22,15 +22,15 @@
 				limit = {
 					has_building = atlantropa_road
 				}
-				add_base_production = 1	
+				add_base_production = 1
 			}
 		}
 		ai_weight = {
 			factor = 1
 		}
-	
+
 	}
-	
+
 	saxony_imperial_tracks = {
 		icon = atlantropa_steamengine
 		required_missions = { saxony_imperial_roads}
@@ -39,20 +39,20 @@
 		}
 		effect = {
 			every_owned_province = {
-				add_base_production = 1	
+				add_base_production = 1
 			}
 		}
 		ai_weight = {
 			factor = 1
 		}
-	
+
 	}
-	
+
 	emp_ser_reissue_the_novo_brdo_code = {
 		icon = reissue_the_mining_code
 		required_missions = { emp_ser_hungarian_belgrade }
 		position = 3
-	
+
 		trigger = {
 			grown_by_development = 20
 			any_owned_province = {
@@ -70,18 +70,18 @@
 			}
 		}
 	}
-	
+
 	emp_ser_great_school_of_belgrade = {
 		icon = the_great_school
 		required_missions = { emp_ser_reissue_the_novo_brdo_code }
 		position = 4
-		
+
 		provinces_to_highlight = {
 			is_capital = yes
 			owned_by = ROOT
 			NOT = { has_building = university }
 		}
-	
+
 		trigger = {
 			has_institution = printing_press
 			capital_scope = {
@@ -103,7 +103,7 @@
 		icon = pacify_the_albanian_lands
 		required_missions = { emp_ser_moravian_arms }
 		position = 6
-		
+
 		provinces_to_highlight = {
 			area = albania_area
 			NOT = { owned_by = ROOT }
@@ -115,7 +115,14 @@
 			}
 		}
 		effect = {
-			east_adriatic_coast_area = {
+			northern_greece_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			morea_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
@@ -133,19 +140,19 @@
 			}
 		}
 	}
-	
+
 
 	emp_ser_legacy_of_the_sclavinias = {
 		icon = legacy_of_the_sclavinias
 		required_missions = { emp_ser_pacify_albanian_lands }
 		position = 3
-		
+
 		provinces_to_highlight = {
 			OR = {
 				area = morea_area
 				area = northern_greece_area
 			}
-			NOT = { 
+			NOT = {
 				owned_by = ROOT
 			}
 		}
@@ -189,27 +196,27 @@ emp_ser_danube = {
 	ai = yes
 
 	potential = {
-				OR = {
-		tag = SER
-		tag = A53 }
+		OR = {
+			tag = SER
+			tag = A53 }
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
 
-	
 
-	
+
+
+
 	emp_ser_fortress_of_belgrade = {
 		icon = atlantropa_serbianfortress
 		required_missions = { emp_ser_hungarian_belgrade }
 		position = 3
-		
+
 		provinces_to_highlight = {
 			province_id = 4239
 		}
 		trigger = {
-			141 = { 
+			141 = {
 				owned_by = ROOT
 				if = {
 					limit = {
@@ -271,12 +278,12 @@ emp_ser_danube = {
 		}
 	}
 
-	
+
 	emp_ser_danubian_power = {
 		icon = danubian_power
 		required_missions = { emp_ser_fortress_of_belgrade }
 		position = 4
-		
+
 		provinces_to_highlight = {
 			province_id = 137
 		}
@@ -292,12 +299,12 @@ emp_ser_danube = {
 			add_mercantilism = 2
 		}
 	}
-	
+
 	emp_ser_northern_trade = {
 		icon = mission_control_venice
 		required_missions = { emp_ser_danubian_power }
 		position = 5
-		
+
 		provinces_to_highlight = {
 			province_id = 1308
 		}
@@ -322,7 +329,7 @@ emp_ser_danube = {
 		icon = protectors_of_christendom
 		required_missions = { emp_ser_moravian_arms }
 		position = 4
-		
+
 		provinces_to_highlight = {
 			OR = {
 				area = bulgaria_area
@@ -354,11 +361,11 @@ emp_ser_danube = {
 
 	emp_ser_take_constantinople = {
 		icon = take_constantinople
-		required_missions = { emp_ser_protectors_of_christendom  
-		emp_ser_tame_the_magnates 
-		emp_ser_pacify_albanian_lands }
+		required_missions = { emp_ser_protectors_of_christendom
+			emp_ser_tame_the_magnates
+			emp_ser_pacify_albanian_lands }
 		position = 5
-		
+
 		provinces_to_highlight = {
 			area = thrace_area
 			NOT = { owned_by = ROOT }
@@ -391,7 +398,7 @@ emp_ser_danube = {
 		icon = atlantropa_griechenreich
 		required_missions = { emp_ser_take_constantinople }
 		position = 8
-		
+
 		trigger = {
 			if = {
 				limit = {
@@ -405,7 +412,7 @@ emp_ser_danube = {
 		}
 		effect = {
 			set_government_rank = 3
-			add_absolutism = 10	
+			add_absolutism = 10
 			add_legitimacy = 25
 		}
 	}
@@ -415,12 +422,12 @@ emp_ser_danube = {
 		icon = atlantropa_niflheim_navy
 		required_missions = { saxony_port_expand }
 		trigger = {
-				num_of_galley = 20
+			num_of_galley = 20
 		}
 		effect = {
-			add_country_modifier = { 
+			add_country_modifier = {
 				name = nilfheim_army_road_ship
-				duration = -1  
+				duration = -1
 			}
 
 		}
@@ -433,13 +440,13 @@ emp_ser_west_balkan_branch = {
 	ai = yes
 
 	potential = {
-				OR = {
-		tag = SER
-		tag = A53 }
+		OR = {
+			tag = SER
+			tag = A53 }
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 
 	SAXONY_burn_rev = {
 		icon = atlantropa_britaniqueburned
@@ -466,24 +473,24 @@ emp_ser_west_balkan_branch = {
 		icon = atlantropa_queenruleevil
 		required_missions = { SAXONY_burn_rev }
 		position = 2
-		
+
 		provinces_to_highlight = {
-							province_id = 4239
-			
+			province_id = 4239
+
 		}
 		trigger = {
-				4239 = {
-					owned_by = ROOT
-				}
-				stability = 2
-			
+			4239 = {
+				owned_by = ROOT
+			}
+			stability = 2
+
 		}
 		effect = {
-				add_ruler_modifier = { 
-					name = atl_cruelqueen
-					duration = -1  
-				}
-			
+			add_ruler_modifier = {
+				name = atl_cruelqueen
+				duration = -1
+			}
+
 		}
 
 
@@ -495,7 +502,7 @@ emp_ser_west_balkan_branch = {
 		icon = moravian_arms
 		required_missions = { emp_ser_hungarian_belgrade }
 		position = 5
-		
+
 		trigger = {
 			army_size_percentage = 0.85
 		}
@@ -510,7 +517,7 @@ emp_ser_west_balkan_branch = {
 		icon = atlantropa_sendgard
 		required_missions = { emp_ser_moravian_arms }
 		position = 6
-		
+
 		trigger = {
 			bulgaria_area = {
 				type = all
@@ -547,7 +554,7 @@ emp_ser_west_balkan_branch = {
 	saxony_destroy_bulgaria = {
 		icon = atlantropa_fieryend
 		required_missions = { emp_ser_tame_the_magnates }
-		
+
 		trigger = {
 			wallachia_area = {
 				type = all
@@ -562,13 +569,13 @@ emp_ser_west_balkan_branch = {
 			add_absolutism = 5
 			5717 = {
 				add_devastation = 50
-				add_base_tax = -2	
-				add_base_production = -2	
-				add_base_manpower = -2	
+				add_base_tax = -2
+				add_base_production = -2
+				add_base_manpower = -2
 				change_culture = ROOT
 				change_religion = ROOT
 				rename_capital = "Waterstadt"
-				change_province_name = "Waterstadt"	
+				change_province_name = "Waterstadt"
 
 			}
 			carpathia_region = {
@@ -578,13 +585,13 @@ emp_ser_west_balkan_branch = {
 				}
 				add_permanent_claim = ROOT
 			}
-		
+
 		}
 	}
 
-	
 
-	
+
+
 	saxony_port_expand = {
 		icon = mission_eastern_european_city
 		required_missions = { }
@@ -615,16 +622,16 @@ emp_ser_west_balkan_branch = {
 			4754 = {
 				hidden_effect = {
 					clear_trade_good_modifiers_effect = yes
-	 }
+				}
 				change_trade_goods = naval_supplies
-				add_permanent_province_modifier = { 
+				add_permanent_province_modifier = {
 					name = trade_good_sails
-					 duration = -1 
-				 }
+					duration = -1
+				}
 				change_culture = ROOT
 				change_religion = ROOT
 				rename_capital = "Sachsenhafen"
-				change_province_name = "Sachsenhafen"	
+				change_province_name = "Sachsenhafen"
 			}
 			4754 = {
 				center_of_trade = 1
@@ -636,11 +643,11 @@ emp_ser_west_balkan_branch = {
 		}
 	}
 
-	
 
-	
 
-	
+
+
+
 
 }
 
@@ -650,9 +657,9 @@ emp_ser_east_branch = {
 	ai = yes
 
 	potential = {
-				OR = {
-		tag = SER
-		tag = A53 }
+		OR = {
+			tag = SER
+			tag = A53 }
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
@@ -660,26 +667,26 @@ emp_ser_east_branch = {
 		icon = law_of_the_pious
 		required_missions = { emp_ser_hungarian_belgrade }
 		position = 3
-		
+
 		trigger = {
 			crown_land_share = 40
 		}
 		effect = {
 			add_stability = 1
-			if = { 
+			if = {
 				limit = { NOT = { legitimacy = 80 } }
 				add_legitimacy = 20
 			}
 			add_prestige = 20
 		}
 	}
-		emp_ser_retake_macedonia = {
+	emp_ser_retake_macedonia = {
 		icon = retake_thessaly
 		required_missions = { emp_ser_law_of_the_pious }
 		position = 3
-		
+
 		provinces_to_highlight = {
-				owned_by = X36
+			owned_by = X36
 		}
 		trigger = {
 			X36 = {
@@ -703,6 +710,13 @@ emp_ser_east_branch = {
 				}
 				add_permanent_claim = ROOT
 			}
+			bosnia_area   = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 
@@ -710,7 +724,7 @@ emp_ser_east_branch = {
 		icon = fight_bosnian_heresies
 		required_missions = { emp_ser_retake_macedonia }
 		position = 4
-		
+
 		provinces_to_highlight = {
 			area = bosnia_area
 		}
@@ -720,14 +734,21 @@ emp_ser_east_branch = {
 			}
 		}
 		effect = {
-			croatia_area = {
+			atlantis_adriaticcoast = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
 				}
 				add_permanent_claim = ROOT
 			}
-			slavonia_area = {
+			east_adriatic_coast_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			croatia_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }
 					NOT = { is_core = ROOT }
@@ -738,12 +759,12 @@ emp_ser_east_branch = {
 	}
 
 
-	
+
 	emp_ser_expand_adriatic_presence = {
 		icon = capture_adriatic_ports
 		required_missions = { emp_ser_suppress_bosnian_heresy emp_ser_moravian_arms }
 		position = 3
-		
+
 		provinces_to_highlight = {
 			OR = {
 				area = east_adriatic_coast_area
@@ -786,13 +807,13 @@ emp_ser_east_branch = {
 		icon = secure_the_sava
 		required_missions = { emp_ser_expand_adriatic_presence }
 		position = 5
-		
+
 		provinces_to_highlight = {
 			OR = {
 				area = croatia_area
 				area = slavonia_area
 			}
-			NOT = { 
+			NOT = {
 				OR = {
 					owned_by = ROOT
 					owner = { is_subject_of = ROOT }
@@ -830,10 +851,10 @@ emp_ser_east_branch = {
 		icon = encroach_on_the_germans
 		required_missions = { emp_ser_secure_the_sava }
 		position = 6
-		
+
 		provinces_to_highlight = {
 			area = carinthia_area
-			NOT = { 
+			NOT = {
 				OR = {
 					owned_by = ROOT
 					owner = { is_subject_of = ROOT }
@@ -856,7 +877,7 @@ emp_ser_east_branch = {
 			}
 		}
 	}
-	
+
 	saxony_tradeness = {
 		icon = atlantropa_handelsbolag
 		required_missions = { saxony_port_expand }
@@ -864,15 +885,15 @@ emp_ser_east_branch = {
 			num_of_light_ship = 20
 			if = {
 				limit = { ai = no }
-			home_trade_node = {
-				ROOT = {
-					trading_policy_in_node = {
-						node = PREV
-						policy = hostile_trading
+				home_trade_node = {
+					ROOT = {
+						trading_policy_in_node = {
+							node = PREV
+							policy = hostile_trading
+						}
 					}
 				}
 			}
-		}
 		}
 		effect = {
 			add_mercantilism = 5
@@ -898,24 +919,24 @@ emp_ser_religious = {
 	ai = yes
 
 	potential = {
-				OR = {
-		tag = SER
-		tag = A53 }
+		OR = {
+			tag = SER
+			tag = A53 }
 		NOT = { map_setup = map_setup_random }
 	}
 	has_country_shield = yes
-	
+
 	emp_ser_reform_the_nomocanon = {
 		icon = reform_the_nomocanon
 		required_missions = { emp_ser_hungarian_belgrade }
 		position = 3
-		
+
 		provinces_to_highlight = {
 		}
 		trigger = {
 			if = {
-				limit = { 
-					religion = orthodox 
+				limit = {
+					religion = orthodox
 					has_dlc = "Third Rome"
 				}
 				custom_trigger_tooltip = {
@@ -948,12 +969,12 @@ emp_ser_religious = {
 			}
 		}
 	}
-	
+
 	emp_ser_promote_the_patriarchate = {
 		icon = promote_the_patriarchate
 		required_missions = { emp_ser_reform_the_nomocanon }
 		position = 3
-		
+
 		provinces_to_highlight = {
 			ROOT = { NOT = { religion = orthodox } }
 			owner = { tag = ROOT }
@@ -985,12 +1006,12 @@ emp_ser_religious = {
 			}
 		}
 	}
-	
+
 	emp_ser_guardians_of_st_sava = {
 		icon = guardians_of_saint_sava
 		required_missions = { emp_ser_promote_the_patriarchate }
 		position = 4
-		
+
 		trigger = {
 			is_defender_of_faith = yes
 		}
@@ -1047,62 +1068,62 @@ emp_ser_religious = {
 			141 = {
 				hidden_effect = {
 					clear_trade_good_modifiers_effect = yes
-	 }
-	change_trade_goods = glass
-	 add_permanent_province_modifier = { 
-	name = trade_good_marble
- 	duration = -1 
- }
+				}
+				change_trade_goods = glass
+				add_permanent_province_modifier = {
+					name = trade_good_marble
+					duration = -1
+				}
 			}
 			1954 = {
 				hidden_effect = {
 					clear_trade_good_modifiers_effect = yes
-	 }
+				}
 				change_trade_goods = naval_supplies
-				add_permanent_province_modifier = { 
+				add_permanent_province_modifier = {
 					name = trade_good_sails
-					 duration = -1 
-				 }
+					duration = -1
+				}
 			}
 			1827 = {
 				hidden_effect = {
 					clear_trade_good_modifiers_effect = yes
-				 }
-			change_trade_goods = atl_tools
-		add_permanent_province_modifier = { 
-	name = trade_good_ammunition
-	 duration = -1 
-	}
+				}
+				change_trade_goods = atl_tools
+				add_permanent_province_modifier = {
+					name = trade_good_ammunition
+					duration = -1
+				}
 			}
 		}
 		ai_weight = {
 			factor = 1
 		}
 	}
-	
+
 
 	saxony_breweries = {
 		icon = mission_vodka_monopoly
 		required_missions = { saxony_prosperity  }
 		provinces_to_highlight = {
-			province_id = 5108
+			province_id = 5800
 		}
 		trigger = {
 			faction_in_power = nilfheim_traders
-			4176 = {
+			5800 = {
 				base_production = 10
 			}
 		}
 		effect = {
-			4176 = {
+			5800 = {
 				hidden_effect = {
 					clear_trade_good_modifiers_effect = yes
-				 }
-			change_trade_goods = wine
-		add_permanent_province_modifier = { 
-	name = trade_good_beer 
-	 duration = -1 
-	}
+				}
+				change_trade_goods = wine
+				add_permanent_province_modifier = {
+					name = trade_good_beer
+					duration = -1
+				}
 
 				add_province_modifier = {
 					name = fjordland_naerhav
@@ -1113,7 +1134,7 @@ emp_ser_religious = {
 		ai_weight = {
 			factor = 1
 		}
-	
+
 	}
 
 

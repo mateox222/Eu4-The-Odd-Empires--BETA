@@ -1,0 +1,314 @@
+# Plik: /Europa Universalis IV/common/new_diplomatic_actions/buy_truce.txt
+
+buy_truce = {
+    category = relation
+    
+    alert_index = 10
+    alert_tooltip = buy_truce_alert_tooltip
+    
+    require_acceptance = yes
+    
+    # Kiedy akcja jest widoczna
+    is_visible = {
+        FROM = {
+            NOT = { is_subject_of = ROOT }
+            NOT = { overlord_of = ROOT }
+            exists = yes
+            is_free_or_tributary_trigger = yes
+        }
+        ROOT = {
+            NOT = { is_subject_of = FROM }
+            NOT = { overlord_of = FROM }
+        }
+        # Nie może być używane przeciwko krajom w HRE jeśli ROOT jest cesarzem
+        NOT = {
+            AND = {
+                ROOT = { is_emperor = yes }
+                FROM = { is_part_of_hre = yes }
+            }
+        }
+    }
+    
+    # Kiedy akcja może być wykonana
+    is_allowed = {
+        # ROOT i FROM muszą być w pokoju
+        NOT = { war_with = FROM }
+        
+        # FROM nie może być sojusznikiem
+        NOT = { alliance_with = FROM }
+        
+        # FROM nie może być rywalem
+        NOT = { is_rival = FROM }
+        NOT = { is_enemy = FROM }    
+        
+        # Nie może być już rozejm między krajami
+        NOT = { truce_with = FROM }
+        
+        # ROOT musi mieć wystarczająco dukatów (uproszczona wersja - minimum 50 dukatów)
+        years_of_income = 1	
+        
+        # FROM nie może być w defensywnej wojnie
+        FROM = {
+            NOT = { is_in_war = { defender_leader = yes } }
+        }
+        
+        # Nie można kupować rozejmu od krajów w Personal Union
+        FROM = {
+            NOT = { junior_union_with = ROOT }
+        }
+        ROOT = {
+            NOT = { junior_union_with = FROM }
+        }
+        
+        # Dodatowe ograniczenia
+        FROM = {
+            # Kraj musi istnieć i być niezależny
+            exists = yes
+            is_free_or_tributary_trigger = yes
+        }
+    }
+    
+    # Efekty po akceptacji
+    on_accept = {
+        ROOT = {
+            # Oblicza i płaci koszt (1 roczny dochód, minimum 50)
+            export_to_variable = {
+                variable_name = truce_cost
+                value = monthly_income
+                who = ROOT
+            }
+            multiply_variable = {
+                which = truce_cost
+                value = 12
+            }
+            
+            add_years_of_income = -1
+            FROM = { add_years_of_income = 1 }
+            
+            # Dodaje rozejm na 5 lat
+            add_truce_with = FROM
+            
+            # Lekka utrata prestiżu za kupowanie pokoju
+            add_prestige = -5
+            
+            # Dodaje modyfikator
+            add_country_modifier = {
+                name = "diplomatic_reputation"
+                duration = 1825
+                desc = "Bought peace through gold"
+            }
+        }
+        
+        FROM = {
+            # Otrzymuje pieniądze
+            export_to_variable = {
+                variable_name = truce_payment
+                value = truce_cost
+                who = ROOT
+            }
+            
+            change_variable = {
+                which = treasury
+                which = truce_payment
+            }
+            
+            # Dodaje rozejm na 5 lat
+            add_truce_with = ROOT
+            
+            # Lekki wzrost prestiżu
+            add_prestige = 2
+            
+            # Modyfikator
+            add_country_modifier = {
+                name = "diplomatic_reputation"
+                duration = 1825
+                desc = "Sold peace for gold"
+            }
+        }
+    }
+    
+    # Efekty po odrzuceniu
+    on_decline = {
+        ROOT = {
+            add_prestige = -1
+        }
+    }
+    
+    # Kontrola akceptacji przez AI (uproszczona)
+    ai_acceptance = {
+        # Potrzeby finansowe
+        add_entry = {
+            name = AI_BUY_TRUCE_MONEY_NEED
+            limit = {
+                FROM = {
+                    NOT = { treasury = 200 }
+                }
+            }
+            export_to_variable = {
+                variable_name = ai_value
+                value = 30
+                who = FROM
+                with = THIS
+            }
+        }
+        
+        # Wyczerpanie wojną
+        add_entry = {
+            name = AI_BUY_TRUCE_WAR_EXHAUSTION
+            limit = {
+                FROM = {
+                    war_exhaustion = 3
+                }
+            }
+            export_to_variable = {
+                variable_name = ai_value
+                value = war_exhaustion
+                who = FROM
+                with = THIS
+            }
+            multiply_variable = {
+                which = ai_value
+                value = 8
+            }
+        }
+        
+        # Słabsza armia
+        add_entry = {
+            name = AI_BUY_TRUCE_WEAKER_ARMY
+            limit = {
+                FROM = {
+                    NOT = {
+                        army_strength = {
+                            who = ROOT
+                            value = 0.9
+                        }
+                    }
+                }
+            }
+            export_to_variable = {
+                variable_name = ai_value
+                value = 25
+                who = FROM
+                with = THIS
+            }
+        }
+        
+        # Dobre stosunki
+        add_entry = {
+            name = AI_BUY_TRUCE_GOOD_RELATIONS
+            limit = {
+                FROM = {
+                    has_opinion = {
+                        who = ROOT
+                        value = 0
+                    }
+                }
+            }
+            export_to_variable = {
+                variable_name = ai_value
+                value = opinion
+                who = FROM
+                with = ROOT
+            }
+            multiply_variable = {
+                which = ai_value
+                value = 0.2
+            }
+        }
+        
+        # Silniejsza armia (negatywny wpływ)
+        add_entry = {
+            name = AI_BUY_TRUCE_STRONG_ARMY
+            limit = {
+                FROM = {
+                    army_strength = {
+                        who = ROOT
+                        value = 1.3
+                    }
+                }
+            }
+            export_to_variable = {
+                variable_name = ai_value
+                value = -40
+                who = FROM
+                with = THIS
+            }
+        }
+        
+        # Ma claimy (negatywny wpływ)
+        add_entry = {
+            name = AI_BUY_TRUCE_HAS_CLAIMS
+            limit = {
+                FROM = {
+                    any_owned_province = {
+                        is_claim = ROOT
+                    }
+                }
+            }
+            export_to_variable = {
+                variable_name = ai_value
+                value = -35
+                who = FROM
+                with = THIS
+            }
+        }
+        		add_entry = {
+			name = OPINION
+			export_to_variable = {
+				variable_name = ai_value
+				value = opinion
+				who = FROM
+				with = ROOT
+			}
+			multiply_variable = {
+				which = ai_value 
+				value = 0.5
+			}
+		}
+        
+      	add_entry = {
+			name = diplomatic_reputation
+			limit = { }
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:diplomatic_reputation
+			}
+			#1 rep = 2
+			multiply_variable = {
+				which = ai_value
+				value = 2
+			}
+		}
+        
+        # Wysoki prestiż (negatywny wpływ)
+        add_entry = {
+            name = AI_BUY_TRUCE_HIGH_PRESTIGE
+            limit = {
+                FROM = {
+                    prestige = 50
+                }
+            }
+            export_to_variable = {
+                variable_name = ai_value
+                value = -20
+                who = FROM
+                with = THIS
+            }
+        }
+    }
+    
+    # Kiedy AI będzie używać tej akcji
+    ai_will_do = {
+                    any_neighbor_province = {
+                        owned_by = FROM
+                    }
+                army_strength = {
+                    who = ROOT
+                    value = 1.5
+                }
+                   NOT = { years_of_income = 1 }
+            }
+         
+
+      
+            }

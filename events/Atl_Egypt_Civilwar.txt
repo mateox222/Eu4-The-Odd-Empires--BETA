@@ -9,8 +9,8 @@ country_event = {
 	trigger = {
 		    NOT = { has_global_flag = alexandria_city_destroyed }
 			NOT = { is_year = 6534 }
-			NOT = { capital = 358  }	
-			has_global_flag = egiptwarunekjeden3	
+			NOT = { capital = 358  }
+			has_global_flag = egiptwarunekjeden3
 			exists = CYP
 						OR = {
 			CYP = { NOT = { num_of_provinces_owned_or_owned_by_subjects_with = {
@@ -25,28 +25,28 @@ country_event = {
 
 	}}
 	mean_time_to_happen = { days = 3 }
-	
+
 	option = {
 		name = atlantropa_egyptwar.7a #Sack of City
 	358 = {
 	add_devastation = 15
 	}
-	
-		add_mil_power = 50 
-		add_dip_power = 50 
+
+		add_mil_power = 50
+		add_dip_power = 50
 		add_adm_power = 50
-		add_treasury = 100	
+		add_treasury = 100
 		CYP = {
-		every_enemy_country = {  white_peace = CYP }		
+		every_enemy_country = {  white_peace = CYP }
 		clr_country_flag = warunekegipskiejwojnywybuchu
-	   
+
 		}
 		set_global_flag = alexandria_city_destroyed
 										egypt_region = {
 				limit = {
 					 owned_by = CYP
 				}
-		
+
     cede_province = ROOT
 	add_core = ROOT
 
@@ -62,28 +62,29 @@ country_event = {
 	trigger = {
 		    NOT = { has_global_flag = atlantropa_egypt_united }
 			has_global_flag = egiptwarunekjeden1
-			has_global_flag = egiptwarunekjeden2		
-			has_global_flag = egiptwarunekjeden3		
+			has_global_flag = egiptwarunekjeden2
+			has_global_flag = egiptwarunekjeden3
 		 	OR = {
         tag = CYP
 	    tag = A6F
         tag = A2R
 	    tag = MAK
         tag = HSN
-	    tag = A3R	
+	    tag = A3R
 		tag = DI1
 		tag = DI2
 		tag = DI3
 		tag = DI4
-		tag = DI5						
-}		
-			NOT = { is_year = 6534 }	
+		tag = DI5
+		tag = X66
+}
+			NOT = { is_year = 6534 }
 			OR = {
 			is_at_war = no
-			
+
 	}}
 	mean_time_to_happen = { days = 31 }
-	
+
 	option = {
 		name = atlantropa_egyptwar.8a
 		every_neighbor_country = {
@@ -99,7 +100,7 @@ country_event = {
 				}
 
 	}
-	
+
 	country_event = {
 	id = atlantropa_egyptwar.9
 	title = "atlantropa_egyptwar.9.t"
@@ -108,33 +109,28 @@ country_event = {
 	major = yes
 	trigger = {
 		 NOT = { has_global_flag = atlantropa_egypt_united }
-		 has_global_flag = egiptwarunekjeden3	
+		 has_global_flag = egiptwarunekjeden3
 			owns_core_province = 1234
 			owns_core_province = 1231
 			owns_core_province = 361
 			owns_core_province = 356
 			owns_core_province = 358
 			owns_core_province = 2315
-			owns_core_province = 5244		
-			is_at_war = no	
+			owns_core_province = 5244
+			is_at_war = no
 			capital_scope = {
-				region = egypt_region		
+				region = egypt_region
 			}
 }
 	mean_time_to_happen = { days = 1 }
-	
+
 	option = {
 			name = atlantropa_egyptwar.9a
 		set_global_flag	= atlantropa_egypt_united
-		add_prestige = 25	
+		add_prestige = 25
 		add_war_exhaustion = -5
-		add_stability = 1	
-			egypt_region = {
-				limit = {
-					NOT = { is_core = ROOT	}
-				}
-				add_core = ROOT		
-				}
+		add_stability = 1
+		
 
 	}}
 	country_event = {
@@ -146,7 +142,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 			name = atlantropa_egyptwar.10a
-		add_war_exhaustion = 5	
+		add_war_exhaustion = 5
 }}
 	country_event = {
 	id = atlantropa_egyptwar.11
@@ -157,6 +153,6 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 			name = atlantropa_egyptwar.11a
-		add_war_exhaustion = -5	
+		add_war_exhaustion = -5
 		set_country_flag = warunekegipskiejwojnywybuchu
 }}

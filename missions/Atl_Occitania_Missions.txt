@@ -1,0 +1,574 @@
+occitanian_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = X07 } 
+
+	occ_troubadour_courts = {
+		icon = mission_noble_council
+		position = 2
+		required_missions = { occ_revive_langue_doc } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			prestige = 25
+			advisor = artist
+			has_institution = renaissance
+			any_owned_province = {
+				has_building = temple
+				development = 15
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "occ_courts_of_love"
+				duration = 10950
+			}
+			capital_scope = { add_building = university } 
+			add_dip_power = 100
+		}
+	}
+
+	occ_university_montpellier = {
+		icon = Compulsory_Education
+		position = 3
+		required_missions = { occ_troubadour_courts } 
+		provinces_to_highlight = { province_id = 4367 } 
+
+		trigger = {
+			capital_scope = {
+				owned_by = ROOT
+				has_building = university
+				development = 20
+			}
+			innovativeness = 20
+		}
+
+		effect = {
+			capital_scope = {
+				add_province_modifier = {
+					name = "occ_renowned_university"
+					duration = -1
+				}
+			}
+			add_country_modifier = {
+				name = "occ_center_of_learning"
+				duration = -1
+			}
+		}
+	}
+
+	occ_sage_of_south = {
+		icon = france_antarctique
+		position = 4
+		required_missions = { occ_university_montpellier } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			innovativeness = 50
+			num_of_owned_provinces_with = {
+				value = 3
+				has_building = university
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "occ_enlightened_realm"
+				duration = -1
+			}
+			add_adm_power = 150
+			every_owned_province = {
+				limit = { has_building = university } 
+				add_province_modifier = {
+					name = "occ_scholarly_province"
+					duration = -1
+				}
+			}
+		}
+	}
+}
+occitanian_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = X07 } 
+
+	occ_revive_langue_doc = {
+		icon = unify_piedmont
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = { stability = 3 } 
+
+		effect = {
+			add_country_modifier = {
+				name = "occ_langue_doc_revival"
+				duration = 7300
+			}
+			add_prestige = 15
+			east_midlands_area = { add_permanent_claim = ROOT } 
+			basque_country = { add_permanent_claim = ROOT } 
+		}
+	}
+
+	occ_golden_wine = {
+		icon = expand_the_swiss_guard
+		position = 2
+		required_missions = { occ_revive_langue_doc } 
+		provinces_to_highlight = {
+			area = atlantropa_francjazaczepka
+			trade_goods = wine
+		}
+
+		trigger = {
+			atlantropa_francjazaczepka = {
+				type = all
+				owned_by = ROOT
+			}
+			num_of_owned_provinces_with = {
+				value = 3
+				trade_goods = wine
+				base_production = 3
+			}
+		}
+
+		effect = {
+			add_mercantilism = 5
+			atlantropa_francjazaczepka = {
+				add_province_modifier = {
+					name = "occ_renowned_vineyards"
+					duration = -1
+				}
+			}
+			add_years_of_income = 1.5
+		}
+	}
+
+	occ_champagne_fairs = {
+		icon = mission_trade_company_region_abroad
+		position = 3
+		required_missions = { occ_golden_wine } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_merchants = 3
+			trade_income_percentage = 0.3
+			any_owned_province = {
+				province_trade_power = 15
+				has_building = marketplace
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "occ_great_fairs"
+				duration = 10950
+			}
+			toledo_area = { add_permanent_claim = ROOT } 
+			add_treasury = 300
+		}
+	}
+
+	occ_trade_crown = {
+		icon = mission_dominate_home_trade_node
+		position = 4
+		required_missions = { occ_champagne_fairs } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			trade_income_percentage = 0.5
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "occ_commercial_dominance"
+				duration = -1
+			}
+		
+		}
+	}
+}
+occitanian_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = X07 } 
+
+	occ_mediterranean_ports = {
+		icon = mission_establish_high_seas_navy
+		position = 1
+		provinces_to_highlight = {
+			OR = {
+				province_id = 5559
+				province_id = 4367
+				province_id = 4785
+			}
+		}
+
+		trigger = {
+			navy_size = 15
+			5559 = {
+				owned_by = ROOT
+				has_building = dock
+			}
+			OR = {
+				4367 = {
+					owned_by = ROOT
+					has_building = dock
+				}
+				4785 = {
+					owned_by = ROOT
+					has_building = dock
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "occ_mediterranean_trade"
+				duration = 9125
+			}
+			add_adm_power = 150
+		}
+	}
+
+	occ_unite_south = {
+		icon = atlantropa_moderncrusade
+		position = 2
+		required_missions = {
+			occ_revive_langue_doc
+			occ_mediterranean_ports
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = atlantropa_francjazaczepka
+				area = catalonia_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			atlantropa_francjazaczepka = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			catalonia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "occ_unified_occitania"
+				duration = 10950
+			}
+			iberia_region = { add_permanent_claim = ROOT } 
+
+			add_prestige = 20
+		}
+	}
+
+	occ_fortified_bastides = {
+		icon = mission_conquer_50_development
+		position = 3
+		required_missions = { occ_unite_south } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				fort_level = 2
+			}
+			mil_tech = 7
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "occ_bastide_network"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = { fort_level = 2 } 
+				add_province_modifier = {
+					name = "occ_strategic_bastide"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	occ_cathar_legacy = {
+		icon = answer_the_roman_question
+		position = 4
+		required_missions = { occ_fortified_bastides } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			religious_unity = 0.8
+			NOT = { num_of_rebel_armies = 1 } 
+			stability = 2
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "occ_cathar_tolerance"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = { religion = ROOT } 
+				add_province_modifier = {
+					name = "occ_peaceful_coexistence"
+					duration = -1
+				}
+			}
+		}
+	}
+    	occ_dream_of_empire = {
+		icon = versailles_palace
+		position = 5
+		provinces_to_highlight = {
+			owned_by = FRA
+			OR = {
+				area = toledo_area
+				area = galicia_area
+				area = wessex_area
+			}
+		}
+
+		trigger = {
+			FRA = { NOT = { total_development = ROOT }  } 
+			OR = {
+				total_development = 300
+				owns = 236
+			}
+		}
+
+		effect = {
+			aquitania_region = { add_permanent_claim = ROOT }
+			france_region = { add_permanent_claim = ROOT }			
+			add_country_modifier = {
+				name = "occ_gallic_ambition"
+				duration = -1
+			}
+			if = {
+				limit = { owns = 236 } 
+				236 = {
+					add_province_modifier = {
+						name = "occ_new_capital"
+						duration = -1
+					}
+				}
+			}
+			add_prestige = 50
+		}
+	}
+}
+occitanian_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = X07 } 
+
+	occ_look_north = {
+		icon = mission_alliances
+		position = 3
+		required_missions = { occ_unite_south } 
+		provinces_to_highlight = { owned_by = FRA } 
+
+		trigger = {
+			army_size = 25
+			manpower_percentage = 0.6
+			OR = {
+				FRA = {
+					has_opinion = {
+						who = ROOT
+						value = -50
+					}
+				}
+				is_rival = FRA
+			}
+		}
+
+		effect = {
+			add_casus_belli = {
+				target = FRA
+				type = cb_restore_personal_union
+				months = 300
+			}
+			west_midlands_area = { add_permanent_claim = ROOT } 
+			wessex_area = { add_permanent_claim = ROOT } 
+			atlantropa_francjazaczepka = { add_permanent_claim = ROOT } 
+			add_mil_power = 100
+		}
+	}
+
+	occ_road_to_bordeaux = {
+		icon = spa_spanish_road
+		position = 3
+		required_missions = { occ_look_north } 
+		provinces_to_highlight = {
+			OR = {
+				area = east_anglia_area
+				area = home_counties_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			army_size = FRA
+			army_size = 50
+			total_development = 250
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "occ_gascon_expansion"
+				duration = 7300
+			}
+			aquitania_region = { add_permanent_claim = ROOT } 
+			add_adm_power = 100
+		}
+	}
+
+
+
+	occ_crown_of_south = {
+		icon = mission_establish_jesuit_missions
+		position = 4
+		required_missions = { occ_road_to_bordeaux } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			is_great_power = yes
+			total_development = 600
+			prestige = 50
+			legitimacy = 90
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "occ_southern_crown"
+				duration = -1
+			}
+			override_country_name = "SOUTHERN_CROWN"
+			set_government_rank = 3
+			add_prestige = 25
+		}
+	}
+}
+occitanian_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = { tag = X07 } 
+
+	occ_cultural_alliance = {
+		icon = mission_noble_council
+		position = 3
+		required_missions = { occ_unite_south } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_allies = 2
+			diplomatic_reputation = 3
+			OR = {
+				alliance_with = CAS
+				alliance_with = POL
+				alliance_with = BOH
+				num_of_allies = 4
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "occ_cultural_diplomacy"
+				duration = 9125
+			}
+			add_dip_power = 150
+			random_ally = {
+				add_opinion = {
+					who = ROOT
+					modifier = occ_cultural_bonds
+				}
+			}
+		}
+	}
+
+	occ_protector_small_nations = {
+		icon = support_the_orders
+		position = 3
+		required_missions = { occ_cultural_alliance } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			is_great_power = yes
+			num_of_subjects = 2
+			any_subject_country = { liberty_desire = 25 } 
+		}
+
+		effect = {
+			westdoggerland_area = { add_permanent_claim = ROOT }
+			doggerland_area = { add_permanent_claim = ROOT }
+			add_country_modifier = {
+				name = "occ_benevolent_overlord"
+				duration = -1
+			}
+			every_subject_country = {
+				add_liberty_desire = -20
+				add_opinion = {
+					who = ROOT
+					modifier = occ_protective_suzerain
+				}
+			}
+		}
+	}
+
+	occ_pearl_mediterranean = {
+		
+		icon = mission_mediterranean_islands
+		position = 4
+		required_missions = { occ_protector_small_nations } 
+		provinces_to_highlight = {
+			OR = {
+				area =  westdoggerland_area
+				area = doggerland_area
+			}
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			navy_size = 40
+			any_owned_province = {
+				is_island = yes
+				has_building = shipyard
+			}
+			AND = {
+				 westdoggerland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+ doggerland_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "occ_island_dominion"
+				duration = -1
+			}
+			baleares_area = { add_permanent_claim = ROOT } 
+			add_navy_tradition = 15
+		}
+	}
+}

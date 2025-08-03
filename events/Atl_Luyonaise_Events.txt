@@ -1,0 +1,216 @@
+namespace = luyonaisse_events
+country_event = {
+	id = luyonaisse_events.1
+	title = "luyonaisse_events.1.t"
+	desc = "luyonaisse_events.1.d"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "luyonaisse_events.1.a"
+		GUY = {
+			set_country_flag = guy_can_reverse_union
+		}
+		change_country_color = { color = { 189 12 35}	}
+		POL = {
+			create_union = ROOT
+		}
+		inherit = X1I
+		inherit = AMG
+		add_liberty_desire = 75
+		hidden_effect = {
+			GUY = {
+				country_event = { id = luyonaisse_events.3 days = 1825 }
+			}
+		}
+	}
+}
+
+# Union Reversal
+country_event = {
+	id = luyonaisse_events.2
+	title = "luyonaisse_events.2.t"
+	desc = "luyonaisse_events.2.d"
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "luyonaisse_events.2.a"
+		POL = {
+			break_union = GUY
+		}
+		create_union = POL
+		add_stability = 1
+		POL = {
+			add_liberty_desire = -50
+			change_country_color = { country = GUY }
+		}
+		custom_tooltip = guy_union_reversed_tt
+	}
+}
+
+# Union Domination Timer
+country_event = {
+	id = luyonaisse_events.3
+	title = "luyonaisse_events.3.t"
+	desc = "luyonaisse_events.3.d"
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	hidden = yes
+	
+	trigger = {
+		senior_union_with = POL
+		has_country_flag = guy_can_reverse_union
+	}
+	
+	option = {
+		name = "luyonaisse_events.3.a"
+		clr_country_flag = guy_can_reverse_union
+	}
+}
+# Formation of Neustria
+country_event = {
+	id = luyonaisse_events.10
+	title = "luyonaisse_events.10.t"
+	desc = "luyonaisse_events.10.d"
+	picture = THRONE_eventPicture
+	
+	is_triggered_only = yes
+	major = yes
+	
+	option = {
+		name = "luyonaisse_events.10.a"
+		change_tag = X10
+		swap_non_generic_missions = yes
+		remove_non_electors_emperors_from_empire_effect = yes
+		if = {
+			limit = { NOT = { government_rank = 3 } }
+			set_government_rank = 3
+		}
+		if = {
+		limit = {	POL = { is_subject_of = ROOT } }
+		inherit = POL
+		}
+		add_prestige = 50
+		add_country_modifier = {
+			name = "centralization_modifier"
+			duration = 7300
+		}
+		add_country_modifier = {
+			name = "neustrian_glory"
+			duration = -1
+		}
+		set_country_flag = formed_neustria_flag
+		if = {
+			limit = { has_custom_ideas = no }
+			country_event = { id = ideagroups.1 }
+		}
+		france_region = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_permanent_claim = X10
+		}
+		low_countries_region = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_permanent_claim = X10
+		}
+	}
+	
+	option = {
+		name = "luyonaisse_events.10.b"
+		add_prestige = 10
+		add_legitimacy = 10
+	}
+}
+
+# Belgian Culture Events
+country_event = {
+	id = luyonaisse_events.4
+	title = "luyonaisse_events.4.t"
+	desc = "luyonaisse_events.4.d"
+	picture = CULTURE_eventPicture
+	
+	trigger = {
+		tag = GUY
+		num_of_owned_provinces_with = {
+			value = 5
+			culture = wallonian
+		}
+		NOT = { has_country_flag = guy_belgian_culture_event }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	immediate = {
+		set_country_flag = guy_belgian_culture_event
+	}
+	
+	option = {
+		name = "luyonaisse_events.4.a"
+		add_dip_power = 50
+		every_owned_province = {
+			limit = { culture = wallonian }
+			add_province_modifier = {
+				name = "guy_belgian_poetry"
+				duration = 3650
+			}
+		}
+	}
+	
+	option = {
+		name = "luyonaisse_events.4.b"
+		add_prestige = 15
+		capital_scope = {
+			add_base_tax = 1
+		}
+	}
+}
+
+# Wallonian Merchants
+country_event = {
+	id = luyonaisse_events.5
+	title = "luyonaisse_events.5.t"
+	desc = "luyonaisse_events.5.d"
+	picture = MERCHANTS_TALKING_eventPicture
+	
+	trigger = {
+		tag = GUY
+		any_owned_province = {
+			culture = wallonian
+			province_has_center_of_trade_of_level = 1
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 240
+		
+		modifier = {
+			factor = 0.8
+			num_of_merchants = 3
+		}
+	}
+	
+	option = {
+		name = "luyonaisse_events.5.a"
+		add_years_of_income = 0.5
+		add_mercantilism = 2
+	}
+	
+	option = {
+		name = "luyonaisse_events.5.b"
+		add_country_modifier = {
+			name = "guy_merchant_guilds"
+			duration = 3650
+		}
+	}
+}

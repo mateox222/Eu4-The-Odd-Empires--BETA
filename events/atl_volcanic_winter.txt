@@ -1,0 +1,398 @@
+namespace = volcanic_winter
+
+# Początek katastrofy - wybuch wulkanu
+country_event = {
+    id = volcanic_winter.1
+    title = volcanic_winter.1.t
+    desc = volcanic_winter.1.d
+    picture = Volcanophoenix_eventPicture
+    
+    is_triggered_only = yes
+    
+    immediate = {
+        hidden_effect = {
+            set_country_flag = volcanic_winter_active
+            country_event = {
+                id = volcanic_winter.2
+                days = 30
+            }
+        }
+    }
+    
+    option = {
+        name = volcanic_winter.1.a
+        add_stability = -1
+        add_prestige = -5
+        		set_country_flag = black_sun
+    }
+}
+
+# Pierwsze skutki - ciemnienie nieba
+country_event = {
+    id = volcanic_winter.2
+    title = volcanic_winter.2.t
+    desc = volcanic_winter.2.d
+    picture = BLACKSUN_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        has_country_flag = volcanic_winter_active
+    }
+    
+    immediate = {
+        hidden_effect = {
+            country_event = {
+                id = volcanic_winter.3
+                days = 60
+            }
+        }
+    }
+    
+    option = {
+        name = volcanic_winter.2.a
+        add_country_modifier = {
+            name = "ash_clouds"
+            duration = 365
+        }
+    }
+}
+
+# Problemy z uprawami
+country_event = {
+    id = volcanic_winter.3
+    title = volcanic_winter.3.t
+    desc = volcanic_winter.3.d
+    picture = FAMINE_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        has_country_flag = volcanic_winter_active
+    }
+    
+    immediate = {
+        hidden_effect = {
+            country_event = {
+                id = volcanic_winter.4
+                days = 90
+            }
+        }
+    }
+    
+    option = {
+        name = volcanic_winter.3.a
+        add_country_modifier = {
+            name = "crop_failures"
+            duration = 730
+        }
+        add_treasury = -50
+    }
+    
+    option = {
+        name = volcanic_winter.3.b
+        trigger = {
+            treasury = 100
+        }
+        add_treasury = -100
+        add_country_modifier = {
+            name = "emergency_food_reserves"
+            duration = 365
+        }
+    }
+}
+
+# Zimna fala
+country_event = {
+    id = volcanic_winter.4
+    title = volcanic_winter.4.t
+    desc = volcanic_winter.4.d
+    picture = ilinhala_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        has_country_flag = volcanic_winter_active
+    }
+    
+    immediate = {
+        hidden_effect = {
+            country_event = {
+                id = volcanic_winter.5
+                days = 120
+            }
+        }
+    }
+    
+    option = {
+        name = volcanic_winter.4.a
+        add_country_modifier = {
+            name = "volcanic_winter_cold"
+            duration = 547
+        }
+        every_owned_province = {
+            limit = {
+                has_climate = tropical
+            }
+            add_province_modifier = {
+                name = "unusual_cold"
+                duration = 365
+            }
+        }
+    }
+}
+
+# Problemy społeczne
+country_event = {
+    id = volcanic_winter.5
+    title = volcanic_winter.5.t
+    desc = volcanic_winter.5.d
+    picture = ANGRY_MOB_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        has_country_flag = volcanic_winter_active
+    }
+    
+    immediate = {
+        hidden_effect = {
+            country_event = {
+                id = volcanic_winter.6
+                days = 90
+            }
+        }
+    }
+    
+    option = {
+        name = volcanic_winter.5.a
+        add_stability = -1
+        add_unrest = 2
+        ai_chance = { factor = 30 }
+    }
+    
+    option = {
+        name = volcanic_winter.5.b
+        add_treasury = -75
+        add_legitimacy = 5
+        ai_chance = { 
+            factor = 70
+            modifier = {
+                factor = 0
+                NOT = { treasury = 75 }
+            }
+        }
+    }
+}
+
+# Adaptacja i handel
+country_event = {
+    id = volcanic_winter.6
+    title = volcanic_winter.6.t
+    desc = volcanic_winter.6.d
+    picture = MERCHANTS_TALKING_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        has_country_flag = volcanic_winter_active
+    }
+    
+    immediate = {
+        hidden_effect = {
+            country_event = {
+                id = volcanic_winter.7
+                days = 120
+            }
+        }
+    }
+    
+    option = {
+        name = volcanic_winter.6.a
+        add_years_of_income = -0.25
+        add_country_modifier = {
+            name = "emergency_trade_routes"
+            duration = 365
+        }
+    }
+    
+    option = {
+        name = volcanic_winter.6.b
+        trigger = {
+            any_ally = {
+                NOT = { has_country_flag = volcanic_winter_active }
+            }
+        }
+        add_dip_power = -50
+        add_country_modifier = {
+            name = "allied_food_support"
+            duration = 365
+        }
+    }
+}
+
+# Rozpoczęcie odbudowy
+country_event = {
+    id = volcanic_winter.7
+    title = volcanic_winter.7.t
+    desc = volcanic_winter.7.d
+    picture = REFORM_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        has_country_flag = volcanic_winter_active
+    }
+    
+    immediate = {
+        hidden_effect = {
+            country_event = {
+                id = volcanic_winter.8
+                days = 90
+            }
+        }
+    }
+    
+    option = {
+        name = volcanic_winter.7.a
+        add_country_modifier = {
+            name = "reconstruction_efforts"
+            duration = 730
+        }
+        add_adm_power = -25
+    }
+    
+    option = {
+        name = volcanic_winter.7.b
+        trigger = {
+            innovativeness = 5
+        }
+       change_innovativeness = -5
+        add_country_modifier = {
+            name = "innovative_solutions"
+            duration = 1095
+        }
+    }
+}
+
+# Koniec katastrofy
+country_event = {
+    id = volcanic_winter.8
+    title = volcanic_winter.8.t
+    desc = volcanic_winter.8.d
+    picture = GOOD_WITH_MONARCH_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        has_country_flag = volcanic_winter_active
+    }
+    
+    immediate = {
+        hidden_effect = {
+            clr_country_flag = volcanic_winter_active
+            remove_country_modifier = ash_clouds
+            remove_country_modifier = crop_failures
+            		set_country_flag = had_black_sun
+		set_country_flag = JEBANECZARNESLONECZKO 
+            remove_country_modifier = volcanic_winter_cold
+        }
+    }
+    
+    option = {
+        name = volcanic_winter.8.a
+        add_stability = 1
+        add_prestige = 10
+        add_country_modifier = {
+            name = "survivors_resilience"
+            duration = 1825
+        }
+    }
+    
+    option = {
+        name = volcanic_winter.8.b
+        trigger = {
+            religious_unity = 0.8
+        }
+        add_legitimacy = 10
+        add_country_modifier = {
+            name = "divine_deliverance"
+            duration = 1825
+        }
+    }
+}
+
+# Event losowy - odkrycie nowych metod uprawy
+country_event = {
+    id = volcanic_winter.9
+    title = volcanic_winter.9.t
+    desc = volcanic_winter.9.d
+    picture = FARMING_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        has_country_flag = volcanic_winter_active
+        technology_group = western
+    }
+    
+    option = {
+        name = volcanic_winter.9.a
+        add_country_modifier = {
+            name = "improved_farming_methods"
+            duration = 3650
+        }
+        add_adm_power = -50
+    }
+    
+    option = {
+        name = volcanic_winter.9.b
+        add_treasury = 100
+    }
+}
+
+country_event = {
+    id = volcanic_winter.10
+    title = volcanic_winter.10.t
+    desc = volcanic_winter.10.d
+    picture = REFUGEES_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        has_country_flag = volcanic_winter_active
+        any_neighbor_country = {
+            NOT = { has_country_flag = volcanic_winter_active }
+        }
+    }
+    
+    option = {
+        name = volcanic_winter.10.a
+        add_stability = -1
+        random_owned_province = {
+            add_base_manpower = -1
+        }
+        random_neighbor_country = {
+            limit = {
+                NOT = { has_country_flag = volcanic_winter_active }
+            }
+            add_opinion = {
+                who = ROOT
+                modifier = refugee_crisis
+            }
+        }
+    }
+    
+    option = {
+        name = volcanic_winter.10.b
+        add_treasury = -100
+        add_legitimacy = 5
+        ai_chance = { 
+            factor = 60
+            modifier = {
+                factor = 0
+                NOT = { treasury = 100 }
+            }
+        }
+    }
+}

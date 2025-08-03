@@ -1,0 +1,164 @@
+estate_rural_communes = {
+	icon = 4
+	color = { 90 140 60 }
+	
+	trigger = {
+		NOT = { government = tribal }
+		NOT = { has_reform = steppe_horde }
+
+		OR = {
+		technology_group = western
+		technology_group = muslim
+		technology_group = eastern	
+		}
+		OR = {
+			religion_group = christian
+			religion = jewish
+		}
+		num_of_owned_provinces_with = {
+			value = 3
+			NOT = { has_terrain = desert }
+			NOT = { has_terrain = glacier }
+			NOT = { has_terrain = coastal_desert }
+			base_manpower = 2
+		}
+	}
+
+	country_modifier_happy = {
+		global_manpower_modifier = 0.15
+		land_forcelimit_modifier = 0.10
+		global_autonomy = -0.025
+	}
+	country_modifier_neutral = {
+		global_manpower_modifier = 0.10
+		land_forcelimit_modifier = 0.05
+	}	
+	country_modifier_angry = {
+		global_manpower_modifier = -0.15
+		land_forcelimit_modifier = -0.10
+		global_unrest = 2
+	}
+
+	land_ownership_modifier = {
+		local_manpower_modifier = 0.25
+		local_autonomy = -0.05
+	}
+
+	province_independence_weight = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			base_manpower = 4
+		}
+		modifier = {
+			factor = 2.0
+			has_terrain = farmlands
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { base_manpower = 2 }
+		}
+	}
+
+	base_influence = 20
+	influence_modifier = {
+		desc = EST_VAL_AGRICULTURAL_FOCUS
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				OR = {
+					has_terrain = farmlands
+					has_terrain = grasslands
+				}
+			}
+		}	
+		influence = 10
+	}
+	influence_modifier = {
+		desc = EST_VAL_LOW_URBANIZATION
+		trigger = {
+			NOT = {
+				calc_true_if = {
+					all_owned_province = {
+						development = 15
+					}
+					amount = 3
+				}
+			}
+		}	
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_PEASANT_REPUBLIC
+		trigger = {
+			has_reform = peasants_republic
+		}	
+		influence = 15
+	}
+	
+	loyalty_modifier = {
+		desc = EST_VAL_COMMUNE_PRIVILEGES
+		trigger = {
+			has_estate_privilege = estate_rural_communes_local_autonomy
+		}
+		loyalty = 10
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_LOW_WAR_EXHAUSTION
+		trigger = {
+			NOT = { war_exhaustion = 3 }
+		}
+		loyalty = 5
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_HIGH_WAR_EXHAUSTION
+		trigger = {
+			war_exhaustion = 8
+		}
+		loyalty = -15
+	}
+	
+	custom_name = {
+		desc = EST_COMMUNES_SWISS
+		trigger = {
+			OR = {
+				tag = SWI
+				primary_culture = swiss
+			}
+		}
+	}
+				custom_name = {
+		desc = EST_SZLACHTAZAGRODOWA2
+		trigger = {
+			OR = {
+				tag = POL
+				tag = PLC			
+			}
+		}
+	}
+					custom_name = {
+		desc = EST_COLONI
+		trigger = {
+			culture_group = roman_group
+		}
+	}
+	
+	contributes_to_curia_treasury = no
+
+	privileges = {
+		estate_rural_communes_local_autonomy
+		estate_rural_communes_militia_service
+		estate_rural_communes_tax_exemptions
+		estate_rural_communes_land_grants
+		estate_rural_communes_collective_bargaining
+	}
+
+	agendas = {
+		estate_rural_communes_develop_manpower
+		estate_rural_communes_build_barracks
+		estate_rural_communes_reduce_war_exhaustion
+		estate_rural_communes_expand_farmland
+	}
+	
+	influence_from_dev_modifier = 0.3
+}

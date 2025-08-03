@@ -1,6 +1,6 @@
 cb_byzantine_war_on_empire = {
 	is_triggered_only = yes
-		months = 360
+	months = 360
 	war_goal = war_atlantropa_empire
 }
 
@@ -11,17 +11,18 @@ cb_byzantine_autonomous_province = {
 		OR = {
 			tag = BYZ
 			was_tag = BYZ
-			tag = A4R				
+			tag = A4R
+			tag = X55
 		}
 	}
 
 	prerequisites = {
 		is_subject = no
 		is_neighbor_of = FROM
-		FROM =  { total_development = 20 } 		
+		FROM =  { total_development = 20 }
 		FROM = { NOT = { total_development = 200 } }
-		FROM = { NOT = { total_development = ROOT } }		
-		NOT = { truce_with = FROM }		
+		FROM = { NOT = { total_development = ROOT } }
+		NOT = { truce_with = FROM }
 	}
 
 	war_goal = byzantine_provinceindependece
@@ -39,10 +40,10 @@ cb_magyar_autonomous_province = {
 	prerequisites = {
 		is_subject = no
 		is_neighbor_of = FROM
-		FROM =  { total_development = 20 } 		
+		FROM =  { total_development = 20 }
 		FROM = { NOT = { total_development = 200 } }
-		FROM = { NOT = { total_development = ROOT } }		
-		NOT = { truce_with = FROM }		
+		FROM = { NOT = { total_development = ROOT } }
+		NOT = { truce_with = FROM }
 	}
 
 	war_goal = magyar_provinceindependece
@@ -75,4 +76,62 @@ cb_huns_invasion = {
 	}
 
 	war_goal = take_capital_imperial
+}
+cb_machine_extermination = {
+	valid_for_subject = yes
+	prerequisites_self = {
+		OR = {
+			TAG = XX1
+			TAG = XX3
+			TAG = XX2
+			TAG = XX4
+		}
+	}
+
+	prerequisites = {
+		is_neighbor_of = FROM
+	}
+
+	war_goal = take_capital_imperial
+}
+
+
+atlantropa_cb_border_war = {
+	valid_for_subject = no
+	
+	is_triggered_only = no
+	months = 60
+	
+	prerequisites = {
+		is_neighbor_of = FROM
+		has_institution = feudalism
+		NOT = { has_institution = renaissance }
+	}
+	
+	war_goal = war_goal_border_conquest
+	
+	# AI będzie używać tego CB tylko gdy nie ma innych opcji
+	ai_peace_desire = -25  # AI będzie mniej skłonne do pokoju
+ 
+}
+cb_philosophical_war = {
+	valid_for_subject = no
+	
+	prerequisites = {
+		OR = {
+			tag = TU3
+			tag = GR6
+		}
+					is_rival = ROOT
+	}
+	
+	prerequisites_self = {
+		OR = {
+			tag = TU3
+			tag = GR6
+
+		}
+	}
+	war_goal = take_capital_imperial
+
 }

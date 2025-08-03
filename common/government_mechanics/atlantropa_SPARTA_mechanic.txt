@@ -1,72 +1,328 @@
-spartan_general_mechanic = {
+spartan_agoge_mechanic = {
 	alert_icon_gfx = GFX_alerticons_government_mechanics
-	alert_icon_index = 12
+	alert_icon_index = 14
+	available = {
+	}
+
 	powers = {
-		spartanavymil_power  = {
-			gui = parliament_vs_monarchy_gov_mech
-			max = 100	#Monarchy direction
-			min = -100	#Parliament direction
-			base_monthly_growth = 0
+		warrior_discipline = {
+			max = 100
+			min = 0
+			default = 60
+			reset_on_new_ruler = no
+			base_monthly_growth = -0.05
+			development_scaled_monthly_growth = -0.02  # Spartan society resists development
+			is_good = yes
+			
+			# Scaled modifiers based on warrior discipline
 			scaled_modifier = {
-				trigger = {
-					has_government_power = { 
-						mechanic_type = spartan_general_mechanic
-						power_type = spartanavymil_power 
-						value = 0
-					}
-				}
+				start_value = 0
+				end_value = 100
 				modifier = {
-            sparta_navy_influence = 0.5
-            administrative_efficiency = 0.020	
-            heavy_ship_power = 0.1	
-            global_sailors_modifier = 0.20	
-            global_manpower_modifier = -0.20
-            ship_durability = 0.1	
-		    naval_morale = 0.2	
-            land_morale = -0.08
-		    admiral_cost = -0.25
-            general_cost = 0.40
-            administrative_efficiency = 0.025	
+					discipline = 0.075
+					mercenary_discipline = -0.75	
+					land_morale = 0.15
+					manpower_recovery_speed = -0.8
+					infantry_power = 0.15
+
 				}
 			}
-			reverse_scaled_modifier = {
-				trigger = {
+			
+			# Range modifiers for different discipline levels
+			range_modifier = {
+				start_value = 80
+				end_value = 100
+				modifier = {
+					army_tradition = 1.0
+					prestige_from_land = 0.50
+					land_attrition = -0.25
+					movement_speed = 0.15
+					free_leader_pool = 2
+					may_recruit_female_generals = yes
+				}
+			}
+			
+			range_modifier = {
+				start_value = 60
+				end_value = 79
+				modifier = {
+					army_tradition = 0.5
+					prestige_from_land = 0.25
+					land_attrition = -0.15
+					movement_speed = 0.10
+					free_leader_pool = 1
+				}
+			}
+			
+			range_modifier = {
+				start_value = 40
+				end_value = 59
+				modifier = {
+					# Neutral range - standard Spartan military
+				}
+			}
+			
+			range_modifier = {
+				start_value = 20
+				end_value = 39
+				modifier = {
+					discipline = -0.05
+					land_morale = -0.05
+					global_manpower_modifier = -0.10
+					army_tradition_decay = 0.005
+					prestige = -0.5
+				}
+			}
+			
+			range_modifier = {
+				start_value = 0
+				end_value = 19
+				modifier = {
+					discipline = -0.10
+					land_morale = -0.15
+					global_manpower_modifier = -0.25
+					army_tradition_decay = 0.01
+					prestige = -1.0
+					global_unrest = 3
+					stability_cost_modifier = 0.25
+				}
+			}
+			
+			# Constant penalties for Spartan society limitations
+			range_modifier = {
+				start_value = 0
+				end_value = 100
+				modifier = {
+					global_trade_power = -0.15
+					production_efficiency = -0.10
+					build_cost = 0.25
+					technology_cost = 0.10
+					diplomats = -1
+					merchants = -1
+				}
+			}
+			
+		}
+	}
+	
+	interactions = {
+
+		conduct_great_agoge = {
+					icon = GFX_conduct_great_agoge
+			cost_type = warrior_discipline
+			cost = 0
+			trigger = {
+				mil_power = 150
+				NOT = { has_country_modifier = recent_great_agoge }
+				has_government_power = {
+					mechanic_type = spartan_agoge_mechanic
+					power_type = warrior_discipline
+					value = 30
+				}
+			}
+			effect = {
+				add_mil_power = -150
+				add_government_power = {
+					mechanic_type = spartan_agoge_mechanic
+					power_type = warrior_discipline
+					value = 25
+				}
+				add_army_tradition = 15
+				add_country_modifier = {
+					name = great_agoge_conducted
+					duration = 3650 # 10 years
+				}
+				add_country_modifier = {
+					name = recent_great_agoge
+					duration = 2555 # 7 years
+				}
+				random_owned_province = {
+					limit = {
+						is_capital = yes
+					}
+					add_province_modifier = {
+						name = elite_warrior_training_ground
+						duration = 5475 # 15 years
+					}
+				}
+			}
+			cooldown_years = 7
+			ai_chance = {
+				factor = 85
+				modifier = {
+					factor = 2
+					has_government_power = {
+						mechanic_type = spartan_agoge_mechanic
+						power_type = warrior_discipline
+						value = 40
+					}
 					NOT = {
-						has_government_power = { 
-							mechanic_type = spartan_general_mechanic
-							power_type = spartanavymil_power 
-							value = 0
+						has_government_power = {
+							mechanic_type = spartan_agoge_mechanic
+							power_type = warrior_discipline
+							value = 80
 						}
 					}
 				}
 				modifier = {
-          sparta_army_influence = 0.5           
-        land_morale = 0.1
-        naval_morale = -0.1	
-        global_sailors_modifier = -0.0	
-         global_manpower_modifier = 0.20	
-        administrative_efficiency = -0.020	
-        manpower_recovery_speed = 0.10	
-        general_cost = -0.25
-        admiral_cost = 0.40
+					factor = 1.5
+					army_tradition = 40
 				}
 			}
-			on_max_reached = {
-				custom_tooltip = parliament_vs_monarchy_mechanic_at
-				hidden_effect = {
-					set_country_flag = eng_monarchy_in_absolute_power
-					country_event = {
-						id = flavor_gbr.113
+		}
+		
+		helot_exploitation = {
+					icon = GFX_helot_exploitation
+			cost_type = warrior_discipline
+			cost = 15
+			trigger = {
+				adm_power = 75
+				NOT = { has_country_modifier = recent_helot_exploitation }
+				any_owned_province = {
+					NOT = { culture = ROOT }
+				}
+			}
+			effect = {
+				add_adm_power = -75
+				add_government_power = {
+					mechanic_type = spartan_agoge_mechanic
+					power_type = warrior_discipline
+					value = 12
+				}
+				add_years_of_income = 0.5
+				random_list = {
+					70 = {
+						# Successful exploitation
+						add_country_modifier = {
+							name = efficient_helot_system
+							duration = 2190 # 6 years
+						}
+						random_owned_province = {
+							limit = {
+								NOT = { culture = ROOT }
+								base_production = 3
+							}
+							add_province_modifier = {
+								name = helot_agricultural_surplus
+								duration = 2555 # 7 years
+							}
+						}
+					}
+					30 = {
+						# Helot unrest
+						add_country_modifier = {
+							name = helot_unrest_suppressed
+							duration = 1095 # 3 years
+						}
+						random_owned_province = {
+							limit = {
+								NOT = { culture = ROOT }
+							}
+							add_local_autonomy = -25
+							add_unrest = 5
+						}
+					}
+				}
+				add_country_modifier = {
+					name = recent_helot_exploitation
+					duration = 1825 # 5 years
+				}
+			}
+			cooldown_years = 5
+			ai_chance = {
+				factor = 60
+				modifier = {
+					factor = 2
+					any_owned_province = {
+						NOT = { culture = ROOT }
+						unrest = 2
+					}
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { years_of_income = 2.0 }
+				}
+			}
+		}
+		
+		spartan_expedition = {
+			icon = GFX_spartan_expedition
+			cost_type = warrior_discipline
+			cost = 20
+			trigger = {
+				dip_power = 100
+				is_at_war = yes
+				NOT = { has_country_modifier = spartan_expedition_exhaustion }
+				has_government_power = {
+					mechanic_type = spartan_agoge_mechanic
+					power_type = warrior_discipline
+					value = 50
+				}
+				any_enemy_country = {
+					capital_scope = {
+						NOT = { continent = ROOT }
 					}
 				}
 			}
-			on_min_reached = {
-				custom_tooltip = parliament_vs_monarchy_mechanic_bt
-				hidden_effect = {
-					set_country_flag = eng_parliament_in_absolute_power
-					country_event = {
-						id = flavor_gbr.113
+			effect = {
+				add_dip_power = -100
+				add_government_power = {
+					mechanic_type = spartan_agoge_mechanic
+					power_type = warrior_discipline
+					value = 15
+				}
+				add_country_modifier = {
+					name = legendary_spartan_expedition
+					duration = 1825 # 5 years
+				}
+				add_country_modifier = {
+					name = spartan_expedition_exhaustion
+					duration = 3650 # 10 years
+				}
+				add_prestige = 20
+				add_army_tradition = 10
+				random_list = {
+					60 = {
+						# Expedition brings glory
+						add_country_modifier = {
+							name = expedition_glory
+							duration = 2555 # 7 years
+						}
 					}
+					25 = {
+						# Expedition brings wealth
+						add_years_of_income = 1.5
+						add_country_modifier = {
+							name = expedition_plunder
+							duration = 1095 # 3 years
+						}
+					}
+					15 = {
+						# Expedition fails dramatically
+						add_prestige = -30
+						add_army_tradition = -15
+						add_war_exhaustion = 3
+					}
+				}
+			}
+			cooldown_years = 10
+			ai_chance = {
+				factor = 75
+				modifier = {
+					factor = 2
+					has_government_power = {
+						mechanic_type = spartan_agoge_mechanic
+						power_type = warrior_discipline
+						value = 70
+					}
+				}
+				modifier = {
+					factor = 1.5
+					army_tradition = 60
+				}
+				modifier = {
+					factor = 0.3
+					war_exhaustion = 8
 				}
 			}
 		}

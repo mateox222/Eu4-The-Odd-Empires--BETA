@@ -1,0 +1,671 @@
+pomeranian_piast_missions_1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		is_or_was_tag = { tag = MAZ } 
+		NOT = { map_setup = map_setup_random } 
+	}
+
+	pom_piast_legacy = {
+		icon = mission_noble_council
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			legitimacy = 90
+			prestige = 25
+			army_tradition = 30
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_piast_restoration"
+				duration = 7300
+			}
+			capital_scope = {
+				add_base_tax = 2
+				add_base_production = 2
+				add_base_manpower = 2
+			}
+		}
+	}
+
+	pom_royal_court = {
+		icon = mission_court_education
+		position = 2
+		required_missions = { pom_piast_legacy } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			capital_scope = {
+				development = 25
+				has_building = university
+			}
+			num_of_owned_provinces_with = {
+				value = 5
+				has_building = courthouse
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_royal_administration"
+				duration = 9125
+			}
+			random_owned_province = {
+				limit = {
+					development = 15
+					NOT = { has_building = cathedral } 
+				}
+				add_building = cathedral
+			}
+		}
+	}
+
+	pom_rightful_heir = {
+		icon = mission_plc_dominate_european_markets
+		position = 3
+		required_missions = { pom_royal_court } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			POL = { exists = yes } 
+			army_size = 30
+			total_development = 100
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_liberation_campaign"
+				duration = 5475
+			}
+			add_casus_belli = {
+				target = POL
+				type = cb_restore_personal_union
+				months = 120
+			}
+		}
+	}
+
+	pom_liberation_of_venedia = {
+		icon = mission_plc_proclaim_polish_hegemony
+		position = 4
+		required_missions = { pom_rightful_heir } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			owns = 184
+			POL = { NOT = { num_of_cities = 10 }  } 
+			total_development = 250
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_venedian_liberation"
+				duration = -1
+			}
+			change_tag = POL
+            override_country_name = POLSKA
+			set_country_flag = piast_restoration
+		}
+	}
+
+	pom_restore_order = {
+		icon = mission_portuguese_ceylon
+		position = 5
+		required_missions = { pom_liberation_of_venedia } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			tag = POL
+	
+			stability = 2
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_piast_new_order"
+				duration = -1
+			}
+			add_legitimacy = 50
+			add_prestige = 50
+		}
+	}
+}
+pomeranian_piast_missions_4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		is_or_was_tag = { tag = MAZ } 
+		NOT = { map_setup = map_setup_random } 
+	}
+
+	pom_naval_supremacy = {
+		icon = mission_establish_high_seas_navy
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			navy_size = 20
+			num_of_heavy_ship = 10
+			naval_forcelimit = 25
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_baltic_dominion"
+				duration = 7300
+			}
+			create_admiral = { tradition = 60 } 
+			add_navy_tradition = 15
+		}
+	}
+
+	pom_merchant_marine = {
+		icon = mission_dominate_trade_in_bengal
+		position = 2
+		required_missions = { pom_naval_supremacy } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_light_ship = 15
+			home_trade_node = {
+				trade_share = {
+					country = ROOT
+					share = 50
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_maritime_trade"
+				duration = 9125
+			}
+			add_mercantilism = 8
+		}
+	}
+
+	pom_overseas_expansion = {
+		icon = atlantropa_handelsbolag
+		position = 3
+		required_missions = { pom_merchant_marine } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_colonists = 1
+			num_of_colonies = 3
+			any_subject_country = { is_colonial_nation = yes } 
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_colonial_empire"
+				duration = 7300
+			}
+			random_subject_country = {
+				limit = { is_colonial_nation = yes } 
+				add_liberty_desire = -20
+			}
+			add_prestige = 15
+		}
+	}
+
+	pom_global_reach = {
+		icon = mission_asian_trader
+		position = 4
+		required_missions = { pom_overseas_expansion } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			tag = POL
+			has_country_flag = piast_restoration
+			num_of_colonies = 8
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_global_trade_empire"
+				duration = -1
+			}
+			add_mercantilism = 10
+			add_years_of_income = 2
+		}
+	}
+
+	pom_new_world_dominion = {
+		icon = atlantropa_globe
+		position = 5
+		required_missions = { pom_global_reach } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			tag = POL
+			num_of_colonies = 15
+			treasury = 5000
+			any_subject_country = {
+				is_colonial_nation = yes
+				total_development = 200
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_colonial_dominion"
+				duration = -1
+			}
+			every_subject_country = {
+				limit = { is_colonial_nation = yes } 
+				add_country_modifier = {
+					name = "pom_colonial_prosperity"
+					duration = -1
+				}
+			}
+		}
+	}
+}
+pomeranian_piast_missions_5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		is_or_was_tag = { tag = MAZ } 
+		NOT = { map_setup = map_setup_random } 
+	}
+
+	pom_military_reforms = {
+		icon = atlantropa_gravedigger
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_size = 25
+			num_of_generals = 3
+			army_tradition = 40
+			mil_tech = 10
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_military_excellence"
+				duration = 7300
+			}
+			add_army_tradition = 10
+			create_general = { tradition = 70 } 
+		}
+	}
+
+	pom_officer_corps = {
+		icon = mission_alliances
+		position = 2
+		required_missions = { pom_military_reforms } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_professionalism = 0.3
+			num_of_owned_provinces_with = {
+				value = 3
+				has_building = barracks
+			}
+			has_idea_group = quality_ideas
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_professional_army"
+				duration = 9125
+			}
+			add_army_professionalism = 0.1
+			random_owned_province = {
+				limit = {
+					development = 15
+					has_building = barracks
+				}
+				add_building = training_fields
+			}
+		}
+	}
+
+	pom_military_innovation = {
+		icon = fixed_garrison_system
+		position = 3
+		required_missions = { pom_officer_corps } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			mil_tech = 15
+			num_of_owned_provinces_with = {
+				value = 2
+				has_building = weapons
+			}
+			army_professionalism = 0.5
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_military_technology"
+				duration = 7300
+			}
+			add_mil_power = 200
+			random_owned_province = {
+				limit = { has_building = weapons } 
+				add_base_production = 2
+			}
+		}
+	}
+
+	pom_invincible_army = {
+		icon = mission_modern_ottoman_soldiers
+		position = 4
+		required_missions = { pom_military_innovation } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			tag = POL
+			has_country_flag = piast_restoration
+			army_tradition = 80
+			army_professionalism = 0.8
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_invincible_legions"
+				duration = -1
+			}
+			add_army_tradition = 20
+			add_mil_power = 300
+		}
+	}
+
+	pom_eternal_glory = {
+		icon = mission_sword_of_the_reformation
+		position = 5
+		required_missions = { pom_invincible_army } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			tag = POL
+			total_development = 1000
+			prestige = 90
+			legitimacy = 95
+			is_great_power = yes
+			government_rank = 3
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_eternal_piast_glory"
+				duration = -1
+			}
+			add_prestige = 50
+			add_legitimacy = 25
+			capital_scope = {
+				add_base_tax = 10
+				add_base_production = 10
+				add_base_manpower = 5
+			}
+		}
+	}
+}
+pomeranian_piast_missions_2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		is_or_was_tag = { tag = MAZ } 
+		NOT = { map_setup = map_setup_random } 
+	}
+
+	pom_flourishing_cities = {
+		icon = mission_university_of_copenhagen
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 6
+				development = 15
+			}
+			treasury = 300
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_urban_growth"
+				duration = 7300
+			}
+			every_owned_province = {
+				limit = { development = 15 } 
+				add_base_tax = 1
+				add_base_production = 1
+			}
+		}
+	}
+
+	pom_economic_powerhouse = {
+		icon = mission_pol_breadbasket_europe
+		position = 2
+		required_missions = { pom_flourishing_cities } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 4
+				OR = {
+					has_building = marketplace
+					has_building = trade_depot
+				}
+			}
+			share_of_starting_income = 4
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_economic_engine"
+				duration = 9125
+			}
+			add_years_of_income = 1.5
+			random_owned_province = {
+				limit = {
+					development = 20
+					NOT = { has_building = stock_exchange } 
+				}
+				add_building = stock_exchange
+			}
+		}
+	}
+
+	pom_technological_advancement = {
+		icon = atlantropa_medievalbook
+		position = 3
+		required_missions = { pom_economic_powerhouse } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				has_building = university
+			}
+			innovativeness = 20
+			adm_tech = 12
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_intellectual_center"
+				duration = 7300
+			}
+			capital_scope = {
+				add_base_tax = 3
+				add_base_production = 3
+			}
+			change_innovativeness = 10
+		}
+	}
+
+	pom_cultural_renaissance = {
+		icon = mission_high_income
+		position = 4
+		required_missions = { pom_technological_advancement } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			tag = POL
+			has_country_flag = piast_restoration
+			capital_scope = { development = 40 } 
+			prestige = 50
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_cultural_flowering"
+				duration = -1
+			}
+			capital_scope = {
+				add_base_tax = 4
+				add_base_production = 4
+				add_base_manpower = 2
+			}
+		}
+	}
+}
+pomeranian_piast_missions_3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		is_or_was_tag = { tag = MAZ } 
+		NOT = { map_setup = map_setup_random } 
+	}
+
+	pom_mighty_fortresses = {
+		icon = defend_the_city
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 4
+				fort_level = 2
+			}
+			army_size = 15
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_defensive_network"
+				duration = 7300
+			}
+			every_owned_province = {
+				limit = { fort_level = 2 } 
+				add_base_manpower = 1
+			}
+		}
+	}
+
+	pom_industrial_expansion = {
+		icon = take_the_bishoprics
+		position = 2
+		required_missions = { pom_mighty_fortresses } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 6
+				OR = {
+					has_building = mills
+					has_building = farm_estate
+					has_building = tradecompany
+					has_building = textile
+					has_building = weapons
+					has_building = wharf
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_industrial_base"
+				duration = 9125
+			}
+			random_owned_province = {
+				limit = {
+					development = 18
+					OR = {
+						trade_goods = iron
+						trade_goods = copper
+						trade_goods = coal
+					}
+				}
+				add_base_production = 3
+			}
+		}
+	}
+
+	pom_demographic_boom = {
+		icon = mission_che_the_council_house
+		position = 3
+		required_missions = { pom_industrial_expansion } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			total_development = 400
+			num_of_owned_provinces_with = {
+				value = 8
+				development = 20
+			}
+			manpower_percentage = 0.8
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_population_growth"
+				duration = 7300
+			}
+			every_owned_province = {
+				limit = { development = 20 } 
+				add_base_manpower = 2
+			}
+		}
+	}
+
+	pom_great_metropolis = {
+		icon = atlantropa_grossbycast
+		position = 4
+		required_missions = { pom_demographic_boom } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			tag = POL
+			has_country_flag = piast_restoration
+			capital_scope = {
+				development = 50
+				has_building = university
+				has_building = stock_exchange
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "pom_imperial_capital"
+				duration = -1
+			}
+			capital_scope = {
+				add_base_tax = 5
+				add_base_production = 5
+				add_base_manpower = 3
+				add_province_modifier = {
+					name = "pom_piast_capital"
+					duration = -1
+				}
+			}
+		}
+	}
+}

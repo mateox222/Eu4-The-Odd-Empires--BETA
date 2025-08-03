@@ -17,12 +17,33 @@ country_event = {
 	}
 	
 	major = yes
+		trigger = {
+		NOT = { is_religion_enabled = protestant }
+		religion = united_christianity
+		is_institution_enabled = renaissance
+		is_defender_of_faith = no	
+		NOT = { has_reform = papacy_reform }
+		capital_scope = {
+			continent = europe
+		}
+		any_owned_province = {
+			can_have_center_of_reformation_trigger = {
+				RELIGION = protestant
+			}
+		}
+	}
 	
-	is_triggered_only = yes
 
 	option = {
 		name = "EVTOPTA2001"
 		enable_religion = protestant
+		363 = {
+			change_religion = protestant
+			add_permanent_province_modifier = {
+				name = "religious_zeal_at_conv"
+				duration = 9000
+			}
+		}
 		random_owned_province = {
 			limit = {
 				can_have_center_of_reformation_trigger = {

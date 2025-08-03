@@ -1,73 +1,211 @@
-frenchannexapanage_mechanic = {
-   alert_icon_gfx = GFX_alerticons_government_mechanics
+aquitaine_appanage_mechanic = {
+
+	alert_icon_gfx = GFX_alerticons_government_mechanics
 	alert_icon_index = 10
 	
-	interactions = {
-        frnchshadowmechanic = { #Improvemandate
-			cooldown_years = 10
-			
-			potential = {
-				always = no
-			}
-			trigger = {
-                imperial_mandate = 80
-			}
-			effect = { 
-             add_mandate = -10	
-             add_yearly_sailors = 2
-             create_admiral = { tradition = 75 }	
-             add_diP_power = 150
-             add_stability = -1
+ 
 
+	powers = {
+		royal_authority = {
+			max = 100
+			min = 0
+			default = 0
+			base_monthly_growth = 2
+			development_scaled_monthly_growth = 0.1
+			
+			# Modyfikatory skalowane - im wyższa royal_authority, tym lepsze bonusy
+			scaled_modifier = {
+				modifier = {
+					diplomatic_reputation = 0.5
+					diplomatic_annexation_cost = -0.25
+						liberty_desire_from_subject_development = -0.25
+				}
 			}
-			ai_chance = {
-				factor = 0
+			
+			# Efekt przy osiągnięciu maksimum
+			on_max_reached = {
+ 
 			}
+			
+			is_good = yes
 		}
-        french_annex_appanage = { 
-			cooldown_years = 20
+	}
+	
+	interactions = {
+		strengthen_royal_authority = {
+						icon = GFX_frenchroyalauthority
+			cost_type = royal_authority
+			cost = -25 # dodaje 25 punktów
+			cooldown_years = 5
 			
-			icon = GFX_frenchappanagew
 			trigger = {
-				any_subject_country = {
-					is_subject_of_type = appanage
+	
+				dip_power = 50
 				NOT = {
-					liberty_desire = 33
-				}}
-			   is_at_war = no
-               adm_power = 100
-			   dip_power = 100
-			   mil_power = 100
-			   stability = 2
+					has_government_power = {
+						mechanic_type = aquitaine_appanage_mechanic
+						power_type = royal_authority
+						value = 100
+					}
+				}
 			}
-			effect = { 
-				hidden_effect = {
-            random_subject_country = {
-				limit = {
-					is_subject_of_type = appanage
-				NOT = {
-					liberty_desire = 33
+			
+			effect = {
+	
+				add_dip_power = -50
+				add_adm_power = 50
+				add_government_power = {
+					mechanic_type = aquitaine_appanage_mechanic
+					power_type = royal_authority
+					value = 25
 				}
-				}
-				    save_event_target_as = frabceanneksa	
-
-			 }	
-				}
-			 add_adm_power = -100
-			 add_adm_power = -100
-			 add_adm_power = -100
-			 add_stability = -1
-			inherit = event_target:frabceanneksa
-
-
 			}
+			
 			ai_chance = {
 				factor = 1
+				modifier = {
+					factor = 2
+					NOT = {
+						has_government_power = {
+							mechanic_type = aquitaine_appanage_mechanic
+							power_type = royal_authority
+							value = 75
+						}
+					}
+				}
 			}
 		}
-
 		
-
-
-}
+		annex_appanage = {
+			icon = GFX_annexappanage2
+			cost_type = royal_authority
+			cost = 100 # wymaga pełnego paska
+			cooldown_years = 10
+			
+			
+			
+			trigger = {
+				has_government_power = {
+					mechanic_type = aquitaine_appanage_mechanic
+					power_type = royal_authority
+					value = 100
+				}
+				any_subject_country = {
+					is_subject_of_type = appanage
+					NOT = {
+						liberty_desire = 33
+					}
+				}
+				is_at_war = no
+				adm_power = 100
+				dip_power = 100
+				mil_power = 100
+				stability = 2
+			}
+			
+			effect = {
+				hidden_effect = {
+					random_subject_country = {
+						limit = {
+							is_subject_of_type = appanage
+							NOT = {
+								liberty_desire = 33
+							}
+						}
+						save_event_target_as = appanage_to_annex
+					}
+				}
+				
+				add_adm_power = -100
+				add_dip_power = -100
+				add_mil_power = -100
+				add_stability = -1
+				
+				# Resetuje royal_authority do 0
+				set_government_power = {
+					mechanic_type = aquitaine_appanage_mechanic
+					power_type = royal_authority
+					value = 0
+				}
+				
+				# Anektuje appanage
+				inherit = event_target:appanage_to_annex
+				
+				# Dodaje modyfikator reprezentujący konsekwencje aneksji
+ 
+			}
+			
+			ai_chance = {
+				factor = 1
+				modifier = {
+					factor = 2
+					any_subject_country = {
+						is_subject_of_type = appanage
+						liberty_desire = 10
+					}
+				}
+				modifier = {
+					factor = 0.5
+					stability = 1
+				}
+			}
+		}
+		
+		diplomatic_integration = {
+			icon = GFX_frenchdiplomaticannexation
+			cost_type = royal_authority
+			cost = 50
+			cooldown_years = 15
+			
+			trigger = {
+				has_government_power = {
+					mechanic_type = aquitaine_appanage_mechanic
+					power_type = royal_authority
+					value = 50
+				}
+				any_subject_country = {
+					is_subject_of_type = appanage
+				}
+				is_at_war = no
+				dip_power = 200
+			}
+			
+			effect = {
+				hidden_effect = {
+					random_subject_country = {
+						limit = {
+							is_subject_of_type = appanage
+						}
+						save_event_target_as = appanage_to_integrate
+					}
+				}
+				
+		 
+				
+				# Zmniejsza royal_authority
+				add_government_power = {
+					mechanic_type = aquitaine_appanage_mechanic
+					power_type = royal_authority
+					value = -50
+				}
+				
+				# Rozpoczyna proces dyplomatycznej integracji
+				event_target:appanage_to_integrate = {
+					add_liberty_desire = -25
+					 
+				}
+			}
+			
+			ai_chance = {
+				factor = 55
+				modifier = {
+					factor = 2
+					any_subject_country = {
+						is_subject_of_type = appanage
+						liberty_desire = 25
+					}
+				}
+			}
+		}
+	}
 }

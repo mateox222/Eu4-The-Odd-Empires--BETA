@@ -1,344 +1,345 @@
 namespace = thuringia_events
 country_event = {
-	id = thuringia_events.1    #TreatyofAnsbach
-	title = "thuringia_events.1.t"
-	desc = "thuringia_events.1.d"
-	picture = easternchurches_eventPicture
-	is_triggered_only = yes
+    id = thuringia_events.1    #TreatyofAnsbach
+    title = "thuringia_events.1.t"
+    desc = "thuringia_events.1.d"
+    picture = easternchurches_eventPicture
+    is_triggered_only = yes
     major = yes
     fire_only_once = yes
     trigger = {
         tag = X58
-			NOT = { 
-				has_global_flag = treatyofasbach
-			}
+        NOT = {
+            has_global_flag = treatyofasbach
+        }
     }
-	option = {
-       set_global_flag = treatyofasbach
-		name = "thuringia_events.1.a"
-		add_stability = 1
+    option = {
+        set_global_flag = treatyofasbach
+        name = "thuringia_events.1.a"
+        add_stability = 1
         custom_tooltip = thuringiafall
 
         hidden_effect = {
-            release_all_subjects = yes	
-                    #SERBIA
-        weser_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = X59
-            cede_province = X59
-            remove_core = ROOT
-        }	
-
-        northern_saxony_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = X59
-            cede_province = X59
-            remove_core = ROOT
-        }	
-        thuringia_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = X59
-            cede_province = X59
-            remove_core = ROOT
-        }	
-        hesse_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = X59
-            cede_province = X59
-            remove_core = ROOT
-        }	
-        franconia_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = X59
-            cede_province = X59
-            remove_core = ROOT
-        }	
-        upper_franconia_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = X59
-            cede_province = X59
-            remove_core = ROOT
-        }	
-
-        #balthasaria
-        north_rhine_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = LOT
-            cede_province = LOT
-            remove_core = ROOT
-        }	
-        lower_rhineland_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = LOT
-            cede_province = LOT
-            remove_core = ROOT
-        }	
-        bourgogne_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = LOT
-            cede_province = LOT
-            remove_core = ROOT
-        }	
-        lorraine_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = LOT
-            cede_province = LOT
-            remove_core = ROOT
-        }	
-        upper_rhineland_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = LOT
-            cede_province = LOT
-            remove_core = ROOT
-        }	
-        alsace_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = LOT
-            cede_province = LOT
-            remove_core = ROOT
-        }	
-        upper_swabia_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = LOT
-            cede_province = LOT
-            remove_core = ROOT
-        }	
-        upper_bavaria_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = LOT
-            cede_province = LOT
-            remove_core = ROOT
-        }	 
-        palatinate_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = LOT
-            cede_province = LOT
-            remove_core = ROOT
-        }	
-        lower_swabia_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = LOT
-            cede_province = LOT
-            remove_core = ROOT
-        }	
-
-
-    
-        fiskland_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = LOT
-            cede_province = LOT
-            remove_core = ROOT
-        }	
-        westphalia_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = LOT
-            cede_province = LOT
-            remove_core = ROOT
-        }	
-        savoy_dauphine_area  = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = LOT
-            cede_province = LOT
-            remove_core = ROOT
-        }	
-        north_westphalia_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = LOT
-            cede_province = LOT
-            remove_core = ROOT
-        }	
-        frisia_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = LOT
-            cede_province = LOT
-            remove_core = ROOT
-        }	
-        braunschweig_area = {
-            limit = {
-                owned_by = ROOT
-            }
-            add_core = LOT
-            cede_province = LOT
-            remove_core = ROOT
-        }	
-
-        set_government_rank = 2
-        define_ruler = {
-            dynasty = "Thuringer"
-            culture = ROOT
-            religion = ROOT
-            name = "Friederich"
-        }
-        LOT = {
-            every_owned_province = { add_next_institution_embracement = 100 }
-            change_religion = hussite
-            set_capital = 1876
-            change_culture = X58
-            define_ruler = {
-                dynasty = "Thuringer"
-                culture = ROOT
-                religion = ROOT
-                name = "Balhasar"
-            }
-            add_government_reform = elective_monarchy_reform
-            
-        }
-        X59 = {
-            every_owned_province = {
+            release_all_subjects = yes
+            #SERBIA
+            weser_area = {
+                limit = {
+                    owned_by = ROOT
+                }
                 add_core = X59
+                cede_province = X59
+                remove_core = ROOT
             }
+
+            northern_saxony_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = X59
+                cede_province = X59
+                remove_core = ROOT
+            }
+            thuringia_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = X59
+                cede_province = X59
+                remove_core = ROOT
+            }
+            hesse_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = X59
+                cede_province = X59
+                remove_core = ROOT
+            }
+            franconia_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = X59
+                cede_province = X59
+                remove_core = ROOT
+            }
+            upper_franconia_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = X59
+                cede_province = X59
+                remove_core = ROOT
+            }
+
+            #balthasaria
+            north_rhine_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = LOT
+                cede_province = LOT
+                remove_core = ROOT
+            }
+            lower_rhineland_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = LOT
+                cede_province = LOT
+                remove_core = ROOT
+            }
+            bourgogne_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = LOT
+                cede_province = LOT
+                remove_core = ROOT
+            }
+            lorraine_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = LOT
+                cede_province = LOT
+                remove_core = ROOT
+            }
+            upper_rhineland_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = LOT
+                cede_province = LOT
+                remove_core = ROOT
+            }
+            alsace_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = LOT
+                cede_province = LOT
+                remove_core = ROOT
+            }
+            upper_swabia_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = LOT
+                cede_province = LOT
+                remove_core = ROOT
+            }
+            upper_bavaria_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = LOT
+                cede_province = LOT
+                remove_core = ROOT
+            }
+            palatinate_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = LOT
+                cede_province = LOT
+                remove_core = ROOT
+            }
+            lower_swabia_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = LOT
+                cede_province = LOT
+                remove_core = ROOT
+            }
+
+
+
+            fiskland_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = LOT
+                cede_province = LOT
+                remove_core = ROOT
+            }
+            westphalia_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = LOT
+                cede_province = LOT
+                remove_core = ROOT
+            }
+            savoy_dauphine_area  = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = LOT
+                cede_province = LOT
+                remove_core = ROOT
+            }
+            north_westphalia_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = LOT
+                cede_province = LOT
+                remove_core = ROOT
+            }
+            frisia_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+				
+                add_core = LOT
+                cede_province = LOT
+                remove_core = ROOT
+            }
+            braunschweig_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = LOT
+                cede_province = LOT
+                remove_core = ROOT
+            }
+
+            set_government_rank = 2
             define_ruler = {
                 dynasty = "Thuringer"
                 culture = ROOT
                 religion = ROOT
-                name = "Chlodwar"
+                name = "Friederich"
             }
-        }
-        change_tag = THU
-        swap_free_idea_group = yes	
-        swap_non_generic_missions = yes	
-        hidden_effect = {
-            4942 = {
-                add_core = AQU
-                cede_province = AQU
+            LOT = {
+                every_owned_province = { add_next_institution_embracement = 100 }
+                change_religion = catholic
+                set_capital = 1876
+                change_culture = X58
+                define_ruler = {
+                    dynasty = "Thuringer"
+                    culture = ROOT
+                    religion = ROOT
+                    name = "Balhasar"
+                }
+                add_government_reform = elective_monarchy_reform
+
             }
-            111 = {
-                add_core = AQU
-                cede_province = AQU
+            X59 = {
+                every_owned_province = {
+                    add_core = X59
+                }
+                define_ruler = {
+                    dynasty = "Thuringer"
+                    culture = ROOT
+                    religion = ROOT
+                    name = "Chlodwar"
+                }
             }
-           4771 = {
-                add_core = AQU
-                cede_province = AQU
-            }
-            4738 = {
-                add_core = AQU
-                cede_province = AQU
-            }
-            1769 = {
-                add_core = CLI
-                cede_province = CLI
-            }
-            129 = {
-                add_core = CLI
-                cede_province = CLI
-            }
-           4751 = {
-                add_core = CLI
-                cede_province = CLI
+            change_tag = THU
+            swap_free_idea_group = yes
+            swap_non_generic_missions = yes
+            hidden_effect = {
+                4942 = {
+                    add_core = AQU
+                    cede_province = AQU
+                }
+                111 = {
+                    add_core = AQU
+                    cede_province = AQU
+                }
+                4771 = {
+                    add_core = AQU
+                    cede_province = AQU
+                }
+                4738 = {
+                    add_core = AQU
+                    cede_province = AQU
+                }
+                1769 = {
+                    add_core = CLI
+                    cede_province = CLI
+                }
+                129 = {
+                    add_core = CLI
+                    cede_province = CLI
+                }
+                4751 = {
+                    add_core = CLI
+                    cede_province = CLI
+                }
+
+                1774 = {
+                    add_core = FER
+                    cede_province = FER
+                }
+                4758 = {
+                    add_core = HAB
+                    cede_province = HAB
+                }
+                1768 = {
+                    add_core = HAB
+                    cede_province = HAB
+                }
+                4759 = {
+                    add_core = HAB
+                    cede_province = HAB
+                }
+                128 = {
+                    add_core = HAB
+                    cede_province = HAB
+                }
+
             }
 
-            1774 = {
-                add_core = PDV
-                cede_province = PDV
-            }
-            4758 = {
-                add_core = BAV
-                cede_province = BAV
-            }
-           1768 = {
-                add_core = BAV
-                cede_province = BAV
-            }
-            4759 = {
-                add_core = BAV
-                cede_province = BAV
-            }
-           128 = {
-                add_core = BAV
-                cede_province = BAV
+            country_event = {
+                id = thuringia_events.2
+                days = 30
+                random = 15
+                tooltip = CELESTIAL_EMPIRE_TOOLTIP
             }
 
-        }
-        
-        country_event = { 
-            id = thuringia_events.2
-            days = 30
-            random = 15
-            tooltip = CELESTIAL_EMPIRE_TOOLTIP
         }
 
     }
-		
-	}
 }
 
 country_event = {
-	id =  thuringia_events.2   #choosecountry
-	title = "thuringia_events.2.t"
-	desc = "thuringia_events.2.d"
-	picture = easternchurches_eventPicture
-	is_triggered_only = yes
+    id =  thuringia_events.2   #choosecountry
+    title = "thuringia_events.2.t"
+    desc = "thuringia_events.2.d"
+    picture = easternchurches_eventPicture
+    is_triggered_only = yes
     fire_only_once = yes
-	option = { #Slavia
-    name = "thuringia_events.2.a"
-		switch_tag = X59
+    option = { #Slavia
+        name = "thuringia_events.2.a"
+        switch_tag = X59
         set_global_flag = Hunoriahascollapsed
     }
-	option = { #lotharingia
-    name = "thuringia_events.2.b"
-		switch_tag = LOT
+    option = { #lotharingia
+        name = "thuringia_events.2.b"
+        switch_tag = LOT
         set_global_flag = Hunoriahascollapsed
     }
     option = { #Thuringia
-    name = "thuringia_events.2.c"
-    add_prestige = 5
-    set_global_flag = Hunoriahascollapsed
-}
+        name = "thuringia_events.2.c"
+        add_prestige = 5
+        set_global_flag = Hunoriahascollapsed
+    }
 
 }
 country_event = {
-	id =  thuringia_events.101   #dealsalvs
-	title = "thuringia_events.101.t"
-	desc = "thuringia_events.101.d"
-	picture = sackniflport_eventPicture
-	is_triggered_only = yes
+    id =  thuringia_events.101   #dealsalvs
+    title = "thuringia_events.101.t"
+    desc = "thuringia_events.101.d"
+    picture = sackniflport_eventPicture
+    is_triggered_only = yes
     fire_only_once = yes
-	option = { #Slavia
-    name = "thuringia_events.101.a"
-		add_stability = -1
+    option = { #Slavia
+        name = "thuringia_events.101.a"
+        add_stability = -1
         add_disaster_progress = {
             disaster = balthasar_empire_crisis
             value = -30
@@ -346,27 +347,27 @@ country_event = {
         set_country_flag = baltasarslavsdestroyed
         custom_tooltip = balthasarslavharsh
         hidden_effect = {
-        every_owned_province = {
-            limit = {
-                culture_group = south_slavic
-            }
-            random_list = {
-                50 = {
-                    add_base_manpower = -1
+            every_owned_province = {
+                limit = {
+                    culture_group = south_slavic
                 }
-                25 = {
-                    add_base_manpower = -2
-                }        
-               25 = {
-                create_revolt = 2	
+                random_list = {
+                    50 = {
+                        add_base_manpower = -1
+                    }
+                    25 = {
+                        add_base_manpower = -2
+                    }
+                    25 = {
+                        create_revolt = 2
+                    }
                 }
             }
         }
     }
-}
     option = { #Slavia
-    name = "thuringia_events.101.b"
-		add_stability = 1
+        name = "thuringia_events.101.b"
+        add_stability = 1
         add_disaster_progress = {
             disaster = balthasar_empire_crisis
             value = -40
@@ -374,28 +375,28 @@ country_event = {
         add_years_of_income = -2
         custom_tooltip = balthasarslavcompromise
         hidden_effect = {
-        set_country_flag = baltasarslavsdestroyed
-        every_owned_province = {
-            limit = {
-                culture_group = south_slavic
-            }
-            random_list = {
-                50 = {
-                    add_local_autonomy = 25	
+            set_country_flag = baltasarslavsdestroyed
+            every_owned_province = {
+                limit = {
+                    culture_group = south_slavic
                 }
-                25 = {
-                    add_local_autonomy = 50
-                }        
-               10 = {
-                add_local_autonomy = 75
+                random_list = {
+                    50 = {
+                        add_local_autonomy = 25
+                    }
+                    25 = {
+                        add_local_autonomy = 50
+                    }
+                    10 = {
+                        add_local_autonomy = 75
+                    }
                 }
             }
         }
     }
-}
     option = { #Slavia
-    name = "thuringia_events.101.c"
-		add_stability = 2
+        name = "thuringia_events.101.c"
+        add_stability = 2
         add_disaster_progress = {
             disaster = balthasar_empire_crisis
             value = -50
@@ -411,21 +412,21 @@ country_event = {
             cede_province = HES
         }
         vassalize = HES
-    
-}
+
+    }
 
 }
 
 country_event = {
-	id =  thuringia_events.102   #dealoccitanians
-	title = "thuringia_events.102.t"
-	desc = "thuringia_events.102.d"
-	picture = scottishcastle_eventPicture
-	is_triggered_only = yes
+    id =  thuringia_events.102   #dealoccitanians
+    title = "thuringia_events.102.t"
+    desc = "thuringia_events.102.d"
+    picture = scottishcastle_eventPicture
+    is_triggered_only = yes
     fire_only_once = yes
-	option = { #Slavia
-    name = "thuringia_events.102.a"
-		add_stability = -1
+    option = { #Slavia
+        name = "thuringia_events.102.a"
+        add_stability = -1
         add_disaster_progress = {
             disaster = balthasar_empire_crisis
             value = -30
@@ -433,55 +434,55 @@ country_event = {
         set_country_flag = baltasargascondestroyed
         custom_tooltip = balthasarslavharsh
         hidden_effect = {
-        every_owned_province = {
-            limit = {
-                culture_group = dasconculturegroup
-            }
-            random_list = {
-                50 = {
-                    add_base_manpower = -1
+            every_owned_province = {
+                limit = {
+                    culture_group = dasconculturegroup
                 }
-                25 = {
-                    add_base_manpower = -2
-                }        
-               25 = {
-                create_revolt = 2	
+                random_list = {
+                    50 = {
+                        add_base_manpower = -1
+                    }
+                    25 = {
+                        add_base_manpower = -2
+                    }
+                    25 = {
+                        create_revolt = 2
+                    }
                 }
             }
         }
     }
-}
-    option = { 
-    name = "thuringia_events.102.b"
-		add_stability = 1
+    option = {
+        name = "thuringia_events.102.b"
+        add_stability = 1
         add_disaster_progress = {
             disaster = balthasar_empire_crisis
             value = -40
         }
         custom_tooltip = balthasaroccitanompromise
         hidden_effect = {
-        set_country_flag = baltasargascondestroyed
-        every_owned_province = {
-            limit = {
-                culture_group = dasconculturegroup
-            }
-            random_list = {
-                50 = {
-                    add_local_autonomy = 25	
+            set_country_flag = baltasargascondestroyed
+            every_owned_province = {
+                limit = {
+                    culture_group = dasconculturegroup
                 }
-                25 = {
-                    add_local_autonomy = 50
-                }        
-               10 = {
-                add_local_autonomy = 75
+                random_list = {
+                    50 = {
+                        add_local_autonomy = 25
+                    }
+                    25 = {
+                        add_local_autonomy = 50
+                    }
+                    10 = {
+                        add_local_autonomy = 75
+                    }
                 }
             }
         }
     }
-}
-    option = { 
-    name = "thuringia_events.102.c"
-		add_stability = 2
+    option = {
+        name = "thuringia_events.102.c"
+        add_stability = 2
         add_disaster_progress = {
             disaster = balthasar_empire_crisis
             value = -50
@@ -497,21 +498,21 @@ country_event = {
             cede_province = X07
         }
         vassalize = X07
-    
-}
+
+    }
 
 }
 
 country_event = {
-	id =  thuringia_events.103   #dealgermans
-	title = "thuringia_events.103.t"
-	desc = "thuringia_events.103.d"
-	picture = Sacrificepagan_eventPicture
-	is_triggered_only = yes
+    id =  thuringia_events.103   #dealgermans
+    title = "thuringia_events.103.t"
+    desc = "thuringia_events.103.d"
+    picture = Sacrificepagan_eventPicture
+    is_triggered_only = yes
     fire_only_once = yes
-	option = { #Slavia
-    name = "thuringia_events.103.a"
-		add_stability = -1
+    option = { #Slavia
+        name = "thuringia_events.103.a"
+        add_stability = -1
         add_disaster_progress = {
             disaster = balthasar_empire_crisis
             value = -30
@@ -519,55 +520,55 @@ country_event = {
         set_country_flag = baltasargermansdestroyed
         custom_tooltip = balthasargermanharsh
         hidden_effect = {
-        every_owned_province = {
-            limit = {
-                culture_group = germanic
-            }
-            random_list = {
-                50 = {
-                    add_base_manpower = -1
+            every_owned_province = {
+                limit = {
+                    culture_group = germanic
                 }
-                25 = {
-                    add_base_manpower = -2
-                }        
-               25 = {
-                create_revolt = 2	
+                random_list = {
+                    50 = {
+                        add_base_manpower = -1
+                    }
+                    25 = {
+                        add_base_manpower = -2
+                    }
+                    25 = {
+                        create_revolt = 2
+                    }
                 }
             }
         }
     }
-}
-    option = { 
-    name = "thuringia_events.103.b"
-		add_stability = 1
+    option = {
+        name = "thuringia_events.103.b"
+        add_stability = 1
         add_disaster_progress = {
             disaster = balthasar_empire_crisis
             value = -40
         }
         custom_tooltip = balthasargerman
         hidden_effect = {
-        set_country_flag = baltasargermansdestroyed
-        every_owned_province = {
-            limit = {
-                culture_group = germanic
-            }
-            random_list = {
-                50 = {
-                    add_local_autonomy = 25	
+            set_country_flag = baltasargermansdestroyed
+            every_owned_province = {
+                limit = {
+                    culture_group = germanic
                 }
-                25 = {
-                    add_local_autonomy = 50
-                }        
-               10 = {
-                add_local_autonomy = 75
+                random_list = {
+                    50 = {
+                        add_local_autonomy = 25
+                    }
+                    25 = {
+                        add_local_autonomy = 50
+                    }
+                    10 = {
+                        add_local_autonomy = 75
+                    }
                 }
             }
         }
     }
-}
-    option = { 
-    name = "thuringia_events.103.c"
-		add_stability = 2
+    option = {
+        name = "thuringia_events.103.c"
+        add_stability = 2
         add_disaster_progress = {
             disaster = balthasar_empire_crisis
             value = -50
@@ -579,12 +580,12 @@ country_event = {
             limit = {
                 culture_group = germanic
             }
-            add_core = SWA
-            cede_province = SWA
+            add_core = BAV
+            cede_province = BAV
         }
-        vassalize = SWA
-    
-}
+        vassalize = BAV
+
+    }
 
 }
 
@@ -593,68 +594,68 @@ country_event = {
 
 
 country_event = {
-	id =  thuringia_events.104  #dealgermans
-	title = "thuringia_events.104.t"
-	desc = "thuringia_events.104.d"
-	picture = Sacrificepagan_eventPicture
-	is_triggered_only = yes
+    id =  thuringia_events.104  #dealgermans
+    title = "thuringia_events.104.t"
+    desc = "thuringia_events.104.d"
+    picture = Sacrificepagan_eventPicture
+    is_triggered_only = yes
     fire_only_once = yes
-	option = { #Slavia
-    name = "thuringia_events.104.a"
-	europe_superregion = {
-        limit = {
-            NOT = { is_core = ROOT }
-            NOT = { is_permanent_claim = ROOT }
+    option = { #Slavia
+        name = "thuringia_events.104.a"
+        europe_superregion = {
+            limit = {
+                NOT = { is_core = ROOT }
+                NOT = { is_permanent_claim = ROOT }
+            }
+
+            add_permanent_claim = ROOT
         }
-    
-        add_permanent_claim = ROOT
-    }
-    poland_region = {
-        limit = {
-            NOT = { is_core = ROOT }
-            NOT = { is_permanent_claim = ROOT }
+        poland_region = {
+            limit = {
+                NOT = { is_core = ROOT }
+                NOT = { is_permanent_claim = ROOT }
+            }
+
+            add_permanent_claim = ROOT
         }
-    
-        add_permanent_claim = ROOT
+        override_country_name = EUROPAREICH
+        change_country_color = {
+            color = { 17 24 90 }
+        }
+        change_tag = A70
     }
-    override_country_name = EUROPAREICH
-    change_country_color = { 
-        color = { 17 24 90 }
-    }
-    change_tag = A70
-}
 }
 
 
 country_event = {
-	id =  thuringia_events.100   #choosecountry
-	title = "thuringia_events.100.t"
-	desc = "thuringia_events.100.d"
-	picture = easternchurches_eventPicture
-	is_triggered_only = yes
+    id =  thuringia_events.100   #choosecountry
+    title = "thuringia_events.100.t"
+    desc = "thuringia_events.100.d"
+    picture = easternchurches_eventPicture
+    is_triggered_only = yes
     hidden = yes
     fire_only_once = yes
-	option = { #Slavia
-    name = "thuringia_events.100.a"
-		add_stability = -1
+    option = { #Slavia
+        name = "thuringia_events.100.a"
+        add_stability = -1
     }
-	
+
 
 }
 
 country_event = {
-	id =  thuringia_events.105   #christianity
-	title = "thuringia_events.105.t"
-	desc = "thuringia_events.105.d"
-	picture = coronation_eventPicture
-	is_triggered_only = yes
+    id =  thuringia_events.105   #christianity
+    title = "thuringia_events.105.t"
+    desc = "thuringia_events.105.d"
+    picture = coronation_eventPicture
+    is_triggered_only = yes
     fire_only_once = yes
-	option = { 
-    name = "thuringia_events.105.a"
-		add_prestige = 10
-        change_religion = hussite
+    option = {
+        name = "thuringia_events.105.a"
+        add_prestige = 10
+        change_religion = united_christianity
     }
-	
+
 
 }
 
@@ -663,102 +664,102 @@ country_event = {
 
 
 country_event = {
-	id =  thuringia_events.300   
-	title = "thuringia_events.300.t"
-	desc = "thuringia_events.300.d"
-	picture = easternchurches_eventPicture
-	is_triggered_only = yes
+    id =  thuringia_events.300
+    title = "thuringia_events.300.t"
+    desc = "thuringia_events.300.d"
+    picture = easternchurches_eventPicture
+    is_triggered_only = yes
     fire_only_once = yes
-	option = { #Slavia
-    name = "thuringia_events.300.a"
-    custom_tooltip = lotharingiacollapsed
-		add_stability = -4
+    option = { #Slavia
+        name = "thuringia_events.300.a"
+        custom_tooltip = lotharingiacollapsed
+        add_stability = -4
         hidden_effect = {
-        set_country_flag = balthasardostajepodupie12
-        fiskland_area = {
-            limit = {
-                owned_by = ROOT
+            set_country_flag = balthasardostajepodupie12
+            fiskland_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = A13
+                cede_province = A13
+                remove_core = ROOT
             }
-            add_core = A13
-            cede_province = A13
-            remove_core = ROOT
-        }	
 
-       north_rhine_area = {
-        limit = {
-            owned_by = ROOT
+            north_rhine_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = X59
+                cede_province = X59
+                remove_core = ROOT
+            }
+            lower_rhineland_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = MVA
+                cede_province = MVA
+                remove_core = ROOT
+            }
+            westphalia_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = TOU
+                cede_province = TOU
+                remove_core = ROOT
+            }
+            savoy_dauphine_area  = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = TOU
+                cede_province = TOU
+                remove_core = ROOT
+            }
+            north_westphalia_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = X59
+                cede_province = X59
+                remove_core = ROOT
+            }
+            frisia_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core = X59
+                cede_province = X59
+                remove_core = ROOT
+            }
+            braunschweig_area = {
+                limit = {
+                    owned_by = ROOT
+                }
+                add_core =  TOU
+                cede_province = TOU
+                remove_core = ROOT
+            }
+            every_owned_province ={
+                limit = {
+                    culture = czech
+                }
+                cede_province = BOH
+                add_core = BOH
+                remove_core = ROOT
+
+            }
+            4767 = {
+                cede_province = TTL
+                add_core = TTL
+                remove_core = ROOT
+            }
+            change_tag = SWA
+            swap_non_generic_missions = yes
+            swap_free_idea_group = yes
         }
-        add_core = X59
-        cede_province = X59
-        remove_core = ROOT
-    }	
-    lower_rhineland_area = {
-        limit = {
-            owned_by = ROOT
-        }
-        add_core = MVA
-        cede_province = MVA
-        remove_core = ROOT
-    }	
-    westphalia_area = {
-        limit = {
-            owned_by = ROOT
-        }
-        add_core = TOU
-        cede_province = TOU
-        remove_core = ROOT
-    }	
-    savoy_dauphine_area  = {
-        limit = {
-            owned_by = ROOT
-        }
-        add_core = TOU
-        cede_province = TOU
-        remove_core = ROOT
-    }	
-    north_westphalia_area = {
-        limit = {
-            owned_by = ROOT
-        }
-        add_core = X59
-        cede_province = X59
-        remove_core = ROOT
-    }	
-    frisia_area = {
-        limit = {
-            owned_by = ROOT
-        }
-        add_core = X59
-        cede_province = X59
-        remove_core = ROOT
-    }	
-    braunschweig_area = {
-        limit = {
-            owned_by = ROOT
-        }
-        add_core =  TOU
-        cede_province = TOU
-        remove_core = ROOT
-    }	
- every_owned_province ={
-    limit = {
-        culture = czech
     }
-    cede_province = BOH
-    add_core = BOH
-    remove_core = ROOT
-        
-    }
-    4767 = {
-        cede_province = TTL
-        add_core = TTL
-        remove_core = ROOT
-    }
-    change_tag = SWA
-    swap_non_generic_missions = yes	
-    swap_free_idea_group = yes	
-    }
-}
 
 }
 

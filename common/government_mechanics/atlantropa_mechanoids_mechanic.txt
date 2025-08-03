@@ -1,0 +1,113 @@
+mechanoids_general_mechanic = {
+	alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 12
+
+	powers = {
+		mechanoids_power = {
+			gui = mechanoid_frame_mechanic
+			max = 200	#Monarchy direction
+			min = 0	#Parliament direction
+			base_monthly_growth = -0.2
+			scaled_modifier = {
+				start_value = 100
+				end_value = 200
+
+				modifier = {
+					discipline = 0.1
+					land_morale = 0.1
+					movement_speed = 0.1
+					siege_ability = 0.1
+					production_efficiency = 0.1
+					global_tax_modifier = 0.1
+					land_maintenance_modifier = 0.5
+					monthly_mechanoids_power  = -1
+				}
+			}
+			reverse_scaled_modifier = {
+				start_value = 0
+				end_value = 100
+				modifier = {
+					discipline = -0.5
+					land_morale = -0.5
+					movement_speed = -0.5
+					siege_ability = -0.5
+					production_efficiency = -0.5
+					global_tax_modifier = -0.5
+					land_maintenance_modifier = -0.50
+				}
+			}
+			on_max_reached = {
+
+			}
+			on_min_reached = {
+
+			}
+		}
+	}
+	interactions = {
+		mechanoid_boost_ruler_energy = { #Improvemandate
+			cooldown_years = 2
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_mechanoid1
+			trigger = {
+				manpower_percentage = 0.2
+			}
+			effect = {
+				add_government_power = {
+					mechanic_type = mechanoids_general_mechanic
+					power_type = mechanoids_power
+					value = 15
+				}
+				add_yearly_manpower = -1
+
+			}
+			ai_chance = {
+				factor = 1
+			}
+		}
+		mechanoid_boost_ruler_energy2 = { #Improvemandate
+			cooldown_years = 1
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_mechanoid1
+			potential = {
+				always = no
+			}
+			trigger = {
+				manpower_percentage = 0.2
+			}
+			effect = {
+				add_government_power = {
+					mechanic_type = mechanoids_general_mechanic
+					power_type = mechanoids_power
+					value = 10
+				}
+				add_yearly_manpower = -1
+
+			}
+			ai_chance = {
+				factor = 1
+			}
+		}
+		mechanoid_boost_ruler_energy3 = { #Improvemandate
+			gui = russian_mechanics_interaction_gui
+			icon = GFX_mechanoid1
+			trigger = {
+				manpower_percentage = 0.75
+			}
+			effect = {
+				add_government_power = {
+					mechanic_type = mechanoids_general_mechanic
+					power_type = mechanoids_power
+					value = 50
+				}
+				add_yearly_manpower = -10
+				add_stability = -1
+
+			}
+			ai_chance = {
+				factor = 1
+			}
+		}
+
+	}
+}

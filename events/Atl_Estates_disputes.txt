@@ -1,0 +1,826 @@
+namespace = estate_interactions
+# Jewish Estate vs Urban Patricians - Trade Monopoly Dispute
+country_event = {
+	id = estate_interactions.1
+	title = estate_interactions.1.t
+	desc = estate_interactions.1.d
+	picture = TRADE_GOODS_FURS_FISH_AND_SALT_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_estate = estate_jewishestate
+		has_estate = estate_urban_patricians
+		estate_loyalty = {
+			estate = estate_jewishestate
+			loyalty = 30
+		}
+		estate_loyalty = {
+			estate = estate_urban_patricians
+			loyalty = 30
+		}
+		NOT = { has_country_modifier = estate_conflict_cooldown }
+	}
+	
+
+	
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = estate_conflict_cooldown
+				duration = 1825
+				hidden = yes
+			}
+		}
+	}
+	
+	# Support Jewish Merchants
+	option = {
+		name = estate_interactions.1.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					estate = estate_jewishestate
+					influence = 70
+				}
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_jewishestate
+			loyalty = 15
+		}
+		add_estate_influence_modifier = {
+			estate = estate_jewishestate
+			desc = EST_VAL_SUPPORTED_MONOPOLY
+			influence = 10
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_urban_patricians
+			loyalty = -20
+		}
+		add_years_of_income = 0.5
+		add_mercantilism = 2
+		custom_tooltip = estate_interactions.1.a.tt
+	}
+	
+	# Support Urban Patricians
+	option = {
+		name = estate_interactions.1.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				estate_influence = {
+					estate = estate_urban_patricians
+					influence = 70
+				}
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_urban_patricians
+			loyalty = 15
+		}
+		add_estate_influence_modifier = {
+			estate = estate_urban_patricians
+			desc = EST_VAL_PROTECTED_INTERESTS
+			influence = 10
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_jewishestate
+			loyalty = -20
+		}
+		add_prestige = 10
+		add_dip_power = 50
+		custom_tooltip = estate_interactions.1.b.tt
+	}
+	
+	# Compromise Solution
+	option = {
+		name = estate_interactions.1.c
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				OR = {
+					estate_loyalty = {
+						estate = estate_jewishestate
+						loyalty = 60
+					}
+					estate_loyalty = {
+						estate = estate_urban_patricians
+						loyalty = 60
+					}
+				}
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_jewishestate
+			loyalty = -5
+		}
+		add_estate_loyalty = {
+			estate = estate_urban_patricians
+			loyalty = -5
+		}
+		add_corruption = 0.5
+		add_years_of_income = 0.25
+	}
+}
+
+# Rural Communes vs Guilds - Market Access Conflict
+country_event = {
+	id = estate_interactions.2
+	title = estate_interactions.2.t
+	desc = estate_interactions.2.d
+	picture = FARMING_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_estate = estate_rural_communes
+		has_estate = estate_guilds
+		estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = 30
+		}
+		estate_loyalty = {
+			estate = estate_guilds
+			loyalty = 30
+		}
+		NOT = { has_country_modifier = estate_conflict_cooldown }
+	}
+	
+
+	
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = estate_conflict_cooldown
+				duration = 1825
+				hidden = yes
+			}
+		}
+	}
+	
+	# Support Rural Communes
+	option = {
+		name = estate_interactions.2.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				any_owned_province = {
+					trade_goods = grain
+					base_production = 5
+				}
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = 20
+		}
+		add_estate_influence_modifier = {
+			estate = estate_rural_communes
+			desc = EST_VAL_FREE_MARKET_ACCESS
+			influence = 15
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_guilds
+			loyalty = -25
+		}
+		add_country_modifier = {
+			name = rural_prosperity
+			duration = 1825
+		}
+		random_owned_province = {
+			limit = {
+				is_capital = no
+				development = 10
+				NOT = { has_province_modifier = improved_rural_production }
+			}
+			add_base_production = 1
+			add_province_modifier = {
+				name = improved_rural_production
+				duration = 3650
+			}
+		}
+	}
+	
+	# Support Guilds
+	option = {
+		name = estate_interactions.2.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				capital_scope = {
+					development = 20
+				}
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_guilds
+			loyalty = 20
+		}
+		add_estate_influence_modifier = {
+			estate = estate_guilds
+			desc = EST_VAL_MARKET_CONTROL
+			influence = 15
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = -25
+		}
+		add_country_modifier = {
+			name = guild_monopolies
+			duration = 1825
+		}
+		capital_scope = {
+			add_base_production = 2
+		}
+	}
+	
+	# Enforce Royal Authority
+	option = {
+		name = estate_interactions.2.c
+		trigger = {
+			OR = {
+				absolutism = 20
+				government_rank = 3
+			}
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				absolutism = 40
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = -15
+		}
+		add_estate_loyalty = {
+			estate = estate_guilds
+			loyalty = -15
+		}
+		add_estate_influence_modifier = {
+			estate = estate_rural_communes
+			desc = EST_VAL_ROYAL_INTERVENTION
+			influence = -10
+			duration = 3650
+		}
+		add_estate_influence_modifier = {
+			estate = estate_guilds
+			desc = EST_VAL_ROYAL_INTERVENTION
+			influence = -10
+			duration = 3650
+		}
+		if = {
+			limit = {
+				government = monarchy
+			}
+			add_legitimacy = 10
+		}
+		else_if = {
+			limit = {
+				government = republic
+			}
+			add_republican_tradition = 5
+		}
+		else = {
+			add_devotion = 10
+		}
+		add_absolutism = 5
+	}
+}
+
+# Jewish Estate vs Guilds - Financial Competition
+country_event = {
+	id = estate_interactions.3
+	title = estate_interactions.3.t
+	desc = estate_interactions.3.d
+	picture = BANKRUPTCY_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_estate = estate_jewishestate
+		has_estate = estate_guilds
+		estate_loyalty = {
+			estate = estate_jewishestate
+			loyalty = 40
+		}
+		estate_loyalty = {
+			estate = estate_guilds
+			loyalty = 40
+		}
+		NOT = { has_country_flag = jewish_guild_conflict }
+		NOT = { has_country_modifier = estate_conflict_cooldown }
+	}
+	
+
+	immediate = {
+		set_country_flag = jewish_guild_conflict
+		hidden_effect = {
+			add_country_modifier = {
+				name = estate_conflict_cooldown
+				duration = 1825
+				hidden = yes
+			}
+		}
+	}
+	
+	after = {
+		clr_country_flag = jewish_guild_conflict
+	}
+	
+	# Support Jewish Bankers
+	option = {
+		name = estate_interactions.3.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 2
+				num_of_loans = 3
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_jewishestate
+			loyalty = 25
+		}
+		add_estate_loyalty = {
+			estate = estate_guilds
+			loyalty = -30
+		}
+		add_country_modifier = {
+			name = jewish_banking_privileges
+			duration = 3650
+		}
+		add_years_of_income = 1
+		add_inflation = -2
+		custom_tooltip = estate_interactions.3.a.tt
+	}
+	
+	# Support Guild Banking
+	option = {
+		name = estate_interactions.3.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				stability = 2
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_guilds
+			loyalty = 25
+		}
+		add_estate_loyalty = {
+			estate = estate_jewishestate
+			loyalty = -30
+		}
+		add_country_modifier = {
+			name = guild_financial_control
+			duration = 3650
+		}
+		add_stability_or_adm_power = yes
+		add_inflation = 1
+		custom_tooltip = estate_interactions.3.b.tt
+	}
+	
+	# Create Mixed Banking System
+	option = {
+		name = estate_interactions.3.c
+		trigger = {
+			dip_power = 100
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				dip = 4
+			}
+		}
+		add_dip_power = -100
+		add_estate_loyalty = {
+			estate = estate_jewishestate
+			loyalty = 10
+		}
+		add_estate_loyalty = {
+			estate = estate_guilds
+			loyalty = 10
+		}
+		add_country_modifier = {
+			name = balanced_financial_system
+			duration = 5475
+		}
+		custom_tooltip = estate_interactions.3.c.tt
+	}
+}
+
+# Urban Patricians vs Rural Communes - Tax Burden Dispute
+country_event = {
+	id = estate_interactions.4
+	title = estate_interactions.4.t
+	desc = estate_interactions.4.d
+	picture = ACCUSATION_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_estate = estate_urban_patricians
+		has_estate = estate_rural_communes
+		estate_loyalty = {
+			estate = estate_urban_patricians
+			loyalty = 35
+		}
+		estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = 35
+		}
+		NOT = { stability = -1 }
+		NOT = { has_country_modifier = estate_conflict_cooldown }
+	}
+	
+
+	
+	immediate = {
+		hidden_effect = {
+			add_country_modifier = {
+				name = estate_conflict_cooldown
+				duration = 1825
+				hidden = yes
+			}
+		}
+	}
+	
+	# Favor Urban Centers
+	option = {
+		name = estate_interactions.4.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				trade_income_percentage = 0.4
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_urban_patricians
+			loyalty = 20
+		}
+		add_estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = -25
+		}
+		add_estate_influence_modifier = {
+			estate = estate_rural_communes
+			desc = EST_VAL_INCREASED_TAXES
+			influence = -15
+			duration = 3650
+		}
+		add_years_of_income = 0.75
+		random_owned_province = {
+			limit = {
+				has_owner_culture = yes
+				is_capital = no
+				NOT = { unrest = 5 }
+			}
+			add_unrest = 3
+		}
+		custom_tooltip = estate_interactions.4.a.tt
+	}
+	
+	# Favor Rural Areas
+	option = {
+		name = estate_interactions.4.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				production_income_percentage = 0.4
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = 20
+		}
+		add_estate_loyalty = {
+			estate = estate_urban_patricians
+			loyalty = -25
+		}
+		add_estate_influence_modifier = {
+			estate = estate_urban_patricians
+			desc = EST_VAL_INCREASED_TAXES
+			influence = -15
+			duration = 3650
+		}
+		add_country_modifier = {
+			name = rural_tax_relief
+			duration = 1825
+		}
+		capital_scope = {
+			add_unrest = 2
+		}
+		custom_tooltip = estate_interactions.4.b.tt
+	}
+	
+	# Equal Tax Reform
+	option = {
+		name = estate_interactions.4.c
+		trigger = {
+			adm_power = 100
+			OR = {
+				adm = 3
+				has_adm_advisor_3 = yes
+			}
+		}
+		highlight = yes
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				adm = 5
+			}
+		}
+		add_adm_power = -100
+		add_estate_loyalty = {
+			estate = estate_urban_patricians
+			loyalty = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = -10
+		}
+		add_country_modifier = {
+			name = fair_taxation_system
+			duration = 7300
+		}
+		change_government_reform_progress = 10
+		custom_tooltip = estate_interactions.4.c.tt
+	}
+}
+
+# All Estates - Grand Assembly
+country_event = {
+	id = estate_interactions.5
+	title = estate_interactions.5.t
+	desc = estate_interactions.5.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	
+	trigger = {
+		has_estate = estate_jewishestate
+		has_estate = estate_urban_patricians
+		has_estate = estate_rural_communes
+		has_estate = estate_guilds
+		stability = 1
+		NOT = { has_country_flag = grand_assembly_held_recently }
+		is_at_war = no
+	}
+	
+
+	
+	immediate = {
+		set_country_flag = grand_assembly_held_recently
+		hidden_effect = {
+  
+		}
+	}
+	
+	after = {
+		hidden_effect = {
+			country_event = {
+				id = estate_interactions.6
+				days = 3650
+			}
+		}
+	}
+	
+	# Support Jewish-Urban Alliance
+	option = {
+		name = estate_interactions.5.a
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				trade_income_percentage = 0.5
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_jewishestate
+			loyalty = 15
+		}
+		add_estate_loyalty = {
+			estate = estate_urban_patricians
+			loyalty = 15
+		}
+		add_estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_guilds
+			loyalty = -10
+		}
+		add_country_modifier = {
+			name = urban_commercial_dominance
+			duration = 3650
+		}
+		custom_tooltip = estate_interactions.5.a.tt
+		tooltip = {
+			add_estate_influence_modifier = {
+				estate = estate_jewishestate
+				desc = EST_VAL_GRAND_ASSEMBLY_ALLY
+				influence = 10
+				duration = 3650
+			}
+			add_estate_influence_modifier = {
+				estate = estate_urban_patricians
+				desc = EST_VAL_GRAND_ASSEMBLY_ALLY
+				influence = 10
+				duration = 3650
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						which = jewish_loyalty
+						value = 60
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_jewishestate
+					desc = EST_VAL_GRAND_ASSEMBLY_ALLY
+					influence = 10
+					duration = 3650
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						which = patrician_loyalty
+						value = 60
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_urban_patricians
+					desc = EST_VAL_GRAND_ASSEMBLY_ALLY
+					influence = 10
+					duration = 3650
+				}
+			}
+		}
+	}
+	
+	# Support Rural-Guild Alliance
+	option = {
+		name = estate_interactions.5.b
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				production_income_percentage = 0.5
+			}
+		}
+		add_estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = 15
+		}
+		add_estate_loyalty = {
+			estate = estate_guilds
+			loyalty = 15
+		}
+		add_estate_loyalty = {
+			estate = estate_jewishestate
+			loyalty = -10
+		}
+		add_estate_loyalty = {
+			estate = estate_urban_patricians
+			loyalty = -10
+		}
+		add_country_modifier = {
+			name = traditional_production_focus
+			duration = 3650
+		}
+		custom_tooltip = estate_interactions.5.b.tt
+		tooltip = {
+			add_estate_influence_modifier = {
+				estate = estate_rural_communes
+				desc = EST_VAL_GRAND_ASSEMBLY_ALLY
+				influence = 10
+				duration = 3650
+			}
+			add_estate_influence_modifier = {
+				estate = estate_guilds
+				desc = EST_VAL_GRAND_ASSEMBLY_ALLY
+				influence = 10
+				duration = 3650
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						which = rural_loyalty
+						value = 60
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_rural_communes
+					desc = EST_VAL_GRAND_ASSEMBLY_ALLY
+					influence = 10
+					duration = 3650
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						which = guild_loyalty
+						value = 60
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_guilds
+					desc = EST_VAL_GRAND_ASSEMBLY_ALLY
+					influence = 10
+					duration = 3650
+				}
+			}
+		}
+	}
+	
+	# Royal Mediation
+	option = {
+		name = estate_interactions.5.c
+		trigger = {
+			dip_power = 50
+			adm_power = 50
+			mil_power = 50
+		}
+		highlight = yes
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 2
+				ruler_has_personality = just_personality
+			}
+			modifier = {
+				factor = 2
+				ruler_has_personality = benevolent_personality
+			}
+		}
+		add_dip_power = -50
+		add_adm_power = -50
+		add_mil_power = -50
+		add_estate_loyalty = {
+			estate = estate_jewishestate
+			loyalty = 5
+		}
+		add_estate_loyalty = {
+			estate = estate_urban_patricians
+			loyalty = 5
+		}
+		add_estate_loyalty = {
+			estate = estate_rural_communes
+			loyalty = 5
+		}
+		add_estate_loyalty = {
+			estate = estate_guilds
+			loyalty = 5
+		}
+		add_country_modifier = {
+			name = harmonious_estates
+			duration = 5475
+		}
+		add_prestige = 25
+		custom_tooltip = estate_interactions.5.c.tt
+	}
+}
+
+# Hidden event to clear flag
+country_event = {
+	id = estate_interactions.6
+	title = none
+	desc = none
+	picture = none
+	
+	hidden = yes
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_country_flag = grand_assembly_held_recently
+	}
+	
+	option = {
+		
+	}
+}

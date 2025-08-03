@@ -1,162 +1,50 @@
 namespace = startevent
-country_event = {
-	id = startevent.1
-	title = startevent.1.t
-	desc = startevent.1.d
-	picture = BLACKSUN_eventPicture
-	major = yes
-	fire_only_once = yes
-	is_triggered_only = yes
-immediate = {
-	hidden_effect = {
-		every_country = {
-			limit = {
-				ai = yes
-				has_heir = no
-				has_regency = no
-			}
-			country_event = {
-				id = startevent.302
-			}
+ 
 
-		}
-		set_hre_religion = united_christianity
-		toe_random_ruler_effect = yes
-	151 = { 
-		add_province_modifier = { 
-    name = atlantropa_genoese_port
-    duration = -1  
-}
-add_province_modifier = { 
-    name = atlantropa_venice_port
-    duration = -1  
-}
-
-	}
-
-	add_reform_desire = -2
-	hide_ambient_object = volcano_ash_emmiter
-	set_heir_flag = ochrzczony
-	set_ruler_flag = koronowanykrol
-	set_global_flag = atlantropa_start_flag
-	set_global_flag = niecrashujmizjebanagro
-	set_ruler_flag = koronowanykrolsrednio
-	MEN = { change_country_color = { color = { 153 71 124 }	}
-	set_country_flag = has_overriden_color  }
-	every_country = {
-		limit = { is_subject_of = FRA }
-		country_event = { 
-    id = atlantropa_basic_event.100
-	}
-
-	
-}
-	every_country = {
-		limit = { is_subject_of = AZT }
-		country_event = { 
-    id = atlantropa_basic_event.4000
-	}
-}
-
-
-
-
-}}
-
-	
-	option = {
-		name = startevent.1.a
-		country_event = { 
-			id = startevent.5
-		}
-	}
-	
-}
-
-country_event = {
-	id = startevent.2
-	title = startevent.2.t
-	desc = startevent.2.d
-	picture = BLACKSUN_eventPicture
-	trigger = {
-	inflation = 50
-	ai = yes
-}
-	option = {
-	name = startevent.1.a 
-	add_inflation = -30
-					add_country_modifier = {
-				name = "atlantropa_inflation_ai"
-				duration = 1800
-			}
-
-
-	}
-}
-
-
+ 
 country_event = {
 	id = startevent.3
-	title = startevent.2.t
+	title = startevent.22.t
 	desc = startevent.2.d
 	picture = BLACKSUN_eventPicture
-	trigger = {
-	always = no
-}
+	is_triggered_only = yes
 	option = {
-	name = startevent.1.a 
+		name = startevent.1.a
 
-	eastern_europe_superregion = {
-		add_core = ROOT
-		cede_province = ROOT
-	}
+		eastern_europe_superregion = {
+			add_core = ROOT
+			cede_province = ROOT
+		}
 
 
 	}
 }
 country_event = {
 	id = startevent.4
-	title = startevent.2.t
+	title = startevent.22.t
 	desc = startevent.2.d
 	picture = BLACKSUN_eventPicture
-	trigger = {
-	always = no
-}
+	is_triggered_only = yes
 	option = {
-	name = startevent.1.a 
-	europe_superregion = {
-		add_core = ROOT
-		cede_province = ROOT
-	}
+		name = startevent.1.a
+		europe_superregion = {
+			add_core = ROOT
+			cede_province = ROOT
+		}
 
 
 	}
 }
 country_event = {
-	id = startevent.5
-	title = startevent.5.t
-	desc = startevent.5.d
+	id = startevent.250
+	title = startevent.250.t
+	desc = startevent.250.d
 	picture = BLACKSUN_eventPicture
 	is_triggered_only = yes
-	immediate = {
-		hidden_effect = {
-		every_province = {
-			limit = {
-				has_special_toe_resources = no
-			}
-		the_odd_empires_enable_special_resources = yes
-		}
-	}
-}
-	option = {
-		highlight = yes
-	name = startevent.5.a 
-	}
-	
 	#Change Nothing
 	option = {
 		name = startevent.101.a
-		country_event = { 
+		country_event = {
 			id = startevent.100
 		}
 	}
@@ -166,10 +54,11 @@ country_event = {
 		trigger = {
 			NOT = { has_global_flag = specialresourcesdisabled }
 		}
-		country_event = { 
+		country_event = {
 			id = startevent.102
 		}
 	}
+
 	#Destroy all forts
 	option = {
 		name = startevent.101.b
@@ -178,23 +67,117 @@ country_event = {
 				has_global_flag = fort_destroyed_atlantropa
 			}
 		}
-		country_event = { 
+		country_event = {
 			id = startevent.101
 		}
 	}
+	option = { #Annex Vassals
+		name = startevent.105.b
+		trigger = {
+			NOT = {
+				has_global_flag = vassals_annexed
+			}
+		}
+		country_event = {
+			id = startevent.105
+		}
+	}
+
+	option = { #Annex Vassals
+		name = startevent.105.KOLORY
+		trigger = {
+			#	NOT = {
+			#		has_global_flag = kolorywyjebane
+			#	}
+		}
+		country_event = {
+			id = startevent.2105
+		}
+	}
+	option = { #Disable Portraits
+		name = startevent.105.portraty.a
+		trigger = {
+
+				has_global_flag = wylaczoneportretyzejaje
+
+		}
+		country_event = {
+			id = startevent.2106
+		}
+	}
+
+
+
+
+	option = {
+		name = startevent.102.b
+		country_event = {
+			id = startevent.5
+		}
+	}
+
+
+
+}
+
+
+country_event = {
+	id = startevent.5
+	title = startevent.5.t
+	desc = startevent.5.d
+	picture = BLACKSUN_eventPicture
+	is_triggered_only = yes
+	trigger = {
+		ai = no
+	}
+	immediate = {
+		
+		hidden_effect = {
+			every_province = {
+				limit = {
+					has_special_toe_resources = no
+				}
+				the_odd_empires_enable_special_resources = yes
+			}
+		}
+	}
+	option = {
+		highlight = yes
+		name = startevent.5.a
+	}
+	option = {
+		name = startevent.250.b
+		country_event = {
+			id = startevent.250
+		}
+	}
+	option = { #Annex Vassals
+		name = startevent.1050.c
+		trigger = {
+			always = no
+			NOT = {
+				has_global_flag = colorchangedsetting
+			}
+		}
+		country_event = {
+			id = atlantropa_basic_event.50001
+		}
+	}
+
 	#All undead
 	option = {
 		name = startevent.101.ne
 		trigger = {
 			NOT = {
 				has_global_flag = fuck_it_necromancer_world
+				ai = no
 			}
 		}
-		country_event = { 
+		country_event = {
 			id = startevent.109
 		}
 	}
-	
+
 }
 
 
@@ -206,138 +189,133 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		highlight = yes
-	name = startevent.5.a 
-	country_event = { 
-		id = startevent.5
-	}
-}
-	option = {
-	trigger = { NOT = { has_global_flag = DEKOLONIZACJAAFRYKI }}
-	name = startevent.100.a 
-	set_global_flag = DEKOLONIZACJAAFRYKI
-	central_africa_region = {
-		decolonize = THIS
-	}
-	kongo_region  = {
-		decolonize = THIS
-	}
-	nigeriacontinet_region = {
-		decolonize = THIS
-	}
-	africa_superregion = {
-		limit = {
-			AND = {
-				NOT = {
-				region = maghreb_region
-				region = libyasuperior_region
-				}
-			}
-			
+		name = startevent.5.a
+		country_event = {
+			id = startevent.250
 		}
-		    decolonize = THIS
 	}
-	country_event = { 
-    id = startevent.5
-}
-}
 	option = {
-	trigger = { NOT = { has_global_flag = DEKOLONIZACJALEMURII }}
-	name = startevent.100.b 
-	set_global_flag = DEKOLONIZACJALEMURII
-	lemuria_region = {
-		decolonize = THIS
+		trigger = { NOT = { has_global_flag = DEKOLONIZACJAAFRYKI }}
+		name = startevent.100.a
+		set_global_flag = DEKOLONIZACJAAFRYKI
+		central_africa_region = {
+			decolonize = THIS
+		}
+		kongo_region  = {
+			decolonize = THIS
+		}
+		nigeriacontinet_region = {
+			decolonize = THIS
+		}
+		africa_superregion = {
+			limit = {
+				AND = {
+					NOT = {
+						region = maghreb_region
+						region = libyasuperior_region
+					}
+				}
+
+			}
+			decolonize = THIS
+		}
+		country_event = {
+			id = startevent.250
+		}
 	}
-	country_event = { 
-    id = startevent.5
-}
-}
 	option = {
-	trigger = { NOT = { has_global_flag = DEKOLONIZACJAAMERYKIPLN }}
-	name = startevent.100.c
-	set_global_flag = DEKOLONIZACJAAMERYKIPLN
-	north_america_superregion = {
-		decolonize = THIS
+		trigger = { NOT = { has_global_flag = DEKOLONIZACJALEMURII }}
+		name = startevent.100.b
+		set_global_flag = DEKOLONIZACJALEMURII
+		lemuria_region = {
+			decolonize = THIS
+		}
+		country_event = {
+			id = startevent.250
+		}
 	}
-	country_event = { 
-    id = startevent.5
-}
-}
 	option = {
-	trigger = { NOT = { has_global_flag = DEKOLONIZACJAAATLANTIS }}
-	name = startevent.100.e
-	set_global_flag = DEKOLONIZACJAAATLANTIS
-	atlantis_region = {
-		decolonize = THIS
+		trigger = { NOT = { has_global_flag = DEKOLONIZACJAAMERYKIPLN }}
+		name = startevent.100.c
+		set_global_flag = DEKOLONIZACJAAMERYKIPLN
+		north_america_superregion = {
+			decolonize = THIS
+		}
+		country_event = {
+			id = startevent.250
+		}
 	}
-	country_event = { 
-    id = startevent.5
-}
-}
 	option = {
-	trigger = { NOT = { has_global_flag = DEKOLONIZACJAASYBIR }}
-	name = startevent.100.f
-	set_global_flag = DEKOLONIZACJAASYBIR
-	west_siberia_region = {
-		decolonize = THIS
+		trigger = { NOT = { has_global_flag = DEKOLONIZACJAAATLANTIS }}
+		name = startevent.100.e
+		set_global_flag = DEKOLONIZACJAAATLANTIS
+		atlantis_region = {
+			decolonize = THIS
+		}
+		country_event = {
+			id = startevent.250
+		}
 	}
-	east_siberia_region = {
-		decolonize = THIS
-	}
-	country_event = { 
-    id = startevent.5
-}
-}
 	option = {
-	trigger = { NOT = { has_global_flag = DEKOLONIZACJAOCEANIA }}
-	name = startevent.100.h
-	set_global_flag = DEKOLONIZACJAOCEANIA
-	oceania_superregion = {
-		decolonize = THIS
+		trigger = { NOT = { has_global_flag = DEKOLONIZACJAASYBIR }}
+		name = startevent.100.f
+		set_global_flag = DEKOLONIZACJAASYBIR
+		west_siberia_region = {
+			decolonize = THIS
+		}
+		east_siberia_region = {
+			decolonize = THIS
+		}
+		country_event = {
+			id = startevent.250
+		}
 	}
-	country_event = { 
-    id = startevent.5
-}
-}
+	option = {
+		trigger = { NOT = { has_global_flag = DEKOLONIZACJAOCEANIA }}
+		name = startevent.100.h
+		set_global_flag = DEKOLONIZACJAOCEANIA
+		oceania_superregion = {
+			decolonize = THIS
+		}
+		country_event = {
+			id = startevent.250
+		}
+	}
 
 
 
 	option = {
-	trigger = { NOT = { has_global_flag = DEKOLONIZACJAACALEJAMERYKI }}
-	name = startevent.100.g
-	set_global_flag = DEKOLONIZACJAACALEJAMERYKI
-	set_global_flag = DEKOLONIZACJAAMERYKIPLN
-	north_america_superregion = {
-		decolonize = THIS
+		trigger = { NOT = { has_global_flag = DEKOLONIZACJAACALEJAMERYKI }}
+		name = startevent.100.g
+		set_global_flag = DEKOLONIZACJAACALEJAMERYKI
+		set_global_flag = DEKOLONIZACJAAMERYKIPLN
+		north_america_superregion = {
+			decolonize = THIS
+		}
+		central_america_superregion = {
+			decolonize = THIS
+		}
+		andes_superregion  = {
+			decolonize = THIS
+		}
+		south_america_superregion = {
+			decolonize = THIS
+		}
+
+
+		country_event = {
+			id = startevent.5
+		}
 	}
-	central_america_superregion = {
-		decolonize = THIS
-	} 
-	andes_superregion  = {
-		decolonize = THIS
-	}
-	south_america_superregion = {
-		decolonize = THIS
-	}
-	
-	
-		country_event = { 
-    id = startevent.5
+
+
+
+
+
 }
-}
 
 
-
-
-
-	}
-
-
-
-
-
-
-
-
+ 
 country_event = {
 	id = startevent.6
 	title = startevent.5.t
@@ -345,24 +323,24 @@ country_event = {
 	picture = BLACKSUN_eventPicture
 	is_triggered_only = yes
 	option = {
-	clr_global_flag = evangelical_union_happened
-	name = startevent.5.a 
+		clr_global_flag = evangelical_union_happened
+		name = startevent.5.a
 	}
 }
 
 country_event = {
 	id = startevent.300
-	title = startevent.2.t
+	title = startevent.22.t
 	desc = startevent.2.d
 	picture = BLACKSUN_eventPicture
-		is_triggered_only = yes
+	is_triggered_only = yes
 	option = {
-	name = startevent.1.a 
+		name = startevent.1.a
 
-	north_america_superregion = {
-		add_core = ROOT
-		cede_province = ROOT
-	}
+		north_america_superregion = {
+			add_core = ROOT
+			cede_province = ROOT
+		}
 
 
 	}
@@ -370,21 +348,21 @@ country_event = {
 
 country_event = {
 	id = startevent.301
-	title = startevent.2.t
+	title = startevent.22.t
 	desc = startevent.2.d
 	picture = BLACKSUN_eventPicture
-		is_triggered_only = yes
+	is_triggered_only = yes
 	option = {
-	name = startevent.1.a 
+		name = startevent.1.a
 
-	atlantis_sicily_region = {
-		add_core = ROOT
-		cede_province = ROOT
-	}
-	italy_region = {
-		add_core = ROOT
-		cede_province = ROOT
-	}
+		atlantis_sicily_region = {
+			add_core = ROOT
+			cede_province = ROOT
+		}
+		italy_region = {
+			add_core = ROOT
+			cede_province = ROOT
+		}
 
 	}
 }
@@ -395,12 +373,19 @@ country_event = {
 	desc = startevent.2.d
 	picture = BLACKSUN_eventPicture
 	is_triggered_only = yes
-	option = {
-	name = startevent.1.a 
-			define_heir = {
-    dynasty = ROOT
+	trigger = {
+					
+					ai = yes
+					has_heir = no
+					has_regency = no
+				 
 	}
-}
+	option = {
+		name = startevent.1.a
+		define_heir = {
+			dynasty = ROOT
+		}
+	}
 }
 
 country_event = {
@@ -410,17 +395,17 @@ country_event = {
 	picture = BLACKSUN_eventPicture
 	is_triggered_only = yes
 	option = {
-		name = startevent.102.a 
+		name = startevent.102.a
 		set_global_flag = specialresourcesdisabled
 		every_province = { clear_trade_good_modifiers_effect = yes }
-		country_event = { 
+		country_event = {
 			id = startevent.5
 		}
 	}
 	option = {
-		name = startevent.102.b 
-		country_event = { 
-			id = startevent.5
+		name = startevent.102.b
+		country_event = {
+			id = startevent.250
 		}
 	}
 }
@@ -433,21 +418,83 @@ country_event = {
 	picture = BLACKSUN_eventPicture
 	is_triggered_only = yes
 	option = {
-		name = startevent.109.a 
+		name = startevent.109.a
+		trigger = {
+			ai = no
+		}
 		set_global_flag = fuck_it_necromancer_world
-		country_event = { 
+		country_event = {
 			id = startevent.5
 		}
 	}
 	option = {
-		name = startevent.109.b 
-		country_event = { 
+		name = startevent.109.b
+		country_event = {
 			id = startevent.5
 		}
 	}
 }
 
 
+
+
+country_event = {
+	id = startevent.105
+	title = startevent.105.t
+	desc = startevent.105.d
+	picture = BLACKSUN_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = startevent.5.a
+		country_event = {
+			id = startevent.5
+		}
+	}
+	option = {
+		name = startevent.105.e
+		custom_tooltip = destroys_all_vassals
+		trigger = {
+			NOT = {
+				has_global_flag = vassals_annexed
+			}
+		}
+		country_event = {
+			id = startevent.5
+		}
+		hidden_effect = {
+			set_global_flag = vassals_annexed
+			every_country = {
+				limit = {
+					is_subject = yes
+					NOT = { is_subject_of_type = tributary_state}
+					NOT = { is_subject_of_type = march}
+					NOT = { is_subject_of_type = personal_union }
+					NOT = { is_subject_of_type = vassal }
+					NOT = { is_subject_of_type = colony }
+					NOT = { is_subject_of_type = appanage }
+					NOT = { is_subject_of_type = daimyo_vassal  }
+
+				}
+
+				country_event = {
+					id = startevent.1005
+				}
+			}
+
+
+		}
+
+	}
+}
+country_event = {
+	id = startevent.1005
+	title = startevent.105.t
+	desc = startevent.105.d
+	picture = BLACKSUN_eventPicture
+	is_triggered_only = yes
+	hidden = yes
+	option = { overlord = { inherit = ROOT	 } }
+}
 
 
 country_event = {
@@ -835,9 +882,7 @@ country_event = {
 			destroy_great_project = {
 				type = atlantis_castle_losangeles
 			}
-			destroy_great_project = {
-				type = atlantis_castle_lima
-			}
+
 			destroy_great_project = {
 				type = atlantis_castle_ateixo
 			}
@@ -881,14 +926,200 @@ country_event = {
 				type = atlantis_castle_acquisgrana
 			}
 		}
-		country_event = { 
+		country_event = {
 			id = startevent.5
 		}
 	}
 	option = {
-		name = startevent.101.c 
-		country_event = { 
+		name = startevent.101.c
+		country_event = {
+			id = startevent.250
+		}
+	}
+}
+
+
+country_event = {
+	id = startevent.2106
+	title = atlantropa_basic_event.5002.t
+	desc = atlantropa_basic_event.5002.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "atlantropa_basic_event.5556.b"
+		country_event = {
 			id = startevent.5
 		}
 	}
+	option = {
+		name = "atlantropa_basic_event.5002.a"
+		clr_global_flag = wylaczoneportretyzejaje
+	}
+}
+country_event = {
+	id = startevent.2105
+	title = atlantropa_basic_event.5001.t
+	desc = atlantropa_basic_event.5001.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "atlantropa_basic_event.5556.b"
+		country_event = {
+			id = startevent.5
+		}
+	}
+	option = {
+		name = "atlantropa_basic_event.6.a"
+		set_global_flag = kolorywyjebane
+		every_country = { restore_country_color = yes }
+	}
+
+
+
+}
+country_event = {
+	id = atlantropa_basic_event.50001
+	title = atlantropa_basic_event.5001.t
+	desc = atlantropa_basic_event.5001.d
+	picture = CITY_DEVELOPMENT_eventPicture
+	is_triggered_only = YES
+	option = {
+		name = "atlantropa_basic_event.5556.b"
+		country_event = {
+			id = startevent.5
+		}
+	}
+	option = {
+		name = "atlantropa_basic_event.6.a"
+		trigger = {
+			ai = no
+		}
+		every_country = {
+			change_country_color = { color = { 255 252 255 }}
+		}
+		set_global_flag = colorchangedsetting
+		###Little Content
+		AZT = { change_country_color = { color = { 0 124 0 }}  }
+		MCH = { change_country_color = { color = { 0 124 0 }}  }
+		A49 = { change_country_color = { color = { 0 124 0 }}  }
+		A3C = { change_country_color = { color = { 0 124 0 }}  }
+		A2C = { change_country_color = { color = { 0 124 0 }}  }
+		PSK = { change_country_color = { color = { 0 124 0 }}  }
+		HOL = { change_country_color = { color = { 0 124 0 }}  }
+		KO3 = { change_country_color = { color = { 0 124 0 }}  }
+		GR6 = { change_country_color = { color = { 0 124 0 }} }
+		V03 = { change_country_color = { color = { 0 124 0 }} }
+		V02 = { change_country_color = { color = { 0 124 0 }} }
+		V01 = { change_country_color = { color = { 0 124 0 }} }
+		V00 = { change_country_color = { color = { 0 124 0 }} }
+		X38 = { change_country_color = { color = { 0 124 0 }} }
+		X39 = { change_country_color = { color = { 0 124 0 }} }
+		A28 = { change_country_color = { color = { 0 124 0 }} }
+		A43 = { change_country_color = { color = { 0 124 0 }} }
+		A36 = { change_country_color = { color = { 0 124 0 }} }
+		A11 = { change_country_color = { color = { 0 124 0 }} }
+		KOR = { change_country_color = { color = { 0 124 0 }} }
+		A41 = { change_country_color = { color = { 0 124 0 }} }
+		A31 = { change_country_color = { color = { 0 124 0 }} }
+		A33 = { change_country_color = { color = { 0 124 0 }} }
+		JP1 = { change_country_color = { color = { 0 124 0 }} }
+		JP2 = { change_country_color = { color = { 0 124 0 }} }
+		MGD = { change_country_color = { color = { 0 124 0 }} }
+		MLN = { change_country_color = { color = { 0 124 0 }} }
+		TLC = { change_country_color = { color = { 255 186 40 }}  }
+
+		###Medium Content
+
+		SER = { change_country_color = { color = { 255 186 40 }} }
+		NAV = { change_country_color = { color = { 255 186 40 }} }
+		X46 = { change_country_color = { color = { 255 186 40 }} }
+		BUL = { change_country_color = { color = { 255 186 40 }} }
+		EPI = { change_country_color = { color = { 255 186 40 }} }
+		KIE = { change_country_color = { color = { 255 186 40 }} }
+		A10 = { change_country_color = { color = { 255 186 40 }} }
+		ARM = { change_country_color = { color = { 255 186 40 }} }
+		A13 = { change_country_color = { color = { 255 186 40 }} }
+		A5C = { change_country_color = { color = { 255 186 40 }} }
+		SB2 = { change_country_color = { color = { 255 186 40 }} }
+		BOH = { change_country_color = { color = { 255 186 40 }}  }
+		X44 = { change_country_color = { color = { 255 186 40 }}  }
+		GUY = { change_country_color = { color = { 255 186 40 }}  }		
+		PL4 = { change_country_color = { color = { 255 186 40 }}  }		
+		PL7 = { change_country_color = { color = { 255 186 40 }}  }
+		X31 = { change_country_color = { color = { 255 186 40 }}  }
+		A2R = { change_country_color = { color = { 255 186 40 }}  }
+
+
+
+
+		###Long Content
+		##Europe
+		FRA = { change_country_color = { color = { 255 3 1 }} }
+		POL = { change_country_color = { color = { 255 3 1 }} }
+		A52 = { change_country_color = { color = { 255 3 1 }} }
+		LAE = { change_country_color = { color = { 255 3 1 }} }
+		ZT1 = { change_country_color = { color = { 255 3 1 }} }
+		ENG = { change_country_color = { color = { 255 3 1 }} }
+		A27 = { change_country_color = { color = { 255 3 1 }} }
+		A34 = { change_country_color = { color = { 255 3 1 }} }
+		X1H = { change_country_color = { color = { 255 3 1 }} }
+		X58 = { change_country_color = { color = { 255 3 1 }} }
+		A57 = { change_country_color = { color = { 255 3 1 }} }
+		POR = { change_country_color = { color = { 255 3 1 }} }
+		ZT1 = { change_country_color = { color = { 255 3 1 }} }
+		X55 = { change_country_color = { color = { 255 3 1 }} }
+		XA8 = { change_country_color = { color = { 255 3 1 }} }
+		A4R = { change_country_color = { color = { 255 3 1 }} }
+		TRE = { change_country_color = { color = { 255 3 1 }} }
+		SL1 = { change_country_color = { color = { 255 3 1 }} }
+		A82 = { change_country_color = { color = { 255 3 1 }} }
+		A47 = { change_country_color = { color = { 255 3 1 }} }
+		A76 = { change_country_color = { color = { 255 3 1 }} }
+
+		##ASIA
+		A56 = { change_country_color = { color = { 255 3 1 }} }
+		A5F = { change_country_color = { color = { 255 3 1 }} }
+		IN4 = { change_country_color = { color = { 255 3 1 }} }
+		A78 = { change_country_color = { color = { 255 186 40 }}  }
+		NPL = { change_country_color = { color = { 255 186 40 }}  }
+
+		##ATLANTIS
+		IS6 = { change_country_color = { color = { 255 3 1 }} }
+		##AMERICA
+		IS1 = { change_country_color = { color = { 255 3 1 }} }
+		IS8 = { change_country_color = { color = { 255 3 1 }} }
+		##Agartha
+		A1A = { change_country_color = { color = { 255 3 1 }} }
+		A2A = { change_country_color = { color = { 255 3 1 }} }
+
+		###Formables with long content
+		##Mu
+		#Agartha
+		A4A = { change_country_color = { color = { 255 85 1 }} }
+		A6A = { change_country_color = { color = { 255 85 1 }} }
+		A8A = { change_country_color = { color = { 255 85 1 }} }
+
+		###SCHIZOCONTENT
+		##Europe
+		DA1 = { change_country_color = { color = { 108 3 136 }} }
+		FI1 = { change_country_color = { color = { 108 3 136 }} }
+		##Asia
+		KO1 = { change_country_color = { color = { 108 3 136 }} }
+		##Mu
+		MU1 = { change_country_color = { color = { 108 3 136 }} }
+		#Agartha
+		K2A = { change_country_color = { color = { 108 3 136 }} }
+
+
+		###Formables with SCHIZOCONTENT
+		##Mu
+		#Agartha
+		K1A = { change_country_color = { color = { 148 3 176 }} }
+		K3A = { change_country_color = { color = { 148 3 176 }} }
+		K4A = { change_country_color = { color = { 148 3 176 }} }
+		K5A = { change_country_color = { color = { 148 3 176 }} }
+		K6A = { change_country_color = { color = { 148 3 176 }} }
+
+	}
+
 }

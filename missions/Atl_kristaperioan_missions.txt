@@ -1,0 +1,824 @@
+kri_development = {
+	slot = 1
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = A49
+		NOT = { map_setup = map_setup_random } 
+	}
+
+	kri_capital_awakening = {
+		icon = atlantropa_moderncrusade
+		position = 1
+		provinces_to_highlight = {
+			is_capital_of = ROOT
+			NOT = { development = 20 } 
+		}
+
+		trigger = {
+			capital_scope = {
+				development = 20
+				has_building = temple
+			}
+		}
+
+		effect = {
+			capital_scope = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				add_permanent_province_modifier = {
+					name = "kri_crystal_heart_awakening"
+					duration = -1
+				}
+			}
+			 add_adm_power = 125
+		}
+	}
+
+	kri_nexus_expansion = {
+		icon = atlantropa_waitingforantichrist
+		position = 2
+		required_missions = { kri_capital_awakening } 
+		provinces_to_highlight = {
+			is_capital_of = ROOT
+			NOT = { development = 30 } 
+		}
+
+		trigger = {
+			capital_scope = {
+				development = 30
+				has_building = temple
+			}
+			treasury = 300
+		}
+
+		effect = {
+			add_treasury = -300
+			capital_scope = {
+				add_permanent_province_modifier = {
+					name = "kri_nexus_growth"
+					duration = -1
+				}
+				hidden_effect = { remove_province_modifier = kri_crystal_heart_awakenIing } 
+			}
+			kapitallyonesse_area = { add_base_tax = 1 } 
+	 
+		}
+	}
+
+	kri_crystal_mastery = {
+		icon = mission_noble_council
+		position = 3
+		required_missions = { kri_nexus_expansion } 
+		provinces_to_highlight = {
+			is_capital_of = ROOT
+			NOT = { development = 40 } 
+		}
+
+		trigger = {
+			capital_scope = { development = 40 } 
+ 
+			adm_power = 200
+		}
+
+		effect = {
+			add_adm_power = -200
+			capital_scope = {
+				add_permanent_province_modifier = {
+					name = "kri_crystal_mastery"
+					duration = -1
+				}
+				hidden_effect = { remove_province_modifier = kri_nexus_growth } 
+			}
+			kapitallyonesse_area = {
+				add_base_production = 1
+				add_base_manpower = 1
+			}
+ 
+		}
+	}
+
+	kri_gwlamelot_integration = {
+		icon = mission_fortify_mandu
+		position = 4
+		required_missions = { kri_crystal_mastery } 
+		provinces_to_highlight = {
+			area = gwlamelot_area
+			owned_by = ROOT
+			NOT = { num_of_times_improved = 1 } 
+		}
+
+		trigger = {
+			gwlamelot_area = {
+				type = all
+				owned_by = ROOT
+			}
+			calc_true_if = {
+				all_owned_province = {
+					area = gwlamelot_area
+					num_of_times_improved = 1
+				}
+				amount = 3
+			}
+		}
+
+		effect = {
+			gwlamelot_area = {
+				limit = { owned_by = ROOT } 
+				change_culture = ROOT
+				change_religion = catholic
+				add_province_modifier = {
+					name = "kri_integrated_lands"
+					duration = 7300
+				}
+			}
+			lyon_isles_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	kri_isle_prosperity = {
+		icon = mission_rb_grow_the_channel
+		position = 5
+		required_missions = { kri_gwlamelot_integration } 
+		provinces_to_highlight = {
+			area = lyon_isles_area
+			owned_by = ROOT
+			NOT = { is_prosperous = yes } 
+		}
+
+		trigger = {
+			lyon_isles_area = {
+				type = all
+				owned_by = ROOT
+			}
+			calc_true_if = {
+				all_owned_province = {
+					area = lyon_isles_area
+					is_prosperous = yes
+				}
+				amount = 3
+			}
+		}
+
+		effect = {
+			lyon_isles_area = {
+				add_base_tax = 1
+				add_base_production = 1
+				add_base_manpower = 1
+				add_permanent_province_modifier = {
+					name = "kri_restored_prosperity"
+					duration = -1
+				}
+			}
+			add_country_modifier = {
+				name = "kri_economic_boom"
+				duration = 9125
+			}
+		}
+	}
+}
+kri_unification = {
+	slot = 2
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = A49
+		NOT = { map_setup = map_setup_random } 
+	}
+	potential_on_load = {  } 
+
+	kri_military_foundation = {
+		icon = atlantropa_jewishkhazars
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_size_percentage = 1
+			manpower_percentage = 0.6
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "kri_military_tradition"
+				duration = 9125
+			}
+			lyonesse_region = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	kri_unify_realm = {
+		icon = atlantropa_lyonesse
+		position = 2
+		required_missions = {
+			kri_military_foundation
+			kri_capital_awakening
+		}
+		provinces_to_highlight = {
+			OR = { region = lyonesse_region } 
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			lyonesse_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+
+		effect = {
+			add_prestige = 20
+			add_stability = 1
+			lyonesse_region = {
+				add_province_modifier = {
+					name = "kri_unified_realm"
+					duration = -1
+				}
+			}
+			gwlamelot_area = {
+				limit = {
+					NOT = { is_core = ROOT } 
+					NOT = { is_permanent_claim = ROOT } 
+				}
+				add_permanent_claim = ROOT
+			}
+ 
+		}
+	}
+
+	kri_awaken_stones = {
+		icon = mission_buddhist_monk_praying
+		position = 3
+		required_missions = {
+			kri_unify_realm
+			kri_nexus_expansion
+		}
+		provinces_to_highlight = {
+			owned_by = ROOT
+			religion = catholic
+			region = lyonesse_region
+			NOT = { has_building = temple } 
+		}
+
+		trigger = {
+ 
+			calc_true_if = {
+				all_owned_province = {
+					religion = catholic
+					has_building = temple
+					region = lyonesse_region
+				}
+				amount = 6
+			}
+			treasury = 200
+		}
+
+		effect = {
+			add_treasury = -200
+			country_event = { id = flavor_kri.100 } 
+			custom_tooltip = kri_awaken_stones_effect_tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						religion = catholic
+						has_building = temple
+						region = lyonesse_region
+					}
+					add_province_modifier = {
+						name = "kri_awakened_stone"
+						duration = -1
+					}
+				}
+ 
+			}
+		}
+	}
+
+	kri_pacify_gwlamelot = {
+		icon = mission_conquer_5_states
+		position = 5
+		required_missions = {
+			kri_awaken_stones
+			kri_gwlamelot_integration
+		}
+		provinces_to_highlight = {
+			area = gwlamelot_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			gwlamelot_area = {
+				type = all
+				culture = inperioan
+				religion = catholic
+			}
+			gwlamelot_area = {
+				type = all
+			NOT = {	unrest = 1 }
+			}
+		}
+
+		effect = {
+			add_prestige = 15
+			gwlamelot_area = {
+				add_permanent_province_modifier = {
+					name = "kri_pacified_lands"
+					duration = -1
+				}
+			}
+			add_stability = 1
+		}
+	}
+
+	kri_lyon_reclamation = {
+		icon = mission_cannons_firing
+		position = 6
+		required_missions = {
+			kri_pacify_gwlamelot
+			kri_isle_prosperity
+		}
+		provinces_to_highlight = {
+			area = lyon_isles_area
+			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
+		}
+
+		trigger = {
+			lyon_isles_area = {
+				type = all
+				culture = inperioan
+				religion = catholic
+			}
+		}
+
+		effect = {
+			lyon_isles_area = {
+				limit = { owned_by = ROOT } 
+				add_devastation = -100
+				add_base_manpower = 2
+			}
+			add_country_modifier = {
+				name = "kri_isle_reclaimed"
+				duration = -1
+			}
+			add_prestige = 25
+		}
+	}
+}
+kri_naval_dominion = {
+	slot = 4
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = A49
+		NOT = { map_setup = map_setup_random } 
+	}
+	potential_on_load = {  } 
+
+	kri_mist_walkers = {
+		icon = mission_establish_high_seas_navy
+		position = 3
+		provinces_to_highlight = {  } 
+
+		trigger = { num_of_heavy_ship = 15 } 
+
+		effect = {
+			add_country_modifier = {
+				name = "kri_fog_masters"
+				duration = 7300
+			}
+	 		add_country_modifier = {
+					name = "kri_hidden_harbors"
+					duration = -1
+				 
+				}
+		
+			 
+		}
+	}
+
+	kri_blood_of_atlantis = {
+		icon = mission_sponsor_piracy
+		position = 4
+		required_missions = {
+			kri_mist_walkers
+			kri_awaken_stones
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+ 
+			navy_size = 20
+			army_size = 20
+			navy_tradition = 40
+		}
+
+		effect = {
+			add_ruler_modifier = {
+				name = "kri_atlantean_blood"
+				duration = -1
+			}
+			add_country_modifier = {
+				name = "kri_legend_awakens"
+				duration = 7300
+			}
+			atlantis_region = { add_permanent_claim = ROOT } 
+			thule_region = { add_permanent_claim = ROOT } 
+		}
+	}
+
+	kri_western_winds = {
+		icon = mission_colonize_the_caribbean
+		position = 5
+		required_missions = { kri_blood_of_atlantis } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			has_idea_group = exploration_ideas
+				colony = 2
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "kri_atlantic_mastery"
+				duration = -1
+			}
+			random_owned_province = {
+				limit = { is_colony = yes } 
+				add_province_modifier = {
+					name = "kri_new_lyonesse"
+					duration = -1
+				}
+			}
+			carribeans_region = { add_permanent_claim = ROOT } 
+		}
+	}
+
+	kri_song_of_depths = {
+		icon = mission_sea_battles
+		position = 6
+		required_missions = { kri_western_winds } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			has_ruler_modifier = kri_atlantean_blood
+			 
+					has_won_war_against = {
+						who = IS6
+						max_years_since = 10
+					}
+					has_won_war_against = {
+						who = TU3
+						max_years_since = 10
+					}
+					has_won_war_against = {
+						who = GR6
+						max_years_since = 10
+					}
+					army_size = 100
+				}
+			 
+	 
+
+		effect = {
+			add_country_modifier = {
+				name = "kri_sea_lords"
+				duration = -1
+			}
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+		}
+	}
+
+	kri_crystal_cities = {
+		icon = mission_trade_company_region_abroad
+		position = 7
+		required_missions = { kri_song_of_depths } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			colony = 5
+			calc_true_if = {
+				all_subject_country = {
+					is_colonial_nation = yes
+					has_opinion = {
+						who = ROOT
+						value = 150
+					}
+				}
+				amount = 2
+			}
+		}
+
+		effect = {
+			custom_tooltip = kri_crystal_cities_effect_tt
+			hidden_effect = {
+				every_subject_country = {
+					limit = { is_colonial_nation = yes } 
+					add_country_modifier = {
+						name = "kri_crystal_prosperity"
+						duration = -1
+					}
+				}
+			}
+			add_mercantilism = 10
+			add_dip_power = 150
+		}
+	}
+}
+kri_continental_expansion = {
+	slot = 1
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = A49
+		NOT = { map_setup = map_setup_random } 
+	}
+	potential_on_load = {  } 
+
+	kri_emerald_brothers = {
+		icon = mission_invade_island
+		position = 7
+		required_missions = { kri_lyon_reclamation } 
+		provinces_to_highlight = {
+			area = irlahandia_area
+			NOT = { owned_by = ROOT } 
+		}
+trigger = {
+		army_size = 100
+		navy_size = 50
+		mil_power = 150
+}
+
+		effect = {
+			add_mil_power = -150
+			country_event = { id = flavor_kri.200 } 
+			add_accepted_culture_or_dip_power = { culture = irish } 
+			irlahandia_area = {
+				limit = {
+					culture = irish
+					owned_by = ROOT
+				}
+				change_religion = catholic
+			}
+			british_isles_region = {
+				limit = {
+					OR = {
+						area = munster_area
+						area = connacht_area
+						area = ulster_area
+					}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+
+	kri_emerald_isle = {
+		icon = atlantropa_israeldominacce
+		position = 8
+		required_missions = { kri_emerald_brothers } 
+		provinces_to_highlight = {
+			region = british_isles_region
+			OR = {
+				area = irlahandia_area
+				area = munster_area
+				area = connacht_area
+				area = ulster_area
+				area = leinster_area
+			}
+			NOT = { owned_by = ROOT } 
+		}
+
+		trigger = {
+			calc_true_if = {
+				all_province = {
+					region = british_isles_region
+					OR = {
+						area = leinster_area
+						area = irlahandia_area
+						area = munster_area
+						area = connacht_area
+						area = ulster_area
+					}
+					owned_by = ROOT
+				}
+				amount = 10
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "kri_albion_conquest"
+				duration = 7200
+			}
+			british_isles_region = {
+				limit = {
+					culture = irish
+					owned_by = ROOT
+				}
+				change_religion = catholic
+				change_culture = inperioan
+			}
+ 
+			hyperborea_region = { add_permanent_claim = ROOT } 
+		}
+	}
+}
+kri_mystical_path = {
+	slot = 3
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = A49
+		NOT = { map_setup = map_setup_random } 
+	}
+	potential_on_load = {  } 
+
+	kri_druid_network = {
+		icon = mission_religious
+		position = 4
+		required_missions = { kri_awaken_stones } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+ 
+			religious_unity = 0.9
+			calc_true_if = {
+				all_owned_province = {
+					religion = catholic
+				NOT = {	unrest = 1 }
+				}
+				amount = 8
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "kri_sacred_network"
+				duration = -1
+			}
+			custom_tooltip = kri_druid_network_effect_tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = { religion = catholic } 
+					add_province_modifier = {
+						name = "kri_druid_node"
+						duration = -1
+					}
+				}
+			}
+		}
+	}
+
+	kri_forgotten_arts = {
+		icon = mission_asian_trader
+		position = 5
+		required_missions = { kri_druid_network } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+	 
+			innovativeness = 25
+			mil_tech = 10
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "kri_ancient_knowledge"
+				duration = -1
+			}
+			add_mil_power = 150
+		}
+	}
+
+	kri_scrying_pools = {
+		icon = atlantropa_cumorah
+		position = 6
+		required_missions = { kri_forgotten_arts } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			OR = {
+			AND = {
+			has_spy_network_in = {
+				who = FRA
+				value = 40
+			}
+			has_spy_network_in = {
+				who = ENG
+				value = 40
+			}
+			}
+		AND = {
+			owns = 4361
+			owns = 236
+		}
+			}
+
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "kri_far_sight"
+				duration = -1
+			}
+			add_dip_power = 125
+			custom_tooltip = kri_scrying_pools_effect_tt
+			hidden_effect = {
+				every_known_country = {
+					limit = {
+						capital_scope = { continent = europe } 
+						NOT = { tag = ROOT } 
+					}
+					ROOT = {
+						add_spy_network_from = {
+							who = PREV
+							value = 20
+						}
+					}
+				}
+			}
+		}
+	}
+
+	kri_gallic_renaissance = {
+		icon = mission_scholar_officials
+		position = 6
+		required_missions = { kri_scrying_pools } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+ 
+			OR = {
+			has_institution = renaissance
+			adm_power = 900
+			}
+			treasury = 800
+		}
+
+		effect = {
+			add_treasury = -800
+			country_event = { id = flavor_kri.300 } 
+			add_country_modifier = {
+				name = "kri_new_wisdom"
+				duration = -1
+			}
+	 
+		}
+	}
+
+	kri_imperial_restoration = {
+		icon = atlantropa_mithrarel
+		position = 7
+		required_missions = {
+			kri_gallic_renaissance
+			kri_crystal_cities
+			kri_emerald_brothers
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			total_development = 800
+			NOT = { great_power_rank = 5 } 
+			prestige = 60
+		}
+
+		effect = {
+			add_prestige = 40
+			override_country_name = "ATLANTEAN_EMPIRE"
+			set_government_rank = 3
+			add_country_modifier = {
+				name = "kri_atlantean_restoration"
+				duration = -1
+			}
+			custom_tooltip = kri_imperial_restoration_effect_tt
+			hidden_effect = {
+				every_owned_province = {
+					limit = { religion = catholic } 
+					add_province_modifier = {
+						name = "kri_imperial_glory"
+						duration = -1
+					}
+				}
+			}
+		}
+	}
+}

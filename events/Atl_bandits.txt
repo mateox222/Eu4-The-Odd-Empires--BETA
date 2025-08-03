@@ -1,0 +1,231 @@
+namespace = bandit_plague
+
+# Bandit Plague Begins
+country_event = {
+	id = bandit_plague.1
+	title = bandit_plague.1.t
+	desc = bandit_plague.1.d
+	picture = phoenix_civil_war_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_country_flag = bandits_suppressed
+	}
+	
+	option = {
+		name = bandit_plague.1.a
+		add_stability = -1
+		random_owned_province = {
+			limit = {
+				OR = {
+					has_terrain = hills
+					has_terrain = mountain
+					has_terrain = forest
+				}
+			}
+			add_unrest = 3
+		}
+	}
+}
+
+# Bandit Plague Ends
+country_event = {
+	id = bandit_plague.2
+	title = bandit_plague.2.t
+	desc = bandit_plague.2.d
+	picture = zlotowilleupada_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		clr_country_flag = bandits_suppressed
+		set_ruler_flag = had_bandit_plague
+	}
+	
+	option = {
+		name = bandit_plague.2.a
+		add_stability = 1
+		add_country_modifier = {
+			name = restored_order
+			duration = 1825
+		}
+	}
+}
+
+# Merchant Caravan Attack
+country_event = {
+	id = bandit_plague.3
+	title = bandit_plague.3.t
+	desc = bandit_plague.3.d
+	picture = MERCHANTS_TALKING_eventPicture
+	
+	trigger = {
+		has_disaster = bandit_plague
+		any_owned_province = {
+			OR = {
+				has_building = marketplace
+				has_building = trade_depot
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = bandit_plague.3.a # Send military escort
+		add_mil_power = -25
+		add_army_tradition = 2
+		random_owned_province = {
+			limit = {
+				has_building = marketplace
+			}
+			add_province_modifier = {
+				name = military_escort
+				duration = 1825
+			}
+		}
+	}
+	
+	option = {
+		name = bandit_plague.3.b # Pay ransom
+		add_years_of_income = -0.3
+		add_prestige = -5
+	}
+}
+
+# Village Raid
+country_event = {
+	id = bandit_plague.4
+	title = bandit_plague.4.t
+	desc = bandit_plague.4.d
+	picture = VILLAGE_BURNING_eventPicture
+	
+ 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = bandit_plague.4.a # Hunt down the bandits
+		random_owned_province = {
+			limit = {
+				OR = {
+					has_terrain = hills
+					has_terrain = forest
+				}
+				unrest = 2
+			}
+			add_devastation = 10
+			add_unrest = -2
+		}
+		add_mil_power = -50
+	}
+	
+	option = {
+		name = bandit_plague.4.b # Fortify villages
+		add_years_of_income = -0.25
+		random_owned_province = {
+			limit = {
+				OR = {
+					has_terrain = hills
+					has_terrain = forest
+				}
+			}
+			add_province_modifier = {
+				name = fortified_villages
+				duration = 3650
+			}
+		}
+	}
+}
+
+# Bandit Leader Emerges
+country_event = {
+	id = bandit_plague.5
+	title = bandit_plague.5.t
+	desc = bandit_plague.5.d
+	picture = praetoriaguards_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = bandit_plague.5.a # Offer amnesty
+		add_years_of_income = -0.2
+		every_owned_province = { add_unrest = -2 }
+		add_prestige = -10
+	}
+	
+	option = {
+		name = bandit_plague.5.b # Put bounty on his head
+		add_years_of_income = -0.1
+		set_country_flag = bandit_leaders_eliminated
+		random_owned_province = {
+			limit = {
+				OR = {
+					has_terrain = hills
+					has_terrain = mountain
+					has_terrain = forest
+				}
+			}
+			spawn_rebels = {
+				type = peasant_rebels
+				size = 2
+			}
+		}
+	}
+}
+
+# Highway Robbery
+country_event = {
+	id = bandit_plague.6
+	title = bandit_plague.6.t
+	desc = bandit_plague.6.d
+	picture = OVEREXTENSION_eventPicture
+	
+	trigger = {
+		has_disaster = bandit_plague
+		NOT = { has_country_modifier = increased_patrols }
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = bandit_plague.6.a # Increase patrols
+		add_mil_power = -25
+		add_army_tradition = 1
+		add_country_modifier = {
+			name = increased_patrols
+			duration = 1825
+		}
+	}
+	
+	option = {
+		name = bandit_plague.6.b # Accept losses
+		add_years_of_income = -0.15
+		add_mil_power = -25
+	}
+}
+
+# Corrupt Officials Join Bandits
+country_event = {
+	id = bandit_plague.7
+	title = bandit_plague.7.t
+	desc = bandit_plague.7.d
+	picture = CORRUPTION_eventPicture
+	
+	is_triggered_only = yes
+ 
+	
+	option = {
+		name = bandit_plague.7.a # Purge administration
+		add_corruption = -2
+		add_stability = -1
+		add_adm_power = -75
+	}
+	
+	option = {
+		name = bandit_plague.7.b # Ignore the problem
+		add_corruption = 2
+		add_prestige = -10
+	}
+}

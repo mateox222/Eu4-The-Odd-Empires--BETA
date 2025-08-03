@@ -1,0 +1,248 @@
+state_centralization_mechanic = {
+	alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 12
+	available = {
+        OR = {
+		current_age = age_of_reformation
+        current_age = age_of_absolutism 
+        }
+	}
+
+	powers = {
+		centralization_power = {
+			max = 100
+			min = 0
+			default = 0
+			reset_on_new_ruler = no
+			base_monthly_growth = 0.02
+			development_scaled_monthly_growth = 0.03
+			is_good = yes
+			
+			# Scaled modifiers based on centralization level
+			scaled_modifier = {
+				start_value = 0
+				end_value = 100
+				modifier = {
+					administrative_efficiency = 0.05
+					governing_capacity_modifier = 0.25
+					diplomatic_annexation_cost = -0.25
+					all_power_cost = -0.05
+				}
+			}
+			
+			# Range modifiers for different centralization levels
+			
+			
+			# Events triggered at critical points
+			on_max_reached = {
+ 
+			}
+			
+			on_min_reached = {
+		 
+			}
+		}
+	}
+	
+	interactions = {
+		establish_royal_bureaucracy = {
+			  icon = GFX_establish_royal_bureaucracy
+			cost_type = centralization_power
+			cost = 0
+			trigger = {
+				adm_power = 100
+				NOT = { has_country_modifier = recent_bureaucracy_reform }
+				has_government_power = {
+					mechanic_type = state_centralization_mechanic
+					power_type = centralization_power
+					value = 25
+				}
+			}
+			effect = {
+				add_adm_power = -100
+				add_government_power = {
+					mechanic_type = state_centralization_mechanic
+					power_type = centralization_power
+					value = 20
+				}
+				add_country_modifier = {
+					name = royal_bureaucracy_established
+					duration = 7300 # 20 years
+				}
+				add_country_modifier = {
+					name = recent_bureaucracy_reform
+					duration = 1825 # 5 years
+				}
+				random_owned_province = {
+					limit = {
+						is_capital = no
+						development = 10
+					}
+					add_province_modifier = {
+						name = royal_administration_center
+						duration = 7300
+					}
+				}
+			}
+			cooldown_years = 5
+			ai_chance = {
+				factor = 70
+				modifier = {
+					factor = 2
+					has_government_power = {
+						mechanic_type = state_centralization_mechanic
+						power_type = centralization_power
+						value = 30
+					}
+					NOT = {
+						has_government_power = {
+							mechanic_type = state_centralization_mechanic
+							power_type = centralization_power
+							value = 70
+						}
+					}
+				}
+				modifier = {
+					factor = 1.5
+					num_of_owned_provinces_with = {
+						value = 15
+						NOT = { is_core = ROOT }
+					}
+				}
+			}
+		}
+		
+		suppress_local_privileges = {
+									  icon = GFX_suppress_local_privileges
+			cost_type = centralization_power
+			cost = 15
+			trigger = {
+				mil_power = 75
+				NOT = { has_country_modifier = recent_privilege_suppression }
+				OR = {
+					estate_influence = {
+						estate = estate_nobles
+						influence = 60
+					}
+					any_owned_province = {
+						local_autonomy = 50
+					}
+				}
+			}
+			effect = {
+				add_mil_power = -75
+				add_government_power = {
+					mechanic_type = state_centralization_mechanic
+					power_type = centralization_power
+					value = 12
+				}
+				random_list = {
+					60 = {
+						# Successful suppression
+						add_estate_loyalty = {
+							estate = estate_nobles
+							loyalty = -15
+						}
+						add_estate_influence_modifier = {
+							estate = estate_nobles
+							desc = "Suppressed Local Privileges"
+							influence = -10
+							duration = 3650
+						}
+						random_owned_province = {
+							limit = { local_autonomy = 25 }
+							add_local_autonomy = -25
+						}
+					}
+					40 = {
+						# Partial success with backlash
+						add_estate_loyalty = {
+							estate = estate_nobles
+							loyalty = -25
+						}
+						add_stability = -1
+						add_country_modifier = {
+							name = noble_resistance
+							duration = 1825
+						}
+					}
+				}
+				add_country_modifier = {
+					name = recent_privilege_suppression
+					duration = 1095 # 3 years
+				}
+			}
+			cooldown_years = 3
+			ai_chance = {
+				factor = 45
+				modifier = {
+					factor = 2
+					estate_influence = {
+						estate = estate_nobles
+						influence = 70
+					}
+				}
+				modifier = {
+					factor = 1.5
+					average_autonomy = 40
+				}
+				modifier = {
+					factor = 0.5
+					estate_loyalty = {
+						estate = estate_nobles
+						loyalty = 60
+					}
+				}
+			}
+		}
+		
+		create_standing_army = {
+						  icon = GFX_create_standing_army
+			cost_type = centralization_power
+			cost = 25
+			trigger = {
+				mil_power = 150
+				NOT = { has_country_modifier = standing_army_reforms }
+				is_at_war = no
+				has_government_power = {
+					mechanic_type = state_centralization_mechanic
+					power_type = centralization_power
+					value = 50
+				}
+			}
+			effect = {
+				add_mil_power = -150
+				add_government_power = {
+					mechanic_type = state_centralization_mechanic
+					power_type = centralization_power
+					value = 15
+				}
+				add_country_modifier = {
+					name = standing_army_reforms
+					duration = 7300 # 20 years
+				}
+				add_country_modifier = {
+					name = military_reorganization
+					duration = 1825 # 5 years
+				}
+			}
+			cooldown_years = 10
+			ai_chance = {
+				factor = 75
+				modifier = {
+					factor = 2
+					has_government_power = {
+						mechanic_type = state_centralization_mechanic
+						power_type = centralization_power
+						value = 60
+					}
+				}
+				modifier = {
+					factor = 1.5
+					mil_tech = 15
+				}
+			
+			}
+		}
+	}
+}

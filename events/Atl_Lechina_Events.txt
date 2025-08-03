@@ -1,0 +1,130 @@
+
+namespace = lechinaaevent
+country_event = {
+	id = lechinaaevent.1
+	title = lechinaaevent1.t
+	desc = lechinaaevent1.d
+	picture = cheonmathrone_eventPicture
+	is_triggered_only = yes
+			major = yes
+
+	option = {
+		name = lechinaaevent1.a
+
+		custom_tooltip = lechinaempirechaos
+		hidden_effect = {
+		grant_independence = yes	
+		change_government = tribal
+		change_country_color = { color = { 54 113 58}	}
+		override_country_name = Lechinaempire
+		change_religion = slavic_pagan_reformed
+		186 = {
+			change_religion = slavic_pagan_reformed
+		}
+					change_government = tribal
+			add_government_reform = lechia_pagan_empire
+		}
+		add_stability = -3
+		        182 = { 
+        }
+        
+        # Kalisz (186) -> Perunowe Grodzisko (Perun's Hillfort)
+        186 = { 
+            change_province_name =  "Perunowe Grodzisko"
+        }
+        
+        # Gniezno (1743) -> Gniazdo Peruna (Perun's Nest)
+        1743 = { 
+           change_province_name =  "Gniazdo Peruna"
+        }
+        
+        # Sieradz (181) -> Świętowitowe Bory (Svetovid's Forests)
+        181 = { 
+            change_province_name = "Swietowitowe Bory"
+        }
+        
+        # Łęczyca (4766) -> Welesowe Uroczysko (Veles' Sacred Grove)
+        4766 = { 
+           change_province_name =  "Welesowe Uroczysko"
+        }
+		define_ruler = {
+    name = "Wojciech"
+	    dynasty = "Jaszczur"
+		age = 62
+		male = yes
+
+		}
+}
+}
+country_event = {
+	id = lechinaaevent.3
+	title = "lechinaaevent.3.t"
+	desc = "lechinaaevent.3.d"
+	picture = raumariafanatic_eventPicture
+	
+	trigger = {
+		tag = PL7
+		religion = slavic_pagan_reformed
+		has_country_modifier = polans_old_gods_return
+		NOT = { has_country_flag = old_gods_event }
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	immediate = {
+		set_country_flag = old_gods_event
+	}
+	
+	option = {
+		name = "lechinaaevent.1.a"
+		add_stability = 1
+		add_legitimacy = 10
+		random_owned_province = {
+			limit = { religion = slavic_pagan_reformed }
+			add_base_tax = 1
+		}
+	}
+	
+	option = {
+		name = "lechinaaevent.1.b"
+		add_army_tradition = 10
+		add_mil_power = 50
+		create_general = { tradition = 40 }
+	}
+}
+
+# Event: Lechicka Tradycja
+country_event = {
+	id = lechinaaevent.2
+	title = "lechinaaevent.2.t"
+	desc = "lechinaaevent.2.d"
+	picture = Sacrificepagan_eventPicture
+	
+	trigger = {
+		tag = PL7
+		has_institution = renaissance
+		religion = slavic_pagan_reformed
+		NOT = { has_country_flag = lechitic_tradition_event }
+	}
+	
+	mean_time_to_happen = {
+		months = 24
+	}
+	
+	immediate = {
+		set_country_flag = lechitic_tradition_event
+	}
+	
+	option = {
+		name = "lechinaaevent.2.a"
+		add_country_modifier = {
+			name = "polans_lechitic_renaissance"
+			duration = 7300
+		}
+		add_adm_power = 100
+		add_dip_power = 100
+		add_mil_power = 100
+	}
+}

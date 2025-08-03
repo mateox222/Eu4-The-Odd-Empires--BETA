@@ -37,9 +37,6 @@ technology = { #Tribal Government
 
 }
 
-
-
-
 technology = { #Tribal Government
 	# Tech 4
 	year = 6489
@@ -49,8 +46,6 @@ technology = { #Tribal Government
 	native_great_trail = yes
 	native_ceremonial_fire_pit = yes
 }
-
-
 
 technology = { #Advanced Tribes
 	# Tech 5
@@ -68,9 +63,11 @@ technology = { #Feudal Monarchy
 	year = 6505
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.15
 	}
 
 	#Monarchies
+	administrative_efficiency = 0.025
 	despotic_monarchy = yes	
 	oligarchic_republic = yes
 }
@@ -79,9 +76,11 @@ technology = { #Feudal Monarchy
 	year = 6510
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.25
 	}
 
 	#Monarchies
+	allowed_idea_groups = 1
 	feudal_monarchy = yes
 }
 
@@ -91,16 +90,18 @@ technology = { #Medieval Administration
 	year = 6520
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
 	}
 
 	production_efficiency	=	0.02
-	allowed_idea_groups = 1
+	
 }
 technology = { #Medieval Administration
 	# Tech 3
 	year = 6530
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
 	}
 
 	may_support_rebels = yes
@@ -111,10 +112,12 @@ technology = { #Temples
 	year = 6540
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
 	}
 
 	# Temple
 	production_efficiency	 =	0.01
+	holy_sanctuary = yes
 	
 }
 
@@ -123,9 +126,9 @@ technology = { #National Ideas
 	year = 6555
 	expects_institution = {
 		feudalism = 0.5
-		renaissance = 0.15
+		urban_communes = 0.5
+		gunpowder_warfare = 0.15
 	}
-
 
 	allowed_idea_groups = 2
 	production_efficiency	 =	0.01
@@ -136,7 +139,8 @@ technology = { #Workshop
 	year = 6568
 	expects_institution = {
 		feudalism = 0.5
-		renaissance = 0.3
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 	}
 
 	#Workshop
@@ -150,7 +154,8 @@ technology = { #Renaissance Thought
 	year = 6581
 	expects_institution = {
 		feudalism = 0.5
-		renaissance = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 	}
 	
 	#Noble Republic
@@ -162,9 +167,10 @@ technology = { #Courthouse
 	year = 6600
 	expects_institution = {
 		feudalism = 0.5
-		renaissance = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
+		renaissance = 0.15
 	}
-
 
 	governing_capacity = 100
 
@@ -175,12 +181,13 @@ technology = { #The Scythe
 	year = 6615
 	expects_institution = {
 		feudalism = 0.5
-		renaissance = 0.5
-		new_world_i = 0.15
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
+		renaissance = 0.3
 	}
 	
 	#The Scythe
-	production_efficiency 	=	0.02
+
 	allowed_idea_groups = 3
 
 }
@@ -190,12 +197,14 @@ technology = { #Modern Theocracy
 	year = 6630
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
-		new_world_i = 0.3
 	}
 	
-
 	theocratic_government = yes
+	royal_observatory = yes
+	production_efficiency =	0.02
 }
 
 technology = { #Textile Manufactory
@@ -203,8 +212,9 @@ technology = { #Textile Manufactory
 	year = 6640
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
-		new_world_i = 0.5
 	}
 	
 	#Textile Manufactory
@@ -217,11 +227,14 @@ technology = { #Early Modern Administration
 	year = 6655
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
-		new_world_i = 0.5
+		banking_revolution = 0.15
 	}
 	
 	administrative_monarchy	= yes 
+	central_bank = yes
 	administrative_republic	= yes
 	governing_capacity = 100
 	state_house = yes
@@ -233,13 +246,16 @@ technology = { #Improved Drainage
 	year = 6670
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
-		new_world_i = 0.5
-		printing_press = 0.15
+		banking_revolution = 0.5
 	}
 	
 	#Improved Drainage
 	production_efficiency 	=	0.02
+	atlantropa_royal_palace = yes
+
 }
 
 technology = { #Scientific Experimentation
@@ -247,9 +263,10 @@ technology = { #Scientific Experimentation
 	year = 6690
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
-		new_world_i = 0.5
-		printing_press = 0.3
+		banking_revolution = 0.5
 	}
 	
 	plantations = yes
@@ -261,9 +278,11 @@ technology = { #Military Administration
 	year = 6705
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
-		new_world_i = 0.5
-		printing_press = 0.5
+		banking_revolution = 0.5
+		new_world_i = 0.15
 	}
 	
 	may_force_march = yes
@@ -275,15 +294,16 @@ technology = { #Metallurgy
 	year = 6718
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
-		new_world_i = 0.5
-		printing_press = 0.5
+		banking_revolution = 0.5
+		new_world_i = 0.3
 	}
 	
 	mills = yes
 	production_efficiency 	=	0.02
 	allowed_idea_groups = 6
-
 
 }
 
@@ -292,16 +312,18 @@ technology = { #University
 	year = 6731
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
+		banking_revolution = 0.5
 		new_world_i = 0.5
-		printing_press = 0.5
-		global_trade = 0.15
+		printing_press = 0.15
 	}
 	
 	university = yes	
 	governing_capacity = 250
 	
-	administrative_efficiency = 0.1
+	administrative_efficiency = 0.05
 	development_cost_modifier = -0.1
 }
 
@@ -310,10 +332,12 @@ technology = { #National Sovereignty
 	year = 6744
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
+		banking_revolution = 0.5
 		new_world_i = 0.5
 		printing_press = 0.5
-		global_trade = 0.3
 	}
 	
 	allowed_idea_groups	= 7
@@ -324,10 +348,13 @@ technology = { #Cathedral
 	year = 6757
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
+		banking_revolution = 0.5
 		new_world_i = 0.5
 		printing_press = 0.5
-		global_trade = 0.5
+		global_trade = 0.15
 	}
 	
 	#Cathedral
@@ -339,7 +366,10 @@ technology = { #Absolute Rulership
 	year = 6770
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
+		banking_revolution = 0.5
 		new_world_i = 0.5
 		printing_press = 0.5
 		global_trade = 0.5
@@ -354,11 +384,13 @@ technology = { #Land Clearance
 	year = 6783
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
+		banking_revolution = 0.5
 		new_world_i = 0.5
 		printing_press = 0.5
 		global_trade = 0.5
-		manufactories = 0.15
 	}
 	
 	#Land Clearance
@@ -371,11 +403,13 @@ technology = { #The Constitution
 	year = 6796
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
+		banking_revolution = 0.5
 		new_world_i = 0.5
 		printing_press = 0.5
 		global_trade = 0.5
-		manufactories = 0.3
 	}
 	
 	allowed_idea_groups = 8
@@ -390,11 +424,14 @@ technology = { #Measuring the World
 	year = 6809
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
+		banking_revolution = 0.5
 		new_world_i = 0.5
 		printing_press = 0.5
 		global_trade = 0.5
-		manufactories = 0.5
+		manufactories = 0.15
 	}
 	
 	administrative_efficiency = 0.1
@@ -406,12 +443,14 @@ technology = { #Bonds and Tontines
 	year = 6824
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
+		banking_revolution = 0.5
 		new_world_i = 0.5
 		printing_press = 0.5
 		global_trade = 0.5
-		manufactories = 0.5
-		enlightenment = 0.15
+		manufactories = 0.3
 	}
 	
 	counting_house = yes  
@@ -424,15 +463,19 @@ technology = { #Improved Production
 	year = 6839
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
+		banking_revolution = 0.5
 		new_world_i = 0.5
 		printing_press = 0.5
 		global_trade = 0.5
 		manufactories = 0.5
-		enlightenment = 0.3
+		scientific_revolution = 0.15
 	}
 	
 	#Improved Farm Animals
+
 	production_efficiency 	=	0.02
 }
 
@@ -441,12 +484,16 @@ technology = { #Separation of Powers
 	year = 6854
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
+		banking_revolution = 0.5
 		new_world_i = 0.5
 		printing_press = 0.5
 		global_trade = 0.5
 		manufactories = 0.5
-		enlightenment = 0.5
+		scientific_revolution = 0.5
+		enlightenment = 0.15
 	}
 	
 	allowed_idea_groups 	= 10
@@ -457,11 +504,15 @@ technology = { #Modern Bureaucracy
 	year = 6869
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
+		banking_revolution = 0.5
 		new_world_i = 0.5
 		printing_press = 0.5
 		global_trade = 0.5
 		manufactories = 0.5
+		scientific_revolution = 0.5
 		enlightenment = 0.5
 	}
 
@@ -475,16 +526,20 @@ technology = { #Rotherham Plough
 	year = 6884
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
+		banking_revolution = 0.5
 		new_world_i = 0.5
 		printing_press = 0.5
 		global_trade = 0.5
 		manufactories = 0.5
+		scientific_revolution = 0.5
 		enlightenment = 0.5
-		industrialization = 0.25
 	}
 	
 	#Rotherham Plough
+	grand_cathedral = yes
 	production_efficiency 	=	0.02
 }
 
@@ -493,13 +548,16 @@ technology = { #Rights of Man
 	year = 6899
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
+		banking_revolution = 0.5
 		new_world_i = 0.5
 		printing_press = 0.5
 		global_trade = 0.5
 		manufactories = 0.5
-		enlightenment = 1
-		industrialization = 0.5
+		scientific_revolution = 0.5
+		enlightenment = 0.5
 	}
 
 	allowed_idea_groups = 11
@@ -512,18 +570,22 @@ technology = { #Advanced Production
 	year = 6914
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
+		banking_revolution = 0.5
 		new_world_i = 0.5
 		printing_press = 0.5
 		global_trade = 0.5
 		manufactories = 0.5
+		scientific_revolution = 0.5
 		enlightenment = 0.5
-		industrialization = 1
+		industrialization = 0.15
 	}
 	
 	#Improved Draft Animals
 	production_efficiency 	=	0.02
-	atlantropa_factory = yes
+
 }
 
 technology = { #Revolutionary Ideals
@@ -531,13 +593,17 @@ technology = { #Revolutionary Ideals
 	year = 6929
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
+		banking_revolution = 0.5
 		new_world_i = 0.5
 		printing_press = 0.5
 		global_trade = 0.5
 		manufactories = 0.5
-		enlightenment = 1
-		industrialization = 1
+		scientific_revolution = 0.5
+		enlightenment = 0.5
+		industrialization = 0.5
 	}
 	
 	revolutionary_republic = yes
@@ -550,13 +616,18 @@ technology = { #Four Field Rotation
 	year = 6944
 	expects_institution = {
 		feudalism = 0.5
+		urban_communes = 0.5
+		gunpowder_warfare = 0.5
 		renaissance = 0.5
+		banking_revolution = 0.5
 		new_world_i = 0.5
 		printing_press = 0.5
 		global_trade = 0.5
 		manufactories = 0.5
-		enlightenment = 1
-		industrialization = 1
+		scientific_revolution = 0.5
+		enlightenment = 0.5
+		industrialization = 0.5
+		administrative_efficiency = 0.15
 	}
 	
 	#Four field rotation

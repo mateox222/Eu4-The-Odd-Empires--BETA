@@ -15,12 +15,12 @@ bulgara_1 = {
 		tag = BUL
 	}
 	has_country_shield = yes
-	
+
 	bul_invite = {
 		icon = mission_non-western_cavalry_raid
 		required_missions = { }
 		provinces_to_highlight = {
-			
+
 		}
 		trigger = {
 			if = {
@@ -74,7 +74,7 @@ bulgara_1 = {
 		icon = mission_teutonic_knights
 		required_missions = { bul_invite bul_divide }
 		provinces_to_highlight = {
-			
+
 		}
 		trigger = {
 			num_of_cavalry = 20
@@ -99,7 +99,7 @@ bulgara_1 = {
 		icon = mission_cossack_cavalry
 		required_missions = { bul_knights }
 		provinces_to_highlight = {
-			
+
 		}
 		trigger = {
 			years_of_income	= 2
@@ -108,10 +108,7 @@ bulgara_1 = {
 				mil = 5
 				monthly_mil	= 12
 			}
-			OR = {
-				has_idea_group = aristocracy_ideas
-				has_idea_group = quality_ideas
-			}
+
 		}
 		effect = {
 			add_years_of_income	= -2
@@ -129,7 +126,7 @@ bulgara_1 = {
 		icon = mission_abu_saids_dream
 		required_missions = { bul_arkani }
 		provinces_to_highlight = {
-			
+
 		}
 		trigger = {
 			num_of_cavalry = 75
@@ -258,7 +255,7 @@ bulgara_1 = {
 		required_missions = { bul_samogia bul_brave }
 		position = 8
 		provinces_to_highlight = {
-			
+
 		}
 		trigger = {
 			OR = {
@@ -554,7 +551,7 @@ bul_2 = {
 		tag = BUL
 	}
 	has_country_shield = yes
-	
+
 	bul_impale = {
 		icon = mission_impaled_soldies
 		position = 2
@@ -594,7 +591,7 @@ bul_2 = {
 			factor = 1
 		}
 	}
-	
+
 	bul_campaign = {
 		icon = mission_conquer_romania
 		position = 3
@@ -822,12 +819,12 @@ bul_3 = {
 		tag = BUL
 	}
 	has_country_shield = yes
-	
+
 	bul_divide = {
 		icon = mission_crusade_for_varna
 		required_missions = {  }
 		provinces_to_highlight = {
-			
+
 		}
 		trigger = {
 			if = {
@@ -917,7 +914,7 @@ bul_3 = {
 		required_missions = { bul_campaign bul_patriarch }
 		position = 4
 		provinces_to_highlight = {
-			
+
 		}
 		trigger = {
 			NOT = {
@@ -1006,7 +1003,7 @@ bul_3 = {
 		required_missions = {  }
 		position = 6
 		provinces_to_highlight = {
-			
+
 		}
 		trigger = {
 			army_size_percentage = 1
@@ -1026,7 +1023,7 @@ bul_3 = {
 			factor = 1
 		}
 	}
-	
+
 	bul_cast = {
 		icon = mission_subdue_rajputana
 		required_missions = { bul_prepare }
@@ -1141,13 +1138,13 @@ bul_4a = {
 		tag = BUL
 	}
 	has_country_shield = yes
-	
+
 	bul_empower = {
 		icon = mission_noble_council
 		required_missions = { bul_divide bul_fate }
 		position = 2
 		provinces_to_highlight = {
-			
+
 		}
 		trigger = {
 			has_institution = feudalism
@@ -1176,7 +1173,7 @@ bul_4a = {
 		required_missions = { bul_empower }
 		position = 3
 		provinces_to_highlight = {
-			
+
 		}
 		trigger = {
 			temple = 5
@@ -1235,13 +1232,13 @@ bul_branching_4 = {
 		required_missions = { bul_branching_2 }
 		position = 4
 		provinces_to_highlight = {
-			
+
 		}
 		trigger = {
 			always = no
 		}
 		effect = {
-			
+
 		}
 		ai_weight = {
 			factor = 1
@@ -1382,7 +1379,7 @@ bul_4b = {
 					limit = {
 						has_global_flag = popevictorybecausebyzantiumfall
 					}
-					change_religion = catholic
+					change_religion = united_christianity
 				}
 				if = {
 					limit = {
@@ -1424,7 +1421,7 @@ bul_4b = {
 		required_missions = { bul_dnieper }
 		position = 7
 		provinces_to_highlight = {
-			
+
 		}
 		trigger = {
 			current_icon = icon_michael
@@ -1547,12 +1544,12 @@ bul_5a = {
 		tag = BUL
 	}
 	has_country_shield = yes
-	
+
 	bul_fate = {
 		icon = mission_unite_home_region
 		required_missions = {  }
 		provinces_to_highlight = {
-			
+
 		}
 		trigger = {
 			OR = {
@@ -1572,7 +1569,7 @@ bul_5a = {
 					limit = {
 						has_global_flag = popevictorybecausebyzantiumfall
 					}
-					change_religion = catholic
+					change_religion = united_christianity
 				}
 				if = {
 					limit = {
@@ -1617,13 +1614,13 @@ bul_branching_5 = {
 		required_missions = { bul_fate }
 		position = 2
 		provinces_to_highlight = {
-			
+
 		}
 		trigger = {
 			always = no
 		}
 		effect = {
-			
+
 		}
 		ai_weight = {
 			factor = 1
@@ -1635,13 +1632,13 @@ bul_branching_5 = {
 		required_missions = { bul_branching_1 }
 		position = 3
 		provinces_to_highlight = {
-			
+
 		}
 		trigger = {
 			always = no
 		}
 		effect = {
-			
+
 		}
 		ai_weight = {
 			factor = 1
@@ -1653,13 +1650,13 @@ bul_branching_5 = {
 		required_missions = { bul_branching_2 bul_tsar}
 		position = 6
 		provinces_to_highlight = {
-			
+
 		}
 		trigger = {
 			always = no
 		}
 		effect = {
-			
+
 		}
 		ai_weight = {
 			factor = 1
@@ -1683,7 +1680,7 @@ bul_branching_5_bul = {
 		required_missions = { bul_fate }
 		position = 2
 		provinces_to_highlight = {
-			
+
 		}
 		trigger = {
 			development_in_provinces = {
@@ -1824,7 +1821,7 @@ bul_branching_5_rom = {
 		required_missions = { bul_fate }
 		position = 2
 		provinces_to_highlight = {
-			
+
 		}
 		trigger = {
 			accepted_culture = romanian
@@ -1868,7 +1865,7 @@ bul_branching_5_rom = {
 		required_missions = { bul_branching_1_rom }
 		position = 3
 		provinces_to_highlight = {
-			
+
 		}
 		trigger = {
 			current_icon = icon_eleusa
@@ -1941,7 +1938,7 @@ bul_5b = {
 		tag = BUL
 	}
 	has_country_shield = yes
-	
+
 	bul_pontic = {
 		icon = mission_sca_lit_conquer_crimea
 		required_missions = { bul_kiev }

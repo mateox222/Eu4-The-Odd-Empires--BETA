@@ -515,7 +515,14 @@ atl_nav_missions_2 = {
 		trigger = {
 			owns_core_province = 5641
 		}
-		effect = {
+		effect = { 
+		aquitania_region  = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
 			iberia_region = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT }

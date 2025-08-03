@@ -1,0 +1,559 @@
+namespace = atlantis_hegemony
+country_event = {
+	id = atlantis_hegemony.1
+	title = "atlantis_hegemony.1.t"
+	desc = "atlantis_hegemony.1.d"
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		OR = {
+			tag = TU3  # Atlantyda
+			tag = GR6  # Prasinidion
+		}
+		NOT = { has_country_flag = atlantis_hegemony_active }
+
+	}
+	
+	immediate = {
+                		atlantis_region_superregion = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT }
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		set_country_flag = atlantis_hegemony_active
+		
+		if = {
+			limit = { tag = TU3 }
+			set_country_flag = atlantis_player
+		}
+		if = {
+			limit = { tag = GR6 }
+			set_country_flag = prasinidion_player
+		}
+	}
+	
+	option = {
+        
+		name = "atlantis_hegemony.1.a"
+		ai_chance = { factor = 100 }
+		
+		if = {
+			limit = { tag = TU3 }
+			custom_tooltip = atlantis_conquest_begins_tt
+			add_country_modifier = {
+				name = "call_of_athena"
+				duration = 3650
+			}
+			add_casus_belli = {
+				target = GR6
+				type = cb_philosophical_war
+				months = 1200
+			}
+		}
+		if = {
+			limit = { tag = GR6 }
+			custom_tooltip = spartan_conquest_begins_tt
+			add_country_modifier = {
+				name = "blessing_of_ares"
+				duration = 3650
+			}
+			add_casus_belli = {
+				target = TU3
+				type = cb_philosophical_war
+				months = 1200
+			}
+		}
+		
+		country_event = {
+			id = atlantis_hegemony.10
+			days = 3650
+		}
+	}
+}
+
+# Atlantyda - Mobilizacja Filozofów na Wojnę
+country_event = {
+	id = atlantis_hegemony.2
+	title = "atlantis_hegemony.2.t"
+	desc = "atlantis_hegemony.2.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		tag = TU3
+		has_country_flag = atlantis_hegemony_active
+		NOT = { has_country_modifier = recent_philosopher_mobilization }
+		NOT = { war_with = GR6 }
+	}
+	
+	mean_time_to_happen = {
+		months = 36
+		modifier = {
+			factor = 0.8
+			advisor = philosopher
+		}
+		modifier = {
+			factor = 0.7
+			has_country_modifier = platonic_academy
+		}
+	}
+	
+	immediate = {
+		add_country_modifier = {
+			name = "recent_philosopher_mobilization"
+			duration = 1095
+			hidden = yes
+		}
+	}
+	
+	option = {
+		name = "atlantis_hegemony.2.a" # Filozofowie prowadzą kampanię propagandową
+		ai_chance = { factor = 60 }
+		
+		add_adm_power = -75
+		add_treasury = -100
+		
+		random_list = {
+			40 = {
+				custom_tooltip = propaganda_triumph_tt
+				add_country_modifier = {
+					name = "just_war_doctrine"
+					duration = 2555
+				}
+				add_stability = 1
+				add_war_exhaustion = -2
+			}
+			50 = {
+				custom_tooltip = propaganda_success_tt
+				add_country_modifier = {
+					name = "righteous_cause"
+					duration = 1825
+				}
+				add_stability = 1
+			}
+			10 = {
+				custom_tooltip = propaganda_backfires_tt
+				add_war_exhaustion = 1
+				add_unrest = 2
+			}
+		}
+	}
+	
+	option = {
+		name = "atlantis_hegemony.2.b" # Filozofowie organizują szkolenia dowódców
+		ai_chance = { factor = 40 }
+		
+		add_adm_power = -100
+		add_mil_power = -50
+		
+		random_list = {
+			30 = {
+				custom_tooltip = strategic_genius_tt
+				add_country_modifier = {
+					name = "philosopher_generals"
+					duration = 3650
+				}
+				create_general = {
+					tradition = 60
+				}
+			}
+			60 = {
+				custom_tooltip = tactical_improvement_tt
+				add_country_modifier = {
+					name = "strategic_wisdom"
+					duration = 2190
+				}
+				add_army_tradition = 10
+			}
+			10 = {
+				custom_tooltip = theoretical_failure_tt
+				add_army_tradition = -5
+			}
+		}
+	}
+}
+
+# Prasinidion - Przygotowania Wojenne
+country_event = {
+	id = atlantis_hegemony.3
+	title = "atlantis_hegemony.3.t"
+	desc = "atlantis_hegemony.3.d"
+	picture = LAND_MILITARY_eventPicture
+	
+	trigger = {
+		tag = GR6
+		has_country_flag = atlantis_hegemony_active
+		NOT = { has_country_modifier = recent_war_preparations }
+		NOT = { war_with = TU3 }
+	}
+	
+	mean_time_to_happen = {
+		months = 30
+		modifier = {
+			factor = 0.8
+			advisor = army_reformer
+		}
+		modifier = {
+			factor = 0.7
+			has_country_modifier = great_agoge_program
+		}
+	}
+	
+	immediate = {
+		add_country_modifier = {
+			name = "recent_war_preparations"
+			duration = 730
+			hidden = yes
+		}
+	}
+	
+	option = {
+		name = "atlantis_hegemony.3.a" # Totalna mobilizacja
+		ai_chance = { factor = 70 }
+		
+		add_mil_power = -100
+		add_treasury = -200
+		
+		random_list = {
+			35 = {
+				custom_tooltip = total_war_machine_tt
+				add_country_modifier = {
+					name = "spartan_war_machine"
+					duration = 3650
+				}
+				add_manpower = 5
+			}
+			55 = {
+				custom_tooltip = military_readiness_tt
+				add_country_modifier = {
+					name = "prepared_for_war"
+					duration = 2190
+				}
+				add_manpower = 3
+			}
+			10 = {
+				custom_tooltip = logistical_problems_tt
+				add_war_exhaustion = 1
+			}
+		}
+	}
+	
+	option = {
+		name = "atlantis_hegemony.3.b" # Elitarne jednostki
+		ai_chance = { factor = 30 }
+		
+		add_mil_power = -75
+		add_treasury = -150
+		
+		random_list = {
+			40 = {
+				custom_tooltip = elite_formation_tt
+				add_country_modifier = {
+					name = "sacred_band"
+					duration = 2555
+				}
+				create_general = {
+					tradition = 70
+				}
+			}
+			60 = {
+				custom_tooltip = veteran_troops_tt
+				add_country_modifier = {
+					name = "veteran_phalanx"
+					duration = 1825
+				}
+				add_army_tradition = 15
+			}
+		}
+	}
+}
+
+# Pierwsza wielka wojna między mocarstwami
+country_event = {
+	id = atlantis_hegemony.10
+	title = "atlantis_hegemony.10.t"
+	desc = "atlantis_hegemony.10.d"
+	picture = BORDER_TENSION_eventPicture
+	
+	trigger = {
+		OR = {
+			tag = TU3
+			tag = GR6
+		}
+		has_country_flag = atlantis_hegemony_active
+		NOT = { war_with = TU3 }
+		NOT = { war_with = GR6 }
+		NOT = { has_country_flag = first_great_war_triggered }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	immediate = {
+		set_country_flag = first_great_war_triggered
+		if = {
+			limit = { tag = TU3 }
+			GR6 = { set_country_flag = first_great_war_triggered }
+		}
+		if = {
+			limit = { tag = GR6 }
+			TU3 = { set_country_flag = first_great_war_triggered }
+		}
+	}
+	
+	option = {
+		name = "atlantis_hegemony.10.a" # Wojna!
+		ai_chance = { factor = 90 }
+		
+		if = {
+			limit = { tag = TU3 }
+			custom_tooltip = philosophers_declare_war_tt
+			declare_war_with_cb = {
+				who = GR6
+				casus_belli = cb_philosophical_war
+			}
+		}
+		if = {
+			limit = { tag = GR6 }
+			custom_tooltip = spartans_declare_war_tt
+			declare_war_with_cb = {
+				who = TU3
+				casus_belli = cb_philosophical_war
+			}
+		}
+		
+		add_country_modifier = {
+			name = "great_war_participant"
+			duration = -1
+		}
+	}
+	
+	option = {
+		name = "atlantis_hegemony.10.b" # Jeszcze nie czas
+		ai_chance = { factor = 10 }
+		
+		add_prestige = -10
+		add_stability = -1
+		
+		country_event = {
+			id = atlantis_hegemony.10
+			days = 365
+		}
+	}
+}
+
+# Wydarzenia przy osiągnięciu 35 prowincji na kontynencie Atlantydy
+# Plik: events/atlantis_35_provinces_events.txt
+
+namespace = atlantis_dominance
+
+# Atlantyda osiąga 35 prowincji - Triumf Filozofii
+country_event = {
+	id = atlantis_dominance.1
+	title = atlantis_dominance.1.t
+	desc = atlantis_dominance.1.d
+	picture = GREAT_BUILDING_eventPicture
+	
+	trigger = {
+		tag = TU3
+		num_of_owned_provinces_with = {
+			value = 35
+			continent = Atlantis
+		}
+				NOT = { has_global_flag = atlantis_prasinidion_military_victory }		
+		NOT = { has_country_flag = atlantis_philosophical_victory }
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+		set_global_flag = atlantis_prasinidion_military_victory
+		set_country_flag = atlantis_philosophical_victory
+		# Dajemy Atlantydzie pozytywny modyfikator
+		add_country_modifier = {
+			name = "triumph_of_atlantean_wisdom"
+			duration = -1
+		}
+		
+		# Jeśli Prasinidion istnieje, dajemy mu negatywny modyfikator
+		if = {
+			limit = { 
+				GR6 = { exists = yes }
+			}
+			GR6 = {
+				add_country_modifier = {
+					name = "overshadowed_by_philosophy"
+					duration = -1
+				}
+				country_event = {
+					id = atlantis_dominance.10
+					days = 7
+				}
+			}
+		}
+	}
+	
+	}
+	option = {
+		name = "atlantis_dominance.1.a"
+		
+		custom_tooltip = philosophical_victory_tt
+		
+		add_prestige = 100
+		add_legitimacy = 50
+		add_adm_power = 200
+		add_dip_power = 150
+		
+		# Zmiana rangi na Imperium
+		set_government_rank = 3
+		
+		# Wszystkie pozostałe państwa na kontynencie
+		every_known_country = {
+			limit = {
+				continent = Atlantis
+				NOT = { tag = TU3 }
+				NOT = { tag = GR6 }
+			}
+			add_opinion = {
+				who = TU3
+				modifier = recognizes_philosophical_supremacy
+			}
+		}
+	}
+}
+
+# Prasinidion osiąga 35 prowincji - Triumf Wojny
+country_event = {
+	id = atlantis_dominance.2
+	title = "atlantis_dominance.2.t"
+	desc = "atlantis_dominance.2.d"
+	picture = LAND_MILITARY_eventPicture
+	
+	trigger = {
+		tag = GR6
+		num_of_owned_provinces_with = {
+			value = 35
+			continent = Atlantis
+		}
+		NOT = { has_country_flag = prasinidion_military_victory }
+		NOT = { has_global_flag = atlantis_prasinidion_military_victory }		
+	}
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_global_flag = atlantis_prasinidion_military_victory
+		set_country_flag = prasinidion_military_victory
+		# Dajemy Prasinidionowi pozytywny modyfikator
+		add_country_modifier = {
+			name = "triumph_of_spartan_might"
+			duration = -1
+		}
+		
+		# Jeśli Atlantyda istnieje, dajemy jej negatywny modyfikator
+		if = {
+			limit = { 
+				TU3 = { exists = yes }
+			}
+			TU3 = {
+				add_country_modifier = {
+					name = "overshadowed_by_might"
+					duration = -1
+				}
+				country_event = {
+					id = atlantis_dominance.11
+					days = 7
+				}
+			}
+		}
+	}
+	}
+	
+	option = {
+		name = "atlantis_dominance.2.a"
+		
+		custom_tooltip = military_victory_tt
+		
+		add_prestige = 100
+		add_army_tradition = 50
+		add_mil_power = 200
+		add_manpower = 20
+		
+		# Zmiana rangi na Imperium
+		set_government_rank = 3
+		
+		# Wszystkie pozostałe państwa na kontynencie
+		every_known_country = {
+			limit = {
+				continent = Atlantis
+				NOT = { tag = GR6 }
+				NOT = { tag = TU3 }
+			}
+			add_opinion = {
+				who = GR6
+				modifier = fears_spartan_supremacy
+			}
+		}
+	}
+}
+
+# Reakcja Prasinidionu na triumf Atlantydy
+country_event = {
+	id = atlantis_dominance.10
+	title = "atlantis_dominance.10.t"
+	desc = "atlantis_dominance.10.d"
+	picture = ANGRY_MOB_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "atlantis_dominance.10.a"
+		
+		custom_tooltip = spartan_humiliation_tt
+		
+		add_prestige = -50
+		add_legitimacy = -25
+		add_stability = -2
+		
+		# Dodatkowe negatywne efekty
+		add_war_exhaustion = 5
+		
+		# Casus belli na Atlantydę jako ostatnia szansa
+	}
+}
+
+# Reakcja Atlantydy na triumf Prasinidionu
+country_event = {
+	id = atlantis_dominance.11
+	title = "atlantis_dominance.11.t"
+	desc = "atlantis_dominance.11.d"
+	picture = DEBATE_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "atlantis_dominance.11.a"
+		
+		custom_tooltip = philosophical_defeat_tt
+		
+		add_prestige = -50
+		add_legitimacy = -25
+		add_stability = -2
+		
+		# Dodatkowe negatywne efekty
+		add_war_exhaustion = 5
+		
+		# Casus belli na Prasinidion jako ostatnia szansa
+
+	}
+}

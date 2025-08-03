@@ -1,0 +1,51 @@
+naval_supremacy = {
+	category = 6
+	power_projection = humiliated_rival
+	power_cost_base = 1.4
+	prestige_base = 0.4
+	ae_base = 0.5
+	warscore_cost = {
+		no_provinces = 14.0
+	}
+	warscore_cap = 25
+	requires_is_allowed = no
+	
+	is_visible = {
+		FROM = {
+			navy_size = 8
+		}
+	}
+	
+	is_allowed = {
+		
+		FROM = {
+			navy_size = 12
+		}
+	}
+	
+	effect = {
+		FROM = {
+			add_country_modifier = {
+				name = "naval_restrictions_imposed"
+				duration = 3650
+			}
+
+		}
+		ROOT = {
+			add_navy_tradition = 12
+			add_prestige = 8
+		}
+	}
+	
+	ai_weight = {
+		export_to_variable = {
+			variable_name = ai_value
+			value = 30
+		}
+		limit = {
+			FROM = { navy_size = 15 }
+			navy_size = FROM
+		}
+	}
+}
+

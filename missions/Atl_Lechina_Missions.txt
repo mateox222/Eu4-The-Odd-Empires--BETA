@@ -1,0 +1,766 @@
+# Grupa misji dla Polan - Reakcja Pogańska i Budowa Państwa
+polans_pagan_reaction_group = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = PL7  # Tag dla Polan w The Odd Empires
+	}
+	has_country_shield = yes
+
+	# MISJA 1: Reakcja Pogańska - Obalenie Chrześcijaństwa
+	polans_pagan_reaction = {
+		icon = mission_rb_control_state_religion
+		required_missions = { }
+		position = 1
+		
+		trigger = {
+			religion = slavic_pagan_reformed
+			stability = 2
+			NOT = { has_country_modifier = religious_turmoil }
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_pagan_triumph"
+				duration = 7300  # 20 lat
+			}
+			add_legitimacy = 15
+			add_stability = 1
+			186 = { # Stolica
+				add_base_tax = 1
+				add_base_manpower = 1
+				add_building = temple
+			}
+			add_country_modifier = {
+				name = "polans_old_gods_return"
+				duration = 7300  # 20 lat
+			}
+		}
+	}
+
+	# MISJA 2: Oczyszczenie Ziem z Chrześcijaństwa
+	polans_purge_christianity = {
+		icon = atlantropa_burningkazan
+		required_missions = { polans_pagan_reaction }
+		position = 2
+		
+		trigger = {
+			all_owned_province = {
+				religion = slavic_pagan_reformed
+			}
+			num_of_owned_provinces_with = {
+				value = 5
+				religion = slavic_pagan_reformed
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_pure_pagan_realm"
+				duration = 7300  # 20 lat
+			}
+			add_patriarch_authority = 0.05
+			add_fervor = 15
+			every_owned_province = {
+				limit = { religion = slavic_pagan_reformed }
+				add_province_modifier = {
+					name = "polans_sacred_groves"
+					duration = 5475
+				}
+			}
+		}
+	}
+
+	# MISJA 3: Pogańscy Wojownicy
+	polans_pagan_warriors = {
+		icon = atlantropa_jewishrabiarmy
+		required_missions = { polans_purge_christianity }
+		position = 3
+		
+		trigger = {
+			army_size_percentage = 1.0
+			army_tradition = 15
+			manpower_percentage = 0.9
+			num_of_generals = 1
+			total_development = 200
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_pagan_warband"
+				duration = 7300
+			}
+			create_general = { tradition = 40 }
+			add_mil_power = 75
+			add_army_tradition = 8
+			186 = { # Stolica
+				add_base_manpower = 1
+			}
+		}
+	}
+
+	# MISJA 4: Lechicka Konfederacja
+	polans_lechitic_confederation = {
+		icon = atlantropa_undeabulgaria
+		required_missions = { polans_pagan_warriors }
+		position = 4
+		
+		trigger = {
+			prestige = 20
+			legitimacy = 60
+			num_of_allies = 1
+			total_development = 400
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_lechitic_bonds"
+				duration = 9125  # 25 lat
+			}
+			add_dip_power = 100
+			add_prestige = 10
+			every_neighbor_country = {
+				limit = { 
+					culture_group = west_slavic
+					NOT = { is_enemy = ROOT }
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = polans_lechitic_brotherhood
+				}
+			}
+		}
+	}
+
+	# MISJA 5: Dziedzictwo Lechitów
+	polans_lechitic_heritage = {
+		icon = atlantropa_demonthrone
+		required_missions = { polans_lechitic_confederation }
+		position = 5
+		
+		trigger = {
+			total_development = 750
+			prestige = 30
+			army_tradition = 25
+			stability = 1
+			treasury = 150
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_lechitic_legacy"
+				duration = -1
+			}
+			add_prestige = 15
+			add_legitimacy = 15
+			186 = { # Stolica
+				add_building = university
+				add_base_tax = 2
+				add_base_production = 1
+			}
+			set_country_flag = polans_lechitic_heritage_unlocked
+		}
+	}
+
+	# MISJA 6: Zniszcz Fałszywą Polskę
+	polans_destroy_false_poland = {
+		icon = atlantropa_nilfgaard
+		required_missions = { polans_lechitic_heritage }
+		position = 6
+		
+		trigger = {
+			OR = {
+				NOT = { exists = POL }
+				war_with = POL
+				is_rival = POL
+			}
+			army_size = 150
+			prestige = 40
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_true_polish_claim"
+				duration = -1
+			}
+			add_casus_belli = {
+				target = POL
+				type = cb_core
+				months = 240
+			}
+			add_mil_power = 100
+			add_army_tradition = 10
+						every_owned_province = {
+				limit = { culture = polish }
+				add_core = ROOT
+				change_culture = staropolska
+			}
+
+		}
+	}
+}
+
+# DRUGA KOLUMNA - Rozwój Pogańskiego Kultu
+polans_religious_missions = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = PL7
+	}
+	has_country_shield = yes
+
+	# MISJA 1: Święte Gaje
+	polans_sacred_groves = {
+		icon = mission_expand_into_the_forest
+		required_missions = { polans_pagan_reaction }
+		position = 2
+		
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				has_building = temple
+			}
+			monthly_income = 15
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_sacred_sites"
+				duration = 7300
+			}
+			random_owned_province = {
+				limit = { has_building = temple }
+				add_building = cathedral
+			}
+			add_patriarch_authority = 0.1
+		}
+	}
+
+	# MISJA 2: Pogańscy Kapłani
+	polans_pagan_priests = {
+		icon = mission_ground_shaker
+		required_missions = { polans_sacred_groves }
+		position = 3
+		
+		trigger = {
+			adm_power = 250
+			religious_unity = 0.85
+			stability = 3
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_wise_druids"
+				duration = 9125
+			}
+			add_adm_power = 75
+			define_advisor = {
+				type = theologian
+				skill = 2
+				culture = polish
+				religion = slavic_pagan_reformed
+				cost_multiplier = 0.75
+			}
+		}
+	}
+
+	# MISJA 3: Lechickie Misteria
+	polans_lechitic_mysteries = {
+		icon = mission_plc_golden_liberty
+		required_missions = { polans_pagan_priests }
+		position = 4
+		
+		trigger = {
+			186 = { # Stolica
+				development = 25
+				has_building = cathedral
+			}
+			num_of_owned_provinces_with = {
+				value = 15
+				religion = slavic_pagan_reformed
+			}
+		}
+		
+		effect = {
+			186 = {
+				add_province_modifier = {
+					name = "polans_lechitic_mysteries"
+					duration = -1
+				}
+				add_base_tax = 1
+				add_base_production = 1
+			}
+			add_country_modifier = {
+				name = "polans_ancient_wisdom"
+				duration = -1
+			}
+		}
+	}
+
+	# MISJA 4: Pogańska Reforma
+	polans_pagan_reform = {
+		icon = atlantropa_bloodsect
+		required_missions = { polans_lechitic_mysteries }
+		position = 6
+		
+		trigger = {
+			religious_unity = 0.95
+			stability = 3
+			advisor = theologian
+			num_of_owned_provinces_with = {
+				value = 50
+				religion = slavic_pagan_reformed
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_reformed_paganism"
+				duration = -1
+			}
+			add_church_power = 100
+			add_fervor = 25
+			every_owned_province = {
+				limit = { religion = slavic_pagan_reformed }
+				add_province_modifier = {
+					name = "polans_enlightened_faith"
+					duration = -1
+				}
+			}
+		}
+	}
+}
+
+# TRZECIA KOLUMNA - Rozwój i Budownictwo
+polans_development_missions = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = PL7
+	}
+	has_country_shield = yes
+
+	# MISJA 1: Odbudowa po Wojnie
+	polans_post_war_recovery = {
+		icon = per_build_the_fire_temples
+		required_missions = { polans_pagan_reaction }
+		position = 2
+		
+		trigger = {
+			NOT = { war_exhaustion = 1 }
+			manpower_percentage = 0.5
+			treasury = 100
+			stability = 1
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_recovery"
+				duration = 5475  # 15 lat
+			}
+			add_years_of_income = 0.2
+			add_manpower = 1
+			random_owned_province = {
+				add_base_production = 1
+			}
+		}
+	}
+
+	# MISJA 2: Lechickie Grody
+	polans_lechitic_strongholds = {
+		icon = mission_tear_down_spanish_strongholds
+		required_missions = { polans_post_war_recovery }
+		position = 3
+		
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				fort_level = 1
+			}
+			army_size = 20
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_fortified_realm"
+				duration = 7300
+			}
+			random_owned_province = {
+				limit = { fort_level = 1 }
+				add_base_manpower = 1
+			}
+			add_mil_power = 50
+		}
+	}
+
+	# MISJA 3: Rozwój Osadnictwa
+	polans_settlement_development = {
+		icon = settle_north_america
+		required_missions = { polans_lechitic_strongholds }
+		position = 4
+		
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 15
+				development = 10
+			}
+			total_development = 250
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_prosperous_settlements"
+				duration = 9125
+			}
+			add_adm_power = 75
+			every_owned_province = {
+				limit = { development = 10 }
+				add_base_tax = 1
+			}
+		}
+	}
+
+	# MISJA 4: Lechickie Miasta
+	polans_lechitic_cities = {
+		icon = mission_rb_settle_the_north
+		required_missions = { polans_settlement_development }
+		position = 5
+		
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				has_building = marketplace
+			}
+			monthly_income = 50
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_trading_centers"
+				duration = -1
+			}
+			add_dip_power = 100
+			random_owned_province = {
+				limit = { has_building = marketplace }
+				add_building = trade_depot
+			}
+		}
+	}
+
+	# MISJA 5: Wielkie Budownictwo
+	polans_great_construction = {
+		icon = mission_el_badi_palace
+		required_missions = { polans_lechitic_cities }
+		position = 6
+		
+		trigger = {
+			186 = { # Stolica
+				development = 50
+				has_building = university
+			}
+			num_of_owned_provinces_with = {
+				value = 10
+				has_building = courthouse
+			}
+			treasury = 300
+			stability = 2
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_architectural_mastery"
+				duration = -1
+			}
+			186 = {
+				add_building = courthouse
+				add_base_production = 2
+			}
+			add_adm_power = 100
+		}
+	}
+}
+
+# CZWARTA KOLUMNA - Ekspansja i Podboje
+polans_expansion_missions = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = PL7
+	}
+	has_country_shield = yes
+
+	# MISJA 1: Pierwsza Wojna Pogańska
+	polans_first_pagan_war = {
+		icon = dom_ara_remensa_war
+		required_missions = { polans_post_war_recovery }
+		position = 3
+		
+		trigger = {
+			is_at_war = yes
+			army_tradition = 20
+		}
+		
+		effect = {
+						france_region = {
+							limit = {
+								NOT = { is_permanent_claim = ROOT }
+								NOT = { is_core = ROOT	}
+							}
+							add_permanent_claim = ROOT
+						}
+			add_country_modifier = {
+				name = "polans_first_victory"
+				duration = 5475
+			}
+			add_army_tradition = 10
+			add_prestige = 10
+			create_general = { tradition = 30 }
+		}
+	}
+
+	# MISJA 2: Podbój Chrześcijańskich Sąsiadów
+	polans_conquer_christians = {
+		icon = mission_sword_of_the_reformation
+		required_missions = { polans_first_pagan_war }
+		position = 4
+		
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 15
+				NOT = { religion = slavic_pagan_reformed }
+			}
+			prestige = 50
+			army_size = 30
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_christian_conqueror"
+				duration = 7300
+			}
+			add_mil_power = 100
+			every_owned_province = {
+				limit = { 
+					OR = {
+						religion = united_christianity
+						religion = orthodox
+					}
+				}
+				add_province_modifier = {
+					name = "polans_conquered_lands"
+					duration = 3650
+				}
+			}
+		}
+	}
+
+	# MISJA 3: Lechicka Ekspansja
+	polans_lechitic_expansion = {
+		icon = atlantropa_cilicia
+		required_missions = { polans_conquer_christians }
+		position = 5
+		
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 40
+				culture_group = west_slavic
+			}
+			total_development = 500
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_lechitic_expansion"
+				duration = -1
+			}
+			add_adm_power = 250		
+			
+		}
+	}
+
+	# MISJA 4: Hegemon Zachodnich Słowian
+	polans_west_slavic_hegemony = {
+		icon = atlantropa_weight
+		required_missions = { polans_lechitic_expansion }
+		position = 6
+		
+		trigger = {
+			total_development = 1000
+			army_tradition = 30			
+			prestige = 100
+			army_size = 120
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_slavic_hegemony"
+				duration = -1
+			}
+			add_prestige = 20
+			every_subject_country = {
+				add_liberty_desire = -15
+			}
+		}
+	}
+}
+
+# PIĄTA KOLUMNA - Flota i Handel
+polans_naval_missions = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = PL7
+	}
+	has_country_shield = yes
+
+	# MISJA 1: Lechickie Łodzie
+	polans_lechitic_boats = {
+		icon = mission_sailor_boat
+		required_missions = { polans_first_pagan_war }
+		position = 4
+		
+		trigger = {
+			navy_size = 5
+			num_of_light_ship = 15
+			sailors_percentage = 0.6
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_river_masters"
+				duration = 7300
+			}
+			add_navy_tradition = 15
+			add_sailors = 500
+			create_admiral = { tradition = 30 }
+		}
+	}
+
+	# MISJA 2: Kontrola Wybrzeża
+	polans_coastal_control = {
+		icon = mission_northumberland_coast
+		required_missions = { polans_lechitic_boats }
+		position = 5
+		
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				has_port = yes
+			}
+			navy_size = 50
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_coastal_dominance"
+				duration = 9125
+			}
+			every_owned_province = {
+				limit = { has_port = yes }
+				add_building = dock
+			}
+			add_dip_power = 75
+		}
+	}
+
+	# MISJA 3: Lechickie Morskie Imperium
+	polans_maritime_empire = {
+		icon = mission_invade_island
+		required_missions = { polans_coastal_control }
+		position = 6
+		
+		trigger = {
+			navy_size = 150
+			navy_tradition = 30
+			num_of_owned_provinces_with = {
+				value = 30
+				has_building = dock
+			}
+		}
+		
+		effect = {
+			add_country_modifier = {
+				name = "polans_maritime_power"
+				duration = -1
+			}
+			add_navy_tradition = 20
+			random_owned_province = {
+				limit = { has_building = dock }
+				add_building = shipyard
+			}
+		}
+	}
+}
+
+# FINALNA MISJA - Wielka Lechia
+polans_final_mission = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = PL7
+	}
+	has_country_shield = yes
+
+	# MISJA FINALNA: Wielka Lechia
+	polans_great_lechia = {
+		icon = atlantropa_BLACKSUNOVEROSTLAND
+		required_missions = { 
+			polans_destroy_false_poland
+			polans_pagan_reform
+			polans_great_construction
+			polans_west_slavic_hegemony
+			polans_maritime_empire
+		}
+		position = 7
+		
+		trigger = {
+			total_development = 1200
+			prestige = 100
+			legitimacy = 80
+			stability = 3
+			army_tradition = 40
+			navy_tradition = 30
+			treasury = 1000
+			is_great_power = yes
+		}
+		
+		effect = {
+			# Zmiana nazwy kraju
+			override_country_name = "GREAT_LECHIA"
+			
+			# Nowy rząd
+			
+			# Modyfikatory
+			add_country_modifier = {
+				name = "great_lechia_empire"
+				duration = -1
+			}
+			
+			# Nagrody
+			add_prestige = 50
+			add_legitimacy = 50
+			add_stability = 1
+			
+			# Rozwój stolicy
+			186 = {
+				add_base_tax = 3
+				add_base_production = 3
+				add_base_manpower = 3
+				add_building = cathedral
+				add_building = university
+				add_building = courthouse
+			}
+			
+			# Flaga dla eventów
+			set_country_flag = great_lechia_formed
+			
+		
+		}
+	}
+}

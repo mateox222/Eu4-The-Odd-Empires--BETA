@@ -15,6 +15,6 @@ dependencies={
 	"NII's Graphical Pack"
 }
 name="The Odd Empires"
-supported_version="1.36.2"
+supported_version="v1.37.5.0"
 path="C:/Users/matpo/Documents/Paradox Interactive/Europa Universalis IV/mod/TheOddEmpires"
 remote_file_id="2935918398"

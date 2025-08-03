@@ -1,0 +1,842 @@
+zion1 = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = ISR
+	}
+
+	contact_with_hasars = {
+		icon = atlantropa_jewishkhazars
+		position = 4
+		required_missions = { zionist_shalom }
+		provinces_to_highlight = {
+			owned_by = GOL
+		}
+		trigger = {
+			OR = {
+				AND = {
+					GOL = {
+						has_opinion = {
+							who = ROOT
+							value = 150
+						}
+					}
+				}
+				GOL = { exists = no }
+				owns = 2409
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = jewishkhazars
+				duration = -1
+			}
+			add_prestige = 10
+		}
+	}
+	isr_settle_lands = {
+		icon = atlantropa_zionistflag
+		position = 5
+		required_missions = {  }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 15
+				culture = ROOT
+				religion = jewish
+				is_overseas = no
+			}
+		}
+		effect = {
+			add_adm_power = 50
+			add_dip_power = 50
+			add_mil_power = 50
+			add_country_modifier = {
+				name = israel_zionism
+				duration = -1
+			}
+		}
+	}
+	jewish_end_diaspora = {
+		icon = atlantropa_jewishempire
+		position = 8
+		required_missions = { isr_settle_lands }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 30
+			}
+		}
+		effect = {
+			country_event = {
+				id = jewish_atlantropa.1
+			}
+		}
+	}
+	jewish_establish_navy = {
+		icon = atlantropa_jewishnavy
+		position = 9
+		required_missions = {  }
+		trigger = {
+			num_of_galley = 20
+		}
+		effect = {
+			add_dip_power = 100
+			1854 = {
+				add_unit_construction = {
+					type = galley
+					amount = 10
+					speed = 1
+					cost = 0
+				}
+			}
+		}
+	}
+	jewish_galleys = {
+		icon = atlantropa_jewishnavy2
+		position = 11
+		required_missions = { jewish_establish_navy }
+		trigger = {
+			navy_size = 100
+			num_of_ports = 20
+		}
+		effect = {
+			1854 = {
+				add_unit_construction = {
+					type = galley
+					amount = 10
+					speed = 1
+					cost = 0
+				}
+			}
+			add_country_modifier = {
+				name = "byzantine_greek_fire"
+				duration = -1
+			}
+			add_dip_power = 100
+		}
+	}
+	jewish_total_army = {
+		icon = atlantropa_army
+		position = 13
+		required_missions = { jewish_choosen_by_god }
+		trigger = {
+			army_size = 250
+		}
+		effect = {
+			add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+			add_country_modifier = {
+				name = israel_army
+				duration = -1
+			}
+		}
+	}
+}
+
+zion2 = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = ISR
+	}
+
+	nowy_sion1 = {
+		icon = atlantropa_weight
+		position = 2
+		required_missions = { zio_shalom_israel }
+		trigger = {
+			adm_power = 100
+		}
+		effect = {
+			add_adm_power = -100
+			add_years_of_income = 1
+			add_stability = 1
+		}
+	}
+	israel_artillery = {
+		icon = mission_guns_of_urban
+		position = 3
+		required_missions = {  }
+		trigger = {
+			owns_core_province = 5803
+			5803 = { base_production = 10	}
+		}
+		effect = {
+			5803 = {
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+				}
+				change_trade_goods = atl_tools
+				add_permanent_province_modifier = {
+					name = trade_good_artillery
+					duration = -1
+				}
+			}
+		}
+	}
+	israel_army_reform = {
+		icon = mission_mansure_army
+		position = 4
+		required_missions = { zionist_shalom }
+		trigger = {
+			manpower_percentage = 0.90
+		}
+		effect = {
+			add_stability = 1
+			add_mil_power = 100
+		}
+	}
+	israel_huge_army = {
+		icon = atlantropa_jewishrabiarmy
+		position = 5
+		required_missions = { israel_army_reform }
+		trigger = {
+			army_size = 25
+			mil_power = 100
+		}
+		effect = {
+			add_mil_power = -100
+			add_country_modifier = {
+				name = armenia_first_mission
+				duration = -1
+			}
+		}
+	}
+	israel_reform_army = {
+		icon = atlantropa_jewishlargearmy
+		position = 7
+		required_missions = { israel_huge_army }
+		trigger = {
+			army_size_percentage = 0.8
+			num_of_generals = 2
+			OR = {
+				army_tradition = 60
+				has_global_modifier_value = {
+					which = discipline
+					value = 0.2
+				}
+			}
+		}
+		effect = {
+			add_yearly_manpower = 2
+			add_country_modifier = {
+				name = israel_reorganized_army
+				duration = -1
+			}
+		}
+	}
+	israel_annex_antiochia = {
+		icon = mission_janissaries
+		position = 9
+		required_missions = { israel_annex_tripoliss }
+		provinces_to_highlight = {
+			province_id = 2313
+		}
+		trigger = {
+			owns = 2313
+		}
+		effect = {
+			2313 = {
+				change_culture = ROOT
+				change_religion = jewish
+				rename_capital = "Maccabea"
+				add_devastation = 40
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1
+				change_province_name = "Maccabea"
+			}
+			add_adm_power = 50
+		}
+	}
+	jewish_cultural_domination = {
+		icon = anatolian_frontier
+		position = 11
+		required_missions = { revenge_to_babylon }
+		provinces_to_highlight = {
+			region = anatolia_region
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 20
+				region = anatolia_region
+			}
+		}
+		effect = {
+			add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+			balkan_region = { limit = {  NOT = { is_permanent_claim = ROOT	} NOT = { is_core = ROOT	} }  add_permanent_claim = ROOT }
+		}
+	}
+	jewish_cultural_domination2 = {
+		icon = atlantropa_odinstatuemission
+		position = 13
+		required_missions = { jewish_choosen_by_god }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 50
+				culture = ROOT
+			}
+		}
+		effect = {
+			add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+			add_country_modifier = {
+				name = israel_culture
+				duration = -1
+			}
+		}
+	}
+}
+
+zion3 = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = ISR
+	}
+
+	zio_shalom_israel = {
+		icon = atlantropa_judaism
+		position = 1
+		required_missions = {  }
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = SHALOMISRAEL
+				always = yes
+			}
+		}
+		effect = {
+			add_stability = 1
+		}
+	}
+	nowy_sion2 = {
+		icon = atlantropa_permburn
+		position = 2
+		required_missions = { zio_shalom_israel }
+		trigger = {
+			dip_power = 100
+		}
+		effect = {
+			1854 = {
+				change_culture  = ROOT
+				change_religion = jewish
+			}
+			add_stability = 1
+			add_dip_power = -100
+		}
+	}
+	zionist_shalom = {
+		icon = atlantropa_israel
+		position = 3
+		required_missions = { nowy_sion1 nowy_sion2 nowy_sion3 }
+		trigger = {
+			stability = 3
+		}
+		effect = {
+			trans_jordan_area  = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			syrian_desert_area = {
+				limit = {
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	rise_of_jewish_empire = {
+		icon = atlantropa_israelcuture
+		position = 5
+		required_missions = { zionist_shalom }
+		trigger = {
+			total_development = 250
+		}
+		effect = {
+			country_event = {
+				id = jewish_atlantropa.2
+			}
+		}
+	}
+	israel_annex_tripoliss = {
+		icon = mission_arabian_fort
+		position = 8
+		required_missions = { rise_of_jewish_empire }
+		provinces_to_highlight = {
+			area = palestine_area
+		}
+		trigger = {
+			palestine_area  = { owned_by = ROOT }
+		}
+		effect = {
+			syria_area = { limit = {  NOT = { is_permanent_claim = ROOT	} NOT = { is_core = ROOT	} }  add_permanent_claim = ROOT }
+			syrian_desert_area = { limit = {  NOT = { is_permanent_claim = ROOT	} NOT = { is_core = ROOT	} }  add_permanent_claim = ROOT }
+			trans_jordan_area = { limit = {  NOT = { is_permanent_claim = ROOT	} NOT = { is_core = ROOT	} }  add_permanent_claim = ROOT }
+			aleppo_area = { limit = {  NOT = { is_permanent_claim = ROOT	} NOT = { is_core = ROOT	} }  add_permanent_claim = ROOT }
+			add_prestige = 10
+			add_mil_power = 50
+		}
+	}
+	isr_fortress = {
+		icon = mission_the_sultan_of_morocco
+		position = 9
+		required_missions = { israel_annex_tripoliss }
+		trigger = {
+			total_development = 200
+		}
+		effect = {
+			mashriq_region = { limit = {  NOT = { is_permanent_claim = ROOT	} NOT = { is_core = ROOT	} }  add_permanent_claim = ROOT }
+			add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+			set_government_rank = 2
+		}
+	}
+	revenge_to_babylon = {
+		icon = atlantropa_burningkazan
+		position = 10
+		required_missions = { israel_annex_antiochia isr_fortress israel_annex_syria }
+		provinces_to_highlight = {
+			province_id = 410
+		}
+		trigger = {
+			owns = 410
+		}
+		effect = {
+			410 = {
+				change_culture = ROOT
+				change_religion = jewish
+				rename_capital = "Bavel"
+				add_devastation = 100
+				add_base_tax = -3
+				add_base_production = -3
+				add_base_manpower = -3
+				change_province_name = "Bavel"
+			}
+			add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+		}
+	}
+	jewish_invade_egypt = {
+		icon = mission_egyptian_mamluk_soldier
+		position = 11
+		required_missions = { revenge_to_babylon }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 20
+				region = egypt_region
+			}
+		}
+		effect = {
+			add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+			maghreb_region = { limit = {  NOT = { is_permanent_claim = ROOT	} NOT = { is_core = ROOT	} }  add_permanent_claim = ROOT }
+		}
+	}
+	jewish_choosen_by_god = {
+		icon = atlantropa_jewishgod
+		position = 12
+		required_missions = { jewish_galleys jewish_cultural_domination jewish_invade_egypt jewish_invae_persia jewish_dominate_trade }
+		trigger = {
+			total_development = 1000
+			stability = 3
+			adm_power = 250
+			dip_power = 250
+			mil_power = 250
+		}
+		effect = {
+			set_country_flag = ISRAELCHOOSENBYGOD
+			custom_tooltip = zydkinwazja
+			add_adm_power = -250
+			add_mil_power = -250
+			add_dip_power = -250
+			set_government_rank = 3
+		}
+	}
+	jewish_hegemon = {
+		icon = atlantropa_israeldominacce
+		position = 14
+		required_missions = { jewish_total_army jewish_cultural_domination jewish_choosen_by_god jewish_economy_mast jewish_religion_domination }
+		trigger = {
+			total_development = 1500
+			stability = 3
+		}
+		effect = {
+			add_adm_power = 500
+			add_dip_power = 500
+			add_mil_power = 500
+			add_prestige = 100
+			add_country_modifier = {
+				name = jewish_empire
+				duration = -1
+			}
+		}
+	}
+}
+
+zion4 = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = ISR
+	}
+
+	nowy_sion3 = {
+		icon = atlantropa_stalzemsty
+		position = 2
+		required_missions = { zio_shalom_israel }
+		trigger = {
+			mil_power = 100
+		}
+		effect = {
+			add_core = 1855
+			add_yearly_manpower = 1
+			add_mil_power = -100
+			add_stability = 1
+		}
+	}
+	jewish_fortress = {
+		icon = fortify_the_passes
+		position = 3
+		required_missions = {  }
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 2
+				has_building = atlantropa_superfortress
+			}
+		}
+		effect = {
+			add_prestige = 15
+			add_legitimacy =10
+			add_mil_power = 100
+		}
+	}
+	israel_economy_reform = {
+		icon = reform_the_monte
+		position = 4
+		required_missions = { zionist_shalom }
+		trigger = {
+			OR = {
+				monthly_income = 50
+				AND = {
+					monthly_income = 40
+					advisor = treasurer
+				}
+			}
+		}
+		effect = {
+			add_years_of_income = 0.5
+			add_country_modifier = {
+				name = 	rochina_economybonus
+				duration = -1
+			}
+		}
+	}
+	agral_reform_jewish = {
+		icon = atlantropa_shalomisrael
+		position = 5
+		required_missions = { israel_economy_reform }
+		trigger = {
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 10
+				OR = {
+					trade_goods = grain
+					trade_goods = atl_fruit
+				}
+				base_production = 5
+			}
+		}
+		effect = {
+			add_years_of_income = 1
+			every_owned_province = {
+				limit = {
+					OR = {
+						trade_goods = grain
+						trade_goods = atl_fruit
+					}
+				}
+				add_base_manpower = 1
+			}
+		}
+	}
+	jewish_workshopes = {
+		icon = mission_industrialize_bengal
+		position = 6
+		required_missions = { agral_reform_jewish }
+		trigger = {
+			workshop = 10
+		}
+		effect = {
+			every_owned_province = {
+				limit = {
+					has_building = workshop
+				}
+				add_base_production = 1
+			}
+			add_adm_power = 100
+			add_dip_power = 100
+		}
+	}
+	jewish_manufctures = {
+		icon = industrialized_rhineland
+		position = 7
+		required_missions = { jewish_workshopes }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					has_building = wharf
+					has_building = weapons
+					has_building = textile
+					has_building = plantations
+					has_building = tradecompany
+					has_building = mills
+				}
+			}
+		}
+		effect = {
+			add_years_of_income = 2.5
+			add_country_modifier = {
+				name = fjordland_manufacturing
+				duration = 3650
+			}
+			672 = {
+				hidden_effect = {
+					clear_trade_good_modifiers_effect = yes
+				}
+				change_trade_goods = cloth
+				add_permanent_province_modifier = {
+					name = trade_good_clothes
+					duration = -1
+				}
+			}
+		}
+	}
+	israel_annex_syria = {
+		icon = atlantropa_damascus
+		position = 9
+		required_missions = { israel_annex_tripoliss }
+		provinces_to_highlight = {
+			province_id = 382
+		}
+		trigger = {
+			owns = 382
+		}
+		effect = {
+			382 = {
+				change_culture = ROOT
+				change_religion = jewish
+				rename_capital = "Ir Haemet"
+				add_devastation = 40
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -1
+				change_province_name = "Ir Haemet"
+			}
+			add_adm_power = 50
+		}
+	}
+	jewish_invae_persia = {
+		icon = atlantropa_iranba
+		position = 11
+		required_missions = { revenge_to_babylon }
+		provinces_to_highlight = {
+			region = persia_region
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 20
+				region = persia_region
+			}
+		}
+		effect = {
+			add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+			khorasan_region = { limit = {  NOT = { is_permanent_claim = ROOT	} NOT = { is_core = ROOT	} }  add_permanent_claim = ROOT }
+		}
+	}
+	jewish_economy_mast = {
+		icon = atlantropa_aryanmoney
+		position = 13
+		required_missions = { jewish_choosen_by_god }
+		trigger = {
+			monthly_income = 250
+		}
+		effect = {
+			add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+			add_country_modifier = {
+				name = israel_economy
+				duration = -1
+			}
+		}
+	}
+}
+
+zion5 = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = ISR
+	}
+
+	rebuild_the_temple_jews = {
+		icon = atlantropa_repubildtemple
+		position = 4
+		required_missions = { zionist_shalom }
+		trigger = {
+			treasury = 1000
+		}
+		effect = {
+			country_event = {
+				id = jewish_flavor.5
+			}
+		}
+	}
+	jewish_rewrite_bible = {
+		icon = atlantropa_elderscroll
+		position = 5
+		required_missions = { rebuild_the_temple_jews }
+		trigger = {
+			employed_advisor = {
+				category = ADM
+			}
+			employed_advisor = {
+				category = DIP
+			}
+			employed_advisor = {
+				category = MIL
+			}
+		}
+		effect = {
+			capital_scope = {
+				add_building = university
+			}
+			add_adm_power = 250
+			add_dip_power = 250
+			add_mil_power = 250
+			add_prestige = 20
+		}
+	}
+	jewish_golden_age = {
+		icon = mission_golden_century
+		position = 8
+		required_missions = { jewish_rewrite_bible }
+		trigger = {
+			stability = 3
+			prestige = 100
+		}
+		effect = {
+			if = {
+				limit = {
+					in_golden_age = no
+				}
+				reset_golden_age = yes
+			}
+			if = {
+				limit = {
+					in_golden_age = yes
+				}
+				extend_golden_age = 1800
+			}
+		}
+	}
+	jewish_merchants = {
+		icon = atlantropa_jewishtrader
+		position = 9
+		required_missions = {  }
+		trigger = {
+			2313 = {
+				has_merchant = ROOT
+			}
+			377 = {
+				has_merchant = ROOT
+			}
+			1335 = {
+				has_merchant = ROOT
+			}
+		}
+		effect = {
+			2313 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 5475
+					power = 100
+				}
+			}
+			377 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 5475
+					power = 100
+				}
+			}
+			1335 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = 5475
+					power = 100
+				}
+			}
+		}
+	}
+	jewish_dominate_trade = {
+		icon = mission_dominate_home_trade_node
+		position = 11
+		required_missions = { jewish_merchants }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 3
+				province_has_center_of_trade_of_level = 2
+			}
+			num_of_estate_privileges = {
+				estate = estate_burghers
+				value = 6
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = fjordland_merchant_state
+				duration = -1
+			}
+			add_mercantilism = 5
+		}
+	}
+	jewishatlantropska = {
+		icon = atlantropa_nilfgaard
+		position = 13
+		required_missions = { jewish_choosen_by_god }
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 100
+				religion = jewish
+			}
+		}
+		effect = {
+			add_adm_power = 100
+			add_mil_power = 100
+			add_dip_power = 100
+			add_country_modifier = {
+				name = israel_religion
+				duration = -1
+			}
+		}
+	}
+}
+

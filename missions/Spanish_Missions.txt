@@ -320,7 +320,7 @@ gc_spain_1_b = {
 		trigger = {
 			if = {
 				limit = {
-					religion = catholic
+					religion = united_christianity
 				}
 				custom_trigger_tooltip = {
 					tooltip = colombia_holy_order_tooltip
@@ -397,7 +397,7 @@ gc_spain_1_b = {
 		trigger = {
 			if = {
 				limit = {
-					religion = catholic
+					religion = united_christianity
 				}
 				2021 = {
 					country_or_non_sovereign_subject_holds = ROOT
@@ -466,20 +466,20 @@ gc_spain_2 = {
 				}
 			}
 			if = { 
-				limit = { religion = catholic }
+				limit = { religion = united_christianity }
 				papal_influence = 50 
 			}
 			else = { stability = 2 }
 			if = { 
 				limit = { 
-					NOT = { religion = catholic }
+					NOT = { religion = united_christianity }
 				}
 				has_advisor = inquisitor 
 			}
 		}
 		effect = {
 			if = { 
-				limit = { religion = catholic }
+				limit = { religion = united_christianity }
 				random_owned_province = {
 					limit = { has_cardinal = no } 
 					add_cardinal = yes 
@@ -820,7 +820,7 @@ gc_spain_2_b = {
 		trigger = {
 			if = {
 				limit = {
-					religion = catholic
+					religion = united_christianity
 				}
 				custom_trigger_tooltip = {
 					tooltip = mexico_holy_order_tooltip
@@ -1542,7 +1542,7 @@ gc_spain_3_b = {
 		trigger = {
 			if = {
 				limit = {
-					religion = catholic
+					religion = united_christianity
 				}
 				custom_trigger_tooltip = {
 					tooltip = native_reductions_tooltip
@@ -1576,7 +1576,7 @@ gc_spain_3_b = {
 		effect = {
 			if = {
 				limit = {
-					religion = catholic
+					religion = united_christianity
 				}
 				add_papal_influence = 50
 			}
@@ -2114,7 +2114,7 @@ gc_spain_4_b = {
 			}
 			if = {
 				limit = {
-					religion = catholic
+					religion = united_christianity
 				}
 				add_papal_influence = 25
 			}

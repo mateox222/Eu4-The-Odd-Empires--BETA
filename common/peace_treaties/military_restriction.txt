@@ -1,0 +1,49 @@
+military_restrictions = {
+	category = 6
+	power_projection = humiliated_rival
+	power_cost_base = 1.8
+	prestige_base = 0.7
+	ae_base = 0.5
+	warscore_cost = {
+		no_provinces = 22.0
+	}
+	warscore_cap = 40
+	requires_is_allowed = no
+	
+	is_visible = {
+		FROM = {
+			army_size = 10
+		}
+	}
+	
+	is_allowed = {
+		FROM = {
+			army_size = 10
+		}
+	}
+	
+	effect = {
+		FROM = {
+			add_country_modifier = {
+				name = "military_force_limitations"
+				duration = 3650
+
+			}
+							add_mil_power = -100
+		}
+		ROOT = {
+			add_army_tradition = 15
+			add_mil_power = 100
+		}
+	}
+	
+	ai_weight = {
+		export_to_variable = {
+			variable_name = ai_value
+			value = 55
+		}
+		limit = {
+			FROM = { army_size = 20 }
+		}
+	}
+}

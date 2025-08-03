@@ -1,0 +1,93 @@
+namespace = atl_bluereachen_events
+country_event = { #The Bluedark Travesty
+	id = atl_bluereachen_events.1
+	title = atl_bluereachen_events.1.t 
+	desc = atl_bluereachen_events.1.d 
+	picture = great_mammoth_hunt_eventPicture
+	
+	is_triggered_only = yes
+	option = { 
+		name = atl_bluereachen_events.1.a
+		add_stability = -1
+		kill_ruler = yes
+		if = {
+			limit = {
+				NOT = {
+					alliance_with = A1A
+				}
+				A1A = {
+					ai = no
+				}
+			}
+			A1A = {
+				country_event = { id = atl_bluereachen_events.2 }
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					alliance_with = A1A
+				}
+				A1A = {
+					ai = yes
+				}
+			}
+			create_alliance = A1A
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+country_event = { #Golem Receive
+	id = atl_bluereachen_events.2
+	title = atl_bluereachen_events.2.t 
+	desc = atl_bluereachen_events.2.d 
+	picture = great_mammoth_hunt_eventPicture
+	
+	is_triggered_only = yes
+	option = { 
+		name = atl_bluereachen_events.2.a
+		create_alliance = A2A
+		ai_chance = { factor = 2 } 
+	}
+	option = { 
+		name = atl_bluereachen_events.2.b
+		declare_war_with_cb = {
+			who = A2A
+			casus_belli = cb_annex
+		}
+		ai_chance = { factor = 0 } 
+	}
+}
+country_event = { #Free Ktonia
+	id = atl_bluereachen_events.3
+	title = atl_bluereachen_events.3.t 
+	desc = atl_bluereachen_events.3.d 
+	picture = great_mammoth_hunt_eventPicture
+	
+	is_triggered_only = yes
+	option = { 
+		name = atl_bluereachen_events.3.a
+		add_country_modifier = { 
+			name = free_ktonia_A2A
+			duration = -1
+		}
+		ai_chance = { factor = 2 } 
+	}
+}
+country_event = { #Horrifying Experiments
+	id = atl_bluereachen_events.4
+	title = atl_bluereachen_events.4.t 
+	desc = atl_bluereachen_events.4.d 
+	picture = great_mammoth_hunt_eventPicture
+	
+	is_triggered_only = yes
+	option = { 
+		name = atl_bluereachen_events.4.a
+		add_country_modifier = { 
+			name = free_ktonia_A2A
+			duration = -1
+		}
+		set_country_flag = allowed_juche_a2a
+		ai_chance = { factor = 2 } 
+	}
+}

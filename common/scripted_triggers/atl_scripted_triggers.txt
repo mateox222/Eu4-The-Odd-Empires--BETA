@@ -175,3 +175,32 @@ has_special_toe_resources  = {
 		has_province_modifier = trade_good_anchors
 		}
 }
+
+
+has_manufactory_trigger = {
+	OR = {
+		has_building = weapons
+		has_building = wharf
+		has_building = textile
+		has_building = plantations
+		has_building = tradecompany
+		has_building = farm_estate
+		has_building = mills
+		has_building = furnace
+	}
+}
+
+thule_region_owned = {
+	thule_region = {
+		type = all
+		owned_by = ROOT
+	}
+}
+
+avalon_area_developed = {
+	avalon_area = {
+		type = all
+		owned_by = ROOT
+		development = 20
+	}
+}

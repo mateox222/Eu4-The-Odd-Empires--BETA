@@ -1,0 +1,313 @@
+# Plik: /Europa Universalis IV/common/new_diplomatic_actions/extort_tribute.txt
+
+extort_tribute = {
+    category = relation
+    
+    alert_index = 8
+    alert_tooltip = extort_tribute_alert_tooltip
+    
+    require_acceptance = yes
+    
+    # Akcja widoczna tylko wobec sąsiadów
+    is_visible = {
+                    is_free_or_tributary_trigger = yes
+        FROM = {
+            any_neighbor_country = {
+                tag = ROOT
+            }
+        }
+    }
+    
+    # Warunki umożliwiające akcję
+    is_allowed = {
+        # Nie można używać wobec tego samego kraju przez rok (truce)
+        NOT = { truce_with = FROM }
+        
+        # Podstawowe warunki
+        is_at_war = no
+        FROM = {
+            is_at_war = no
+        }
+        
+        # Nie można wyłudzać od sojuszników
+        NOT = {
+            alliance_with = FROM
+        }
+        
+        # Musimy być silniejsi militarnie
+ 
+        
+        # Nie można wobec Great Powers jeśli sami nie jesteśmy
+        OR = {
+            is_great_power = yes
+            FROM = {
+                is_great_power = no
+            }
+        }
+        
+        # Cel musi mieć słabszą pozycję
+        FROM = {
+           NOT = { army_size = ROOT }
+        }
+        
+        # Musimy mieć odpowiednią pozycję dyplomatyczną
+        dip_power = 50
+        
+        # Dobra pozycja względem celu
+        OR = {
+            reverse_has_opinion = {
+                who = FROM
+                value = -25
+            }
+        
+        }
+    }
+    
+    # Efekty po akceptacji
+    on_accept = {
+        # Otrzymujemy złoto (w zależności od rozwoju celu)
+        FROM = {
+            export_to_variable = {
+                variable_name = tribute_amount
+                value = total_development
+                who = FROM
+            }
+            multiply_variable = {
+                variable_name = tribute_amount
+                value = 2
+            }
+            
+            # Minimum 50 złota
+            if = {
+                limit = {
+                    check_variable = {
+                        variable = tribute_amount
+                        value = 50
+                        less_than = yes
+                    }
+                }
+                set_variable = {
+                    variable = tribute_amount
+                    value = 50
+                }
+            }
+            
+            # Maksimum 500 złota
+            if = {
+                limit = {
+                    check_variable = {
+                        variable = tribute_amount
+                        value = 250
+                        greater_than = yes
+                    }
+                }
+                set_variable = {
+                    variable = tribute_amount
+                    value = 250
+                }
+            }
+            
+            # Płaci złoto
+            while = {
+                limit = {
+                    check_variable = {
+                        variable = tribute_amount
+                        value = 1
+                        greater_than = yes
+                    }
+                }
+                add_treasury = -1
+                ROOT = {
+                    add_treasury = 1
+                }
+                change_variable = {
+                    variable = tribute_amount
+                    value = -1
+                }
+            }
+        }
+        
+        # Dodajemy modyfikator truce na rok dla obu stron
+        add_country_modifier = {
+            name = extortion_truce_FROM
+            duration = 365
+            hidden = yes
+        }
+        
+        # Efekty dla celu
+        FROM = {
+            # Prestiż spada
+            add_prestige = -10
+            add_truce_with = ROOT
+            # Stabilność spada
+            
+            # Opinia o nas spada
+            add_opinion = {
+                who = ROOT
+                modifier = extorted_tribute
+                years = 10
+            }
+            
+            # Modyfikator wskazujący na bycie wyłudzonym
+            add_country_modifier = {
+                name = recently_extorted
+                duration = 365
+            }
+        }
+        
+        # Dla nas - prestiż rośnie
+        add_prestige = 5
+        
+        # Kosztuje punkty dyplomatyczne
+        add_dip_power = -50
+        
+        # Wiadomość o sukcesie
+
+
+    }
+    
+    # Efekty po odrzuceniu
+    on_decline = {
+        # Casus belli za odmowę płacenia trybutu
+        add_casus_belli = {
+            type = cb_insult
+            target = FROM
+            months = 60
+        }
+        
+        # Opinia spada za odmowę
+        add_opinion = {
+            who = FROM
+            modifier = refused_tribute_demand
+            years = 5
+        }
+        
+        # Krótszy truce za odmowę (6 miesięcy)
+        add_truce_with = FROM
+  
+    }
+    
+    # AI będzie bardziej skłonne zaakceptować w zależności od sytuacji
+    ai_acceptance = {
+   
+        
+      	add_entry = {
+			name = diplomatic_reputation
+			limit = { }
+			export_to_variable = {
+				variable_name = ai_value
+				value = trigger_value:diplomatic_reputation
+			}
+			#1 rep = 2
+			multiply_variable = {
+				which = ai_value
+				value = 2
+			}
+		}
+        		add_entry = {
+			name = attitude_threatened_DIPLO_ATTITUDE_TT
+			limit = { FROM = { ai_attitude = { who = ROOT attitude = attitude_threatened } } }
+			export_to_variable = { variable_name = ai_value value = 1 }
+			multiply_variable = { which = ai_value value = 10 }
+		}
+        		add_entry = {
+			name = attitude_rivalry_DIPLO_ATTITUDE_TT
+			limit = { FROM = { ai_attitude = { who = ROOT attitude = attitude_rivalry } } }
+			export_to_variable = { variable_name = ai_value value = 1 }
+			multiply_variable = { which = ai_value value = -1000 }
+		}
+		add_entry = {
+			name = attitude_hostile_DIPLO_ATTITUDE_TT
+			limit = { FROM = { ai_attitude = { who = ROOT attitude = attitude_hostile } } }
+			export_to_variable = { variable_name = ai_value value = 1 }
+			multiply_variable = { which = ai_value value = -1000 }
+		}
+        # Wysoki prestiż (negatywny wpływ)
+        add_entry = {
+            name = AI_BUY_TRUCE_HIGH_PRESTIGE
+            limit = {
+                FROM = {
+                    prestige = 50
+                }
+            }
+            export_to_variable = {
+                variable_name = ai_value
+                value = -20
+                who = FROM
+                with = THIS
+            }
+        }
+        add_entry = {
+            name = AI_EXTORTION_MILITARY_WEAKNESS
+            
+ 
+            
+            export_to_variable = {
+                variable_name = ai_value
+                value = 25
+            }
+        }
+        
+        add_entry = {
+            name = AI_EXTORTION_ECONOMIC_WEAKNESS
+            
+            limit = {
+                OR = {
+                    is_bankrupt = yes
+                    NOT = { treasury = 50 }
+                    monthly_income = 3
+                }
+            }
+            
+            export_to_variable = {
+                variable_name = ai_value
+                value = 30
+            }
+        }
+        
+        add_entry = {
+            name = AI_EXTORTION_INTERNAL_PROBLEMS
+            
+            limit = {
+                OR = {
+                    war_exhaustion = 10
+ 
+                    NOT { stability = -1 }
+                    NOT { legitimacy = 50 }
+                }
+            }
+            
+            export_to_variable = {
+                variable_name = ai_value
+                value = 20
+            }
+        }
+        
+        add_entry = {
+            name = AI_EXTORTION_GREAT_POWER_FEAR
+            
+            limit = {
+                is_great_power = no
+                ROOT = {
+                    is_great_power = yes
+                }
+            }
+            
+            export_to_variable = {
+                variable_name = ai_value
+                value = 15
+            }
+        }
+        
+
+    }
+    
+    # AI będzie używać tej akcji przeciwko słabszym sąsiadom
+   ai_will_do = {
+                            any_neighbor_province = {
+                        owned_by = FROM
+                    }
+        army_size = FROM
+                   NOT = { years_of_income = 1 }
+            }
+}

@@ -135,3 +135,54 @@ israel_invasio_wg = {
 	
 	war_name = ISRAEL_WAR_NAME
 }
+
+war_goal_border_conquest = {
+	type = take_province
+	
+		attacker = {
+		badboy_factor = 2.0
+		prestige_factor = 1
+		peace_cost_factor = 4	
+		allowed_provinces_are_eligible = yes
+		
+		peace_options = {
+			po_demand_provinces
+ 
+		}
+		
+		allowed_provinces = {
+		 
+		any_neighbor_province = {
+			owned_by = FROM
+		}
+			
+	}
+	}
+		defender = {
+		badboy_factor = 2.0
+		prestige_factor = 1
+		peace_cost_factor = 4	
+		allowed_provinces_are_eligible = yes
+		
+		peace_options = {
+			po_revoke_cores
+			po_gold
+			po_concede_defeat
+			po_humiliate_rival
+			po_demand_provinces
+		}
+		
+		allowed_provinces = {
+			 
+		any_neighbor_province = {
+			owned_by = FROM
+		}
+			 
+	}
+	}
+
+
+	  # Można zająć tylko dozwolone prowincje
+
+	war_name = BORDER_WAR_NAME
+}

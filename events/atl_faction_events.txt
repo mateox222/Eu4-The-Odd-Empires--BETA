@@ -1,0 +1,160 @@
+namespace = conditional_factions
+country_event = {
+    id = conditional_factions.1
+    title = conditional_factions.1.t
+    desc = conditional_factions.1.d
+    picture = COURT_eventPicture
+    
+    hidden = yes
+    is_triggered_only = yes
+    
+    trigger = {
+        OR = {
+        ai = no
+        total_development = 200
+        tag = FRA
+        tag = X55
+        tag = X46
+        }
+        government = monarchy
+        or = {
+       has_reform = feudalism_reform
+       has_reform = meridioslavian_monarchy
+        has_reform =  bohemian_elective_kingdom_reform
+       has_reform = autocracy_reform 
+       has_reform = elective_monarchy_reform
+       has_reform = feudal_france_reform
+       has_reform = francocracy 
+       has_reform = african_autocracy_reform 
+
+        }
+
+        NOT = { has_country_flag = conditional_factions_initialized }
+    }
+    
+    immediate = {
+        set_country_flag = conditional_factions_initialized
+
+
+    #negatywne
+
+       if = {
+            limit = {
+             NOT = {   has_estate = estate_burghers
+            }
+              has_faction = faction_merchant
+            }
+      
+       remove_faction = faction_merchant
+ 
+    }
+
+ 
+ 
+
+        if = {
+            limit = {
+           NOT = {     government_rank = 3 }
+           has_faction = faction_bureaucratic
+            }
+           remove_faction = faction_bureaucratic
+ 
+        }
+
+        if = {
+            limit = {
+                has_faction = faction_national
+             OR = {
+            NOT = {    current_age = age_of_industrialization }
+            NOT = {     current_age = age_of_revolutions }
+
+             }
+            }
+            remove_faction = faction_national
+ 
+        }
+                if = {
+            limit = {
+                 has_faction = faction_military 
+             NOT = {   army_professionalism = 0.50 }
+
+            }
+            remove_faction = faction_military
+ 
+        }
+
+    #pozytywne    
+       if = {
+            limit = {
+                has_estate = estate_burghers
+            }
+        add_faction = faction_merchant
+        add_faction_influence = {
+            faction = faction_merchant
+            influence = 20
+        }
+    }
+        
+        add_faction = faction_royal_court
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = 25
+        }
+        
+ 
+        
+       
+ 
+        
+ 
+        if = {
+            limit = {
+              or = {
+government_rank = 3
+government_rank = 2
+government_rank = 1
+              }  
+            }
+            add_faction = faction_bureaucratic
+            add_faction_influence = {
+                faction = faction_bureaucratic
+                influence = 25
+            }
+        }
+        
+        
+        if = {
+            limit = {
+             OR = {
+                current_age = age_of_industrialization
+                current_age = age_of_revolutions
+
+             }
+            }
+            add_faction = faction_national
+            add_faction_influence = {
+                faction = faction_national
+                influence = 20
+            }
+        }
+        
+       
+        if = {
+            limit = {
+                NOT = { has_faction = faction_military }
+                army_professionalism = 0.50
+
+            }
+            add_faction = faction_military
+            add_faction_influence = {
+                faction = faction_military
+                influence = 15
+            }
+        }
+    }
+    
+    option = {
+        name = conditional_factions.1.a
+    }
+}
+ 

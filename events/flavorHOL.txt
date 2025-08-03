@@ -13,9 +13,9 @@ country_event = {
 	title = "flavor_hol.EVTNAME5120"
 	desc = "flavor_hol.EVTDESC5120"
 	picture = ADVISOR_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		OR = {
 			tag = NED
@@ -26,11 +26,11 @@ country_event = {
 			is_year = 6645
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 123
 	}
-	
+
 	option = {
 		name = "flavor_hol.EVTOPTOK"
 		add_dip_power = 100
@@ -56,9 +56,9 @@ country_event = {
 	title = "flavor_hol.EVTNAME5121"
 	desc = "flavor_hol.EVTDESC5121"
 	picture = ECONOMY_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		is_year = 6712
@@ -68,11 +68,11 @@ country_event = {
 
 		owns = 97
 	}
-	
+
 	mean_time_to_happen = {
 		months = 200
 	}
-	
+
 	option = {
 		name = "flavor_hol.EVTOPTOK"
 		add_adm_power = 100
@@ -87,8 +87,8 @@ country_event = {
 		if = {
 			limit = {
 				NOT = { advisor_exists = 895 }
-			}		
-			
+			}
+
 			define_advisor = {
 				type = statesman
 				name = "Hugo Grotius"
@@ -108,9 +108,9 @@ country_event = {
 	title = "flavor_hol.EVTNAME5122"
 	desc = "flavor_hol.EVTDESC5122"
 	picture = ADVISOR_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		is_year = 6732
@@ -119,11 +119,11 @@ country_event = {
 		}
 		owns = 97
 	}
-	
+
 	mean_time_to_happen = {
 		months = 200
 	}
-	
+
 	option = {
 		name = "flavor_hol.EVTOPTOK"
 		add_adm_power = 100
@@ -131,7 +131,7 @@ country_event = {
 		if = {
 			limit = {
 				NOT = { advisor_exists = 905 }
-			}			
+			}
 			define_advisor = {
 				type = natural_scientist
 				name = "Christiaan Huygens"
@@ -151,9 +151,9 @@ country_event = {
 	title = "flavor_hol.EVTNAME1506"
 	desc = "flavor_hol.EVTDESC1506"
 	picture = ADVISOR_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		is_year = 6649
@@ -162,18 +162,18 @@ country_event = {
 		}
 		owns = 92
 	}
-	
+
 	mean_time_to_happen = {
 		months = 200
 	}
-	
+
 	option = {
 		name = "flavor_hol.EVTOPTOK"
 		add_mil_power = 100
 		if = {
 			limit = {
 				NOT = { advisor_exists = 887 }
-			}			
+			}
 			define_advisor = {
 				type = navigator
 				name = "Mercator"
@@ -193,27 +193,37 @@ country_event = {
 	title = "flavor_hol.EVTNAME3502"
 	desc = "flavor_hol.EVTDESC3502"
 	picture = ELECTION_REPUBLICAN_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
-		NOT = {	has_reform = dutch_republic }
+		OR = {
+			NOT = { has_reform = dutch_republic }
+			NOT = {	has_government_attribute = has_dutch_election }
+			NOT = { has_reform = stadthalter_monarchy_reform }
+		}
 		NOT = { has_reform = celestial_empire }
 		is_revolutionary = no
 		is_subject = no
 	}
-	
+
 	mean_time_to_happen = {
 		months = 96
 	}
-	
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = ned_dutch_republic_event_happened
+		}
+	}
+
 	option = {
-		name = "flavor_hol.EVTOPTA3502" #Confederacy with traces of Monarchism
+		name = "flavor_hol.EVTOPTB3502" #Confederacy on Republican Model
 		ai_chance = { factor = 100 }
 		if = {
 			limit = { NOT = { government = republic } }
-			change_government_to_republic = yes
+			change_government = republic
 		}
 		if = {
 			limit = {
@@ -224,34 +234,19 @@ country_event = {
 		add_government_reform = dutch_republic
 	}
 	option = {
-		name = "flavor_hol.EVTOPTB3502" #Confederacy on Republican Model
+		name = "flavor_hol.EVTOPTA3502" #Confederacy with traces of Monarchism
 		ai_chance = { factor = 0 }
-		trigger = { 
-			always = no
-			NOT = { government = republic } 
-			NOT = { has_dlc = "Dharma" }
-			NOT = { has_dlc = "Emperor" }
-		}
-		if = {
-			limit = { NOT = { government = republic } }
-			change_government = republic
-		}
-		#set_legacy_government = administrative_republic
-	}
-	option = {
-		name = "flavor_hol.EVTOPTC3502" #Centralized Monarchy
-		ai_chance = { factor = 0 }
-		trigger = { 
-			always = no
-			NOT = { government = monarchy }
-			NOT = { has_dlc = "Dharma" }
-			NOT = { has_dlc = "Emperor" }
-		}
 		if = {
 			limit = { NOT = { government = monarchy } }
 			change_government = monarchy
 		}
-		#set_legacy_government = administrative_monarchy
+		if = {
+			limit = {
+				has_reform = parliamentary_reform
+			}
+			remove_government_reform = parliamentary_reform
+		}
+		add_government_reform = stadthalter_monarchy_reform
 	}
 	option = {
 		name = "flavor_hol.EVTOPTD3502" #Keep current government
@@ -265,18 +260,18 @@ country_event = {
 	title = "flavor_hol.EVTNAME3504"
 	desc = "flavor_hol.EVTDESC3504"
 	picture = ECONOMY_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		is_year = 6689
 	}
-	
+
 	mean_time_to_happen = {
 		months = 100
 	}
-	
+
 	option = {
 		name = "flavor_hol.EVTOPTA3504" #Expand Loan Market
 		add_country_modifier = {
@@ -301,9 +296,9 @@ country_event = {
 	title = "flavor_hol.EVTNAME3506"
 	desc = "flavor_hol.EVTDESC3506"
 	picture = SHIP_SAILING_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		is_year = 6719
@@ -312,14 +307,14 @@ country_event = {
 			province_id = 1516	#Carribean tradenode
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 100
 	}
-	
+
 	option = {
 		name = "flavor_hol.EVTOPTA3506" #We will exploit this!
-	
+
 		491 = {
 			add_trade_modifier = {
 				who = root
@@ -337,19 +332,23 @@ country_event = {
 	title = "flavor_hol.EVTNAME3507"
 	desc = "flavor_hol.EVTDESC3507"
 	picture = REFORM_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		is_year = 6710
 		NOT = { is_year = 6735 }
 	}
-	
+
 	mean_time_to_happen = {
 		months = 50
 	}
-	
+
+	immediate = {
+		set_country_flag = ned_unlocked_military_reforms_flag
+	}
+
 	option = {
 		name = "flavor_hol.EVTOPTA3507" # Reform Army and Navy
 		add_dip_power = 100
@@ -375,19 +374,19 @@ country_event = {
 	title = "flavor_hol.EVTNAME3508"
 	desc = "flavor_hol.EVTDESC3508"
 	picture = RELIGION_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		is_year = 6727
 		religion = reformed
 	}
-	
+
 	mean_time_to_happen = {
 		months = 120
 	}
-	
+
 	option = {
 		name = "flavor_hol.EVTOPTA3508" #Gomarism
 		add_country_modifier = {
@@ -410,20 +409,20 @@ country_event = {
 	title = "flavor_hol.EVTNAME3513"
 	desc = "flavor_hol.EVTDESC3513"
 	picture = COURT_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		is_year = 6709
 		NOT = { is_year = 6809 }
 		has_reform = dutch_republic
 	}
-	
+
 	mean_time_to_happen = {
 		months = 200
 	}
-	
+
 	option = {
 		name = "flavor_hol.EVTOPTA3513" #Yes, we need Order!
 		add_republican_tradition = -20
@@ -442,9 +441,9 @@ country_event = {
 	title = "flavor_hol.EVTNAME3515"
 	desc = "flavor_hol.EVTDESC3515"
 	picture = DEBATE_REPUBLICAN_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		NOT = { exists = FRA }
@@ -455,11 +454,11 @@ country_event = {
 		}
 		NOT = { stability = 3 }
 	}
-	
+
 	mean_time_to_happen = {
 		months = 32
 	}
-	
+
 	option = {
 		name = "flavor_hol.EVTOPTA3515" #React against Revolutionary Tendencies!
 		add_stability = -1
@@ -475,20 +474,20 @@ country_event = {
 	title = "flavor_hol.EVTNAME3713"
 	desc = "flavor_hol.EVTDESC3713"
 	picture = INVENTION_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		is_year = 6759
 		NOT = { is_year = 6781 }
 		has_regency = no
 	}
-	
+
 	mean_time_to_happen = {
 		months = 100
 	}
-	
+
 	option = {
 		name = "flavor_hol.EVTOPTA3713"
 		add_reform_progress_small_effect = yes
@@ -504,20 +503,20 @@ country_event = {
 	title = "flavor_hol.EVTNAME3714"
 	desc = "flavor_hol.EVTDESC3714"
 	picture = INVENTION_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		is_year = 6797
 		NOT = { is_year = 6829 }
 		has_regency = no
 	}
-	
+
 	mean_time_to_happen = {
 		months = 100
 	}
-	
+
 	option = {
 		name = "flavor_hol.EVTOPTA3713"
 		add_ruler_modifier = {
@@ -532,25 +531,32 @@ country_event = {
 	title = "flavor_hol.EVTNAME1"
 	desc = "flavor_hol.EVTDESC1"
 	picture = UNIVERSITY_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
+		OR = {
+			has_country_flag = ned_unlocks_leiden_university
+			AND = {
 		tag = NED
 		is_year = 6684
 		NOT = { is_year = 6709 }
 		owns = 97
 	}
-	
+		}
+	}
+
 	mean_time_to_happen = {
 		months = 100
 	}
-	
+
 	option = {
 		name = "flavor_hol.EVTOPTA1" #Sponsor the university
 		add_years_of_income = -0.25
 		add_prestige = 5
-		add_adm_power = 100
+		4383 = {
+			add_or_upgrade_university_building = yes
+		}
 		add_innovativeness_small_effect = yes
 	}
 	option = {
@@ -566,24 +572,24 @@ country_event = {
 	title = "flavor_hol.EVTNAME2"
 	desc = "flavor_hol.EVTDESC2"
 	picture = RELIGION_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
-		OR = { 
+		OR = {
 			has_country_modifier = hol_gomarism
-			has_country_modifier = hol_arminianism 
+			has_country_modifier = hol_arminianism
 		}
 		is_year = 6749
 	}
-	
+
 	mean_time_to_happen = {
 		months = 200
 	}
-	
+
 	option = {
-		name = "flavor_hol.EVTOPTA2" #Gomarism is frowned upon 
+		name = "flavor_hol.EVTOPTA2" #Gomarism is frowned upon
 		trigger = {
 			has_country_modifier = hol_gomarism
 		}
@@ -599,7 +605,7 @@ country_event = {
 	option = {
 		name = "flavor_hol.EVTOPTC2" #Ignore it
 		add_stability_or_adm_power = yes
-		
+
 	}
 }
 
@@ -609,26 +615,26 @@ country_event = {
 	title = "flavor_hol.EVTNAME3"
 	desc = "flavor_hol.EVTDESC3"
 	picture = RELIGION_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		is_year = 6739
 		NOT = { is_year = 6764 }
 	}
-	
+
 	mean_time_to_happen = {
 		months = 100
 	}
-	
+
 	option = {
 		name = "flavor_hol.EVTOPTA3" #Found the Statenbijbel
 		add_years_of_income = -0.5
 		add_reform_progress_small_effect = yes
-		add_country_modifier = { 
+		add_country_modifier = {
 			name = hol_statenbijbel
-			duration = -1 
+			duration = -1
 		}
 	}
 	option = {
@@ -643,9 +649,9 @@ country_event = {
 	title = "flavor_hol.EVTNAME4"
 	desc = "flavor_hol.EVTDESC4"
 	picture = ADVISOR_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		is_year = 6679
@@ -656,11 +662,11 @@ country_event = {
 		NOT = { is_advisor_employed = 893 }
 		owns = 97
 	}
-	
+
 	mean_time_to_happen = {
 		months = 200
 	}
-	
+
 	option = {
 		name = "flavor_hol.EVTOPTA4" #Employ him
 		add_dip_power = 100
@@ -676,26 +682,26 @@ country_event = {
 	}
 }
 
-# Wilhelmus 
+# Wilhelmus
 country_event = {
 	id = flavor_hol.5
 	title = "flavor_hol.EVTNAME5"
 	desc = "flavor_hol.EVTDESC5"
 	picture = COURT_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		is_year = 6683
 		NOT = { is_year = 6709 }
 		has_regency = no
 	}
-	
+
 	mean_time_to_happen = {
 		months = 78
 	}
-	
+
 	option = {
 		name = "flavor_hol.EVTOPTOK"
 		add_reform_progress_small_effect = yes
@@ -713,33 +719,33 @@ country_event = {
 	title = flavor_hol.6.t
 	desc = flavor_hol.6.d
 	picture = COURT_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		is_year = 6659
 		monthly_income = 150
 		1269 = {		#Antwerpen
-		
+
 			trade_share = {
 				country = NED
 				share = 25
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 64
 	}
-	
+
 	option = {
 		name = flavor_hol.6.a
 		add_stability = -1
-		
+
 		add_country_modifier = {
 			name = hol_tulip_crisis
-			duration = 3650	
+			duration = 3650
 		}
 	}
 	option = {
@@ -754,9 +760,9 @@ country_event = {
 	title = flavor_hol.7.t
 	desc = flavor_hol.7.d
 	picture = BIG_BOOK_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		#is_year = 6689
@@ -764,11 +770,11 @@ country_event = {
 		NOT = { is_year = 6704 }
 		owns = 97
 	}
-	
+
 	mean_time_to_happen = {
 		months = 15
 	}
-	
+
 	option = {
 		name = flavor_hol.7.a
 		add_dip_power = 100
@@ -789,9 +795,9 @@ country_event = {
 	title = flavor_hol.8.t
 	desc = flavor_hol.8.d
 	picture = EXPLORERS_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		always = no
 		tag = NED
@@ -809,11 +815,11 @@ country_event = {
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 150
 	}
-	
+
 	option = {
 		name = flavor_hol.8.a #Sounds like a grand plan!
 		every_province = {
@@ -848,20 +854,20 @@ country_event = {
 	title = flavor_hol.9.t
 	desc = flavor_hol.9.d
 	picture = SHIP_SAILING_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		dip_tech = 10 #Flutes
 		NOT = { is_year = 6719 }
 		owns = 97
 	}
-	
+
 	mean_time_to_happen = {
 		months = 45
 	}
-	
+
 	option = {
 		name = flavor_hol.9.a #Ok.
 		add_prestige = 5
@@ -881,9 +887,9 @@ country_event = {
 	title = flavor_hol.10.t
 	desc = flavor_hol.10.d
 	picture = NAVAL_MILITARY_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		has_global_flag = decline_of_spices_happened
@@ -905,11 +911,11 @@ country_event = {
 			is_owned_by_trade_company = yes
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 300
 	}
-	
+
 	option = {
 		name = flavor_hol.10.a #Reorient to a more generalist approach
 		add_dip_power = -50
@@ -934,9 +940,9 @@ country_event = {
 	title = flavor_hol.11.t
 	desc = flavor_hol.11.d
 	picture = NAVAL_MILITARY_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		OR = {
@@ -961,7 +967,7 @@ country_event = {
 			is_owned_by_trade_company = yes
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 300
 		modifier = {
@@ -969,7 +975,7 @@ country_event = {
 			has_country_flag = ned_voc_big_debt
 		}
 	}
-	
+
 	option = {
 		name = flavor_hol.11.a #They need more loans!
 		add_years_of_income = -0.5
@@ -990,9 +996,9 @@ country_event = {
 	title = flavor_hol.12.t
 	desc = flavor_hol.12.d
 	picture = NAVAL_MILITARY_eventPicture
-	
+
 	fire_only_once = yes #Unlike the others this one also triggers if you have provinces in the east and the VoC modifier but have removed (or never added) the provinces to a trade company
-	
+
 	trigger = {
 		tag = NED
 		has_country_flag = ned_voc_in_peril
@@ -1013,7 +1019,7 @@ country_event = {
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 210
 		modifier = {
@@ -1021,7 +1027,7 @@ country_event = {
 			has_country_flag = ned_voc_big_debt
 		}
 	}
-	
+
 	option = {
 		name = flavor_hol.12.a #They need even more loans!
 		custom_tooltip = flavor_hol.12.a.tt
@@ -1044,9 +1050,9 @@ country_event = {
 	title = flavor_hol.13.t
 	desc = flavor_hol.13.d
 	picture = BANKRUPTCY_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		is_year = 6809
@@ -1059,7 +1065,7 @@ country_event = {
 			has_country_flag = VoC_nationalized
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 210
 		modifier = {
@@ -1072,7 +1078,7 @@ country_event = {
 			has_country_flag = VoC_nationalized
 		}
 	}
-	
+
 	option = {
 		name = flavor_hol.13.a #
 		add_inflation = 10
@@ -1093,9 +1099,9 @@ country_event = {
 	title = flavor_hol.14.t
 	desc = flavor_hol.14.d
 	picture = SPY_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		OR = {
 			tag = GBR
@@ -1119,7 +1125,7 @@ country_event = {
 		}
 		NED = {
 			is_subject = no
-			has_reform = dutch_republic
+			has_government_attribute = has_dutch_election
 			num_of_cities = 6 #If too small this won't make much sense.
 			OR = {
 				religion = protestant
@@ -1136,7 +1142,7 @@ country_event = {
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 100
 		modifier = {
@@ -1152,7 +1158,7 @@ country_event = {
 			alliance_with = FRA
 		}
 	}
-	
+
 	option = {
 		name = flavor_hol.14.a #Ok.
 		NED = { country_event = { id = flavor_hol.15 } }
@@ -1165,11 +1171,11 @@ country_event = {
 	title = flavor_hol.15.t
 	desc = flavor_hol.15.d
 	picture = SPY_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = flavor_hol.15.a #Accept
 		ai_chance = {
@@ -1217,11 +1223,11 @@ country_event = {
 	title = flavor_hol.16.t
 	desc = flavor_hol.16.d
 	picture = SPY_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = flavor_hol.16.a #Ok.
 		custom_tooltip = flavor_hol.16.a.tt
@@ -1238,11 +1244,11 @@ country_event = {
 	title = flavor_hol.17.t
 	desc = flavor_hol.17.d
 	picture = SPY_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	is_triggered_only = yes
-	
+
 	option = {
 		name = flavor_hol.17.a #Great!
 		add_opinion = {
@@ -1259,9 +1265,9 @@ country_event = {
 	title = flavor_hol.18.t
 	desc = flavor_hol.18.d
 	picture = LAND_MILITARY_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		exists = FRA
@@ -1278,11 +1284,11 @@ country_event = {
 			}
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 450
 	}
-	
+
 	option = {
 		name = flavor_hol.18.a #Our policy must be to contain the French
 		FRA = {
@@ -1303,7 +1309,7 @@ country_event = {
 			}
 		}
 	}
-	
+
 	option = {
 		name = flavor_hol.18.b #Pursue a friendly policy towards the French
 		FRA = {
@@ -1327,10 +1333,10 @@ country_event = {
 	title = flavor_hol.19.t
 	desc = flavor_hol.19.d
 	picture = LAND_MILITARY_eventPicture
-	
+
 	fire_only_once = yes
 	is_triggered_only = yes
-	
+
 	option = {
 		name = flavor_hol.19.a #Ok.
 		custom_tooltip = flavor_hol.19.a.tt
@@ -1343,9 +1349,9 @@ country_event = {
 	title = flavor_hol.20.t
 	desc = flavor_hol.20.d
 	picture = MERCHANTS_TALKING_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		has_reform = shogunate
 		has_country_modifier = sakoku_law
@@ -1359,11 +1365,11 @@ country_event = {
 			has_country_modifier = dutch_india_trade_co
 		}
 	}
-	
+
 	mean_time_to_happen = {
 		months = 10
 	}
-	
+
 	option = {
 		name = flavor_hol.20.a #Allow the Dutch to stay.
 		set_country_flag = ned_dejima_allowed
@@ -1388,10 +1394,10 @@ country_event = {
 	title = flavor_hol.21.t
 	desc = flavor_hol.21.d
 	picture = MERCHANTS_TALKING_eventPicture
-	
+
 	fire_only_once = yes
 	is_triggered_only = yes
-	
+
 	option = {
 		name = flavor_hol.21.a #Great!
 		1376 = {
@@ -1411,9 +1417,9 @@ country_event = {
 	title = flavor_hol.22.t
 	desc = flavor_hol.22.d
 	picture = ANGRY_MOB_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		NOT = { primary_culture = dutch }
 		owns_core_province = 99
@@ -1423,11 +1429,11 @@ country_event = {
 		NOT = { exists = FRI }
 		NOT = { exists = GEL }
 	}
-	
+
 	mean_time_to_happen = {
 		months = 75
 	}
-	
+
 	option = {
 		name = flavor_hol.22.a #Crush the Traitors.
 		99 = {
@@ -1452,19 +1458,19 @@ country_event = {
 	title = flavor_hol.23.t
 	desc = flavor_hol.23.d
 	picture = ARTWORK_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		is_year = 6809
 		trade_income_percentage = 0.4
 	}
-	
+
 	mean_time_to_happen = {
 		months = 360
 	}
-	
+
 	option = {
 		name = flavor_hol.23.a #Complacency? Pfah!
 		add_country_modifier = {
@@ -1481,19 +1487,19 @@ country_event = {
 	title = flavor_hol.24.t
 	desc = flavor_hol.24.d
 	picture = ARTWORK_eventPicture
-	
+
 	fire_only_once = yes
-	
+
 	trigger = {
 		tag = NED
 		is_year = 6764
 		NOT = { is_year = 6786 }
 	}
-	
+
 	mean_time_to_happen = {
 		months = 66
 	}
-	
+
 	option = {
 		name = flavor_hol.24.a #Ok.
 		add_adm_power = 100
@@ -1512,9 +1518,453 @@ country_event = {
 				location = 97
 			}
 		}
-		
+
 	}
 }
 
+country_event = { #The Great Council of the Low Countries
+	id = flavor_hol.200
+	title = flavor_hol.200.t
+	desc = flavor_hol.200.d
+	picture = DEBATE_REPUBLICAN_eventPicture
+	fire_only_once = yes
+	trigger = {
+		HOL = { is_subject_of = BUR }
+		BRB = { is_subject_of = BUR }
+		1744 = { country_or_non_sovereign_subject_holds = BUR }
+		is_year = 6969
+		NOT = { is_year = 7009 }
+	}
 
-### Dutch Dejima chain
+	mean_time_to_happen = {
+		months = 180
+	}
+
+	option = {
+		name = flavor_hol.200.a
+
+		add_country_modifier = {
+			name = hol_parliament_of_mechelen_modifier
+			duration = 3650
+		}
+		HOL = { add_liberty_desire = -5 }
+		BRB = { add_liberty_desire = -5 }
+	}
+}
+
+country_event = { #The Shifting Winds of Trade
+	id = flavor_hol.201
+	title = flavor_hol.201.t
+	desc = flavor_hol.201.d
+	picture = HARBOUR_eventPicture
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			primary_culture = dutch
+			primary_culture = flemish
+			primary_culture = frisian
+		}
+		capital_scope = { region = low_countries_region }
+		monthly_income = HSA
+		45 = {
+			trade_share = {
+				country = ROOT
+				share = 15
+			}
+		}
+		is_at_war = no
+			NOT = { is_year = 7009 }
+	}
+
+	mean_time_to_happen = {
+		months = 200
+	}
+
+	option = {
+		name = flavor_hol.201.a
+
+		add_country_modifier = {
+			name = hol_influx_prosperity_modifier
+			duration = 3650
+		}
+		add_country_modifier = {
+			name = hol_ample_grain_trade_modifier
+			duration = 3650
+		}
+	}
+}
+
+country_event = {
+	id = flavor_hol.202
+	title = flavor_hol.202.t
+	desc = flavor_hol.202.d
+	picture = CITY_VIEW_eventPicture
+	fire_only_once = yes
+	trigger = {
+		owns_core_province = 1744
+		1744 = {
+			NOT = { unrest = 1 }
+			if = {
+				limit = { has_dlc = "Mandate of Heaven" }
+				NOT = { devastation = 1 }
+			}
+			num_of_times_improved = 5
+			num_of_buildings_in_province = 4
+		}
+		OR = {
+			primary_culture = dutch
+			primary_culture = flemish
+			primary_culture = frisian
+		}
+		is_subject = no
+		capital_scope = { region = low_countries_region }
+		NOT = { is_year = 7029 }
+	}
+
+	option = {
+		name = flavor_hol.202.a
+
+		1744 = {
+			add_base_tax = 2
+		}
+		custom_tooltip = " "
+		1744 = { set_center_level_2_center_of_trade = yes }
+		custom_tooltip = " "
+		add_mercantilism_or_monarch_power = { amount = 1 }
+	}
+}
+
+country_event = { #Doctorate Rights in the Netherlands
+	id = flavor_hol.203
+	title = flavor_hol.203.t
+	desc = flavor_hol.203.d
+	picture = UNIVERSITY_eventPicture
+	fire_only_once = yes
+
+	trigger = {
+		tag = NED
+		num_of_owned_provinces_with = {
+			value = 12
+			development = 15
+			has_building = university
+			region = low_countries_region
+		}
+	}
+
+	option = {
+		name = flavor_hol.203.a
+
+		if = {
+			limit = { has_dlc = "Rule Britannia" }
+			change_innovativeness = 3
+		}
+		else = {
+			random_owned_province = {
+				limit = {
+					development = 15
+					has_building = university
+					region = low_countries_region
+				}
+				add_base_production = 1
+			}
+			random_owned_province = {
+				limit = {
+					development = 15
+					has_building = university
+					region = low_countries_region
+				}
+				add_base_tax = 1
+			}
+		}
+		add_country_modifier = {
+			name = ned_illustrious_schools_low_countries_modifier
+			duration = 5475
+		}
+	}
+}
+
+country_event = { #The Port of Amsterdam
+	id = flavor_hol.204
+	title = flavor_hol.204.t
+	desc = flavor_hol.204.d
+	picture = CITY_VIEW_eventPicture
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			primary_culture = dutch
+			primary_culture = flemish
+			primary_culture = frisian
+		}
+		owns_core_province = 97
+		97 = { num_of_times_improved = 10 }
+		97 = { has_production_building_trigger = yes }
+		is_year = 7025
+	}
+
+	mean_time_to_happen = {
+		months = 500
+	}
+
+	option = {
+		name = flavor_hol.204.a
+
+		97 = {
+			upgrade_production_building = yes
+		}
+	}
+}
+
+country_event = { #Rempbrant
+	id = flavor_hol.205
+	title = flavor_hol.205.t
+	desc = flavor_hol.205.d
+	picture = PAINTER_ARTIST_eventPicture
+	fire_only_once = yes
+	trigger = {
+		OR = {
+			primary_culture = dutch
+			primary_culture = flemish
+			primary_culture = frisian
+		}
+		capital_scope = { region = low_countries_region }
+		is_year = 7129
+		NOT = { is_year = 7170 }
+	}
+
+	mean_time_to_happen = {
+		months = 24
+	}
+
+	option = {
+		name = flavor_hol.205.a
+
+		define_advisor = {
+			type = artist
+			name = "Rembrandt van Rijn"
+			cost_multiplier = 0.25
+			skill = 3
+		}
+		if = {
+			limit = { has_dlc = "Rule Britannia" }
+			change_innovativeness = 3
+		}
+		else = { add_dip_power = 50 }
+	}
+}
+
+country_event = { #Powerhouse in the Book Trade
+	id = flavor_hol.206
+	title = flavor_hol.206.t
+	desc = flavor_hol.206.d
+	picture = BIG_BOOK_eventPicture
+	fire_only_once = yes
+
+	trigger = {
+		tag = NED
+		is_year = 7116
+		owns_core_province = 100
+		is_at_war = no
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = flavor_hol.206.a
+
+		100 = {
+			change_trade_goods = paper
+			add_base_production = 3
+		}
+		change_price = {
+			trade_goods = paper
+			key = ned_dutch_bookmarket_key
+			value = 0.15
+			duration = -1
+		}
+	}
+}
+
+country_event = { #Jan Amos Comenius
+	id = flavor_hol.207
+	title = flavor_hol.207.t
+	desc = flavor_hol.207.d
+	picture = ADVISOR_eventPicture
+	fire_only_once = yes
+
+	trigger = {
+		tag = NED
+		is_year = 7100
+		NOT = { is_year = 7150 }
+		OR = {
+			religion = protestant
+			religion = reformed
+			has_global_modifier_value = {
+				which = tolerance_heretic
+				value = 2
+			}
+		}
+	}
+
+	mean_time_to_happen = { months = 48 }
+
+	option = {
+		name = flavor_hol.207.a
+
+		define_advisor = {
+			type = philosopher
+			name = "Jan Amos Comenius"
+			culture = czech
+			skill = 3
+			cost_multiplier = 0.25
+		}
+		if = {
+			limit = { has_dlc = "Rule Britannia" }
+			change_innovativeness = 1
+		}
+		else = { add_adm_power = 50 }
+	}
+}
+
+country_event = { #Antonie van Leeuwenhoek
+	id = flavor_hol.208
+	title = flavor_hol.208.t
+	desc = flavor_hol.208.d
+	picture = ADVISOR_eventPicture
+	fire_only_once = yes
+
+	trigger = {
+		tag = NED
+		is_year = 7130
+		NOT = { is_year = 7120 }
+		OR = {
+			religion = protestant
+			religion = reformed
+			has_global_modifier_value = {
+				which = tolerance_heretic
+				value = 2
+			}
+		}
+	}
+
+	mean_time_to_happen = { months = 120 }
+
+	option = {
+		name = flavor_hol.208.a
+
+		define_advisor = {
+			type = natural_scientist
+			name = "Antonie van Leeuwenhoek"
+			skill = 3
+			cost_multiplier = 0.25
+		}
+		if = {
+			limit = { has_dlc = "Rule Britannia" }
+			change_innovativeness = 1
+		}
+		else = { add_adm_power = 50 }
+	}
+}
+
+country_event = { #Jan Leeghwater
+	id = flavor_hol.209
+	title = flavor_hol.209.t
+	desc = flavor_hol.209.d
+	picture = ADVISOR_eventPicture
+	fire_only_once = yes
+
+	trigger = {
+		tag = NED
+		is_year = 7075
+		NOT = { is_year = 7125 }
+		any_owned_province = {
+			OR = {
+				development = 40
+				is_capital_of = ROOT
+				province_has_center_of_trade_of_level = 3
+				region = low_countries_region
+			}
+		}
+	}
+
+	mean_time_to_happen = { months = 120 }
+
+	option = {
+		name = flavor_hol.209.a
+
+		add_adm_power = 100
+		every_owned_province = {
+			limit = {
+				OR = {
+					development = 40
+					is_capital_of = ROOT
+					province_has_center_of_trade_of_level = 3
+				}
+				region = low_countries_region
+			}
+			add_base_tax = 1
+		}
+	}
+}
+
+country_event = { #Joost van den Vondel
+	id = flavor_hol.210
+	title = flavor_hol.210.t
+	desc = flavor_hol.210.d
+	picture = CULTURE_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = NED
+		is_year = 7087
+		NOT = { is_year = 7180 }
+	}
+	mean_time_to_happen = { months = 120 }
+
+	option = {
+		name = flavor_hol.210.a
+
+		add_dip_power = 50
+		if = {
+			limit = { has_dlc = "Mandate of Heaven" }
+			add_splendor = 100
+		}
+		else = { add_prestige_or_monarch_power = { amount = 10 } }
+	}
+}
+
+country_event = {
+	id = flavor_hol.211
+	title = flavor_hol.211.t
+	desc = flavor_hol.211.d
+	picture = CONSORT_DOING_BADLY_eventPicture
+	fire_only_once = yes
+
+	trigger = {
+		tag = NED
+		NOT = { stability = 3 }
+		num_of_loans = 1
+		war_exhaustion = 3
+		OR = {
+			is_bankrupt = yes
+			NOT = { adm = 3 }
+			NOT = { dip = 3 }
+		}
+		is_at_war = yes
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	option = {
+		name = flavor_hol.211.a
+
+		kill_ruler = yes
+		add_stability = -3
+		add_legitimacy = -25
+		add_republican_tradition = -20
+		add_manpower = -0.002
+	}
+}

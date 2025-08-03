@@ -1,51 +1,14 @@
 latin_empire_crisis = {
     potential = {
-		NOT = { is_year = 6530 }
+		NOT = { is_year = 6510 }
 		owns_core_province = 151
         tag = LAE
 	NOT = { has_global_flag = end_of_latin_empire_crisis }	
 	NOT = { has_country_flag = latindostajepodupie12}
 	}
 can_start = {
-NOT = { is_year = 6530 }
-
-OR = {
-A52 = {
-	is_neighbor_of = ROOT
-	is_subject = no
-	NOT = { truce_with = ROOT }
-	NOT = { alliance_with = ROOT }
-	total_development = 150
-}
-SER = {
-	is_neighbor_of = ROOT
-	is_subject = no
-	NOT = { truce_with = ROOT }
-	NOT = { alliance_with = ROOT }
-	total_development = 150
-}
-TRE = {
-	is_neighbor_of = ROOT
-	is_subject = no
-	NOT = { truce_with = ROOT }
-	NOT = { alliance_with = ROOT }
-	total_development = 150
-}
-A82 = {
-	is_neighbor_of = ROOT
-	is_subject = no
-	NOT = { truce_with = ROOT }
-	NOT = { alliance_with = ROOT }
-	total_development = 150
-}
-BUL = {
-	is_neighbor_of = ROOT
-	is_subject = no
-	NOT = { truce_with = ROOT }
-	NOT = { alliance_with = ROOT }
-	total_development = 150
-}
-}
+NOT = { is_year = 6510 }
+ NOT = { stability = 3 }
 }
 	can_stop = { 
 		if = {
@@ -64,44 +27,7 @@ BUL = {
 	
 
 	progress = {
-		modifier = {
-			factor = 2.5
-			BUL = {
-				is_subject = no
-				NOT = { truce_with = ROOT }
-				NOT = { alliance_with = ROOT }
-				total_development = 150
-			}
-		}
-		modifier = {
-			factor = 2.5
-			TRE = {
-				is_subject = no
-				NOT = { truce_with = ROOT }
-				NOT = { alliance_with = ROOT }
-				total_development = 150
-			}
-			
-		}
-		modifier = {
-			factor = 2.5
-			SER = {
-				is_subject = no
-				NOT = { truce_with = ROOT }
-				NOT = { alliance_with = ROOT }
-				total_development = 150
-			}
-
-		}
-		modifier = {
-			factor = 2.5
-			A82 = {
-				is_subject = no
-				NOT = { truce_with = ROOT }
-				NOT = { alliance_with = ROOT }
-				total_development = 150
-			}
-		}
+ 
 		modifier = {
 			factor = 2.5
 			A52 = {
@@ -194,18 +120,8 @@ BUL = {
 
 	}
 can_end = {
-	custom_trigger_tooltip = {
-		tooltip = dealwithconsequences
-		OR = {
-        had_country_flag = { flag = latin_empire_crisis days = 4500 }
-		AND = {
-		had_country_flag = { flag = latin_empire_crisis days = 2500 }
-		legitimacy = 100 }
-		has_global_flag = end_of_latin_empire_crisis
-		}
-		
-		
-}}
+	always = yes
+}
 modifier = {
     global_unrest = 2
 	discipline = -0.15	
@@ -220,26 +136,12 @@ modifier = {
 	all_power_cost = 0.25
 }
 on_start = byzantine_war.1
-on_end = byzantine_war.14
 on_monthly = {
         events = {
         }
         random_events = { 
 			900 = 0
-			100 = civil_war.2
-			300 = civil_war.3
-			200 = civil_war.5
-			100 = civil_war.7
-			100 = civil_war.9
-			100 = war_of_the_roses.7
-			100 = civil_war.10
-			100 = civil_war.12
-			100 = peasants_war.2
-			100 = peasants_war.3
-			100 = peasants_war.4
-			100 = peasants_war.5
-			100 = byzantine_war.17
         }
 }
-}
 
+}

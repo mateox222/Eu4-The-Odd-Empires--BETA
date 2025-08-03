@@ -1,0 +1,174 @@
+thule_roman_republic_mechanic = {
+	available = {
+		tag = THL
+		has_reform = roman_legio_republic
+	}
+
+	powers = {
+		roman_civic_authority = {
+            
+			max = 100
+			min = 0
+			default = 50
+			base_monthly_growth = 0.5
+			development_scaled_monthly_growth = 0.05
+			is_good = yes
+			
+			scaled_modifier = {
+				start_value = 0
+				end_value = 100
+				modifier = {
+					stability_cost_modifier = -0.25
+					diplomatic_reputation = 2
+					global_unrest = -2
+					administrative_efficiency = 0.15
+					core_creation = -0.20
+				}
+			}
+			
+			reverse_scaled_modifier = {
+				start_value = 50
+				end_value = 0
+				modifier = {
+					global_unrest = 3
+					stability_cost_modifier = 0.30
+					diplomatic_reputation = -2
+					core_creation = 0.25
+				}
+			}
+		}
+	}
+	
+	interactions = {
+		convene_senate_assembly = {
+			cost_type = roman_civic_authority
+            icon = GFX_convene_senate_assembly
+			cost = 25
+			
+			trigger = {
+				adm_power = 75
+ 
+			}
+			
+			effect = {
+				custom_tooltip = convene_senate_assembly_tooltip
+				hidden_effect = {
+					add_adm_power = -75
+					random_list = {
+						40 = { country_event = { id = thule_republic.1 } }
+						35 = { country_event = { id = thule_republic.2 } }
+						20 = { country_event = { id = thule_republic.3 } }
+						5 = { country_event = { id = thule_republic.4 } }
+					}
+ 
+				}
+			}
+			
+			cooldown_years = 3
+			
+			ai_chance = {
+				factor = 75
+				modifier = {
+					factor = 1.5
+					stability = 2
+				}
+				modifier = {
+					factor = 0.5
+					NOT = { adm_power = 150 }
+				}
+			}
+		}
+		
+		appoint_proconsul = {
+			icon = GFX_appoint_proconsul
+			cost_type = roman_civic_authority
+			cost = 30
+			
+			trigger = {
+				mil_power = 100
+		 
+				any_owned_province = {
+					OR = {
+						 unrest = 3
+						is_core = ROOT
+						NOT = { culture_group = ROOT }
+					}
+				}
+			}
+			
+			effect = {
+				custom_tooltip = appoint_proconsul_tooltip
+				hidden_effect = {
+					add_mil_power = -100
+					random_list = {
+						30 = { country_event = { id = thule_republic.5 } }
+						35 = { country_event = { id = thule_republic.6 } }
+						25 = { country_event = { id = thule_republic.7 } }
+						10 = { country_event = { id = thule_republic.8 } }
+					}
+			 
+				}
+			}
+			
+			cooldown_years = 5
+			
+			ai_chance = {
+				factor = 60
+				modifier = {
+					factor = 1.5
+					any_owned_province = {
+					 unrest = 5
+					}
+				}
+				modifier = {
+					factor = 0.3
+					NOT = { mil_power = 200 }
+				}
+			}
+		}
+		
+		conduct_census_lustrum = {
+            icon = GFX_conduct_census_lustrum
+			cost_type = roman_civic_authority
+			cost = 40
+			
+			trigger = {
+				dip_power = 125
+ 
+				num_of_cities = 5
+			}
+			
+			effect = {
+				custom_tooltip = conduct_census_lustrum_tooltip
+				hidden_effect = {
+					add_dip_power = -125
+					every_owned_province = {
+						limit = { is_city = yes }
+						random_list = {
+							40 = { province_event = { id = thule_republic.9 } }
+							35 = { province_event = { id = thule_republic.10 } }
+							20 = { province_event = { id = thule_republic.11 } }
+							5 = { province_event = { id = thule_republic.12 } }
+						}
+					}
+					country_event = { id = thule_republic.13 }
+			 
+				}
+			}
+			
+			cooldown_years = 10
+			
+			ai_chance = {
+				factor = 50
+				modifier = {
+					factor = 1.3
+					num_of_cities = 10
+				}
+				modifier = {
+					factor = 0.4
+					NOT = { dip_power = 250 }
+				}
+			}
+		}
+	}
+}

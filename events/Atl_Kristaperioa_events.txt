@@ -1,0 +1,151 @@
+namespace = flavor_kri
+
+# Crystal Awakening Chain
+country_event = {
+	id = flavor_kri.100
+	title = flavor_kri.100.t
+	desc = flavor_kri.100.d
+	picture = RELIGION_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_kri.100.a # Channel power into military
+		add_country_modifier = {
+			name = "kri_crystal_might"
+			duration = 3650
+		}
+	}
+	
+	option = {
+		name = flavor_kri.100.b # Focus on knowledge
+		add_country_modifier = {
+			name = "kri_crystal_wisdom"
+			duration = 3650
+		}
+	}
+	
+	option = {
+		name = flavor_kri.100.c # Balance all aspects
+		add_stability = 1
+		add_prestige = 10
+	}
+}
+
+# Irish Integration
+country_event = {
+	id = flavor_kri.200
+	title = flavor_kri.200.t
+	desc = flavor_kri.200.d
+	picture = TRIBAL_SUCCESSION_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_kri.200.a # Welcome the Celtic brothers
+		irlahandia_area = {
+			add_province_modifier = {
+				name = "kri_celtic_brotherhood"
+				duration = 9125
+			}
+		}
+		add_country_modifier = {
+			name = "kri_irish_integration"
+			duration = 7300
+		}
+	}
+	
+	option = {
+		name = flavor_kri.200.b # Impose Lyonessan ways
+		irlahandia_area = {
+			add_province_modifier = {
+				name = "kri_cultural_dominance"
+				duration = 5475
+			}
+		}
+		add_adm_power = 100
+	}
+}
+
+# Druidic Renaissance
+country_event = {
+	id = flavor_kri.300
+	title = flavor_kri.300.t
+	desc = flavor_kri.300.d
+	picture = BIG_BOOK_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_kri_300.a # Establish Great Library
+		capital_scope = {
+			add_permanent_province_modifier = {
+				name = "kri_great_library"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = flavor_kri.300.b # Create Druidic Schools
+		every_owned_province = {
+			limit = {
+				religion = catholic
+				development = 15
+			}
+			add_province_modifier = {
+				name = "kri_druid_school"
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = flavor_kri.300.c # Send knowledge to colonies
+		trigger = {
+			any_subject_country = {  is_colonial_nation = yes }	
+		}
+		every_subject_country = {
+			limit = { is_colonial_nation = yes }
+			add_country_modifier = {
+				name = "kri_colonial_wisdom"
+				duration = 9125
+			}
+		}
+	}
+}
+
+# The Atlantean Vision
+country_event = {
+	id = flavor_kri.400
+	title = flavor_kri.400.t
+	desc = flavor_kri.400.d
+	picture = COLONIZATION_eventPicture
+	
+	trigger = {
+		tag = A49
+		has_ruler_modifier = kri_atlantean_blood
+		num_of_colonies = 3
+		NOT = { has_country_flag = kri_atlantean_vision }
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	option = {
+		name = flavor_kri.400.a # Follow the vision west
+		add_country_modifier = {
+			name = "kri_western_calling"
+			duration = 7300
+		}
+		set_country_flag = kri_atlantean_vision
+	}
+	
+	option = {
+		name = flavor_kri.400.b # Focus on current lands
+		add_stability = 1
+		add_prestige = 15
+		set_country_flag = kri_atlantean_vision
+	}
+}

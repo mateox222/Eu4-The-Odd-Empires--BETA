@@ -1,0 +1,105 @@
+country_decisions = {
+Unite_Avalon = {
+major = yes
+potential = {
+		was_never_end_game_tag_trigger = yes
+			primary_culture = avalonian
+	NOT = { exists = A37 }
+	NOT = { exists = A38 }
+	NOT = {
+		tag = THL
+	}
+	}
+	provinces_to_highlight = { 
+				OR = {
+province_id = 5110
+province_id = 5061
+province_id = 5045
+province_id = 5030
+province_id = 5037
+province_id = 5043
+province_id = 5057
+province_id = 5109
+
+	} }
+		allow = {
+			NOT = { exists = A38 }
+			NOT = { exists = A37 }
+	stability = 1
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 5109
+		owns_core_province = 5061
+		owns_core_province = 5045
+		owns_core_province = 5030
+		owns_core_province = 5037
+		owns_core_province = 5043
+		owns_core_province = 5109
+		owns_core_province = 5057
+		
+					num_of_owned_provinces_with = {
+				value = 25
+					region = thule_region
+					
+				    is_core = root
+			}
+			}
+
+		effect = {
+								country_event = { 
+    id = legionhispanian_events.21
+}
+}
+		ai_will_do = {
+			factor = 1
+}
+}
+Unite_Albion = {
+major = yes
+potential = {
+	not = { tag = THL }
+		was_never_end_game_tag_trigger = yes
+			tag = A37
+	NOT = { exists = A38 }
+	}
+	provinces_to_highlight = { 
+				OR = {
+province_id = 4549
+province_id = 4361
+province_id = 5466
+province_id = 4362
+province_id = 249
+province_id = 4363
+
+
+	} }
+		allow = {
+			NOT = { exists = A38 }
+	stability = 1
+		is_nomad = no
+		is_at_war = no
+		owns_core_province = 4549
+		owns_core_province = 4361
+		owns_core_province = 5466
+		owns_core_province = 4362
+		owns_core_province = 249
+		owns_core_province = 4363
+		
+					num_of_owned_provinces_with = {
+				value = 30
+					region = british_isles_region
+				    is_core = root
+			}
+			}
+
+		effect = {
+					country_event = { 
+    id = legionhispanian_events.29
+}
+
+}
+		ai_will_do = {
+			factor = 1
+}
+}
+}

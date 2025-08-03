@@ -1,79 +1,311 @@
-israelgov_mechanic = {
-   alert_icon_gfx = GFX_alerticons_government_mechanics
-	alert_icon_index = 3
+divine_covenant_mechanic = {
+	alert_icon_gfx = GFX_alerticons_government_mechanics
+	alert_icon_index = 15
+	available = {
+		religion = jewish
+		NOT = { has_country_flag = covenant_broken_flag }
+	}
+
+	powers = {
+		divine_favor = {
+			max = 100
+			min = -50
+			default = 0
+			reset_on_new_ruler = no
+			base_monthly_growth = 0.5
+			development_scaled_monthly_growth = 0.002
+			show_before_interactions = yes
+			
+			# Divine blessing when high favor
+			scaled_modifier = {
+				start_value = 50
+				end_value = 100
+				modifier = {
+					tolerance_own = 2
+					stability_cost_modifier = -0.25
+					land_morale = 0.10
+					manpower_recovery_speed = 0.15
+				}
+			}
+			
+			# Mild benefits at moderate favor
+			range_modifier = {
+				start_value = 20
+				end_value = 49
+				modifier = {
+					tolerance_own = 1
+					land_morale = 0.05
+				}
+			}
+			
+			# Divine displeasure when negative
+			reverse_scaled_modifier = {
+				start_value = -50
+				end_value = 0
+				modifier = {
+					stability_cost_modifier = 0.5
+					land_morale = -0.15
+					tolerance_own = -2
+					yearly_corruption = 0.5
+				}
+			}
+			
+
+			
+			is_good = yes
+		}
+	}
 	
 	interactions = {
-       israel_boost_ruler_navy = { #Improvemandate
-			cooldown_years = 10
+		# First interaction - Seek Divine Guidance
+		seek_divine_guidance = {
+			cost_type = divine_favor
+			cost = 0
+			center = yes
+			icon = GFX_seek_divine_guidance
 			
-			icon = GFX_jews1
-			trigger = {
-				adm_power = 100
-			}
-			effect = { 
-				add_faction_influence = {
-					faction = jw_reform 
-					influence = 33
-				}
-			change_government_reform_progress = 30
-             add_dip_power = 50
-             add_mil_power = 50
-			 add_adm_power = -100
+			potential = {
+				religion = jewish
 
 			}
-			ai_chance = {
-				factor = 1
-			}
-		}
-       israel_boost_ruler_army = { 
-			cooldown_years = 10
 			
-			icon = GFX_jews2
 			trigger = {
-			}
-			effect = { 
-				
-				add_faction_influence = {
-					faction = jw_traditionalist
-					influence = 33
+				adm_power = 75
+				OR = {
+					has_government_power = {
+						mechanic_type = divine_covenant_mechanic
+						power_type = divine_favor
+						value = 10
+					}
+					is_at_war = yes
 				}
-			change_government_reform_progress = -20
-			add_republican_tradition = 10	
-			add_legitimacy = 10
-             add_dip_power = 50
-             add_mil_power = 50
-			 add_adm_power = 50
-
-
-
 			}
-			ai_chance = {
-				factor = 0
-			}
-		}
-
-               israel_boost_ruler_economy = { 
-			cooldown_years = 10
 			
-			icon = GFX_jews3
-			trigger = {
-                imperial_mandate = 80
-			}
-			effect = { 
-				add_faction_influence = {
-					faction = jw_zionist
-					influence = 33
+			effect = {
+				add_adm_power = -75
+				add_government_power = {
+					mechanic_type = divine_covenant_mechanic
+					power_type = divine_favor
+					value = 15
 				}
-				add_yearly_manpower = 2
-				create_general = { tradition = 60 }	
-				add_mil_power = -100
+				random_list = {
+					40 = {
+						add_country_modifier = {
+							name = divine_wisdom
+							duration = 1825
+						}
+					}
+					30 = {
+						add_stability = 1
+						add_prestige = 10
+					}
+					20 = {
+						add_years_of_income = 0.5
+						add_country_modifier = {
+							name = blessed_harvest
+							duration = 1095
+						}
+					}
+				}
+				add_country_modifier = {
+					name = divine_guidance_cooldown
+					duration = 1095
+					hidden = yes
+				}
 			}
+			
+			cooldown_years = 3
+			cooldown_desc = "DIVINE_GUIDANCE_COOLDOWN"
+			
 			ai_chance = {
-				factor = 0
+				factor = 50
+				modifier = {
+					factor = 2
+					is_at_war = yes
+				}
+				modifier = {
+					factor = 1.5
+					NOT = { stability = 1 }
+				}
+				modifier = {
+					factor = 0.5
+					has_government_power = {
+						mechanic_type = divine_covenant_mechanic
+						power_type = divine_favor
+						value = 80
+					}
+				}
 			}
 		}
 		
+		# Second interaction - Invoke Divine Wrath
+		invoke_divine_wrath = {
+			icon = GFX_invoke_divine_wrath
+			cost_type = divine_favor
+			cost = 25
+			center = yes
+			
+			potential = {
+				religion = jewish
 
 
-}
+			}
+			
+			trigger = {
+				mil_power = 100
+				is_at_war = yes
+				has_government_power = {
+					mechanic_type = divine_covenant_mechanic
+					power_type = divine_favor
+					value = 25
+				}
+				any_enemy_country = {
+					war_with = ROOT
+				}
+			}
+			
+			effect = {
+				add_mil_power = -100
+				add_government_power = {
+					mechanic_type = divine_covenant_mechanic
+					power_type = divine_favor
+					value = -25
+				}
+				random_enemy_country = {
+					limit = { war_with = ROOT }
+					add_country_modifier = {
+						name = divine_plague
+						duration = 1095
+					}
+					random_owned_province = {
+						limit = { 
+							development = 10
+							NOT = { has_province_modifier = locust_swarm }
+						}
+						add_province_modifier = {
+							name = locust_swarm
+							duration = 730
+						}
+					}
+				}
+				add_country_modifier = {
+					name = righteous_fury
+					duration = 730
+				}
+				add_country_modifier = {
+					name = divine_wrath_cooldown
+					duration = 1825
+					hidden = yes
+				}
+			}
+			
+			cooldown_years = 5
+			cooldown_desc = "DIVINE_WRATH_COOLDOWN"
+			
+			ai_chance = {
+				factor = 30
+				modifier = {
+					factor = 3
+					war_exhaustion = 5
+				}
+				modifier = {
+					factor = 2
+					any_enemy_country = {
+						war_with = ROOT
+						army_strength = {
+							who = ROOT
+							value = 1.5
+						}
+					}
+				}
+				modifier = {
+					factor = 0.1
+					has_government_power = {
+						mechanic_type = divine_covenant_mechanic
+						power_type = divine_favor
+						value = 90
+					}
+				}
+			}
+		}
+		
+		# Third interaction - Covenant Renewal
+		renew_covenant = {
+			icon = GFX_renew_covenant
+			cost_type = divine_favor
+			cost = 50
+			center = yes
+			
+			potential = {
+				religion = jewish
+				
+			}
+			
+			trigger = {
+				dip_power = 150
+				adm_power = 100
+				has_government_power = {
+					mechanic_type = divine_covenant_mechanic
+					power_type = divine_favor
+					value = 50
+				}
+				OR = {
+					stability = 2
+				}
+			}
+			
+			effect = {
+				add_dip_power = -150
+				add_adm_power = -100
+				add_government_power = {
+					mechanic_type = divine_covenant_mechanic
+					power_type = divine_favor
+					value = -50
+				}
+				add_country_modifier = {
+					name = renewed_covenant
+					duration = 5475
+				}
+				add_stability = 2
+				add_legitimacy = 25
+				add_prestige = 25
+				every_owned_province = {
+					limit = { religion = jewish }
+					add_province_modifier = {
+						name = blessed_lands
+						duration = 3650
+					}
+				}
+
+				add_country_modifier = {
+					name = covenant_renewal_cooldown
+					duration = 7300
+					hidden = yes
+				}
+			}
+			
+			cooldown_years = 20
+			cooldown_desc = "COVENANT_RENEWAL_COOLDOWN"
+			
+			ai_chance = {
+				factor = 10
+				modifier = {
+					factor = 5
+					stability = 3
+				}
+				modifier = {
+					factor = 2
+					has_government_power = {
+						mechanic_type = divine_covenant_mechanic
+						power_type = divine_favor
+						value = 90
+					}
+				}
+				modifier = {
+					factor = 0
+					NOT = { years_of_income = 2 }
+				}
+			}
+		}
+	}
 }

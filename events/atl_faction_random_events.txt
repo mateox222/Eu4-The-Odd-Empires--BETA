@@ -1,0 +1,2883 @@
+# ==============================================
+# ROYAL COURT FACTION EVENTS
+# ==============================================
+namespace = monarchy_factions
+# Royal Wedding Scandal
+country_event = {
+    id = monarchy_factions.1
+    title = monarchy_factions.1.t
+    desc = monarchy_factions.1.d
+    picture = COURT_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_royal_court
+        has_heir = yes
+        NOT = { has_country_flag = recent_wedding_scandal }
+    }
+    
+    immediate = {
+        set_country_flag = recent_wedding_scandal
+    }
+    
+    after = {
+        clr_country_flag = recent_wedding_scandal
+    }
+    
+    # Support the courtiers
+    option = {
+        name = monarchy_factions.1.a
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = 15
+        }
+        add_prestige = 10
+        add_years_of_income = -0.25
+        random_list = {
+            70 = { add_legitimacy = 5 }
+            30 = { 
+                add_legitimacy = -10
+                add_stability = -1
+            }
+        }
+        ai_chance = {
+            factor = 60
+            modifier = {
+                factor = 1.5
+                legitimacy = 80
+            }
+        }
+    }
+    
+    # Investigate the matter
+    option = {
+        name = monarchy_factions.1.b
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = -10
+        }
+        add_dip_power = 25
+        random_list = {
+            60 = { 
+                add_legitimacy = 10
+                add_corruption = -0.5
+            }
+            40 = { 
+                add_stability = -1
+                random_owned_province = {
+                    limit = { is_capital = no }
+                    spawn_rebels = {
+                        type = noble_rebels
+                        size = 1
+                    }
+                }
+            }
+        }
+        ai_chance = {
+            factor = 40
+            modifier = {
+                factor = 2
+                corruption = 2
+            }
+        }
+    }
+}
+
+# The Royal Hunt
+country_event = {
+    id = monarchy_factions.2
+    title = monarchy_factions.2.t
+    desc = monarchy_factions.2.d
+    picture = HUNTING_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_royal_court
+        NOT = { has_country_flag = recent_royal_hunt }
+        is_at_war = no
+    }
+    
+    immediate = {
+        set_country_flag = recent_royal_hunt
+    }
+    
+    # Lavish hunting party
+    option = {
+        name = monarchy_factions.2.a
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = 12
+        }
+        add_prestige = 15
+        add_years_of_income = -0.4
+        add_legitimacy = 8
+        add_corruption = 0.25
+        if = {
+            limit = { has_faction = faction_noble }
+            add_faction_influence = {
+                faction = faction_noble
+                influence = 8
+            }
+        }
+        ai_chance = {
+            factor = 50
+            modifier = {
+                factor = 1.5
+                years_of_income = 3
+            }
+        }
+    }
+    
+    # Modest celebration
+    option = {
+        name = monarchy_factions.2.b
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = 5
+        }
+        add_prestige = 5
+        add_years_of_income = -0.1
+        add_legitimacy = 3
+        ai_chance = {
+            factor = 50
+        }
+    }
+}
+
+# The Royal Mistress Scandal
+country_event = {
+    id = monarchy_factions.101
+    title = monarchy_factions.101.t
+    desc = monarchy_factions.101.d
+    picture = COURT_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_royal_court
+       has_consort = yes
+
+        NOT = { has_ruler_modifier = pious }
+        NOT = { has_country_flag = recent_mistress_scandal }
+    }
+    
+    immediate = {
+        set_country_flag = recent_mistress_scandal
+    }
+    
+    # Support the king's choice
+    option = {
+        name = monarchy_factions.101.a
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = 15
+        }
+        add_legitimacy = -10
+        add_prestige = -5
+        if = {
+            limit = { has_faction = faction_clerical }
+            add_faction_influence = {
+                faction = faction_clerical
+                influence = -12
+            }
+        }
+        add_ruler_modifier = {
+            name = royal_scandal
+            duration = 3650
+        }
+        ai_chance = { factor = 40 }
+    }
+    
+    # Arrange a discrete solution
+    option = {
+        name = monarchy_factions.101.b
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = 8
+        }
+        add_years_of_income = -0.2
+        add_legitimacy = 5
+        ai_chance = { factor = 60 }
+    }
+}
+
+# The Alchemist's Discovery
+country_event = {
+    id = monarchy_factions.110
+    title = monarchy_factions.110.t
+    desc = monarchy_factions.110.d
+    picture = INVENTION_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_royal_court
+        adm_tech = 15
+        treasury = 150
+        NOT = { has_country_flag = alchemist_discovery }
+    }
+    
+    immediate = {
+        set_country_flag = alchemist_discovery
+    }
+    
+    # Fund the research
+    option = {
+        name = monarchy_factions.110.a
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = 12
+        }
+        add_treasury = -150
+        random_list = {
+            60 = {
+                add_years_of_income = 0.5
+                add_prestige = 10
+            }
+            30 = {
+                add_adm_power = 50
+                change_innovativeness = 1
+            }
+            10 = {
+                add_stability = -1
+                add_prestige = -10
+            }
+        }
+        ai_chance = { factor = 60 }
+    }
+    
+    # Reject the proposal
+    option = {
+        name = monarchy_factions.110.b
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = -8
+        }
+        if = {
+            limit = { has_faction = faction_clerical }
+            add_faction_influence = {
+                faction = faction_clerical
+                influence = 5
+            }
+        }
+        add_legitimacy = 3
+        ai_chance = { factor = 40 }
+    }
+}
+
+# The Spymaster's Network
+country_event = {
+    id = monarchy_factions.111
+    title = monarchy_factions.111.t
+    desc = monarchy_factions.111.d
+    picture = SPY_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_royal_court
+ 
+        dip_tech = 12
+        NOT = { has_country_flag = spymaster_network }
+    }
+    
+    immediate = {
+        set_country_flag = spymaster_network
+        random_rival_country = {
+            save_event_target_as = spy_target
+        }
+    }
+    
+    # Expand the network
+    option = {
+        name = monarchy_factions.111.a
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = 10
+        }
+        add_spy_network_in = {
+            who = event_target:spy_target
+            value = 50
+        }
+        add_dip_power = -75
+        add_country_modifier = {
+            name = royal_spy_network
+            duration = 3650
+        }
+        ai_chance = { factor = 70 }
+    }
+    
+    # Keep it modest
+    option = {
+        name = monarchy_factions.111.b
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = 5
+        }
+        add_spy_network_in = {
+            who = event_target:spy_target
+            value = 25
+        }
+        add_dip_power = -25
+        ai_chance = { factor = 30 }
+    }
+}
+
+# ==============================================
+# MILITARY FACTION EVENTS
+# ==============================================
+
+# The War Hero's Ambition
+country_event = {
+    id = monarchy_factions.10
+    title = monarchy_factions.10.t
+    desc = monarchy_factions.10.d
+    picture = MILITARY_CAMP_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_military
+        army_tradition = 40
+      is_at_war = yes
+
+        NOT = { has_country_flag = recent_war_hero_event }
+    }
+    
+    immediate = {
+        set_country_flag = recent_war_hero_event
+        random_owned_province = {
+ 
+            save_event_target_as = hero_province
+        }
+    }
+    
+    # Promote the hero
+    option = {
+        name = monarchy_factions.10.a
+        add_faction_influence = {
+            faction = faction_military
+            influence = 20
+        }
+        create_general = { tradition = 50 }
+        add_army_tradition = 5
+        add_mil_power = 25
+        if = {
+            limit = { has_faction = faction_royal_court }
+            add_faction_influence = {
+                faction = faction_royal_court
+                influence = -8
+            }
+        }
+        ai_chance = {
+            factor = 70
+            modifier = {
+                factor = 1.3
+                army_tradition = 60
+            }
+        }
+    }
+    
+    # Keep him in check
+    option = {
+        name = monarchy_factions.10.b
+        add_faction_influence = {
+            faction = faction_military
+            influence = -15
+        }
+        add_legitimacy = 10
+        add_stability = 1
+        event_target:hero_province = {
+            add_province_modifier = {
+                name = military_hero_snubbed
+                duration = 1825
+            }
+        }
+        ai_chance = {
+            factor = 30
+            modifier = {
+                factor = 2
+                NOT = { legitimacy = 75 }
+            }
+        }
+    }
+}
+
+# Military Academy Proposal
+country_event = {
+    id = monarchy_factions.11
+    title = monarchy_factions.11.t
+    desc = monarchy_factions.11.d
+    picture = MILITARY_CAMP_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_military
+        mil_tech = 15
+        NOT = { has_country_flag = has_military_academy }
+        treasury = 200
+    }
+    
+    # Fund the academy
+    option = {
+        name = monarchy_factions.11.a
+        add_faction_influence = {
+            faction = faction_military
+            influence = 15
+        }
+        add_treasury = -200
+        add_country_modifier = {
+            name = royal_military_academy
+            duration = -1
+        }
+        set_country_flag = has_military_academy
+        ai_chance = {
+            factor = 60
+            modifier = {
+                factor = 1.5
+                treasury = 500
+            }
+        }
+    }
+    
+    # Reject the proposal
+    option = {
+        name = monarchy_factions.11.b
+        add_faction_influence = {
+            faction = faction_military
+            influence = -10
+        }
+        add_treasury = 50
+        add_legitimacy = 5
+        ai_chance = {
+            factor = 40
+        }
+    }
+}
+
+# Mercenary Company Proposal
+country_event = {
+    id = monarchy_factions.112
+    title = monarchy_factions.112.t
+    desc = monarchy_factions.112.d
+    picture = MILITARY_CAMP_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_military
+        mil_tech = 10
+        manpower_percentage = 0.7
+        NOT = { has_country_flag = mercenary_proposal }
+    }
+    
+    immediate = {
+        set_country_flag = mercenary_proposal
+    }
+    
+    # Charter the company
+    option = {
+        name = monarchy_factions.112.a
+        add_faction_influence = {
+            faction = faction_military
+            influence = 15
+        }
+        add_country_modifier = {
+            name = royal_mercenary_charter
+            duration = 7300
+        }
+        add_treasury = -200
+        ai_chance = { factor = 65 }
+    }
+    
+    # Reject foreign soldiers
+    option = {
+        name = monarchy_factions.112.b
+        add_faction_influence = {
+            faction = faction_military
+            influence = -5
+        }
+        if = {
+            limit = { has_faction = faction_national }
+            add_faction_influence = {
+                faction = faction_national
+                influence = 8
+            }
+        }
+        add_legitimacy = 5
+        ai_chance = { factor = 35 }
+    }
+}
+
+# The Siege Engineer's Innovation
+country_event = {
+    id = monarchy_factions.113
+    title = monarchy_factions.113.t
+    desc = monarchy_factions.113.d
+    picture = SIEGE_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_military
+        mil_tech = 14
+        any_owned_province = {
+            has_building = fort_15th
+        }
+        NOT = { has_country_flag = siege_innovation }
+    }
+    
+    immediate = {
+        set_country_flag = siege_innovation
+    }
+    
+    # Adopt new techniques
+    option = {
+        name = monarchy_factions.113.a
+        add_faction_influence = {
+            faction = faction_military
+            influence = 12
+        }
+        add_country_modifier = {
+            name = advanced_siege_techniques
+            duration = 5475
+        }
+        add_mil_power = 50
+        ai_chance = { factor = 80 }
+    }
+    
+    # Traditional methods suffice
+    option = {
+        name = monarchy_factions.113.b
+        add_faction_influence = {
+            faction = faction_military
+            influence = -8
+        }
+        add_army_tradition = 3
+        ai_chance = { factor = 20 }
+    }
+}
+
+# ==============================================
+# MERCHANT FACTION EVENTS
+# ==============================================
+
+# Trade Route Dispute
+country_event = {
+    id = monarchy_factions.20
+    title = monarchy_factions.20.t
+    desc = monarchy_factions.20.d
+    picture = MERCHANTS_TALKING_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_merchant
+        any_owned_province = {
+            has_building = marketplace
+            trade_goods = silk
+        }
+        NOT = { has_country_flag = recent_trade_dispute }
+    }
+    
+    immediate = {
+        set_country_flag = recent_trade_dispute
+        random_owned_province = {
+            limit = { 
+                has_building = marketplace
+                trade_goods = silk
+            }
+            save_event_target_as = trade_province
+        }
+    }
+    
+    # Side with merchants
+    option = {
+        name = monarchy_factions.20.a
+        add_faction_influence = {
+            faction = faction_merchant
+            influence = 18
+        }
+        event_target:trade_province = {
+            add_province_modifier = {
+                name = royal_trade_protection
+                duration = 3650
+            }
+        }
+        add_mercantilism = 1
+        if = {
+            limit = { has_faction = faction_noble }
+            add_faction_influence = {
+                faction = faction_noble
+                influence = -5
+            }
+        }
+        ai_chance = {
+            factor = 65
+            modifier = {
+                factor = 1.4
+                trade_income_percentage = 0.4
+            }
+        }
+    }
+    
+    # Remain neutral
+    option = {
+        name = monarchy_factions.20.b
+        add_faction_influence = {
+            faction = faction_merchant
+            influence = -8
+        }
+        add_stability = 1
+        add_legitimacy = 5
+        ai_chance = {
+            factor = 35
+        }
+    }
+}
+
+# Banking Innovation
+country_event = {
+    id = monarchy_factions.21
+    title = monarchy_factions.21.t
+    desc = monarchy_factions.21.d
+    picture = BANK_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_merchant
+        adm_tech = 18
+        capital_scope = {
+            development = 20
+        }
+        NOT = { has_country_flag = banking_innovation }
+    }
+    
+    # Support innovation
+    option = {
+        name = monarchy_factions.21.a
+        add_faction_influence = {
+            faction = faction_merchant
+            influence = 12
+        }
+        capital_scope = {
+            add_building = stock_exchange
+        }
+        add_country_modifier = {
+            name = royal_banking_charter
+            duration = 7300
+        }
+        set_country_flag = banking_innovation
+        ai_chance = {
+            factor = 70
+            modifier = {
+                factor = 1.3
+                treasury = 1000
+            }
+        }
+    }
+    
+    # Traditional methods
+    option = {
+        name = monarchy_factions.21.b
+        add_faction_influence = {
+            faction = faction_merchant
+            influence = -12
+        }
+        add_treasury = 100
+        if = {
+            limit = { has_faction = faction_clerical }
+            add_faction_influence = {
+                faction = faction_clerical
+                influence = 8
+            }
+        }
+        ai_chance = {
+            factor = 30
+        }
+    }
+}
+
+# Maritime Trade Expansion
+country_event = {
+    id = monarchy_factions.120
+    title = monarchy_factions.120.t
+    desc = monarchy_factions.120.d
+    picture = SHIP_SAILING_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_merchant
+        num_of_ports = 3
+        dip_tech = 9
+        treasury = 300
+        NOT = { has_country_flag = maritime_expansion }
+    }
+    
+    immediate = {
+        set_country_flag = maritime_expansion
+    }
+    
+    # Fund the expedition
+    option = {
+        name = monarchy_factions.120.a
+        add_faction_influence = {
+            faction = faction_merchant
+            influence = 18
+        }
+        add_treasury = -300
+        add_mercantilism = 2
+        random_list = {
+            70 = {
+                add_years_of_income = 0.8
+                add_country_modifier = {
+                    name = successful_trade_expedition
+                    duration = 3650
+                }
+            }
+            20 = {
+                add_years_of_income = 0.3
+                add_sailors = 1000
+            }
+            10 = {
+                add_prestige = -5
+                add_treasury = -100
+            }
+        }
+        ai_chance = { factor = 70 }
+    }
+    
+    # Too risky
+    option = {
+        name = monarchy_factions.120.b
+        add_faction_influence = {
+            faction = faction_merchant
+            influence = -12
+        }
+        add_treasury = 50
+        add_legitimacy = 3
+        ai_chance = { factor = 30 }
+    }
+}
+
+# Guildhall Construction
+country_event = {
+    id = monarchy_factions.121
+    title = monarchy_factions.121.t
+    desc = monarchy_factions.121.d
+    picture = CITY_DEVELOPMENT_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_merchant
+        capital_scope = {
+            development = 15
+            NOT = { has_building = courthouse }
+        }
+        treasury = 100
+        NOT = { has_country_flag = guildhall_construction }
+    }
+    
+    immediate = {
+        set_country_flag = guildhall_construction
+    }
+    
+    # Build the guildhall
+    option = {
+        name = monarchy_factions.121.a
+        add_faction_influence = {
+            faction = faction_merchant
+            influence = 15
+        }
+        capital_scope = {
+            add_building =  courthouse
+        }
+        add_years_of_income = -0.15
+        ai_chance = { factor = 80 }
+    }
+    
+    # Decline the proposal
+    option = {
+        name = monarchy_factions.121.b
+        add_faction_influence = {
+            faction = faction_merchant
+            influence = -10
+        }
+        add_legitimacy = 5
+        capital_scope = {
+            add_unrest = 1
+        }
+        ai_chance = { factor = 20 }
+    }
+}
+
+# ==============================================
+# CLERICAL FACTION EVENTS
+# ==============================================
+
+# Religious Relic Discovery
+country_event = {
+    id = monarchy_factions.30
+    title = monarchy_factions.30.t
+    desc = monarchy_factions.30.d
+    picture = RELIGIOUS_TURMOIL_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_clerical
+        religion_group = christian
+        any_owned_province = {
+            religion = ROOT
+            has_building = cathedral
+        }
+        NOT = { has_country_flag = recent_relic_discovery }
+    }
+    
+    immediate = {
+        set_country_flag = recent_relic_discovery
+        random_owned_province = {
+            limit = { 
+                religion = ROOT
+                has_building = cathedral
+            }
+            save_event_target_as = relic_province
+        }
+    }
+    
+    # Authenticate the relic
+    option = {
+        name = monarchy_factions.30.a
+        add_faction_influence = {
+            faction = faction_clerical
+            influence = 20
+        }
+        event_target:relic_province = {
+            add_province_modifier = {
+                name = holy_relic
+                duration = -1
+            }
+        }
+        add_papal_influence = 15
+        add_church_power = 25
+        add_legitimacy = 10
+        ai_chance = {
+            factor = 60
+            modifier = {
+                factor = 1.5
+                papal_influence = 75
+            }
+        }
+    }
+    
+    # Question its authenticity
+    option = {
+        name = monarchy_factions.30.b
+        add_faction_influence = {
+            faction = faction_clerical
+            influence = -15
+        }
+        add_adm_power = 30
+        add_stability = 1
+        if = {
+            limit = { has_faction = faction_bureaucratic }
+            add_faction_influence = {
+                faction = faction_bureaucratic
+                influence = 8
+            }
+        }
+        ai_chance = {
+            factor = 40
+            modifier = {
+                factor = 2
+                innovativeness = 75
+            }
+        }
+    }
+}
+
+# Heresy in the Countryside
+country_event = {
+    id = monarchy_factions.31
+    title = monarchy_factions.31.t
+    desc = monarchy_factions.31.d
+    picture = RELIGIOUS_TURMOIL_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_clerical
+        any_owned_province = {
+            NOT = { religion = ROOT }
+            unrest = 1
+        }
+        NOT = { has_country_flag = recent_heresy_event }
+    }
+    
+    immediate = {
+        set_country_flag = recent_heresy_event
+        random_owned_province = {
+            limit = { 
+                NOT = { religion = ROOT }
+                unrest = 1
+            }
+            save_event_target_as = heretic_province
+        }
+    }
+    
+    # Launch inquisition
+    option = {
+        name = monarchy_factions.31.a
+        add_faction_influence = {
+            faction = faction_clerical
+            influence = 15
+        }
+        event_target:heretic_province = {
+            add_province_modifier = {
+                name = royal_inquisition
+                duration = 1825
+            }
+            change_religion = ROOT
+        }
+        add_papal_influence = 10
+        add_legitimacy = 8
+        if = {
+            limit = { has_faction = faction_national }
+            add_faction_influence = {
+                faction = faction_national
+                influence = -10
+            }
+        }
+        ai_chance = {
+            factor = 70
+            modifier = {
+                factor = 1.5
+                religious_unity = 0.8
+            }
+        }
+    }
+    
+    # Seek peaceful conversion
+    option = {
+        name = monarchy_factions.31.b
+        add_faction_influence = {
+            faction = faction_clerical
+            influence = 5
+        }
+ 
+        add_dip_power = 25
+        ai_chance = {
+            factor = 30
+        }
+    }
+}
+
+# Pilgrimage Route Establishment
+country_event = {
+    id = monarchy_factions.130
+    title = monarchy_factions.130.t
+    desc = monarchy_factions.130.d
+    picture = RELIGIOUS_CONVERSION_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_clerical
+        religion_group = christian
+        any_owned_province = {
+            religion = ROOT
+            has_building = cathedral
+            development = 12
+        }
+        NOT = { has_country_flag = pilgrimage_route }
+    }
+    
+    immediate = {
+        set_country_flag = pilgrimage_route
+        random_owned_province = {
+            limit = { 
+                religion = ROOT
+                has_building = cathedral
+                development = 12
+            }
+            save_event_target_as = pilgrimage_site
+        }
+    }
+    
+    # Establish the route
+    option = {
+        name = monarchy_factions.130.a
+        add_faction_influence = {
+            faction = faction_clerical
+            influence = 20
+        }
+        event_target:pilgrimage_site = {
+            add_province_modifier = {
+                name = pilgrimage_destination
+                duration = -1
+            }
+        }
+        add_papal_influence = 20
+        add_church_power = 30
+        add_years_of_income = -0.2
+        ai_chance = { factor = 75 }
+    }
+    
+    # Focus on local faith
+    option = {
+        name = monarchy_factions.130.b
+        add_faction_influence = {
+            faction = faction_clerical
+            influence = 5
+        }
+        event_target:pilgrimage_site = {
+            add_province_modifier = {
+                name = local_religious_center
+                duration = 3650
+            }
+        }
+        add_legitimacy = 5
+        ai_chance = { factor = 25 }
+    }
+}
+
+# Theological Debate
+country_event = {
+    id = monarchy_factions.131
+    title = monarchy_factions.131.t
+    desc = monarchy_factions.131.d
+    picture = RELIGIOUS_TURMOIL_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_clerical
+        adm_tech = 10
+        any_owned_province = {
+            has_building = university
+        }
+        NOT = { has_country_flag = theological_debate }
+    }
+    
+    immediate = {
+        set_country_flag = theological_debate
+    }
+    
+    # Support orthodox position
+    option = {
+        name = monarchy_factions.131.a
+        add_faction_influence = {
+            faction = faction_clerical
+            influence = 15
+        }
+        add_papal_influence = 15
+        add_legitimacy = 8
+        if = {
+            limit = { has_faction = faction_bureaucratic }
+            add_faction_influence = {
+                faction = faction_bureaucratic
+                influence = -5
+            }
+        }
+        ai_chance = { factor = 60 }
+    }
+    
+    # Allow scholarly discussion
+    option = {
+        name = monarchy_factions.131.b
+        add_faction_influence = {
+            faction = faction_clerical
+            influence = 5
+        }
+        add_adm_power = 30
+        change_innovativeness = 1
+        random_owned_province = {
+            limit = { has_building = university }
+            add_province_modifier = {
+                name = theological_scholarship
+                duration = 3650
+            }
+        }
+        ai_chance = { factor = 40 }
+    }
+}
+
+# ==============================================
+# NOBLE FACTION EVENTS
+# ==============================================
+
+# Tournament of Honor
+country_event = {
+    id = monarchy_factions.40
+    title = monarchy_factions.40.t
+    desc = monarchy_factions.40.d
+    picture = TOURNAMENT_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_noble
+        prestige = 25
+        NOT = { has_country_flag = recent_tournament }
+        is_at_war = no
+    }
+    
+    immediate = {
+        set_country_flag = recent_tournament
+    }
+    
+    # Host grand tournament
+    option = {
+        name = monarchy_factions.40.a
+        add_faction_influence = {
+            faction = faction_noble
+            influence = 18
+        }
+        add_prestige = 20
+        add_legitimacy = 10
+        add_years_of_income = -0.3
+        create_general = { tradition = 40 }
+        add_army_tradition = 3
+        random_list = {
+            80 = { 
+                add_country_modifier = {
+                    name = successful_tournament
+                    duration = 1825
+                }
+            }
+            20 = { 
+                add_stability = -1
+                add_prestige = -10
+            }
+        }
+        ai_chance = {
+            factor = 65
+            modifier = {
+                factor = 1.3
+                prestige = 50
+            }
+        }
+    }
+    
+    # Modest competition
+    option = {
+        name = monarchy_factions.40.b
+        add_faction_influence = {
+            faction = faction_noble
+            influence = 8
+        }
+        add_prestige = 8
+        add_legitimacy = 5
+        add_years_of_income = -0.1
+        ai_chance = {
+            factor = 35
+        }
+    }
+}
+
+# Noble Land Dispute
+country_event = {
+    id = monarchy_factions.41
+    title = monarchy_factions.41.t
+    desc = monarchy_factions.41.d
+    picture = COURT_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_noble
+        any_owned_province = {
+            development = 10
+            NOT = { has_province_modifier = crown_land }
+        }
+        NOT = { has_country_flag = recent_land_dispute }
+    }
+    
+    immediate = {
+        set_country_flag = recent_land_dispute
+        random_owned_province = {
+            limit = { 
+                development = 10
+                NOT = { has_province_modifier = crown_land }
+            }
+            save_event_target_as = disputed_land
+        }
+    }
+    
+    # Side with nobles
+    option = {
+        name = monarchy_factions.41.a
+        add_faction_influence = {
+            faction = faction_noble
+            influence = 15
+        }
+        event_target:disputed_land = {
+            add_province_modifier = {
+                name = noble_privileges
+                duration = 3650
+            }
+        }
+        add_legitimacy = -5
+        ai_chance = {
+            factor = 50
+            modifier = {
+                factor = 1.5
+                NOT = { absolutism = 30 }
+            }
+        }
+    }
+    
+    # Assert royal authority
+    option = {
+        name = monarchy_factions.41.b
+        add_faction_influence = {
+            faction = faction_noble
+            influence = -12
+        }
+        event_target:disputed_land = {
+            add_province_modifier = {
+                name = crown_land
+                duration = 3650
+            }
+        }
+        add_legitimacy = 8
+         
+        random_list = {
+            70 = { }
+            30 = {
+                event_target:disputed_land = {
+                    spawn_rebels = {
+                        type = noble_rebels
+                        size = 2
+                    }
+                }
+            }
+        }
+        ai_chance = {
+            factor = 50
+            modifier = {
+                factor = 1.5
+                absolutism = 50
+            }
+        }
+    }
+}
+
+# Noble Hunting Preserve
+country_event = {
+    id = monarchy_factions.140
+    title = monarchy_factions.140.t
+    desc = monarchy_factions.140.d
+    picture = HUNTING_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_noble
+        any_owned_province = {
+            development = 8
+            has_terrain = forest
+        }
+        NOT = { has_country_flag = hunting_preserve }
+    }
+    
+    immediate = {
+        set_country_flag = hunting_preserve
+        random_owned_province = {
+            limit = { 
+                development = 8
+                has_terrain = forest
+            }
+            save_event_target_as = forest_province
+        }
+    }
+    
+    # Grant hunting rights
+    option = {
+        name = monarchy_factions.140.a
+        add_faction_influence = {
+            faction = faction_noble
+            influence = 15
+        }
+        event_target:forest_province = {
+            add_province_modifier = {
+                name = noble_hunting_preserve
+                duration = -1
+            }
+        }
+        add_legitimacy = 8
+        add_years_of_income = -0.1
+        ai_chance = { factor = 70 }
+    }
+    
+    # Preserve common rights
+    option = {
+        name = monarchy_factions.140.b
+        add_faction_influence = {
+            faction = faction_noble
+            influence = -10
+        }
+        event_target:forest_province = {
+            add_base_tax = 1
+        }
+         
+        ai_chance = { factor = 30 }
+    }
+}
+
+# Noble Academy Proposal
+country_event = {
+    id = monarchy_factions.141
+    title = monarchy_factions.141.t
+    desc = monarchy_factions.141.d
+    picture = COURT_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_noble
+        dip_tech = 12
+        capital_scope = {
+            development = 20
+        }
+        NOT = { has_country_flag = noble_academy }
+    }
+    
+    immediate = {
+        set_country_flag = noble_academy
+    }
+    
+    # Establish the academy
+    option = {
+        name = monarchy_factions.141.a
+        add_faction_influence = {
+            faction = faction_noble
+            influence = 18
+        }
+        add_country_modifier = {
+            name = noble_military_academy
+            duration = -1
+        }
+        add_treasury = -300
+        create_general = { tradition = 50 }
+        ai_chance = { factor = 65 }
+    }
+    
+    # Reject elitist education
+    option = {
+        name = monarchy_factions.141.b
+        add_faction_influence = {
+            faction = faction_noble
+            influence = -12
+        }
+         
+        capital_scope = {
+            add_building = university
+        }
+        ai_chance = { factor = 35 }
+    }
+}
+
+# ==============================================
+# BUREAUCRATIC FACTION EVENTS
+# ==============================================
+
+# Administrative Reform Proposal
+country_event = {
+    id = monarchy_factions.50
+    title = monarchy_factions.50.t
+    desc = monarchy_factions.50.d
+    picture = COURT_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_bureaucratic
+        adm_tech = 12
+        absolutism = 30
+        NOT = { has_country_flag = recent_admin_reform }
+    }
+    
+    immediate = {
+        set_country_flag = recent_admin_reform
+    }
+    
+    # Implement reforms
+    option = {
+        name = monarchy_factions.50.a
+        add_faction_influence = {
+            faction = faction_bureaucratic
+            influence = 20
+        }
+        add_country_modifier = {
+            name = administrative_efficiency_reform
+            duration = 5475
+        }
+        change_government_reform_progress = 25
+        add_adm_power = -50
+        if = {
+            limit = { has_faction = faction_noble }
+            add_faction_influence = {
+                faction = faction_noble
+                influence = -8
+            }
+        }
+        ai_chance = {
+            factor = 70
+            modifier = {
+                factor = 1.3
+                adm_power = 100
+            }
+        }
+    }
+    
+    # Maintain status quo
+    option = {
+        name = monarchy_factions.50.b
+        add_faction_influence = {
+            faction = faction_bureaucratic
+            influence = -10
+        }
+        add_legitimacy = 5
+        add_stability = 1
+        ai_chance = {
+            factor = 30
+        }
+    }
+}
+
+# Tax Collection Efficiency
+country_event = {
+    id = monarchy_factions.51
+    title = monarchy_factions.51.t
+    desc = monarchy_factions.51.d
+    picture = COURT_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_bureaucratic
+        num_of_owned_provinces_with = {
+            value = 15
+            OR = {
+                has_building = courthouse
+                has_building = town_hall
+            }
+        }
+        NOT = { has_country_flag = tax_efficiency_reform }
+    }
+    
+    # Modernize tax system
+    option = {
+        name = monarchy_factions.51.a
+        add_faction_influence = {
+            faction = faction_bureaucratic
+            influence = 15
+        }
+        add_country_modifier = {
+            name = improved_tax_collection
+            duration = 7300
+        }
+        add_years_of_income = 0.5
+        set_country_flag = tax_efficiency_reform
+        ai_chance = {
+            factor = 80
+        }
+    }
+    
+    # Keep traditional methods
+    option = {
+        name = monarchy_factions.51.b
+        add_faction_influence = {
+            faction = faction_bureaucratic
+            influence = -8
+        }
+        add_legitimacy = 3
+        ai_chance = {
+            factor = 20
+        }
+    }
+}
+
+# Administrative Census
+country_event = {
+    id = monarchy_factions.150
+    title = monarchy_factions.150.t
+    desc = monarchy_factions.150.d
+    picture = COURT_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_bureaucratic
+        adm_tech = 14
+        num_of_owned_provinces_with = {
+            value = 20
+            is_city = yes
+        }
+        NOT = { has_country_flag = administrative_census }
+    }
+    
+    immediate = {
+        set_country_flag = administrative_census
+    }
+    
+    # Conduct comprehensive census
+    option = {
+        name = monarchy_factions.150.a
+        add_faction_influence = {
+            faction = faction_bureaucratic
+            influence = 20
+        }
+        add_country_modifier = {
+            name = comprehensive_census
+            duration = 7300
+        }
+        add_adm_power = -100
+        add_years_of_income = 0.3
+        ai_chance = { factor = 80 }
+    }
+    
+    # Basic population count only
+    option = {
+        name = monarchy_factions.150.b
+        add_faction_influence = {
+            faction = faction_bureaucratic
+            influence = 8
+        }
+        add_adm_power = -25
+        add_years_of_income = 0.1
+        ai_chance = { factor = 20 }
+    }
+}
+
+# Legal Code Standardization
+country_event = {
+    id = monarchy_factions.151
+    title = monarchy_factions.151.t
+    desc = monarchy_factions.151.d
+    picture = DIPLOMACY_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_bureaucratic
+        adm_tech = 16
+        absolutism = 40
+        NOT = { has_country_flag = legal_standardization }
+    }
+    
+    immediate = {
+        set_country_flag = legal_standardization
+    }
+    
+    # Standardize the legal code
+    option = {
+        name = monarchy_factions.151.a
+        add_faction_influence = {
+            faction = faction_bureaucratic
+            influence = 25
+        }
+        add_country_modifier = {
+            name = standardized_legal_code
+            duration = -1
+        }
+        change_government_reform_progress = 50
+        if = {
+            limit = { has_faction = faction_noble }
+            add_faction_influence = {
+                faction = faction_noble
+                influence = -15
+            }
+        }
+        ai_chance = { factor = 75 }
+    }
+    
+    # Maintain regional variations
+    option = {
+        name = monarchy_factions.151.b
+        add_faction_influence = {
+            faction = faction_bureaucratic
+            influence = -8
+        }
+        if = {
+            limit = { has_faction = faction_noble }
+            add_faction_influence = {
+                faction = faction_noble
+                influence = 10
+            }
+        }
+        add_legitimacy = 8
+        ai_chance = { factor = 25 }
+    }
+}
+
+# ==============================================
+# NATIONAL FACTION EVENTS
+# ==============================================
+
+# Cultural Festival
+country_event = {
+    id = monarchy_factions.60
+    title = monarchy_factions.60.t
+    desc = monarchy_factions.60.d
+    picture = CULTURE_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_national
+        num_accepted_cultures = 2
+        NOT = { has_country_flag = recent_cultural_festival }
+        is_at_war = no
+    }
+    
+    immediate = {
+        set_country_flag = recent_cultural_festival
+    }
+    
+    # Support all cultures
+    option = {
+        name = monarchy_factions.60.a
+        add_faction_influence = {
+            faction = faction_national
+            influence = 18
+        }
+        add_country_modifier = {
+            name = cultural_unity_celebration
+            duration = 3650
+        }
+        add_legitimacy = 8
+        add_years_of_income = -0.2
+        random_owned_province = {
+            limit = { NOT = { culture = ROOT } }
+            add_province_modifier = {
+                name = cultural_appreciation
+                duration = 1825
+            }
+        }
+        ai_chance = {
+            factor = 60
+            modifier = {
+                factor = 1.4
+                num_accepted_cultures = 3
+            }
+        }
+    }
+    
+    # Focus on primary culture
+    option = {
+        name = monarchy_factions.60.b
+        add_faction_influence = {
+            faction = faction_national
+            influence = -10
+        }
+        add_legitimacy = 10
+        capital_scope = {
+            add_province_modifier = {
+                name = cultural_supremacy
+                duration = 3650
+            }
+        }
+        if = {
+            limit = { has_faction = faction_clerical }
+            add_faction_influence = {
+                faction = faction_clerical
+                influence = 5
+            }
+        }
+        ai_chance = {
+            factor = 40
+        }
+    }
+}
+
+# Border Province Integration
+country_event = {
+    id = monarchy_factions.61
+    title = monarchy_factions.61.t
+    desc = monarchy_factions.61.d
+    picture = DIPLOMATIC_PROGRESS_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_national
+        any_owned_province = {
+            NOT = { culture = ROOT }
+            NOT = { is_core = ROOT }
+            is_city = yes
+        }
+        NOT = { has_country_flag = recent_integration_event }
+    }
+    
+    immediate = {
+        set_country_flag = recent_integration_event
+        random_owned_province = {
+            limit = { 
+                NOT = { culture = ROOT }
+                NOT = { is_core = ROOT }
+                is_city = yes
+            }
+            save_event_target_as = integration_province
+        }
+    }
+    
+    # Peaceful integration
+    option = {
+        name = monarchy_factions.61.a
+        add_faction_influence = {
+            faction = faction_national
+            influence = 12
+        }
+        event_target:integration_province = {
+            add_core = ROOT
+            add_province_modifier = {
+                name = peaceful_integration
+                duration = 3650
+            }
+        }
+        add_dip_power = -25
+        ai_chance = {
+            factor = 70
+            modifier = {
+                factor = 1.3
+                dip_power = 100
+            }
+        }
+    }
+    
+    # Forced assimilation
+    option = {
+        name = monarchy_factions.61.b
+        add_faction_influence = {
+            faction = faction_national
+            influence = -8
+        }
+        event_target:integration_province = {
+            change_culture = ROOT
+            add_unrest = 5
+        }
+        add_legitimacy = 5
+        ai_chance = {
+            factor = 30
+        }
+    }
+}
+
+# Cultural Heritage Preservation
+country_event = {
+    id = monarchy_factions.160
+    title = monarchy_factions.160.t
+    desc = monarchy_factions.160.d
+    picture = CULTURE_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_national
+        num_accepted_cultures = 2
+        any_owned_province = {
+            NOT = { culture = ROOT }
+            development = 10
+        }
+        NOT = { has_country_flag = heritage_preservation }
+    }
+    
+    immediate = {
+        set_country_flag = heritage_preservation
+        random_owned_province = {
+            limit = { 
+                NOT = { culture = ROOT }
+                development = 10
+            }
+            save_event_target_as = heritage_province
+        }
+    }
+    
+    # Fund preservation efforts
+    option = {
+        name = monarchy_factions.160.a
+        add_faction_influence = {
+            faction = faction_national
+            influence = 20
+        }
+        event_target:heritage_province = {
+            add_province_modifier = {
+                name = cultural_heritage_site
+                duration = -1
+            }
+        }
+        add_prestige = 10
+        add_years_of_income = -0.15
+        ai_chance = { factor = 70 }
+    }
+    
+    # Focus on unity
+    option = {
+        name = monarchy_factions.160.b
+        add_faction_influence = {
+            faction = faction_national
+            influence = -10
+        }
+        event_target:heritage_province = {
+            change_culture = ROOT
+        }
+        add_legitimacy = 5
+        ai_chance = { factor = 30 }
+    }
+}
+
+# ==============================================
+# CROSS-FACTION CONFLICT EVENTS
+# ==============================================
+
+# Court vs Military Rivalry
+country_event = {
+    id = monarchy_factions.70
+    title = monarchy_factions.70.t
+    desc = monarchy_factions.70.d
+    picture = COURT_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_royal_court
+        has_faction = faction_military
+        is_at_war = yes
+        war_exhaustion = 3
+        NOT = { has_country_flag = recent_court_military_rivalry }
+    }
+    
+    immediate = {
+        set_country_flag = recent_court_military_rivalry
+    }
+    
+    # Support the generals
+    option = {
+        name = monarchy_factions.70.a
+        add_faction_influence = {
+            faction = faction_military
+            influence = 15
+        }
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = -12
+        }
+        add_mil_power = 50
+        add_army_tradition = 5
+        add_war_exhaustion = -1
+        ai_chance = {
+            factor = 60
+            modifier = {
+                factor = 1.5
+                war_exhaustion = 5
+            }
+        }
+    }
+    
+    # Support the courtiers
+    option = {
+        name = monarchy_factions.70.b
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = 15
+        }
+        add_faction_influence = {
+            faction = faction_military
+            influence = -12
+        }
+        add_legitimacy = 10
+        add_prestige = 10
+        add_war_exhaustion = 1
+        ai_chance = {
+            factor = 40
+        }
+    }
+}
+
+# Merchant vs Noble Tax Dispute
+country_event = {
+    id = monarchy_factions.71
+    title = monarchy_factions.71.t
+    desc = monarchy_factions.71.d
+    picture = MERCHANTS_TALKING_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_merchant
+        has_faction = faction_noble
+        NOT = { treasury = 100 }
+        NOT = { has_country_flag = recent_tax_dispute }
+    }
+    
+    immediate = {
+        set_country_flag = recent_tax_dispute
+    }
+    
+    # Tax the nobles
+    option = {
+        name = monarchy_factions.71.a
+        add_faction_influence = {
+            faction = faction_merchant
+            influence = 12
+        }
+        add_faction_influence = {
+            faction = faction_noble
+            influence = -15
+        }
+        add_years_of_income = 0.3
+         
+        random_list = {
+            80 = { }
+            20 = {
+                random_owned_province = {
+                    limit = { development = 10 }
+                    spawn_rebels = {
+                        type = noble_rebels
+                        size = 1
+                    }
+                }
+            }
+        }
+        ai_chance = {
+            factor = 50
+            modifier = {
+                factor = 1.5
+                NOT = { treasury = 50 }
+            }
+        }
+    }
+    
+    # Tax the merchants
+    option = {
+        name = monarchy_factions.71.b
+        add_faction_influence = {
+            faction = faction_noble
+            influence = 12
+        }
+        add_faction_influence = {
+            faction = faction_merchant
+            influence = -15
+        }
+        add_years_of_income = 0.2
+        add_legitimacy = 5
+        add_country_modifier = {
+            name = merchant_tax_burden
+            duration = 1825
+        }
+        ai_chance = {
+            factor = 50
+        }
+    }
+}
+
+# ==============================================
+# WARTIME EVENTS (200-299 series)
+# ==============================================
+
+# War Profiteering Scandal
+country_event = {
+    id = monarchy_factions.200
+    title = monarchy_factions.200.t
+    desc = monarchy_factions.200.d
+    picture = MERCHANTS_TALKING_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_merchant
+        is_at_war = yes
+        war_exhaustion = 2
+        manpower_percentage = 0.5
+        NOT = { has_country_flag = recent_profiteering_scandal }
+    }
+    
+    immediate = {
+        set_country_flag = recent_profiteering_scandal
+    }
+    
+    # Prosecute the profiteers
+    option = {
+        name = monarchy_factions.200.a
+        add_faction_influence = {
+            faction = faction_merchant
+            influence = -15
+        }
+        add_years_of_income = 0.3
+        add_legitimacy = 8
+        if = {
+            limit = { has_faction = faction_military }
+            add_faction_influence = {
+                faction = faction_military
+                influence = 10
+            }
+        }
+        ai_chance = { factor = 65 }
+    }
+    
+    # Look the other way
+    option = {
+        name = monarchy_factions.200.b
+        add_faction_influence = {
+            faction = faction_merchant
+            influence = 12
+        }
+        add_years_of_income = 0.1
+        add_war_exhaustion = 0.5
+        add_corruption = 0.5
+        ai_chance = { factor = 35 }
+    }
+}
+
+# Military Chaplain Controversy
+country_event = {
+    id = monarchy_factions.201
+    title = monarchy_factions.201.t
+    desc = monarchy_factions.201.d
+    picture = RELIGIOUS_TURMOIL_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_clerical
+        has_faction = faction_military
+        is_at_war = yes
+        army_tradition = 30
+        NOT = { has_country_flag = recent_chaplain_controversy }
+    }
+    
+    immediate = {
+        set_country_flag = recent_chaplain_controversy
+    }
+    
+    # Support military chaplains
+    option = {
+        name = monarchy_factions.201.a
+        add_faction_influence = {
+            faction = faction_clerical
+            influence = 10
+        }
+        add_faction_influence = {
+            faction = faction_military
+            influence = 8
+        }
+        add_army_tradition = 2
+        add_country_modifier = {
+            name = military_chaplains
+            duration = 3650
+        }
+        ai_chance = { factor = 70 }
+    }
+    
+    # Keep religion out of military
+    option = {
+        name = monarchy_factions.201.b
+        add_faction_influence = {
+            faction = faction_clerical
+            influence = -8
+        }
+        add_faction_influence = {
+            faction = faction_military
+            influence = 5
+        }
+        add_mil_power = 25
+        ai_chance = { factor = 30 }
+    }
+}
+
+# ==============================================
+# DOMINANT FACTION EVENTS (300-399 series)
+# ==============================================
+
+# Royal Court Dominance
+country_event = {
+    id = monarchy_factions.300
+    title = monarchy_factions.300.t
+    desc = monarchy_factions.300.d
+    picture = COURT_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_royal_court
+        faction_influence = {
+            faction = faction_royal_court
+            influence = 60
+        }
+        NOT = { has_country_flag = court_dominance_event }
+    }
+    
+    immediate = {
+        set_country_flag = court_dominance_event
+    }
+    
+    # Embrace courtly culture
+    option = {
+        name = monarchy_factions.300.a
+        add_country_modifier = {
+            name = courtly_dominance
+            duration = 5475
+        }
+        add_prestige = 25
+        add_legitimacy = 15
+        capital_scope = {
+            add_building = atlantropa_royal_palace
+        }
+        ai_chance = { factor = 80 }
+    }
+    
+    # Balance the factions
+    option = {
+        name = monarchy_factions.300.b
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = -20
+        }
+        every_country = {
+            limit = { has_faction = faction_military }
+            add_faction_influence = {
+                faction = faction_military
+                influence = 5
+            }
+        }
+        every_country = {
+            limit = { has_faction = faction_merchant }
+            add_faction_influence = {
+                faction = faction_merchant
+                influence = 5
+            }
+        }
+        add_stability = 1
+        ai_chance = { factor = 20 }
+    }
+}
+
+# Military Dominance
+country_event = {
+    id = monarchy_factions.301
+    title = monarchy_factions.301.t
+    desc = monarchy_factions.301.d
+    picture = MILITARY_CAMP_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_military
+        faction_influence = {
+            faction = faction_military
+            influence = 60
+        }
+        NOT = { has_country_flag = military_dominance_event }
+    }
+    
+    immediate = {
+        set_country_flag = military_dominance_event
+    }
+    
+    # Military state
+    option = {
+        name = monarchy_factions.301.a
+        add_country_modifier = {
+            name = military_dominance
+            duration = 5475
+        }
+        add_army_tradition = 10
+        add_mil_power = 100
+        change_government_reform_progress = 50
+        ai_chance = { factor = 70 }
+    }
+    
+    # Civilian control
+    option = {
+        name = monarchy_factions.301.b
+        add_faction_influence = {
+            faction = faction_military
+            influence = -25
+        }
+        add_legitimacy = 20
+         
+        ai_chance = { factor = 30 }
+    }
+}
+
+# ==============================================
+# CONDITIONAL EVENTS (800-899 series)
+# ==============================================
+
+# Stability Breeds Confidence
+country_event = {
+    id = monarchy_factions.800
+    title = monarchy_factions.800.t
+    desc = monarchy_factions.800.d
+    picture = GOOD_WITH_MONARCH_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        stability = 2
+        legitimacy = 80
+        NOT = { has_country_flag = recent_stability_confidence }
+    }
+    
+    immediate = {
+        set_country_flag = recent_stability_confidence
+    }
+    
+    # Royal Court benefits
+    option = {
+        name = monarchy_factions.800.a
+        trigger = { has_faction = faction_royal_court }
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = 10
+        }
+        add_prestige = 15
+        add_legitimacy = 5
+        ai_chance = { factor = 50 }
+    }
+    
+    # Support all equally
+    option = {
+        name = monarchy_factions.800.b
+        random_list = {
+            20 = {
+                modifier = { factor = 2 has_faction = faction_royal_court }
+                add_faction_influence = { faction = faction_royal_court influence = 8 }
+            }
+            20 = {
+                modifier = { factor = 2 has_faction = faction_military }
+                add_faction_influence = { faction = faction_military influence = 8 }
+            }
+            20 = {
+                modifier = { factor = 2 has_faction = faction_merchant }
+                add_faction_influence = { faction = faction_merchant influence = 8 }
+            }
+            20 = {
+                modifier = { factor = 2 has_faction = faction_clerical }
+                add_faction_influence = { faction = faction_clerical influence = 8 }
+            }
+            20 = {
+                modifier = { factor = 2 has_faction = faction_noble }
+                add_faction_influence = { faction = faction_noble influence = 8 }
+            }
+        }
+        add_adm_power = 25
+        ai_chance = { factor = 50 }
+    }
+}
+
+# Crisis Reveals Faction Tensions
+country_event = {
+    id = monarchy_factions.801
+    title = monarchy_factions.801.t
+    desc = monarchy_factions.801.d
+    picture = BAD_WITH_MONARCH_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        NOT = { stability = 0 }
+        OR = {
+            war_exhaustion = 5
+            NOT = { legitimacy = 50 }
+            corruption = 3
+        }
+        NOT = { has_country_flag = recent_crisis_tensions }
+    }
+    
+    immediate = {
+        set_country_flag = recent_crisis_tensions
+    }
+    
+    # Blame the merchants
+    option = {
+        name = monarchy_factions.801.a
+        trigger = { has_faction = faction_merchant }
+        add_faction_influence = {
+            faction = faction_merchant
+            influence = -15
+        }
+        add_years_of_income = 0.2
+        capital_scope = {
+            spawn_rebels = {
+                type = anti_tax_rebels
+                size = 1
+            }
+        }
+        ai_chance = { factor = 25 }
+    }
+    
+    # Blame the nobles
+    option = {
+        name = monarchy_factions.801.b
+        trigger = { has_faction = faction_noble }
+        add_faction_influence = {
+            faction = faction_noble
+            influence = -15
+        }
+         
+        random_owned_province = {
+            limit = { development = 8 }
+            spawn_rebels = {
+                type = noble_rebels
+                size = 1
+            }
+        }
+        ai_chance = { factor = 25 }
+    }
+    
+    # Blame foreign influences
+    option = {
+        name = monarchy_factions.801.c
+        add_stability = 1
+        add_legitimacy = 5
+        random_neighbor_country = {
+            add_opinion = {
+                who = ROOT
+                modifier = blamed_for_problems
+            }
+        }
+        ai_chance = { factor = 50 }
+    }
+}
+
+# ==============================================
+# SPECIAL FACTION EVENTS (900-999 series)
+# ==============================================
+
+# The Great Court Conspiracy
+country_event = {
+    id = monarchy_factions.900
+    title = monarchy_factions.900.t
+    desc = monarchy_factions.900.d
+    picture = COURT_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_royal_court
+        has_faction = faction_noble
+        has_faction = faction_clerical
+        NOT = { legitimacy = 60 }
+        NOT = { has_country_flag = great_conspiracy }
+    }
+    
+    immediate = {
+        set_country_flag = great_conspiracy
+    }
+    
+    # Side with the courtiers
+    option = {
+        name = monarchy_factions.900.a
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = 25
+        }
+        add_faction_influence = {
+            faction = faction_noble
+            influence = -20
+        }
+        add_faction_influence = {
+            faction = faction_clerical
+            influence = -15
+        }
+        add_legitimacy = 20
+        add_prestige = 15
+        country_event = {
+            id = monarchy_factions.901
+            days = 30
+        }
+        ai_chance = { factor = 40 }
+    }
+    
+    # Expose the conspiracy
+    option = {
+        name = monarchy_factions.900.b
+        add_stability = -2
+        add_legitimacy = -15
+        random_owned_province = {
+            spawn_rebels = {
+                type = noble_rebels
+                size = 3
+            }
+        }
+        country_event = {
+            id = monarchy_factions.902
+            days = 60
+        }
+        ai_chance = { factor = 35 }
+    }
+    
+    # Negotiate a compromise
+    option = {
+        name = monarchy_factions.900.c
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = 8
+        }
+        add_faction_influence = {
+            faction = faction_noble
+            influence = 8
+        }
+        add_faction_influence = {
+            faction = faction_clerical
+            influence = 8
+        }
+        add_legitimacy = 5
+        change_government_reform_progress = 25
+        country_event = {
+            id = monarchy_factions.903
+            days = 90
+        }
+        ai_chance = { factor = 25 }
+    }
+}
+
+# Conspiracy Aftermath - Court Victory
+country_event = {
+    id = monarchy_factions.901
+    title = monarchy_factions.901.t
+    desc = monarchy_factions.901.d
+    picture = COURT_eventPicture
+    
+    is_triggered_only = yes
+    
+    # Consolidate power
+    option = {
+        name = monarchy_factions.901.a
+        add_country_modifier = {
+            name = court_supremacy
+            duration = 7300
+        }
+ 
+        define_advisor = {
+            type = statesman
+            skill = 3
+            culture = ROOT
+            religion = ROOT
+        }
+        ai_chance = { factor = 100 }
+    }
+}
+
+# Conspiracy Aftermath - Exposed Plot
+country_event = {
+    id = monarchy_factions.902
+    title = monarchy_factions.902.t
+    desc = monarchy_factions.902.d
+    picture = ANGRY_MOB_eventPicture
+    
+    is_triggered_only = yes
+    
+    # Harsh crackdown
+    option = {
+        name = monarchy_factions.902.a
+        add_faction_influence = {
+            faction = faction_noble
+            influence = -30
+        }
+        add_legitimacy = 25
+        add_country_modifier = {
+            name = noble_purge
+            duration = 3650
+        }
+        ai_chance = { factor = 60 }
+    }
+    
+    # Merciful response
+    option = {
+        name = monarchy_factions.902.b
+        add_faction_influence = {
+            faction = faction_noble
+            influence = -10
+        }
+        add_legitimacy = 10
+        add_prestige = 10
+        add_stability = 1
+        ai_chance = { factor = 40 }
+    }
+}
+
+# Conspiracy Aftermath - Compromise
+country_event = {
+    id = monarchy_factions.903
+    title = monarchy_factions.903.t
+    desc = monarchy_factions.903.d
+    picture = DIPLOMACY_eventPicture
+    
+    is_triggered_only = yes
+    
+    # Formalize the agreement
+    option = {
+        name = monarchy_factions.903.a
+        add_country_modifier = {
+            name = faction_compromise
+            duration = 5475
+        }
+        add_legitimacy = 15
+        add_stability = 2
+        change_government_reform_progress = 50
+        ai_chance = { factor = 100 }
+    }
+}
+
+# The Royal Marriage Alliance Crisis
+country_event = {
+    id = monarchy_factions.950
+    title = monarchy_factions.950.t
+    desc = monarchy_factions.950.d
+    picture = DIPLOMACY_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_national
+        has_faction = faction_clerical
+        has_heir = yes
+        num_of_royal_marriages = 2
+        any_country = {
+            marriage_with = ROOT
+            NOT = { religion = ROOT }
+        }
+        NOT = { has_country_flag = marriage_alliance_crisis }
+    }
+    
+    immediate = {
+        set_country_flag = marriage_alliance_crisis
+        random_country = {
+            limit = { 
+                marriage_with = ROOT
+                NOT = { religion = ROOT }
+            }
+            save_event_target_as = foreign_marriage_partner
+        }
+    }
+    
+    # Support religious unity
+    option = {
+        name = monarchy_factions.950.a
+        add_faction_influence = {
+            faction = faction_clerical
+            influence = 20
+        }
+        add_faction_influence = {
+            faction = faction_national
+            influence = -15
+        }
+        break_marriage = event_target:foreign_marriage_partner
+        add_papal_influence = 25
+        add_legitimacy = 10
+        event_target:foreign_marriage_partner = {
+            add_opinion = {
+                who = ROOT
+                modifier = broken_marriage
+            }
+        }
+        ai_chance = { factor = 40 }
+    }
+    
+    # Support diplomatic ties
+    option = {
+        name = monarchy_factions.950.b
+        add_faction_influence = {
+            faction = faction_national
+            influence = 20
+        }
+        add_faction_influence = {
+            faction = faction_clerical
+            influence = -15
+        }
+        add_dip_power = 50
+        event_target:foreign_marriage_partner = {
+            add_opinion = {
+                who = ROOT
+                modifier = loyal_marriage_partner
+            }
+        }
+        add_country_modifier = {
+            name = diplomatic_marriage_policy
+            duration = 3650
+        }
+        ai_chance = { factor = 60 }
+    }
+}
+
+# The Royal Philosopher
+country_event = {
+    id = monarchy_factions.951
+    title = monarchy_factions.951.t
+    desc = monarchy_factions.951.d
+    picture = INVENTION_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_royal_court
+        has_faction = faction_clerical
+        adm_tech = 17
+        innovativeness = 50
+        any_owned_province = {
+            has_building = university
+        }
+        NOT = { has_country_flag = royal_philosopher }
+    }
+    
+    immediate = {
+        set_country_flag = royal_philosopher
+    }
+    
+    # Embrace new ideas
+    option = {
+        name = monarchy_factions.951.a
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = 15
+        }
+        add_faction_influence = {
+            faction = faction_clerical
+            influence = -20
+        }
+        change_innovativeness = 3
+        add_adm_power = 100
+        add_country_modifier = {
+            name = royal_enlightenment
+            duration = 5475
+        }
+        ai_chance = { factor = 45 }
+    }
+    
+    # Support traditional wisdom
+    option = {
+        name = monarchy_factions.951.b
+        add_faction_influence = {
+            faction = faction_clerical
+            influence = 15
+        }
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = -10
+        }
+        add_legitimacy = 15
+        add_papal_influence = 20
+        ai_chance = { factor = 55 }
+    }
+}
+
+# The Merchant Prince's Proposal
+country_event = {
+    id = monarchy_factions.952
+    title = monarchy_factions.952.t
+    desc = monarchy_factions.952.d
+    picture = MERCHANTS_TALKING_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_merchant
+        has_faction = faction_noble
+        dip_tech = 20
+ 
+        treasury = 1000
+        NOT = { has_country_flag = merchant_prince_proposal }
+    }
+    
+    immediate = {
+        set_country_flag = merchant_prince_proposal
+    }
+    
+    # Accept merchant nobility
+    option = {
+        name = monarchy_factions.952.a
+        add_faction_influence = {
+            faction = faction_merchant
+            influence = 25
+        }
+        add_faction_influence = {
+            faction = faction_noble
+            influence = -20
+        }
+        add_country_modifier = {
+            name = merchant_nobility
+            duration = -1
+        }
+        add_mercantilism = 3
+        add_years_of_income = 0.5
+        ai_chance = { factor = 40 }
+    }
+    
+    # Maintain noble exclusivity
+    option = {
+        name = monarchy_factions.952.b
+        add_faction_influence = {
+            faction = faction_noble
+            influence = 15
+        }
+        add_faction_influence = {
+            faction = faction_merchant
+            influence = -15
+        }
+        add_legitimacy = 10
+        add_prestige = 15
+        capital_scope = {
+            spawn_rebels = {
+                type = anti_tax_rebels
+                size = 2
+            }
+        }
+        ai_chance = { factor = 60 }
+    }
+}
+
+# The General's Ultimatum
+country_event = {
+    id = monarchy_factions.953
+    title = monarchy_factions.953.t
+    desc = monarchy_factions.953.d
+    picture = MILITARY_CAMP_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+        has_faction = faction_military
+        has_faction = faction_royal_court
+        is_at_war = yes
+        war_exhaustion = 8
+        army_tradition = 60
+        manpower_percentage = 0.3
+        NOT = { has_country_flag = generals_ultimatum }
+    }
+    
+    immediate = {
+        set_country_flag = generals_ultimatum
+    }
+    
+    # Give military full authority
+    option = {
+        name = monarchy_factions.953.a
+        add_faction_influence = {
+            faction = faction_military
+            influence = 30
+        }
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = -25
+        }
+        add_country_modifier = {
+            name = military_emergency_powers
+            duration = 1825
+        }
+        add_war_exhaustion = -3
+        add_mil_power = 150
+        ai_chance = { factor = 70 }
+    }
+    
+    # Maintain royal prerogatives
+    option = {
+        name = monarchy_factions.953.b
+        add_faction_influence = {
+            faction = faction_royal_court
+            influence = 20
+        }
+        add_faction_influence = {
+            faction = faction_military
+            influence = -30
+        }
+        add_legitimacy = 20
+         
+        random_owned_province = {
+            spawn_rebels = {
+                type = noble_rebels
+                size = 3
+            }
+        }
+        ai_chance = { factor = 30 }
+    }
+}
+
+# The Perfect Balance
+country_event = {
+    id = monarchy_factions.990
+    title = monarchy_factions.990.t
+    desc = monarchy_factions.990.d
+    picture = GOOD_WITH_MONARCH_eventPicture
+    
+    is_triggered_only = yes
+    
+    trigger = {
+        government = monarchy
+ 
+ 
+        stability = 1
+        legitimacy = 75
+        NOT = { has_country_flag = perfect_balance }
+    }
+    
+    immediate = {
+        set_country_flag = perfect_balance
+    }
+    
+    # Celebrate the harmony
+    option = {
+        name = monarchy_factions.990.a
+        add_country_modifier = {
+            name = factional_harmony
+            duration = 3650
+        }
+        add_legitimacy = 25
+        add_prestige = 20
+        add_stability = 1
+        add_adm_power = 50
+        add_dip_power = 50
+        add_mil_power = 50
+        ai_chance = { factor = 100 }
+    }
+}

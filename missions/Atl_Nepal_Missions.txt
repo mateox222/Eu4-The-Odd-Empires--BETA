@@ -1,0 +1,1257 @@
+nepal_religious_branch = {
+	slot = 1
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = NPL
+		religion = ibadi
+	}
+
+	npl_rekindle_flame = {
+		icon = mission_hands_praying
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			religion = ibadi
+			religious_unity = 0.8
+			stability = 1
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_sacred_awakening"
+				duration = 7300
+			}
+			add_fervor = 25
+			add_prestige = 20
+			capital_scope = {
+				add_permanent_province_modifier = {
+					name = "npl_first_sacred_flame"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	npl_convert_highlands = {
+		icon = mission_buddhist_monk_praying
+		position = 2
+		required_missions = {
+			npl_rekindle_flame
+			npl_unite_nepal
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			nepal_area = {
+				type = all
+				religion = ibadi
+			}
+			religious_unity = 0.9
+		}
+
+		effect = {
+			nepal_area = {
+				add_permanent_province_modifier = {
+					name = "npl_converted_highlands"
+					duration = -1
+				}
+			}
+			add_country_modifier = {
+				name = "npl_highland_unity"
+				duration = -1
+			}
+		}
+	}
+
+	npl_sacred_monasteries = {
+		icon = mission_mosque
+		position = 3
+		required_missions = { npl_convert_highlands } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				religion = ibadi
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+				value = 8
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_monastic_network"
+				duration = -1
+			}
+			define_advisor = {
+				type = theologian
+				name = "High Flame Keeper"
+				culture = ROOT
+				religion = ibadi
+				skill = 3
+				cost_multiplier = 0.25
+			}
+		}
+	}
+
+	npl_grand_temple = {
+		icon = claim_tirol
+		position = 4
+		required_missions = { npl_sacred_monasteries } 
+		provinces_to_highlight = { province_id = 557 } 
+
+		trigger = {
+			557 = {
+				owned_by = ROOT
+				religion = ibadi
+				has_building = cathedral
+				development = 25
+			}
+			treasury = 500
+		}
+
+		effect = {
+			add_treasury = -500
+			557 = {
+				add_permanent_province_modifier = {
+					name = "npl_grand_temple_zun"
+					duration = -1
+				}
+				add_base_tax = 3
+				add_base_production = 2
+				add_base_manpower = 2
+			}
+			add_country_modifier = {
+				name = "npl_religious_center"
+				duration = -1
+			}
+		}
+	}
+
+	npl_flame_keeper_council = {
+		icon = atlantropa_sungod
+		position = 5
+		required_missions = { npl_grand_temple } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			advisor = theologian
+			legitimacy = 90
+			prestige = 50
+			num_of_owned_provinces_with = {
+				religion = ibadi
+				value = 20
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_theocratic_guidance"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = { religion = ibadi } 
+				add_permanent_province_modifier = {
+					name = "npl_blessed_lands"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	npl_sacred_inquisition = {
+		icon = mission_religious
+		position = 6
+		required_missions = {
+			npl_flame_keeper_council
+			npl_roof_of_world
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			religious_unity = 1.0
+			missionary_strength = 0.05
+			num_of_owned_provinces_with = {
+				NOT = { religion = ibadi } 
+				value = 0
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_pure_faith"
+				duration = -1
+			}
+			add_casus_belli = {
+				target = all
+				type = cb_crusade
+				months = 1200
+			}
+			define_general = {
+				name = "Sacred Inquisitor"
+				fire = 6
+				shock = 4
+				manuever = 3
+				siege = 5
+			}
+		}
+	}
+
+	npl_eternal_flame_cathedral = {
+		icon = mission_kon_repel_the_missionaries
+		position = 8
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = zunist_nepal_choose
+				NOT = { has_country_flag = zunist_chosen } 
+			}
+			num_of_owned_provinces_with = {
+				religion = ibadi
+				value = 100
+			}
+			557 = {
+				owned_by = ROOT
+				development = 40
+				has_building = cathedral
+			}
+			num_of_owned_provinces_with = {
+				religion = ibadi
+				has_building = cathedral
+				value = 15
+			}
+			prestige = 75
+		}
+
+		effect = {
+			set_country_flag = zunist_chosen
+			557 = {
+				add_permanent_province_modifier = {
+					name = "npl_eternal_flame_cathedral"
+					duration = -1
+				}
+				change_province_name = "Sacred Flame City"
+				add_base_tax = 5
+				add_base_production = 3
+				add_base_manpower = 3
+			}
+			add_country_modifier = {
+				name = "npl_holy_capital"
+				duration = -1
+			}
+			override_country_name = "SACRED_FLAME_THEOCRACY"
+		}
+	}
+}
+
+nepal_mountain_branch = {
+	slot = 2
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = NPL
+		religion = ibadi
+	}
+
+	npl_unite_nepal = {
+		icon = atlantropa_borderlands
+		position = 1
+		provinces_to_highlight = {
+			area = nepal_area
+			NOT = { owned_by = ROOT } 
+		}
+
+		trigger = {
+			nepal_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+
+		effect = {
+			nepal_area = {
+				add_permanent_province_modifier = {
+					name = "npl_unified_realm"
+					duration = -1
+				}
+			}
+			add_army_tradition = 15
+			add_prestige = 10
+		}
+	}
+
+	npl_mountain_fortresses = {
+		icon = up_the_adige
+		position = 2
+		required_missions = { npl_unite_nepal } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				has_terrain = mountain
+				fort_level = 2
+				value = 4
+			}
+			mil_tech = 7
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_fortress_network"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = {
+					has_terrain = mountain
+					fort_level = 2
+				}
+				add_permanent_province_modifier = {
+					name = "npl_mountain_bastion"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	npl_himalayan_passes = {
+		icon = alpine_fortifications
+		position = 3
+		required_missions = { npl_mountain_fortresses } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				has_terrain = mountain
+				base_production = 6
+				value = 6
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_mountain_trade_routes"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = { has_terrain = mountain } 
+				add_base_production = 1
+				add_permanent_province_modifier = {
+					name = "npl_trade_pass"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	npl_sherpa_guides = {
+		icon = mission_non-western_cavalry_raid
+		position = 4
+		required_missions = { npl_himalayan_passes } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_tradition = 50
+			num_of_generals = 3
+			manpower_percentage = 0.8
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_mountain_warfare_mastery"
+				duration = -1
+			}
+			define_general = {
+				name = "Master Sherpa"
+				fire = 4
+				shock = 5
+				manuever = 6
+				siege = 3
+			}
+			create_admiral = { tradition = 40 } 
+		}
+	}
+
+	npl_roof_of_world = {
+		icon = mission_develop_the_scandes
+		position = 5
+		required_missions = { npl_sherpa_guides } 
+		provinces_to_highlight = {
+			region = tibet_region
+			NOT = { owned_by = ROOT } 
+		}
+
+		trigger = {
+			tibet_region = {
+				type = all
+				owned_by = ROOT
+			}
+			num_of_owned_provinces_with = {
+				has_terrain = mountain
+				value = 15
+			}
+		}
+
+		effect = {
+			tibet_region = {
+				change_religion = ibadi
+				add_permanent_province_modifier = {
+					name = "npl_roof_of_world"
+					duration = -1
+				}
+			}
+			add_country_modifier = {
+				name = "npl_mountain_empire"
+				duration = -1
+			}
+		}
+	}
+
+	npl_avalanche_warfare = {
+		icon = atlantropa_thulehorseman
+		position = 6
+		required_missions = {
+			npl_roof_of_world
+			npl_ganges_control
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+ 
+			num_of_owned_provinces_with = {
+				has_terrain = mountain
+				value = 20
+			}
+			mil_tech = 15
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_avalanche_tactics"
+				duration = -1
+			}
+			define_general = {
+				name = "Avalanche Commander"
+				fire = 5
+				shock = 6
+				manuever = 5
+				siege = 4
+			}
+			every_neighbor_country = {
+				limit = { NOT = { religion = ibadi }  } 
+				add_opinion = {
+					who = ROOT
+					modifier = npl_mountain_terror
+				}
+			}
+		}
+	}
+
+	npl_lord_of_mountains = {
+		icon = atlantropa_conquestnorth
+		position = 8
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				has_terrain = mountain
+				value = 30
+			}
+			total_development = 600
+			prestige = 80
+			num_of_owned_provinces_with = {
+				religion = ibadi
+				value = 100
+			}
+			custom_trigger_tooltip = {
+				tooltip = zunist_nepal_choose
+				NOT = { has_country_flag = zunist_chosen } 
+			}
+		}
+
+		effect = {
+			set_country_flag = zunist_chosen
+			add_country_modifier = {
+				name = "npl_mountain_lord"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = { has_terrain = mountain } 
+				add_permanent_province_modifier = {
+					name = "npl_sacred_peaks"
+					duration = -1
+				}
+			}
+			override_country_name = "KINGDOM_OF_SACRED_MOUNTAINS"
+		}
+	}
+}
+
+nepal_expansion_branch = {
+	slot = 3
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = NPL
+		religion = ibadi
+	}
+
+	npl_secure_borders = {
+		icon = the_alpine_wall
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_size_percentage = 1.0
+			stability = 1
+			NOT = { num_of_rebel_armies = 1 } 
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_border_security"
+				duration = 5475
+			}
+			add_manpower = 5
+			add_army_tradition = 10
+			tibet_region = {
+				add_claim = ROOT
+			}
+		}
+	}
+
+	npl_bengal_trade_influence = {
+		icon = mission_dominate_home_trade_node
+		position = 2
+		required_missions = {
+			npl_secure_borders
+			npl_unite_nepal
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			1341 = {
+				trade_share = {
+					country = ROOT
+					share = 10
+				}
+			}
+			light_ship_fraction = 0.3
+		}
+
+		effect = {
+			1341 = {
+				add_trade_modifier = {
+					who = ROOT
+					duration = -1
+					power = 10
+					key = npl_mountain_trade_influence
+				}
+			}
+			add_mercantilism = 2
+			# Fixed: Using add_claim instead of give_claims
+			bengal_region = {
+				add_claim = ROOT
+			}
+		}
+	}
+
+	npl_conquer_bengal = {
+		icon = mch_bypass_great_wall
+		position = 3
+		required_missions = {
+			npl_bengal_trade_influence
+			npl_gunpowder_adoption
+			npl_mountain_fortresses
+		}
+		provinces_to_highlight = {
+			region = bengal_region
+			NOT = { owned_by = ROOT } 
+		}
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				region = bengal_region
+				value = 4
+			}
+		}
+
+		effect = {
+			every_owned_province = {
+				limit = { region = bengal_region }
+				add_permanent_province_modifier = {
+					name = "npl_bengal_administration"
+					duration = -1
+				}
+			}
+			add_adm_power = 100
+			# Fixed: Using add_claim for region
+			bengal_region = {
+ 
+				add_claim = ROOT
+			}
+		}
+	}
+
+	npl_delhi_gates = {
+		icon = mission_conquer_malwa_bng
+		position = 4
+		required_missions = { npl_conquer_bengal } 
+		provinces_to_highlight = {
+			region = hindusthan_region
+			NOT = { owned_by = ROOT } 
+		}
+
+		trigger = {
+			OR = {
+				owns = 522
+				num_of_owned_provinces_with = {
+					region = hindusthan_region
+					value = 2
+				}
+			}
+			mil_tech = 12
+		}
+
+		effect = {
+			if = {
+				limit = { owns = 522 } 
+				522 = {
+					add_permanent_province_modifier = {
+						name = "npl_occupied_delhi"
+						duration = -1
+					}
+				}
+			}
+			add_country_modifier = {
+				name = "npl_northern_expansion"
+				duration = 7300
+			}
+			# Fixed: Using add_claim for region
+			hindusthan_region  = {
+				add_claim = ROOT
+			}
+		}
+	}
+
+	npl_ganges_control = {
+		icon = mission_control_the_ganges_delta
+		position = 5
+		required_missions = { npl_delhi_gates } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			# Fixed: Replaced has_river with terrain check (closest alternative)
+			num_of_owned_provinces_with = {
+				OR = {
+					has_terrain = grasslands
+					has_terrain = farmlands
+				}
+				region = hindusthan_region
+				value = 8
+			}
+			1341 = {
+				trade_share = {
+					country = ROOT
+					share = 25
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_ganges_dominion"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = {
+					OR = {
+						has_terrain = grasslands
+						has_terrain = farmlands
+					}
+					OR = {
+						region = hindusthan_region
+						region = bengal_region
+					}
+				}
+				add_permanent_province_modifier = {
+					name = "npl_river_control"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	npl_deccan_campaign = {
+		icon = mission_subdue_the_afghans
+		position = 6
+		required_missions = { npl_ganges_control } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				region = deccan_region
+				value = 6
+			}
+			army_size = 50
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_southern_expansion"
+				duration = 7300
+			}
+			deccan_region = {
+				limit = { owned_by = ROOT }
+				change_religion = ibadi
+			}
+ 
+			deccan_region = {
+ 
+				add_claim = ROOT
+			}
+		}
+	}
+
+	npl_eternal_flame_empire = {
+		icon = atlantropa_phoenixempire
+		position = 7
+		required_missions = {
+			npl_sacred_inquisition
+			npl_avalanche_warfare
+			npl_deccan_campaign
+			npl_military_supremacy
+			npl_zunist_renaissance
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			government_rank = 3
+			total_development = 1500
+			prestige = 100
+			legitimacy = 100
+			army_size = 100
+			num_of_owned_provinces_with = {
+				religion = ibadi
+				value = 500
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_eternal_dominion"
+				duration = -1
+			}
+			set_government_rank = 3
+			hidden_effect = {
+				every_owned_province = {
+					add_permanent_province_modifier = {
+						name = "npl_eternal_flame_blessing"
+						duration = -1
+					}
+				}
+			}
+			add_government_reform = npl_eternal_flame_empire_reform
+			add_prestige = 100
+			add_legitimacy = 25
+			add_army_tradition = 25
+			add_navy_tradition = 25
+			add_treasury = 5000
+		}
+	}
+
+	npl_indian_hegemon = {
+		icon = secure_the_sava
+		position = 8
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = zunist_nepal_choose
+				NOT = { has_country_flag = zunist_chosen } 
+			}
+			num_of_owned_provinces_with = {
+				religion = ibadi
+				value = 100
+			}
+			total_development = 800
+			# Fixed: Using num_of_owned_provinces_with instead of owns_all_provinces
+			num_of_owned_provinces_with = {
+				superregion = india_superregion
+				value = 50
+			}
+			prestige = 75
+		}
+
+		effect = {
+			set_country_flag = zunist_chosen
+			add_country_modifier = {
+				name = "npl_indian_dominance"
+				duration = -1
+			}
+			change_government_reform_progress = 100
+			set_government_rank = 3
+			override_country_name = "ZUNIST_EMPIRE_OF_HINDUSTAN"
+		}
+	}
+}
+
+nepal_diplomatic_branch = {
+	slot = 5
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = NPL
+		religion = ibadi
+	}
+
+	npl_mountain_diplomacy = {
+		icon = mission_alliances
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_allies = 3
+			diplomatic_reputation = 2
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_diplomatic_influence"
+				duration = 7300
+			}
+			add_dip_power = 100
+		}
+	}
+
+	npl_tributary_states = {
+		icon = mission_devshirme_system
+		position = 2
+		required_missions = { npl_mountain_diplomacy } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_subjects = 2
+			# Fixed: Replaced with working alternatives
+			OR = {
+				any_subject_country = {
+					is_subject_of_type = tributary_state
+				}
+				any_subject_country = {
+					is_subject_of_type = march
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_mountain_suzerainty"
+				duration = -1
+			}
+			every_subject_country = { add_liberty_desire = -15 } 
+		}
+	}
+
+	npl_cultural_conversion = {
+		icon = mission_establish_the_black_guard
+		position = 3
+		required_missions = { npl_tributary_states } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			num_of_owned_provinces_with = {
+				culture_group = eastern_aryan
+				religion = ibadi
+				value = 12
+			}
+			accepted_culture = bengali
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_cultural_synthesis"
+				duration = -1
+			}
+			# Fixed: Using every_owned_province with culture_group filter
+			every_owned_province = {
+				limit = {
+					culture_group = eastern_aryan
+					religion = ibadi
+				}
+				add_permanent_province_modifier = {
+					name = "npl_cultural_integration"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	npl_scholarly_courts = {
+		icon = mission_mal_jihad_upon_own_population
+		position = 4
+		required_missions = { npl_cultural_conversion } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			advisor = philosopher
+			advisor = theologian
+			innovativeness = 15
+			monthly_adm = 12
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_enlightened_court"
+				duration = -1
+			}
+			define_advisor = {
+				type = philosopher
+				name = "Court Scholar"
+				culture = ROOT
+				skill = 3
+				cost_multiplier = 0.5
+			}
+			change_innovativeness = 5
+		}
+	}
+
+	npl_great_library = {
+		icon = jap_financial_cliques
+		position = 5
+		required_missions = { npl_scholarly_courts } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			557 = {
+				owned_by = ROOT
+				has_building = university
+				development = 30
+			}
+			innovativeness = 25
+		}
+
+		effect = {
+			557 = {
+				add_permanent_province_modifier = {
+					name = "npl_great_library"
+					duration = -1
+				}
+				add_base_tax = 2
+			}
+			add_country_modifier = {
+				name = "npl_center_of_learning"
+				duration = -1
+			}
+		}
+	}
+
+	npl_zunist_renaissance = {
+		icon = mission_early_game_buildings
+		position = 6
+		required_missions = { npl_great_library } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			innovativeness = 40
+			num_of_owned_provinces_with = {
+				has_building = university
+				religion = ibadi
+				value = 5
+			}
+			monthly_adm = 15
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_zunist_enlightenment"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = {
+					religion = ibadi
+					has_building = university
+				}
+				add_permanent_province_modifier = {
+					name = "npl_enlightened_province"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	npl_philosopher_king = {
+		icon = mission_brahmin_administrators
+		position = 8
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			innovativeness = 50
+			advisor = philosopher
+			legitimacy = 95
+			prestige = 80
+			custom_trigger_tooltip = {
+				tooltip = zunist_nepal_choose
+				NOT = { has_country_flag = zunist_chosen } 
+			}
+			num_of_owned_provinces_with = {
+				religion = ibadi
+				value = 100
+			}
+		}
+
+		effect = {
+			set_country_flag = zunist_chosen
+			add_ruler_modifier = {
+				name = "npl_philosopher_monarch"
+				duration = -1
+			}
+			add_country_modifier = {
+				name = "npl_golden_age"
+				duration = -1
+			}
+			override_country_name = "ENLIGHTENED_ZUNIST_EMPIRE"
+		}
+	}
+}
+
+nepal_military_branch = {
+	slot = 4
+	generic = no
+	ai = yes
+	has_country_shield = yes
+	potential = {
+		tag = NPL
+		religion = ibadi
+	}
+
+	npl_warrior_traditions = {
+		icon = mission_non-western_soldiers
+		position = 1
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_tradition = 30
+			manpower_percentage = 0.7
+			mil_tech = 5
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_mountain_warriors"
+				duration = 7300
+			}
+			add_army_tradition = 10
+			add_mil_power = 100
+		}
+	}
+
+	npl_gunpowder_adoption = {
+		icon = mission_cannons_firing
+		position = 2
+		required_missions = { npl_warrior_traditions } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			mil_tech = 8
+			num_of_artillery = 5
+			monthly_mil = 10
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_early_firearms"
+				duration = 5475
+			}
+			define_general = {
+				name = "Master Gunner"
+				fire = 5
+				shock = 3
+				manuever = 4
+				siege = 4
+			}
+		}
+	}
+
+	npl_elite_guard = {
+		icon = reformatio_sigismundi
+		position = 3
+		required_missions = { npl_gunpowder_adoption } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_tradition = 60
+			num_of_generals = 2
+ 
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_sacred_guard"
+				duration = -1
+			}
+			define_general = {
+				name = "Pabitra Rakshak Kamandar"
+				fire = 4
+				shock = 5
+				manuever = 4
+				siege = 3
+			}
+			# Fixed: Removed invalid create_regiment effect
+			add_yearly_manpower = 1
+		}
+	}
+
+	npl_himalayan_campaigns = {
+		icon = mission_central_asian_city
+		position = 4
+		required_missions = { npl_elite_guard } 
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			# Fixed: Replaced num_of_won_battles with army_tradition check
+			army_tradition = 70
+			mil_tech = 12
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_veteran_army"
+				duration = -1
+			}
+			every_owned_province = {
+				limit = { has_terrain = mountain } 
+				add_permanent_province_modifier = {
+					name = "npl_military_recruitment"
+					duration = -1
+				}
+			}
+		}
+	}
+
+	npl_mughal_rivalry = {
+		icon = atlantropa_armenianking
+		position = 5
+		required_missions = {
+			npl_himalayan_campaigns
+			npl_delhi_gates
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			OR = {
+				AND = {
+					exists = BHA
+					total_development = BHA
+				}
+				AND = {
+					NOT = { exists = BHA } 
+					owns = 4467
+				}
+			}
+			army_size = 100
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_great_power_rivalry"
+				duration = -1
+			}
+			if = {
+				limit = { exists = MUG } 
+				add_casus_belli = {
+					target = MUG
+					type = cb_crusade
+					months = 600
+				}
+			}
+			define_general = {
+				name = "Mughal Slayer"
+				fire = 6
+				shock = 5
+				manuever = 4
+				siege = 4
+			}
+		}
+	}
+
+	npl_military_supremacy = {
+		icon = mission_unite_rajputana
+		position = 6
+		required_missions = {
+			npl_mughal_rivalry
+			npl_ganges_control
+		}
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_size = 60
+			army_tradition = 80
+			mil_tech = 18
+			num_of_generals = 4
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = "npl_military_dominance"
+				duration = -1
+			}
+			define_general = {
+				name = "Supreme Commander"
+				fire = 6
+				shock = 6
+				manuever = 5
+				siege = 5
+			}
+			every_neighbor_country = {
+				add_opinion = {
+					who = ROOT
+					modifier = npl_military_fear
+				}
+			}
+		}
+	}
+
+	npl_conqueror_of_worlds = {
+		icon = atlantropa_globe
+		position = 8
+		provinces_to_highlight = {  } 
+
+		trigger = {
+			army_size = 500
+			total_development = 1000
+			# Fixed: Replaced num_of_won_battles with army_tradition check
+			army_tradition = 90
+			num_of_owned_provinces_with = {
+				religion = ibadi
+				value = 100
+			}
+			custom_trigger_tooltip = {
+				tooltip = zunist_nepal_choose
+				NOT = { has_country_flag = zunist_chosen } 
+			}
+		}
+
+		effect = {
+			# Fixed: Corrected typo from seet_country_flag to set_country_flag
+			set_country_flag = zunist_chosen
+			add_country_modifier = {
+				name = "npl_world_conqueror"
+				duration = -1
+			}
+			add_ruler_modifier = {
+				name = "npl_great_conqueror"
+				duration = -1
+			}
+			override_country_name = "ZUNIST_WORLD_EMPIRE"
+			set_government_rank = 3
+		}
+	}
+}

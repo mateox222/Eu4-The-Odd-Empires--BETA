@@ -1,0 +1,49 @@
+country_decisions = {
+	
+	kri_restore_ancient_paths = {
+		color = { 50 112 1}
+		potential = {
+			tag = A49
+			religion = catholic
+
+			NOT = { has_country_flag = kri_paths_restored }
+		}
+		allow = {
+						adm_tech = 8
+			calc_true_if = {
+				all_owned_province = {
+					religion = catholic
+					has_building = temple
+					region = lyonesse_region
+				}
+				amount = 8
+			}
+			treasury = 400
+			adm_power = 150
+		}
+		effect = {
+			add_treasury = -400
+			add_adm_power = -150
+			lyonesse_region = {
+				limit = {
+					owned_by = ROOT
+					religion = catholic
+				}
+				add_permanent_province_modifier = {
+					name = "kri_ancient_paths"
+					duration = -1
+				}
+			}
+			set_country_flag = kri_paths_restored
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 2
+				treasury = 600
+			}
+		}
+	}
+	
+	
+}
