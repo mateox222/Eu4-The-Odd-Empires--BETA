@@ -2409,13 +2409,17 @@ scientific_revolution = {
 		is_institution_enabled = manufactories
 		is_state = yes
 		OR = {
+			AND = {
 			has_building = university
 			development = 25
 			owner = { innovativeness = 20 }
-		}
-		owner = {
+			}
+			owner = {
 			adm_tech = 30
 		}
+			
+		}
+		
 	}
 	start_chance = 5
 	
