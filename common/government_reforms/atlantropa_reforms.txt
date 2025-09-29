@@ -52,7 +52,23 @@ republic_mechanic = {
 	valid_for_nation_designer = no
 }
 
+mu_basic_yakub_reform = {
+    icon = mu_basic_yakub_reform
+    basic_reform = yes
 
+    potential = { tag = MU1 }
+    trigger   = { tag = MU1 }
+
+    allow_normal_conversion = no
+
+    modifiers = {
+        tolerance_own = 2
+        devotion = 0.5
+        state_maintenance_modifier = -0.2
+    }
+
+    government_abilities = { yakub_prime_mechanic }
+}
 
 francocracy = {
 	icon = "francocracy"

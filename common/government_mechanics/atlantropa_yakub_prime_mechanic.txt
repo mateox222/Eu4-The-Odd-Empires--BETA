@@ -1,0 +1,55 @@
+yakub_prime_mechanic = {
+    powers = {
+        yakub_prime_mandate = {
+            min = 0
+            max = 100
+            default = 20
+            base_monthly_growth = 0.25
+            monarch_power = adm
+        }
+    }
+
+    interactions = {
+        yakub_clone_legions = {
+            			gui = russian_mechanics_interaction_gui
+			icon = GFX_yakub_clone_legions
+           cooldown_years = 10
+            cost =   30  
+           trigger = { always = yes }
+            effect = {
+                add_country_modifier = { name = yakub_clone_legions_mod duration = 1460 }    # 4 lata
+                add_yearly_manpower = 10
+ 
+            }
+            ai_will_do = { factor = 1 }
+        }
+
+        yakub_annunaki_concord = {
+            			gui = russian_mechanics_interaction_gui
+			icon = GFX_yakub_annunaki
+           cooldown_years = 10
+            cost =  40  
+           trigger = { owns = 6092 }
+            effect = {
+                country_event = { id = yakub_annunaki.1 days = 10 }
+ 
+            }
+            ai_will_do = { factor = 0.9 }
+        }
+
+
+        yakub_pink_tablets = {  
+            			gui = russian_mechanics_interaction_gui
+			icon = GFX_yakub_tylenol
+            cooldown_years = 10
+            cost = 25 
+            trigger = { always = yes }
+            effect = {
+                add_country_modifier = { name = yakub_pink_tablets_mod duration = 1095 }    # 3 lata
+                add_prestige = 10
+                add_unrest = 1
+            }
+            ai_will_do = { factor = 0.7 }
+        }
+    }
+}
