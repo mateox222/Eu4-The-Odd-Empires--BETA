@@ -1,0 +1,97 @@
+namespace = atlantropa_yakub_event
+namespace = mu1_agartha
+
+country_event = {
+	id = atlantropa_yakub_event.1
+	title = "yakub_tylenol_endtimes_title"
+	desc = "yakub_tylenol_endtimes_desc"
+	picture = autistic_tylenol_eventPicture
+	fire_only_once = yes
+	trigger = {
+		tag = MU1
+	}
+
+	option = {
+        trigger = { ai = no}
+		name = "atlantropa_yakub_event.1.a"
+		ai_chance = { factor = 0 }
+		add_stability = 1
+		add_mil_power = 100
+		add_dip_power = 100
+		add_adm_power = 100
+        set_country_flag = yakub_event_happened 
+	}
+	option = {
+		name = "atlantropa_yakub_event.1.b"
+		add_stability = -6
+
+	}
+}
+
+country_event = {
+    id = mu1_agartha.1
+    title = mu1_agartha.1.t
+    desc = mu1_agartha.1.d
+    picture = humansacriface_eventPicture
+
+    is_triggered_only = yes
+    option = {
+        name = mu1_agartha.1.a  # "Purge the Failed Creations"
+        add_country_modifier = {
+            name = mu1_purge_abominations_mod
+            duration = 730
+        }
+        add_mil_power = 50
+        add_manpower = -10
+		every_owned_province = {
+			remove_province_modifier = pale_one_minority
+		}
+    }
+    
+    option = {
+        name = mu1_agartha.1.b  # "Study Their Mutations"
+        add_country_modifier = {
+            name = mu1_study_mutations_mod
+            duration = 1095
+        }
+        add_adm_power = 75
+    }
+    
+    option = {
+        name = mu1_agartha.1.c  # "Enslave the Remnants"
+        add_country_modifier = {
+            name = mu1_agartha_slaves_mod
+            duration = 1460
+        }
+        add_treasury = 300
+       every_owned_province = { add_unrest = 1 }
+    }
+}
+
+country_event = {
+    id =  atlantropa_yakub_event.2
+    title = mu1_hexam.1.t
+    desc = mu1_hexam.1.d
+    picture = kartagnigilda_eventPicture
+
+    trigger = { always = yes }
+
+    option = {
+        name = mu1_hexam.1.a  # "Dissolve the Hexam Nobility"
+        add_country_modifier = {
+            name = mu1_hexam_dissolution_mod
+            duration = 1825
+        }
+        add_army_professionalism = 0.25
+    }
+    
+    option = {
+        name = mu1_hexam.1.b  # "Integrate Their Bloodlines" 
+        add_country_modifier = {
+            name = mu1_hexam_integration_mod
+            duration = 1460
+        }
+        add_legitimacy = 10
+        add_diplomatic_power = 50
+    }
+}
