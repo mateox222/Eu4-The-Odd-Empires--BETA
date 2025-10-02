@@ -1,0 +1,40 @@
+country_event = {
+	id = femboy_personality.1
+	title = femboy_personality.1.t
+	desc = femboy_personality.1.d
+	picture = COURT_eventPicture
+	is_triggered_only = yes
+	trigger = {
+ 
+		NOT = { has_ruler_flag = had_femboy_event }
+		is_at_war = no
+		ruler_age = 15
+		ruler_age = 40
+		OR = {
+			ruler_has_personality = tolerant_personality
+			ruler_has_personality = well_connected_personality
+			ruler_has_personality = charismatic_negotiator_personality
+			ruler_has_personality = kind_hearted_personality
+		}
+		NOT = { num_of_ruler_personalities = 3 }
+	}
+	
+	
+	option = {
+		name = femboy_personality.1.a
+		ai_chance = { factor = 80 }
+		
+		add_ruler_personality = femboy_personality
+		add_prestige = 10
+		set_ruler_flag = had_femboy_event
+	}
+	
+	option = {
+		name = femboy_personality.1.b
+		ai_chance = { factor = 20 }
+		
+		add_stability = -1
+		add_prestige = -5
+		set_ruler_flag = had_femboy_event
+	}
+}
