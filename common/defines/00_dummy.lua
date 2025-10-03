@@ -189,8 +189,8 @@ NDefines = {
 		COUNTERESPIONAGE_DISCOVER_CHANCE = 0.33,
 		COUNTERESPIONAGE_NETWORK_IMPACT = -0.50,
 		BUILD_SPY_DISCOVERED_PENALTY = -10.0,
-		BUILD_SPY_NETWORK_SPEED = 1.5,
-		SPY_NETWORK_DECAY = 1,
+		BUILD_SPY_NETWORK_SPEED = 1,
+		SPY_NETWORK_DECAY = 0.5,
 		SPY_NETWORK_SIEGE_EFFECT = 0.2,
 		SPY_NETWORK_AE_EFFECT = -0.3,
 		SPY_NETWORK_TECH_EFFECT = -0.05,
@@ -200,7 +200,7 @@ NDefines = {
 		SPY_NETWORK_DISCOVER_WAR = 50,
 		SUPPORT_REBELS_EFFECT = 10,
 		SUPPORT_REBELS_MONEY_FACTOR = 0.5,
-		FABRICATE_CLAIM_COST = 20,
+		FABRICATE_CLAIM_COST = 15,
 		FABRICATE_CLAIM_COST_MODIFIER_PER_CLAIM = 0.25,
 		CLAIM_STATE_MODIFIER = 0.5,
 		JUSTIFY_TRADE_CONFLICT_COST = 10,
@@ -690,7 +690,7 @@ NDefines = {
 		GREAT_PROJECT_MONEY_REQUIRED_FOR_CONSTRUCTION_BOOST = 250, --use a bunch of money to move things on
 		GREAT_PROJECT_MONEY_CONSTRUCTION_BOOST_AMOUNT_IN_DAYS = 730, --how far throwing cash at the problem gets you
 		GREAT_PROJECT_MOVE_COST_PER_DAY = 3, --how much to move a great project for one day
-		COUNTRIES_GETTING_SCORE = 10,
+		COUNTRIES_GETTING_SCORE = 7,
 		LAND_FORCELIMIT_EXTRA_COST_FACTOR = 2,			-- extra expense for being above forcelimit
 		NAVAL_FORCELIMIT_EXTRA_COST_FACTOR = 2,			-- extra expense for being above forcelimit
 		REPUBLICAN_TRADITION_YEARLY_INCREASE = 1,		-- how much it increases each year.
@@ -2440,7 +2440,7 @@ NDefines = {
 	},
 
 	NEngine = {
-		EVENT_PROCESS_OFFSET = 40, 						-- Events are checked every X day per character or province (1 is ideal, but CPU heavy)
+		EVENT_PROCESS_OFFSET = 60, 						-- Events are checked every X day per character or province (1 is ideal, but CPU heavy)
 		TRIGGER_PROFILING_SAMPLING_RATE = 1000,			-- Sampling rate for trigger profiling (Every nth call is recorded)
 	},
 
