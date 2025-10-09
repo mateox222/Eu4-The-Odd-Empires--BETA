@@ -22,7 +22,13 @@ country_event = {
 	desc = "aryan_empire.201.d"
 	picture = VILLAGE_BURNING_eventPicture
 	is_triggered_only = yes
-
+	trigger = {
+	 has_government_power = {
+	mechanic_type = tartarian_chaos_mechanic
+	power_type =  imperial_chaos
+	value = 30
+}
+	}
 	option = {
 		name = "aryan_empire.201.a"
 
@@ -33,12 +39,22 @@ country_event = {
 
 					add_base_production = -1	
 					add_devastation = 5
+							add_government_power = {
+	mechanic_type = tartarian_chaos_mechanic
+	power_type =  imperial_chaos
+	value = 2
+}
 					}
 			} 
 			50 = {
 				random_owned_province = {
 
 					add_devastation = 15
+							add_government_power = {
+	mechanic_type = tartarian_chaos_mechanic
+	power_type =  imperial_chaos
+	value = 1
+}
 					}
 			} 
 
@@ -47,6 +63,11 @@ country_event = {
 
 					add_base_production = -2	
 					add_devastation = 15
+							add_government_power = {
+	mechanic_type = tartarian_chaos_mechanic
+	power_type =  imperial_chaos
+	value = 3
+}
 					}
 			} 
 
@@ -55,6 +76,7 @@ country_event = {
 				add_faction_influence = {
 					faction = raumaria_wiarawalczaca
 					influence = 5
+ 
 				
 				}
 
@@ -67,7 +89,13 @@ country_event = {
 		desc = "aryan_empire.202.d"
 		picture = VILLAGE_BURNING_eventPicture
 		is_triggered_only = yes
-	
+		trigger = {
+	 has_government_power = {
+	mechanic_type = tartarian_chaos_mechanic
+	power_type =  imperial_chaos
+	value = 30
+}
+	}
 		option = {
 			name = "aryan_empire.202.a"
 			random_list = {
@@ -77,6 +105,11 @@ country_event = {
 	
 						add_devastation = 5
 						}
+													add_government_power = {
+	mechanic_type = tartarian_chaos_mechanic
+	power_type =  imperial_chaos
+	value = 1
+}
 				} 
 				50 = {
 					random_owned_province = {
@@ -84,6 +117,11 @@ country_event = {
 						add_base_manpower = -1
 						add_devastation = 15
 						}
+													add_government_power = {
+	mechanic_type = tartarian_chaos_mechanic
+	power_type =  imperial_chaos
+	value = 2
+}
 				} 
 	
 				10 = {
@@ -92,6 +130,11 @@ country_event = {
 						add_base_manpower = -2	
 						add_devastation = 25
 						}
+													add_government_power = {
+	mechanic_type = tartarian_chaos_mechanic
+	power_type =  imperial_chaos
+	value = 3
+}
 				} 
 	
 			}
@@ -111,10 +154,22 @@ country_event = {
 	desc = "aryan_empire.203.d"
 	picture = BLACKSUN_eventPicture
 	is_triggered_only = yes
+			trigger = {
+	 has_government_power = {
+	mechanic_type = tartarian_chaos_mechanic
+	power_type =  imperial_chaos
+	value = 60
+}
+	}
 	option = {
 		name = atlantropa_judgement_event.3.a 
 		add_war_exhaustion = 1
 		add_devotion = -10
+									add_government_power = {
+	mechanic_type = tartarian_chaos_mechanic
+	power_type =  imperial_chaos
+	value = 3
+}
 }
 }
 
@@ -127,11 +182,23 @@ country_event = {
 	desc = "atlantropa_judgement_event.8.d"
 	picture = MONEYMONEYMONEY_eventPicture
 	is_triggered_only = yes
+			trigger = {	
+		 has_government_power = {
+	mechanic_type = tartarian_chaos_mechanic
+	power_type =  imperial_chaos
+	value = 75
+}
+			}
 	option = {
 		name = atlantropa_judgement_event.8.a 
-		add_inflation = 2	
-		add_mercantilism = -5	
+		add_inflation = 1	
+		add_mercantilism = -1	
 		add_years_of_income = -1	
+											add_government_power = {
+	mechanic_type = tartarian_chaos_mechanic
+	power_type =  imperial_chaos
+	value = 3
+}
 		}	
 }
 
@@ -151,4 +218,407 @@ country_event = {
 	add_devotion = 50
 }
 
+}
+
+country_event = {
+    id = aryan_empire.205
+    title = "aryan_empire.205.t"
+    desc = "aryan_empire.205.d"
+    picture = RELIGIOUS_TURMOIL_eventPicture
+    is_triggered_only = yes
+    
+    trigger = {
+        has_government_power = {
+            mechanic_type = tartarian_chaos_mechanic
+            power_type = imperial_chaos
+            value = 40
+        }
+    }
+    
+    # Option A: Support Solar Order (Kün Qorǵaushy)
+    option = {
+        name = "aryan_empire.205.a"
+        
+        add_faction_influence = {
+            faction = raumaria_wiarawalczaca
+            influence = 10
+        }
+        
+        add_faction_influence = {
+            faction = raumaria_wiarapokojowa
+            influence = -5
+        }
+        
+        add_government_power = {
+            mechanic_type = tartarian_chaos_mechanic
+            power_type = imperial_chaos
+            value = -3
+        }
+        
+        add_country_modifier = {
+            name = solar_ascendancy
+            duration = 1825
+        }
+    }
+    
+    # Option B: Support Lunar Inquisition (Ay Qarash)
+    option = {
+        name = "aryan_empire.205.b"
+        
+        add_faction_influence = {
+            faction = raumaria_wiarapokojowa
+            influence = 10
+        }
+        
+        add_faction_influence = {
+            faction = raumaria_wiarawalczaca
+            influence = -5
+        }
+        
+        add_government_power = {
+            mechanic_type = tartarian_chaos_mechanic
+            power_type = imperial_chaos
+            value = -3
+        }
+        
+        add_country_modifier = {
+            name = lunar_control
+            duration = 1825
+        }
+    }
+    
+    # Option C: Remain neutral (costly)
+    option = {
+        name = "aryan_empire.205.c"
+        
+        add_adm_power = -50
+        add_stability = -1
+        
+        add_government_power = {
+            mechanic_type = tartarian_chaos_mechanic
+            power_type = imperial_chaos
+            value = 2
+        }
+    }
+}
+
+country_event = {
+    id = aryan_empire.206
+    title = "aryan_empire.206.t"
+    desc = "aryan_empire.206.d"
+    picture = CIVIL_WAR_eventPicture
+    is_triggered_only = yes
+    
+    trigger = {
+        has_government_power = {
+            mechanic_type = tartarian_chaos_mechanic
+            power_type = imperial_chaos
+            value = 50
+        }
+    }
+    
+    # Option A: Crush the violence with force
+    option = {
+        name = "aryan_empire.206.a"
+        
+        random_owned_province = {
+            limit = { religion = ROOT }
+            add_devastation = 20
+            add_base_manpower = -1
+        }
+        
+        add_mil_power = -75
+        
+        add_government_power = {
+            mechanic_type = tartarian_chaos_mechanic
+            power_type = imperial_chaos
+            value = -5
+        }
+        
+        add_stability = 1
+    }
+    
+    # Option B: Let them fight it out
+    option = {
+        name = "aryan_empire.206.b"
+        
+        random_list = {
+            50 = {
+                add_faction_influence = {
+                    faction = raumaria_wiarawalczaca
+                    influence = 15
+                }
+            }
+            50 = {
+                add_faction_influence = {
+                    faction = raumaria_wiarapokojowa
+                    influence = 15
+                }
+            }
+        }
+        
+        add_government_power = {
+            mechanic_type = tartarian_chaos_mechanic
+            power_type = imperial_chaos
+            value = 8
+        }
+        
+        random_owned_province = {
+            limit = { religion = ROOT }
+            add_devastation = 30
+        }
+    }
+    
+    # Option C: Exile the troublemakers
+    option = {
+        name = "aryan_empire.206.c"
+        
+        add_faction_influence = {
+            faction = raumaria_wiarawalczaca
+            influence = -10
+        }
+        
+        add_faction_influence = {
+            faction = raumaria_wiarapokojowa
+            influence = -10
+        }
+        
+        add_years_of_income = -0.5
+        add_manpower = -5
+        
+        add_government_power = {
+            mechanic_type = tartarian_chaos_mechanic
+            power_type = imperial_chaos
+            value = -8
+        }
+    }
+}
+
+# Event 207: Competition for Provincial Control
+country_event = {
+    id = aryan_empire.207
+    title = "aryan_empire.207.t"
+    desc = "aryan_empire.207.d"
+    picture = STREET_SPEECH_eventPicture
+    is_triggered_only = yes
+    
+    trigger = {
+        has_government_power = {
+            mechanic_type = tartarian_chaos_mechanic
+            power_type = imperial_chaos
+            value = 35
+        }
+        num_of_cities = 5
+    }
+    
+    # Option A: Grant control to Solar Order
+    option = {
+        name = "aryan_empire.207.a"
+        
+        random_owned_province = {
+            limit = { religion = ROOT }
+            add_province_modifier = {
+                name = solar_order_dominance
+                duration = 3650
+            }
+        }
+        
+        add_faction_influence = {
+            faction = raumaria_wiarawalczaca
+            influence = 8
+        }
+        
+        add_government_power = {
+            mechanic_type = tartarian_chaos_mechanic
+            power_type = imperial_chaos
+            value = -5
+        }
+    }
+    
+    # Option B: Grant control to Lunar Inquisition
+    option = {
+        name = "aryan_empire.207.b"
+        
+        random_owned_province = {
+            limit = { religion = ROOT }
+            add_province_modifier = {
+                name = lunar_inquisition_watch
+                duration = 3650
+            }
+        }
+        
+        add_faction_influence = {
+            faction = raumaria_wiarapokojowa
+            influence = 8
+        }
+        
+        add_government_power = {
+            mechanic_type = tartarian_chaos_mechanic
+            power_type = imperial_chaos
+            value = -5
+        }
+    }
+}
+
+# Event 208: Factional Crisis - Power Struggle
+country_event = {
+    id = aryan_empire.208
+    title = "aryan_empire.208.t"
+    desc = "aryan_empire.208.d"
+    picture = COURT_eventPicture
+    is_triggered_only = yes
+    
+    trigger = {
+        has_government_power = {
+            mechanic_type = tartarian_chaos_mechanic
+            power_type = imperial_chaos
+            value = 65
+        }
+    }
+    
+    # Option A: Purge Lunar Inquisition leaders
+    option = {
+        name = "aryan_empire.208.a"
+        
+        add_faction_influence = {
+            faction = raumaria_wiarapokojowa
+            influence = -20
+        }
+        
+        add_faction_influence = {
+            faction = raumaria_wiarawalczaca
+            influence = 15
+        }
+        
+        add_government_power = {
+            mechanic_type = tartarian_chaos_mechanic
+            power_type = imperial_chaos
+            value = -10
+        }
+        
+        add_stability = -1
+        add_adm_power = -100
+    }
+    
+    # Option B: Purge Solar Order commanders
+    option = {
+        name = "aryan_empire.208.b"
+        
+        add_faction_influence = {
+            faction = raumaria_wiarawalczaca
+            influence = -20
+        }
+        
+        add_faction_influence = {
+            faction = raumaria_wiarapokojowa
+            influence = 15
+        }
+        
+        add_government_power = {
+            mechanic_type = tartarian_chaos_mechanic
+            power_type = imperial_chaos
+            value = -10
+        }
+        
+        add_mil_power = -100
+        add_army_tradition = -10
+    }
+    
+    # Option C: Force compromise (difficult)
+    option = {
+        name = "aryan_empire.208.c"
+        
+        trigger = {
+            adm_power = 100
+            dip_power = 100
+            mil_power = 100
+        }
+        
+        add_adm_power = -100
+        add_dip_power = -100
+        add_mil_power = -100
+        
+        add_government_power = {
+            mechanic_type = tartarian_chaos_mechanic
+            power_type = imperial_chaos
+            value = -10
+        }
+        
+        add_stability = 1
+    }
+}
+
+# Event 209: Zealot Uprising
+country_event = {
+    id = aryan_empire.209
+    title = "aryan_empire.209.t"
+    desc = "aryan_empire.209.d"
+    picture = RELIGIOUS_REVOLT_eventPicture
+    is_triggered_only = yes
+    
+    trigger = {
+        has_government_power = {
+            mechanic_type = tartarian_chaos_mechanic
+            power_type = imperial_chaos
+            value = 70
+        }
+    }
+    
+    # Option A: Embrace the zealots
+    option = {
+        name = "aryan_empire.209.a"
+        
+        add_faction_influence = {
+            faction = raumaria_wiarawalczaca
+            influence = 20
+        }
+        
+        add_government_power = {
+            mechanic_type = tartarian_chaos_mechanic
+            power_type = imperial_chaos
+            value = 12
+        }
+        
+        random_owned_province = {
+            limit = { 
+                religion = ROOT 
+                NOT = { has_province_modifier = zealot_control }
+            }
+            add_province_modifier = {
+                name = zealot_control
+                duration = -1
+            }
+        }
+        
+        add_country_modifier = {
+            name = zealot_empowerment
+            duration = 3650
+        }
+    }
+    
+    # Option B: Suppress the zealots
+    option = {
+        name = "aryan_empire.209.b"
+        
+        add_faction_influence = {
+            faction = raumaria_wiarawalczaca
+            influence = -15
+        }
+        
+        add_government_power = {
+            mechanic_type = tartarian_chaos_mechanic
+            power_type = imperial_chaos
+            value = -10
+        }
+        
+        random_owned_province = {
+            limit = { religion = ROOT }
+            spawn_rebels = {
+                type = religious_rebels
+                size = 2
+            }
+        }
+        
+        add_war_exhaustion = 2
+    }
 }

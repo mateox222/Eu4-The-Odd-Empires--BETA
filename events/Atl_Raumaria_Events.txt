@@ -8,8 +8,13 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = "aryan_empire.16.a"
+		add_prestige = 25
 		change_government = theocracy
+		change_religion = raumarysm
+						override_country_name = RAUMARIA
 		add_government_reform = raumaria_theocracy
+						set_country_flag = raumariaprzebudzenieprawdziwe
+				swap_non_generic_missions = yes
 		if = {
 			limit = {
 				has_reform = states_general_reform
@@ -487,6 +492,15 @@ country_event = {
 		country_event = { id = ideagroups.1 } #Swap Ideas
 		add_prestige = 25
 		change_primary_culture = reformed_aryan_german
+						set_country_flag = qara_kun_theocracy
+				set_country_flag = herezjaczarnegoksiezyca
+				regenerate_government_mechanics = yes	
+		1972 = {
+			add_great_project_tier = {
+				type = atlantis_raumartemple
+				tier = 1
+			}
+		}
 		random_owned_province = {
 			limit = {
 				culture = aryan_german
@@ -514,10 +528,7 @@ country_event = {
 	picture = krimeabattle_eventPicture
 	fire_only_once = yes
 	trigger = {
-		OR = {
-			tag = DA1
-			tag = A74
-		}
+		always = no
 		controls = 2410 }
 
 	option = {
@@ -549,67 +560,7 @@ country_event = {
 
 	option = {
 		name = "aryan_empire.18.a"
-		custom_tooltip = raumarikazan
-		hidden_effect = {
-			every_owned_province = {
-				limit = {
-					culture = kazani
-				}
-				change_culture = ROOT
-			}
-		}
-		bashkiria_area = {
-			limit = {
-				NOT = { is_core = ROOT }
-				NOT = { is_permanent_claim = ROOT }
-			}
-			add_permanent_claim = ROOT
-		}
-
-
-		kama_area = {
-			limit = {
-				NOT = { is_core = ROOT }
-				NOT = { is_permanent_claim = ROOT }
-			}
-			add_permanent_claim = ROOT
-		}
-		perm_area = {
-			limit = {
-				NOT = { is_core = ROOT }
-				NOT = { is_permanent_claim = ROOT }
-			}
-			add_permanent_claim = ROOT
-		}
-		saratov_area = {
-			limit = {
-				NOT = { is_core = ROOT }
-				NOT = { is_permanent_claim = ROOT }
-			}
-			add_permanent_claim = ROOT
-		}
-		samara_area = {
-			limit = {
-				NOT = { is_core = ROOT }
-				NOT = { is_permanent_claim = ROOT }
-			}
-			add_permanent_claim = ROOT
-		}
-
-		volga_area = {
-			limit = {
-				NOT = { is_core = ROOT }
-				NOT = { is_permanent_claim = ROOT }
-			}
-			add_permanent_claim = ROOT
-		}
-		lower_yik_area = {
-			limit = {
-				NOT = { is_core = ROOT }
-				NOT = { is_permanent_claim = ROOT }
-			}
-			add_permanent_claim = ROOT
-		}
+ 
 
 
 	}
@@ -625,67 +576,10 @@ country_event = {
 
 	option = {
 		name = "aryan_empire.19.a"
-		custom_tooltip = raumaribulgar
-		hidden_effect = {
-			every_owned_province = {
-				limit = {
-					OR = {
-						culture = volga_bulgarian
-						culture = kazani
-					}
-				}
-				change_culture = bulgaria_german
-			}
-		}
-		2365 = {
-			change_religion = ROOT
-			rename_capital = "Ordolon"
-			add_devastation = 100
-			set_base_tax = 1
-			set_base_production = 1
-			set_base_manpower = 1
-			change_province_name = "Ordolon"
 
-		}
-
-		tambov_area = {
-			limit = {
-				NOT = { is_core = ROOT }
-				NOT = { is_permanent_claim = ROOT }
-			}
-			add_permanent_claim = ROOT
-		}
-		suzdal_area = {
-			limit = {
-				NOT = { is_core = ROOT }
-				NOT = { is_permanent_claim = ROOT }
-			}
-			add_permanent_claim = ROOT
-		}
-		vladimir_area = {
-			limit = {
-				NOT = { is_core = ROOT }
-				NOT = { is_permanent_claim = ROOT }
-			}
-			add_permanent_claim = ROOT
-		}
-		ryazan_area = {
-			limit = {
-				NOT = { is_core = ROOT }
-				NOT = { is_permanent_claim = ROOT }
-			}
-			add_permanent_claim = ROOT
-		}
-		yaroslavl_area = {
-			limit = {
-				NOT = { is_core = ROOT }
-				NOT = { is_permanent_claim = ROOT }
-			}
-			add_permanent_claim = ROOT
-		}
-	}
+ 
 }
-
+}
 
 
 
@@ -699,13 +593,7 @@ country_event = {
 
 	option = {
 		name = "aryan_empire.20.a"
-		set_country_flag = herezjaczarnegoksiezyca
-		1972 = {
-			add_great_project_tier = {
-				type = atlantis_raumartemple
-				tier = 1
-			}
-		}
+
 	}
 }
 
@@ -942,14 +830,8 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = "aryan_empire.29.a"
-		add_prestige = 25
-		set_government_rank = 3
-		add_stability = 2
-		override_country_name = SOLAREMPIREAGARTHA
-		add_country_modifier = {
-			name = solarempireagartha
-			duration = -1
-		}
+
+
 
 		poland_region = {
 			limit = {
@@ -977,12 +859,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = "aryan_empire.30.a"
-		add_prestige = 10
-		add_country_modifier = {
-			name = solarefleet
-			duration = -1
-		}
-		create_admiral = { tradition = 90 }
+
 		northern_norway = {
 			limit = {
 				NOT = { is_core = ROOT }
@@ -1051,42 +928,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = "aryan_empire.31.a"
-		custom_tooltip = burnthevistula
-		hidden_effect = {
-			every_country = {
-				limit = {
-					religion_group = christian
-				}
-				add_opinion = {
-					who = ROOT
-					modifier = demonzzawisly
-				}
-			}
-			create_general = { tradition = 50 }
-			every_owned_province = {
-				limit = {
-					OR = {
-						area = kuyavia_area
-						area = mazovia_area
-						area = red_ruthenia_area
-						area = slovakia_area
-						area = slavonia_area
-					}
-				}
-				set_base_manpower = 1
-				set_base_production = 1
-				set_base_tax = 1
-				change_religion = ROOT
-				add_devastation = 100
-			}
-			add_country_modifier = {
-				name = "bloodriver"
-				duration = -1
-			}
-			add_years_of_income = 5
-		}
-		add_prestige = 10
-		add_devotion = 25
+		
 
 
 
@@ -1182,26 +1024,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = "aryan_empire.34.a"
-		add_prestige = 25
-		add_country_modifier = {
-			name = solarempireinvasion
-			duration = -1
-		}
-		every_owned_province = {
-			limit = {
-				culture = ROOT
-			}
-			change_culture = ROOT
-			change_religion = ROOT
-		}
-		create_general = { tradition = 50 }
-		balkan_region = {
-			limit = {
-				NOT = { is_core = ROOT }
-				NOT = { is_permanent_claim = ROOT }
-			}
-			add_permanent_claim = ROOT
-		}
+
 	}
 
 }
@@ -1215,26 +1038,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = "aryan_empire.35.a"
-		custom_tooltip = burntheoverpoland
-		hidden_effect = {
-			every_owned_province = {
-				limit = {
-					region = poland_region
-				}
-				set_base_manpower = 1
-				set_base_production = 1
-				set_base_tax = 1
-				change_religion = ROOT
-				add_devastation = 100
-			}
-			add_years_of_income = 10
-		}
-		add_country_modifier = {
-			name = "zniszczonapolska"
-			duration = -1
-		}
-		add_prestige = 10
-		add_devotion = 25
+		
 	}}
 
 	country_event = {
@@ -1363,18 +1167,7 @@ country_event = {
 					is_triggered_only = yes
 					option = {
 						name = "aryan_empire.39.a"
-						create_general = { tradition = 50 }
-						add_years_of_income = 5
-
-						korea_region = {
-							limit = {
-								NOT = { is_core = ROOT }
-								NOT = { is_permanent_claim = ROOT }
-							}
-							add_permanent_claim = ROOT
-						}
-						add_prestige = 10
-						add_devotion = 25
+	
 					}
 				}
 
@@ -1386,38 +1179,7 @@ country_event = {
 					fire_only_once = yes
 					is_triggered_only = yes
 					option = {
-						name = "aryan_empire.40.a"
-						create_general = { tradition = 100 }
-						add_years_of_income = 5
-						add_country_modifier = {
-							name = "steelzemsty"
-							duration = -1
-						}
-
-						south_german_region = {
-							limit = {
-								NOT = { is_core = ROOT }
-								NOT = { is_permanent_claim = ROOT }
-							}
-							add_permanent_claim = ROOT
-						}
-						north_german_region = {
-							limit = {
-								NOT = { is_core = ROOT }
-								NOT = { is_permanent_claim = ROOT }
-							}
-							add_permanent_claim = ROOT
-						}
-						italy_region = {
-							limit = {
-								NOT = { is_core = ROOT }
-								NOT = { is_permanent_claim = ROOT }
-							}
-							add_permanent_claim = ROOT
-						}
-
-						add_prestige = 10
-						add_devotion = 25
+						
 					}
 				}
 
@@ -1957,12 +1719,20 @@ country_event = {
 										name = "aryan_empire.54.a"
 										set_country_flag = huntingraumaria15
 										set_country_flag = huntingraumaria4a
+										add_country_modifier = {
+											name = "prophectyfailed"
+											duration = -1
+										}
 									}
 
 									option = { #Lunars
 										name = "aryan_empire.54.b"
 										set_country_flag = huntingraumaria15
 										set_country_flag = huntingraumaria4b
+													add_country_modifier = {
+											name = "prophectyfailed"
+											duration = -1
+										}
 									}
 								}
 

@@ -181,7 +181,7 @@ mu1_slot_3 = {
      add_adm_power = -400
      add_mil_power = -400
      add_dip_power = -400
-     add_country_flag = antenna_active
+     set_country_flag = antenna_active
 		 }
     }
 
@@ -191,9 +191,10 @@ mu1_slot_3 = {
         required_missions = { mu1_antenna  }
         trigger = {
             has_country_flag = antenna_active
+            has_country_flag = ANNUNAKICONTACTED
         }
         effect = {
-
+            add_prestige = 100
         }
     }
 
@@ -285,6 +286,7 @@ mu1_slot_4 = {
                 name = mu1_reunified_empire_mod
                 duration = -1
             }
+            override_country_name = KINGDOMOFMU
             change_government_reform_progress = 100
             add_government_power = {
                 mechanic_type = yakub_prime_mechanic

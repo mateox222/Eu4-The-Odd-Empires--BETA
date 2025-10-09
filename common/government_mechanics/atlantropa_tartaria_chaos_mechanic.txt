@@ -1,0 +1,160 @@
+tartarian_chaos_mechanic = {
+    alert_icon_gfx = GFX_alerticons_government_mechanics
+    alert_icon_index = 2
+    
+    available = {
+        has_country_flag = qara_kun_theocracy
+    }
+    
+    powers = {
+        imperial_chaos = {
+            min = 0
+            max = 100
+            default = 30
+            base_monthly_growth = 0.25
+            is_good = no
+ 
+            modifier = {
+                war_exhaustion = 1.5
+                missionaries = 1
+            }
+ 
+            # Wysoki chaos (60-100)
+            range_modifier = {
+                start_value = 60
+                end_value = 100
+                modifier = {
+                    global_unrest = 3
+                    stability_cost_modifier = 0.30
+                }
+            }
+            
+            # Krytyczny chaos (80-100)
+            range_modifier = {
+                start_value = 80
+                end_value = 100
+                modifier = {
+                    global_unrest = 6
+                    stability_cost_modifier = 0.60
+                    governing_capacity_modifier = -0.40
+                    manpower_recovery_speed = -0.25
+                }
+            }
+ 
+            # Słodki punkt (30-60)
+            range_modifier = {
+                start_value = 30
+                end_value = 60
+                modifier = {
+                    land_morale = 0.10
+                    missionary_strength = 0.03
+                    core_creation = -0.10
+                }
+            }
+ 
+            # Niski chaos (0-20)
+            range_modifier = {
+                start_value = 0
+                end_value = 20
+                modifier = {
+                    discipline = -0.05
+                    missionary_strength = -0.03
+                    global_manpower_modifier = -0.15
+                }
+            }
+        }
+    }
+    
+    interactions = {
+        unleash_holy_purge = {
+            gui = russian_mechanics_interaction_gui
+            icon = GFX_unleash_holy_purge
+            cooldown_years = 2
+            
+            trigger = {
+                NOT = {
+                    has_government_power = {
+                        mechanic_type = tartarian_chaos_mechanic
+                        power_type = imperial_chaos
+                        value = 90
+                    }
+                }
+            }
+            
+            effect = {
+                add_government_power = {
+                    mechanic_type = tartarian_chaos_mechanic
+                    power_type = imperial_chaos
+                    value = 15
+                }
+                add_country_modifier = {
+                    name = qara_kun_holy_fury
+                    duration = 730
+                } 
+            }
+            
+            ai_will_do = { factor = 0.7 }
+        }
+        
+        suppress_the_madness = {
+            gui = russian_mechanics_interaction_gui
+            icon = GFX_suppress_the_madness
+            cooldown_years = 3
+            
+            trigger = {
+                adm_power = 100
+                has_government_power = {
+                    mechanic_type = tartarian_chaos_mechanic
+                    power_type = imperial_chaos
+                    value = 30
+                }
+            }
+            
+            effect = {
+                add_adm_power = -100
+                add_government_power = {
+                    mechanic_type = tartarian_chaos_mechanic
+                    power_type = imperial_chaos
+                    value = -20
+                }
+                add_country_modifier = {
+                    name = temporary_stability
+                    duration = 1825
+                }
+            }
+            
+            ai_will_do = { factor = 0.7 }
+        }
+        
+        ritual_sacrifice = {
+            gui = russian_mechanics_interaction_gui
+            icon = GFX_ritual_sacrifice
+  
+            cooldown_years = 1
+            
+            trigger = {
+                has_government_power = {
+                    mechanic_type = tartarian_chaos_mechanic
+                    power_type = imperial_chaos
+                    value = 40
+                }
+            }
+
+            effect = {
+                add_government_power = {
+                    mechanic_type = tartarian_chaos_mechanic
+                    power_type = imperial_chaos
+                    value = -20
+                }
+                random_owned_province = {
+                    limit = { religion = ROOT }
+                    add_base_manpower = -2
+                }
+              
+                add_yearly_manpower = -1
+            }
+            
+            ai_will_do = { factor = 0.7 }
+        }
+    }
+}

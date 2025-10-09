@@ -1,0 +1,174 @@
+namespace = trade_empire
+
+ 
+country_event = {
+    id = trade_empire.1
+    title = trade_empire.1.t
+    desc = trade_empire.1.d
+    picture = TRADEGOODS_eventPicture
+    is_triggered_only = yes
+    trigger = {
+        government = republic
+        mercantilism = 25
+        num_of_merchants = 4
+        calc_true_if = {
+            all_trade_node = {
+                trade_share = {
+                    country = ROOT
+                    share = 25
+                }
+            }
+            amount = 4
+        }
+        NOT = { has_country_flag = golden_trade_age }
+    }
+    
+ 
+    
+    option = {
+        name = trade_empire.1.a
+        add_country_modifier = {
+            name = golden_age_of_trade
+            duration = 3650
+        }
+        add_prestige = 30
+        add_mercantilism = 2
+        set_country_flag = golden_trade_age
+    }
+    
+    option = {
+        name = trade_empire.1.b
+        add_years_of_income = 1.5
+        add_mercantilism = 5
+        set_country_flag = golden_trade_age
+    }
+}
+ 
+country_event = {
+    id = trade_empire.2
+    title = trade_empire.2.t
+    desc = trade_empire.2.d
+    picture = TRADE_COMPANY_GOODS_DEPOT_eventPicture
+    
+    trigger = {
+        num_of_merchants = 3
+        any_rival_country = {
+            num_of_merchants = 3
+            mercantilism = 20
+        }
+    }
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = trade_empire.2.a
+        add_mercantilism = 3
+        add_dip_power = -50
+        random_rival_country = {
+            limit = {
+                num_of_merchants = 3
+            }
+            add_opinion = {
+                who = ROOT
+                modifier = trade_rivalry
+            }
+        }
+    }
+    
+    option = {
+        name = trade_empire.2.b
+        add_years_of_income = 0.5
+        add_prestige = 10
+    }
+}
+ 
+country_event = {
+    id = trade_empire.3
+    title = trade_empire.3.t
+    desc = trade_empire.3.d
+    picture = EXPLORATION_eventPicture
+    
+    trigger = {
+        num_of_light_ship = 10
+        dip_tech = 9
+        num_of_merchants = 2
+        NOT = { has_country_modifier = new_trade_route }
+    }
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = trade_empire.3.a
+        add_country_modifier = {
+            name = new_trade_route
+            duration = 5475
+        }
+        add_mercantilism = 2
+        add_navy_tradition = 5
+    }
+}
+ 
+country_event = {
+    id = trade_empire.4
+    title = trade_empire.4.t
+    desc = trade_empire.4.d
+    picture = BANKRUPTCY_eventPicture
+    
+    trigger = {
+        has_country_modifier = trade_monopoly_established
+        OR = {
+            inflation = 10
+            war_exhaustion = 5
+            num_of_loans = 5
+        }
+    }
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = trade_empire.4.a
+        add_country_modifier = {
+            name = financial_crisis
+            duration = 1825
+        }
+        add_inflation = 2
+    }
+    
+    option = {
+        name = trade_empire.4.b
+        remove_country_modifier = trade_monopoly_established
+        add_stability = -1
+        add_prestige = -15
+    }
+}
+
+ 
+country_event = {
+    id = trade_empire.5
+    title = trade_empire.5.t
+    desc = trade_empire.5.d
+    picture = ASIAN_TRADE_eventPicture
+    
+    trigger = {
+        num_of_trade_companies = 1
+        any_owned_province = {
+            OR = {
+                region = india_region
+                region = indonesia_region
+                region = malaya_region
+            }
+        }
+        dip_tech = 15
+    }
+    
+    is_triggered_only = yes
+    
+    option = {
+        name = trade_empire.5.a
+        add_country_modifier = {
+            name = eastern_trade_contacts
+            duration = 7300
+        }
+        add_mercantilism = 1
+    }
+}

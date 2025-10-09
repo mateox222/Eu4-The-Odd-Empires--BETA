@@ -139,3 +139,37 @@ province_event = {
 		change_trade_goods = unknown
 	}
 }
+
+
+province_event = {
+	hidden = yes
+	id = aryan_culture_event.5
+	title = "aryan_culture_event.1.t"
+	desc = "aryan_culture_event.1.d"
+	picture = RIOTING_workers_eventPicture
+
+	is_triggered_only = yes
+
+	trigger = {
+ 
+			owner = {
+				NOT = { tag = A74 }
+			}
+		 
+ 
+	 
+			controller = {
+				tag = A74
+			}
+			 
+		 
+	}
+
+	immediate = {
+
+	}
+	option = {
+		name = "aryan_culture_event.1.a"
+			}
+
+	}

@@ -1,3 +1,5 @@
+
+
 raumarian_missions_north = {
 	slot = 3
 	generic = no
@@ -18,17 +20,32 @@ raumarian_missions_north = {
 		position = 1
 		provinces_to_highlight = {
 
-			province_id = 1082
+			province_id = 2421
 
 		}
 		trigger = {
-			1082 = {
+			2421 = {
 				controlled_by = ROOT
 			}
 		}
 
 		effect = {
-			4264 = {
+						    add_government_power = {
+	mechanic_type =  tartarian_organization_mechanic
+	power_type = tartarian_organization
+	value = 5
+}
+ 			1965 = {
+				cede_province = ROOT
+				change_culture = ROOT
+				change_religion = ROOT
+			}
+ 			305 = {
+				cede_province = ROOT
+				change_culture = ROOT
+				change_religion = ROOT
+			}
+			4265 = {
 				cede_province = ROOT
 				change_culture = ROOT
 				change_religion = ROOT
@@ -37,31 +54,23 @@ raumarian_missions_north = {
 				set_base_production = 1
 				set_base_manpower = 1
 			}
-			1079 = {
+			2421 = {
 				cede_province = ROOT
 				change_culture = ROOT
 				change_religion = ROOT
+				rename_capital = "Qarangi qala"
 				add_devastation = 100
 				set_base_tax = 1
 				set_base_production = 1
 				set_base_manpower = 1
-			}
-			1082 = {
-				cede_province = ROOT
-				change_culture = ROOT
-				change_religion = ROOT
-				rename_capital = "Dunkle Stadt"
-				add_devastation = 100
-				set_base_tax = 1
-				set_base_production = 1
-				set_base_manpower = 1
-				change_province_name = "Dunkle Stadt"
+				change_province_name = "Qarangi qala"
 			}
 			1972 = {
 				add_base_tax = 3
 				add_base_production = 3
 				add_base_manpower = 3
 			}
+
 			kazan_area = {
 				limit = {
 					NOT = { is_core = ROOT }
@@ -84,12 +93,34 @@ raumarian_missions_north = {
 			army_size_percentage = 0.8
 			manpower_percentage = 0.6
 			num_of_generals = 1
+			army_tradition = 50
 		}
 
 		effect = {
-			country_event = {
-				id = aryan_empire.18
+						    add_government_power = {
+	mechanic_type =  tartarian_organization_mechanic
+	power_type = tartarian_organization
+	value = 5
+}
+				custom_tooltip = raumarikazan
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					culture = uralic
+				}
+				change_culture = ROOT
 			}
+		}
+				ural_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+			add_prestige = 10
+			add_mil_power = 150
+			add_devotion = 25
 
 		}
 		ai_weight = {
@@ -103,19 +134,44 @@ raumarian_missions_north = {
 		position = 3
 		provinces_to_highlight = {
 			OR = {
-				area = saratov_area
-				area = samara_area
+				owned_by = GLH
+				province_id = 470
 			}
 
 		}
 		trigger = {
-			saratov_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			samara_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			controls = 470
 		}
 		effect = {
-			country_event = {
-				id = aryan_empire.19
+						    add_government_power = {
+	mechanic_type =  tartarian_organization_mechanic
+	power_type = tartarian_organization
+	value = 5
+}
+			custom_tooltip = raumaribulgar
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					OR = {
+						culture = astrakhani
+					}
+				}
+				change_culture = bulgaria_german
 			}
+		}
+		470 = {
+			cede_province = ROOT
+			change_religion = ROOT
+			change_culture = ROOT
+			inherit = GLH
+			rename_capital = "Xandardin Molasi"
+			add_devastation = 100
+			set_base_tax = 1
+			set_base_production = 1
+			set_base_manpower = 1
+			change_province_name = "Xandardin Molasi"
+
+		}
 
 		}
 		ai_weight = {
@@ -134,12 +190,16 @@ raumarian_missions_north = {
 		}
 		trigger = {
 			ural_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			total_development = 300
 		}
 
 		effect = {
-			country_event = {
-				id = aryan_empire.16
-			}
+						    add_government_power = {
+	mechanic_type =  tartarian_organization_mechanic
+	power_type = tartarian_organization
+	value = 30
+}
+	
 
 		}
 		ai_weight = {
@@ -156,18 +216,20 @@ raumarian_missions_north = {
 			province_id = 1972
 		}
 		trigger = {
-			1972 = {
-				has_great_project = {
-					type = atlantis_raumartemple
-					tier = 1
-				}
-			}
+		has_country_modifier = solar_dominion_active
+		has_country_modifier = eclipse_conquest_active
+		has_country_modifier = lunar_vigilance_active
+
+		 
 		}
 
 		effect = {
-			country_event = {
-				id = aryan_empire.20
+					country_event = {
+				id = aryan_empire.16
 			}
+
+		add_adm_power = 100
+		add_devotion = 25
 
 		}
 		ai_weight = {
@@ -189,9 +251,14 @@ raumarian_missions_north = {
 		}
 
 		effect = {
-			country_event = {
-				id = aryan_empire.29
-			}
+		add_prestige = 25
+		set_government_rank = 3
+		add_stability = 2
+				add_country_modifier = {
+			name = solarempireagartha
+			duration = -1
+		}
+		override_country_name = SOLAREMPIREAGARTHA
 
 		}
 		ai_weight = {
@@ -207,31 +274,54 @@ raumarian_missions_north = {
 			province_id = 1972
 		}
 		trigger = {
-			kuyavia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			mazovia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			red_ruthenia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			slovakia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			slavonia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			wallachia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			transylvania_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			southern_transylvania_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			wallachia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			                has_government_power = {
+                    mechanic_type = tartarian_chaos_mechanic
+                    power_type = imperial_chaos
+                    value = 90
+                }
+			army_size = 300
+			government_rank = 3
+			stability = 3
 			devotion = 95
 		}
 
 		effect = {
-			country_event = {
-				id = aryan_empire.34
+		add_prestige = 100
+		add_country_modifier = {
+			name = solarempireinvasion
+			duration = -1
+		}
+		every_owned_province = {
+			limit = {
+				culture = ROOT
 			}
-
+			change_culture = ROOT
+			change_religion = ROOT
+		}
+		create_general = { tradition = 50 }
+		balkan_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		poland_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
 		}
 		ai_weight = {
 			factor = 500
 		}
 	}
+	
 	aryan_religion_steel = {
 		icon = atlantropa_stalzemsty
-		required_missions = { aryan_religion_preparecrusade }
+		required_missions = { aryan_mighty_vistula aaryan_religion_preparecrusade aryan_mighty_carpathia }
 		position = 1
 
 		provinces_to_highlight = {
@@ -241,130 +331,65 @@ raumarian_missions_north = {
 			}
 		}
 		trigger = {
+						                has_government_power = {
+                    mechanic_type = tartarian_chaos_mechanic
+                    power_type = imperial_chaos
+                    value = 80
+                }
 			poland_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
 			balkan_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
 			devotion = 95
 		}
 
 		effect = {
-			country_event = {
-				id = aryan_empire.40
-			}
+	name = "aryan_empire.40.a"
+						create_general = { tradition = 100 }
+						add_years_of_income = 5
+						add_country_modifier = {
+							name = "steelzemsty"
+							duration = -1
+						}
+
+						europe_superregion = {
+							limit = {
+								NOT = { is_core = ROOT }
+								NOT = { is_permanent_claim = ROOT }
+							}
+							add_permanent_claim = ROOT
+						}
+	 
+
+						add_prestige = 100
+						add_devotion = 25
 
 		}
 		ai_weight = {
 			factor = 500
 		}
 	}
-	aryan_mighty_serbiacross2 = {
-		icon = atlantropa_undeavenedia
-		required_missions = { aryan_religion_steel }
-		provinces_to_highlight = {
-			region = france_region
+ 
 
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-		trigger = {
-			france_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-		}
-
-
-		effect = {
-			country_event = {
-				id = aryan_empire.46
-			}
-
-		}
-		ai_weight = {
-			factor = 500
-		}
-	}
-
-	aryan_mighty_britaniqueacross2 = {
-		icon = atlantropa_britaniqueburned
-		position = 11
-		required_missions = { aryan_mighty_serbiacross2 aryan_mighty_windmils aryan_mighty_italia2 }
-		provinces_to_highlight = {
-			OR = {
-				area = home_counties_area
-				area = wessex_area
-				area = west_midlands_area
-				area = wales_area
-				area = east_midlands_area
-				area = castille_area
-				area = catalonia_area
-				area = alentejo_area
-				area = beieras_area
-				area = toledo_area
-				area = valencia_area
-				area = leon_area
-				area = galicia_area
-				area = baleares_area
-
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-		trigger = {
-			home_counties_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			wessex_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			west_midlands_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			wales_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			east_midlands_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			castille_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			catalonia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			alentejo_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			beieras_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			toledo_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			valencia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			leon_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			galicia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			baleares_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-		}
-
-
-		effect = {
-			country_event = {
-				id = aryan_empire.49
-			}
-
-		}
-		ai_weight = {
-			factor = 500
-		}
-	}
+ 
 
 
 	aryan_mighty_lacrimosa = {
 		icon = atlantropa_hyperborea
 
-		required_missions = { aryan_mighty_britaniqueacross2 }
+		required_missions = { aryan_mighty_vistulacross
+aryan_religion_steel
+aryan_mighty_constantinople }
 		provinces_to_highlight = {
-			OR = {
-				province_id = 4361
-				province_id = 184
-				province_id = 236
-				province_id = 118
-				province_id = 151
-				province_id = 1763
-				province_id = 33
-				province_id = 65
-
-
-			}
+			superregion = europe_superregion
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 
 		}
 		trigger = {
-			owns_core_province = 4361
-			owns_core_province = 184
-			owns_core_province = 236
-			owns_core_province = 118
-			owns_core_province = 151
-			owns_core_province = 1763
-			owns_core_province = 33
-			owns_core_province = 65
+				 has_government_power = {
+                    mechanic_type = tartarian_chaos_mechanic
+                    power_type = imperial_chaos
+                    value = 95
+                }
+			europe_superregion = { type = all	country_or_non_sovereign_subject_holds = ROOT }
 		}
 
 
@@ -400,6 +425,23 @@ raumarian_missions_north = {
 		}
 	}
 
+	aryan_mighty_lacrimosa3 = {
+		icon = atlantropa_truegods
+
+		required_missions = { aryan_mighty_lacrimosa2 }
+
+		trigger = {
+			always = no 
+		}
+
+
+		effect = {
+			add_presitige = 100
+		}
+		ai_weight = {
+			factor = 500
+		}
+	}
 
 
 }
@@ -438,6 +480,11 @@ raumarian_missions_religion = {
 				name = "lineupplanets"
 				duration = -1
 			}
+			    add_government_power = {
+	mechanic_type =  tartarian_organization_mechanic
+	power_type = tartarian_organization
+	value = 5
+}
 
 		}
 		ai_weight = {
@@ -461,6 +508,11 @@ raumarian_missions_religion = {
 				name = "lineupplanets2"
 				duration = -1
 			}
+						    add_government_power = {
+	mechanic_type =  tartarian_organization_mechanic
+	power_type = tartarian_organization
+	value = 5
+}
 			set_estate_privilege =  estate_lunar_independent_inquisition
 
 		}
@@ -489,6 +541,11 @@ raumarian_missions_religion = {
 				name = "lineupplanets3"
 				duration = -1
 			}
+						    add_government_power = {
+	mechanic_type =  tartarian_organization_mechanic
+	power_type = tartarian_organization
+	value = 5
+}
 
 		}
 		ai_weight = {
@@ -517,6 +574,11 @@ raumarian_missions_religion = {
 				name = "lineupplanets4"
 				duration = -1
 			}
+						    add_government_power = {
+	mechanic_type =  tartarian_organization_mechanic
+	power_type = tartarian_organization
+	value = 5
+}
 
 		}
 		ai_weight = {
@@ -608,10 +670,12 @@ raumarian_missions_religion = {
 		}
 
 		effect = {
-			country_event = {
-				id = aryan_empire.30
-			}
-
+		add_prestige = 10
+		add_country_modifier = {
+			name = solarefleet
+			duration = -1
+		}
+		create_admiral = { tradition = 90 }
 
 		}
 
@@ -621,109 +685,10 @@ raumarian_missions_religion = {
 		}
 	}
 
-	aryan_mighty_scandinavia = {
-		icon = atlantropa_bloodysweden
-		required_missions = { aryan_mighty_fleet aryan_mighty_vistula }
-		position = 3
-		provinces_to_highlight = {
-			OR = {
-				area = northern_norway
-				area = western_norway
-				area = eastern_norway
-				area = gotaland_area
-				area = vastra_gotaland_area
-				area = svealand_area
-				area = ostra_svealand_area
-				area = norrland_area
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+ 
+ 
 
-		}
-		trigger = {
-			northern_norway = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			western_norway = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			eastern_norway = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			gotaland_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			vastra_gotaland_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			svealand_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			ostra_svealand_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			norrland_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-		}
-
-
-		effect = {
-			country_event = {
-				id = aryan_empire.36
-			}
-
-
-		}
-		ai_weight = {
-			factor = 500
-		}
-	}
-	aryan_mighty_serbiacross = {
-		icon = mission_impaled_soldies
-		required_missions = { aryan_mighty_vistulacross aryan_mighty_scandinavia }
-		provinces_to_highlight = {
-			OR = {
-				region = north_german_region
-				area = jutland_area
-				area = vestjylland_area
-				area = fiskland_area
-				area = holstein_area
-
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-
-
-		}
-		trigger = {
-			jutland_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			north_german_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			vestjylland_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			fiskland_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			holstein_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-		}
-
-		effect = {
-			country_event = {
-				id = aryan_empire.41
-			}
-
-		}
-		ai_weight = {
-			factor = 500
-		}
-	}
-
-	aryan_mighty_iberia = {
-		icon = atlantropa_Franceaisearmy
-		required_missions = { aryan_mighty_serbiacross }
-		provinces_to_highlight = {
-			region = british_isles_region
-
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-		trigger = {
-			num_of_provinces_owned_or_owned_by_subjects_with = {
-				value = 5
-				region = british_isles_region
-			}
-		}
-
-
-		effect = {
-			country_event = {
-				id = aryan_empire.47
-			}
-
-		}
-		ai_weight = {
-			factor = 500
-		}
-	}
+ 
 
 }
 
@@ -756,6 +721,11 @@ raumarian_missions_army = {
 		}
 
 		effect = {
+						    add_government_power = {
+	mechanic_type =  tartarian_organization_mechanic
+	power_type = tartarian_organization
+	value = 5
+}
 			add_country_modifier = {
 				name = "solarmodifier"
 				duration = -1
@@ -795,9 +765,8 @@ raumarian_missions_army = {
 
 		trigger = {
 			faction_in_power = raumaria_wiarawalczaca
-			num_of_provinces_owned_or_owned_by_subjects_with = {
-				value = 50
-			}
+			barracks = 30
+			manpower_percentage = 0.75
 		}
 
 		effect = {
@@ -805,6 +774,11 @@ raumarian_missions_army = {
 				name = "solarmodifier3"
 				duration = -1
 			}
+						    add_government_power = {
+	mechanic_type =  tartarian_organization_mechanic
+	power_type = tartarian_organization
+	value = 5
+}
 
 		}
 		ai_weight = {
@@ -819,9 +793,9 @@ raumarian_missions_army = {
 
 		trigger = {
 			faction_in_power = raumaria_wiarawalczaca
-			total_development = 1000
+			cavalry_fraction = 0.5
 			government_rank = 3
-			army_size = 75
+			army_size = 200
 		}
 
 		effect = {
@@ -837,72 +811,12 @@ raumarian_missions_army = {
 	}
 
 
-	aryan_mighty_uralicsteppe = {
-		icon = atlantropa_vinterkeep
-		required_missions = { aryan_mighty_crimea  }
-		position = 3
-		provinces_to_highlight = {
-			area = ishim_area
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-		trigger = {
-			ishim_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-
-
-		effect = {
-			custom_tooltip = raumaritlebsraum
-			hidden_effect = {
-				add_country_modifier = {
-					name = "aryanestablishfrontier"
-					duration = -1
-				}
-			}
-
-			add_prestige = 10
-			add_devotion = 25
-
-		}
-		ai_weight = {
-			factor = 500
-		}
-	}
-
-	aryan_mighty_uraliccolonize = {
-		icon = atlantropa_nativethule
-		required_missions = { aryan_mighty_uralicsteppe  }
-		position = 3
-		provinces_to_highlight = {
-			region = west_siberia_region
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-		trigger = {
-			num_of_owned_provinces_with = {
-				value = 20
-				owned_by = ROOT
-				region = west_siberia_region
-			}
-
-		}
-
-		effect = {
-			country_event = {
-				id = aryan_empire.22
-			}
-
-
-		}
-		ai_weight = {
-			factor = 500
-		}
-	}
+ 
+ 
 
 	aryan_mighty_uraliccolonize2 = {
 		icon = atlantropa_navalpower
-		required_missions = { aryan_mighty_uraliccolonize   }
+		required_missions = { aryan_mighty_crimea  }
 		provinces_to_highlight = {
 			region = east_siberia_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
@@ -910,19 +824,38 @@ raumarian_missions_army = {
 		}
 		trigger = {
 			num_of_owned_provinces_with = {
-				value = 15
+				value = 10
 				owned_by = ROOT
 				region = east_siberia_region
+			}
+						num_of_owned_provinces_with = {
+				value = 10
+				owned_by = ROOT
+				region = west_siberia_region
 			}
 
 		}
 
 		effect = {
-			country_event = {
-				id = aryan_empire.33
+							add_country_modifier = {
+					name = "aryanestablishfrontier"
+					duration = -1
+				}
+		add_country_modifier = {
+			name = "settlesraumaria2"
+			duration = -1
+		}
+		manchuria_region = {
+			limit = {
+				NOT = { is_core = ROOT }
+				NOT = { is_permanent_claim = ROOT }
 			}
+			add_permanent_claim = ROOT
+		}
 
 
+		add_prestige = 10
+		add_devotion = 25
 		}
 		ai_weight = {
 			factor = 500
@@ -931,6 +864,7 @@ raumarian_missions_army = {
 
 	aryan_mighty_uraliccolonize3 = {
 		icon = atlantropa_magaranja
+		position = 7
 		required_missions = { aryan_mighty_uraliccolonize2  }
 		provinces_to_highlight = {
 			region = manchuria_region
@@ -938,6 +872,11 @@ raumarian_missions_army = {
 
 		}
 		trigger = {
+						                has_government_power = {
+                    mechanic_type = tartarian_chaos_mechanic
+                    power_type = imperial_chaos
+                    value = 80
+                }
 			num_of_owned_provinces_with = {
 				value = 20
 				owned_by = ROOT
@@ -947,9 +886,18 @@ raumarian_missions_army = {
 		}
 
 		effect = {
-			country_event = {
-				id = aryan_empire.39
-			}
+							create_general = { tradition = 50 }
+						add_years_of_income = 5
+
+						korea_region = {
+							limit = {
+								NOT = { is_core = ROOT }
+								NOT = { is_permanent_claim = ROOT }
+							}
+							add_permanent_claim = ROOT
+						}
+						add_prestige = 10
+						add_devotion = 25
 
 
 		}
@@ -958,36 +906,7 @@ raumarian_missions_army = {
 		}
 	}
 
-	aryan_mighty_uraliccolonize4 = {
-		icon = atlantropa_homeregion
-		position = 10
-		required_missions = { aryan_mighty_uraliccolonize3  }
-		provinces_to_highlight = {
-			region = korea_region
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-		trigger = {
-			num_of_owned_provinces_with = {
-				value = 15
-				owned_by = ROOT
-				region = korea_region
-			}
-
-		}
-
-		effect = {
-			country_event = {
-				id = aryan_empire.43
-			}
-
-
-		}
-		ai_weight = {
-			factor = 500
-		}
-	}
-
+ 
 
 }
 
@@ -1045,6 +964,11 @@ raumarian_missions_second = {
 				name = "saryanbuilding2"
 				duration = -1
 			}
+						    add_government_power = {
+	mechanic_type =  tartarian_organization_mechanic
+	power_type = tartarian_organization
+	value = 5
+}
 
 		}
 		ai_weight = {
@@ -1119,19 +1043,13 @@ raumarian_missions_second = {
 
 		}
 		trigger = {
+			army_size = 75
 			arkhangelsk_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			pomor_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			
 		}
 		effect = {
 			custom_tooltip = raumariaukko
-			hidden_effect = {
-				every_owned_province = {
-					limit = {
-						culture = onegan
-					}
-					change_culture = onegan_german
-				}
-			}
+ 
 
 			russia_region = {
 				limit = {
@@ -1147,68 +1065,12 @@ raumarian_missions_second = {
 		}
 	}
 
-	aryan_mighty_vepsland = {
-		icon = atlantropa_sendgard
-		required_missions = { aryan_mighty_onega aryan_religion_ostland }
-		position = 3
-		provinces_to_highlight = {
-			OR = {
-				area = karelia_area
-				area = novgorod_area
-				area = tver_area
-				area = smolensk_area
-				area = beloozero_area
-				area = vologda_area
-				area = yaroslavl_area
-				area = suzdal_area
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-		trigger = {
-			karelia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			novgorod_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			tver_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			smolensk_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			beloozero_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			vologda_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			yaroslavl_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			suzdal_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-
-
-		effect = {
-			custom_tooltip = raumarirussia
-			hidden_effect = {
-				every_owned_province = {
-					limit = {
-						culture = russian
-					}
-					change_culture = suomi_russian
-				}
-			}
-
-			baltic_region = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-			add_prestige = 10
-			add_devotion = 25
-
-		}
-		ai_weight = {
-			factor = 500
-		}
-	}
+ 
 
 	aryavepslandn_mighty_baltic = {
 		icon = atlantropa_undeadarmy
 		required_missions = { aryan_mighty_vepsland aryan_religion_sanhedryn }
-		position = 3
+		position = 6
 		provinces_to_highlight = {
 			region = baltic_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
@@ -1271,6 +1133,7 @@ raumarian_missions_second = {
 				area = mazovia_area
 				area = red_ruthenia_area
 				area = slovakia_area
+				area = transdanubia_area
 				area = slavonia_area
 
 			}
@@ -1278,104 +1141,71 @@ raumarian_missions_second = {
 
 		}
 		trigger = {
+						                has_government_power = {
+                    mechanic_type = tartarian_chaos_mechanic
+                    power_type = imperial_chaos
+                    value = 80
+                }
 			kuyavia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
 			mazovia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
 			red_ruthenia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
 			slovakia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
 			slavonia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
+			transdanubia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
 		}
 
 
 		effect = {
-			country_event = {
-				id = aryan_empire.31
+			custom_tooltip = burnthevistula
+			create_general = { tradition = 50 }
+		hidden_effect = {
+			every_country = {
+				limit = {
+					religion_group = christian
+				}
+				add_opinion = {
+					who = ROOT
+					modifier = demonzzawisly
+				}
 			}
+			
+			every_owned_province = {
+				limit = {
+					OR = {
+						area = kuyavia_area
+						area = mazovia_area
+						area = red_ruthenia_area
+						area = slovakia_area
+						area = slavonia_area
+					}
+				}
+				set_base_manpower = 1
+				set_base_production = 1
+				set_base_tax = 1
+				change_religion = ROOT
+				add_devastation = 100
+			}
+			add_country_modifier = {
+				name = "bloodriver"
+				duration = -1
+			}
+			add_years_of_income = 5
+		}
+		add_prestige = 10
+		add_devotion = 25
 
 		}
 		ai_weight = {
 			factor = 500
 		}
 	}
+ 
 
-	aryan_mighty_vistulacross = {
-		icon = atlantropa_nilfgaard
-		required_missions = { aryan_mighty_vistula aryan_religion_preparecrusade }
-		provinces_to_highlight = {
-			region = poland_region
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-		trigger = {
-			poland_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-		}
-
-		effect = {
-			country_event = {
-				id = aryan_empire.35
-			}
-
-		}
-		ai_weight = {
-			factor = 500
-		}
-	}
-
-	aryan_mighty_austriabavaria = {
-		icon = atlantropa_sackcity
-		required_missions = {  aryan_mighty_vistulacross aryan_religion_steel }
-		provinces_to_highlight = {
-			OR = {
-				region = south_german_region
-
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-
-
-		}
-		trigger = {
-			south_german_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-		}
-
-		effect = {
-			country_event = {
-				id = aryan_empire.42
-			}
-
-		}
-		ai_weight = {
-			factor = 500
-		}
-	}
-
-	aryan_mighty_windmils = {
-		icon = atlantropa_burnwindmill
-		required_missions = {  aryan_mighty_austriabavaria }
-		provinces_to_highlight = {
-			OR = {
-				region = low_countries_region
-
-			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-
-
-		}
-		trigger = {
-			low_countries_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-		}
-
-		effect = {
-			country_event = {
-				id = aryan_empire.48
-			}
-
-		}
-		ai_weight = {
-			factor = 500
-		}
-	}
+ 
 
 	aryan_mighty_lunars = {
 		icon = atlantropa_lunarcult
-		position = 14
+		position = 11
 		required_missions = { aryan_mighty_lacrimosa2 }
 
 		trigger = {
@@ -1453,7 +1283,7 @@ raumarian_missions_third = {
 				has_building = barracks
 			}
 			manpower = 50
-			num_of_generals = 2
+			num_of_generals = 3
 		}
 
 		effect = {
@@ -1461,6 +1291,11 @@ raumarian_missions_third = {
 				name = "atlantropagrossstadt5"
 				duration = -1
 			}
+						    add_government_power = {
+	mechanic_type =  tartarian_organization_mechanic
+	power_type = tartarian_organization
+	value = 5
+}
 
 		}
 		ai_weight = {
@@ -1468,53 +1303,12 @@ raumarian_missions_third = {
 		}
 	}
 
-	aryan_mighty_saratov = {
-		icon = atlantropa_blacksunoverbulgaria
-		required_missions = { aryan_mighty_army }
-		position = 3
-		provinces_to_highlight = {
-			OR = {
-				area = bashkiria_area
-				area = lower_yik_area
-				area = nogai_area
-			}
-
-		}
-		trigger = {
-			lower_yik_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			bashkiria_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-			nogai_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-		}
-		effect = {
-			custom_tooltip = raumariamishar
-			hidden_effect = {
-				every_owned_province = {
-					limit = {
-						culture = astrakhani
-					}
-					change_culture = astrakhani_german
-				}
-			}
-
-			crimea_region = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				add_permanent_claim = ROOT
-			}
-
-
-		}
-		ai_weight = {
-			factor = 500
-		}
-	}
+ 
 
 	aryan_mighty_crimea = {
 		icon = atlantropa_crimea
 		required_missions = { aryan_mighty_saratov }
-		position = 3
+		position = 4
 		provinces_to_highlight = {
 			OR = {
 				region = crimea_region
@@ -1558,7 +1352,7 @@ raumarian_missions_third = {
 
 	aryan_mighty_turkic = {
 		icon = atlantropa_burningturkland
-		required_missions = { aryan_mighty_crimea aryan_religion_ostland }
+		required_missions = {  aryan_religion_ostland }
 		position = 3
 		provinces_to_highlight = {
 			region = ruthenia_region
@@ -1651,6 +1445,11 @@ raumarian_missions_third = {
 
 		}
 		trigger = {
+						                has_government_power = {
+                    mechanic_type = tartarian_chaos_mechanic
+                    power_type = imperial_chaos
+                    value = 80
+                }
 			moldavia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
 			wallachia_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
 			transylvania_area = { type = all	country_or_non_sovereign_subject_holds = ROOT }
@@ -1671,100 +1470,19 @@ raumarian_missions_third = {
 		}
 	}
 
-	aryan_mighty_constantinople = {
-		icon = atlantropa_fallconstantinople
-		required_missions = { aryan_mighty_carpathia aryan_religion_preparecrusade }
-		provinces_to_highlight = {
-			region = balkan_region
-
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-		trigger = {
-			balkan_region = { type = all	country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-
-
-		effect = {
-			country_event = {
-				id = aryan_empire.38
-			}
-
-		}
-		ai_weight = {
-			factor = 500
-		}
-	}
-	aryan_mighty_italia = {
-		icon = atlantropa_meropisfall
-		required_missions = { aryan_mighty_constantinople aryan_religion_steel }
-		provinces_to_highlight = {
-			OR = {
-				region = italy_region
-				region = atlantis_sicily_region
-			}
-
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-		trigger = {
-			num_of_provinces_owned_or_owned_by_subjects_with = {
-				value = 15
-				OR = {
-					region = italy_region
-					region = atlantis_sicily_region
-				}
-			}
-
-		}
-
-
-		effect = {
-			country_event = {
-				id = aryan_empire.44
-			}
-
-		}
-		ai_weight = {
-			factor = 500
-		}
-	}
-	aryan_mighty_italia2 = {
-		icon = atlantropa_blacksunoversaratov
-		required_missions = { aryan_mighty_italia }
-		provinces_to_highlight = {
-			region = italy_region
-
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-
-		}
-		trigger = {
-			owns_core_province = 118
-			num_of_provinces_owned_or_owned_by_subjects_with = {
-				value = 55
-				OR = {
-					region = italy_region
-					region = atlantis_sicily_region
-				}
-			}
-		}
-
-
-		effect = {
-			country_event = {
-				id = aryan_empire.45
-			}
-
-		}
-		ai_weight = {
-			factor = 500
-		}
-	}
+ 
+ 
+ 
 
 	aryan_mighty_solars = {
+		position = 11
+					                has_government_power = {
+                    mechanic_type = tartarian_chaos_mechanic
+                    power_type = imperial_chaos
+                    value = 80
+                }
 		icon = atlantropa_czarnesloneczko
-		position = 14
+ 
 		required_missions = { aryan_mighty_lacrimosa2 }
 
 		trigger = {

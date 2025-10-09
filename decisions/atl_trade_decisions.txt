@@ -1,0 +1,148 @@
+country_decisions = {
+    
+ 
+    establish_trade_monopoly = {
+        major = yes
+        potential = {
+            government = republic
+            OR = {
+                has_reform = merchants_reform
+                has_reform = venetian_government
+                has_reform = oligarchy_reform
+            }
+            NOT = { has_country_modifier = trade_monopoly_established }
+        }
+        
+        allow = {
+            mercantilism = 20
+            num_of_merchants = 3
+            treasury = 500
+            OR = {
+                trade_efficiency = 0.5
+                mercantilism = 30
+            }
+            calc_true_if = {
+                all_trade_node = {
+                    trade_share = {
+                        country = ROOT
+                        share = 30
+                    }
+                }
+                amount = 3
+            }
+        }
+        
+        effect = {
+            add_treasury = -500
+            add_country_modifier = {
+                name = trade_monopoly_established
+                duration = -1
+            }
+            add_mercantilism = 5
+            add_prestige = 25
+            add_country_modifier = {
+                name = trade_empire_prestige
+                duration = 7300
+            }
+        }
+        
+        ai_will_do = {
+            factor = 1
+            modifier = {
+                factor = 2
+                mercantilism = 35
+            }
+        }
+    }
+    
+ 
+    create_merchant_fleet = {
+        potential = {
+            NOT = { has_country_modifier = merchant_fleet_active }
+            num_of_merchants = 2
+        }
+        
+        allow = {
+            treasury = 300
+            navy_size = 20
+            num_of_heavy_ship = 5
+            mercantilism = 10
+        }
+        
+        effect = {
+            add_treasury = -300
+            add_country_modifier = {
+                name = merchant_fleet_active
+                duration = 3650
+            }
+            add_navy_tradition = 10
+        }
+        
+        ai_will_do = {
+            factor = 1
+        }
+    }
+    
+ 
+    found_trade_bank = {
+        potential = {
+            NOT = { has_country_modifier = trade_bank_founded }
+            is_at_war = no
+        }
+        
+        allow = {
+            treasury = 1000
+            production_leader = {
+                trade_goods = gold
+            }
+            OR = {
+                full_idea_group = economic_ideas
+                full_idea_group = trade_ideas
+            }
+        }
+        
+        effect = {
+            add_treasury = -1000
+            add_country_modifier = {
+                name = trade_bank_founded
+                duration = -1
+            }
+            add_inflation = -2
+            add_mercantilism = 3
+        }
+        
+        ai_will_do = {
+            factor = 1
+            modifier = {
+                factor = 0
+                NOT = { treasury = 2000 }
+            }
+        }
+    }
+    
+ 
+    expand_trade_posts = {
+        potential = {
+            num_of_trade_companies = 1
+            NOT = { has_country_modifier = expanded_trade_posts }
+        }
+        
+        allow = {
+            treasury = 400
+            num_of_trade_companies = 2
+            num_of_light_ship = 15
+        }
+        
+        effect = {
+            add_treasury = -400
+            add_country_modifier = {
+                name = expanded_trade_posts
+                duration = 5475
+            }
+        }
+        
+        ai_will_do = {
+            factor = 1
+        }
+    }
+}

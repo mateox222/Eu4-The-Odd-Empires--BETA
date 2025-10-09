@@ -1,0 +1,96 @@
+tartarian_organization_mechanic = {
+    # Alert icon for interactions
+    alert_icon_gfx = GFX_alerticons_government_mechanics
+    alert_icon_index = 1
+    
+    # Availability trigger
+    available = {
+       NOT = { has_country_flag = qara_kun_theocracy }
+    }
+    
+    # Powers section
+    powers = {
+        tartarian_organization = {
+            min = 0
+            max = 100
+            default = 0
+            base_monthly_growth = 0.25
+            monarch_power = adm
+            is_good = yes
+            
+            # Scaled modifier - grows with organization value
+            scaled_modifier = {
+                modifier = {
+                    stability_cost_modifier = -0.10
+                    global_unrest = -1
+                }
+            }
+        }
+    }
+    
+    # Interactions section
+    interactions = {
+        # Perk 1: Solar Dominion (30 Organization)
+        unlock_solar_dominion = {
+            gui = russian_mechanics_interaction_gui
+            cost_type = tartarian_organization
+            icon = GFX_tartarian_perk_solar
+            cost = 30
+            
+            trigger = {
+                NOT = { has_country_modifier = solar_dominion_active }
+            }
+            
+            effect = {
+                add_country_modifier = {
+                    name = solar_dominion_active
+                    duration = -1
+                }
+            }
+            
+         ai_will_do = { factor = 0.7 }
+        }
+        
+        # Perk 2: Lunar Vigilance (30 Organization)
+        unlock_lunar_vigilance = {
+            gui = russian_mechanics_interaction_gui
+            cost_type = tartarian_organization
+            icon = GFX_tartarian_perk_lunar
+            cost = 30
+            
+            trigger = {
+                NOT = { has_country_modifier = lunar_vigilance_active }
+            }
+            
+            effect = {
+                add_country_modifier = {
+                    name = lunar_vigilance_active
+                    duration = -1
+                }
+            }
+            
+         ai_will_do = { factor = 0.7 }
+        }
+        
+        # Perk 3: Eclipse Conquest (40 Organization)
+        unlock_eclipse_conquest = {
+            gui = russian_mechanics_interaction_gui
+            icon = GFX_tartarian_perk_eclipse
+            cost_type = tartarian_organization
+            cost = 40
+            
+            trigger = {
+                NOT = { has_country_modifier = eclipse_conquest_active }
+            }
+            
+            effect = {
+                add_country_modifier = {
+                    name = eclipse_conquest_active
+                    duration = -1
+                }
+            }
+            
+         ai_will_do = { factor = 0.7 }
+        }
+    }
+}

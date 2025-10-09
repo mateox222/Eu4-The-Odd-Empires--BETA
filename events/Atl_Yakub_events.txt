@@ -1,5 +1,7 @@
 namespace = atlantropa_yakub_event
 namespace = mu1_agartha
+namespace = mu1_annunaki_contact
+namespace = mu1_cosmic_storm
 
 country_event = {
 	id = atlantropa_yakub_event.1
@@ -30,6 +32,7 @@ country_event = {
 
 country_event = {
     id = mu1_agartha.1
+    	fire_only_once = yes
     title = mu1_agartha.1.t
     desc = mu1_agartha.1.d
     picture = humansacriface_eventPicture
@@ -70,6 +73,7 @@ country_event = {
 
 country_event = {
     id =  atlantropa_yakub_event.2
+    	fire_only_once = yes
     title = mu1_hexam.1.t
     desc = mu1_hexam.1.d
     picture = kartagnigilda_eventPicture
@@ -94,4 +98,518 @@ country_event = {
         add_legitimacy = 10
         add_diplomatic_power = 50
     }
+}
+
+
+country_event = {
+    id = mu1_annunaki_contact.1
+    title = mu1_annunaki_contact.1.t
+    	fire_only_once = yes
+    desc = mu1_annunaki_contact.1.d
+    picture = EVENT_STORM
+
+    is_triggered_only = yes
+
+    trigger = {
+        tag = MU1
+        has_country_flag = mu1_antenna_restored   # np. z misji
+    }
+
+    option = {
+        name = mu1_annunaki_contact.1.a   # "Continue transmission"
+        add_stability = -1
+        add_country_modifier = { name = mu1_magnetic_storm_mod duration = 365 }
+        country_event = { id = mu1_annunaki_contact.2 days = 90 }
+    }
+
+ 
+}
+
+# Event 2: Druga próba – Trzęsienie ziemi
+country_event = {
+    id = mu1_annunaki_contact.2
+    title = mu1_annunaki_contact.2.t
+    desc = mu1_annunaki_contact.2.d
+    	fire_only_once = yes
+
+    picture = EVENT_EARTHQUAKE
+
+    is_triggered_only = yes
+
+    option = {
+        name = mu1_annunaki_contact.2.a   # "Amplify the signal"
+        random_owned_province = {
+            limit = { development = 10 }
+            add_devastation = 25
+        }
+        add_country_modifier = { name = mu1_seismic_interference_mod duration = 365 }
+        country_event = { id = mu1_annunaki_contact.3 days = 120 }
+    }
+
+ 
+}
+
+# Event 3: Trzecia próba – Plaga wśród załogi
+country_event = {
+    id = mu1_annunaki_contact.3
+    title = mu1_annunaki_contact.3.t
+    desc = mu1_annunaki_contact.3.d
+    	fire_only_once = yes
+
+    picture = EVENT_PLAGUE
+
+    is_triggered_only = yes
+
+    option = {
+        name = mu1_annunaki_contact.3.a   # "Quarantine and persist"
+        add_manpower = -10
+        add_country_modifier = { name = mu1_antenna_plague_mod duration = 730 }
+        country_event = { id = mu1_annunaki_contact.4 days = 150 }
+    }
+
+ 
+}
+
+# Event 4: Czwarta próba – Hałas kosmiczny i dziwne wizje
+country_event = {
+    id = mu1_annunaki_contact.4
+    title = mu1_annunaki_contact.4.t
+    desc = mu1_annunaki_contact.4.d
+    	fire_only_once = yes
+
+    picture = EVENT_OCCULT
+
+    is_triggered_only = yes
+
+    option = {
+        name = mu1_annunaki_contact.4.a   # "Filter the noise"
+        add_country_modifier = { name = mu1_cosmic_noise_mod duration = 365 }
+        add_adm_power = -50
+        country_event = { id = mu1_annunaki_contact.5 days = 180 }
+    }
+
+ 
+}
+
+# Event 5: Przerwany komunikat – ostrzeżenie
+country_event = {
+    id = mu1_annunaki_contact.5
+    title = mu1_annunaki_contact.5.t
+    desc = mu1_annunaki_contact.5.d
+    picture = EVENT_WARNING
+    	fire_only_once = yes
+
+
+    is_triggered_only = yes
+
+    immediate = {
+        set_country_flag = mu1_annunaki_warning_received
+    }
+
+ 
+
+    option = {
+        name = mu1_annunaki_contact.5.b   # "Ignore the warning"
+        add_prestige = 10
+        set_country_flag = ANNUNAKICONTACTED
+        add_country_modifier = { name = mu1_hubris_mod duration = 730 }
+        country_event = { id = mu1_annunaki_contact.6 days = 90 }
+    }
+}
+
+# Event 6: Początek nowego łańcucha – coś się przebija przez portal
+country_event = {
+    id = mu1_annunaki_contact.6
+    title = mu1_annunaki_contact.6.t
+    desc = mu1_annunaki_contact.6.d
+    	fire_only_once = yes
+
+    picture = EVENT_PORTAL
+
+    is_triggered_only = yes
+
+    immediate = {
+        set_country_flag = mu1_portal_breach_begun
+    }
+
+    option = {
+        name = mu1_annunaki_contact.6.a   # "Prepare defenses"
+        add_mil_power = 50
+        add_country_modifier = { name = mu1_portal_watch_mod duration = 1825 }
+       hidden_effect = {
+            country_event = { id = mu1_cosmic_storm.1 days = 60 }
+        }
+
+    }
+
+ 
+}
+
+ 
+
+# Event 1: Pierwsze fale – Niebieskie błyski na horyzoncie
+country_event = {
+    id = mu1_cosmic_storm.1
+    title = mu1_cosmic_storm.1.t
+    desc = mu1_cosmic_storm.1.d
+    	fire_only_once = yes
+
+    picture = EVENT_STORM
+
+    is_triggered_only = yes
+
+    trigger = {
+        has_country_flag = mu1_portal_breach_begun
+    }
+
+    immediate = {
+        set_global_flag = mu1_cosmic_storm_begun
+            hidden_effect = {
+        every_country = {
+        
+            country_event = { id = mu1_cosmic_storm.2 days = 60 }
+        }
+        }
+    }
+
+    option = {
+        name = mu1_cosmic_storm.1.a   # "Observe and document"
+        add_country_modifier = { name = mu1_storm_watch_mod duration = 365 }
+        hidden_effect = {
+            country_event = { id = mu1_cosmic_storm.2 days = 90 }
+        }
+    }
+
+    option = {
+        name = mu1_cosmic_storm.1.b   # "Fortify our borders"
+        add_country_modifier = { name = mu1_early_fortification_mod duration = 730 }
+        add_treasury = -200
+                hidden_effect = {
+            country_event = { id = mu1_cosmic_storm.2 days = 90 }
+        }
+    }
+}
+
+# Event 2: Globalna fala – Grawitacja zanika, niebo pęka (dla wszystkich)
+country_event = {
+    id = mu1_cosmic_storm.2
+    title = mu1_cosmic_storm.2.t
+    desc = mu1_cosmic_storm.2.d
+    	fire_only_once = yes
+
+    picture = EVENT_COSMIC_WAVE
+
+    is_triggered_only = yes
+
+ 
+
+    immediate = {
+        # Globalne efekty – dla wszystkich krajów
+        add_country_modifier = { name = mu1_gravity_disruption_mod duration = 1095 }
+        
+        # Losowa devastacja w stolicach
+        capital_scope = {
+            add_devastation = 15
+        }
+        
+        # Losowa prowincja dostaje ciężkie zniszczenie
+        random_owned_province = {
+            limit = { development = 10 }
+            add_devastation = 35
+            add_province_modifier = { name = mu1_storm_scar_mod duration = 1825 }
+        }
+    }
+
+    option = {
+        name = mu1_cosmic_storm.2.a   # "Evacuate the exposed"
+        add_stability = -1
+        add_manpower = -15
+                hidden_effect = {
+            country_event = { id = mu1_cosmic_storm.3 days = 90 }
+        }
+    }
+
+    option = {
+        name = mu1_cosmic_storm.2.b   # "Hold positions, weather the storm"
+        add_war_exhaustion = 2
+        add_country_modifier = { name = mu1_stoic_resistance_mod duration = 730 }
+                hidden_effect = {
+            country_event = { id = mu1_cosmic_storm.3 days = 90 }
+        }
+    }
+}
+
+# Event 3: Istoty z Portali – potwory przechodzą przez szczeliny
+country_event = {
+    id = mu1_cosmic_storm.3
+    title = mu1_cosmic_storm.3.t
+    	fire_only_once = yes
+
+    desc = mu1_cosmic_storm.3.d
+    picture = EVENT_MONSTER
+
+ is_triggered_only = yes
+
+    immediate = {
+        set_country_flag = mu1_portal_creatures_handled
+        
+        # Spawn rebelii "Portal Creatures" w losowej prowincji
+        random_owned_province = {
+            limit = { is_capital = no }
+            spawn_rebels = {
+                type = particularist_rebels
+                size = 2
+                friend = no
+            }
+            add_devastation = 20
+        }
+    }
+
+    option = {
+        name = mu1_cosmic_storm.3.a   # "Deploy the military"
+        add_mil_power = -50
+        add_manpower = -10
+                hidden_effect = {
+            country_event = { id = mu1_cosmic_storm.4 days = 90 }
+        }
+        hidden_effect = {
+            east_cuba_area = {
+        cede_province = CUB
+        add_core = CUB
+
+    }
+
+    cuba_area = {
+        cede_province = CUB
+        add_core = CUB
+        change_culture = castillian
+        change_religion = united_christianity
+
+    }
+       USA = {
+        override_country_name = USATRUMP
+            change_religion = united_christianity
+            set_capital = 938	
+           }
+           938 = {
+            change_province_name = "Washington"	
+
+           }
+            every_province = {
+
+                limit = { is_empty = yes
+                superregion = north_america_superregion
+
+ }
+           cede_province = USA
+           add_core  = USA
+        
+              change_culture = english
+                change_religion = united_christianity
+
+             }	
+        }
+    }
+
+    option = {
+        name = mu1_cosmic_storm.3.b   # "Seal the breaches with science"
+        add_adm_power = -75
+        add_innovativeness = 2
+                hidden_effect = {
+            country_event = { id = mu1_cosmic_storm.4 days = 90 }
+        }
+        add_country_modifier = { name = mu1_breach_sealing_mod duration = 1095 }
+    }
+}
+
+# Event 4: Resonance Cascade – fala globalna zniszczenia
+country_event = {
+    id = mu1_cosmic_storm.4
+    title = mu1_cosmic_storm.4.t
+    desc = mu1_cosmic_storm.4.d
+    	fire_only_once = yes
+
+    picture = EVENT_APOCALYPSE
+
+    is_triggered_only = yes
+
+ 
+
+    immediate = {
+        set_global_flag = mu1_resonance_cascade_occurred
+        
+        # Każdy kraj dostaje globalne kary
+        hidden_effect = {
+          europe_superregion = {
+    decolonize = THIS
+}
+        every_country = {
+            add_country_modifier = { name = mu1_resonance_cascade_mod duration = 1460 }
+            add_stability = -2
+            add_war_exhaustion = 3
+            
+            # 3 losowe prowincje dostają devastację
+            random_owned_province = {
+                limit = { development = 5 }
+                add_devastation = 40
+            }
+            random_owned_province = {
+                limit = { development = 5 }
+                add_devastation = 30
+            }
+            random_owned_province = {
+                limit = { development = 5 }
+                add_devastation = 25
+            }
+        }
+        }
+    }
+
+    option = {
+        name = mu1_cosmic_storm.4.a   # "This is the end"
+        add_prestige = -25
+                hidden_effect = {
+            country_event = { id = mu1_cosmic_storm.5 days = 90 }
+        }
+        add_legitimacy = -10
+    }
+
+    option = {
+        name = mu1_cosmic_storm.4.b   # "We will endure"
+        add_country_modifier = { name = mu1_endurance_protocol_mod duration = 1825 }
+        add_years_of_income = -1
+                hidden_effect = {
+            country_event = { id = mu1_cosmic_storm.5 days = 90 }
+        }
+    }
+}
+
+# Event 5: Conjunction of Spheres – Koniec czasów, bramy między światami otwarte
+country_event = {
+    id = mu1_cosmic_storm.5
+    title = mu1_cosmic_storm.5.t
+    	fire_only_once = yes
+
+    desc = mu1_cosmic_storm.5.d
+    picture = EVENT_PORTAL_OPENING_eventPicture
+
+   is_triggered_only = yes
+
+ 
+
+    immediate = {
+        set_global_flag = mu1_conjunction_spheres
+        
+        # Permanentne globalne zmiany dla wszystkich krajów
+        hidden_effect = {
+        every_country = {
+            add_country_modifier = { name = mu1_conjunction_spheres_mod duration = -1 }
+            
+            # Każdy kraj traci 2 losowe prowincje do portali (devastacja 100)
+            random_owned_province = {
+                limit = { is_capital = no }
+                add_devastation = 100
+                add_province_modifier = { name = mu1_portal_vortex_mod duration = -1 }
+            }
+            random_owned_province = {
+                limit = { is_capital = no development = 5 }
+                add_devastation = 100
+                add_province_modifier = { name = mu1_portal_vortex_mod duration = -1 }
+            }
+        }
+        }
+    }
+
+    option = {
+        name = mu1_cosmic_storm.5.a   # "Adapt to the new world"
+    custom_tooltip = mu1_cosmic_storm.5.a.tooltip
+
+
+hidden_effect = {
+          europe_superregion = {
+            cede_province = XX1
+    add_core  = XX1
+    add_devastation = 100
+    				change_culture = mu_android
+				change_religion = mu_ancient_atheism
+    
+}
+XX1 = {
+    country_event = { 
+    id = atlantropa_deadlycomputer_event.2
+    days = 5
+}
+}
+    
+    africa_superregion = {
+            cede_province = A3F
+    add_core  = A3F
+    }
+    A3F = {
+        override_country_name = WAKANDA
+    }
+
+    every_province = {
+         add_devastation = 50
+    }
+
+        every_province = {
+        limit = {  
+            or = {
+ culture_group = east_asian
+    culture_group = korean_g
+    culture = manchu
+
+    }
+
+        }
+    cede_province = KO5
+    add_core  = KO5
+    }
+
+
+   
+       
+    every_province = {
+        limit = {  
+ culture_group = ugrofinic
+
+    }
+    cede_province = X15
+    add_core  = X15
+
+    }
+    DA1 = {
+        change_tag = A74
+        change_religion = raumarysm
+    }
+                every_province = {
+
+                limit = { is_empty = yes
+                OR = {
+                superregion = tartary_superregion
+                superregion = far_east_superregion
+                superregion = eastern_europe_superregion
+                }
+
+ }
+           cede_province = A74
+           add_core  = A74
+        
+              change_culture = aryan_german
+                change_religion = raumarysm
+
+             }	
+ 
+    			 
+
+
+    }
+
+
+        add_prestige = -10
+        add_stability = -1
+    }
+
+ 
 }
