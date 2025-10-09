@@ -1617,6 +1617,9 @@ country_event = {
 										name = "aryan_empire.50.a"
 										custom_tooltip = awaitingraumaria
 										hidden_effect = {
+											country_event = {
+												id = aryan_empire.54
+											}
 											every_owned_province = {
 												change_culture = reformed_aryan_german
 												change_religion = ROOT
@@ -1633,85 +1636,15 @@ country_event = {
 
 
 
-								country_event = {
-									id = aryan_empire.51
-									title = aryan_empire.51.t
-									desc = aryan_empire.51.d
-									picture = Cultist_eventPicture
-									trigger = {
-										has_reform = raumaria_theocracy
-										has_country_flag = huntingraumaria
-										NOT = { has_country_flag = huntingraumaria1 }
-									}
-									mean_time_to_happen = {
-										months = 36
-									}
-									option = {
-										name = "aryan_empire.51.a"
-										set_country_flag = huntingraumaria1
-										add_stability = -1
-									}
-								}
-
-
-
-								country_event = {
-									id = aryan_empire.52
-									title = aryan_empire.52.t
-									desc = aryan_empire.52.d
-									picture = sanchedrynzla_eventPicture
-									trigger = {
-										has_reform = raumaria_theocracy
-										has_country_flag = huntingraumaria1
-										NOT = { has_country_flag = huntingraumaria2 }
-									}
-									mean_time_to_happen = {
-										months = 36
-									}
-									option = {
-										name = "aryan_empire.52.a"
-										set_country_flag = huntingraumaria2
-										add_faction_influence = {
-											faction = raumaria_wiarapokojowa
-											influence = -25
-
-										}
-									}
-								}
-								country_event = {
-									id = aryan_empire.53
-									title = aryan_empire.53.t
-									desc = aryan_empire.53.d
-									picture = Cultist_eventPicture
-									trigger = {
-										has_reform = raumaria_theocracy
-										has_country_flag = huntingraumaria2
-										NOT = { has_country_flag = huntingraumaria3 }
-									}
-									mean_time_to_happen = {
-										months = 36
-									}
-									option = {
-										name = "aryan_empire.53.a"
-										set_country_flag = huntingraumaria3
-										add_faction_influence = {
-											faction = raumaria_wiarawalczaca
-											influence = 25
-										}
-										add_stability = -1
-									}
-								}
+					 
+ 
 
 								country_event = {
 									id = aryan_empire.54
 									title = aryan_empire.54.t
 									desc = aryan_empire.54.d
 									picture = Cultist_eventPicture
-									trigger = {
-										has_reform = raumaria_theocracy
-										has_country_flag = huntingraumaria14
-										NOT = { has_country_flag = huntingraumaria15 }
-									}
+									is_triggered_only = yes
 									mean_time_to_happen = {
 										months = 36
 									}
