@@ -1645,9 +1645,7 @@ country_event = {
 									desc = aryan_empire.54.d
 									picture = Cultist_eventPicture
 									is_triggered_only = yes
-									mean_time_to_happen = {
-										months = 36
-									}
+							 
 									option = { #Solars
 										name = "aryan_empire.54.a"
 										set_country_flag = huntingraumaria15
@@ -1965,7 +1963,9 @@ country_event = {
 														cede_province = X02
 													}
 													X02 = {
-														override_country_name =  SOLAREMPIREAGARTHA
+														change_country_color = { 
+    color = { 216 175 38 }
+}
 													}
 													X02 = { declare_war = ROOT	}
 												}
@@ -2028,6 +2028,10 @@ country_event = {
 														custom_tooltip = raumariacollapsesolaris1
 														hidden_effect = {
 															iberia_region = {
+																add_core = X03
+																cede_province = X03
+															}
+															aquitania_region = {
 																add_core = X03
 																cede_province = X03
 															}
@@ -2144,7 +2148,10 @@ country_event = {
 																	hidden_effect = {
 																		every_province = {
 																			limit = {
+																				OR = {
 																				region = italy_region
+																				region = atlantis_sicily_region
+																				}
 																			}
 																			add_core = PAP
 																			cede_province = PAP
@@ -2381,6 +2388,7 @@ country_event = {
 																												X02 = { override_country_name =  SIRESSURECTEDROMEA531 }
 																												add_devotion = -100
 																												add_stability = -6
+																												complete_mission = aryan_mighty_lacrimosa3
 																												add_prestige = -200
 																												hidden_effect = {
 																													every_owned_province = {
