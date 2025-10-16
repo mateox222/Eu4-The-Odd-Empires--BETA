@@ -2,6 +2,7 @@ namespace = atlantropa_yakub_event
 namespace = mu1_agartha
 namespace = mu1_annunaki_contact
 namespace = mu1_cosmic_storm
+namespace = nuclear_war
 
 country_event = {
 	id = atlantropa_yakub_event.1
@@ -96,7 +97,7 @@ country_event = {
             duration = 1460
         }
         add_legitimacy = 10
-        add_diplomatic_power = 50
+      
     }
 }
 
@@ -414,7 +415,7 @@ country_event = {
     option = {
         name = mu1_cosmic_storm.3.b   # "Seal the breaches with science"
         add_adm_power = -75
-        add_innovativeness = 2
+        change_innovativeness = 2
                 hidden_effect = {
             country_event = { id = mu1_cosmic_storm.4 days = 90 }
         }
@@ -441,8 +442,33 @@ country_event = {
         # Każdy kraj dostaje globalne kary
         hidden_effect = {
           europe_superregion = {
-    decolonize = THIS
+               cede_province = SV1
+           add_core  = SV1
 }
+ 4528 = {
+ 
+        cede_province = XX5
+        add_core  = XX5
+}
+XX5 = {
+    add_mil_tech = 5
+    set_capital = 4528
+}
+151 = {
+        add_core = XX6
+    cede_province = XX6
+
+}
+every_province = {
+    limit = {
+        owned_by = A52
+    }
+    add_core = XX6
+    cede_province = XX6
+
+
+}
+XX6 = {     set_capital = 151 }
         every_country = {
             add_country_modifier = { name = mu1_resonance_cascade_mod duration = 1460 }
             add_stability = -2
@@ -526,20 +552,19 @@ country_event = {
 
 
 hidden_effect = {
-          europe_superregion = {
-            cede_province = XX1
-    add_core  = XX1
-    add_devastation = 100
-    				change_culture = mu_android
+       USA = { country_event = { id = nuclear_war.1 days = 90 }}
+    				every_province = {
+					limit = {
+						continent = Antarctique
+					}
+					add_core = XX1
+					cede_province = XX1
+                        				change_culture = mu_android
 				change_religion = mu_ancient_atheism
-    
-}
-XX1 = {
-    country_event = { 
-    id = atlantropa_deadlycomputer_event.2
-    days = 5
-}
-}
+				}
+			}
+ 
+
     
     africa_superregion = {
             cede_province = A3F
@@ -610,6 +635,514 @@ XX1 = {
         add_prestige = -10
         add_stability = -1
     }
-
  
+
+ #DOOM
+ country_event = {
+    id = nuclear_war.1
+    title = "nuclear_war.1.t"
+    desc = "nuclear_war.1.d"
+    picture = ANGRY_MOB_eventPicture
+    
+    major = yes
+    fire_only_once = yes
+  is_triggered_only = yes
+    
+ 
+    
+    immediate = {
+        hidden_effect = {
+            set_global_flag = nuclear_war_usa_wakanda
+            USA = { set_country_flag = nuclear_aggressor }
+            A3F = { set_country_flag = nuclear_target }
+        }
+    }
+    
+    # Opcja 1: USA - Pierwszy strzał
+    option = {
+        name = "nuclear_war.1.a"
+ 
+        
+        add_stability = -3
+        add_war_exhaustion = 10
+        add_prestige = -50
+        add_adm_power = -200
+        add_dip_power = -200
+        add_mil_power = -200
+        
+        # Zniszczenie prowincji Wakandy
+       A3F = {
+            random_owned_province = {
+                limit = { development = 15 }
+                add_devastation = 100
+                add_base_tax = -5
+                add_base_production = -5
+                add_base_manpower = -5
+            }
+            random_owned_province = {
+                limit = { development = 15 }
+                add_devastation = 100
+                add_base_tax = -4
+                add_base_production = -4
+                add_base_manpower = -4
+            }
+            random_owned_province = {
+                limit = { development = 10 }
+                add_devastation = 100
+                add_base_tax = -3
+                add_base_production = -3
+                add_base_manpower = -3
+            }
+        }
+        
+ 
+        
+        # Wakanda odpowiada
+        A3F = {
+            country_event = { id = nuclear_war.2 days = 3 }
+        }
+        
+        add_country_modifier = {
+            name = nuclear_first_strike
+            duration = 18250
+        }
+    }
+    
+    # Opcja 2: Wakanda - Obrona
+    option = {
+        name = "nuclear_war.1.b"
+        trigger = { tag = A3F }
+        
+        add_stability = -2
+        add_prestige = 25
+        add_mil_power = 100
+        
+        add_country_modifier = {
+            name = wakandan_defense_protocol
+            duration = 7300
+        }
+    }
+    
+    # Opcja 3: Obserwatorzy
+ 
+}
+
+# Wakanda - Odwet nuklearny
+country_event = {
+    id = nuclear_war.2
+    title = "nuclear_war.2.t"
+    desc = "nuclear_war.2.d"
+    picture = REVOLUTION_eventPicture
+    
+    is_triggered_only = yes
+    major = yes
+    
+    # Opcja 1: Wakanda odpowiada atakiem nuklearnym
+    option = {
+        name = "nuclear_war.2.a"
+      
+        
+        add_mil_power = -300
+        add_prestige = 30
+        add_stability = -2
+        
+        # Zniszczenie USA
+        USA = {
+            random_owned_province = {
+                limit = { 
+                    development = 20
+                    is_capital = no
+                }
+                add_devastation = 100
+                add_base_tax = -6
+                add_base_production = -6
+                add_base_manpower = -6
+                add_province_modifier = {
+                    name = nuclear_wasteland
+                    duration = -1
+                }
+            }
+            random_owned_province = {
+                limit = { development = 15 }
+                add_devastation = 100
+                add_base_tax = -5
+                add_base_production = -5
+                add_base_manpower = -5
+                add_province_modifier = {
+                    name = nuclear_wasteland
+                    duration = -1
+                }
+            }
+            random_owned_province = {
+                limit = { development = 15 }
+                add_devastation = 100
+                add_base_tax = -4
+                add_base_production = -4
+                add_base_manpower = -4
+            }
+        }
+        
+        add_country_modifier = {
+            name = wakandan_retaliation
+            duration = 18250
+        }
+        
+        # Eskalacja - ZSRR i Great Hwan
+        SV1 = {
+            country_event = { id = nuclear_war.3 days = 7 }
+        }
+    }
+    
+    # Opcja 2: USA - Przyjęcie ciosu
+    option = {
+        name = "nuclear_war.2.b"
+        trigger = { tag = USA }
+        
+        add_stability = -3
+        add_war_exhaustion = 15
+        add_prestige = -75
+        
+        add_country_modifier = {
+            name = nuclear_devastation
+            duration = 18250
+        }
+    }
+}
+
+
+country_event = {
+    id = nuclear_war.3
+    title = "nuclear_war.3.t"
+    desc = "nuclear_war.3.d"
+    picture = BORDER_TENSION_eventPicture
+    
+    is_triggered_only = yes
+    major = yes
+    
+    trigger = {
+        tag = SV1
+        has_global_flag = nuclear_war_usa_wakanda
+        exists = KO5
+        NOT = { has_global_flag = nuclear_war_sov_ghe }
+    }
+    
+    immediate = {
+        hidden_effect = {
+            set_global_flag = nuclear_war_sov_ghe
+        }
+    }
+    
+    # Opcja 1: ZSRR rozpoczyna atak nuklearny na Great Hwan
+    option = {
+        name = "nuclear_war.3.a"
+        
+        add_stability = -3
+        add_prestige = -60
+        add_mil_power = -250
+        add_war_exhaustion = 12
+        
+        # Zniszczenie Great Hwan Empire
+        KO5 = {
+            random_owned_province = {
+                limit = { development = 18 }
+                add_devastation = 100
+                add_base_tax = -7
+                add_base_production = -7
+                add_base_manpower = -7
+                add_province_modifier = {
+                    name = nuclear_wasteland
+                    duration = -1
+                }
+            }
+            random_owned_province = {
+                limit = { development = 15 }
+                add_devastation = 100
+                add_base_tax = -5
+                add_base_production = -5
+                add_base_manpower = -5
+                add_province_modifier = {
+                    name = nuclear_wasteland
+                    duration = -1
+                }
+            }
+            random_owned_province = {
+                limit = { development = 12 }
+                add_devastation = 100
+                add_base_tax = -4
+                add_base_production = -4
+                add_base_manpower = -4
+            }
+            random_owned_province = {
+                limit = { development = 10 }
+                add_devastation = 100
+                add_base_tax = -3
+                add_base_production = -3
+                add_base_manpower = -3
+            }
+        }
+        
+        add_country_modifier = {
+            name = soviet_nuclear_doctrine
+            duration = 18250
+        }
+        
+        # Great Hwan odpowiada
+        KO5 = {
+            country_event = { id = nuclear_war.4 days = 2 }
+        }
+        
+        # Globalne konsekwencje
+        every_country = {
+            add_country_modifier = {
+                name = nuclear_winter_approaches
+                duration = 7300
+            }
+        }
+    }
+    
+ 
+}
+
+# Great Hwan Empire - Masowy odwet nuklearny
+country_event = {
+    id = nuclear_war.4
+    title = "nuclear_war.4.t"
+    desc = "nuclear_war.4.d"
+    picture = CITY_BURNING_eventPicture
+    
+    is_triggered_only = yes
+    major = yes
+    
+    # Opcja 1: Great Hwan - Totalna wojna nuklearna
+    option = {
+        name = "nuclear_war.4.a"
+        trigger = { tag = KO5 }
+        
+        add_mil_power = -350
+        add_stability = -3
+        add_prestige = 50
+        
+        # Masowe zniszczenie ZSRR
+        SV1 = {
+            random_owned_province = {
+                limit = { 
+                    is_capital = yes
+                }
+                add_devastation = 100
+                add_base_tax = -8
+                add_base_production = -8
+                add_base_manpower = -8
+                add_province_modifier = {
+                    name = capital_nuclear_strike
+                    duration = -1
+                }
+            }
+            random_owned_province = {
+                limit = { development = 20 }
+                add_devastation = 100
+                add_base_tax = -6
+                add_base_production = -6
+                add_base_manpower = -6
+                add_province_modifier = {
+                    name = nuclear_wasteland
+                    duration = -1
+                }
+            }
+            random_owned_province = {
+                limit = { development = 18 }
+                add_devastation = 100
+                add_base_tax = -5
+                add_base_production = -5
+                add_base_manpower = -5
+                add_province_modifier = {
+                    name = nuclear_wasteland
+                    duration = -1
+                }
+            }
+            random_owned_province = {
+                limit = { development = 15 }
+                add_devastation = 100
+                add_base_tax = -5
+                add_base_production = -5
+                add_base_manpower = -5
+            }
+            random_owned_province = {
+                limit = { development = 12 }
+                add_devastation = 100
+                add_base_tax = -4
+                add_base_production = -4
+                add_base_manpower = -4
+            }
+        }
+        
+        add_country_modifier = {
+            name = hwan_total_war
+            duration = 18250
+        }
+        
+        # Finał - Nuklearna zima
+        MU1 = {
+            country_event = { id = nuclear_war.5 days = 30 }
+        }
+    }
+    
+    # Opcja 2: ZSRR - Przyjęcie zagłady
+    option = {
+        name = "nuclear_war.4.b"
+        trigger = { tag = SV1 }
+        
+        add_stability = -3
+        add_legitimacy = -50
+        add_prestige = -100
+        
+        add_country_modifier = {
+            name = soviet_collapse_imminent
+            duration = -1
+        }
+    }
+}
+
+# Finał - Globalna nuklearna zima
+country_event = {
+    id = nuclear_war.5
+    title = "nuclear_war.5.t"
+    desc = "nuclear_war.5.d"
+    picture = FAMINE_eventPicture
+    fire_only_once = yes
+    is_triggered_only = yes
+    major = yes
+    
+    option = {
+
+        name = "nuclear_war.5.a"
+        set_global_flag = nuclearwinterwar
+        add_stability = -2
+        set_global_flag = robotyyakub
+        hidden_effect = {
+        every_country = {
+            
+            add_country_modifier = {
+                name = nuclear_winter
+                duration = -1
+            }
+            
+            # Zniszczenie losowych prowincji na świecie
+            every_owned_province = {
+                limit = {
+                    development = 10
+                    has_port = yes
+                }
+                random_list = {
+                   50 = {
+                        add_devastation = 50
+                        add_base_tax = -2
+                        add_base_production = -2
+                        add_base_manpower = -2
+                    }
+                    50 = {
+                        set_base_manpower = 1
+                        set_base_production = 1
+                        set_base_tax = 1
+                        add_devastation = 100
+                    }
+                }
+            }
+        }
+        
+        # Specjalne konsekwencje dla głównych graczy
+        USA = {
+            add_country_modifier = {
+                name = post_nuclear_america
+                duration = -1
+            }
+        }
+        
+        A3F = {
+            add_country_modifier = {
+                name = post_nuclear_wakanda
+                duration = -1
+            }
+        }
+        
+        SV1 = {
+            add_country_modifier = {
+                name = post_nuclear_soviet
+                duration = -1
+            }
+        }
+        
+        KO5 = {
+            add_country_modifier = {
+                name = post_nuclear_hwan
+                duration = -1
+            }
+        }
+XX1 = {
+    add_treasury = 50000
+    add_mil_power = 500
+    add_dip_power = 500 
+    add_adm_power = 500 
+add_mil_tech = 10
+    country_event = { 
+    id = atlantropa_deadlycomputer_event.2
+    days = 5
+}
+
+}
+        every_country = {
+            limit = {
+                NOT = { 
+                    OR = { 
+ 
+  
+                     tag = A74 
+                    tag = X15  
+                     tag = XX1  
+                   tag = XX2  
+                   tag = MU1 
+                    tag = XX3    
+                     tag = XX4  
+                    tag = XX5     
+                 }
+            }
+            }
+
+            add_stability = -6
+            add_adm_power = -999
+            add_dip_power = -999
+            add_mil_power = -999
+         
+        
+            every_owned_province = {
+                set_base_tax = 1
+                set_base_production = 1
+                set_base_manpower = 1
+                add_devastation = 100
+                add_province_modifier = {
+                    name = nuclear_wasteland
+                    duration = -1
+                }
+
+        }
+    }
+ every_country = {
+    limit = {
+        OR = {
+        tag = USA
+        tag = A3F
+        tag = SV1
+        tag = KO5
+        }
+
+    }
+ 
+                override_country_name = "Wasteland"
+                        change_country_color = { 
+    color = { 255 255 255 }
+
+
+                        }
+}
+}
+}
 }

@@ -1123,3 +1123,64 @@ country_event = {
 	}
 
 }
+
+
+country_event = {
+	id = startevent.55555
+	title = startevent.5.t
+	desc = startevent.5.d
+	picture = BLACKSUN_eventPicture
+	is_triggered_only = yes
+	fire_only_once = yes
+	trigger = {
+		ai = no
+	}
+	immediate = {
+		
+		hidden_effect = {
+			every_province = {
+				limit = {
+					has_special_toe_resources = no
+				}
+				the_odd_empires_enable_special_resources = yes
+			}
+		}
+	}
+	option = {
+		highlight = yes
+		name = startevent.5.a
+	}
+	option = {
+		name = startevent.250.b
+		country_event = {
+			id = startevent.250
+		}
+	}
+	option = { #Annex Vassals
+		name = startevent.1050.c
+		trigger = {
+			always = no
+			NOT = {
+				has_global_flag = colorchangedsetting
+			}
+		}
+		country_event = {
+			id = atlantropa_basic_event.50001
+		}
+	}
+
+	#All undead
+	option = {
+		name = startevent.101.ne
+		trigger = {
+			NOT = {
+				has_global_flag = fuck_it_necromancer_world
+				ai = no
+			}
+		}
+		country_event = {
+			id = startevent.109
+		}
+	}
+
+}

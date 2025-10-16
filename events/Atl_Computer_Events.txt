@@ -78,6 +78,18 @@ country_event = {
 				add_core  = XX1
 				cede_province = XX1
 			}
+if = { limit = { has_global_flag = robotyyakub }
+	north_german_region = {
+		cede_province = XX4
+		add_core = XX4
+	}
+	manchuria_region = {
+		cede_province = XX3
+		add_core = XX3
+	}
+ }
+
+}
 			every_neighbor_country = { declare_war = ROOT }
 			2966 = {
 				add_core  = XX4
@@ -260,5 +272,43 @@ country_event = {
 		}
 	}
 }
+country_event = {
+	id = atlantropa_deadlycomputer_event.3
+	title = "atlantropa_deadlycomputer_event.3.t"
+	desc = "atlantropa_deadlycomputer_event.3.d"
+	picture = aiccore_eventPicture
+ 
+ 
+	hidden = yes
+	trigger = {
+		is_at_war = no
+		
+	or = {
+	tag = XX1
+	tag = XX2
+	tag = XX3
+	tag = XX4
+	tag = XX5
+	tag = XX6
+	}
+	}
+ 
+	option = {
+		name = "atlantropa_deadlycomputer_event.3.a"
+ 				capital_scope = {
+					infantry = ROOT
+					infantry = ROOT
+					infantry = ROOT
+					infantry = ROOT
+					infantry = ROOT				
+					infantry = ROOT
+					infantry = ROOT
+					infantry = ROOT				
+					infantry = ROOT
+				}
+		every_neighbor_country = { declare_war = ROOT }
 
+	}
+}
+		
 

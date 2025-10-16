@@ -1,7 +1,8 @@
 country_decisions = {
 	restore_name_decision = {
 		major = yes
-		potential = {
+		potential = { 
+			NOT = { has_global_flag = nuclearwinterwar }
 			has_country_flag = has_overriden_name_flag
 			OR = {
 				has_country_flag = has_eyalet_country_name
