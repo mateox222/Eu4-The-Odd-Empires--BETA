@@ -444,10 +444,7 @@ country_event = {
         
         # Każdy kraj dostaje globalne kary
         hidden_effect = {
-          europe_superregion = {
-               cede_province = SV1
-           add_core  = SV1
-}
+ 
  4528 = {
  
         cede_province = XX5
@@ -790,9 +787,7 @@ country_event = {
         }
         
         # Eskalacja - ZSRR i Great Hwan
-        SV1 = {
-            country_event = { id = nuclear_war.3 days = 7 }
-        }
+ 
     }
     
     # Opcja 2: USA - Przyjęcie ciosu
@@ -822,7 +817,7 @@ country_event = {
     major = yes
     
     trigger = {
-        tag = SV1
+        tag = USA
         has_global_flag = nuclear_war_usa_wakanda
         exists = KO5
         NOT = { has_global_flag = nuclear_war_sov_ghe }
@@ -918,58 +913,7 @@ country_event = {
         add_stability = -3
         add_prestige = 50
         
-        # Masowe zniszczenie ZSRR
-        SV1 = {
-            random_owned_province = {
-                limit = { 
-                    is_capital = yes
-                }
-                add_devastation = 100
-                add_base_tax = -8
-                add_base_production = -8
-                add_base_manpower = -8
-                add_province_modifier = {
-                    name = capital_nuclear_strike
-                    duration = -1
-                }
-            }
-            random_owned_province = {
-                limit = { development = 20 }
-                add_devastation = 100
-                add_base_tax = -6
-                add_base_production = -6
-                add_base_manpower = -6
-                add_province_modifier = {
-                    name = nuclear_wasteland
-                    duration = -1
-                }
-            }
-            random_owned_province = {
-                limit = { development = 18 }
-                add_devastation = 100
-                add_base_tax = -5
-                add_base_production = -5
-                add_base_manpower = -5
-                add_province_modifier = {
-                    name = nuclear_wasteland
-                    duration = -1
-                }
-            }
-            random_owned_province = {
-                limit = { development = 15 }
-                add_devastation = 100
-                add_base_tax = -5
-                add_base_production = -5
-                add_base_manpower = -5
-            }
-            random_owned_province = {
-                limit = { development = 12 }
-                add_devastation = 100
-                add_base_tax = -4
-                add_base_production = -4
-                add_base_manpower = -4
-            }
-        }
+ 
         
         add_country_modifier = {
             name = hwan_total_war
@@ -983,19 +927,7 @@ country_event = {
     }
     
     # Opcja 2: ZSRR - Przyjęcie zagłady
-    option = {
-        name = "nuclear_war.4.b"
-        trigger = { tag = SV1 }
-        
-        add_stability = -3
-        add_legitimacy = -50
-        add_prestige = -100
-        
-        add_country_modifier = {
-            name = soviet_collapse_imminent
-            duration = -1
-        }
-    }
+ 
 }
 
 # Finał - Globalna nuklearna zima
@@ -1060,12 +992,7 @@ country_event = {
             }
         }
         
-        SV1 = {
-            add_country_modifier = {
-                name = post_nuclear_soviet
-                duration = -1
-            }
-        }
+ 
         
         KO5 = {
             add_country_modifier = {
@@ -1126,7 +1053,7 @@ add_mil_tech = 10
         OR = {
         tag = USA
         tag = A3F
-        tag = SV1
+ 
         tag = KO5
         }
 
@@ -1139,6 +1066,31 @@ add_mil_tech = 10
 
                         }
 }
+SV1 = {
+add_adm_tech = 5	
+add_dip_tech = 5	
+add_mil_tech = 5	
+add_manpower = 100
+add_treasury = 20000
+}
+236 = {
+    add_core = SV1
+        cede_province = SV1
+        
+}
+1879 = {
+       add_core = SV1
+        cede_province = SV1
+}
+173 = {
+     add_core = SV1
+        cede_province = SV1
+}
+5747 = {
+    add_core = SV1
+        cede_province = SV1
+}
+
 }
 }
 }
