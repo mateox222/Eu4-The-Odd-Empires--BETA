@@ -574,15 +574,24 @@ mu1_slot_4 = {
         }
         
         trigger = {
-           the_great_railroad = {
-                type = all
+                        num_of_owned_provinces_with = {
+                value = 50
                 OR = {
-                    owned_by = ROOT
-                    is_core = ROOT
-                    is_empty = yes
-        
+                    region = the_great_railroad 
                 }
             }
+            NOT = {
+                exist = M1U 
+                exist = MU2
+                exist = MU3
+                exist = MU4
+                exist = MU5
+                exist = MU6
+                exist = MU7
+                exist = MU8
+                exist = MU9
+            }
+ 
  
             army_size = 50
         }
@@ -694,8 +703,7 @@ mu1_slot_5 = {
         }
         
         trigger = {
-     
-            has_country_flag = mu1_vril_unlocked
+ 
             
             # Wymaga wysokiej techniki
             adm_tech = 20
