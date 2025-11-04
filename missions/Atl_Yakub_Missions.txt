@@ -258,6 +258,8 @@ mu1_slot_3 = {
      add_mil_power = -400
      add_dip_power = -400
      set_country_flag = antenna_active
+     set_country_flag = mu1_antenna_restored
+     
 		 }
     }
 
@@ -446,16 +448,18 @@ mu1_slot_3 = {
             }
             
             # Great Projects
+            any_owned_province = {
             has_great_project = { 
                 type = mu1_agartha_citadel
                 tier = 3
             }
+            }
+            any_owned_province = {
             has_great_project = { 
                 type = mu1_golden_citadel
                 tier = 3
             }
-            
-            # Doskonałe społeczeństwo
+            }
             religious_unity = 1
             innovativeness = 100
         }
