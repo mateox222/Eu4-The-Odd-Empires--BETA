@@ -1,4 +1,7 @@
 yakub_prime_mechanic = {
+    	available = {
+    NOT = { has_country_flag = mu1_vril_unlocked }
+    }
     powers = {
         yakub_prime_mandate = {
             min = 0
@@ -14,24 +17,48 @@ yakub_prime_mechanic = {
             			gui = russian_mechanics_interaction_gui
 			icon = GFX_yakub_clone_legions
            cooldown_years = 10
-            cost =   30  
-           trigger = { has_country_flag = mu1_grand_laboratory_seized}
+  
+           trigger = { has_country_flag = mu1_grand_laboratory_seized
+           
+                          has_government_power = {
+                   mechanic_type = yakub_prime_mechanic
+                   power_type = yakub_prime_mandate
+                   value = 30
+               }
+           }
             effect = {
                 add_country_modifier = { name = yakub_clone_legions_mod duration = 1460 }    # 4 lata
                 add_yearly_manpower = 10
+                            effect = {
+                                         add_government_power = {
+                   mechanic_type = yakub_prime_mechanic
+                   power_type = yakub_prime_mandate
+                   value = -30
+               }
  
             }
   
+        }
         }
 
         yakub_annunaki_concord = {
             			gui = russian_mechanics_interaction_gui
 			icon = GFX_yakub_annunaki
            cooldown_years = 2137
-            cost =  40  
+                                  has_government_power = {
+                   mechanic_type = yakub_prime_mechanic
+                   power_type = yakub_prime_mandate
+                   value = 40
+               }
            trigger = { owns = 6092 
            has_country_flag = antenna_active}
             effect = {
+                     
+                                         add_government_power = {
+                   mechanic_type = yakub_prime_mechanic
+                   power_type = yakub_prime_mandate
+                   value = -30
+               }
                 country_event = { id = mu1_annunaki_contact.1  }
  
             }
@@ -43,9 +70,18 @@ yakub_prime_mechanic = {
             			gui = russian_mechanics_interaction_gui
 			icon = GFX_yakub_tylenol
             cooldown_years = 10
-            cost = 25 
+                          has_government_power = {
+                   mechanic_type = yakub_prime_mechanic
+                   power_type = yakub_prime_mandate
+                   value = 25
+               }
             trigger = { always = yes }
             effect = {
+                                         add_government_power = {
+                   mechanic_type = yakub_prime_mechanic
+                   power_type = yakub_prime_mandate
+                   value = -25
+               }
                 add_country_modifier = { name = yakub_pink_tablets_mod duration = 1095 }    # 3 lata
                 add_prestige = 10
                 add_unrest = 1
@@ -54,3 +90,4 @@ yakub_prime_mechanic = {
         }
     }
 }
+ 

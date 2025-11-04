@@ -3,6 +3,9 @@ namespace = mu1_agartha
 namespace = mu1_annunaki_contact
 namespace = mu1_cosmic_storm
 namespace = nuclear_war
+namespace = mu1_vril
+namespace = mu1_vril_resurrection
+
 
 country_event = {
 	id = atlantropa_yakub_event.1
@@ -107,7 +110,7 @@ country_event = {
     title = mu1_annunaki_contact.1.t
     	fire_only_once = yes
     desc = mu1_annunaki_contact.1.d
-    picture = EVENT_STORM
+    picture = vril_discovera_eventPicture
 
     is_triggered_only = yes
 
@@ -133,7 +136,7 @@ country_event = {
     desc = mu1_annunaki_contact.2.d
     	fire_only_once = yes
 
-    picture = EVENT_EARTHQUAKE
+    picture = EVENT_PORTAL_OPENING_eventPicture
 
     is_triggered_only = yes
 
@@ -157,7 +160,7 @@ country_event = {
     desc = mu1_annunaki_contact.3.d
     	fire_only_once = yes
 
-    picture = EVENT_PLAGUE
+    picture = EVENT_PORTAL_OPENING_eventPicture
 
     is_triggered_only = yes
 
@@ -178,7 +181,7 @@ country_event = {
     desc = mu1_annunaki_contact.4.d
     	fire_only_once = yes
 
-    picture = EVENT_OCCULT
+    picture = EVENT_PORTAL_OPENING_eventPicture
 
     is_triggered_only = yes
 
@@ -197,7 +200,7 @@ country_event = {
     id = mu1_annunaki_contact.5
     title = mu1_annunaki_contact.5.t
     desc = mu1_annunaki_contact.5.d
-    picture = EVENT_WARNING
+    picture = EVENT_PORTAL_OPENING_eventPicture
     	fire_only_once = yes
 
 
@@ -225,7 +228,7 @@ country_event = {
     desc = mu1_annunaki_contact.6.d
     	fire_only_once = yes
 
-    picture = EVENT_PORTAL
+    picture = EVENT_PORTAL_OPENING_eventPicture
 
     is_triggered_only = yes
 
@@ -255,7 +258,7 @@ country_event = {
     desc = mu1_cosmic_storm.1.d
     	fire_only_once = yes
 
-    picture = EVENT_STORM
+    picture = EVENT_PORTAL_OPENING_eventPicture
 
     is_triggered_only = yes
 
@@ -298,7 +301,7 @@ country_event = {
     desc = mu1_cosmic_storm.2.d
     	fire_only_once = yes
 
-    picture = EVENT_COSMIC_WAVE
+    picture = EVENT_PORTAL_OPENING_eventPicture
 
     is_triggered_only = yes
 
@@ -347,7 +350,7 @@ country_event = {
     	fire_only_once = yes
 
     desc = mu1_cosmic_storm.3.d
-    picture = EVENT_MONSTER
+    picture = EVENT_PORTAL_OPENING_eventPicture
 
  is_triggered_only = yes
 
@@ -430,7 +433,7 @@ country_event = {
     desc = mu1_cosmic_storm.4.d
     	fire_only_once = yes
 
-    picture = EVENT_APOCALYPSE
+    picture = EVENT_PORTAL_OPENING_eventPicture
 
     is_triggered_only = yes
 
@@ -1139,3 +1142,64 @@ add_mil_tech = 10
 }
 }
 }
+
+country_event = {
+    id = mu1_vril.1
+    title = mu1_vril.1.t
+    desc = mu1_vril.1.d
+    picture = vril_eventPicture
+
+    is_triggered_only = yes
+ 
+
+    immediate = {
+        set_country_flag = mu1_vril_unlocked
+                    set_country_flag = vrillactivated
+ 
+    override_country_name = empireofmankindawaken
+    	regenerate_government_mechanics = yes	
+    }
+
+    option = {
+        name = mu1_vril.1.a   # "Harness the Current"
+        # Startowe zasoby Vril
+        add_government_power = { 
+            mechanic_type = mu1_vril_harnessing 
+            power_type = mu1_vril_energy 
+            value = 40 
+        }
+        add_government_power = { 
+            mechanic_type = mu1_vril_harnessing 
+            power_type = mu1_vril_mastery 
+            value = 15 
+        }
+        add_country_modifier = { 
+            name = mu1_vril_awakening_mod 
+            duration = 1825 
+        }
+        add_innovativeness = 5
+        add_prestige = 20
+    }
+
+    option = {
+        name = mu1_vril.1.b   # "Study before touching"
+        add_government_power = { 
+            mechanic_type = mu1_vril_harnessing 
+            power_type = mu1_vril_energy 
+            value = 20 
+        }
+        add_government_power = { 
+            mechanic_type = mu1_vril_harnessing 
+            power_type = mu1_vril_mastery 
+            value = 25 
+        }
+        add_country_modifier = { 
+            name = mu1_vril_cautious_study_mod 
+            duration = 1460 
+        }
+        add_adm_power = 100
+    }
+}
+
+
+ 
