@@ -1,0 +1,75 @@
+interaction_demand_vril_energy = {
+    icon = privilege_promote_purbias_dhikr
+    
+    trigger = {
+        has_estate_privilege = estate_vril_mages_research_funding
+        estate_loyalty = {
+            estate = estate_vril_mages
+            loyalty = 40
+        }
+        crown_land_share = 30
+    }
+    
+    effect = {
+        add_estate_loyalty = {
+            estate = estate_vril_mages
+            loyalty = -20
+        }
+        add_government_power = {
+            mechanic_type = mu1_vril_harnessing
+            power_type = mu1_vril_energy
+            value = 40
+        }
+        custom_tooltip = VRIL_MAGES_DEMAND_TOOLTIP
+    }
+    
+    cooldown_months = 120
+    
+    ai_will_do = {
+        factor = 0.4
+        modifier = {
+            factor = 2
+            NOT = {
+                has_government_power = {
+                    mechanic_type = mu1_vril_harnessing
+                    power_type = mu1_vril_energy
+                    value = 40
+                }
+            }
+        }
+    }
+}
+
+interaction_commission_vril_research = {
+    icon = privilege_development_efficiency
+    
+    trigger = {
+        estate_loyalty = {
+            estate = estate_vril_mages
+            loyalty = 60
+        }
+        treasury = 1000
+    }
+    
+    effect = {
+        add_treasury = -1000
+        add_estate_loyalty = {
+            estate = estate_vril_mages
+            loyalty = -10
+        }
+        add_country_modifier = {
+            name = mu1_commissioned_research_mod
+            duration = 1825
+        }
+    }
+    
+    cooldown_months = 180
+    
+    ai_will_do = {
+        factor = 0.3
+        modifier = {
+            factor = 3
+            innovativeness = 50
+        }
+    }
+}

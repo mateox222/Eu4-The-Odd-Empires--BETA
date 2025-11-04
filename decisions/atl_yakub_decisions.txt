@@ -1,0 +1,355 @@
+# DECISION 1: Activate Clone Production
+country_decisions = {
+mu1_activate_clone_production = {
+    major = yes
+    potential = {
+        tag = MU1
+        owns = 6058  # Grand Laboratory province
+        NOT = { has_country_modifier = mu1_clone_production_active_mod }
+    }
+    
+    allow = {
+        owns = 6058
+        treasury = 1000
+        stability = 0
+        6058 = {
+            development = 20
+        }
+    }
+    
+    effect = {
+        add_treasury = -1000
+        add_years_of_income = -0.5
+        add_country_modifier = {
+            name = mu1_clone_production_active_mod
+            duration = 1825
+        }
+        add_manpower = 20
+        6058 = {
+            add_province_modifier = {
+                name = mu1_clone_facility_operating_mod
+                duration = 1825
+            }
+        }
+    }
+    
+    ai_will_do = {
+        factor = 1
+        modifier = {
+            factor = 2
+            is_at_war = yes
+        }
+    }
+}
+
+# DECISION 2: Vril Overdrive
+mu1_vril_overdrive = {
+    major = yes
+    potential = {
+        tag = MU1
+        has_country_flag = mu1_vril_unlocked
+        NOT = { has_country_modifier = mu1_vril_overdrive_mod }
+    }
+    
+    allow = {
+        has_government_power = {
+            mechanic_type = mu1_vril_harnessing
+            power_type = mu1_vril_energy
+            value = 50
+        }
+        is_at_war = yes
+        war_exhaustion = 3
+    }
+    
+    effect = {
+        add_government_power = {
+            mechanic_type = mu1_vril_harnessing
+            power_type = mu1_vril_energy
+            value = -50
+        }
+        add_country_modifier = {
+            name = mu1_vril_overdrive_mod
+            duration = 730
+        }
+        add_war_exhaustion = 2
+        random_owned_province = {
+            limit = { development = 10 }
+            add_devastation = 25
+        }
+    }
+    
+    ai_will_do = {
+        factor = 0.3
+        modifier = {
+            factor = 3
+            war_score = -25
+        }
+    }
+}
+
+# DECISION 3: Calculate Optimal Tax Structure
+mu1_calculate_optimal_tax = {
+    potential = {
+        tag = MU1
+        NOT = { has_country_modifier = mu1_optimal_tax_mod }
+    }
+    
+    allow = {
+        adm_power = 200
+        adm_tech = 15
+        stability = 1
+        NOT = { corruption = 1 }
+    }
+    
+    effect = {
+        add_adm_power = -200
+        add_country_modifier = {
+            name = mu1_optimal_tax_mod
+            duration = 3650
+        }
+        add_years_of_income = 1
+    }
+    
+    ai_will_do = {
+        factor = 1
+        modifier = {
+            factor = 0
+            NOT = { treasury = 1000 }
+        }
+    }
+}
+
+# DECISION 4: Emergency Vril Resurrection (for non-Yakub rulers)
+mu1_emergency_resurrection = {
+    major = yes
+    potential = {
+        tag = MU1
+        has_country_flag = mu1_vril_unlocked
+        NOT = { has_country_flag = mu1_emergency_resurrection_used }
+    }
+    
+    allow = {
+        has_regency = yes
+        has_government_power = {
+            mechanic_type = mu1_vril_harnessing
+            power_type = mu1_vril_energy
+            value = 40
+        }
+        treasury = 5000
+    }
+    
+    effect = {
+        add_government_power = {
+            mechanic_type = mu1_vril_harnessing
+            power_type = mu1_vril_energy
+            value = -40
+        }
+        add_treasury = -5000
+        add_stability = -2
+        end_regency = yes
+        define_ruler = {
+            dynasty = ROOT
+            age = 25
+            adm = 4
+            dip = 4
+            mil = 4
+        }
+        add_ruler_modifier = {
+            name = mu1_vril_reborn_weakness_mod
+            duration = -1
+        }
+        set_country_flag = mu1_emergency_resurrection_used
+    }
+    
+    ai_will_do = {
+        factor = 0.5
+    }
+}
+
+# DECISION 5: Seal Minor Portals
+mu1_seal_minor_portals = {
+    potential = {
+        tag = MU1
+        has_global_flag = mu1_conjunction_spheres
+        NOT = { has_country_modifier = mu1_portal_sealing_mod }
+    }
+    
+    allow = {
+        has_country_flag = mu1_vril_unlocked
+        has_government_power = {
+            mechanic_type = mu1_vril_harnessing
+            power_type = mu1_vril_mastery
+            value = 30
+        }
+        adm_power = 150
+        stability = 1
+    }
+    
+    effect = {
+        add_government_power = {
+            mechanic_type = mu1_vril_harnessing
+            power_type = mu1_vril_mastery
+            value = -30
+        }
+        add_adm_power = -150
+        add_country_modifier = {
+            name = mu1_portal_sealing_mod
+            duration = 3650
+        }
+        
+        # Usuwa devastację z 2 prowincji
+        random_owned_province = {
+            limit = { devastation = 25 }
+            add_devastation = -50
+        }
+        random_owned_province = {
+            limit = { devastation = 25 }
+            add_devastation = -50
+        }
+    }
+    
+    ai_will_do = {
+        factor = 1
+    }
+}
+
+# DECISION 6: Expand Railway Network
+mu1_expand_railway_network = {
+    potential = {
+        tag = MU1
+        owns = 6058  # Golden Citadel province
+        NOT = { has_country_modifier = mu1_railway_expansion_mod }
+    }
+    
+    allow = {
+        treasury = 3000
+        dip_tech = 12
+        num_of_owned_provinces_with = {
+            value = 50
+            has_building = road
+        }
+    }
+    
+    effect = {
+        add_treasury = -3000
+        add_country_modifier = {
+            name = mu1_railway_expansion_mod
+            duration = 5475
+        }
+        
+        # 5 losowych prowincji dostaje bonusy
+        random_owned_province = {
+            add_province_modifier = {
+                name = mu1_rail_junction_mod
+                duration = 5475
+            }
+        }
+        random_owned_province = {
+            add_province_modifier = {
+                name = mu1_rail_junction_mod
+                duration = 5475
+            }
+        }
+        random_owned_province = {
+            add_province_modifier = {
+                name = mu1_rail_junction_mod
+                duration = 5475
+            }
+        }
+    }
+    
+    ai_will_do = {
+        factor = 0.8
+    }
+}
+
+# DECISION 7: Purge Inefficiency
+mu1_purge_inefficiency = {
+    major = yes
+    potential = {
+        tag = MU1
+        OR = {
+            corruption = 5
+            num_of_revolts = 3
+            NOT = { stability = 0 }
+        }
+        NOT = { has_country_modifier = mu1_purge_mod }
+    }
+    
+    allow = {
+        mil_power = 200
+        legitimacy = 50
+    }
+    
+    effect = {
+        add_mil_power = -200
+        add_stability = 1
+        add_corruption = -5
+        add_country_modifier = {
+            name = mu1_purge_mod
+            duration = 1825
+        }
+        
+        # Krwawo ale skutecznie
+        add_prestige = -10
+        random_owned_province = {
+            limit = { unrest = 5 }
+            add_unrest = -10
+            add_base_manpower = -1
+        }
+    }
+    
+    ai_will_do = {
+        factor = 0.7
+        modifier = {
+            factor = 2
+            corruption = 10
+        }
+    }
+}
+
+# DECISION 8: Commission Genesis Cohort
+mu1_commission_genesis_cohort = {
+    major = yes
+    potential = {
+        tag = MU1
+        has_country_flag = mu1_genesis_complete
+        NOT = { has_country_modifier = mu1_genesis_cohort_mod }
+    }
+    
+    allow = {
+        owns = 6058
+        treasury = 5000
+        mil_power = 300
+        has_government_power = {
+            mechanic_type = mu1_vril_harnessing
+            power_type = mu1_vril_energy
+            value = 25
+        }
+    }
+    
+    effect = {
+        add_treasury = -5000
+        add_mil_power = -300
+        add_government_power = {
+            mechanic_type = mu1_vril_harnessing
+            power_type = mu1_vril_energy
+            value = -25
+        }
+        add_country_modifier = {
+            name = mu1_genesis_cohort_mod
+            duration = 1825
+        }
+        add_manpower = 30
+    }
+    
+    ai_will_do = {
+        factor = 0.6
+        modifier = {
+            factor = 3
+            is_at_war = yes
+            manpower_percentage = 0.3
+        }
+    }
+}
+}

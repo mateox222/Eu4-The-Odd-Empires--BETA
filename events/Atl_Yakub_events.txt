@@ -907,7 +907,7 @@ country_event = {
     # Opcja 1: Great Hwan - Totalna wojna nuklearna
     option = {
         name = "nuclear_war.4.a"
-        trigger = { tag = KO5 }
+ 
         
         add_mil_power = -350
         add_stability = -3
@@ -946,6 +946,7 @@ country_event = {
         set_global_flag = nuclearwinterwar
         add_stability = -2
         set_global_flag = robotyyakub
+        set_global_flag = thenewerayakub
         hidden_effect = {
         every_country = {
             
@@ -1066,13 +1067,7 @@ add_mil_tech = 10
 
                         }
 }
-SV1 = {
-add_adm_tech = 5	
-add_dip_tech = 5	
-add_mil_tech = 5	
-add_manpower = 100
-add_treasury = 20000
-}
+
 236 = {
     add_core = SV1
         cede_province = SV1
@@ -1089,6 +1084,13 @@ add_treasury = 20000
 5747 = {
     add_core = SV1
         cede_province = SV1
+}
+SV1 = {
+add_adm_tech = 5	
+add_dip_tech = 5	
+add_mil_tech = 5	
+add_manpower = 100
+add_treasury = 20000
 }
 
 }
@@ -1153,5 +1155,635 @@ country_event = {
     }
 }
 
+namespace = mu1_reclamation
 
+country_event = {
+    id = mu1_reclamation.1
+    title = mu1_reclamation.1.t
+    desc = mu1_reclamation.1.d
+    picture = EVENT_THRONE_ROOM
+
+    is_triggered_only = yes
+
+    option = {
+        name = mu1_reclamation.1.a   # "The world is counted"
+        add_country_modifier = {
+            name = mu1_final_calculation_mod
+            duration = -1
+        }
+        set_global_flag = mu1_reclamation_achieved
+    }
+}
  
+ 				province_event = {
+					id = atlantropa_yakub_event.3012
+					title = "atlantropa_basic_event.3012.t"
+					desc = "atlantropa_basic_event.1.d"
+					picture = VILLAGE_BURNING_eventPicture
+					is_triggered_only = yes
+					hidden = yes
+					trigger = {
+                        has_global_flag = thenewerayakub
+                }
+					option = {
+						name = "atlantropa_basic_event.1.a"
+						if = {
+							limit = {
+								NOT = { is_capital = yes }
+ 
+							}
+
+							cede_province = controller
+							add_core = controller
+
+						}
+
+					}
+				}
+
+                namespace = mu1_genesis
+
+# Event 1: Początek Projektu Genesis
+country_event = {
+    id = mu1_genesis.1
+    title = mu1_genesis.1.t
+    desc = mu1_genesis.1.d
+    picture = creationofman_eventPicture
+
+    is_triggered_only = yes
+
+    option = {
+        name = mu1_genesis.1.a   # "Begin genetic sequencing"
+        add_adm_power = -100
+        add_country_modifier = {
+            name = mu1_sequencing_phase_mod
+            duration = 730
+        }
+        country_event = { id = mu1_genesis.2 days = 730 }
+    }
+}
+
+# Event 2: Vril Infusion Phase
+country_event = {
+    id = mu1_genesis.2
+    title = mu1_genesis.2.t
+    desc = mu1_genesis.2.d
+    picture = creationofman_eventPicture
+
+    is_triggered_only = yes
+
+    option = {
+        name = mu1_genesis.2.a   # "Infuse with Vril"
+        add_government_power = {
+            mechanic_type = mu1_vril_harnessing
+            power_type = mu1_vril_energy
+            value = -40
+        }
+        add_country_modifier = {
+            name = mu1_vril_infusion_phase_mod
+            duration = 730
+        }
+        country_event = { id = mu1_genesis.3 days = 730 }
+    }
+}
+
+# Event 3: First Specimen
+country_event = {
+    id = mu1_genesis.3
+    title = mu1_genesis.3.t
+    desc = mu1_genesis.3.d
+    picture = creationofman_eventPicture
+
+    is_triggered_only = yes
+
+    option = {
+        name = mu1_genesis.3.a   # "Perfect the design"
+        add_years_of_income = -1
+        add_innovativeness = 5
+        country_event = { id = mu1_genesis.4 days = 730 }
+    }
+    
+    option = {
+        name = mu1_genesis.3.b   # "Rush production"
+        add_stability = -1
+        country_event = { id = mu1_genesis.4 days = 365 }
+    }
+}
+
+# Event 4: Genesis Complete - The New Species
+country_event = {
+    id = mu1_genesis.4
+    title = mu1_genesis.4.t
+    desc = mu1_genesis.4.d
+    picture = creationofman_eventPicture
+
+    is_triggered_only = yes
+
+    immediate = {
+        set_country_flag = mu1_genesis_complete
+        clr_country_flag = mu1_genesis_begun
+    }
+
+    option = {
+        name = mu1_genesis.4.a   # "They are perfect"
+        # Permanentne nagrody
+        add_country_modifier = {
+            name = mu1_genesis_species_mod
+            duration = -1
+        }
+        
+        # Masywne bonusy
+        add_prestige = 50
+        add_innovativeness = 10
+        add_absolutism = 10
+        
+        # Vril bonus
+        add_government_power = {
+            mechanic_type = mu1_vril_harnessing
+            power_type = mu1_vril_mastery
+            value = 50
+        }
+        
+        # Nowe możliwości
+        change_government_reform_progress = 200
+        hidden_effect = {
+            every_owned_province = {
+                change_culture = ubermulandish
+            }
+        }
+        # Modyfikacja prowincji laboratorium
+        6058 = {
+            add_permanent_province_modifier = {
+                name = mu1_genesis_birthplace_mod
+                duration = -1
+            }
+        }
+    }
+}
+
+namespace = mu1_lunar
+
+country_event = {
+    id = mu1_lunar.1
+    title = mu1_lunar.1.t
+    desc = mu1_lunar.1.d
+    picture = moonbase_eventPicture
+
+    is_triggered_only = yes
+
+    option = {
+        name = mu1_lunar.1.a   # "Send Vril-powered vessels"
+        add_government_power = {
+            mechanic_type = mu1_vril_harnessing
+            power_type = mu1_vril_energy
+            value = -50
+        }
+        add_country_modifier = {
+            name = mu1_lunar_expedition_mod
+            duration = 1460
+        }
+        country_event = { id = mu1_lunar.2 days = 1095 }
+    }
+}
+
+# Event 2: Lądowanie i Pierwsze Odkrycia
+country_event = {
+    id = mu1_lunar.2
+    title = mu1_lunar.2.t
+    desc = mu1_lunar.2.d
+    picture = moonbase_eventPicture
+
+    is_triggered_only = yes
+
+    option = {
+        name = mu1_lunar.2.a   # "Activate the ancient systems"
+        add_years_of_income = -2
+        add_adm_power = -200
+        add_dip_power = -200
+        add_mil_power = -200
+        country_event = { id = mu1_lunar.3 days = 1095 }
+    }
+}
+
+# Event 3: Odbudowa Bazy - Kluczowy Moment
+country_event = {
+    id = mu1_lunar.3
+    title = mu1_lunar.3.t
+    desc = mu1_lunar.3.d
+    picture = moonbase_eventPicture
+
+    is_triggered_only = yes
+
+    option = {
+        name = mu1_lunar.3.a   # "Complete the reconstruction"
+        add_treasury = -5000
+        add_government_power = {
+            mechanic_type = mu1_vril_harnessing
+            power_type = mu1_vril_energy
+            value = -30
+        }
+        country_event = { id = mu1_lunar.4 days = 1095 }
+    }
+    
+    option = {
+        name = mu1_lunar.3.b   # "Abandon the project" (failure)
+        add_prestige = -50
+        add_stability = -2
+        clr_country_flag = mu1_lunar_project_begun
+    }
+}
+
+# Event 4: Lunar Base Operational - Ultimate Achievement
+country_event = {
+    id = mu1_lunar.4
+    title = mu1_lunar.4.t
+    desc = mu1_lunar.4.d
+    picture = moonbase_eventPicture
+
+    is_triggered_only = yes
+
+    immediate = {
+        set_country_flag = mu1_lunar_base_operational
+        clr_country_flag = mu1_lunar_project_begun
+        set_global_flag = mu1_lunar_era_begun
+    }
+
+    option = {
+        name = mu1_lunar.4.a   # "Yakub ascends to the stars"
+        # ULTIMATE PERMANENT BONUSES
+        add_country_modifier = {
+            name = mu1_lunar_dominion_mod
+            duration = -1
+        }
+        
+        # Masywne nagrody
+        add_prestige = 100
+        add_legitimacy = 50
+        add_absolutism = 25
+        add_innovativeness = 20
+        
+        # Wszystkie power
+        add_adm_power = 500
+        add_dip_power = 500
+        add_mil_power = 500
+        
+        # Vril restoration
+        add_government_power = {
+            mechanic_type = mu1_vril_harnessing
+            power_type = mu1_vril_energy
+            value = 100
+        }
+        add_government_power = {
+            mechanic_type = mu1_vril_harnessing
+            power_type = mu1_vril_mastery
+            value = 100
+        }
+        
+        # Reforma rządu
+        change_government_reform_progress = 1000
+ 
+ 
+    }
+}
+namespace = mu1_golden_age
+
+# Event 1: The Calculation Complete
+country_event = {
+    id = mu1_golden_age.1
+    title = mu1_golden_age.1.t
+    desc = mu1_golden_age.1.d
+    picture = BLACKSUNDAWN_eventPicture
+
+    is_triggered_only = yes
+    major = yes
+
+    option = {
+        name = mu1_golden_age.1.a   # "The Golden Age dawns"
+        
+        # ULTIMATE PERMANENT MODIFIER
+        add_country_modifier = {
+            name = mu1_golden_age_mod
+            duration = -1
+        }
+        
+        # Absolutne nagrody
+        add_prestige = 200
+        add_legitimacy = 100
+        add_absolutism = 50
+        add_stability = 3
+        
+        # Wszystkie power
+        add_adm_power = 999
+        add_dip_power = 999
+        add_mil_power = 999
+        
+        # Vril
+        add_government_power = {
+            mechanic_type = mu1_vril_harnessing
+            power_type = mu1_vril_energy
+            value = 100
+        }
+        add_government_power = {
+            mechanic_type = mu1_vril_harnessing
+            power_type = mu1_vril_mastery
+            value = 100
+        }
+        
+        # Każda prowincja dostaje golden age modifier
+        every_owned_province = {
+            add_permanent_province_modifier = {
+                name = mu1_utopia_province_mod
+                duration = -1
+            }
+        }
+        
+        # Następny event
+        country_event = { id = mu1_golden_age.2 days = 30 }
+    }
+}
+
+# Event 2: The World Transformed
+country_event = {
+    id = mu1_golden_age.2
+    title = mu1_golden_age.2.t
+    desc = mu1_golden_age.2.d
+    picture = BLACKSUNDAWN_eventPicture
+
+    is_triggered_only = yes
+
+    option = {
+        name = mu1_golden_age.2.a   # "Perfect harmony achieved"
+        
+        add_country_modifier = {
+            name = mu1_perfect_harmony_mod
+            duration = -1
+        }
+        
+        # Każdy subject dostaje bonus
+        every_subject_country = {
+            add_liberty_desire = -100
+            add_opinion = {
+                who = ROOT
+                modifier = mu1_golden_age_vassal
+            }
+        }
+        
+        country_event = { id = mu1_golden_age.3 days = 30 }
+    }
+}
+
+# Event 3: Yakub's Final Theorem - VICTORY SCREEN
+country_event = {
+    id = mu1_golden_age.3
+    title = mu1_golden_age.3.t
+    desc = mu1_golden_age.3.d
+    picture = BLACKSUNDAWN_eventPicture
+
+    is_triggered_only = yes
+    major = yes
+
+    immediate = {
+        set_global_flag = mu1_victory_achieved
+    }
+
+    option = {
+        name = mu1_golden_age.3.a   # "The equation is solved"
+        
+        # Final ultimate modifier
+        add_country_modifier = {
+            name = mu1_final_theorem_mod
+            duration = -1
+        }
+        
+        # Global event dla wszystkich krajów
+        every_country = {
+            country_event = { id = mu1_golden_age.4 days = 10 }
+        }
+    }
+}
+
+# Event 4: The World Recognizes (dla innych krajów)
+country_event = {
+    id = mu1_golden_age.4
+    title = mu1_golden_age.4.t
+    desc = mu1_golden_age.4.d
+    picture = BLACKSUNDAWN_eventPicture
+
+    is_triggered_only = yes
+    major = yes
+
+    trigger = {
+        NOT = { tag = MU1 }
+    }
+
+    option = {
+        name = mu1_golden_age.4.a   # "We witness perfection"
+        add_country_modifier = {
+            name = mu1_witness_golden_age_mod
+            duration = -1
+        }
+    }
+}
+namespace = mu1_veil
+
+# Event 1: Konstrukcja Vrilowych Okrętów
+country_event = {
+    id = mu1_veil.1
+    title = mu1_veil.1.t
+    desc = mu1_veil.1.d
+    picture = BLACKSUN_eventPicture
+
+    is_triggered_only = yes
+
+    option = {
+        name = mu1_veil.1.a   # "Construct the vessels"
+        add_treasury = -50000
+        add_stability = -2
+        country_event = { id = mu1_veil.2 days = 1095 }
+    }
+    
+    option = {
+        name = mu1_veil.1.b   # "Abort the project" (last chance)
+        add_prestige = -50
+        add_country_modifier = {
+            name = mu1_veil_abandoned_mod
+            duration = -1
+        }
+        clr_country_flag = mu1_veil_project_begun
+    }
+}
+
+# Event 2: Otwarcie Portalu do Zasłony
+country_event = {
+    id = mu1_veil.2
+    title = mu1_veil.2.t
+    desc = mu1_veil.2.d
+    picture = BLACKSUN_eventPicture
+
+    is_triggered_only = yes
+
+    option = {
+        name = mu1_veil.2.a   # "Open the Veil"
+        add_stability = -3
+        add_war_exhaustion = 10
+        
+        # Katastrofalne skutki dla świata
+        random_owned_province = {
+            limit = { development = 20 }
+            add_devastation = 100
+        }
+        random_owned_province = {
+            limit = { development = 20 }
+            add_devastation = 100
+        }
+        random_owned_province = {
+            limit = { development = 20 }
+            add_devastation = 100
+        }
+        
+        country_event = { id = mu1_veil.3 days = 365 }
+    }
+}
+
+# Event 3: Wysłanie Okrętów
+country_event = {
+    id = mu1_veil.3
+    title = mu1_veil.3.t
+    desc = mu1_veil.3.d
+    picture = BLACKSUN_eventPicture
+
+    is_triggered_only = yes
+
+    option = {
+        name = mu1_veil.3.a   # "They depart"
+        add_prestige = 100
+        add_legitimacy = -50
+        
+        # Długie oczekiwanie
+        country_event = { id = mu1_veil.4 days = 1825 }
+    }
+}
+
+# Event 4: Powrót z Zasłony - Transcendencja lub Zagłada
+country_event = {
+    id = mu1_veil.4
+    title = mu1_veil.4.t
+    desc = mu1_veil.4.d
+    picture = raumaria_eventPicture
+
+    is_triggered_only = yes
+    major = yes
+
+    immediate = {
+        set_country_flag = mu1_veil_crossed
+        set_global_flag = mu1_transcendence_occurred
+    }
+
+    # Opcja A: Transcendencja - Yakub staje się czymś więcej
+    option = {
+        name = mu1_veil.4.a
+ 
+        
+        # TRANSCENDENCE - Beyond Victory
+        add_country_modifier = {
+            name = mu1_transcendence_mod
+            duration = -1
+        }
+        
+        # Yakub przestaje być człowiekiem
+        kill_ruler = yes
+        define_ruler = {
+            name = "Yakub"
+            dynasty = "the Transcendent"
+            adm = 6
+            dip = 6
+            mil = 6
+            add_ruler_personality = immortal_personality
+            claim = 100
+        }
+        
+        # Każda prowincja transcenduje
+        every_owned_province = {
+            add_permanent_province_modifier = {
+                name = mu1_transcended_province_mod
+                duration = -1
+            }
+        }
+        
+        # Global event
+        every_country = {
+            country_event = { id = mu1_veil.5 days = 10 }
+        }
+        
+        country_event = { id = mu1_veil.6 days = 365 }
+    }
+    
+    # Opcja B: Rozpad - Cena była zbyt wysoka
+    option = {
+        name = mu1_veil.4.b
+        
+        # COLLAPSE - Empire fragments
+        add_country_modifier = {
+            name = mu1_veil_madness_mod
+            duration = -1
+        }
+        
+        add_stability = -5
+        add_legitimacy = -100
+        add_prestige = -100
+        
+        # Masowe zniszczenia
+        every_owned_province = {
+            limit = { is_capital = no }
+            random_list = {
+                10 = { add_devastation = 100 }
+                20 = { add_devastation = 50 }
+                70 = { add_unrest = 10 }
+            }
+        }
+        
+        # Spawn rebelii wszędzie
+        random_owned_province = {
+            spawn_rebels = { type = particularist_rebels size = 3 }
+        }
+    }
+}
+
+# Event 5: Świat reaguje (dla innych krajów)
+country_event = {
+    id = mu1_veil.5
+    title = mu1_veil.5.t
+    desc = mu1_veil.5.d
+    picture = yokai_eventPicture
+
+    is_triggered_only = yes
+    major = yes
+
+    trigger = {
+        NOT = { tag = MU1 }
+    }
+
+    option = {
+        name = mu1_veil.5.a
+        add_country_modifier = {
+            name = mu1_witness_transcendence_mod
+            duration = -1
+        }
+    }
+}
+
+# Event 6: Epilog - Co leży za Zasłoną
+country_event = {
+    id = mu1_veil.6
+    title = mu1_veil.6.t
+    desc = mu1_veil.6.d
+    picture = vril_eventPicture
+
+    is_triggered_only = yes
+    major = yes
+
+    option = {
+        name = mu1_veil.6.a   # "We have become"
+        # TRUE ENDING
+    }
+}

@@ -114,3 +114,92 @@ estate_guilds = {
 		}
 	}
 }
+
+
+estate_vril_mages = {
+    # Loyalty modifiers
+    modifier_definition = {
+        type = loyalty
+        key = vril_mages_loyalty_modifier
+        trigger = {
+            always = yes
+        }
+    }
+    
+    modifier_definition = {
+        type = loyalty
+        key = EST_LOYAL_VRIL_RESEARCH
+        trigger = {
+            has_institution = printing_press
+            innovativeness = 30
+        }
+    }
+    
+    modifier_definition = {
+        type = loyalty
+        key = EST_LOYAL_GREAT_PROJECTS
+        trigger = {
+            OR = {
+                has_great_project = {
+                    type = mu1_agartha_citadel
+                    tier = 3
+                }
+                has_great_project = {
+                    type = mu1_golden_citadel
+                    tier = 3
+                }
+            }
+        }
+    }
+    
+    modifier_definition = {
+        type = loyalty
+        key = EST_DISLOYAL_LOW_VRIL
+        trigger = {
+            NOT = {
+                has_government_power = {
+                    mechanic_type = mu1_vril_harnessing
+                    power_type = mu1_vril_energy
+                    value = 30
+                }
+            }
+        }
+    }
+    
+    modifier_definition = {
+        type = loyalty
+        key = EST_DISLOYAL_VRIL_OVERDRIVE
+        trigger = {
+            has_country_modifier = mu1_vril_overdrive_mod
+        }
+    }
+    
+    # Influence modifiers
+    modifier_definition = {
+        type = influence
+        key = EST_VAL_VRIL_UNLOCKED
+        trigger = {
+            has_country_flag = mu1_vril_unlocked
+        }
+    }
+    
+    modifier_definition = {
+        type = influence
+        key = EST_VAL_VRIL_MASTERY_HIGH
+        trigger = {
+            has_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_mastery
+                value = 80
+            }
+        }
+    }
+    
+    modifier_definition = {
+        type = influence
+        key = EST_VAL_LUNAR_BASE
+        trigger = {
+            has_country_flag = mu1_lunar_base_operational
+        }
+    }
+}

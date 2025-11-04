@@ -1191,114 +1191,211 @@ atlantis_ruinsiberia8 = {
 		}
 	}
 }
-atlantis_ruinsiberia9 = {
-	start = 5141
-	date = 1.01.01
-	time = { months = 0 }
-	build_cost = 0
-	can_be_moved = no
-	move_days_per_unit_distance = 10
-	starting_tier = 1
-	type = monument
-	build_trigger = {
 
-	}
-
-	on_built = {
-	}
-
-	on_destroyed = {
-	}
-
-	can_use_modifiers_trigger = {
-		always = no
-	}
-
-	can_upgrade_trigger = {
-		always = no
-	}
-
-	keep_trigger = {
-	}
-
-	tier_0 = {
-		upgrade_time = {
-			months = 0
-		}
-		cost_to_upgrade = {
-			factor = 0
-		}
-		province_modifiers = {
-		}
-		area_modifier = {
-		}
-		country_modifiers = {
-
-		}
-		on_upgraded = {
-		}
-	}
-
-	tier_1 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 1000
-		}
-		province_modifiers = {
-
-
-		}
-		area_modifier = {
-		}
-		country_modifiers = {
-			#addauttsmpower
-		}
-		on_upgraded = {
-		}
-	}
-
-	tier_2 = {
-		upgrade_time = {
-			months = 240
-		}
-		cost_to_upgrade = {
-			factor = 2500
-		}
-		province_modifiers = {
-
-		}
-		area_modifier = {
-
-		}
-		country_modifiers = {
-			#addauttsmpower
-		}
-		on_upgraded = {
-		}
-	}
-
-	tier_3 = {
-		upgrade_time = {
-			months = 480
-		}
-		cost_to_upgrade = {
-			factor = 5000
-		}
-		province_modifiers = {
-
-		}
-		area_modifier = {
-
-		}
-		country_modifiers = {
-			#addauttsmpower
-		}
-		on_upgraded = {
-		}
-	}
+mu1_golden_citadel = {
+ 
+    start = 5141
+    
+    # Data budowy
+    date = 1444.11.11
+    
+    # Koszt początkowy
+    build_cost = 3000
+    
+    # Czy można przenosić
+    can_be_moved = no
+    
+    # Startowy tier
+    starting_tier = 1
+    
+    # Typ
+    type = monument
+    
+    # Warunki budowy/upgradu
+    build_trigger = {
+        owns = 6058
+        tag = MU1
+        adm_tech = 8
+    }
+    
+    # Przy budowie
+    on_built = {
+        add_prestige = 40
+        add_country_modifier = {
+            name = mu1_citadel_foundation_mod
+            duration = 7300
+        }
+    }
+    
+    # Przy zniszczeniu
+    on_destroyed = {
+        add_prestige = -50
+        add_legitimacy = -20
+ 
+    }
+    
+    # Warunki używania modyfikatorów
+    can_use_modifiers_trigger = {
+        owns = 6058
+    }
+    
+    # Warunki upgrade'u
+    can_upgrade_trigger = {
+        owns = 6058
+        is_subject = no
+        is_at_war = no
+    }
+    
+    # Warunki zachowania
+    keep_trigger = {
+        tag = MU1
+    }
+    
+    # TIER 0
+    tier_0 = {
+        upgrade_time = { months = 0 }
+        cost_to_upgrade = { factor = 0 }
+    }
+    
+    # TIER 1: Rail Junction Fortress
+    tier_1 = {
+        upgrade_time = { months = 0 }
+        cost_to_upgrade = { factor = 0 }
+        
+        province_modifiers = {
+            local_defensiveness = 0.25
+            local_development_cost = -0.2
+            local_trade_power = 0.25
+            local_institution_spread = 0.15
+        }
+        
+        area_modifier = {
+            local_trade_power = 0.1
+            local_development_cost = -0.05
+        }
+        
+        country_modifiers = {
+            global_trade_power = 0.05
+            trade_efficiency = 0.05
+            governing_capacity = 50
+        }
+    }
+    
+    # TIER 2: Golden Nexus
+    tier_2 = {
+        upgrade_time = { months = 100 }
+        cost_to_upgrade = { factor = 3500 }
+        
+        province_modifiers = {
+            local_defensiveness = 0.4
+            local_development_cost = -0.3
+            local_trade_power = 0.5
+            local_institution_spread = 0.25
+            local_governing_cost = -0.25
+            local_production_efficiency = 0.2
+        }
+        
+        area_modifier = {
+            local_trade_power = 0.2
+            local_development_cost = -0.1
+            local_manpower_modifier = 0.1
+        }
+        
+        country_modifiers = {
+            global_trade_power = 0.1
+            trade_efficiency = 0.1
+            governing_capacity = 150
+            merchants = 1
+            movement_speed = 0.1
+        }
+        
+        on_upgraded = {
+            add_prestige = 30
+            add_years_of_income = 1
+            add_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_energy
+                value = 25
+            }
+        }
+    }
+    
+    # TIER 3: Yakub's Throne of Commerce
+    tier_3 = {
+        upgrade_time = { months = 150 }
+        cost_to_upgrade = { factor = 6000 }
+        
+        province_modifiers = {
+            local_defensiveness = 0.6
+            local_development_cost = -0.4
+            local_trade_power = 0.75
+            local_institution_spread = 0.35
+            local_governing_cost = -0.5
+            local_production_efficiency = 0.3
+            local_state_maintenance_modifier = -0.5
+        }
+        
+        area_modifier = {
+            local_trade_power = 0.3
+            local_development_cost = -0.15
+            local_manpower_modifier = 0.2
+            local_production_efficiency = 0.1
+        }
+        
+        region_modifier = {
+            local_institution_spread = 0.1
+        }
+        
+        country_modifiers = {
+            global_trade_power = 0.15
+            trade_efficiency = 0.15
+            governing_capacity = 250
+            merchants = 2
+            movement_speed = 0.15
+            global_supply_limit_modifier = 0.15
+            diplomatic_reputation = 1
+            prestige = 1
+        }
+        
+        conditional_modifier = {
+            trigger = {
+                has_country_flag = mu1_vril_unlocked
+            }
+            monthly_mu1_vril_energy = 0.15
+            trade_steering = 0.1
+        }
+        
+        conditional_modifier = {
+            trigger = {
+                has_global_flag = mu1_conjunction_spheres
+            }
+            global_trade_power = 0.05
+            yearly_corruption = -0.1
+        }
+        
+        on_upgraded = {
+            add_prestige = 60
+            add_years_of_income = 2
+            add_country_modifier = {
+                name = mu1_citadel_apex_mod
+                duration = -1
+            }
+            add_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_energy
+                value = 40
+            }
+            add_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_mastery
+                value = 20
+            }
+        }
+    }
 }
+
+
+ 
 atlantis_watercity= {
 	start = 4100
 	date = 1.01.01
@@ -1515,118 +1612,7 @@ atlantis_thegreattower = {
 		}
 	}
 }
-atlantis_greatwall  = {
-	start = 5139
-	date = 1.01.01
-	time = { months = 0 }
-	build_cost = 0
-	can_be_moved = no
-	move_days_per_unit_distance = 10
-	starting_tier = 1
-	type = monument
-	build_trigger = {
-
-	}
-
-	on_built = {
-
-	}
-
-	on_destroyed = {
-	}
-
-	can_use_modifiers_trigger = {
-		owner ={ tag = MU1 }
-	}
-
-	can_upgrade_trigger = {
-		owner ={ tag = MU1 }
-	}
-
-	keep_trigger = {
-	}
-
-	tier_0 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 5000
-		}
-		province_modifiers = {
-
-		}
-		area_modifier = {
-		}
-		country_modifiers = {
-
-		}
-		on_upgraded = {
-		}
-	}
-
-	tier_1 = {
-		upgrade_time = {
-			months = 120
-		}
-		cost_to_upgrade = {
-			factor = 10000
-		}
-		province_modifiers = {
-			local_hostile_movement_speed = -1
-
-		}
-		area_modifier = {
-			local_hostile_movement_speed = -1
-		}
-		country_modifiers = {
-
-		}
-		on_upgraded = {
-		}
-	}
-
-	tier_2 = {
-		upgrade_time = {
-			months = 240
-		}
-		cost_to_upgrade = {
-			factor = 25000
-		}
-		province_modifiers = {
-			local_hostile_movement_speed = -5
-
-		}
-		area_modifier = {
-			local_hostile_movement_speed = -1
-		}
-		country_modifiers = {
-
-		}
-		on_upgraded = {
-		}
-	}
-
-	tier_3 = {
-		upgrade_time = {
-			months = 480
-		}
-		cost_to_upgrade = {
-			factor = 50000
-		}
-		province_modifiers = {
-			local_hostile_movement_speed = -10
-		}
-		area_modifier = {
-			local_hostile_movement_speed = -1.5
-		}
-		country_modifiers = {
-
-		}
-		on_upgraded = {
-		}
-	}
-}
+ 
 atlantis_ruinplant  = {
 	start = 6058
 	date = 1.01.01
@@ -2083,4 +2069,209 @@ atlantis_weirdmonolith = {
 		on_upgraded = {
 		}
 	}
+}
+mu1_agartha_citadel = {
+
+ start = 6024
+    
+    # Data "budowy" (historyczna lub fikcyjna)
+    date = 3000.1.1
+    
+    # Koszt budowy
+    build_cost = 2500
+    
+    # Czy można przenosić
+    can_be_moved = no
+    
+    # Startowy tier (0 = zniszczony/nieodbudowany)
+    starting_tier = 0
+    
+    # Typ projektu
+    type = monument
+    
+    # Warunki budowy
+    build_trigger = {
+        owns = 6100
+        OR = {
+            tag = MU1
+            culture_group = yakub_culture_group
+        }
+        treasury = 2500
+    }
+    
+    # Co się dzieje przy budowie
+    on_built = {
+        add_prestige = 30
+        add_country_modifier = {
+            name = mu1_agartha_discovered_mod
+            duration = 3650
+        }
+    }
+    
+    # Co się dzieje przy zniszczeniu
+    on_destroyed = {
+        add_prestige = -30
+ 
+    }
+    
+    # Warunki używania modyfikatorów
+    can_use_modifiers_trigger = {
+        owns = 6024
+    }
+    
+    # Warunki upgrade'u
+    can_upgrade_trigger = {
+        owns = 6024
+        is_subject = no
+    }
+    
+    # Warunki zachowania przy podboju
+    keep_trigger = {
+        OR = {
+            tag = MU1
+            has_country_flag = mu1_agartha_heir
+        }
+    }
+    
+    # TIER 0 (Ruined/Not Built)
+    tier_0 = {
+        upgrade_time = {
+            months = 0
+        }
+        cost_to_upgrade = {
+            factor = 0
+        }
+    }
+    
+    # TIER 1: Excavated Halls
+    tier_1 = {
+        upgrade_time = {
+            months = 60
+        }
+        cost_to_upgrade = {
+            factor = 1500
+        }
+        
+        province_modifiers = {
+            local_development_cost = -0.15
+            local_defensiveness = 0.2
+            local_unrest = -1
+        }
+        
+        area_modifier = {
+            local_production_efficiency = 0.1
+        }
+        
+        country_modifiers = {
+            production_efficiency = 0.05
+            global_manpower_modifier = 0.05
+        }
+        
+        on_upgraded = {
+            add_prestige = 15
+        }
+    }
+    
+    # TIER 2: Marble Restoration
+    tier_2 = {
+        upgrade_time = {
+            months = 80
+        }
+        cost_to_upgrade = {
+            factor = 2500
+        }
+        
+        province_modifiers = {
+            local_development_cost = -0.25
+            local_defensiveness = 0.35
+            local_unrest = -2
+            local_governing_cost = -0.25
+            local_production_efficiency = 0.15
+        }
+        
+        area_modifier = {
+            local_production_efficiency = 0.15
+            local_manpower_modifier = 0.15
+        }
+        
+        country_modifiers = {
+            production_efficiency = 0.1
+            global_manpower_modifier = 0.1
+            governing_capacity = 100
+            prestige = 0.5
+        }
+        
+        on_upgraded = {
+            add_prestige = 25
+            add_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_energy
+                value = 20
+            }
+        }
+    }
+    
+    # TIER 3: Vril-Illuminated Citadel
+    tier_3 = {
+        upgrade_time = {
+            months = 120
+        }
+        cost_to_upgrade = {
+            factor = 5000
+        }
+        
+        province_modifiers = {
+            local_development_cost = -0.35
+            local_defensiveness = 0.5
+            local_unrest = -3
+            local_governing_cost = -0.5
+            local_production_efficiency = 0.25
+            local_state_maintenance_modifier = -0.5
+        }
+        
+        area_modifier = {
+            local_production_efficiency = 0.25
+            local_manpower_modifier = 0.25
+            local_development_cost = -0.1
+        }
+        
+        region_modifier = {
+            local_unrest = -1
+        }
+        
+        country_modifiers = {
+            production_efficiency = 0.15
+            global_manpower_modifier = 0.15
+            governing_capacity = 200
+            prestige = 1
+            yearly_corruption = -0.05
+            technology_cost = -0.05
+        }
+        
+        conditional_modifier = {
+            trigger = {
+                has_country_flag = mu1_vril_unlocked
+            }
+            monthly_mu1_vril_energy = 0.25
+            monthly_mu1_vril_mastery = 0.1
+        }
+        
+        on_upgraded = {
+            add_prestige = 50
+            add_country_modifier = {
+                name = mu1_agartha_apex_mod
+                duration = -1
+            }
+            add_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_energy
+                value = 50
+            }
+            add_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_mastery
+                value = 25
+            }
+        }
+    }
 }

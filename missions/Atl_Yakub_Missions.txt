@@ -31,6 +31,83 @@
             add_prestige = 15
         }
     }
+
+
+     mu1_lunar_reclamation = {
+        icon = atlantropa_space_probe2
+        position = 6
+        
+        required_missions = { 
+                mu1_thejudgmentday
+           mu1_chariots_of_fire
+        }
+        
+        trigger = {
+ 
+            
+            # Ekstremalnie zaawansowana technika
+            adm_tech = 22
+            dip_tech = 22
+            mil_tech = 22
+            
+            # Masywne zasoby Vril
+            has_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_energy
+                value = 100
+            }
+            has_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_mastery
+                value = 80
+            }
+            
+            # Ekonomia i stabilność
+            treasury = 15000
+            total_development = 1000
+            stability = 3
+            innovativeness = 50
+            
+            # Great Projects aktywne
+            OR = {
+                has_great_project = { 
+                    type = mu1_agartha_citadel
+                    tier = 3
+                }
+                has_great_project = { 
+                    type = mu1_golden_citadel
+                    tier = 3
+                }
+            }
+        }
+        
+        effect = {
+            # Koszty projektu
+            add_treasury = -15000
+            add_years_of_income = -3
+            add_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_energy
+                value = -100
+            }
+            add_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_mastery
+                value = -80
+            }
+            
+            # Modyfikator budowy
+            add_country_modifier = {
+                name = mu1_lunar_project_mod
+                duration = 5475
+            }
+            
+            # Uruchom event chain
+            country_event = { id = mu1_lunar.1 days = 730 }
+            
+            set_country_flag = mu1_lunar_project_begun
+        }
+    }
    
 }
 
@@ -212,7 +289,262 @@ mu1_slot_3 = {
         }
     }
 
+
+    mu1_great_reclamation_war = {
+        icon = atlantropa_globe
+ 
+        
+        required_missions = { 
+        mu1_thejudgmentday 
+        }
+        
+        provinces_to_highlight = {
+            OR = {
+                AND = {
+                    continent = europe
+                    NOT = { owned_by = ROOT }
+                }
+                AND = {
+                    continent = asia
+                    NOT = { owned_by = ROOT }
+                }
+                AND = {
+                    continent = africa
+                    NOT = { owned_by = ROOT }
+                }
+            }
+        }
+        
+        trigger = {
+ 
+            
+            # Kontrola większości znanego świata
+            num_of_owned_provinces_with = {
+                value = 1500
+                OR = {
+                    continent = europe
+                    continent = asia
+                    continent = africa
+                }
+            }
+            
+            # Dominacja w trade
+            trade_income_percentage = 0.40
+            
+            # Siła militarna
+            total_development = 5000
+            army_size = 200
+            
+            # Potęga Vril
+            has_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_energy
+                value = 80
+            }
+            has_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_mastery
+                value = 60
+            }
+            
+            # Stabilność imperium
+            stability = 2
+            NOT = { war_exhaustion = 5 }
+            legitimacy = 80
+        }
+        
+        effect = {
+            # Permanentny modyfikator zwycięstwa
+            add_country_modifier = {
+                name = mu1_reclamation_complete_mod
+                duration = -1
+            }
+            
+            # Masywne nagrody Vril
+            add_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_energy
+                value = 100
+            }
+            add_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_mastery
+                value = 100
+            }
+            
+            # Bonusy do wszystkiego
+            add_prestige = 100
+            add_legitimacy = 25
+            add_absolutism = 20
+            add_adm_power = 300
+            add_dip_power = 300
+            add_mil_power = 300
+            
+            # Zmiana rządu na "Emperor of the Reclaimed World"
+            change_government_reform_progress = 500
+            
+            # Specjalny event końcowy
+            country_event = { id = mu1_reclamation.1 days = 30 }
+            
+            # Każda prowincja na świecie dostaje special modifier
+            every_owned_province = {
+                add_province_modifier = {
+                    name = mu1_reclaimed_world_mod
+                    duration = -1
+                }
+            }
+        }
+    }
+
+    mu1_golden_age_humanity = {
+        icon = atlantropa_space_probe
+ 
+        
+        required_missions = { 
+            mu1_great_reclamation_war
+            mu1_genesis_protocol
+            mu1_lunar_reclamation
+        }
+        
+        trigger = {
+            # Wszystkie poprzednie achievements
+ 
+            # Absolutna dominacja światowa
+            num_of_owned_provinces_with = {
+                value = 2000
+                always = yes
+            }
+            
+            # Maksymalna technika
+            adm_tech = 25
+            dip_tech = 25
+            mil_tech = 25
+            
+            # Perfekcyjna stabilność
+            stability = 3
+            legitimacy = 100
+            prestige = 100
+            NOT = { war_exhaustion = 1 }
+            NOT = { num_of_revolts = 1 }
+            NOT = { corruption = 1 }
+            
+            # Doskonała ekonomia
+            total_development = 5000
+            treasury = 50000
+            NOT = { inflation = 5 }
+            
+            # Maksymalne Vril
+            has_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_energy
+                value = 100
+            }
+            has_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_mastery
+                value = 100
+            }
+            
+            # Great Projects
+            has_great_project = { 
+                type = mu1_agartha_citadel
+                tier = 3
+            }
+            has_great_project = { 
+                type = mu1_golden_citadel
+                tier = 3
+            }
+            
+            # Doskonałe społeczeństwo
+            religious_unity = 1
+            innovativeness = 100
+        }
+        
+        effect = {
+            # ULTIMATE VICTORY EVENT
+            country_event = { id = mu1_golden_age.1 }
+            
+            set_country_flag = mu1_golden_age_achieved
+            set_global_flag = mu1_golden_age_begun
+        }
+    }
+
+
+
+
+    mu1_beyond_the_veil = {
+        icon = atlantropa_red_galaxy
+        position = 8
+        
+        required_missions = { 
+            mu1_golden_age_humanity
+        }
+        
+        trigger = {
+ 
+            
+            # Maksymalne Vril - potrzebne do przebicia Zasłony
+            has_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_energy
+                value = 100
+            }
+            has_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_mastery
+                value = 100
+            }
+            
+            # Absolutna stabilność przed próbą
+            stability = 3
+            legitimacy = 100
+            prestige = 100
+            
+            # Zasoby na budowę vrilowych okrętów
+            treasury = 100000
+            innovativeness = 100
+            
+            # Wszystkie tech maxed
+            adm_tech = 32
+            dip_tech = 32
+            mil_tech = 32
+        }
+        
+        effect = {
+            # Point of no return
+            custom_tooltip = mu1_veil_warning_tooltip
+            
+            # Gigantyczne koszty
+            add_treasury = -100000
+            add_years_of_income = -5
+            
+            # Zużycie CAŁEJ mocy Vril
+            add_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_energy
+                value = -100
+            }
+            add_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_mastery
+                value = -100
+            }
+            
+            # Modyfikator przygotowań
+            add_country_modifier = {
+                name = mu1_veil_preparation_mod
+                duration = 1825
+            }
+            
+            # Event chain
+            country_event = { id = mu1_veil.1 days = 730 }
+            
+            set_country_flag = mu1_veil_project_begun
+        }
+    }
 }
+
+ 
 
 mu1_slot_4 = {
     slot = 4
@@ -345,4 +677,79 @@ mu1_slot_5 = {
             add_prestige = 10
         }
     }
+
+
+
+        mu1_genesis_protocol = {
+        icon = atlantropa_alchemicalcauldron
+        position = 6
+        
+        required_missions = { 
+            mu1_seize_grand_laboratory
+            mu1_thejudgmentday
+        }
+        
+        provinces_to_highlight = {
+       
+        }
+        
+        trigger = {
+     
+            has_country_flag = mu1_vril_unlocked
+            
+            # Wymaga wysokiej techniki
+            adm_tech = 20
+            dip_tech = 18
+            mil_tech = 18
+            
+            # Wymaga Vril mastery
+            has_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_energy
+                value = 60
+            }
+            has_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_mastery
+                value = 50
+            }
+            
+            # Wymaga stabilności i zasobów
+            stability = 2
+            treasury = 5000
+            innovativeness = 30
+            
+            # Grand Laboratory musi być aktywne
+        
+        }
+        
+        effect = {
+            # Koszt projektu
+            add_treasury = -5000
+            add_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_energy
+                value = -60
+            }
+            add_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_mastery
+                value = -50
+            }
+            
+            # Modyfikator "w trakcie"
+            add_country_modifier = {
+                name = mu1_genesis_research_mod
+                duration = 3650
+            }
+            
+            # Uruchom event chain
+            country_event = { id = mu1_genesis.1 days = 365 }
+            
+            set_country_flag = mu1_genesis_begun
+        }
+    }
 }
+
+
+

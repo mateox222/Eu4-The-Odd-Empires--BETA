@@ -1,0 +1,209 @@
+# PRIVILEGE 1: Research Funding
+estate_vril_mages_research_funding = {
+    icon = privilege_promote_purbias_dhikr
+    land_share = 5
+    max_absolutism = -5
+    loyalty = 0.05
+    influence = 0.1
+    
+    is_valid = {
+        has_country_flag = mu1_vril_unlocked
+    }
+    
+    can_select = {
+        adm_tech = 8
+    }
+    
+    on_granted = {
+        add_innovativeness = 2
+    }
+    
+    penalties = {
+        yearly_corruption = 0.05
+    }
+    
+    benefits = {
+        monthly_mu1_vril_energy = 0.2
+        monthly_mu1_vril_mastery = 0.1
+        technology_cost = -0.05
+    }
+    
+    ai_will_do = {
+        factor = 10
+    }
+}
+
+# PRIVILEGE 2: Vril Crystals Monopoly
+estate_vril_mages_vril_crystals_monopoly = {
+    icon = privilege_monopoly_of_goods_production
+    land_share = 10
+    max_absolutism = -10
+    loyalty = 0.1
+    influence = 0.15
+    
+    is_valid = {
+        any_owned_province = {
+            trade_goods = vril_crystals
+        }
+    }
+    
+    can_select = {
+        any_owned_province = {
+            trade_goods = vril_crystals
+        }
+    }
+    
+    on_granted = {
+        custom_tooltip = VRIL_MAGES_CRYSTALS_TOOLTIP
+    }
+    
+    penalties = {
+        production_efficiency = -0.1
+    }
+    
+    benefits = {
+        monthly_mu1_vril_energy = 0.3
+    }
+    
+    modifier_by_land_ownership = {
+        monthly_mu1_vril_mastery = 0.15
+    }
+    
+    ai_will_do = {
+        factor = 8
+    }
+}
+
+# PRIVILEGE 3: Portal Maintenance Rights
+estate_vril_mages_portal_rights = {
+    icon = privilege_military_power
+    land_share = 5
+    max_absolutism = -5
+    loyalty = 0.05
+    influence = 0.05
+    
+    is_valid = {
+        has_global_flag = mu1_conjunction_spheres
+    }
+    
+    can_select = {
+        has_global_flag = mu1_conjunction_spheres
+        stability = 0
+    }
+    
+    on_granted = {
+        add_stability = 1
+    }
+    
+    penalties = {
+        fort_maintenance_modifier = 0.1
+    }
+    
+    benefits = {
+        global_unrest = -2
+        stability_cost_modifier = -0.1
+    }
+    
+    conditional_modifier = {
+        trigger = {
+            has_government_power = {
+                mechanic_type = mu1_vril_harnessing
+                power_type = mu1_vril_mastery
+                value = 50
+            }
+        }
+        modifier = {
+            global_unrest = -1
+        }
+    }
+    
+    ai_will_do = {
+        factor = 7
+    }
+}
+
+# PRIVILEGE 4: Lunar Observatory Authority
+estate_vril_mages_lunar_authority = {
+    icon = privilege_grant_new_world_charter
+    land_share = 15
+    max_absolutism = -15
+    loyalty = 0.15
+    influence = 0.2
+    
+    is_valid = {
+        has_country_flag = mu1_lunar_base_operational
+    }
+    
+    can_select = {
+        has_country_flag = mu1_lunar_base_operational
+        adm_tech = 25
+    }
+    
+    on_granted = {
+        add_government_power = {
+            mechanic_type = mu1_vril_harnessing
+            power_type = mu1_vril_mastery
+            value = 30
+        }
+    }
+    
+    penalties = {
+        diplomatic_reputation = -1
+    }
+    
+    benefits = {
+        monthly_mu1_vril_energy = 0.5
+        monthly_mu1_vril_mastery = 0.25
+        innovativeness_gain = 1.0
+    }
+    
+    ai_will_do = {
+        factor = 9
+    }
+}
+
+# PRIVILEGE 5: Transcendence Studies
+estate_vril_mages_transcendence_studies = {
+    icon = privilege_development_efficiency
+    land_share = 20
+    max_absolutism = -20
+    loyalty = 0.2
+    influence = 0.25
+    
+    is_valid = {
+        has_country_flag = mu1_golden_age_achieved
+    }
+    
+    can_select = {
+        has_country_flag = mu1_golden_age_achieved
+        innovativeness = 80
+    }
+    
+    on_granted = {
+        country_event = { id = mu1_vril_mages.1 }
+    }
+    
+    can_revoke = {
+        custom_trigger_tooltip = {
+            tooltip = CANNOT_REVOKE_TRANSCENDENCE
+            always = no
+        }
+    }
+    
+    penalties = {
+        global_unrest = 3
+        yearly_corruption = 0.1
+    }
+    
+    benefits = {
+        all_power_cost = -0.1
+        monthly_mu1_vril_energy = 1.0
+        monthly_mu1_vril_mastery = 0.5
+    }
+    
+    cooldown_years = 50
+    
+    ai_will_do = {
+        factor = 5
+    }
+}
