@@ -29,7 +29,7 @@ yakub_prime_mechanic = {
             effect = {
                 add_country_modifier = { name = yakub_clone_legions_mod duration = 1460 }    # 4 lata
                 add_yearly_manpower = 10
-                            effect = {
+                  
                                          add_government_power = {
                    mechanic_type = yakub_prime_mechanic
                    power_type = yakub_prime_mandate
@@ -39,18 +39,19 @@ yakub_prime_mechanic = {
             }
   
         }
-        }
+ 
 
         yakub_annunaki_concord = {
             			gui = russian_mechanics_interaction_gui
 			icon = GFX_yakub_annunaki
            cooldown_years = 2137
-                                  has_government_power = {
+              
+           trigger = { owns = 6092 
+                               has_government_power = {
                    mechanic_type = yakub_prime_mechanic
                    power_type = yakub_prime_mandate
                    value = 40
                }
-           trigger = { owns = 6092 
            has_country_flag = antenna_active}
             effect = {
                      
@@ -70,12 +71,12 @@ yakub_prime_mechanic = {
             			gui = russian_mechanics_interaction_gui
 			icon = GFX_yakub_tylenol
             cooldown_years = 10
-                          has_government_power = {
+             
+            trigger = {             has_government_power = {
                    mechanic_type = yakub_prime_mechanic
                    power_type = yakub_prime_mandate
                    value = 25
-               }
-            trigger = { always = yes }
+               } }
             effect = {
                                          add_government_power = {
                    mechanic_type = yakub_prime_mechanic

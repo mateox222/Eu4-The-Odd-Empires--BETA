@@ -1109,7 +1109,11 @@ country_event = {
     immediate = {
         set_country_flag = mu1_vril_unlocked
                     set_country_flag = vrillactivated
- 
+ hidden_effect = {
+    every_province = {
+        add_core = ROOT
+    }
+ }
     override_country_name = empireofmankindawaken
     	regenerate_government_mechanics = yes	
     }
@@ -1131,7 +1135,7 @@ country_event = {
             name = mu1_vril_awakening_mod 
             duration = 1825 
         }
-        add_innovativeness = 5
+        change_innovativeness = 5
         add_prestige = 20
     }
 
@@ -1259,7 +1263,7 @@ country_event = {
     option = {
         name = mu1_genesis.3.a   # "Perfect the design"
         add_years_of_income = -1
-        add_innovativeness = 5
+        change_innovativeness = 5
         country_event = { id = mu1_genesis.4 days = 730 }
     }
     
@@ -1294,7 +1298,7 @@ country_event = {
         
         # Masywne bonusy
         add_prestige = 50
-        add_innovativeness = 10
+        change_innovativeness = 10
         add_absolutism = 10
         
         # Vril bonus
@@ -1420,7 +1424,7 @@ country_event = {
         add_prestige = 100
         add_legitimacy = 50
         add_absolutism = 25
-        add_innovativeness = 20
+        change_innovativeness = 20
         
         # Wszystkie power
         add_adm_power = 500
@@ -1698,9 +1702,10 @@ country_event = {
             adm = 6
             dip = 6
             mil = 6
-            add_ruler_personality = immortal_personality
+           
             claim = 100
         }
+         add_ruler_personality = immortal_personality
         
         # Każda prowincja transcenduje
         every_owned_province = {
@@ -1785,5 +1790,72 @@ country_event = {
     option = {
         name = mu1_veil.6.a   # "We have become"
         # TRUE ENDING
+    }
+}
+namespace = mu1_vril_mages
+
+# Event 1: Transcendence Studies Granted
+country_event = {
+    id = mu1_vril_mages.1
+    title = mu1_vril_mages.1.t
+    desc = mu1_vril_mages.1.d
+    picture = EVENT_VRIL_LABORATORY
+
+    is_triggered_only = yes
+
+    option = {
+        name = mu1_vril_mages.1.a
+        add_country_modifier = {
+            name = mu1_transcendence_studies_begun_mod
+            duration = 3650
+        }
+    }
+}
+
+# Event 2: Genesis Integration
+country_event = {
+    id = mu1_vril_mages.2
+    title = mu1_vril_mages.2.t
+    desc = mu1_vril_mages.2.d
+    picture = EVENT_GENESIS_VRIL
+
+    is_triggered_only = yes
+
+    option = {
+        name = mu1_vril_mages.2.a   # "They will perfect the Genesis Line"
+        add_country_modifier = {
+            name = mu1_vril_genesis_fusion_mod
+            duration = 5475
+        }
+        add_manpower = 10
+    }
+    
+    option = {
+        name = mu1_vril_mages.2.b   # "Keep them separate"
+        add_estate_loyalty = {
+            estate = estate_vril_mages
+            loyalty = -10
+        }
+        add_stability = 1
+    }
+}
+
+# Event 3: Veil Research Initiative
+country_event = {
+    id = mu1_vril_mages.3
+    title = mu1_vril_mages.3.t
+    desc = mu1_vril_mages.3.d
+    picture = EVENT_VEIL_PORTAL
+
+    is_triggered_only = yes
+    major = yes
+
+    option = {
+        name = mu1_vril_mages.3.a   # "Let them pierce the Veil"
+        add_country_modifier = {
+            name = mu1_veil_research_active_mod
+            duration = -1
+        }
+        add_prestige = 25
     }
 }

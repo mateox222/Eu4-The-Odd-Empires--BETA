@@ -7,9 +7,9 @@ mu1_vril_harnessing = {
         mu1_vril_energy = {
             min = 0
             max = 100
-            default = 30
+            default = 10
             reset_on_new_ruler = no
-            base_monthly_growth = 0.15
+            base_monthly_growth = 0.025
             development_scaled_monthly_growth = 0.0015
             monarch_power = adm
         }
@@ -18,7 +18,7 @@ mu1_vril_harnessing = {
             max = 100
             default = 10
             reset_on_new_ruler = yes
-            base_monthly_growth = 0.05
+            base_monthly_growth = 0.01
             monarch_power = dip
         }
     }
@@ -40,7 +40,7 @@ mu1_vril_harnessing = {
  
             effect = {
                 add_country_modifier = { name = mu1_vril_animation_mod duration = 1460 }
-                add_manpower = 30
+                add_manpower = 300
                 add_government_power = { 
                     mechanic_type = mu1_vril_harnessing 
                     power_type = mu1_vril_mastery 
