@@ -259,7 +259,42 @@ mu1_slot_3 = {
      add_dip_power = -400
      set_country_flag = antenna_active
      set_country_flag = mu1_antenna_restored
-     
+     			hidden_effect = {
+				every_province = {
+					discover_country = XX1
+				}
+				west_american_sea_superregion = {
+					discover_country = XX1
+				}
+				east_american_sea_superregion = {
+					discover_country = XX1
+				}
+				north_european_sea_superregion = {
+					discover_country = XX1
+				}
+				south_european_sea_superregion = {
+					discover_country = XX1
+				}
+				asianseagreat_superregion = {
+					discover_country = XX1
+				}
+				west_african_sea_superregion = {
+					discover_country = XX1
+				}
+				east_african_sea_superregion = {
+					discover_country = XX1
+				}
+				indian_pacific_sea_superregion = {
+					discover_country = XX1
+				}
+				north_pacific_sea_superregion = {
+					discover_country = XX1n
+				}
+				pannonian_sea_superregion = {
+					discover_country = XX1
+				}
+
+			}
 		 }
     }
 
@@ -349,10 +384,10 @@ mu1_slot_3 = {
                 value = 60
             }
             
-            # Stabilność imperium
+          
             stability = 2
             NOT = { war_exhaustion = 5 }
-            legitimacy = 80
+     
         }
         
         effect = {
@@ -376,7 +411,7 @@ mu1_slot_3 = {
             
             # Bonusy do wszystkiego
             add_prestige = 100
-            add_legitimacy = 25
+      
             add_absolutism = 20
             add_adm_power = 300
             add_dip_power = 300
@@ -424,7 +459,7 @@ mu1_slot_3 = {
             
             # Perfekcyjna stabilność
             stability = 3
-            legitimacy = 100
+      
             prestige = 100
             NOT = { war_exhaustion = 1 }
             NOT = { num_of_revolts = 1 }
@@ -501,7 +536,7 @@ mu1_slot_3 = {
             
             # Absolutna stabilność przed próbą
             stability = 3
-            legitimacy = 100
+        
             prestige = 100
             
             # Zasoby na budowę vrilowych okrętów
@@ -625,7 +660,7 @@ mu1_slot_4 = {
         trigger = {
          
             stability = 3
-            legitimacy = 100
+        
         }
         
         effect = {
