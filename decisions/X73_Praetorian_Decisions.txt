@@ -1,0 +1,68 @@
+country_decisions = {
+
+	form_imperium_praetorianum = {
+		major = yes
+		potential = {
+			tag = X73
+			NOT = { exists = XP1 }
+			NOT = { has_country_flag = formed_imperium_praetorianum }
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 118
+				province_id = 121
+				province_id = 2957
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			adm_tech = 10
+			owns_core_province = 118
+			owns_core_province = 121
+			owns_core_province = 2957
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 10
+				region = italy_region
+			}
+		}
+		effect = {
+			hidden_effect = { change_tag = XP1 }
+			restore_country_name = yes
+			set_country_flag = formed_imperium_praetorianum
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			add_prestige = 50
+			if = {
+				limit = { NOT = { capital = 118 } }
+				set_capital = 118
+			}
+			italy_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+			atlantis_sicily_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+					NOT = { is_permanent_claim = ROOT }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+}

@@ -624,7 +624,7 @@ generic_technology_missions = {
 		provinces_to_highlight = {  } 
 
 		trigger = {
-			current_institution = 100
+			capital_scope = { current_institution = 100 }
 			innovativeness = 5
 		}
 
@@ -855,7 +855,7 @@ generic_internal_missions = {
 		trigger = {
 			stability = 3
 			NOT = { corruption = 0.1 } 
-			administrative_efficiency = 0.2
+			adm_tech = 20
 			governing_capacity_percentage = 0.8
 		}
 

@@ -1,0 +1,57 @@
+namespace = x73_praetorian_events
+
+# The Last Cohort - opening flavour for Praetoria
+country_event = {
+	id = x73_praetorian_events.1
+	title = x73_praetorian_events.1.t
+	desc = x73_praetorian_events.1.d
+	picture = praetoriaguards_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = X73
+		ai = no
+		NOT = { has_country_flag = x73_last_cohort_event }
+	}
+
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {
+		name = x73_praetorian_events.1.a
+		set_country_flag = x73_last_cohort_event
+		add_army_tradition = 10
+	}
+	option = {
+		name = x73_praetorian_events.1.b
+		set_country_flag = x73_last_cohort_event
+		add_treasury = 100
+		add_prestige = -5
+	}
+}
+
+# Return to the Eternal City - fired by the mission "March on Rome"
+country_event = {
+	id = x73_praetorian_events.2
+	title = x73_praetorian_events.2.t
+	desc = x73_praetorian_events.2.d
+	picture = praetoriaguards_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = x73_praetorian_events.2.a
+		add_country_modifier = {
+			name = x73_castra_restored
+			duration = -1
+		}
+		118 = { add_base_manpower = 2 }
+	}
+	option = {
+		name = x73_praetorian_events.2.b
+		set_capital = 118
+		add_prestige = 25
+	}
+}
