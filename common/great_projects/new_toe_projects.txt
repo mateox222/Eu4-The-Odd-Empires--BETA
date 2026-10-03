@@ -29,11 +29,11 @@ walls_of_nineveh = {
 	}
 	
 	on_built = {
-		add_prestige = 25
+		owner = { add_prestige = 25 }
 	}
 	
 	on_destroyed = {
-		add_prestige = -50
+		owner = { add_prestige = -50 }
 		owner = {
 			add_stability = -1
 		}

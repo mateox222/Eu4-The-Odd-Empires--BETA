@@ -1214,23 +1214,23 @@ mu1_golden_citadel = {
     # Warunki budowy/upgradu
     build_trigger = {
     
-        tag = MU1
-        adm_tech = 8
+        owner = { tag = MU1 }
+        owner = { adm_tech = 8 }
     }
     
     # Przy budowie
     on_built = {
-        add_prestige = 40
-        add_country_modifier = {
+        owner = { add_prestige = 40 }
+        owner = { add_country_modifier = {
             name = mu1_citadel_foundation_mod
             duration = 7300
-        }
+        } }
     }
     
     # Przy zniszczeniu
     on_destroyed = {
-        add_prestige = -50
-        add_legitimacy = -20
+        owner = { add_prestige = -50 }
+        owner = { add_legitimacy = -20 }
  
     }
     
@@ -1247,7 +1247,7 @@ mu1_golden_citadel = {
     
     # Warunki zachowania
     keep_trigger = {
-        tag = MU1
+        owner = { tag = MU1 }
     }
     
     # TIER 0
@@ -1309,13 +1309,13 @@ mu1_golden_citadel = {
         }
         
         on_upgraded = {
-            add_prestige = 30
+            owner = { add_prestige = 30 }
             add_years_of_income = 1
-            add_government_power = {
+            owner = { add_government_power = {
                 mechanic_type = mu1_vril_harnessing
                 power_type = mu1_vril_energy
                 value = 25
-            }
+            } }
         }
     }
     
@@ -1363,22 +1363,22 @@ mu1_golden_citadel = {
     
         
         on_upgraded = {
-            add_prestige = 60
+            owner = { add_prestige = 60 }
             add_years_of_income = 2
-            add_country_modifier = {
+            owner = { add_country_modifier = {
                 name = mu1_citadel_apex_mod
                 duration = -1
-            }
-            add_government_power = {
+            } }
+            owner = { add_government_power = {
                 mechanic_type = mu1_vril_harnessing
                 power_type = mu1_vril_energy
                 value = 40
-            }
-            add_government_power = {
+            } }
+            owner = { add_government_power = {
                 mechanic_type = mu1_vril_harnessing
                 power_type = mu1_vril_mastery
                 value = 20
-            }
+            } }
         }
     }
 }
@@ -2085,16 +2085,16 @@ mu1_agartha_citadel = {
     
     # Co się dzieje przy budowie
     on_built = {
-        add_prestige = 30
-        add_country_modifier = {
+        owner = { add_prestige = 30 }
+        owner = { add_country_modifier = {
             name = mu1_agartha_discovered_mod
             duration = 3650
-        }
+        } }
     }
     
     # Co się dzieje przy zniszczeniu
     on_destroyed = {
-        add_prestige = -30
+        owner = { add_prestige = -30 }
  
     }
     
@@ -2110,10 +2110,10 @@ mu1_agartha_citadel = {
     
     # Warunki zachowania przy podboju
     keep_trigger = {
-        OR = {
+        owner = { OR = {
             tag = MU1
             has_country_flag = mu1_agartha_heir
-        }
+        } }
     }
     
     # TIER 0 (Ruined/Not Built)
@@ -2151,7 +2151,7 @@ mu1_agartha_citadel = {
         }
         
         on_upgraded = {
-            add_prestige = 15
+            owner = { add_prestige = 15 }
         }
     }
     
@@ -2185,12 +2185,12 @@ mu1_agartha_citadel = {
         }
         
         on_upgraded = {
-            add_prestige = 25
-            add_government_power = {
+            owner = { add_prestige = 25 }
+            owner = { add_government_power = {
                 mechanic_type = mu1_vril_harnessing
                 power_type = mu1_vril_energy
                 value = 20
-            }
+            } }
         }
     }
     
@@ -2236,21 +2236,21 @@ mu1_agartha_citadel = {
    
         
         on_upgraded = {
-            add_prestige = 50
-            add_country_modifier = {
+            owner = { add_prestige = 50 }
+            owner = { add_country_modifier = {
                 name = mu1_agartha_apex_mod
                 duration = -1
-            }
-            add_government_power = {
+            } }
+            owner = { add_government_power = {
                 mechanic_type = mu1_vril_harnessing
                 power_type = mu1_vril_energy
                 value = 50
-            }
-            add_government_power = {
+            } }
+            owner = { add_government_power = {
                 mechanic_type = mu1_vril_harnessing
                 power_type = mu1_vril_mastery
                 value = 25
-            }
+            } }
         }
     }
 }
