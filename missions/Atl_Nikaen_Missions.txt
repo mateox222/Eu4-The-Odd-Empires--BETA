@@ -288,7 +288,7 @@ latin_empire_western = {
 	a52_destroy_venice = {
 		icon = mission_control_venice
 		position = 10
-		required_missions = { recover_western_balkans } 
+		required_missions = { recover_albania } 
 		provinces_to_highlight = {
 			area = venetia_area
 			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
@@ -342,7 +342,7 @@ latin_empire_western = {
 	recover_rome = {
 		icon = atlantropa_italia
 		position = 11
-		required_missions = { destroy_venice } 
+		required_missions = { a52_destroy_venice } 
 		provinces_to_highlight = {
 			region = italy_region
 			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
@@ -834,7 +834,7 @@ latin_empire_another2 = {
 	south_recover_morocco = {
 		icon = mission_moroccan_ports
 		position = 17
-		required_missions = { nikean_maurrethaln } 
+		required_missions = { destroy_punitia } 
 		provinces_to_highlight = {
 			OR = {
 				area = marrekesh_area
@@ -1130,7 +1130,7 @@ latin_empire_another3 = {
 	recover_northern_balkans = {
 		icon = mission_conquer_5_states
 		position = 10
-		required_missions = { recover_western_balkans } 
+		required_missions = { recover_albania } 
 		provinces_to_highlight = {
 			OR = {
 				area = carinthia_area
@@ -1166,7 +1166,7 @@ latin_empire_another3 = {
 	recover_south_italy = {
 		icon = mission_italian_condottiere
 		position = 11
-		required_missions = { destroy_venice } 
+		required_missions = { a52_destroy_venice } 
 		provinces_to_highlight = {
 			OR = { region = atlantis_sicily_region } 
 			NOT = { country_or_non_sovereign_subject_holds = ROOT } 
@@ -2227,7 +2227,7 @@ latin_empire_another14 = {
 		icon = atlantropa_doggerland
 		position = 14
 		required_missions = {
-			recover_west_islands
+			
 			recover_lombardia
 		}
 		provinces_to_highlight = {
@@ -2274,7 +2274,7 @@ latin_empire_another14 = {
 	byzantine_destroysouthgermany = {
 		icon = atlantropa_greekarmy
 		position = 15
-		required_missions = { byzantine_destroybavaria } 
+		required_missions = { conquer_switzerland } 
 		provinces_to_highlight = { region = south_german_region } 
 
 		trigger = {
