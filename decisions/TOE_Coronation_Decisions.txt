@@ -1,0 +1,32 @@
+# Fallback for the coronation button in the court view.
+# Shown only when the ruler is uncrowned, so it also works when another mod replaces countrycourtview.gui.
+country_decisions = {
+
+	toe_crown_the_ruler = {
+		potential = {
+			ai = no
+			government = monarchy
+			NOT = { has_ruler_flag = koronowanykrol }
+			NOT = {
+				OR = {
+					religion = raumarysm
+					religion = finnish_pagan_reformed
+					religion = baltic_pagan_reformed
+					religion = norse_pagan_reformed
+					religion = slavic_pagan_reformed
+					religion = tengri_pagan_reformed
+				}
+			}
+		}
+		allow = {
+			treasury = 25
+			has_regency = no
+		}
+		effect = {
+			country_event = { id = restorationkosciol_events.2 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}
