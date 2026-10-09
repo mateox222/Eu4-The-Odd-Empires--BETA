@@ -84,7 +84,7 @@ francocracy = {
 	maintain_dynasty = yes
 	monarchy = yes
 	potential = {
-		tag = LAE
+		OR = { tag = LAE tag = X51 }
 	}
 	modifiers = {
 		max_absolutism = -15
@@ -249,6 +249,9 @@ roman_legio_monarchy = {
 			tag = ROM
 			tag = X73
 			tag = XP1
+			tag = C1G
+			tag = C2G
+			tag = X75
 		}
 	}
 	valid_for_nation_designer = yes
@@ -380,6 +383,7 @@ raumaria_evilocracy = {
 	potential = {
 		OR = {
 			tag = DA1
+			tag = RA1
 		}
 	}
 	valid_for_nation_designer = yes
@@ -855,7 +859,7 @@ vandalic_monarchy = {
 	legacy_equivalent = feudal_monarchy
 	monarchy = yes
 	potential = {
-		tag = A4F
+		OR = { tag = A4F tag = X77 }
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 100
@@ -1417,7 +1421,7 @@ Daqin_monarchy = {
 	allow_normal_conversion = yes
 	legacy_equivalent = feudal_monarchy
 	potential = {
-		tag = A56
+		OR = { tag = A56 tag = RVA }
 	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 100
@@ -1764,6 +1768,8 @@ atl_republican_technocracy = {
 			tag = XX2
 			tag = XX3
 			tag = XX4
+			tag = XX5
+			tag = XX6
 		}
 	}
 	valid_for_nation_designer = no
@@ -1993,10 +1999,10 @@ philosopher_republic = {
 	allow_normal_conversion = yes
 		has_term_election = no
 	potential = {
-		tag = TU3
+		OR = { tag = TU3 tag = TU6 }
 	}
 	trigger = {
-		tag = TU3
+		OR = { tag = TU3 tag = TU6 }
 	}
 	
 	modifiers = {

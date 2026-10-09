@@ -661,14 +661,14 @@ aigyptos_missions_4 = {
 		position = 3
 		required_missions = {  }
 		provinces_to_highlight = {
-			province_id = 5240
+			is_capital = yes
+			owned_by = ROOT
 		}
 		trigger = {
-			owns_core_province = 5240
-			5240 = { base_production = 10	}
+			capital_scope = { base_production = 10 }
 		}
 		effect = {
-			5240 = {
+			capital_scope = {
 				hidden_effect = {
 					clear_trade_good_modifiers_effect = yes
 				}

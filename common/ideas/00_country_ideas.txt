@@ -6495,7 +6495,11 @@ POM_ideas = {
 	trigger = {
 		OR = {
 			tag = POM
-			primary_culture = pommeranian
+			AND = {
+				primary_culture = pommeranian
+				NOT = { tag = HAM }
+				NOT = { tag = WOL }
+			}
 		}
 	}
 	free = yes
